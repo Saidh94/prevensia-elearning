@@ -1,4 +1,8 @@
-export default function FormationHabilitation() {
+export const metadata = {
+  title: "Formation habilitation électrique en e-learning et présentiel | PREVENSIA FORMATION",
+  description:
+    "PREVENSIA FORMATION propose des formations en habilitation électrique en e-learning et en présentiel pour particuliers et entreprises : H0B0, BS, BE Manœuvre, B1, B2, BR, BC.",
+};export default function FormationHabilitation() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-16">
       <h1 className="text-4xl font-bold mb-8">
