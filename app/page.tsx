@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const formationsElearning = [
     {
@@ -56,7 +58,7 @@ export default function Home() {
       title: "Exploitation sprinkler et référentiels techniques",
       mode: "Présentiel",
       description:
-        "Formation dédiée à l’exploitation des installations sprinkler et à la compréhension des exigences techniques et des principaux cadres applicables selon EN 12845, APSAD R1, NFPA 13 et FM Global, en lien avec les obligations d’exploitation, de vérification et de maintenance.",
+        "Formation dédiée à l’exploitation des installations sprinkler et à la compréhension des exigences techniques et des principaux cadres applicables selon EN 12845, APSAD R1, NFPA 13 et FM Global.",
       duration: "1 à 2 jours",
     },
     {
@@ -70,7 +72,7 @@ export default function Home() {
       title: "MAC SST - Maintien et Actualisation des Compétences",
       mode: "Présentiel",
       description:
-        "Recyclage SST permettant de maintenir les compétences du sauveteur secouriste du travail, d’actualiser les gestes de secours et de renforcer la prévention en entreprise.",
+        "Recyclage SST permettant de maintenir les compétences du sauveteur secouriste du travail et d’actualiser les gestes de secours.",
       duration: "1 jour",
     },
   ];
@@ -127,19 +129,49 @@ export default function Home() {
     { value: "Rapide", label: "Demande de devis simplifiée" },
   ];
 
+  const blocsIllustrés = [
+    {
+      title: "Habilitation électrique",
+      image: "/images/armoire-electrique.jpg",
+      text: "Parcours e-learning et accompagnés pour les habilitations H0B0, BS, BE manœuvre, B1, B2, BR et BC.",
+    },
+    {
+      title: "SSI & sécurité incendie",
+      image: "/images/image SSI.jpg",
+      text: "Formations exploitation SSI, manipulation extincteurs, guide-file, serre-file et équipier de première intervention.",
+    },
+    {
+      title: "Exploitation sprinkler",
+      image: "/images/Installation SPK.jpg",
+      text: "Formation technique sur les installations sprinkler et les référentiels EN 12845, APSAD R1, NFPA 13 et FM Global.",
+    },
+    {
+      title: "Formation en salle",
+      image: "/images/Salle de formation.jpg",
+      text: "Sessions inter ou intra-entreprises pour les bureaux, industriels, exploitants et collectivités.",
+    },
+    {
+      title: "SST / MAC SST",
+      image: "/images/SST.webp",
+      text: "Apprentissage des gestes de premiers secours, conduite à tenir et maintien des compétences en entreprise.",
+    },
+  ];
+
   const catalog = [...formationsElearning, ...formationsPresentiel];
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">
-              PREVENSIA FORMATION
-            </p>
-            <p className="text-sm text-slate-600">
-              Habilitation électrique, sécurité incendie & SST
-            </p>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/images/Logo prevensia formation.png"
+              alt="Logo Prevensia Formation"
+              width={220}
+              height={80}
+              className="h-auto w-[150px] sm:w-[220px]"
+              priority
+            />
           </div>
 
           <nav className="hidden gap-6 text-sm font-medium text-slate-700 md:flex">
@@ -170,31 +202,45 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-red-900 text-white">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute -left-20 top-10 h-56 w-56 rounded-full bg-red-500 blur-3xl" />
-            <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-orange-400 blur-3xl" />
+        <section className="relative overflow-hidden bg-slate-950 text-white">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/Salle de formation.jpg"
+              alt="Formation en salle"
+              fill
+              className="object-cover opacity-20"
+              priority
+            />
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-red-900/80" />
 
-          <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
             <div className="flex flex-col justify-center">
-              <p className="mb-4 inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
+              <p className="mb-3 inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
                 Organisme de formation
               </p>
 
-              <p className="mb-4 inline-flex w-fit rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-emerald-100">
-                Organisme certifié Qualiopi
-              </p>
+              <div className="mb-5 inline-flex w-fit items-center gap-3 rounded-2xl border border-emerald-300/30 bg-white/10 px-4 py-2">
+                <Image
+                  src="/images/qualiopi.jpg"
+                  alt="Qualiopi"
+                  width={110}
+                  height={60}
+                  className="h-auto w-[80px] rounded-md object-cover sm:w-[110px]"
+                />
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-emerald-100">
+                  Organisme certifié Qualiopi
+                </p>
+              </div>
 
-              <h1 className="max-w-2xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-                Formations en habilitation électrique, sécurité incendie et SST.
+              <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                Formations en habilitation électrique, sécurité incendie et SST
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-                PREVENSIA FORMATION propose des parcours e-learning et des formations
-                présentielles conçus pour les particuliers, les entreprises, les bureaux
-                d&apos;études, les exploitants, les collectivités et les sites industriels.
-                Organisme certifié Qualiopi au titre des actions de formation.
+                PREVENSIA FORMATION accompagne les particuliers et les professionnels
+                avec des parcours e-learning et des formations présentielles orientées
+                terrain, conformité réglementaire et efficacité opérationnelle.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -205,10 +251,10 @@ export default function Home() {
                   Voir le catalogue
                 </a>
                 <a
-                  href="#planning"
+                  href="/demande-devis"
                   className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  Consulter le planning
+                  Demander un devis
                 </a>
               </div>
 
@@ -236,8 +282,8 @@ export default function Home() {
                     <p className="text-sm font-semibold text-red-100">E-learning</p>
                     <p className="mt-2 text-lg font-semibold">Habilitation électrique</p>
                     <p className="mt-2 text-sm text-slate-200">
-                      Modules accessibles à distance avec progression structurée, contenu
-                      réglementaire et suivi apprenant.
+                      Modules accessibles à distance avec progression structurée,
+                      contenu réglementaire et suivi apprenant.
                     </p>
                   </div>
 
@@ -247,9 +293,7 @@ export default function Home() {
                       Sécurité incendie & exploitation sprinkler
                     </p>
                     <p className="mt-2 text-sm text-slate-200">
-                      Sessions sur site ou en inter-entreprises incluant la sécurité
-                      incendie, l’exploitation des installations sprinkler et les
-                      référentiels EN 12845, APSAD R1, NFPA 13 et FM Global.
+                      Sessions opérationnelles sur site ou en inter-entreprises.
                     </p>
                   </div>
 
@@ -257,9 +301,7 @@ export default function Home() {
                     <p className="text-sm font-semibold text-red-100">Présentiel</p>
                     <p className="mt-2 text-lg font-semibold">SST</p>
                     <p className="mt-2 text-sm text-slate-200">
-                      Formations SST initiales et MAC SST pour répondre aux obligations
-                      de secourisme en entreprise et développer les bons réflexes face à
-                      une urgence.
+                      Formation SST initiale et MAC SST avec mises en situation concrètes.
                     </p>
                   </div>
 
@@ -279,131 +321,69 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                Particuliers
-              </p>
-              <h2 className="mt-3 text-2xl font-bold">
-                Se former simplement et rapidement
-              </h2>
-              <p className="mt-3 text-slate-600">
-                Accédez à des formations claires, structurées et adaptées à votre niveau,
-                avec une inscription simplifiée et un accompagnement pédagogique.
-              </p>
-              <a
-                href="/demande-devis"
-                className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
-              >
-                Faire une demande
-              </a>
-            </div>
-
-            <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                Professionnels
-              </p>
-              <h2 className="mt-3 text-2xl font-bold">
-                Planifier vos formations et vos obligations réglementaires
-              </h2>
-              <p className="mt-3 text-slate-600">
-                Organisez vos sessions intra ou inter-entreprises avec un interlocuteur
-                unique pour les besoins en habilitation électrique, sécurité incendie,
-                exploitation sprinkler et SST.
-              </p>
-              <a
-                href="/demande-devis"
-                className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
-              >
-                Demander un devis entreprise
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section id="formations" className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <section id="formations" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
               Domaines de formation
             </p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Une offre pensée pour la conformité, la sécurité et l&apos;efficacité terrain
+              Une offre pensée pour la conformité, la sécurité et l’efficacité terrain
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              Trois grands domaines de formation : l&apos;habilitation électrique en
-              e-learning, la sécurité incendie en présentiel et la formation SST pour
-              les entreprises et les organisations.
+              Trois grands domaines : l’habilitation électrique, la sécurité incendie
+              et la formation SST.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
-            <div className="rounded-[1.75rem] bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="text-2xl font-bold">Habilitation électrique</h3>
-                <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
-                  E-learning
-                </span>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {blocsIllustrés.map((bloc) => (
+              <div
+                key={bloc.title}
+                className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src={bloc.image}
+                    alt={bloc.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold">{bloc.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{bloc.text}</p>
+                </div>
               </div>
+            ))}
+          </div>
+        </section>
 
-              <p className="mt-4 text-slate-600">
-                Parcours à distance pour acquérir ou renouveler les connaissances
-                réglementaires et les fondamentaux de prévention du risque électrique.
-              </p>
-
-              <div className="mt-6 grid gap-4">
-                {formationsElearning.map((formation) => (
-                  <div
-                    key={formation.title}
-                    className="rounded-2xl border border-slate-200 p-5"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="text-lg font-semibold">{formation.title}</h4>
-                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-                        {formation.duration}
-                      </span>
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {formation.description}
-                    </p>
-                  </div>
-                ))}
+        <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <div className="rounded-[1.75rem] border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/images/qualiopi.jpg"
+                  alt="Qualiopi processus certifié"
+                  width={120}
+                  height={70}
+                  className="h-auto w-[90px] rounded-md object-cover sm:w-[120px]"
+                />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                    Certification Qualiopi
+                  </p>
+                  <p className="mt-1 text-sm text-slate-700">
+                    Organisme certifié Qualiopi au titre des actions de formation.
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <div className="rounded-[1.75rem] bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="text-2xl font-bold">Sécurité incendie & SST</h3>
-                <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
-                  Présentiel
-                </span>
-              </div>
-
-              <p className="mt-4 text-slate-600">
-                Sessions pratiques sur site client ou en format inter-entreprises pour
-                préparer les équipes aux situations d&apos;urgence, à l&apos;exploitation des
-                dispositifs incendie, à la compréhension des installations sprinkler et
-                aux gestes de premiers secours en entreprise.
-              </p>
-
-              <div className="mt-6 grid gap-4">
-                {formationsPresentiel.map((formation) => (
-                  <div
-                    key={formation.title}
-                    className="rounded-2xl border border-slate-200 p-5"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <h4 className="text-lg font-semibold">{formation.title}</h4>
-                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-                        {formation.duration}
-                      </span>
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {formation.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <a
+                href="/demande-devis"
+                className="inline-flex rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+              >
+                Demander un devis
+              </a>
             </div>
           </div>
         </section>
@@ -503,82 +483,80 @@ export default function Home() {
         </section>
 
         <section id="contact" className="bg-slate-100 py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-3">
-              <div className="rounded-[1.75rem] bg-white p-8 shadow-sm ring-1 ring-slate-200 lg:col-span-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                  Contact
-                </p>
-                <h2 className="mt-3 text-3xl font-bold">Échangeons sur votre besoin</h2>
-                <p className="mt-4 text-slate-600">
-                  PREVENSIA FORMATION accompagne les particuliers et les professionnels
-                  pour leurs besoins en formation réglementaire et opérationnelle.
-                </p>
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+            <div className="rounded-[1.75rem] bg-white p-8 shadow-sm ring-1 ring-slate-200 lg:col-span-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Contact
+              </p>
+              <h2 className="mt-3 text-3xl font-bold">Échangeons sur votre besoin</h2>
+              <p className="mt-4 text-slate-600">
+                PREVENSIA FORMATION accompagne les particuliers et les professionnels
+                pour leurs besoins en formation réglementaire et opérationnelle.
+              </p>
 
-                <div className="mt-8 grid gap-4 md:grid-cols-2">
-                  <div className="rounded-2xl border border-slate-200 p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
-                      Email
-                    </p>
-                    <p className="mt-2 text-lg font-semibold">
-                      prevensia.formation@outlook.fr
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-slate-200 p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
-                      Téléphone
-                    </p>
-                    <p className="mt-2 text-lg font-semibold">01 89 62 94 92</p>
-                  </div>
-
-                  <div className="rounded-2xl border border-slate-200 p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
-                      Zone d&apos;intervention
-                    </p>
-                    <p className="mt-2 text-lg font-semibold">
-                      France entière selon la prestation
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl border border-slate-200 p-5">
-                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
-                      Réponse
-                    </p>
-                    <p className="mt-2 text-lg font-semibold">Retour rapide sur demande</p>
-                  </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Email
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    prevensia.formation@outlook.fr
+                  </p>
                 </div>
 
-                <a
-                  href="/demande-devis"
-                  className="mt-8 inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5"
-                >
-                  Demander un devis
-                </a>
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Téléphone
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">01 89 62 94 92</p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Zone d’intervention
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    France entière selon la prestation
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Réponse
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">Retour rapide sur demande</p>
+                </div>
               </div>
 
-              <div className="rounded-[1.75rem] bg-slate-900 p-8 text-white shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-                  Atouts
-                </p>
-                <ul className="mt-6 space-y-4 text-sm leading-6 text-slate-300">
-                  <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    Organisme certifié Qualiopi au titre des actions de formation
-                  </li>
-                  <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    Offre mixte e-learning et présentiel
-                  </li>
-                  <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    Organisation adaptée aux besoins B2B et B2C
-                  </li>
-                  <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    Parcours structurés et lisibles
-                  </li>
-                  <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    Demande de devis simple et orientée conversion
-                  </li>
-                </ul>
-              </div>
+              <a
+                href="/demande-devis"
+                className="mt-8 inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5"
+              >
+                Demander un devis
+              </a>
+            </div>
+
+            <div className="rounded-[1.75rem] bg-slate-900 p-8 text-white shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
+                Atouts
+              </p>
+              <ul className="mt-6 space-y-4 text-sm leading-6 text-slate-300">
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Organisme certifié Qualiopi au titre des actions de formation
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Offre mixte e-learning et présentiel
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Organisation adaptée aux besoins B2B et B2C
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  SST, sécurité incendie, SSI et habilitation électrique
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Demande de devis simple et orientée conversion
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -586,11 +564,18 @@ export default function Home() {
 
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div>
-            <p className="font-semibold text-slate-900">PREVENSIA FORMATION</p>
-            <p>
-              Formations en habilitation électrique, sécurité incendie, sprinkler et SST
-            </p>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/images/Logo prevensia formation.png"
+              alt="Logo Prevensia Formation"
+              width={160}
+              height={50}
+              className="h-auto w-[130px]"
+            />
+            <div>
+              <p className="font-semibold text-slate-900">PREVENSIA FORMATION</p>
+              <p>Formations en habilitation électrique, sécurité incendie, sprinkler et SST</p>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-4">
@@ -610,5 +595,7 @@ export default function Home() {
         </div>
       </footer>
     </div>
+  );
+}
   );
 }
