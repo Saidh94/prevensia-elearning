@@ -191,6 +191,11 @@ export default function Home() {
               Contact
             </a><a href="/formation-habilitation-electrique" className="transition hover:text-red-700">
   Habilitation électrique
+</a><a
+  href="/formation-sst"
+  className="transition hover:text-red-700"
+>
+  Formation SST
 </a>
           </nav>
 
@@ -410,12 +415,7 @@ export default function Home() {
             <p className="max-w-2xl text-slate-600">
               Un catalogue lisible pour présenter les objectifs, la durée, le mode de
               réalisation et le public visé.
-            </p><a
-  href="/formation-habilitation-electrique"
-  className="inline-block mt-6 bg-red-700 text-white px-6 py-3 rounded-xl hover:bg-red-800 transition"
->
-  Voir la formation habilitation électrique
-</a>
+            </p>
           </div>
 
           <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
