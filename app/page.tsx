@@ -152,7 +152,7 @@ export default function Home() {
     },
     {
       title: "SST / MAC SST",
-      image: "/images/sst.webp",
+      image: "/images/sst.jpg",
       text: "Apprentissage des gestes de premiers secours, conduite à tenir et maintien des compétences en entreprise.",
     },
   ];
@@ -589,19 +589,19 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <a href="#catalogue" className="hover:text-red-700">
-              Catalogue
-            </a>
-            <a href="#planning" className="hover:text-red-700">
-              Planning
-            </a>
-            <a href="/demande-devis" className="hover:text-red-700">
-              Demande de devis
-            </a>
-            <a href="#contact" className="hover:text-red-700">
-              Contact
-            </a>
-          </div>
+  <a href="#catalogue" className="hover:text-red-700">
+    Catalogue
+  </a>
+  <a href="#planning" className="hover:text-red-700">
+    Planning
+  </a>
+  <a href="/demande-devis" className="hover:text-red-700">
+    Demande de devis
+  </a>
+  <a href="#contact" className="hover:text-red-700">
+    Contact
+  </a>
+</div>
         </div>
       </footer>
     </div>
