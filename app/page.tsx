@@ -129,7 +129,7 @@ export default function Home() {
     { value: "Rapide", label: "Demande de devis simplifiée" },
   ];
 
-  const blocsIllustrés = [
+  const blocsIllustres = [
     {
       title: "Habilitation électrique",
       image: "/images/armoire-electrique.jpg",
@@ -137,22 +137,22 @@ export default function Home() {
     },
     {
       title: "SSI & sécurité incendie",
-      image: "/images/image SSI.jpg",
+      image: "/images/image-ssi.jpg",
       text: "Formations exploitation SSI, manipulation extincteurs, guide-file, serre-file et équipier de première intervention.",
     },
     {
       title: "Exploitation sprinkler",
-      image: "/images/Installation SPK.jpg",
+      image: "/images/installation-spk.jpg",
       text: "Formation technique sur les installations sprinkler et les référentiels EN 12845, APSAD R1, NFPA 13 et FM Global.",
     },
     {
       title: "Formation en salle",
-      image: "/images/Salle de formation.jpg",
+      image: "/images/salle-de-formation.jpg",
       text: "Sessions inter ou intra-entreprises pour les bureaux, industriels, exploitants et collectivités.",
     },
     {
       title: "SST / MAC SST",
-      image: "/images/SST.webp",
+      image: "/images/sst.webp",
       text: "Apprentissage des gestes de premiers secours, conduite à tenir et maintien des compétences en entreprise.",
     },
   ];
@@ -165,7 +165,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <Image
-              src="/images/Logo prevensia formation.png"
+              src="/images/logo-prevensia-formation.jpg"
               alt="Logo Prevensia Formation"
               width={220}
               height={80}
@@ -205,13 +205,14 @@ export default function Home() {
         <section className="relative overflow-hidden bg-slate-950 text-white">
           <div className="absolute inset-0">
             <Image
-              src="/images/Salle de formation.jpg"
+              src="/images/salle-de-formation.jpg"
               alt="Formation en salle"
               fill
               className="object-cover opacity-20"
               priority
             />
           </div>
+
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-red-900/80" />
 
           <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
@@ -321,7 +322,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="formations" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section
+          id="formations"
+          className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        >
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
               Domaines de formation
@@ -336,10 +340,10 @@ export default function Home() {
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {blocsIllustrés.map((bloc) => (
+            {blocsIllustres.map((bloc) => (
               <div
                 key={bloc.title}
-                className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm"
+                className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="relative h-56">
                   <Image
@@ -388,7 +392,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="catalogue" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section
+          id="catalogue"
+          className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        >
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
@@ -405,7 +412,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
-            <div className="grid grid-cols-12 border-b border-slate-200 bg-slate-50 px-6 py-4 text-sm font-semibold text-slate-700">
+            <div className="hidden grid-cols-12 border-b border-slate-200 bg-slate-50 px-6 py-4 text-sm font-semibold text-slate-700 md:grid">
               <div className="col-span-5">Formation</div>
               <div className="col-span-2">Mode</div>
               <div className="col-span-2">Durée</div>
@@ -566,7 +573,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="flex items-center gap-4">
             <Image
-              src="/images/Logo prevensia formation.png"
+              src="/images/logo-prevensia-formation.jpg"
               alt="Logo Prevensia Formation"
               width={160}
               height={50}
@@ -574,7 +581,10 @@ export default function Home() {
             />
             <div>
               <p className="font-semibold text-slate-900">PREVENSIA FORMATION</p>
-              <p>Formations en habilitation électrique, sécurité incendie, sprinkler et SST</p>
+              <p>
+                Formations en habilitation électrique, sécurité incendie,
+                sprinkler et SST
+              </p>
             </div>
           </div>
 
@@ -595,7 +605,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  );
-}
   );
 }
