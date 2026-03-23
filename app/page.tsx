@@ -201,6 +201,11 @@ export default function Home() {
   className="transition hover:text-red-700"
 >
   Sécurité incendie
+</a><a
+  href="/formation-sprinkler"
+  className="transition hover:text-red-700"
+>
+  Formation sprinkler
 </a>
           </nav>
 
