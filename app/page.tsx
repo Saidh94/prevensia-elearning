@@ -59,6 +59,20 @@ export default function Home() {
         "Formation dédiée à l’exploitation des installations sprinkler et à la compréhension des exigences techniques et des principaux cadres applicables selon EN 12845, APSAD R1, NFPA 13 et FM Global, en lien avec les obligations d’exploitation, de vérification et de maintenance.",
       duration: "1 à 2 jours",
     },
+    {
+      title: "Sauveteur Secouriste du Travail (SST) - Initial",
+      mode: "Présentiel",
+      description:
+        "Formation SST conforme au référentiel INRS pour permettre aux salariés d’intervenir efficacement face à un accident du travail et de contribuer à la prévention des risques professionnels.",
+      duration: "2 jours",
+    },
+    {
+      title: "MAC SST - Maintien et Actualisation des Compétences",
+      mode: "Présentiel",
+      description:
+        "Recyclage SST permettant de maintenir les compétences du sauveteur secouriste du travail, d’actualiser les gestes de secours et de renforcer la prévention en entreprise.",
+      duration: "1 jour",
+    },
   ];
 
   const planning = [
@@ -92,11 +106,23 @@ export default function Home() {
       format: "Présentiel inter / intra",
       audience: "Professionnels",
     },
+    {
+      date: "23 septembre 2026",
+      title: "SST - Formation initiale",
+      format: "Présentiel inter / intra",
+      audience: "Professionnels",
+    },
+    {
+      date: "07 octobre 2026",
+      title: "MAC SST",
+      format: "Présentiel inter / intra",
+      audience: "Professionnels",
+    },
   ];
 
   const stats = [
-    { value: "2 modes", label: "E-learning & présentiel" },
-    { value: "100%", label: "Parcours orientés terrain" },
+    { value: "3 pôles", label: "Électrique, incendie & SST" },
+    { value: "Qualiopi", label: "Organisme certifié" },
     { value: "B2B / B2C", label: "Particuliers & entreprises" },
     { value: "Rapide", label: "Demande de devis simplifiée" },
   ];
@@ -112,7 +138,7 @@ export default function Home() {
               PREVENSIA FORMATION
             </p>
             <p className="text-sm text-slate-600">
-              Habilitation électrique & sécurité incendie
+              Habilitation électrique, sécurité incendie & SST
             </p>
           </div>
 
@@ -156,14 +182,19 @@ export default function Home() {
                 Organisme de formation
               </p>
 
+              <p className="mb-4 inline-flex w-fit rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-emerald-100">
+                Organisme certifié Qualiopi
+              </p>
+
               <h1 className="max-w-2xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-                Formations en habilitation électrique et sécurité incendie.
+                Formations en habilitation électrique, sécurité incendie et SST.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
                 PREVENSIA FORMATION propose des parcours e-learning et des formations
                 présentielles conçus pour les particuliers, les entreprises, les bureaux
                 d&apos;études, les exploitants, les collectivités et les sites industriels.
+                Organisme certifié Qualiopi au titre des actions de formation.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -222,6 +253,16 @@ export default function Home() {
                     </p>
                   </div>
 
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <p className="text-sm font-semibold text-red-100">Présentiel</p>
+                    <p className="mt-2 text-lg font-semibold">SST</p>
+                    <p className="mt-2 text-sm text-slate-200">
+                      Formations SST initiales et MAC SST pour répondre aux obligations
+                      de secourisme en entreprise et développer les bons réflexes face à
+                      une urgence.
+                    </p>
+                  </div>
+
                   <div className="rounded-2xl bg-gradient-to-r from-red-600 to-orange-500 p-4 text-white">
                     <p className="text-sm font-semibold">Demande rapide</p>
                     <p className="mt-2 text-lg font-semibold">
@@ -268,8 +309,8 @@ export default function Home() {
               </h2>
               <p className="mt-3 text-slate-600">
                 Organisez vos sessions intra ou inter-entreprises avec un interlocuteur
-                unique pour les besoins en habilitation électrique, sécurité incendie et
-                exploitation sprinkler.
+                unique pour les besoins en habilitation électrique, sécurité incendie,
+                exploitation sprinkler et SST.
               </p>
               <a
                 href="/demande-devis"
@@ -290,8 +331,9 @@ export default function Home() {
               Une offre pensée pour la conformité, la sécurité et l&apos;efficacité terrain
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              Deux parcours complémentaires : l&apos;habilitation électrique en e-learning
-              et la sécurité incendie en présentiel.
+              Trois grands domaines de formation : l&apos;habilitation électrique en
+              e-learning, la sécurité incendie en présentiel et la formation SST pour
+              les entreprises et les organisations.
             </p>
           </div>
 
@@ -331,7 +373,7 @@ export default function Home() {
 
             <div className="rounded-[1.75rem] bg-white p-8 shadow-sm ring-1 ring-slate-200">
               <div className="flex items-center justify-between gap-4">
-                <h3 className="text-2xl font-bold">Sécurité incendie</h3>
+                <h3 className="text-2xl font-bold">Sécurité incendie & SST</h3>
                 <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
                   Présentiel
                 </span>
@@ -340,7 +382,8 @@ export default function Home() {
               <p className="mt-4 text-slate-600">
                 Sessions pratiques sur site client ou en format inter-entreprises pour
                 préparer les équipes aux situations d&apos;urgence, à l&apos;exploitation des
-                dispositifs incendie et à la compréhension des installations sprinkler.
+                dispositifs incendie, à la compréhension des installations sprinkler et
+                aux gestes de premiers secours en entreprise.
               </p>
 
               <div className="mt-6 grid gap-4">
@@ -520,6 +563,9 @@ export default function Home() {
                 </p>
                 <ul className="mt-6 space-y-4 text-sm leading-6 text-slate-300">
                   <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    Organisme certifié Qualiopi au titre des actions de formation
+                  </li>
+                  <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
                     Offre mixte e-learning et présentiel
                   </li>
                   <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -542,7 +588,9 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
             <p className="font-semibold text-slate-900">PREVENSIA FORMATION</p>
-            <p>Formations en habilitation électrique et sécurité incendie</p>
+            <p>
+              Formations en habilitation électrique, sécurité incendie, sprinkler et SST
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-4">
