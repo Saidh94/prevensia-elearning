@@ -217,7 +217,63 @@ export default function Home() {
           <a
             href="/demande-devis"
             className="rounded-2xl bg-red-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5"
-          >
+          ><div className="md:hidden">
+  <details className="relative">
+    <summary className="cursor-pointer list-none rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">
+      Menu
+    </summary>
+
+    <div className="absolute right-0 mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
+      <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
+        <a href="#formations" className="transition hover:text-red-700">
+          Formations
+        </a>
+        <a href="#catalogue" className="transition hover:text-red-700">
+          Catalogue
+        </a>
+        <a href="#planning" className="transition hover:text-red-700">
+          Planning
+        </a>
+        <a href="/demande-devis" className="transition hover:text-red-700">
+          Demande de devis
+        </a>
+        <a href="#contact" className="transition hover:text-red-700">
+          Contact
+        </a>
+        <a
+          href="/formation-habilitation-electrique"
+          className="transition hover:text-red-700"
+        >
+          Habilitation électrique
+        </a>
+        <a
+          href="/formation-sst"
+          className="transition hover:text-red-700"
+        >
+          Formation SST
+        </a>
+        <a
+          href="/formation-securite-incendie"
+          className="transition hover:text-red-700"
+        >
+          Sécurité incendie
+        </a>
+        <a
+          href="/formation-sprinkler"
+          className="transition hover:text-red-700"
+        >
+          Formation sprinkler
+        </a>
+        <a
+          href="/formation-ssi"
+          className="transition hover:text-red-700"
+        >
+          Formation SSI
+        </a>
+      </div>
+    </div>
+  </details>
+</div>
             Obtenir un devis
           </a>
         </div>
