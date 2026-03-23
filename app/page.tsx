@@ -189,7 +189,9 @@ export default function Home() {
             </a>
             <a href="#contact" className="transition hover:text-red-700">
               Contact
-            </a>
+            </a><a href="/formation-habilitation-electrique" className="transition hover:text-red-700">
+  Habilitation électrique
+</a>
           </nav>
 
           <a
