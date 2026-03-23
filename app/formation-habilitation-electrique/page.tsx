@@ -78,4 +78,67 @@ Contactez-nous dès maintenant pour obtenir un devis personnalisé et organiser 
 
     </div>
   );
-}
+}<div className="mt-12 grid gap-6 md:grid-cols-2">
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 className="text-2xl font-semibold mb-4">Formations proposées</h2>
+    <ul className="space-y-3 text-slate-700">
+      <li>Habilitation électrique H0B0</li>
+      <li>Habilitation électrique BS / BE Manœuvre</li>
+      <li>Habilitation électrique B1 B1V B2 B2V BR BC</li>
+      <li>Formation en e-learning</li>
+      <li>Formation en présentiel</li>
+      <li>Sessions pour particuliers et entreprises</li>
+    </ul>
+  </div>
+
+  <div className="rounded-2xl border border-red-200 bg-red-50 p-6 shadow-sm">
+    <h2 className="text-2xl font-semibold mb-4">Demande rapide</h2>
+    <p className="mb-4 text-slate-700">
+      Vous souhaitez organiser une formation habilitation électrique pour un ou plusieurs participants ?
+      PREVENSIA FORMATION vous accompagne avec une solution adaptée à votre besoin.
+    </p>
+    <a
+      href="/demande-devis"
+      className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+    >
+      Demander un devis
+    </a><div className="mt-12">
+  <h2 className="text-2xl font-semibold mb-6">
+    Questions fréquentes sur l’habilitation électrique
+  </h2>
+
+  <div className="space-y-6">
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-xl font-semibold mb-2">
+        À qui s’adresse la formation habilitation électrique ?
+      </h3>
+      <p className="text-slate-700">
+        Cette formation s’adresse aux salariés non électriciens, aux techniciens, aux agents de maintenance
+        et aux professionnels amenés à travailler sur ou à proximité d’installations électriques.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-xl font-semibold mb-2">
+        La formation en e-learning est-elle adaptée aux entreprises ?
+      </h3>
+      <p className="text-slate-700">
+        Oui, la formation en e-learning est particulièrement adaptée aux entreprises multisites,
+        aux salariés itinérants et aux structures souhaitant former rapidement leurs collaborateurs
+        avec une organisation souple.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-xl font-semibold mb-2">
+        Quelle est la durée de validité d’une habilitation électrique ?
+      </h3>
+      <p className="text-slate-700">
+        Le recyclage est généralement recommandé tous les 3 ans, selon le niveau d’habilitation
+        et les conditions d’exercice du salarié.
+      </p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
