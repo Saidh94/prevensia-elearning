@@ -206,7 +206,9 @@ export default function Home() {
   className="transition hover:text-red-700"
 >
   Formation sprinkler
-</a>
+</a>git add .
+git commit -m "ajout menu sprinkler"
+git push
           </nav>
 
           <a
