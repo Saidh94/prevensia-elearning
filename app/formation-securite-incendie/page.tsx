@@ -44,7 +44,43 @@ export default function FormationIncendie() {
         className="inline-block mt-8 bg-red-700 text-white px-6 py-3 rounded-xl hover:bg-red-800 transition"
       >
         Demander un devis
-      </a>
+      </a><div className="mt-12">
+  <h2 className="text-2xl font-semibold mb-6">
+    Questions fréquentes sur la formation sécurité incendie
+  </h2>
+
+  <details className="mb-4 border rounded-xl p-4">
+    <summary className="font-semibold cursor-pointer">
+      À qui s’adresse la formation sécurité incendie ?
+    </summary>
+    <p className="mt-3 text-slate-700">
+      Elle s’adresse aux salariés, exploitants, responsables techniques et équipes
+      d’entreprise souhaitant renforcer la prévention incendie et la réaction en
+      cas de départ de feu.
+    </p>
+  </details>
+
+  <details className="mb-4 border rounded-xl p-4">
+    <summary className="font-semibold cursor-pointer">
+      Quels thèmes peuvent être abordés ?
+    </summary>
+    <p className="mt-3 text-slate-700">
+      Les formations peuvent porter sur la manipulation des extincteurs,
+      l’évacuation incendie, le rôle des guide-file / serre-file ou encore
+      l’exploitation du SSI selon les besoins.
+    </p>
+  </details>
+
+  <details className="mb-4 border rounded-xl p-4">
+    <summary className="font-semibold cursor-pointer">
+      Peut-on organiser la formation directement en entreprise ?
+    </summary>
+    <p className="mt-3 text-slate-700">
+      Oui, PREVENSIA FORMATION peut organiser des sessions en entreprise afin
+      d’adapter les exercices, consignes et scénarios au site concerné.
+    </p>
+  </details>
+</div>
     </div>
   );
 }
