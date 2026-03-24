@@ -295,7 +295,7 @@ export default function Home() {
 
       <a
         href="/demande-devis"
-        className="rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+        className="rounded-2xl border border-slate-300 px-6 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:text-red-700"
       >
         Obtenir un devis
       </a>
