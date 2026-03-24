@@ -45,7 +45,55 @@ export default function FormationSSI() {
         className="inline-block mt-10 bg-red-700 text-white px-6 py-3 rounded-xl hover:bg-red-800 transition"
       >
         Demander un devis pour une formation SSI
-      </a>
+      </a>      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-6">
+          Questions fréquentes sur la formation SSI
+        </h2>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            À qui s’adresse la formation SSI ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Cette formation s’adresse aux exploitants, responsables techniques,
+            équipes maintenance, services généraux et personnels amenés à exploiter
+            ou surveiller un système de sécurité incendie au quotidien.
+          </p>
+        </details>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            Que permet de comprendre la formation SSI ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Elle permet de comprendre l’architecture générale d’un SSI, le rôle
+            des équipements comme l’ECS, le CMSI, les détecteurs automatiques,
+            les déclencheurs manuels et les principes de mise en sécurité.
+          </p>
+        </details>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            La formation SSI est-elle utile pour les ERP et les sites logistiques ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Oui, elle est particulièrement pertinente pour les ERP, bâtiments
+            tertiaires, sites industriels, entrepôts et établissements disposant
+            d’un système de sécurité incendie à exploiter ou à surveiller.
+          </p>
+        </details>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            Peut-on adapter la formation au site de l’entreprise ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Oui, PREVENSIA FORMATION peut adapter la session au système installé,
+            aux procédures du site et au niveau de connaissance des participants
+            afin de proposer une formation concrète et opérationnelle.
+          </p>
+        </details>
+      </div>
 
     </div>
   );
