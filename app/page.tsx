@@ -162,21 +162,21 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
     <div className="flex items-center gap-4">
       <Image
-        src="/images/logo-prevensia-formation.jpg"
-        alt="Logo Prevensia Formation"
-        width={220}
-        height={80}
-        className="h-auto w-[150px] sm:w-[220px]"
-        priority
-      />
+  src="/images/logo-prevensia-formation.jpg"
+  alt="Logo Prevensia Formation"
+  width={200}
+  height={70}
+  className="h-auto w-[130px] sm:w-[190px]"
+  priority
+/>
     </div>
 
     <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 lg:flex">
       <div className="relative group">
-        <button className="rounded-xl border border-slate-300 px-4 py-2 font-semibold transition hover:border-red-300 hover:text-red-700">
+        <button className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700">
           Formations
         </button>
 
@@ -639,7 +639,7 @@ export default function Home() {
 
               <a
                 href="/demande-devis"
-                className="mt-8 inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5"
+                className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
               >
                 Demander un devis
               </a>
