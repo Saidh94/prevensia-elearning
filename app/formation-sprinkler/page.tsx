@@ -56,7 +56,55 @@ export default function FormationSprinkler() {
         className="inline-block mt-8 bg-red-700 text-white px-6 py-3 rounded-xl hover:bg-red-800 transition"
       >
         Demander un devis
-      </a>
+      </a>      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-6">
+          Questions fréquentes sur la formation sprinkler
+        </h2>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            À qui s’adresse la formation sprinkler ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Cette formation s’adresse aux exploitants, responsables techniques,
+            responsables sécurité, services maintenance et gestionnaires de site
+            amenés à suivre ou superviser des installations sprinkler.
+          </p>
+        </details>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            Quels référentiels peuvent être abordés ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            La formation peut intégrer les grands principes des référentiels
+            EN 12845, APSAD R1, NFPA 13 et FM Global selon les besoins du site
+            et du public concerné.
+          </p>
+        </details>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            La formation est-elle adaptée aux sites logistiques et industriels ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Oui, elle est particulièrement pertinente pour les sites logistiques,
+            industriels, entrepôts et bâtiments techniques équipés d’installations
+            sprinkler automatiques.
+          </p>
+        </details>
+
+        <details className="mb-4 border rounded-xl p-4 bg-white shadow-sm">
+          <summary className="cursor-pointer font-semibold">
+            Peut-on organiser la formation directement sur site ?
+          </summary>
+          <p className="mt-2 text-slate-700">
+            Oui, PREVENSIA FORMATION peut organiser des sessions directement dans
+            l’entreprise afin d’adapter la formation aux équipements réellement
+            présents sur le site.
+          </p>
+        </details>
+      </div>
     </div>
   );
 }
