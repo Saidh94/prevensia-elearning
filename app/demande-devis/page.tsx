@@ -39,15 +39,45 @@ export default function DemandeDevis() {
             <label className="mb-2 block text-sm font-semibold text-slate-700">
               Type de formation
             </label>
-            <select
-              name="type_formation"
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700"
-            >
-              <option>Habilitation électrique</option>
-              <option>Sécurité incendie</option>
-              <option>Exploitation sprinkler</option>
-              <option>Autre besoin</option>
-            </select>
+           <select
+  name="type_formation"
+  required
+  className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-red-600 focus:ring-2 focus:ring-red-200 outline-none transition"
+>
+  <option value="">Sélectionnez une formation</option>
+
+  <option value="habilitation-electrique">
+    Habilitation électrique
+  </option>
+
+  <option value="sst">
+    SST – Sauveteur Secouriste du Travail
+  </option>
+
+  <option value="exploitation-ssi">
+    Exploitation du SSI
+  </option>
+
+  <option value="sprinkler">
+    Exploitation sprinkler
+  </option>
+
+  <option value="manipulation-extincteurs">
+    Manipulation des extincteurs
+  </option>
+
+  <option value="guide-file-serre-file">
+    Guide-file / Serre-file
+  </option>
+
+  <option value="evacuation-incendie">
+    Évacuation incendie
+  </option>
+
+  <option value="autre">
+    Autre besoin en formation sécurité
+  </option>
+</select>
           </div>
 
           <div>
