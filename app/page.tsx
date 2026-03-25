@@ -1,6 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileFormationsOpen, setIsMobileFormationsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+        setIsMobileFormationsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMobileMenuOpen]);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileFormationsOpen(false);
+  };
   const formationsElearning = [
     {
       title: "Habilitation électrique H0B0",
@@ -162,8 +196,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+          <Link href="/" className="flex items-center gap-4" aria-label="Retour à l'accueil">
             <Image
               src="/images/logo-prevensia-formation.jpg"
               alt="Logo Prevensia Formation"
@@ -172,140 +206,208 @@ export default function Home() {
               className="h-auto w-[130px] sm:w-[190px]"
               priority
             />
-          </div>
+          </Link>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 lg:flex">
-            <div className="relative group">
-              <button className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 lg:flex">
+            <Link href="/" className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
+              Accueil
+            </Link>
+
+            <div className="group relative">
+              <button
+                type="button"
+                aria-haspopup="menu"
+                className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700"
+              >
                 Formations
               </button>
 
-              <div className="absolute left-0 top-full z-50 hidden w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl group-hover:block">
+              <div className="invisible absolute left-0 top-full z-50 mt-2 w-72 translate-y-1 rounded-2xl border border-slate-200 bg-white p-3 opacity-0 shadow-xl transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                 <div className="flex flex-col gap-2 text-sm text-slate-700">
-                  <a
+                  <Link
                     href="/formation-habilitation-electrique"
                     className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
                   >
                     Habilitation électrique
-                  </a>
-                  <a
-                    href="/formation-sst"
-                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-                  >
+                  </Link>
+                  <Link href="/formation-sst" className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
                     Formation SST
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/formation-securite-incendie"
                     className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
                   >
                     Sécurité incendie
-                  </a>
-                  <a
-                    href="/formation-sprinkler"
-                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-                  >
+                  </Link>
+                  <Link href="/formation-sprinkler" className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
                     Formation sprinkler
-                  </a>
-                  <a
-                    href="/formation-ssi"
-                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-                  >
+                  </Link>
+                  <Link href="/formation-ssi" className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
                     Formation SSI
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
-            <a href="#catalogue" className="transition hover:text-red-700">
+            <Link href="#catalogue" className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
               Catalogue
-            </a>
+            </Link>
 
-            <a href="#planning" className="transition hover:text-red-700">
+            <Link href="#planning" className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
               Planning
-            </a>
+            </Link>
 
-            <a href="/demande-devis" className="transition hover:text-red-700">
+            <Link href="/demande-devis" className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
               Demande de devis
-            </a>
+            </Link>
 
-            <a href="#contact" className="transition hover:text-red-700">
+            <Link href="#contact" className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
               Contact
-            </a>
+            </Link>
           </nav>
 
           <div className="flex items-center gap-3">
-            <div className="lg:hidden">
-              <details className="relative">
-                <summary className="cursor-pointer list-none rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">
-                  Menu
-                </summary>
+            <button
+              type="button"
+              className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 lg:hidden"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMobileMenuOpen((previous) => !previous)}
+            >
+              Menu
+            </button>
 
-                <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
-                  <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
-                    <a href="#catalogue" className="transition hover:text-red-700">
-                      Catalogue
-                    </a>
-                    <a href="#planning" className="transition hover:text-red-700">
-                      Planning
-                    </a>
-                    <a href="/demande-devis" className="transition hover:text-red-700">
-                      Demande de devis
-                    </a>
-                    <a href="#contact" className="transition hover:text-red-700">
-                      Contact
-                    </a>
-
-                    <div className="border-t border-slate-200 pt-3">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
-                        Formations
-                      </p>
-                      <div className="flex flex-col gap-2">
-                        <a
-                          href="/formation-habilitation-electrique"
-                          className="transition hover:text-red-700"
-                        >
-                          Habilitation électrique
-                        </a>
-                        <a
-                          href="/formation-sst"
-                          className="transition hover:text-red-700"
-                        >
-                          Formation SST
-                        </a>
-                        <a
-                          href="/formation-securite-incendie"
-                          className="transition hover:text-red-700"
-                        >
-                          Sécurité incendie
-                        </a>
-                        <a
-                          href="/formation-sprinkler"
-                          className="transition hover:text-red-700"
-                        >
-                          Formation sprinkler
-                        </a>
-                        <a
-                          href="/formation-ssi"
-                          className="transition hover:text-red-700"
-                        >
-                          Formation SSI
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            <a
+            <Link
               href="/demande-devis"
-              className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+              className="hidden rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800 sm:inline-flex"
             >
               Obtenir un devis
-            </a>
+            </Link>
           </div>
         </div>
       </header>
+
+      {isMobileMenuOpen ? (
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-40 bg-slate-950/60 lg:hidden"
+            aria-label="Fermer le menu"
+            onClick={closeMobileMenu}
+          />
+          <aside
+            id="mobile-navigation"
+            className="fixed right-0 top-0 z-50 flex h-dvh w-[min(92vw,360px)] flex-col border-l border-slate-200 bg-white p-6 shadow-2xl lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation mobile"
+          >
+            <div className="mb-6 flex items-center justify-between">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                Navigation
+              </p>
+              <button
+                type="button"
+                className="rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700"
+                onClick={closeMobileMenu}
+              >
+                Fermer
+              </button>
+            </div>
+
+            <nav className="flex flex-1 flex-col gap-2 overflow-y-auto text-sm font-medium text-slate-700">
+              <Link
+                href="/"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Accueil
+              </Link>
+              <Link
+                href="#catalogue"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Catalogue
+              </Link>
+              <Link
+                href="#planning"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Planning
+              </Link>
+              <Link
+                href="#contact"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Contact
+              </Link>
+
+              <div className="mt-2 rounded-2xl border border-slate-200 p-2">
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left font-semibold"
+                  aria-expanded={isMobileFormationsOpen}
+                  onClick={() => setIsMobileFormationsOpen((previous) => !previous)}
+                >
+                  Formations
+                  <span className="text-slate-500">{isMobileFormationsOpen ? "−" : "+"}</span>
+                </button>
+
+                {isMobileFormationsOpen ? (
+                  <div className="mt-2 flex flex-col gap-1 border-t border-slate-200 pt-2">
+                    <Link
+                      href="/formation-habilitation-electrique"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Habilitation électrique
+                    </Link>
+                    <Link
+                      href="/formation-sst"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation SST
+                    </Link>
+                    <Link
+                      href="/formation-securite-incendie"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Sécurité incendie
+                    </Link>
+                    <Link
+                      href="/formation-sprinkler"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation sprinkler
+                    </Link>
+                    <Link
+                      href="/formation-ssi"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation SSI
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
+            </nav>
+
+            <Link
+              href="/demande-devis"
+              className="mt-6 inline-flex w-full justify-center rounded-2xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
+              onClick={closeMobileMenu}
+            >
+              Demande de devis
+            </Link>
+          </aside>
+        </>
+      ) : null}
 
       <main>
         <section className="relative overflow-hidden bg-slate-950 text-white">
