@@ -162,146 +162,224 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-    <div className="flex items-center gap-4">
-      <Image
-  src="/images/logo-prevensia-formation.jpg"
-  alt="Logo Prevensia Formation"
-  width={200}
-  height={70}
-  className="h-auto w-[130px] sm:w-[190px]"
-  priority
-/>
-    </div>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/images/logo-prevensia-formation.jpg"
+              alt="Logo Prevensia Formation"
+              width={200}
+              height={70}
+              className="h-auto w-[130px] sm:w-[190px]"
+              priority
+            />
+          </div>
 
-    <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 lg:flex">
-      <div className="relative group">
-        <button className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700">
-          Formations
-        </button>
+          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 lg:flex">
+            <div className="relative group">
+              <button className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700">
+                Formations
+              </button>
 
-        <div className="absolute left-0 top-full z-50 hidden w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl group-hover:block">
-          <div className="flex flex-col gap-2 text-sm text-slate-700">
-            <a
-              href="/formation-habilitation-electrique"
-              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-            >
-              Habilitation électrique
+              <div className="absolute left-0 top-full z-50 hidden w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl group-hover:block">
+                <div className="flex flex-col gap-2 text-sm text-slate-700">
+                  <a
+                    href="/formation-habilitation-electrique"
+                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+                  >
+                    Habilitation électrique
+                  </a>
+
+                  <a
+                    href="/formation-sst"
+                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+                  >
+                    Formation SST
+                  </a>
+
+                  <a
+                    href="/formation-securite-incendie"
+                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+                  >
+                    Sécurité incendie
+                  </a>
+
+                  <a
+                    href="/formation-sprinkler"
+                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+                  >
+                    Formation sprinkler
+                  </a>
+
+                  <a
+                    href="/formation-ssi"
+                    className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+                  >
+                    Formation SSI
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a href="#catalogue" className="transition hover:text-red-700">
+              Catalogue
             </a>
 
-            <a
-              href="/formation-sst"
-              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-            >
-              Formation SST
+            <div className="relative group">
+              <button className="transition hover:text-red-700">
+                Planning
+              </button>
+
+              <div className="absolute left-0 top-full z-50 hidden w-64 rounded-2xl border border-slate-200 bg-white py-2 shadow-xl group-hover:block">
+                <a
+                  href="/planning-habilitation-electrique"
+                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
+                >
+                  Habilitation électrique
+                </a>
+                <a
+                  href="/planning-securite-incendie"
+                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
+                >
+                  Sécurité incendie
+                </a>
+                <a
+                  href="/planning-ssi"
+                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
+                >
+                  Exploitation SSI
+                </a>
+                <a
+                  href="/planning-sprinkler"
+                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
+                >
+                  Exploitation sprinkler
+                </a>
+                <a
+                  href="/planning-sst"
+                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
+                >
+                  SST
+                </a>
+              </div>
+            </div>
+
+            <a href="/demande-devis" className="transition hover:text-red-700">
+              Demande de devis
             </a>
 
-            <a
-              href="/formation-securite-incendie"
-              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-            >
-              Sécurité incendie
+            <a href="#contact" className="transition hover:text-red-700">
+              Contact
             </a>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <div className="lg:hidden">
+              <details className="relative">
+                <summary className="cursor-pointer list-none rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">
+                  Menu
+                </summary>
+
+                <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
+                  <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
+                    <a href="#catalogue" className="transition hover:text-red-700">
+                      Catalogue
+                    </a>
+                    <a href="/demande-devis" className="transition hover:text-red-700">
+                      Demande de devis
+                    </a>
+                    <a href="#contact" className="transition hover:text-red-700">
+                      Contact
+                    </a>
+
+                    <div className="border-t border-slate-200 pt-3">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
+                        Formations
+                      </p>
+                      <div className="flex flex-col gap-2">
+                        <a
+                          href="/formation-habilitation-electrique"
+                          className="transition hover:text-red-700"
+                        >
+                          Habilitation électrique
+                        </a>
+                        <a
+                          href="/formation-sst"
+                          className="transition hover:text-red-700"
+                        >
+                          Formation SST
+                        </a>
+                        <a
+                          href="/formation-securite-incendie"
+                          className="transition hover:text-red-700"
+                        >
+                          Sécurité incendie
+                        </a>
+                        <a
+                          href="/formation-sprinkler"
+                          className="transition hover:text-red-700"
+                        >
+                          Formation sprinkler
+                        </a>
+                        <a
+                          href="/formation-ssi"
+                          className="transition hover:text-red-700"
+                        >
+                          Formation SSI
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-slate-200 pt-3">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
+                        Planning
+                      </p>
+                      <div className="flex flex-col gap-2">
+                        <a
+                          href="/planning-habilitation-electrique"
+                          className="transition hover:text-red-700"
+                        >
+                          Habilitation électrique
+                        </a>
+                        <a
+                          href="/planning-securite-incendie"
+                          className="transition hover:text-red-700"
+                        >
+                          Sécurité incendie
+                        </a>
+                        <a
+                          href="/planning-ssi"
+                          className="transition hover:text-red-700"
+                        >
+                          Exploitation SSI
+                        </a>
+                        <a
+                          href="/planning-sprinkler"
+                          className="transition hover:text-red-700"
+                        >
+                          Exploitation sprinkler
+                        </a>
+                        <a
+                          href="/planning-sst"
+                          className="transition hover:text-red-700"
+                        >
+                          SST
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
 
             <a
-              href="/formation-sprinkler"
-              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+              href="/demande-devis"
+              className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
             >
-              Formation sprinkler
-            </a>
-
-            <a
-              href="/formation-ssi"
-              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-            >
-              Formation SSI
+              Obtenir un devis
             </a>
           </div>
         </div>
-      </div>
-
-      <a href="#catalogue" className="transition hover:text-red-700">
-        Catalogue
-      </a>
-
-      <a href="#planning" className="transition hover:text-red-700">
-        Planning
-      </a>
-
-      <a href="/demande-devis" className="transition hover:text-red-700">
-        Demande de devis
-      </a>
-
-      <a href="#contact" className="transition hover:text-red-700">
-        Contact
-      </a>
-    </nav>
-
-    <div className="flex items-center gap-3">
-      <div className="lg:hidden">
-        <details className="relative">
-          <summary className="cursor-pointer list-none rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">
-            Menu
-          </summary>
-
-          <div className="absolute right-0 mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
-            <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
-              <a href="#catalogue" className="transition hover:text-red-700">
-                Catalogue
-              </a>
-              <a href="#planning" className="transition hover:text-red-700">
-                Planning
-              </a>
-              <a href="/demande-devis" className="transition hover:text-red-700">
-                Demande de devis
-              </a>
-              <a href="#contact" className="transition hover:text-red-700">
-                Contact
-              </a>
-              <a
-                href="/formation-habilitation-electrique"
-                className="transition hover:text-red-700"
-              >
-                Habilitation électrique
-              </a>
-              <a
-                href="/formation-sst"
-                className="transition hover:text-red-700"
-              >
-                Formation SST
-              </a>
-              <a
-                href="/formation-securite-incendie"
-                className="transition hover:text-red-700"
-              >
-                Sécurité incendie
-              </a>
-              <a
-                href="/formation-sprinkler"
-                className="transition hover:text-red-700"
-              >
-                Formation sprinkler
-              </a>
-              <a
-                href="/formation-ssi"
-                className="transition hover:text-red-700"
-              >
-                Formation SSI
-              </a>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <a
-        href="/demande-devis"
-        className="rounded-2xl border border-slate-300 px-6 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:border-red-300 hover:text-red-700"
-      >
-        Obtenir un devis
-      </a>
-    </div>
-  </div>
-</header>
+      </header>
 
       <main>
         <section className="relative overflow-hidden bg-slate-950 text-white">
@@ -493,144 +571,47 @@ export default function Home() {
             </div>
           </div>
         </section>
-<section className="bg-white py-16">
-  <div className="max-w-6xl mx-auto px-6">
-    <h2 className="text-3xl font-bold mb-6">
-      Organisme de formation en sécurité et prévention des risques
-    </h2>
 
-    <p className="text-slate-700 leading-8 mb-4">
-      PREVENSIA FORMATION est un organisme spécialisé dans la formation professionnelle
-      en sécurité incendie, habilitation électrique, formation SST et exploitation
-      des installations techniques de sécurité des bâtiments.
-    </p>
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-5xl px-6 text-slate-700">
+            <h2 className="mb-6 text-3xl font-bold text-slate-900">
+              Organisme de formation en habilitation électrique, sécurité incendie et SST
+            </h2>
 
-    <p className="text-slate-700 leading-8 mb-4">
-      Nous accompagnons les entreprises, collectivités et exploitants de sites
-      tertiaires, industriels et logistiques dans le développement des compétences
-      de leurs équipes afin de prévenir les risques professionnels et améliorer
-      la sécurité des personnes et des biens.
-    </p>
+            <p className="mb-4">
+              PREVENSIA FORMATION propose des formations professionnelles destinées aux
+              entreprises, collectivités et particuliers souhaitant développer leurs
+              compétences en prévention des risques. Nos formations couvrent
+              l’habilitation électrique, la sécurité incendie, l’exploitation du SSI,
+              l’exploitation des installations sprinkler ainsi que la formation
+              Sauveteur Secouriste du Travail.
+            </p>
 
-    <p className="text-slate-700 leading-8">
-      Nos formations peuvent être réalisées en présentiel sur site, en intra-entreprise
-      ou en e-learning pour les salariés itinérants ou les structures multisites.
-    </p>
-  </div>
-</section><section className="bg-white py-16">
-  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div className="max-w-3xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-        Nos formations
-      </p>
-      <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-        Formations en prévention, sécurité incendie et habilitation électrique
-      </h2>
-      <p className="mt-4 text-lg leading-8 text-slate-600">
-        PREVENSIA FORMATION accompagne les entreprises, exploitants et
-        particuliers avec des formations ciblées en habilitation électrique,
-        SST, sécurité incendie, exploitation du SSI et exploitation sprinkler.
-      </p>
-    </div>
+            <p className="mb-4">
+              Nos sessions sont organisées partout en France en présentiel ou en
+              e-learning selon les besoins. La formation e-learning permet une
+              organisation flexible et rapide, particulièrement adaptée aux salariés
+              itinérants ou aux entreprises multisites.
+            </p>
 
-    <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      <a
-        href="/formation-habilitation-electrique"
-        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-          E-learning / Présentiel
-        </p>
-        <h3 className="mt-3 text-xl font-bold text-slate-900">
-          Habilitation électrique
-        </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          H0B0, BS / BE manœuvre, B1 B1V B2 B2V BR BC pour particuliers,
-          salariés et entreprises.
-        </p>
-        <p className="mt-4 text-sm font-semibold text-red-700">
-          Voir la formation
-        </p>
-      </a>
+            <p className="mb-4">
+              PREVENSIA FORMATION accompagne les exploitants, responsables sécurité,
+              services techniques, bureaux d’études et gestionnaires de sites
+              industriels, logistiques ou tertiaires. L’objectif est de garantir la
+              conformité réglementaire et l’efficacité opérationnelle face aux risques
+              électriques et incendie.
+            </p>
 
-      <a
-        href="/formation-sst"
-        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-          Présentiel
-        </p>
-        <h3 className="mt-3 text-xl font-bold text-slate-900">
-          Formation SST
-        </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          SST initial et MAC SST pour développer les réflexes de premiers
-          secours et renforcer la prévention en entreprise.
-        </p>
-        <p className="mt-4 text-sm font-semibold text-red-700">
-          Voir la formation
-        </p>
-      </a>
+            <p>
+              Nos formations intègrent les référentiels techniques et réglementaires
+              applicables : habilitation électrique selon la norme NF C 18-510,
+              sécurité incendie selon la réglementation ERP, Code du travail et ICPE,
+              exploitation du SSI selon la série de normes NF S 61, et exploitation
+              sprinkler selon EN 12845, APSAD R1, NFPA 13 et FM Global.
+            </p>
+          </div>
+        </section>
 
-      <a
-        href="/formation-securite-incendie"
-        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-          Présentiel
-        </p>
-        <h3 className="mt-3 text-xl font-bold text-slate-900">
-          Sécurité incendie
-        </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          Manipulation des extincteurs, guide-file / serre-file et évacuation
-          incendie adaptées aux besoins des entreprises.
-        </p>
-        <p className="mt-4 text-sm font-semibold text-red-700">
-          Voir la formation
-        </p>
-      </a>
-
-      <a
-        href="/formation-ssi"
-        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-          Présentiel
-        </p>
-        <h3 className="mt-3 text-xl font-bold text-slate-900">
-          Exploitation du SSI
-        </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          Comprendre le fonctionnement du système de sécurité incendie, ses
-          équipements et les consignes d’exploitation.
-        </p>
-        <p className="mt-4 text-sm font-semibold text-red-700">
-          Voir la formation
-        </p>
-      </a>
-
-      <a
-        href="/formation-sprinkler"
-        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-          Présentiel
-        </p>
-        <h3 className="mt-3 text-xl font-bold text-slate-900">
-          Exploitation sprinkler
-        </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          Formation dédiée au fonctionnement des installations sprinkler et à la
-          compréhension des référentiels techniques.
-        </p>
-        <p className="mt-4 text-sm font-semibold text-red-700">
-          Voir la formation
-        </p>
-      </a>
-    </div>
-  </div>
-</section>
         <section
           id="catalogue"
           className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
@@ -776,7 +757,7 @@ export default function Home() {
 
               <a
                 href="/demande-devis"
-                className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+                className="mt-8 inline-flex rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
               >
                 Demander un devis
               </a>
@@ -828,19 +809,19 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-  <a href="#catalogue" className="hover:text-red-700">
-    Catalogue
-  </a>
-  <a href="#planning" className="hover:text-red-700">
-    Planning
-  </a>
-  <a href="/demande-devis" className="hover:text-red-700">
-    Demande de devis
-  </a>
-  <a href="#contact" className="hover:text-red-700">
-    Contact
-  </a>
-</div>
+            <a href="#catalogue" className="hover:text-red-700">
+              Catalogue
+            </a>
+            <a href="#planning" className="hover:text-red-700">
+              Planning
+            </a>
+            <a href="/demande-devis" className="hover:text-red-700">
+              Demande de devis
+            </a>
+            <a href="#contact" className="hover:text-red-700">
+              Contact
+            </a>
+          </div>
         </div>
       </footer>
     </div>
