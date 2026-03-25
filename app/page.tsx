@@ -192,7 +192,43 @@ export default function Home() {
   ];
 
   const catalog = [...formationsElearning, ...formationsPresentiel];
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-elearning.vercel.app";
 
+const homeStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "PREVENSIA FORMATION",
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo-prevensia-formation.jpg`,
+      email: "prevensia.formation@outlook.fr",
+      telephone: "+33189629492",
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#localbusiness`,
+      name: "PREVENSIA FORMATION",
+      url: siteUrl,
+      telephone: "+33189629492",
+      email: "prevensia.formation@outlook.fr",
+      areaServed: "FR",
+      image: `${siteUrl}/images/salle-de-formation.jpg`,
+    },
+    {
+      "@type": "ItemList",
+      name: "Catalogue de formations PREVENSIA",
+      itemListElement: catalog.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.title,
+        description: item.description,
+      })),
+    },
+  ],
+};
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -816,7 +852,13 @@ export default function Home() {
           </div>
         </section>
       </main>
-
+<script
+  type="application/ld+json"
+  suppressHydrationWarning
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(homeStructuredData),
+  }}
+/>
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="flex items-center gap-4">
