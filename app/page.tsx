@@ -517,6 +517,119 @@ export default function Home() {
       ou en e-learning pour les salariés itinérants ou les structures multisites.
     </p>
   </div>
+</section><section className="bg-white py-16">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="max-w-3xl">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+        Nos formations
+      </p>
+      <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+        Formations en prévention, sécurité incendie et habilitation électrique
+      </h2>
+      <p className="mt-4 text-lg leading-8 text-slate-600">
+        PREVENSIA FORMATION accompagne les entreprises, exploitants et
+        particuliers avec des formations ciblées en habilitation électrique,
+        SST, sécurité incendie, exploitation du SSI et exploitation sprinkler.
+      </p>
+    </div>
+
+    <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <a
+        href="/formation-habilitation-electrique"
+        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+          E-learning / Présentiel
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Habilitation électrique
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          H0B0, BS / BE manœuvre, B1 B1V B2 B2V BR BC pour particuliers,
+          salariés et entreprises.
+        </p>
+        <p className="mt-4 text-sm font-semibold text-red-700">
+          Voir la formation
+        </p>
+      </a>
+
+      <a
+        href="/formation-sst"
+        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+          Présentiel
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Formation SST
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          SST initial et MAC SST pour développer les réflexes de premiers
+          secours et renforcer la prévention en entreprise.
+        </p>
+        <p className="mt-4 text-sm font-semibold text-red-700">
+          Voir la formation
+        </p>
+      </a>
+
+      <a
+        href="/formation-securite-incendie"
+        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+          Présentiel
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Sécurité incendie
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          Manipulation des extincteurs, guide-file / serre-file et évacuation
+          incendie adaptées aux besoins des entreprises.
+        </p>
+        <p className="mt-4 text-sm font-semibold text-red-700">
+          Voir la formation
+        </p>
+      </a>
+
+      <a
+        href="/formation-ssi"
+        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+          Présentiel
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Exploitation du SSI
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          Comprendre le fonctionnement du système de sécurité incendie, ses
+          équipements et les consignes d’exploitation.
+        </p>
+        <p className="mt-4 text-sm font-semibold text-red-700">
+          Voir la formation
+        </p>
+      </a>
+
+      <a
+        href="/formation-sprinkler"
+        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-red-300"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+          Présentiel
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Exploitation sprinkler
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          Formation dédiée au fonctionnement des installations sprinkler et à la
+          compréhension des référentiels techniques.
+        </p>
+        <p className="mt-4 text-sm font-semibold text-red-700">
+          Voir la formation
+        </p>
+      </a>
+    </div>
+  </div>
 </section>
         <section
           id="catalogue"
