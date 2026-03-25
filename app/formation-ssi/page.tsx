@@ -261,7 +261,39 @@ export default function FormationSSI() {
             </details>
           </div>
         </section>
+<section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+  <h2 className="text-2xl font-bold">Découvrir nos autres formations</h2>
 
+  <div className="mt-6 grid gap-4 md:grid-cols-2">
+    <a
+      href="/formation-habilitation-electrique"
+      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
+    >
+      Formation habilitation électrique
+    </a>
+
+    <a
+      href="/formation-sst"
+      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
+    >
+      Formation SST – Sauveteur Secouriste du Travail
+    </a>
+
+    <a
+      href="/formation-ssi"
+      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
+    >
+      Formation exploitation SSI
+    </a>
+
+    <a
+      href="/formation-sprinkler"
+      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
+    >
+      Formation exploitation sprinkler
+    </a>
+  </div>
+</section>
         <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
           <h2 className="text-2xl font-bold">Besoin d’un devis rapide ?</h2>
 
