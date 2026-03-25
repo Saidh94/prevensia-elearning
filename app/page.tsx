@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -34,6 +34,13 @@ export default function Home() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setIsMobileFormationsOpen(false);
+  };
+
+  const handleAccueilClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    closeMobileMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", "/");
   };
   const formationsElearning = [
     {
@@ -192,43 +199,44 @@ export default function Home() {
   ];
 
   const catalog = [...formationsElearning, ...formationsPresentiel];
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-elearning.vercel.app";
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-elearning.vercel.app";
 
-const homeStructuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      name: "PREVENSIA FORMATION",
-      url: siteUrl,
-      logo: `${siteUrl}/images/logo-prevensia-formation.jpg`,
-      email: "prevensia.formation@outlook.fr",
-      telephone: "+33189629492",
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": `${siteUrl}/#localbusiness`,
-      name: "PREVENSIA FORMATION",
-      url: siteUrl,
-      telephone: "+33189629492",
-      email: "prevensia.formation@outlook.fr",
-      areaServed: "FR",
-      image: `${siteUrl}/images/salle-de-formation.jpg`,
-    },
-    {
-      "@type": "ItemList",
-      name: "Catalogue de formations PREVENSIA",
-      itemListElement: catalog.map((item, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: item.title,
-        description: item.description,
-      })),
-    },
-  ],
-};
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "PREVENSIA FORMATION",
+        url: siteUrl,
+        logo: `${siteUrl}/images/logo-prevensia-formation.jpg`,
+        email: "prevensia.formation@outlook.fr",
+        telephone: "+33189629492",
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#localbusiness`,
+        name: "PREVENSIA FORMATION",
+        url: siteUrl,
+        telephone: "+33189629492",
+        email: "prevensia.formation@outlook.fr",
+        areaServed: "FR",
+        image: `${siteUrl}/images/salle-de-formation.jpg`,
+      },
+      {
+        "@type": "ItemList",
+        name: "Catalogue de formations PREVENSIA",
+        itemListElement: catalog.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.title,
+          description: item.description,
+        })),
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -245,7 +253,11 @@ const homeStructuredData = {
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 lg:flex">
-            <Link href="/" className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
+            <Link
+              href="/"
+              onClick={handleAccueilClick}
+              className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+            >
               Accueil
             </Link>
 
@@ -355,7 +367,7 @@ const homeStructuredData = {
               <Link
                 href="/"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
-                onClick={closeMobileMenu}
+                onClick={handleAccueilClick}
               >
                 Accueil
               </Link>
@@ -852,13 +864,15 @@ const homeStructuredData = {
           </div>
         </section>
       </main>
-<script
-  type="application/ld+json"
-  suppressHydrationWarning
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(homeStructuredData),
-  }}
-/>
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeStructuredData),
+        }}
+      />
+
       <footer className="border-t border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="flex items-center gap-4">
