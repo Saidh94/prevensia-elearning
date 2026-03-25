@@ -233,7 +233,35 @@ export default function FormationSecuriteIncendie() {
             </details>
           </div>
         </section>
+<section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+  <h2 className="text-2xl font-bold">
+    Nos autres formations en sécurité et prévention
+  </h2>
 
+  <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+    PREVENSIA FORMATION propose également des formations en habilitation électrique,
+    exploitation du SSI, formation SST et exploitation des installations sprinkler.
+    Découvrez l’ensemble de notre catalogue pour renforcer la sécurité de vos équipes.
+  </p>
+
+  <div className="mt-6 flex flex-wrap gap-4">
+    <a href="/formation-habilitation-electrique" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+      Habilitation électrique
+    </a>
+
+    <a href="/formation-ssi" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+      Exploitation SSI
+    </a>
+
+    <a href="/formation-sst" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+      Formation SST
+    </a>
+
+    <a href="/formation-sprinkler" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+      Exploitation sprinkler
+    </a>
+  </div>
+</section>
         <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
           <h2 className="text-2xl font-bold">Besoin d’un devis rapide ?</h2>
 
