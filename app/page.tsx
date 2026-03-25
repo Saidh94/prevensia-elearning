@@ -493,7 +493,31 @@ export default function Home() {
             </div>
           </div>
         </section>
+<section className="bg-white py-16">
+  <div className="max-w-6xl mx-auto px-6">
+    <h2 className="text-3xl font-bold mb-6">
+      Organisme de formation en sécurité et prévention des risques
+    </h2>
 
+    <p className="text-slate-700 leading-8 mb-4">
+      PREVENSIA FORMATION est un organisme spécialisé dans la formation professionnelle
+      en sécurité incendie, habilitation électrique, formation SST et exploitation
+      des installations techniques de sécurité des bâtiments.
+    </p>
+
+    <p className="text-slate-700 leading-8 mb-4">
+      Nous accompagnons les entreprises, collectivités et exploitants de sites
+      tertiaires, industriels et logistiques dans le développement des compétences
+      de leurs équipes afin de prévenir les risques professionnels et améliorer
+      la sécurité des personnes et des biens.
+    </p>
+
+    <p className="text-slate-700 leading-8">
+      Nos formations peuvent être réalisées en présentiel sur site, en intra-entreprise
+      ou en e-learning pour les salariés itinérants ou les structures multisites.
+    </p>
+  </div>
+</section>
         <section
           id="catalogue"
           className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
