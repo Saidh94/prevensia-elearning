@@ -1,7 +1,7 @@
 export const metadata = {
   title: "Formation exploitation SSI | PREVENSIA FORMATION",
   description:
-    "Formation exploitation du système de sécurité incendie (SSI) pour entreprises, exploitants et responsables techniques. Comprendre le fonctionnement du SSI et les bons réflexes au quotidien.",
+    "Formation exploitation du système de sécurité incendie (SSI) pour entreprises, exploitants et responsables techniques. Comprendre le fonctionnement du SSI, les normes AFNOR série NF S 61 et les cadres ERP, IGH, Code du Travail et ICPE.",
 };
 
 export default function FormationSSI() {
@@ -58,7 +58,9 @@ export default function FormationSSI() {
             <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
               Public
             </p>
-            <p className="mt-3 text-lg font-semibold">Exploitants et équipes techniques</p>
+            <p className="mt-3 text-lg font-semibold">
+              Exploitants et équipes techniques
+            </p>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Formation destinée aux personnels amenés à exploiter un SSI au
               quotidien ou à intervenir en cas d’alarme incendie.
@@ -101,27 +103,58 @@ export default function FormationSSI() {
           id="programmes"
           className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10"
         >
-          <h2 className="text-2xl font-bold">Programme de la formation</h2>
+          <h2 className="text-2xl font-bold">
+            Programme de la formation exploitation SSI
+          </h2>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <h3 className="text-xl font-semibold">
-                Compréhension du système de sécurité incendie
+                Architecture et fonctionnement du SSI
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Architecture générale du SSI, rôle des différents équipements,
-                lecture des informations et distinction entre alarmes, défauts
-                et dérangements.
+                Compréhension des principes de détection incendie, d’alarme, de
+                compartimentage, de désenfumage et de mise en sécurité.
+                Identification des différents équipements du système de sécurité
+                incendie et lecture des informations issues des ECS et CMSI.
               </p>
             </div>
 
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <h3 className="text-xl font-semibold">
-                Exploitation et conduite à tenir
+                Exploitation quotidienne du système
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Gestion des signaux, levée de doute, acquittement, consignes
-                d’exploitation et réactions adaptées en cas de déclenchement.
+                Lecture des signalisations, distinction entre alarmes feu,
+                défauts et dérangements techniques, conduite à tenir en cas de
+                déclenchement, levée de doute et consignes d’exploitation
+                adaptées au site.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-xl font-semibold">
+                Cadre normatif des systèmes de sécurité incendie
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Présentation des principales normes AFNOR de la série NF S 61
+                relatives aux systèmes de sécurité incendie, notamment les
+                règles générales d’installation, d’exploitation et de
+                maintenance des équipements de détection, d’alarme et de mise en
+                sécurité.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-xl font-semibold">
+                Réglementation applicable selon le type d’établissement
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Présentation des exigences réglementaires liées aux
+                établissements recevant du public (ERP), aux immeubles de grande
+                hauteur (IGH), aux bâtiments à usage professionnel au sens du
+                Code du Travail (BUP) ainsi qu’aux installations classées pour
+                la protection de l’environnement (ICPE).
               </p>
             </div>
           </div>
@@ -166,7 +199,9 @@ export default function FormationSSI() {
         </section>
 
         <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-          <h2 className="text-2xl font-bold">Pourquoi choisir PREVENSIA FORMATION ?</h2>
+          <h2 className="text-2xl font-bold">
+            Pourquoi choisir PREVENSIA FORMATION ?
+          </h2>
 
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
             <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
@@ -176,7 +211,8 @@ export default function FormationSSI() {
               Contenu clair orienté lecture du système, conduite à tenir et sécurité
             </li>
             <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
-              Adaptation au bâtiment, au système installé et aux profils des stagiaires
+              Intégration des principales normes AFNOR série NF S 61 et des
+              exigences réglementaires applicables
             </li>
             <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
               Réponse rapide pour les demandes de devis et l’organisation des sessions
@@ -207,8 +243,9 @@ export default function FormationSSI() {
               </summary>
               <p className="mt-3 text-slate-700">
                 Elle permet de comprendre le rôle du SSI, l’architecture du
-                système, les signaux courants et les réactions attendues en cas
-                d’alarme, de défaut ou de dérangement.
+                système, les signaux courants, les normes applicables et les
+                réactions attendues en cas d’alarme, de défaut ou de
+                dérangement.
               </p>
             </details>
 
@@ -218,8 +255,8 @@ export default function FormationSSI() {
               </summary>
               <p className="mt-3 text-slate-700">
                 Oui, PREVENSIA FORMATION peut adapter la session au système
-                installé, aux consignes du site et au niveau de connaissance des
-                participants.
+                installé, aux consignes du site, aux référentiels applicables et
+                au niveau de connaissance des participants.
               </p>
             </details>
           </div>
