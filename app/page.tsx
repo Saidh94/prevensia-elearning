@@ -188,28 +188,24 @@ export default function Home() {
                   >
                     Habilitation électrique
                   </a>
-
                   <a
                     href="/formation-sst"
                     className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
                   >
                     Formation SST
                   </a>
-
                   <a
                     href="/formation-securite-incendie"
                     className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
                   >
                     Sécurité incendie
                   </a>
-
                   <a
                     href="/formation-sprinkler"
                     className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
                   >
                     Formation sprinkler
                   </a>
-
                   <a
                     href="/formation-ssi"
                     className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
@@ -224,44 +220,9 @@ export default function Home() {
               Catalogue
             </a>
 
-            <div className="relative group">
-              <button className="transition hover:text-red-700">
-                Planning
-              </button>
-
-              <div className="absolute left-0 top-full z-50 hidden w-64 rounded-2xl border border-slate-200 bg-white py-2 shadow-xl group-hover:block">
-                <a
-                  href="/planning-habilitation-electrique"
-                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
-                >
-                  Habilitation électrique
-                </a>
-                <a
-                  href="/planning-securite-incendie"
-                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
-                >
-                  Sécurité incendie
-                </a>
-                <a
-                  href="/planning-ssi"
-                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
-                >
-                  Exploitation SSI
-                </a>
-                <a
-                  href="/planning-sprinkler"
-                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
-                >
-                  Exploitation sprinkler
-                </a>
-                <a
-                  href="/planning-sst"
-                  className="block px-4 py-2 hover:bg-slate-100 hover:text-red-700"
-                >
-                  SST
-                </a>
-              </div>
-            </div>
+            <a href="#planning" className="transition hover:text-red-700">
+              Planning
+            </a>
 
             <a href="/demande-devis" className="transition hover:text-red-700">
               Demande de devis
@@ -283,6 +244,9 @@ export default function Home() {
                   <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
                     <a href="#catalogue" className="transition hover:text-red-700">
                       Catalogue
+                    </a>
+                    <a href="#planning" className="transition hover:text-red-700">
+                      Planning
                     </a>
                     <a href="/demande-devis" className="transition hover:text-red-700">
                       Demande de devis
@@ -325,44 +289,6 @@ export default function Home() {
                           className="transition hover:text-red-700"
                         >
                           Formation SSI
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="border-t border-slate-200 pt-3">
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
-                        Planning
-                      </p>
-                      <div className="flex flex-col gap-2">
-                        <a
-                          href="/planning-habilitation-electrique"
-                          className="transition hover:text-red-700"
-                        >
-                          Habilitation électrique
-                        </a>
-                        <a
-                          href="/planning-securite-incendie"
-                          className="transition hover:text-red-700"
-                        >
-                          Sécurité incendie
-                        </a>
-                        <a
-                          href="/planning-ssi"
-                          className="transition hover:text-red-700"
-                        >
-                          Exploitation SSI
-                        </a>
-                        <a
-                          href="/planning-sprinkler"
-                          className="transition hover:text-red-700"
-                        >
-                          Exploitation sprinkler
-                        </a>
-                        <a
-                          href="/planning-sst"
-                          className="transition hover:text-red-700"
-                        >
-                          SST
                         </a>
                       </div>
                     </div>
