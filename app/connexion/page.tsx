@@ -1,33 +1,56 @@
-export default function Connexion() {
+"use client";
+
+import Link from "next/link";
+
+export default function ConnexionPage() {
   return (
-    <main className="min-h-screen bg-slate-50 flex items-center justify-center p-6">
-      <div className="bg-white p-10 rounded-3xl shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-6">
-          Connexion espace e-learning
-        </h1>
+    <main className="min-h-screen bg-slate-50 py-10">
+      <div className="mx-auto w-full max-w-xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
+            E-learning PREVENSIA
+          </p>
+          <h1 className="mt-2 text-3xl font-bold text-slate-900">Connexion</h1>
+          <p className="mt-3 text-slate-600">
+            Connectez-vous pour accéder à vos modules et à votre progression.
+          </p>
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-3 rounded-xl mb-4"
-        />
+          <form className="mt-6 space-y-4">
+            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+              Adresse e-mail
+              <input
+                type="email"
+                required
+                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                placeholder="vous@entreprise.fr"
+              />
+            </label>
 
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          className="w-full border p-3 rounded-xl mb-6"
-        />
+            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+              Mot de passe
+              <input
+                type="password"
+                required
+                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                placeholder="Votre mot de passe"
+              />
+            </label>
 
-        <button className="w-full bg-red-700 text-white p-3 rounded-xl font-semibold">
-          Se connecter
-        </button>
+            <button
+              type="submit"
+              className="inline-flex w-full justify-center rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
+            >
+              Se connecter
+            </button>
+          </form>
 
-        <p className="text-sm mt-4">
-          Pas encore inscrit ?{" "}
-          <a href="/inscription" className="text-red-700 font-semibold">
-            Créer un compte
-          </a>
-        </p>
+          <p className="mt-5 text-sm text-slate-600">
+            Pas encore de compte ?{" "}
+            <Link href="/inscription" className="font-semibold text-red-700 underline underline-offset-2">
+              Créer un compte
+            </Link>
+          </p>
+        </div>
       </div>
     </main>
   );
