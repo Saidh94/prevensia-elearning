@@ -213,7 +213,18 @@ export default function Home() {
         logo: `${siteUrl}/images/logo-prevensia-formation.jpg`,
         email: "prevensia.formation@outlook.fr",
         telephone: "+33189629492",
-      },
+      },{
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  name: "PREVENSIA FORMATION",
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo-prevensia-formation.jpg`,
+  email: "prevensia.formation@outlook.fr",
+  telephone: "+33189629492",
+  sameAs: [
+    "https://linkedin.com/in/prevensia-formation-3450a0385",
+  ],
+},
       {
         "@type": "LocalBusiness",
         "@id": `${siteUrl}/#localbusiness`,
