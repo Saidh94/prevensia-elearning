@@ -7,8 +7,9 @@ import Link from "next/link";
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileFormationsOpen, setIsMobileFormationsOpen] = useState(false);
-  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
-  const desktopMenuRef = useRef<HTMLDivElement>(null);
+  const [isDesktopFormationsOpen, setIsDesktopFormationsOpen] = useState(false);
+  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+  const desktopFormationsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
@@ -18,37 +19,62 @@ export default function Home() {
 
     document.body.style.overflow = "hidden";
 
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileMenuOpen]);
-
-  useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMobileMenuOpen(false);
         setIsMobileFormationsOpen(false);
-        setIsDesktopMenuOpen(false);
+        setIsDesktopFormationsOpen(false);
       }
     };
 
     window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTopButton(window.scrollY > 320);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (!isDesktopMenuOpen) return;
+    if (!isDesktopFormationsOpen) return;
 
     const handleOutsideClick = (event: globalThis.MouseEvent) => {
       const target = event.target as Node;
-      if (!desktopMenuRef.current?.contains(target)) {
-        setIsDesktopMenuOpen(false);
+      if (!desktopFormationsRef.current?.contains(target)) {
+        setIsDesktopFormationsOpen(false);
       }
     };
 
     window.addEventListener("mousedown", handleOutsideClick);
     return () => window.removeEventListener("mousedown", handleOutsideClick);
-  }, [isDesktopMenuOpen]);
+  }, [isDesktopFormationsOpen]);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileFormationsOpen(false);
+  };
+
+  const closeDesktopFormations = () => {
+    setIsDesktopFormationsOpen(false);
+  };
+
+  const handleAccueilClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    closeMobileMenu();
+    closeDesktopFormations();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", "/");
+  };
 
   const formationLinks = [
     { href: "/formation-habilitation-electrique", label: "Habilitation électrique" },
@@ -57,23 +83,6 @@ export default function Home() {
     { href: "/formation-sprinkler", label: "Formation sprinkler" },
     { href: "/formation-ssi", label: "Formation SSI" },
   ];
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setIsMobileFormationsOpen(false);
-  };
-
-  const closeAllMenus = () => {
-    closeMobileMenu();
-    setIsDesktopMenuOpen(false);
-  };
-
-  const handleAccueilClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    closeAllMenus();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    window.history.replaceState(null, "", "/");
-  };
   const formationsElearning = [
     {
       title: "Habilitation électrique H0B0",
@@ -287,59 +296,65 @@ export default function Home() {
             />
           </Link>
 
-          <div className="flex items-center gap-3">
-            <div ref={desktopMenuRef} className="relative hidden lg:block">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 lg:flex">
+            <Link
+              href="/"
+              onClick={handleAccueilClick}
+              className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+            >
+              Accueil
+            </Link>
+
+            <div ref={desktopFormationsRef} className="relative">
               <button
                 type="button"
                 aria-haspopup="menu"
-                aria-expanded={isDesktopMenuOpen}
-                className="inline-flex items-center gap-2 rounded-2xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-700"
-                onClick={() => setIsDesktopMenuOpen((previous) => !previous)}
+                aria-expanded={isDesktopFormationsOpen}
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700"
+                onClick={() => setIsDesktopFormationsOpen((previous) => !previous)}
               >
-                Menu
-                <span className="text-base leading-none">{isDesktopMenuOpen ? "−" : "+"}</span>
+                Formations
+                <span className="text-base leading-none">
+                  {isDesktopFormationsOpen ? "−" : "+"}
+                </span>
               </button>
 
-              {isDesktopMenuOpen ? (
-                <div className="absolute right-0 top-full z-50 mt-3 w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl">
-                  <div className="grid gap-1 text-sm font-medium text-slate-700">
-                    <Link href="/" onClick={handleAccueilClick} className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
-                      Accueil
-                    </Link>
-                    <Link href="#catalogue" onClick={closeAllMenus} className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
-                      Catalogue
-                    </Link>
-                    <Link href="#planning" onClick={closeAllMenus} className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
-                      Planning
-                    </Link>
-                    <Link href="/demande-devis" onClick={closeAllMenus} className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
-                      Demande de devis
-                    </Link>
-                    <Link href="#contact" onClick={closeAllMenus} className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700">
-                      Contact
-                    </Link>
-                  </div>
-                  <div className="mt-3 border-t border-slate-200 pt-3">
-                    <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
-                      Formations
-                    </p>
-                    <div className="grid gap-1 text-sm text-slate-700">
-                      {formationLinks.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={closeAllMenus}
-                          className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </div>
+              {isDesktopFormationsOpen ? (
+                <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
+                  <div className="flex flex-col gap-2 text-sm text-slate-700">
+                    {formationLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+                        onClick={closeDesktopFormations}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               ) : null}
             </div>
 
+            <Link href="#catalogue" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
+              Catalogue
+            </Link>
+
+            <Link href="#planning" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
+              Planning
+            </Link>
+
+            <Link href="/demande-devis" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
+              Demande de devis
+            </Link>
+
+            <Link href="#contact" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
+              Contact
+            </Link>
+          </nav>
+
+          <div className="flex items-center gap-3">
             <button
               type="button"
               className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 lg:hidden"
@@ -352,7 +367,7 @@ export default function Home() {
 
             <Link
               href="/demande-devis"
-              className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+              className="hidden rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800 sm:inline-flex"
             >
               Obtenir un devis
             </Link>
@@ -431,16 +446,41 @@ export default function Home() {
 
                 {isMobileFormationsOpen ? (
                   <div className="mt-2 flex flex-col gap-1 border-t border-slate-200 pt-2">
-                    {formationLinks.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
-                        onClick={closeMobileMenu}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                    <Link
+                      href="/formation-habilitation-electrique"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Habilitation électrique
+                    </Link>
+                    <Link
+                      href="/formation-sst"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation SST
+                    </Link>
+                    <Link
+                      href="/formation-securite-incendie"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Sécurité incendie
+                    </Link>
+                    <Link
+                      href="/formation-sprinkler"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation sprinkler
+                    </Link>
+                    <Link
+                      href="/formation-ssi"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation SSI
+                    </Link>
                   </div>
                 ) : null}
               </div>
@@ -458,7 +498,7 @@ export default function Home() {
       ) : null}
 
       <main>
-        <section className="relative overflow-hidden bg-slate-950 text-white">
+ <section className="relative overflow-hidden bg-slate-950 text-white">
           <div className="absolute inset-0">
             <Image
               src="/images/salle-de-formation.jpg"
@@ -925,6 +965,17 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {showScrollTopButton ? (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-50 rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-xl transition hover:-translate-y-0.5 hover:text-red-700"
+          aria-label="Revenir en haut de la page"
+        >
+          ↑ Accueil
+        </button>
+      ) : null}
     </div>
   );
 }
