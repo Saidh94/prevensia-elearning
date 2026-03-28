@@ -3,7 +3,6 @@
 import { type MouseEvent, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Header } from "./components/Header";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -285,97 +284,176 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-4" aria-label="Retour à l'accueil">
-            <Image
-              src="/images/logo-prevensia-formation.jpg"
-              alt="Logo Prevensia Formation"
-              width={200}
-              height={70}
-              className="h-auto w-[130px] sm:w-[190px]"
-              priority
-            />
-          </Link>
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+    <div className="flex items-center gap-4">
+      <Image
+        src="/images/logo-prevensia-formation.jpg"
+        alt="Logo Prevensia Formation"
+        width={200}
+        height={70}
+        className="h-auto w-[130px] sm:w-[190px]"
+        priority
+      />
+    </div>
 
-          <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 lg:flex">
-            <Link
-              href="/"
-              onClick={handleAccueilClick}
-              className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+    <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 lg:flex">
+      <a href="#catalogue" className="transition hover:text-red-700">
+        Catalogue
+      </a>
+
+      <a href="#planning" className="transition hover:text-red-700">
+        Planning
+      </a>
+
+      <a href="/demande-devis" className="transition hover:text-red-700">
+        Demande de devis
+      </a>
+
+      <a href="#contact" className="transition hover:text-red-700">
+        Contact
+      </a>
+
+      <details className="relative">
+        <summary className="list-none cursor-pointer rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700">
+          Formations
+        </summary>
+
+        <div className="absolute right-0 top-full z-50 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
+          <div className="flex flex-col gap-2 text-sm text-slate-700">
+            <a
+              href="/formation-habilitation-electrique"
+              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
             >
-              Accueil
-            </Link>
+              Habilitation électrique
+            </a>
 
-            <div ref={desktopFormationsRef} className="relative">
-              <button
-                type="button"
-                aria-haspopup="menu"
-                aria-expanded={isDesktopFormationsOpen}
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold transition hover:border-red-300 hover:text-red-700"
-                onClick={() => setIsDesktopFormationsOpen((previous) => !previous)}
-              >
-                Formations
-                <span className="text-base leading-none">
-                  {isDesktopFormationsOpen ? "−" : "+"}
-                </span>
-              </button>
-
-              {isDesktopFormationsOpen ? (
-                <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-3 shadow-xl">
-                  <div className="flex flex-col gap-2 text-sm text-slate-700">
-                    {formationLinks.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
-                        onClick={closeDesktopFormations}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-            </div>
-
-            <Link href="#catalogue" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
-              Catalogue
-            </Link>
-
-            <Link href="#planning" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
-              Planning
-            </Link>
-
-            <Link href="/demande-devis" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
-              Demande de devis
-            </Link>
-
-            <Link href="#contact" onClick={closeDesktopFormations} className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700">
-              Contact
-            </Link>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 lg:hidden"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-navigation"
-              onClick={() => setIsMobileMenuOpen((previous) => !previous)}
+            <a
+              href="/formation-sst"
+              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
             >
-              Menu
-            </button>
+              Formation SST
+            </a>
 
-            <Link
-              href="/demande-devis"
-              className="hidden rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800 sm:inline-flex"
+            <a
+              href="/formation-securite-incendie"
+              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
             >
-              Obtenir un devis
-            </Link>
+              Sécurité incendie
+            </a>
+
+            <a
+              href="/formation-ssi"
+              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+            >
+              Formation SSI
+            </a>
+
+            <a
+              href="/formation-sprinkler"
+              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+            >
+              Exploitation sprinkler
+            </a>
+
+            <a
+              href="/e-learning-habilitation-electrique"
+              className="rounded-lg px-3 py-2 hover:bg-slate-100 hover:text-red-700"
+            >
+              E-learning habilitation électrique
+            </a>
           </div>
         </div>
-      </header>
+      </details>
+    </nav>
 
+    <div className="flex items-center gap-3">
+      <div className="lg:hidden">
+        <details className="relative">
+          <summary className="cursor-pointer list-none rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">
+            Menu
+          </summary>
+
+          <div className="absolute right-0 mt-2 w-72 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
+            <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
+              <a href="#catalogue" className="transition hover:text-red-700">
+                Catalogue
+              </a>
+
+              <a href="#planning" className="transition hover:text-red-700">
+                Planning
+              </a>
+
+              <a href="/demande-devis" className="transition hover:text-red-700">
+                Demande de devis
+              </a>
+
+              <a href="#contact" className="transition hover:text-red-700">
+                Contact
+              </a>
+
+              <details className="rounded-xl border border-slate-200 p-3">
+                <summary className="cursor-pointer font-semibold text-slate-700">
+                  Formations
+                </summary>
+
+                <div className="mt-3 flex flex-col gap-2 pl-2 text-sm">
+                  <a
+                    href="/formation-habilitation-electrique"
+                    className="transition hover:text-red-700"
+                  >
+                    Habilitation électrique
+                  </a>
+
+                  <a
+                    href="/formation-sst"
+                    className="transition hover:text-red-700"
+                  >
+                    Formation SST
+                  </a>
+
+                  <a
+                    href="/formation-securite-incendie"
+                    className="transition hover:text-red-700"
+                  >
+                    Sécurité incendie
+                  </a>
+
+                  <a
+                    href="/formation-ssi"
+                    className="transition hover:text-red-700"
+                  >
+                    Formation SSI
+                  </a>
+
+                  <a
+                    href="/formation-sprinkler"
+                    className="transition hover:text-red-700"
+                  >
+                    Exploitation sprinkler
+                  </a>
+
+                  <a
+                    href="/e-learning-habilitation-electrique"
+                    className="transition hover:text-red-700"
+                  >
+                    E-learning habilitation électrique
+                  </a>
+                </div>
+              </details>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <a
+        href="/demande-devis"
+        className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+      >
+        Obtenir un devis
+      </a>
+    </div>
+  </div>
+</header>
       {isMobileMenuOpen ? (
         <>
           <button
