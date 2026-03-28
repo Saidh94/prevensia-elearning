@@ -68,10 +68,17 @@ export default function Home() {
     setIsDesktopMenuOpen(false);
   };
 
-  const handleAccueilClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    closeMobileMenu();
-    closeDesktopMenu();
+  const closeAllMenus = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileFormationsOpen(false);
+    setIsDesktopMenuOpen(false);
+  };
+
+  const handleAccueilClick = (
+    event?: MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event?.preventDefault();
+    closeAllMenus();
     window.scrollTo({ top: 0, behavior: "smooth" });
     window.history.replaceState(null, "", "/");
   };
@@ -275,8 +282,8 @@ export default function Home() {
   return (
     <div id="top" className="min-h-screen bg-slate-50 text-slate-900">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
+        <div className="mx-auto flex max-w-7xl items-center px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex shrink-0 items-center gap-4">
             <Image
               src="/images/logo-prevensia-formation.jpg"
               alt="Logo Prevensia Formation"
@@ -287,8 +294,18 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden lg:block" ref={desktopMenuRef}>
+          <div className="ml-6 hidden lg:flex">
+            <button
+              type="button"
+              onClick={handleAccueilClick}
+              className="text-sm font-semibold text-slate-700 transition hover:text-red-700"
+            >
+              Accueil
+            </button>
+          </div>
+
+          <div className="ml-auto flex items-center gap-3">
+            <div className="relative hidden lg:block" ref={desktopMenuRef}>
               <button
                 type="button"
                 className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-700"
@@ -299,18 +316,10 @@ export default function Home() {
               </button>
 
               {isDesktopMenuOpen ? (
-                <div className="absolute right-40 top-full z-50 mt-2 w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
+                <div className="absolute right-0 top-full z-50 mt-2 w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
                   <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
                     <Link
-                      href="/"
-                      className="transition hover:text-red-700"
-                      onClick={handleAccueilClick}
-                    >
-                      Accueil
-                    </Link>
-
-                    <Link
-                      href="#catalogue"
+                      href="/#catalogue"
                       className="transition hover:text-red-700"
                       onClick={closeDesktopMenu}
                     >
@@ -318,7 +327,7 @@ export default function Home() {
                     </Link>
 
                     <Link
-                      href="#planning"
+                      href="/#planning"
                       className="transition hover:text-red-700"
                       onClick={closeDesktopMenu}
                     >
@@ -334,7 +343,7 @@ export default function Home() {
                     </Link>
 
                     <Link
-                      href="#contact"
+                      href="/#contact"
                       className="transition hover:text-red-700"
                       onClick={closeDesktopMenu}
                     >
@@ -386,7 +395,7 @@ export default function Home() {
                         </Link>
 
                         <Link
-                          href="/e-learning-habilitation-electrique"
+                          href="/inscription"
                           className="transition hover:text-red-700"
                           onClick={closeDesktopMenu}
                         >
@@ -429,7 +438,7 @@ export default function Home() {
           />
           <aside
             id="mobile-navigation"
-            className="fixed right-0 top-0 z-50 flex h-dvh w-[min(92vw,360px)] flex-col border-l border-slate-200 bg-white p-6 shadow-2xl lg:hidden"
+            className="fixed inset-y-0 right-0 z-50 w-[min(92vw,360px)] border-l border-slate-200 bg-white p-6 shadow-2xl lg:hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation mobile"
@@ -447,17 +456,17 @@ export default function Home() {
               </button>
             </div>
 
-            <nav className="flex flex-1 flex-col gap-2 overflow-y-auto text-sm font-medium text-slate-700">
-              <Link
-                href="/"
-                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+            <nav className="flex h-full flex-col gap-2 overflow-y-auto text-sm font-medium text-slate-700">
+              <button
+                type="button"
+                className="rounded-xl px-3 py-2 text-left transition hover:bg-slate-100 hover:text-red-700"
                 onClick={handleAccueilClick}
               >
                 Accueil
-              </Link>
+              </button>
 
               <Link
-                href="#catalogue"
+                href="/#catalogue"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
                 onClick={closeMobileMenu}
               >
@@ -465,7 +474,7 @@ export default function Home() {
               </Link>
 
               <Link
-                href="#planning"
+                href="/#planning"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
                 onClick={closeMobileMenu}
               >
@@ -481,7 +490,7 @@ export default function Home() {
               </Link>
 
               <Link
-                href="#contact"
+                href="/#contact"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
                 onClick={closeMobileMenu}
               >
@@ -544,7 +553,7 @@ export default function Home() {
                     </Link>
 
                     <Link
-                      href="/e-learning-habilitation-electrique"
+                      href="/inscription"
                       className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
                       onClick={closeMobileMenu}
                     >
