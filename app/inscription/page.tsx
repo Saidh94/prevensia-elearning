@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -18,7 +18,7 @@ const formations = [
   "À définir",
 ];
 
-export default function InscriptionPage() {
+function InscriptionForm() {
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
@@ -57,6 +57,166 @@ export default function InscriptionPage() {
   };
 
   return (
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+    >
+      <div className="grid gap-5 sm:grid-cols-2">
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+          Prénom
+          <input
+            name="firstName"
+            required
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="Ex : Marie"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+          Nom
+          <input
+            name="lastName"
+            required
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="Ex : Dupont"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+          Adresse e-mail
+          <input
+            name="email"
+            type="email"
+            required
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="vous@entreprise.fr"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+          Téléphone
+          <input
+            name="phone"
+            type="tel"
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="06 00 00 00 00"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+          Entreprise (optionnel)
+          <input
+            name="company"
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="Nom de votre société"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+          Formation souhaitée
+          <select
+            name="formation"
+            defaultValue={prefilledFormation}
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+          >
+            {formations.map((formation) => (
+              <option key={formation} value={formation}>
+                {formation}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+          Session souhaitée
+          <input
+            name="session"
+            defaultValue={prefilledSession}
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="Ex : 10 juin 2026"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+          Mot de passe
+          <input
+            name="password"
+            type="password"
+            minLength={8}
+            required
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="8 caractères minimum"
+          />
+        </label>
+
+        <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+          Confirmer le mot de passe
+          <input
+            name="confirmPassword"
+            type="password"
+            minLength={8}
+            required
+            className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+            placeholder="Retapez votre mot de passe"
+          />
+        </label>
+      </div>
+
+      <label className="mt-5 flex items-start gap-3 text-sm text-slate-600">
+        <input
+          type="checkbox"
+          required
+          className="mt-1 h-4 w-4 rounded border-slate-300"
+        />
+        J&apos;accepte les conditions d&apos;utilisation et la politique de
+        confidentialité.
+      </label>
+
+      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="inline-flex justify-center rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800 disabled:cursor-not-allowed disabled:bg-red-400"
+        >
+          {isSubmitting ? "Inscription en cours..." : "Créer mon compte"}
+        </button>
+
+        <p className="text-sm text-slate-600">
+          Déjà inscrit ?{" "}
+          <Link
+            href="/connexion"
+            className="font-semibold text-red-700 underline underline-offset-2"
+          >
+            Accéder à la connexion
+          </Link>
+        </p>
+      </div>
+
+      {message ? (
+        <div className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          <p>{message}</p>
+          <Link
+            href="/e-learning-habilitation-electrique"
+            className="mt-3 inline-block font-semibold text-red-700 underline underline-offset-2"
+          >
+            ← Retour à la présentation de la formation
+          </Link>
+        </div>
+      ) : null}
+    </form>
+  );
+}
+
+function InscriptionFallback() {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <p className="text-sm text-slate-600">Chargement du formulaire...</p>
+    </div>
+  );
+}
+
+export default function InscriptionPage() {
+  return (
     <main className="min-h-screen bg-slate-50 py-10">
       <div className="mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -72,153 +232,9 @@ export default function InscriptionPage() {
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
-        >
-          <div className="grid gap-5 sm:grid-cols-2">
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              Prénom
-              <input
-                name="firstName"
-                required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="Ex : Marie"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              Nom
-              <input
-                name="lastName"
-                required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="Ex : Dupont"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
-              Adresse e-mail
-              <input
-                name="email"
-                type="email"
-                required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="vous@entreprise.fr"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              Téléphone
-              <input
-                name="phone"
-                type="tel"
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="06 00 00 00 00"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              Entreprise (optionnel)
-              <input
-                name="company"
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="Nom de votre société"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
-              Formation souhaitée
-              <select
-                name="formation"
-                defaultValue={prefilledFormation}
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-              >
-                {formations.map((formation) => (
-                  <option key={formation} value={formation}>
-                    {formation}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
-              Session souhaitée
-              <input
-                name="session"
-                defaultValue={prefilledSession}
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="Ex : 10 juin 2026"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              Mot de passe
-              <input
-                name="password"
-                type="password"
-                minLength={8}
-                required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="8 caractères minimum"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-              Confirmer le mot de passe
-              <input
-                name="confirmPassword"
-                type="password"
-                minLength={8}
-                required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="Retapez votre mot de passe"
-              />
-            </label>
-          </div>
-
-          <label className="mt-5 flex items-start gap-3 text-sm text-slate-600">
-            <input
-              type="checkbox"
-              required
-              className="mt-1 h-4 w-4 rounded border-slate-300"
-            />
-            J&apos;accepte les conditions d&apos;utilisation et la politique de
-            confidentialité.
-          </label>
-
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="inline-flex justify-center rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800 disabled:cursor-not-allowed disabled:bg-red-400"
-            >
-              {isSubmitting ? "Inscription en cours..." : "Créer mon compte"}
-            </button>
-
-            <p className="text-sm text-slate-600">
-              Déjà inscrit ?{" "}
-              <Link
-                href="/connexion"
-                className="font-semibold text-red-700 underline underline-offset-2"
-              >
-                Accéder à la connexion
-              </Link>
-            </p>
-          </div>
-
-          {message ? (
-            <div className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-              <p>{message}</p>
-              <Link
-                href="/e-learning-habilitation-electrique"
-                className="mt-3 inline-block font-semibold text-red-700 underline underline-offset-2"
-              >
-                ← Retour à la présentation de la formation
-              </Link>
-            </div>
-          ) : null}
-        </form>
+        <Suspense fallback={<InscriptionFallback />}>
+          <InscriptionForm />
+        </Suspense>
 
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           <Link
