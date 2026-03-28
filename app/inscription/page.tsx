@@ -101,14 +101,16 @@ function InscriptionForm() {
       return;
     }
 
-    const { data, error } = await supabase.rpc("register_for_session", {
+    const payload = {
       p_session_id: hiddenSessionId,
       p_first_name: firstName,
       p_last_name: lastName,
       p_email: email,
       p_phone: phone,
       p_company: company,
-    });
+    };
+
+    const { data, error } = await supabase.rpc("register_for_session", payload);
 
     if (error) {
       console.error("Supabase RPC error:", error);
@@ -124,8 +126,47 @@ function InscriptionForm() {
       return;
     }
 
+    try {
+      const emailResponse = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          participantEmail: email,
+          participantName: `${firstName} ${lastName}`,
+          formationTitle:
+            sessionDetails?.title ?? String(formData.get("formation") ?? ""),
+          sessionDate: sessionDetails
+            ? new Date(sessionDetails.date_start).toLocaleDateString("fr-FR")
+            : String(formData.get("session") ?? ""),
+          company,
+        }),
+      });
+
+      const emailResult = await emailResponse.json();
+
+      if (!emailResult.success) {
+        console.error("Email sending failed:", emailResult);
+        setMessage(
+          "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+        );
+        setIsSubmitting(false);
+        form.reset();
+        return;
+      }
+    } catch (emailError) {
+      console.error("Email fetch error:", emailError);
+      setMessage(
+        "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+      );
+      setIsSubmitting(false);
+      form.reset();
+      return;
+    }
+
     setMessage(
-      "Inscription enregistrée avec succès. Notre équipe peut vous contacter pour valider votre parcours."
+      "Inscription enregistrée avec succès. Un email de confirmation a été envoyé."
     );
     setIsSubmitting(false);
     form.reset();
