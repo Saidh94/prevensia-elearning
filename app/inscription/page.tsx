@@ -1,11 +1,36 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
+const formations = [
+  "H0B0",
+  "BS / BE Manœuvre",
+  "B1 B1V B2 B2V BR BC",
+  "Manipulation extincteurs",
+  "Guide-file / Serre-file",
+  "Équipier de Première Intervention (EPI)",
+  "Exploitation SSI",
+  "Exploitation sprinkler",
+  "SST - Initial",
+  "MAC SST",
+  "À définir",
+];
 
 export default function InscriptionPage() {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+
+  const prefilledFormation = useMemo(() => {
+    const value = searchParams.get("formation");
+    return value && formations.includes(value) ? value : "À définir";
+  }, [searchParams]);
+
+  const prefilledSession = useMemo(() => {
+    return searchParams.get("session") ?? "";
+  }, [searchParams]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,7 +50,7 @@ export default function InscriptionPage() {
     await new Promise((resolve) => setTimeout(resolve, 700));
 
     setMessage(
-      "Inscription enregistrée. Vous pouvez maintenant vous connecter à votre espace e-learning."
+      "Inscription enregistrée. Vous pouvez maintenant accéder à votre espace e-learning. Notre équipe peut vous contacter pour valider votre parcours."
     );
     setIsSubmitting(false);
     event.currentTarget.reset();
@@ -38,10 +63,12 @@ export default function InscriptionPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
             E-learning PREVENSIA
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-slate-900">Créer votre compte</h1>
+          <h1 className="mt-2 text-3xl font-bold text-slate-900">
+            Créer votre compte
+          </h1>
           <p className="mt-3 text-slate-600">
-            Inscrivez-vous pour accéder à vos modules d&apos;habilitation électrique et
-            suivre votre progression en ligne.
+            Inscrivez-vous pour accéder à vos modules d&apos;habilitation électrique
+            et suivre votre progression en ligne.
           </p>
         </div>
 
@@ -100,6 +127,31 @@ export default function InscriptionPage() {
               />
             </label>
 
+            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+              Formation souhaitée
+              <select
+                name="formation"
+                defaultValue={prefilledFormation}
+                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+              >
+                {formations.map((formation) => (
+                  <option key={formation} value={formation}>
+                    {formation}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label className="flex flex-col gap-2 text-sm font-medium text-slate-700 sm:col-span-2">
+              Session souhaitée
+              <input
+                name="session"
+                defaultValue={prefilledSession}
+                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                placeholder="Ex : 10 juin 2026"
+              />
+            </label>
+
             <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
               Mot de passe
               <input
@@ -126,8 +178,13 @@ export default function InscriptionPage() {
           </div>
 
           <label className="mt-5 flex items-start gap-3 text-sm text-slate-600">
-            <input type="checkbox" required className="mt-1 h-4 w-4 rounded border-slate-300" />
-            J&apos;accepte les conditions d&apos;utilisation et la politique de confidentialité.
+            <input
+              type="checkbox"
+              required
+              className="mt-1 h-4 w-4 rounded border-slate-300"
+            />
+            J&apos;accepte les conditions d&apos;utilisation et la politique de
+            confidentialité.
           </label>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -141,18 +198,42 @@ export default function InscriptionPage() {
 
             <p className="text-sm text-slate-600">
               Déjà inscrit ?{" "}
-              <Link href="/connexion" className="font-semibold text-red-700 underline underline-offset-2">
+              <Link
+                href="/connexion"
+                className="font-semibold text-red-700 underline underline-offset-2"
+              >
                 Accéder à la connexion
               </Link>
             </p>
           </div>
 
           {message ? (
-            <p className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-              {message}
-            </p>
+            <div className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+              <p>{message}</p>
+              <Link
+                href="/e-learning-habilitation-electrique"
+                className="mt-3 inline-block font-semibold text-red-700 underline underline-offset-2"
+              >
+                ← Retour à la présentation de la formation
+              </Link>
+            </div>
           ) : null}
         </form>
+
+        <div className="mt-6 flex flex-wrap gap-4 text-sm">
+          <Link
+            href="/planning"
+            className="font-semibold text-red-700 underline underline-offset-2"
+          >
+            Voir le planning des sessions
+          </Link>
+          <Link
+            href="/demande-devis"
+            className="font-semibold text-slate-700 underline underline-offset-2"
+          >
+            Faire une demande de devis
+          </Link>
+        </div>
       </div>
     </main>
   );
