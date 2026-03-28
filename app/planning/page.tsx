@@ -1,59 +1,55 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { createClient } from "../../lib/supabase/client";
 
 type Session = {
-  date: string;
+  id: string;
   title: string;
-  format: string;
-  places: string;
+  date_start: string;
+  places_total: number;
+  places_taken: number;
+  is_active: boolean;
 };
 
-export default function Planning() {
-  const sessions: Session[] = [
-    {
-      date: "10 juin 2026",
-      title: "H0B0",
-      format: "E-learning accompagné",
-      places: "Places disponibles",
-    },
-    {
-      date: "18 juin 2026",
-      title: "BS / BE Manœuvre",
-      format: "E-learning accompagné",
-      places: "Places disponibles",
-    },
-    {
-      date: "02 juillet 2026",
-      title: "Manipulation extincteurs",
-      format: "Présentiel",
-      places: "Places disponibles",
-    },
-    {
-      date: "09 juillet 2026",
-      title: "Guide-file / Serre-file",
-      format: "Présentiel",
-      places: "Places limitées",
-    },
-  ];
+export default function PlanningPage() {
+  const supabase = createClient();
 
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [sessions, setSessions] = useState<Session[]>([]);
+  const [selected, setSelected] = useState<Session | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const selectedSession = useMemo(() => {
-    if (selectedIndex === null) return null;
-    return sessions[selectedIndex];
-  }, [selectedIndex, sessions]);
+  useEffect(() => {
+    async function fetchSessions() {
+      setLoading(true);
+      setErrorMessage("");
 
-  const inscriptionHref = selectedSession
-    ? `/inscription?formation=${encodeURIComponent(
-        selectedSession.title
-      )}&session=${encodeURIComponent(selectedSession.date)}`
-    : "/inscription";
+      const { data, error } = await supabase
+        .from("sessions")
+        .select("id, title, date_start, places_total, places_taken, is_active")
+        .eq("is_active", true)
+        .order("date_start", { ascending: true });
+
+      if (error) {
+        console.error("Erreur chargement sessions:", error);
+        setErrorMessage(error.message);
+        setSessions([]);
+        setLoading(false);
+        return;
+      }
+
+      setSessions(data ?? []);
+      setLoading(false);
+    }
+
+    fetchSessions();
+  }, [supabase]);
 
   return (
     <main className="min-h-screen bg-slate-50 py-10">
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
             PREVENSIA FORMATION
@@ -62,106 +58,98 @@ export default function Planning() {
             Calendrier des formations
           </h1>
           <p className="mt-3 text-slate-600">
-            Sélectionnez une date pour orienter directement le participant vers
-            la page d’inscription avec la session préremplie.
+            Cliquez sur une session pour la sélectionner puis poursuivez vers
+            l’inscription.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+        {loading ? (
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
+            Chargement des sessions...
+          </div>
+        ) : errorMessage ? (
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700 shadow-sm">
+            Erreur de chargement des sessions : {errorMessage}
+          </div>
+        ) : sessions.length === 0 ? (
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-800 shadow-sm">
+            Aucune session active trouvée pour le moment.
+          </div>
+        ) : (
           <div className="grid gap-4">
-            {sessions.map((session, index) => {
-              const isSelected = selectedIndex === index;
+            {sessions.map((session) => {
+              const remaining = session.places_total - session.places_taken;
+              const isSelected = selected?.id === session.id;
 
               return (
                 <button
-                  key={`${session.date}-${session.title}`}
+                  key={session.id}
                   type="button"
-                  onClick={() => setSelectedIndex(index)}
-                  className={`rounded-2xl border p-5 text-left transition ${
+                  onClick={() => setSelected(session)}
+                  className={`w-full rounded-2xl border p-6 text-left shadow-sm transition cursor-pointer ${
                     isSelected
-                      ? "border-red-600 bg-red-50 shadow-sm"
-                      : "border-slate-200 bg-white hover:border-red-200 hover:shadow-sm"
+                      ? "border-red-600 bg-red-50 ring-2 ring-red-200"
+                      : "border-slate-200 bg-white hover:border-red-300 hover:shadow-md"
                   }`}
                 >
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
-                      <p className="text-lg font-semibold text-slate-900">
+                      <p className="text-2xl font-bold text-slate-900">
                         {session.title}
                       </p>
-                      <p className="mt-1 text-sm text-slate-600">
-                        {session.format}
+                      <p className="mt-2 text-lg text-slate-700">
+                        {new Date(session.date_start).toLocaleDateString("fr-FR")}
+                      </p>
+                      <p className="mt-3 text-base text-slate-700">
+                        Places restantes :{" "}
+                        <span className="font-semibold">{remaining}</span>
                       </p>
                     </div>
 
-                    <div className="sm:text-right">
-                      <p className="text-sm font-semibold uppercase tracking-[0.1em] text-red-700">
-                        Date
-                      </p>
-                      <p className="mt-1 font-medium text-slate-900">
-                        {session.date}
-                      </p>
+                    <div className="self-start">
+                      <span
+                        className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
+                          isSelected
+                            ? "bg-red-100 text-red-700"
+                            : "bg-slate-100 text-slate-600"
+                        }`}
+                      >
+                        {isSelected ? "Session sélectionnée" : "Cliquer pour choisir"}
+                      </span>
                     </div>
-                  </div>
-
-                  <div className="mt-4 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-                    {session.places}
                   </div>
                 </button>
               );
             })}
           </div>
+        )}
 
-          <div className="self-start rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Session sélectionnée
+        {selected ? (
+          <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-6 shadow-sm">
+            <p className="text-lg font-bold text-slate-900">
+              Vous avez sélectionné :
+            </p>
+            <p className="mt-3 text-xl font-semibold text-slate-900">
+              {selected.title}
+            </p>
+            <p className="mt-1 text-slate-700">
+              {new Date(selected.date_start).toLocaleDateString("fr-FR")}
             </p>
 
-            {selectedSession ? (
-              <>
-                <div className="mt-4 rounded-2xl border border-green-200 bg-green-50 p-4">
-                  <p className="font-semibold text-slate-900">
-                    {selectedSession.title}
-                  </p>
-                  <p className="mt-2 text-sm text-slate-700">
-                    Date : {selectedSession.date}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-700">
-                    Format : {selectedSession.format}
-                  </p>
-                </div>
-
-                <div className="mt-5 flex flex-col gap-3">
-                  <Link
-                    href={inscriptionHref}
-                    className="inline-flex items-center justify-center rounded-2xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
-                  >
-                    S’inscrire à cette session
-                  </Link>
-
-                  <Link
-                    href="/demande-devis"
-                    className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-800 transition hover:border-red-300 hover:text-red-700"
-                  >
-                    Demander un devis
-                  </Link>
-                </div>
-              </>
-            ) : (
-              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-                Aucune session sélectionnée pour le moment.
-              </div>
-            )}
-
-            <div className="mt-6 border-t border-slate-200 pt-6">
-              <Link
-                href="/e-learning-habilitation-electrique"
-                className="text-sm font-semibold text-red-700 underline underline-offset-2"
-              >
-                Voir la page e-learning habilitation électrique
-              </Link>
-            </div>
+            <Link
+              href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(
+                selected.title
+              )}`}
+              className="mt-5 inline-flex rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
+            >
+              S’inscrire à cette session
+            </Link>
           </div>
-        </div>
+        ) : (
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
+            Aucune session sélectionnée pour le moment.
+          </div>
+        )}
       </div>
     </main>
   );
