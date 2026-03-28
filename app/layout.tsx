@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Header } from "./components/Header"; // ✅ import du Header global
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,12 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-elearning.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "[prevensia-elearning.vercel.app](https://prevensia-elearning.vercel.app)";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PREVENSIA FORMATION | Formations sécurité incendie, SST et habilitation",
+    default:
+      "PREVENSIA FORMATION | Formations sécurité incendie, SST et habilitation",
     template: "%s | PREVENSIA FORMATION",
   },
   description:
@@ -32,9 +34,7 @@ export const metadata: Metadata = {
     "organisme de formation qualiopi",
     "formation prévention des risques",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -82,7 +82,10 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />      {/* ✅ ton menu principal visible sur TOUTES les pages */}
+        <main className="flex-1">{children}</main> {/* ✅ contenu propre à la page */}
+      </body>
     </html>
   );
 }
