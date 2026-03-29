@@ -1,29 +1,25 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
       return Response.json(
         { success: false, error: "RESEND_API_KEY manquante" },
         { status: 500 }
       );
     }
 
-    const body = await request.json();
+    // ✅ Initialisation ICI, pas en dehors
+    const resend = new Resend(apiKey);
 
-    const {
-      participantEmail,
-      participantName,
-      formationTitle,
-      sessionDate,
-      company,
-    } = body;
+    const body = await req.json();
+    const { participantEmail, participantName, formationTitle, sessionDate, company } = body;
 
     const participantEmailResponse = await resend.emails.send({
       from: "PREVENSIA <onboarding@resend.dev>",
-      to: [participantEmail],
+      to: [participantEmail],  // ✅ email du participant (corrigé aussi)
       subject: `Confirmation d'inscription - ${formationTitle}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -32,7 +28,6 @@ export async function POST(request: Request) {
           <p>Votre inscription a bien été enregistrée.</p>
           <p><strong>Formation :</strong> ${formationTitle}</p>
           <p><strong>Date :</strong> ${sessionDate}</p>
-          <p>Notre équipe peut vous contacter prochainement pour valider votre parcours.</p>
           <p>Cordialement,<br />PREVENSIA FORMATION</p>
         </div>
       `,
@@ -59,11 +54,19 @@ export async function POST(request: Request) {
       participantEmailResponse,
       adminEmailResponse,
     });
+
   } catch (error) {
-    console.error("Erreur envoi email :", error);
+    console.error("ERREUR EMAIL :", error);
     return Response.json(
-      { success: false, error: "Erreur lors de l'envoi des emails." },
+      {
+        success: false,
+        error: error instanceof Error ? error.message : String(error),
+      },
       { status: 500 }
     );
   }
+}
+
+export async function GET() {
+  return Response.json({ ok: true, route: "/api/send-mail" });
 }

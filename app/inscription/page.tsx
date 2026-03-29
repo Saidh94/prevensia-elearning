@@ -144,6 +144,30 @@ function InscriptionForm() {
         }),
       });
 
+      const contentType = emailResponse.headers.get("content-type") ?? "";
+
+      if (!emailResponse.ok) {
+        const rawText = await emailResponse.text();
+        console.error("Email route HTTP error:", rawText);
+        setMessage(
+          "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+        );
+        setIsSubmitting(false);
+        form.reset();
+        return;
+      }
+
+      if (!contentType.includes("application/json")) {
+        const rawText = await emailResponse.text();
+        console.error("Email route non-JSON response:", rawText);
+        setMessage(
+          "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+        );
+        setIsSubmitting(false);
+        form.reset();
+        return;
+      }
+
       const emailResult = await emailResponse.json();
 
       if (!emailResult.success) {

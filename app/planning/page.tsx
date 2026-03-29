@@ -14,8 +14,6 @@ type Session = {
 };
 
 export default function PlanningPage() {
-  const supabase = createClient();
-
   const [sessions, setSessions] = useState<Session[]>([]);
   const [selected, setSelected] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
@@ -23,6 +21,7 @@ export default function PlanningPage() {
 
   useEffect(() => {
     async function fetchSessions() {
+      const supabase = createClient();
       setLoading(true);
       setErrorMessage("");
 
@@ -36,16 +35,14 @@ export default function PlanningPage() {
         console.error("Erreur chargement sessions:", error);
         setErrorMessage(error.message);
         setSessions([]);
-        setLoading(false);
-        return;
+      } else {
+        setSessions(data ?? []);
       }
-
-      setSessions(data ?? []);
       setLoading(false);
     }
 
     fetchSessions();
-  }, [supabase]);
+  }, []);
 
   return (
     <main className="min-h-screen bg-slate-50 py-10">
@@ -59,7 +56,7 @@ export default function PlanningPage() {
           </h1>
           <p className="mt-3 text-slate-600">
             Cliquez sur une session pour la sélectionner puis poursuivez vers
-            l’inscription.
+            l&apos;inscription.
           </p>
         </div>
 
@@ -105,15 +102,12 @@ export default function PlanningPage() {
                         <span className="font-semibold">{remaining}</span>
                       </p>
                     </div>
-
                     <div className="self-start">
-                      <span
-                        className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
-                          isSelected
-                            ? "bg-red-100 text-red-700"
-                            : "bg-slate-100 text-slate-600"
-                        }`}
-                      >
+                      <span className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
+                        isSelected
+                          ? "bg-red-100 text-red-700"
+                          : "bg-slate-100 text-slate-600"
+                      }`}>
                         {isSelected ? "Session sélectionnée" : "Cliquer pour choisir"}
                       </span>
                     </div>
@@ -126,23 +120,16 @@ export default function PlanningPage() {
 
         {selected ? (
           <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-6 shadow-sm">
-            <p className="text-lg font-bold text-slate-900">
-              Vous avez sélectionné :
-            </p>
-            <p className="mt-3 text-xl font-semibold text-slate-900">
-              {selected.title}
-            </p>
+            <p className="text-lg font-bold text-slate-900">Vous avez sélectionné :</p>
+            <p className="mt-3 text-xl font-semibold text-slate-900">{selected.title}</p>
             <p className="mt-1 text-slate-700">
               {new Date(selected.date_start).toLocaleDateString("fr-FR")}
             </p>
-
             <Link
-              href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(
-                selected.title
-              )}`}
+              href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(selected.title)}`}
               className="mt-5 inline-flex rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
             >
-              S’inscrire à cette session
+              S&apos;inscrire à cette session
             </Link>
           </div>
         ) : (
