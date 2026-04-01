@@ -165,42 +165,49 @@ export default function Home() {
       title: "Habilitation électrique H0B0",
       format: "E-learning accompagné",
       audience: "Particuliers / Professionnels",
+      places: 12,
     },
     {
       date: "18 juin 2026",
       title: "BS / BE Manœuvre",
       format: "E-learning accompagné",
       audience: "Professionnels",
+      places: 8,
     },
     {
       date: "02 juillet 2026",
       title: "Manipulation extincteurs",
       format: "Présentiel sur site client",
       audience: "Professionnels",
+      places: 10,
     },
     {
       date: "09 juillet 2026",
       title: "Guide-file / Serre-file",
       format: "Présentiel inter / intra",
       audience: "Particuliers / Professionnels",
+      places: 9,
     },
     {
       date: "16 septembre 2026",
       title: "Exploitation sprinkler et référentiels techniques",
       format: "Présentiel inter / intra",
       audience: "Professionnels",
+      places: 6,
     },
     {
       date: "23 septembre 2026",
       title: "SST - Formation initiale",
       format: "Présentiel inter / intra",
       audience: "Professionnels",
+      places: 10,
     },
     {
       date: "07 octobre 2026",
       title: "MAC SST",
       format: "Présentiel inter / intra",
       audience: "Professionnels",
+      places: 8,
     },
   ];
 
@@ -618,6 +625,12 @@ export default function Home() {
                   Voir le catalogue
                 </a>
                 <a
+                  href="#planning"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  Voir les sessions
+                </a>
+                <a
                   href="/demande-devis"
                   className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
@@ -872,6 +885,10 @@ export default function Home() {
                   <div>
                     <p className="text-xl font-semibold">{item.title}</p>
                     <p className="mt-1 text-sm text-slate-600">{item.format}</p>
+                    <p className="mt-2 text-sm font-medium text-slate-700">
+                      Places restantes :{" "}
+                      <span className="font-bold text-red-700">{item.places}</span>
+                    </p>
                   </div>
 
                   <div>
