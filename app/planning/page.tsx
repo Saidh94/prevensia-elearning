@@ -8,11 +8,12 @@ type Session = {
   title: string;
   date_start: string;
   location?: string | null;
+  places_restantes?: number;
 };
 
 export default function PlanningPage() {
   const [sessions, setSessions] = useState<Session[]>([]);
-  const [selected, setSelected] = useState<Session | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function PlanningPage() {
         setSessions(data);
 
         if (data.length > 0) {
-          setSelected(data[0]);
+          setSelectedId(data[0].id);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : "Erreur inconnue");
@@ -49,7 +50,8 @@ export default function PlanningPage() {
             Calendrier des formations
           </h1>
           <p className="mt-4 text-slate-600">
-            Cliquez sur une session pour la sélectionner puis poursuivez vers l'inscription.
+            Cliquez sur une session pour la sélectionner puis poursuivez vers
+            l&apos;inscription.
           </p>
         </div>
 
@@ -58,83 +60,76 @@ export default function PlanningPage() {
             Erreur de chargement des sessions : {error}
           </div>
         )}
-{!error && sessions.length > 0 && (
-  <div className="grid gap-4">
-    {sessions.map((session) => (
-      <div
-        key={session.id}
-        className={`rounded-2xl border p-5 shadow-sm transition ${
-          selected?.id === session.id
-            ? "border-green-700 bg-green-50"
-            : "border-slate-200 bg-white"
-        }`}
-      >
-        <button
-          type="button"
-          onClick={() => setSelected(session)}
-          className="w-full text-left"
-        >
-          <p className="text-lg font-semibold text-slate-900">
-            {session.title}
-          </p>
-          <p className="mt-1 text-slate-600">
-            {new Date(session.date_start).toLocaleDateString("fr-FR")}
-          </p>
-          {session.location && (
-            <p className="mt-1 text-sm text-slate-500">{session.location}</p>
-          )}
-        </button>
 
-        <div className="mt-4 flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={() => setSelected(session)}
-            className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
-          >
-            Voir cette session
-          </button>
+        {!error && sessions.length > 0 && (
+          <div className="grid gap-4">
+            {sessions.map((session) => {
+              const isSelected = selectedId === session.id;
 
-          <Link
-            href={`/inscription?sessionId=${session.id}&formation=${encodeURIComponent(
-              session.title
-            )}`}
-            className="inline-flex rounded-xl bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
-          >
-            S&apos;inscrire
-          </Link>
-        </div>
-      </div>
-    ))}
-  </div>
-)}
+              return (
+                <div
+                  key={session.id}
+                  className={`rounded-2xl border p-5 shadow-sm transition ${
+                    isSelected
+                      ? "border-green-700 bg-green-50"
+                      : "border-slate-200 bg-white"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setSelectedId(session.id)}
+                    className="w-full text-left"
+                  >
+                    <p className="text-lg font-semibold text-slate-900">
+                      {session.title}
+                    </p>
 
-        {selected ? (
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-sm uppercase tracking-wide text-slate-500">
-              Session sélectionnée
-            </p>
-            <p className="mt-3 text-xl font-semibold text-slate-900">
-              {selected.title}
-            </p>
-            <p className="mt-1 text-slate-700">
-              {new Date(selected.date_start).toLocaleDateString("fr-FR")}
-            </p>
+                    <p className="mt-1 text-slate-600">
+                      {new Date(session.date_start).toLocaleDateString("fr-FR")}
+                    </p>
 
-            <Link
-              href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(
-                selected.title
-              )}`}
-              className="mt-5 inline-flex rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
-            >
-              S&apos;inscrire à cette session
-            </Link>
+                    {session.location && (
+                      <p className="mt-1 text-sm text-slate-500">
+                        {session.location}
+                      </p>
+                    )}
+
+                    <p className="mt-2 text-sm font-medium text-slate-700">
+                      Places restantes :{" "}
+                      <span className="font-bold text-green-700">
+                        {session.places_restantes ?? 0}
+                      </span>
+                    </p>
+                  </button>
+
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedId(session.id)}
+                      className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+                    >
+                      Voir cette session
+                    </button>
+
+                    <Link
+                      href={`/inscription?sessionId=${session.id}&formation=${encodeURIComponent(
+                        session.title
+                      )}`}
+                      className="inline-flex rounded-xl bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
+                    >
+                      S&apos;inscrire
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        ) : (
-          !error && (
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-              Aucune session sélectionnée pour le moment.
-            </div>
-          )
+        )}
+
+        {!error && sessions.length === 0 && (
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
+            Aucune session disponible pour le moment.
+          </div>
         )}
       </div>
     </main>
