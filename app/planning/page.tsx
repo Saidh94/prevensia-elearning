@@ -8,6 +8,9 @@ type Session = {
   title: string;
   date_start: string;
   location?: string | null;
+  max_places?: number | null;
+  reserved_count?: number;
+  places_restantes?: number;
 };
 
 export default function PlanningPage() {
@@ -78,9 +81,17 @@ export default function PlanningPage() {
                 <p className="mt-1 text-slate-600">
                   {new Date(session.date_start).toLocaleDateString("fr-FR")}
                 </p>
+
                 {session.location && (
                   <p className="mt-1 text-sm text-slate-500">{session.location}</p>
                 )}
+
+                <p className="mt-2 text-sm font-medium text-slate-700">
+                  Places restantes :{" "}
+                  <span className="font-bold text-green-700">
+                    {session.places_restantes ?? 0}
+                  </span>
+                </p>
               </button>
             ))}
           </div>
@@ -96,6 +107,17 @@ export default function PlanningPage() {
             </p>
             <p className="mt-1 text-slate-700">
               {new Date(selected.date_start).toLocaleDateString("fr-FR")}
+            </p>
+
+            {selected.location && (
+              <p className="mt-1 text-sm text-slate-500">{selected.location}</p>
+            )}
+
+            <p className="mt-3 text-sm font-medium text-slate-700">
+              Places restantes :{" "}
+              <span className="font-bold text-green-700">
+                {selected.places_restantes ?? 0}
+              </span>
             </p>
 
             <Link
