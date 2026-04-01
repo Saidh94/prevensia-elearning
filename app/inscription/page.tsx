@@ -3,7 +3,7 @@
 import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { createClient } from "../../lib/supabase/client";
+import { createClient } from "@/lib/supabase/client";
 
 const formations = [
   "H0B0",
@@ -24,13 +24,13 @@ type SessionDetails = {
   title: string;
   date_start: string;
   format: string;
-  places_total: number;
-  places_taken: number;
+  places_total: number | null;
+  places_taken: number | null;
 };
 
 function InscriptionForm() {
   const searchParams = useSearchParams();
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
@@ -50,21 +50,33 @@ function InscriptionForm() {
 
   useEffect(() => {
     async function loadSession() {
-      if (!sessionId) return;
-
-      setLoadingSession(true);
-
-      const { data, error } = await supabase
-        .from("sessions")
-        .select("id, title, date_start, format, places_total, places_taken")
-        .eq("id", sessionId)
-        .single();
-
-      if (!error && data) {
-        setSessionDetails(data);
+      if (!sessionId) {
+        setSessionDetails(null);
+        return;
       }
 
-      setLoadingSession(false);
+      try {
+        setLoadingSession(true);
+
+        const { data, error } = await supabase
+          .from("sessions")
+          .select("id, title, date_start, format, places_total, places_taken")
+          .eq("id", sessionId)
+          .single();
+
+        if (error) {
+          console.error("Erreur chargement session :", error);
+          setSessionDetails(null);
+          return;
+        }
+
+        setSessionDetails(data);
+      } catch (error) {
+        console.error("Erreur réseau chargement session :", error);
+        setSessionDetails(null);
+      } finally {
+        setLoadingSession(false);
+      }
     }
 
     loadSession();
@@ -78,77 +90,110 @@ function InscriptionForm() {
     setIsSubmitting(true);
     setMessage("");
 
-    const formData = new FormData(form);
-    const password = String(formData.get("password") ?? "");
-    const confirmPassword = String(formData.get("confirmPassword") ?? "");
-
-    if (password !== confirmPassword) {
-      setMessage("Les mots de passe ne correspondent pas.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    const firstName = String(formData.get("firstName") ?? "");
-    const lastName = String(formData.get("lastName") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const phone = String(formData.get("phone") ?? "");
-    const company = String(formData.get("company") ?? "");
-    const hiddenSessionId = String(formData.get("sessionId") ?? "");
-
-    if (!hiddenSessionId) {
-      setMessage("Aucune session sélectionnée. Merci de passer par le planning.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    const payload = {
-      p_session_id: hiddenSessionId,
-      p_first_name: firstName,
-      p_last_name: lastName,
-      p_email: email,
-      p_phone: phone,
-      p_company: company,
-    };
-
-    const { data, error } = await supabase.rpc("register_for_session", payload);
-
-    if (error) {
-      console.error("Supabase RPC error:", error);
-      setMessage(`Erreur Supabase : ${error.message}`);
-      setIsSubmitting(false);
-      return;
-    }
-
-    if (!data?.success) {
-      console.error("RPC returned:", data);
-      setMessage(data?.message ?? "Impossible d’enregistrer l’inscription.");
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const emailResponse = await fetch("/api/send-mail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          participantEmail: email,
-          participantName: `${firstName} ${lastName}`,
-          formationTitle:
-            sessionDetails?.title ?? String(formData.get("formation") ?? ""),
-          sessionDate: sessionDetails
-            ? new Date(sessionDetails.date_start).toLocaleDateString("fr-FR")
-            : String(formData.get("session") ?? ""),
-          company,
-        }),
-      });
+      const formData = new FormData(form);
+      const password = String(formData.get("password") ?? "");
+      const confirmPassword = String(formData.get("confirmPassword") ?? "");
 
-      const contentType = emailResponse.headers.get("content-type") ?? "";
+      if (password !== confirmPassword) {
+        setMessage("Les mots de passe ne correspondent pas.");
+        setIsSubmitting(false);
+        return;
+      }
 
-      if (!emailResponse.ok) {
-        const rawText = await emailResponse.text();
-        console.error("Email route HTTP error:", rawText);
+      const firstName = String(formData.get("firstName") ?? "");
+      const lastName = String(formData.get("lastName") ?? "");
+      const email = String(formData.get("email") ?? "");
+      const phone = String(formData.get("phone") ?? "");
+      const company = String(formData.get("company") ?? "");
+      const hiddenSessionId = String(formData.get("sessionId") ?? "");
+
+      if (!hiddenSessionId) {
+        setMessage("Aucune session sélectionnée. Merci de passer par le planning.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const payload = {
+        p_session_id: hiddenSessionId,
+        p_first_name: firstName,
+        p_last_name: lastName,
+        p_email: email,
+        p_phone: phone,
+        p_company: company,
+      };
+
+      const { data, error } = await supabase.rpc("register_for_session", payload);
+
+      if (error) {
+        console.error("Supabase RPC error:", error);
+        setMessage(`Erreur Supabase : ${error.message}`);
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!data?.success) {
+        console.error("RPC returned:", data);
+        setMessage(data?.message ?? "Impossible d’enregistrer l’inscription.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      try {
+        const emailResponse = await fetch("/api/send-mail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            participantEmail: email,
+            participantName: `${firstName} ${lastName}`,
+            formationTitle:
+              sessionDetails?.title ?? String(formData.get("formation") ?? ""),
+            sessionDate: sessionDetails
+              ? new Date(sessionDetails.date_start).toLocaleDateString("fr-FR")
+              : String(formData.get("session") ?? ""),
+            company,
+          }),
+        });
+
+        const contentType = emailResponse.headers.get("content-type") ?? "";
+
+        if (!emailResponse.ok) {
+          const rawText = await emailResponse.text();
+          console.error("Email route HTTP error:", rawText);
+          setMessage(
+            "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+          );
+          setIsSubmitting(false);
+          form.reset();
+          return;
+        }
+
+        if (!contentType.includes("application/json")) {
+          const rawText = await emailResponse.text();
+          console.error("Email route non-JSON response:", rawText);
+          setMessage(
+            "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+          );
+          setIsSubmitting(false);
+          form.reset();
+          return;
+        }
+
+        const emailResult = await emailResponse.json();
+
+        if (!emailResult.success) {
+          console.error("Email sending failed:", emailResult);
+          setMessage(
+            "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+          );
+          setIsSubmitting(false);
+          form.reset();
+          return;
+        }
+      } catch (emailError) {
+        console.error("Email fetch error:", emailError);
         setMessage(
           "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
         );
@@ -157,47 +202,22 @@ function InscriptionForm() {
         return;
       }
 
-      if (!contentType.includes("application/json")) {
-        const rawText = await emailResponse.text();
-        console.error("Email route non-JSON response:", rawText);
-        setMessage(
-          "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
-        );
-        setIsSubmitting(false);
-        form.reset();
-        return;
-      }
-
-      const emailResult = await emailResponse.json();
-
-      if (!emailResult.success) {
-        console.error("Email sending failed:", emailResult);
-        setMessage(
-          "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
-        );
-        setIsSubmitting(false);
-        form.reset();
-        return;
-      }
-    } catch (emailError) {
-      console.error("Email fetch error:", emailError);
       setMessage(
-        "Inscription enregistrée avec succès, mais l’email de confirmation n’a pas pu être envoyé."
+        "Inscription enregistrée avec succès. Un email de confirmation a été envoyé."
       );
       setIsSubmitting(false);
       form.reset();
-      return;
+    } catch (error) {
+      console.error("Erreur soumission formulaire :", error);
+      setMessage("Une erreur est survenue lors de l'inscription.");
+      setIsSubmitting(false);
     }
-
-    setMessage(
-      "Inscription enregistrée avec succès. Un email de confirmation a été envoyé."
-    );
-    setIsSubmitting(false);
-    form.reset();
   };
 
   const remainingPlaces =
-    sessionDetails ? sessionDetails.places_total - sessionDetails.places_taken : null;
+    sessionDetails && sessionDetails.places_total !== null && sessionDetails.places_taken !== null
+      ? sessionDetails.places_total - sessionDetails.places_taken
+      : null;
 
   return (
     <>

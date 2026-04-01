@@ -1,72 +1,79 @@
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-export async function POST(req: Request) {
-  try {
-    const apiKey = process.env.RESEND_API_KEY;
+const apiKey = process.env.RESEND_API_KEY;
+const resend = new Resend(apiKey);
 
-    if (!apiKey) {
-      return Response.json(
-        { success: false, error: "RESEND_API_KEY manquante" },
-        { status: 500 }
+const FROM_EMAIL = "PREVENSIA <onboarding@resend.dev>";
+const ADMIN_EMAIL = "prevensia.formation@outlook.fr";
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      company,
+      sessionId,
+      formation,
+    } = body;
+
+    if (!firstName || !lastName || !email) {
+      return NextResponse.json(
+        { success: false, error: "Champs obligatoires manquants." },
+        { status: 400 }
       );
     }
 
-    // ✅ Initialisation ICI, pas en dehors
-    const resend = new Resend(apiKey);
+    const adminSubject = `Nouvelle inscription - ${formation || "Formation"}`;
 
-    const body = await req.json();
-    const { participantEmail, participantName, formationTitle, sessionDate, company } = body;
+    const adminHtml = `
+      <h2>Nouvelle demande d'inscription</h2>
+      <p><strong>Nom :</strong> ${lastName}</p>
+      <p><strong>Prénom :</strong> ${firstName}</p>
+      <p><strong>Email :</strong> ${email}</p>
+      <p><strong>Téléphone :</strong> ${phone || "Non renseigné"}</p>
+      <p><strong>Société :</strong> ${company || "Non renseignée"}</p>
+      <p><strong>Formation :</strong> ${formation || "Non renseignée"}</p>
+      <p><strong>ID session :</strong> ${sessionId || "Non renseigné"}</p>
+    `;
 
-    const participantEmailResponse = await resend.emails.send({
-      from: "PREVENSIA <onboarding@resend.dev>",
-      to: [participantEmail],  // ✅ email du participant (corrigé aussi)
-      subject: `Confirmation d'inscription - ${formationTitle}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-          <h2>Confirmation d'inscription</h2>
-          <p>Bonjour ${participantName},</p>
-          <p>Votre inscription a bien été enregistrée.</p>
-          <p><strong>Formation :</strong> ${formationTitle}</p>
-          <p><strong>Date :</strong> ${sessionDate}</p>
-          <p>Cordialement,<br />PREVENSIA FORMATION</p>
-        </div>
-      `,
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [ADMIN_EMAIL],
+      replyTo: email,
+      subject: adminSubject,
+      html: adminHtml,
     });
 
-    const adminEmailResponse = await resend.emails.send({
-      from: "PREVENSIA <onboarding@resend.dev>",
-      to: ["prevensia.formation@outlook.fr"],
-      subject: `Nouvelle inscription - ${formationTitle}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-          <h2>Nouvelle inscription reçue</h2>
-          <p><strong>Nom :</strong> ${participantName}</p>
-          <p><strong>Email :</strong> ${participantEmail}</p>
-          <p><strong>Entreprise :</strong> ${company || "Non renseignée"}</p>
-          <p><strong>Formation :</strong> ${formationTitle}</p>
-          <p><strong>Date :</strong> ${sessionDate}</p>
-        </div>
-      `,
+    const userSubject = "Confirmation de votre demande d'inscription";
+
+    const userHtml = `
+      <p>Bonjour ${firstName},</p>
+      <p>Nous avons bien reçu votre demande d'inscription${
+        formation ? ` pour la formation <strong>${formation}</strong>` : ""
+      }.</p>
+      <p>Nous reviendrons vers vous rapidement.</p>
+      <p>Cordialement,<br />PREVENSIA FORMATION</p>
+    `;
+
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: [email],
+      subject: userSubject,
+      html: userHtml,
     });
 
-    return Response.json({
-      success: true,
-      participantEmailResponse,
-      adminEmailResponse,
-    });
-
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("ERREUR EMAIL :", error);
-    return Response.json(
-      {
-        success: false,
-        error: error instanceof Error ? error.message : String(error),
-      },
+    console.error("Erreur envoi email :", error);
+
+    return NextResponse.json(
+      { success: false, error: "Erreur lors de l'envoi des emails." },
       { status: 500 }
     );
   }
-}
-
-export async function GET() {
-  return Response.json({ ok: true, route: "/api/send-mail" });
 }

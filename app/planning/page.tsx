@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { createClient } from "../../lib/supabase/client";
+import { createClient } from "@/lib/supabase/client";
 
 type Session = {
   id: string;
   title: string;
   date_start: string;
-  places_total: number;
-  places_taken: number;
-  is_active: boolean;
+  places_total: number | null;
+  places_taken: number | null;
 };
 
 export default function PlanningPage() {
@@ -21,24 +20,41 @@ export default function PlanningPage() {
 
   useEffect(() => {
     async function fetchSessions() {
-      const supabase = createClient();
-      setLoading(true);
-      setErrorMessage("");
+      try {
+        setLoading(true);
+        setErrorMessage("");
 
-      const { data, error } = await supabase
-        .from("sessions")
-        .select("id, title, date_start, places_total, places_taken, is_active")
-        .eq("is_active", true)
-        .order("date_start", { ascending: true });
+        const supabase = createClient();
 
-      if (error) {
-        console.error("Erreur chargement sessions:", error);
-        setErrorMessage(error.message);
-        setSessions([]);
-      } else {
+        const { data, error } = await supabase
+          .from("sessions")
+          .select("id, title, date_start, places_total, places_taken")
+          .order("date_start", { ascending: true });
+
+        console.log("DATA =", data);
+        console.log("ERROR =", error);
+
+        if (error) {
+          console.error("Erreur chargement sessions :", error);
+          setErrorMessage(error.message || "Erreur inconnue Supabase");
+          setSessions([]);
+          setSelected(null);
+          return;
+        }
+
         setSessions(data ?? []);
+      } catch (error) {
+        console.error("Erreur réseau chargement sessions :", error);
+        setErrorMessage(
+          error instanceof Error
+            ? error.message
+            : "Impossible de charger les sessions"
+        );
+        setSessions([]);
+        setSelected(null);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
 
     fetchSessions();
@@ -70,12 +86,14 @@ export default function PlanningPage() {
           </div>
         ) : sessions.length === 0 ? (
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-800 shadow-sm">
-            Aucune session active trouvée pour le moment.
+            Aucune session trouvée pour le moment.
           </div>
         ) : (
           <div className="grid gap-4">
             {sessions.map((session) => {
-              const remaining = session.places_total - session.places_taken;
+              const total = session.places_total ?? 0;
+              const taken = session.places_taken ?? 0;
+              const remaining = total - taken;
               const isSelected = selected?.id === session.id;
 
               return (
@@ -83,7 +101,7 @@ export default function PlanningPage() {
                   key={session.id}
                   type="button"
                   onClick={() => setSelected(session)}
-                  className={`w-full rounded-2xl border p-6 text-left shadow-sm transition cursor-pointer ${
+                  className={`w-full cursor-pointer rounded-2xl border p-6 text-left shadow-sm transition ${
                     isSelected
                       ? "border-red-600 bg-red-50 ring-2 ring-red-200"
                       : "border-slate-200 bg-white hover:border-red-300 hover:shadow-md"
@@ -102,13 +120,18 @@ export default function PlanningPage() {
                         <span className="font-semibold">{remaining}</span>
                       </p>
                     </div>
+
                     <div className="self-start">
-                      <span className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
-                        isSelected
-                          ? "bg-red-100 text-red-700"
-                          : "bg-slate-100 text-slate-600"
-                      }`}>
-                        {isSelected ? "Session sélectionnée" : "Cliquer pour choisir"}
+                      <span
+                        className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
+                          isSelected
+                            ? "bg-red-100 text-red-700"
+                            : "bg-slate-100 text-slate-600"
+                        }`}
+                      >
+                        {isSelected
+                          ? "Session sélectionnée"
+                          : "Cliquer pour choisir"}
                       </span>
                     </div>
                   </div>
@@ -120,13 +143,19 @@ export default function PlanningPage() {
 
         {selected ? (
           <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-6 shadow-sm">
-            <p className="text-lg font-bold text-slate-900">Vous avez sélectionné :</p>
-            <p className="mt-3 text-xl font-semibold text-slate-900">{selected.title}</p>
+            <p className="text-lg font-bold text-slate-900">
+              Vous avez sélectionné :
+            </p>
+            <p className="mt-3 text-xl font-semibold text-slate-900">
+              {selected.title}
+            </p>
             <p className="mt-1 text-slate-700">
               {new Date(selected.date_start).toLocaleDateString("fr-FR")}
             </p>
             <Link
-              href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(selected.title)}`}
+              href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(
+                selected.title
+              )}`}
               className="mt-5 inline-flex rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
             >
               S&apos;inscrire à cette session
