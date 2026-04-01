@@ -1,162 +1,1184 @@
 "use client";
 
+import { type MouseEvent, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-type Session = {
-  id: string;
-  title: string;
-  date_start: string;
-  places_total: number;
-  places_taken: number;
-  places_restantes: number;
-};
-
-export default function PlanningPage() {
-  const [sessions, setSessions] = useState<Session[]>([]);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileFormationsOpen, setIsMobileFormationsOpen] = useState(false);
+  const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
+  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+  const desktopMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const loadSessions = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
 
-        const res = await fetch("/api/sessions", { cache: "no-store" });
-        const data = await res.json();
+    document.body.style.overflow = "hidden";
 
-        if (!res.ok) {
-          throw new Error(data?.error || "Erreur de chargement");
-        }
-
-        if (!Array.isArray(data)) {
-          throw new Error("Format de réponse invalide");
-        }
-
-        setSessions(data);
-
-        if (data.length > 0) {
-          setSelectedId(data[0].id);
-        } else {
-          setSelectedId(null);
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Erreur inconnue");
-        setSessions([]);
-        setSelectedId(null);
-      } finally {
-        setIsLoading(false);
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
+        setIsMobileFormationsOpen(false);
+        setIsDesktopMenuOpen(false);
       }
     };
 
-    loadSessions();
+    window.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTopButton(window.scrollY > 320);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isDesktopMenuOpen) return;
+
+    const handleOutsideClick = (event: globalThis.MouseEvent) => {
+      const target = event.target as Node;
+      if (!desktopMenuRef.current?.contains(target)) {
+        setIsDesktopMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutsideClick);
+    return () => window.removeEventListener("mousedown", handleOutsideClick);
+  }, [isDesktopMenuOpen]);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileFormationsOpen(false);
+  };
+
+  const closeDesktopMenu = () => {
+    setIsDesktopMenuOpen(false);
+  };
+
+  const closeAllMenus = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileFormationsOpen(false);
+    setIsDesktopMenuOpen(false);
+  };
+
+  const handleAccueilClick = (
+    event?: MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event?.preventDefault();
+    closeAllMenus();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", "/");
+  };
+
+  const formationsElearning = [
+    {
+      title: "Habilitation électrique H0B0",
+      mode: "E-learning",
+      description:
+        "Formation destinée au personnel non-électricien intervenant à proximité d'installations électriques.",
+      duration: "7 h",
+    },
+    {
+      title: "BS / BE Manœuvre",
+      mode: "E-learning",
+      description:
+        "Parcours pour les opérations élémentaires et les manœuvres sur installations basse tension.",
+      duration: "10 h",
+    },
+    {
+      title: "B1 B1V B2 B2V BR BC",
+      mode: "E-learning",
+      description:
+        "Formation complète pour personnel électricien avec modules théoriques et évaluation des connaissances.",
+      duration: "14 h",
+    },
+  ];
+
+  const formationsPresentiel = [
+    {
+      title: "Manipulation des extincteurs",
+      mode: "Présentiel",
+      description:
+        "Apprentissage des classes de feu, choix de l'agent extincteur et mise en situation pratique.",
+      duration: "2 h à 3 h",
+    },
+    {
+      title: "Guide-file / Serre-file",
+      mode: "Présentiel",
+      description:
+        "Organisation de l'évacuation, consignes, rôles et exercices adaptés à votre établissement.",
+      duration: "3 h",
+    },
+    {
+      title: "Équipier de Première Intervention (EPI)",
+      mode: "Présentiel",
+      description:
+        "Sensibilisation opérationnelle pour agir rapidement en cas de départ de feu et sécuriser l'évacuation.",
+      duration: "1/2 journée",
+    },
+    {
+      title: "Exploitation SSI",
+      mode: "Présentiel",
+      description:
+        "Lecture du SSI, conduite à tenir, levée de doute, acquittement et exploitation des informations.",
+      duration: "1/2 journée à 1 jour",
+    },
+    {
+      title: "Exploitation sprinkler et référentiels techniques",
+      mode: "Présentiel",
+      description:
+        "Formation dédiée à l’exploitation des installations sprinkler et à la compréhension des exigences techniques et des principaux cadres applicables selon EN 12845, APSAD R1, NFPA 13 et FM Global.",
+      duration: "1 à 2 jours",
+    },
+    {
+      title: "Sauveteur Secouriste du Travail (SST) - Initial",
+      mode: "Présentiel",
+      description:
+        "Formation SST conforme au référentiel INRS pour permettre aux salariés d’intervenir efficacement face à un accident du travail et de contribuer à la prévention des risques professionnels.",
+      duration: "2 jours",
+    },
+    {
+      title: "MAC SST - Maintien et Actualisation des Compétences",
+      mode: "Présentiel",
+      description:
+        "Recyclage SST permettant de maintenir les compétences du sauveteur secouriste du travail et d’actualiser les gestes de secours.",
+      duration: "1 jour",
+    },
+  ];
+
+  const planning = [
+    {
+      date: "02 juillet 2026",
+      title: "Manipulation extincteurs",
+      format: "Présentiel sur site client",
+      audience: "Professionnels",
+      places: 10,
+    },
+    {
+      date: "09 juillet 2026",
+      title: "Guide-file / Serre-file",
+      format: "Présentiel inter / intra",
+      audience: "Particuliers / Professionnels",
+      places: 9,
+    },
+    {
+      date: "16 septembre 2026",
+      title: "Exploitation sprinkler et référentiels techniques",
+      format: "Présentiel inter / intra",
+      audience: "Professionnels",
+      places: 6,
+    },
+    {
+      date: "23 septembre 2026",
+      title: "SST - Formation initiale",
+      format: "Présentiel inter / intra",
+      audience: "Professionnels",
+      places: 10,
+    },
+    {
+      date: "07 octobre 2026",
+      title: "MAC SST",
+      format: "Présentiel inter / intra",
+      audience: "Professionnels",
+      places: 8,
+    },
+  ];
+
+  const stats = [
+    { value: "3 pôles", label: "Électrique, incendie & SST" },
+    { value: "Qualiopi", label: "Organisme certifié" },
+    { value: "B2B / B2C", label: "Particuliers & entreprises" },
+    { value: "Rapide", label: "Demande de devis simplifiée" },
+  ];
+
+  const blocsIllustres = [
+    {
+      title: "Habilitation électrique",
+      image: "/images/armoire-electrique.jpg",
+      text: "Parcours e-learning et accompagnés pour les habilitations H0B0, BS, BE manœuvre, B1, B2, BR et BC.",
+    },
+    {
+      title: "SSI & sécurité incendie",
+      image: "/images/image-ssi.jpg",
+      text: "Formations exploitation SSI, manipulation extincteurs, guide-file, serre-file et équipier de première intervention.",
+    },
+    {
+      title: "Exploitation sprinkler",
+      image: "/images/installation-spk.jpg",
+      text: "Formation technique sur les installations sprinkler et les référentiels EN 12845, APSAD R1, NFPA 13 et FM Global.",
+    },
+    {
+      title: "Formation en salle",
+      image: "/images/salle-de-formation.jpg",
+      text: "Sessions inter ou intra-entreprises pour les bureaux, industriels, exploitants et collectivités.",
+    },
+    {
+      title: "SST / MAC SST",
+      image: "/images/sst.jpg",
+      text: "Apprentissage des gestes de premiers secours, conduite à tenir et maintien des compétences en entreprise.",
+    },
+  ];
+
+  const catalog = [...formationsElearning, ...formationsPresentiel];
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr";
+
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "PREVENSIA FORMATION",
+        url: siteUrl,
+        logo: `${siteUrl}/images/logo-prevensia-formation.jpg`,
+        email: "prevensia.formation@outlook.fr",
+        telephone: "+33189629492",
+        sameAs: ["https://linkedin.com/in/prevensia-formation-3450a0385"],
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#localbusiness`,
+        name: "PREVENSIA FORMATION",
+        url: siteUrl,
+        telephone: "+33189629492",
+        email: "prevensia.formation@outlook.fr",
+        areaServed: "FR",
+        image: `${siteUrl}/images/salle-de-formation.jpg`,
+      },
+      {
+        "@type": "ItemList",
+        name: "Catalogue de formations PREVENSIA",
+        itemListElement: catalog.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.title,
+          description: item.description,
+        })),
+      },
+    ],
+  };
+
   return (
-    <main className="min-h-screen bg-slate-50 py-10">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-600">
-            PREVENSIA FORMATION
-          </p>
-
-          <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Calendrier des formations
-          </h1>
-
-          <p className="mt-4 text-slate-600">
-            Consultez les prochaines sessions disponibles et accédez
-            directement à l&apos;inscription.
-          </p>
-        </div>
-
-        {isLoading && (
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-            Chargement des sessions...
+    <div id="top" className="min-h-screen bg-slate-50 text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex shrink-0 items-center gap-4">
+            <Image
+              src="/images/logo-prevensia-formation.jpg"
+              alt="Logo Prevensia Formation"
+              width={200}
+              height={70}
+              className="h-auto w-[130px] sm:w-[190px]"
+              priority
+            />
           </div>
-        )}
 
-        {!isLoading && error && (
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700 shadow-sm">
-            Erreur de chargement des sessions : {error}
+          <div className="ml-6 hidden lg:flex">
+            <button
+              type="button"
+              onClick={handleAccueilClick}
+              className="text-sm font-semibold text-slate-700 transition hover:text-red-700"
+            >
+              Accueil
+            </button>
           </div>
-        )}
 
-        {!isLoading && !error && sessions.length > 0 && (
-          <div className="grid gap-4">
-            {sessions.map((session) => {
-              const isSelected = selectedId === session.id;
+          <div className="ml-auto flex items-center gap-3">
+            <div className="relative hidden lg:block" ref={desktopMenuRef}>
+              <button
+                type="button"
+                className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-700"
+                aria-expanded={isDesktopMenuOpen}
+                onClick={() => setIsDesktopMenuOpen((previous) => !previous)}
+              >
+                Menu
+              </button>
 
-              return (
-                <div
-                  key={session.id}
-                  className={`rounded-2xl border p-5 shadow-sm transition ${
-                    isSelected
-                      ? "border-green-700 bg-green-50"
-                      : "border-slate-200 bg-white"
-                  }`}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setSelectedId(session.id)}
-                    className="w-full text-left"
-                  >
-                    <p className="text-lg font-semibold text-slate-900">
-                      {session.title}
-                    </p>
-
-                    <p className="mt-1 text-slate-600">
-                      {new Date(session.date_start).toLocaleDateString("fr-FR", {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                      })}
-                    </p>
-
-                    <p className="mt-2 text-sm font-medium text-slate-700">
-                      Places restantes :{" "}
-                      <span className="font-bold text-green-700">
-                        {session.places_restantes}
-                      </span>
-                    </p>
-
-                    <p className="mt-1 text-sm text-slate-500">
-                      {session.places_taken} inscrit(s) / {session.places_total} places
-                    </p>
-                  </button>
-
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedId(session.id)}
-                      className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+              {isDesktopMenuOpen ? (
+                <div className="absolute right-0 top-full z-50 mt-2 w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
+                  <div className="flex flex-col gap-3 text-sm font-medium text-slate-700">
+                    <Link
+                      href="/#catalogue"
+                      className="transition hover:text-red-700"
+                      onClick={closeDesktopMenu}
                     >
-                      Voir cette session
-                    </button>
+                      Catalogue
+                    </Link>
 
                     <Link
-                      href={`/inscription?sessionId=${session.id}&formation=${encodeURIComponent(
-                        session.title
-                      )}`}
-                      className="inline-flex rounded-xl bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
+                      href="/#planning"
+                      className="transition hover:text-red-700"
+                      onClick={closeDesktopMenu}
                     >
-                      S&apos;inscrire
+                      Planning
                     </Link>
+
+                    <Link
+                      href="/demande-devis"
+                      className="transition hover:text-red-700"
+                      onClick={closeDesktopMenu}
+                    >
+                      Demande de devis
+                    </Link>
+
+                    <Link
+                      href="/#contact"
+                      className="transition hover:text-red-700"
+                      onClick={closeDesktopMenu}
+                    >
+                      Contact
+                    </Link>
+
+                    <div className="rounded-xl border border-slate-200 p-3">
+                      <p className="font-semibold text-slate-700">Formations</p>
+
+                      <div className="mt-3 flex flex-col gap-2 pl-2 text-sm">
+                        <Link
+                          href="/formation-habilitation-electrique"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          Habilitation électrique
+                        </Link>
+
+                        <Link
+                          href="/formation-sst"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          Formation SST
+                        </Link>
+
+                        <Link
+                          href="/formation-securite-incendie"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          Sécurité incendie
+                        </Link>
+
+                        <Link
+                          href="/formation-ssi"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          Formation SSI
+                        </Link>
+
+                        <Link
+                          href="/formation-sprinkler"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          Exploitation sprinkler
+                        </Link>
+
+                        <Link
+                          href="/elearning"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          E-learning habilitation électrique
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        )}
+              ) : null}
+            </div>
 
-        {!isLoading && !error && sessions.length === 0 && (
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-            Aucune session disponible pour le moment.
+            <button
+              type="button"
+              className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-red-300 hover:text-red-700 lg:hidden"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              Menu
+            </button>
+
+            <Link
+              href="/demande-devis"
+              className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+            >
+              Obtenir un devis
+            </Link>
           </div>
-        )}
-      </div>
-    </main>
+        </div>
+      </header>
+
+      {isMobileMenuOpen ? (
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-40 bg-slate-950/60 lg:hidden"
+            aria-label="Fermer le menu"
+            onClick={closeMobileMenu}
+          />
+          <aside
+            id="mobile-navigation"
+            className="fixed inset-y-0 right-0 z-50 w-[min(92vw,360px)] border-l border-slate-200 bg-white p-6 shadow-2xl lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation mobile"
+          >
+            <div className="mb-6 flex items-center justify-between">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                Navigation
+              </p>
+              <button
+                type="button"
+                className="rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700"
+                onClick={closeMobileMenu}
+              >
+                Fermer
+              </button>
+            </div>
+
+            <nav className="flex h-full flex-col gap-2 overflow-y-auto text-sm font-medium text-slate-700">
+              <button
+                type="button"
+                className="rounded-xl px-3 py-2 text-left transition hover:bg-slate-100 hover:text-red-700"
+                onClick={handleAccueilClick}
+              >
+                Accueil
+              </button>
+
+              <Link
+                href="/#catalogue"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Catalogue
+              </Link>
+
+              <Link
+                href="/#planning"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Planning
+              </Link>
+
+              <Link
+                href="/demande-devis"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Demande de devis
+              </Link>
+
+              <Link
+                href="/#contact"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Contact
+              </Link>
+
+              <div className="mt-2 rounded-2xl border border-slate-200 p-2">
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left font-semibold"
+                  aria-expanded={isMobileFormationsOpen}
+                  onClick={() =>
+                    setIsMobileFormationsOpen((previous) => !previous)
+                  }
+                >
+                  Formations
+                  <span className="text-slate-500">
+                    {isMobileFormationsOpen ? "−" : "+"}
+                  </span>
+                </button>
+
+                {isMobileFormationsOpen ? (
+                  <div className="mt-2 flex flex-col gap-1 border-t border-slate-200 pt-2">
+                    <Link
+                      href="/formation-habilitation-electrique"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Habilitation électrique
+                    </Link>
+
+                    <Link
+                      href="/formation-sst"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation SST
+                    </Link>
+
+                    <Link
+                      href="/formation-securite-incendie"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Sécurité incendie
+                    </Link>
+
+                    <Link
+                      href="/formation-sprinkler"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation sprinkler
+                    </Link>
+
+                    <Link
+                      href="/formation-ssi"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      Formation SSI
+                    </Link>
+
+                    <Link
+                      href="/elearning"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      E-learning habilitation électrique
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
+            </nav>
+          </aside>
+        </>
+      ) : null}
+
+      <main>
+        <section className="relative overflow-hidden bg-slate-950 text-white">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/salle-de-formation.jpg"
+              alt="Formation en salle"
+              fill
+              className="object-cover opacity-20"
+              priority
+            />
+          </div>
+
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-red-900/80" />
+
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-24">
+            <div className="flex flex-col justify-center">
+              <p className="mb-3 inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
+                Organisme de formation
+              </p>
+
+              <div className="mb-5 inline-flex w-fit items-center gap-3 rounded-2xl border border-emerald-300/30 bg-white/10 px-4 py-2">
+                <Image
+                  src="/images/qualiopi.jpg"
+                  alt="Qualiopi"
+                  width={110}
+                  height={60}
+                  className="h-auto w-[80px] rounded-md object-cover sm:w-[110px]"
+                />
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-emerald-100">
+                  Organisme certifié Qualiopi
+                </p>
+              </div>
+
+              <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                Formations en habilitation électrique, sécurité incendie et SST
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+                PREVENSIA FORMATION accompagne les particuliers et les
+                professionnels avec des parcours e-learning et des formations
+                présentielles orientées terrain, conformité réglementaire et
+                efficacité opérationnelle.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#catalogue"
+                  className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+                >
+                  Voir le catalogue
+                </a>
+
+                <a
+                  href="/elearning"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  Accéder au e-learning
+                </a>
+
+                <a
+                  href="/planning"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  Voir les sessions présentielles
+                </a>
+
+                <a
+                  href="/demande-devis"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  Demander un devis
+                </a>
+              </div>
+
+              <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                {stats.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                  >
+                    <p className="text-xl font-bold">{item.value}</p>
+                    <p className="mt-1 text-sm text-slate-300">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4 self-center">
+              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-6 shadow-2xl backdrop-blur">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-100">
+                  Nos parcours
+                </p>
+
+                <div className="mt-5 grid gap-4">
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <p className="text-sm font-semibold text-red-100">
+                      E-learning
+                    </p>
+                    <p className="mt-2 text-lg font-semibold">
+                      Habilitation électrique
+                    </p>
+                    <p className="mt-2 text-sm text-slate-200">
+                      Modules accessibles à distance avec progression
+                      structurée, contenu réglementaire et suivi apprenant.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <p className="text-sm font-semibold text-red-100">
+                      Présentiel
+                    </p>
+                    <p className="mt-2 text-lg font-semibold">
+                      Sécurité incendie & exploitation sprinkler
+                    </p>
+                    <p className="mt-2 text-sm text-slate-200">
+                      Sessions opérationnelles sur site ou en inter-entreprises.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <p className="text-sm font-semibold text-red-100">
+                      Présentiel
+                    </p>
+                    <p className="mt-2 text-lg font-semibold">SST</p>
+                    <p className="mt-2 text-sm text-slate-200">
+                      Formation SST initiale et MAC SST avec mises en situation
+                      concrètes.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-gradient-to-r from-red-600 to-orange-500 p-4 text-white">
+                    <p className="text-sm font-semibold">Demande rapide</p>
+                    <p className="mt-2 text-lg font-semibold">
+                      Particuliers & Professionnels
+                    </p>
+                    <p className="mt-2 text-sm text-white/90">
+                      Décrivez votre besoin, le nombre de participants et votre
+                      délai souhaité pour obtenir une proposition adaptée.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="formations"
+          className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        >
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+              Domaines de formation
+            </p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+              Une offre pensée pour la conformité, la sécurité et l’efficacité
+              terrain
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Trois grands domaines : l’habilitation électrique, la sécurité
+              incendie et la formation SST.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {blocsIllustres.map((bloc) => (
+              <div
+                key={bloc.title}
+                className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src={bloc.image}
+                    alt={bloc.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold">{bloc.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {bloc.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <div className="rounded-[1.75rem] border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/images/qualiopi.jpg"
+                  alt="Qualiopi processus certifié"
+                  width={120}
+                  height={70}
+                  className="h-auto w-[90px] rounded-md object-cover sm:w-[120px]"
+                />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                    Certification Qualiopi
+                  </p>
+                  <p className="mt-1 text-sm text-slate-700">
+                    Organisme certifié Qualiopi au titre des actions de
+                    formation.
+                  </p>
+                </div>
+              </div>
+              <a
+                href="/demande-devis"
+                className="inline-flex rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+              >
+                Demander un devis
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-5xl px-6 text-slate-700">
+            <h2 className="mb-6 text-3xl font-bold text-slate-900">
+              Organisme de formation en habilitation électrique, sécurité
+              incendie et SST
+            </h2>
+
+            <p className="mb-4">
+              PREVENSIA FORMATION propose des formations professionnelles
+              destinées aux entreprises, collectivités et particuliers
+              souhaitant développer leurs compétences en prévention des risques.
+              Nos formations couvrent l’habilitation électrique, la sécurité
+              incendie, l’exploitation du SSI, l’exploitation des installations
+              sprinkler ainsi que la formation Sauveteur Secouriste du Travail.
+            </p>
+
+            <p className="mb-4">
+              Nos sessions sont organisées partout en France en présentiel ou en
+              e-learning selon les besoins. La formation e-learning permet une
+              organisation flexible et rapide, particulièrement adaptée aux
+              salariés itinérants ou aux entreprises multisites.
+            </p>
+
+            <p className="mb-4">
+              PREVENSIA FORMATION accompagne les exploitants, responsables
+              sécurité, services techniques, bureaux d’études et gestionnaires
+              de sites industriels, logistiques ou tertiaires. L’objectif est
+              de garantir la conformité réglementaire et l’efficacité
+              opérationnelle face aux risques électriques et incendie.
+            </p>
+
+            <p>
+              Nos formations intègrent les référentiels techniques et
+              réglementaires applicables : habilitation électrique selon la
+              norme NF C 18-510, sécurité incendie selon la réglementation ERP,
+              Code du travail et ICPE, exploitation du SSI selon la série de
+              normes NF S 61, et exploitation sprinkler selon EN 12845, APSAD
+              R1, NFPA 13 et FM Global.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="catalogue"
+          className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        >
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Catalogue de formations
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Toutes les formations en un seul endroit
+              </h2>
+            </div>
+            <p className="max-w-2xl text-slate-600">
+              Un catalogue lisible pour présenter les objectifs, la durée, le
+              mode de réalisation et le public visé.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            <div className="overflow-hidden rounded-[1.75rem] border border-blue-200 bg-blue-50 shadow-sm">
+              <div className="border-b border-blue-200 px-6 py-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                  E-learning
+                </p>
+                <h3 className="mt-2 text-2xl font-bold text-slate-900">
+                  Habilitations électriques en ligne
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  Parcours accessibles à la demande, sans date imposée, avec
+                  progression apprenant et accès aux modules.
+                </p>
+              </div>
+
+              <div className="px-6 py-4">
+                <div className="space-y-4">
+                  {formationsElearning.map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-blue-100 bg-white p-4"
+                    >
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <p className="text-lg font-semibold text-slate-900">
+                            {item.title}
+                          </p>
+                          <p className="mt-1 text-sm text-slate-600">
+                            {item.description}
+                          </p>
+                        </div>
+                        <span className="inline-flex w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                          {item.duration}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6">
+                  <Link
+                    href="/elearning"
+                    className="inline-flex rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                  >
+                    Accéder aux formations e-learning
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+              <div className="border-b border-slate-200 px-6 py-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                  Présentiel
+                </p>
+                <h3 className="mt-2 text-2xl font-bold text-slate-900">
+                  Formations planifiées
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  Sessions inter ou intra-entreprises avec dates, places
+                  disponibles et réservation.
+                </p>
+              </div>
+
+              <div className="px-6 py-4">
+                <div className="space-y-4">
+                  {formationsPresentiel.map((item) => (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-slate-100 bg-slate-50 p-4"
+                    >
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <p className="text-lg font-semibold text-slate-900">
+                            {item.title}
+                          </p>
+                          <p className="mt-1 text-sm text-slate-600">
+                            {item.description}
+                          </p>
+                        </div>
+                        <span className="inline-flex w-fit rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
+                          {item.duration}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6">
+                  <Link
+                    href="/planning"
+                    className="inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Voir le planning présentiel
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="planning" className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Sessions en présentiel
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Consultez les prochaines dates
+              </h2>
+              <p className="mt-4 text-slate-600">
+                Une vue simple des prochaines sessions présentielles pour
+                réserver rapidement ou nous consulter pour une organisation sur
+                mesure.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-4">
+              {planning.map((item) => (
+                <div
+                  key={`${item.date}-${item.title}`}
+                  className="grid gap-4 rounded-[1.5rem] border border-slate-200 p-6 shadow-sm md:grid-cols-[180px_1fr_220px_220px] md:items-center"
+                >
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+                      Date
+                    </p>
+                    <p className="mt-1 text-lg font-bold">{item.date}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xl font-semibold">{item.title}</p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {item.format}
+                    </p>
+                    <p className="mt-2 text-sm font-medium text-slate-700">
+                      Places restantes :{" "}
+                      <span className="font-bold text-red-700">
+                        {item.places}
+                      </span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                      Public
+                    </p>
+                    <p className="mt-1 text-sm text-slate-700">
+                      {item.audience}
+                    </p>
+                  </div>
+
+                  <div className="flex justify-start md:justify-end">
+                    <a
+                      href="/demande-devis"
+                      className="rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+                    >
+                      Réserver / Demander
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                href="/planning"
+                className="inline-flex rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Voir toutes les sessions présentielles
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="bg-slate-100 py-16">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+            <div className="rounded-[1.75rem] bg-white p-8 shadow-sm ring-1 ring-slate-200 lg:col-span-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Contact
+              </p>
+              <h2 className="mt-3 text-3xl font-bold">
+                Échangeons sur votre besoin
+              </h2>
+              <p className="mt-4 text-slate-600">
+                PREVENSIA FORMATION accompagne les particuliers et les
+                professionnels pour leurs besoins en formation réglementaire et
+                opérationnelle.
+              </p>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Email
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    prevensia.formation@outlook.fr
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Téléphone
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">01 89 62 94 92</p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Zone d’intervention
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    France entière selon la prestation
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-slate-200 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
+                    Réponse
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    Retour rapide sur demande
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5 md:col-span-2">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-700">
+                    Réseau social
+                  </p>
+                  <p className="mt-2 text-base text-slate-700">
+                    Vous pouvez nous suivre sur LinkedIn :
+                  </p>
+                  <a
+                    href="https://linkedin.com/in/prevensia-formation-3450a0385"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex text-base font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-800"
+                  >
+                    linkedin.com/in/prevensia-formation-3450a0385
+                  </a>
+                </div>
+              </div>
+
+              <a
+                href="/demande-devis"
+                className="mt-8 inline-flex rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+              >
+                Demander un devis
+              </a>
+            </div>
+
+            <div className="rounded-[1.75rem] bg-slate-900 p-8 text-white shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
+                Atouts
+              </p>
+              <ul className="mt-6 space-y-4 text-sm leading-6 text-slate-300">
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Organisme certifié Qualiopi au titre des actions de formation
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Offre mixte e-learning et présentiel
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Organisation adaptée aux besoins B2B et B2C
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  SST, sécurité incendie, SSI et habilitation électrique
+                </li>
+                <li className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  Demande de devis simple et orientée conversion
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeStructuredData),
+        }}
+      />
+
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="flex items-center gap-4">
+            <Image
+              src="/images/logo-prevensia-formation.jpg"
+              alt="Logo Prevensia Formation"
+              width={160}
+              height={50}
+              className="h-auto w-[130px]"
+            />
+            <div>
+              <p className="font-semibold text-slate-900">
+                PREVENSIA FORMATION
+              </p>
+              <p>
+                Formations en habilitation électrique, sécurité incendie,
+                sprinkler et SST
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
+            <a href="#catalogue" className="hover:text-red-700">
+              Catalogue
+            </a>
+            <a href="#planning" className="hover:text-red-700">
+              Planning
+            </a>
+            <a href="/elearning" className="hover:text-red-700">
+              E-learning
+            </a>
+            <a href="/demande-devis" className="hover:text-red-700">
+              Demande de devis
+            </a>
+            <a href="#contact" className="hover:text-red-700">
+              Contact
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      {showScrollTopButton ? (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 z-50 rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-xl transition hover:-translate-y-0.5 hover:text-red-700"
+          aria-label="Revenir en haut de la page"
+        >
+          ↑ Accueil
+        </button>
+      ) : null}
+    </div>
   );
 }
