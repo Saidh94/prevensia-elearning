@@ -1,150 +1,95 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
 
 type Session = {
   id: string;
   title: string;
   date_start: string;
-  places_total: number | null;
-  places_taken: number | null;
+  location?: string | null;
 };
 
 export default function PlanningPage() {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [selected, setSelected] = useState<Session | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchSessions() {
+    const loadSessions = async () => {
       try {
-        setLoading(true);
-        setErrorMessage("");
+        const res = await fetch("/api/sessions", { cache: "no-store" });
+        const data = await res.json();
 
-        const supabase = createClient();
-
-        const { data, error } = await supabase
-          .from("sessions")
-          .select("id, title, date_start, places_total, places_taken")
-          .order("date_start", { ascending: true });
-
-        console.log("DATA =", data);
-        console.log("ERROR =", error);
-
-        if (error) {
-          console.error("Erreur chargement sessions :", error);
-          setErrorMessage(error.message || "Erreur inconnue Supabase");
-          setSessions([]);
-          setSelected(null);
-          return;
+        if (!res.ok) {
+          throw new Error(data.error || "Erreur de chargement");
         }
 
-        setSessions(data ?? []);
-      } catch (error) {
-        console.error("Erreur réseau chargement sessions :", error);
-        setErrorMessage(
-          error instanceof Error
-            ? error.message
-            : "Impossible de charger les sessions"
-        );
-        setSessions([]);
-        setSelected(null);
-      } finally {
-        setLoading(false);
-      }
-    }
+        setSessions(data);
 
-    fetchSessions();
+        if (data.length > 0) {
+          setSelected(data[0]);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Erreur inconnue");
+      }
+    };
+
+    loadSessions();
   }, []);
 
   return (
     <main className="min-h-screen bg-slate-50 py-10">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
+          <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-600">
             PREVENSIA FORMATION
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-slate-900">
+          <h1 className="mt-3 text-3xl font-bold text-slate-900">
             Calendrier des formations
           </h1>
-          <p className="mt-3 text-slate-600">
-            Cliquez sur une session pour la sélectionner puis poursuivez vers
-            l&apos;inscription.
+          <p className="mt-4 text-slate-600">
+            Cliquez sur une session pour la sélectionner puis poursuivez vers l'inscription.
           </p>
         </div>
 
-        {loading ? (
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-            Chargement des sessions...
-          </div>
-        ) : errorMessage ? (
+        {error && (
           <div className="rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700 shadow-sm">
-            Erreur de chargement des sessions : {errorMessage}
+            Erreur de chargement des sessions : {error}
           </div>
-        ) : sessions.length === 0 ? (
-          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-800 shadow-sm">
-            Aucune session trouvée pour le moment.
-          </div>
-        ) : (
+        )}
+
+        {!error && sessions.length > 0 && (
           <div className="grid gap-4">
-            {sessions.map((session) => {
-              const total = session.places_total ?? 0;
-              const taken = session.places_taken ?? 0;
-              const remaining = total - taken;
-              const isSelected = selected?.id === session.id;
-
-              return (
-                <button
-                  key={session.id}
-                  type="button"
-                  onClick={() => setSelected(session)}
-                  className={`w-full cursor-pointer rounded-2xl border p-6 text-left shadow-sm transition ${
-                    isSelected
-                      ? "border-red-600 bg-red-50 ring-2 ring-red-200"
-                      : "border-slate-200 bg-white hover:border-red-300 hover:shadow-md"
-                  }`}
-                >
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="text-2xl font-bold text-slate-900">
-                        {session.title}
-                      </p>
-                      <p className="mt-2 text-lg text-slate-700">
-                        {new Date(session.date_start).toLocaleDateString("fr-FR")}
-                      </p>
-                      <p className="mt-3 text-base text-slate-700">
-                        Places restantes :{" "}
-                        <span className="font-semibold">{remaining}</span>
-                      </p>
-                    </div>
-
-                    <div className="self-start">
-                      <span
-                        className={`inline-flex rounded-full px-3 py-1 text-sm font-semibold ${
-                          isSelected
-                            ? "bg-red-100 text-red-700"
-                            : "bg-slate-100 text-slate-600"
-                        }`}
-                      >
-                        {isSelected
-                          ? "Session sélectionnée"
-                          : "Cliquer pour choisir"}
-                      </span>
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
+            {sessions.map((session) => (
+              <button
+                key={session.id}
+                type="button"
+                onClick={() => setSelected(session)}
+                className={`rounded-2xl border p-5 text-left shadow-sm transition ${
+                  selected?.id === session.id
+                    ? "border-green-700 bg-green-50"
+                    : "border-slate-200 bg-white hover:border-slate-300"
+                }`}
+              >
+                <p className="text-lg font-semibold text-slate-900">
+                  {session.title}
+                </p>
+                <p className="mt-1 text-slate-600">
+                  {new Date(session.date_start).toLocaleDateString("fr-FR")}
+                </p>
+                {session.location && (
+                  <p className="mt-1 text-sm text-slate-500">{session.location}</p>
+                )}
+              </button>
+            ))}
           </div>
         )}
 
         {selected ? (
-          <div className="mt-8 rounded-2xl border border-green-200 bg-green-50 p-6 shadow-sm">
-            <p className="text-lg font-bold text-slate-900">
-              Vous avez sélectionné :
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-sm uppercase tracking-wide text-slate-500">
+              Session sélectionnée
             </p>
             <p className="mt-3 text-xl font-semibold text-slate-900">
               {selected.title}
@@ -152,6 +97,7 @@ export default function PlanningPage() {
             <p className="mt-1 text-slate-700">
               {new Date(selected.date_start).toLocaleDateString("fr-FR")}
             </p>
+
             <Link
               href={`/inscription?sessionId=${selected.id}&formation=${encodeURIComponent(
                 selected.title
@@ -162,9 +108,11 @@ export default function PlanningPage() {
             </Link>
           </div>
         ) : (
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-            Aucune session sélectionnée pour le moment.
-          </div>
+          !error && (
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
+              Aucune session sélectionnée pour le moment.
+            </div>
+          )
         )}
       </div>
     </main>
