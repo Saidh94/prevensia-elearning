@@ -141,22 +141,21 @@ function InscriptionForm() {
 
       try {
         const emailResponse = await fetch("/api/send-mail", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            participantEmail: email,
-            participantName: `${firstName} ${lastName}`,
-            formationTitle:
-              sessionDetails?.title ?? String(formData.get("formation") ?? ""),
-            sessionDate: sessionDetails
-              ? new Date(sessionDetails.date_start).toLocaleDateString("fr-FR")
-              : String(formData.get("session") ?? ""),
-            company,
-          }),
-        });
-
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    firstName,
+    lastName,
+    email,
+    phone,
+    company,
+    sessionId: hiddenSessionId,
+    formation:
+      sessionDetails?.title ?? String(formData.get("formation") ?? ""),
+  }),
+});
         const contentType = emailResponse.headers.get("content-type") ?? "";
 
         if (!emailResponse.ok) {
