@@ -138,7 +138,10 @@ export default function ModulePage({
         };
       });
 
-      const visibleSections = offsets.filter(Boolean) as { id: string; top: number }[];
+      const visibleSections = offsets.filter(
+        Boolean
+      ) as { id: string; top: number }[];
+
       const current = visibleSections
         .filter((item) => item.top <= 140)
         .sort((a, b) => b.top - a.top)[0];
@@ -167,12 +170,21 @@ export default function ModulePage({
             Le module demandé n’existe pas encore ou n’est pas disponible.
           </p>
 
-          <Link
-            href="/dashboard"
-            className="mt-6 inline-flex rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-          >
-            Retour au dashboard
-          </Link>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/elearning"
+              className="inline-flex rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+            >
+              Retour e-learning
+            </Link>
+
+            <Link
+              href="/dashboard"
+              className="inline-flex rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Retour au dashboard
+            </Link>
+          </div>
         </div>
       </main>
     );
@@ -204,18 +216,39 @@ export default function ModulePage({
 
             <div className="mt-5 space-y-2 rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
               <p>
-                <span className="font-semibold">Durée :</span> {moduleData.duration}
+                <span className="font-semibold">Durée :</span>{" "}
+                {moduleData.duration}
               </p>
               <p>
-                <span className="font-semibold">Niveau :</span> {moduleData.level}
+                <span className="font-semibold">Niveau :</span>{" "}
+                {moduleData.level}
               </p>
               <p>
-                <span className="font-semibold">Objectif :</span> {moduleData.objective}
+                <span className="font-semibold">Objectif :</span>{" "}
+                {moduleData.objective}
               </p>
             </div>
 
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/elearning"
+                className="inline-flex rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
+              >
+                ← Retour e-learning
+              </Link>
+
+              <Link
+                href="/dashboard"
+                className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+              >
+                Retour dashboard
+              </Link>
+            </div>
+
             <div className="mt-6">
-              <p className="mb-3 text-sm font-semibold text-slate-900">Sommaire</p>
+              <p className="mb-3 text-sm font-semibold text-slate-900">
+                Sommaire
+              </p>
               <nav className="space-y-2">
                 {moduleData.sections.map((section) => {
                   const isActive = activeSection === section.id;
@@ -248,26 +281,19 @@ export default function ModulePage({
                 Cette progression est basée sur le défilement de la page.
               </p>
             </div>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/dashboard"
-                className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-              >
-                Retour dashboard
-              </Link>
-
-              <Link
-                href="/dashboard"
-                className="inline-flex rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
-              >
-                Mes formations
-              </Link>
-            </div>
           </div>
         </aside>
 
         <section className="min-w-0 flex-1">
+          <div className="mb-4 flex flex-wrap gap-3">
+            <Link
+              href="/elearning"
+              className="inline-flex rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              ← Retour catalogue e-learning
+            </Link>
+          </div>
+
           <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200 md:p-8">
             {moduleData.sections.map((section) => (
               <section
