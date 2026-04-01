@@ -4,7 +4,6 @@ type SessionRow = {
   id: string;
   title: string;
   date_start: string;
-  location?: string | null;
 };
 
 type RegistrationRow = {
@@ -14,7 +13,6 @@ type RegistrationRow = {
 function getMaxPlaces(session: SessionRow): number {
   const title = (session.title || "").toLowerCase();
 
-  // Capacités définies
   if (title.includes("sprinkler")) return 6;
 
   if (title.includes("ssi")) return 12;
@@ -40,7 +38,6 @@ function getMaxPlaces(session: SessionRow): number {
     title.includes("br") ||
     title.includes("bc")
   ) {
-    // e-learning vs présentiel
     if (
       title.includes("e-learning") ||
       title.includes("elearning") ||
@@ -69,7 +66,7 @@ export async function GET() {
       );
     }
 
-    const sessionsUrl = `${url}/rest/v1/sessions?select=id,title,date_start,location&order=date_start.asc`;
+    const sessionsUrl = `${url}/rest/v1/sessions?select=id,title,date_start&order=date_start.asc`;
     const registrationsUrl = `${url}/rest/v1/registrations?select=session_id`;
 
     const headers = {
@@ -123,7 +120,6 @@ export async function GET() {
         id: session.id,
         title: session.title,
         date_start: session.date_start,
-        location: session.location ?? null,
         places_total,
         places_taken,
         places_restantes,
