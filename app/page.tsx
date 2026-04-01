@@ -160,56 +160,42 @@ export default function Home() {
   ];
 
   const planning = [
-    {
-      date: "10 juin 2026",
-      title: "Habilitation électrique H0B0",
-      format: "E-learning accompagné",
-      audience: "Particuliers / Professionnels",
-      places: 12,
-    },
-    {
-      date: "18 juin 2026",
-      title: "BS / BE Manœuvre",
-      format: "E-learning accompagné",
-      audience: "Professionnels",
-      places: 8,
-    },
-    {
-      date: "02 juillet 2026",
-      title: "Manipulation extincteurs",
-      format: "Présentiel sur site client",
-      audience: "Professionnels",
-      places: 10,
-    },
-    {
-      date: "09 juillet 2026",
-      title: "Guide-file / Serre-file",
-      format: "Présentiel inter / intra",
-      audience: "Particuliers / Professionnels",
-      places: 9,
-    },
-    {
-      date: "16 septembre 2026",
-      title: "Exploitation sprinkler et référentiels techniques",
-      format: "Présentiel inter / intra",
-      audience: "Professionnels",
-      places: 6,
-    },
-    {
-      date: "23 septembre 2026",
-      title: "SST - Formation initiale",
-      format: "Présentiel inter / intra",
-      audience: "Professionnels",
-      places: 10,
-    },
-    {
-      date: "07 octobre 2026",
-      title: "MAC SST",
-      format: "Présentiel inter / intra",
-      audience: "Professionnels",
-      places: 8,
-    },
-  ];
+  {
+    date: "02 juillet 2026",
+    title: "Manipulation extincteurs",
+    format: "Présentiel sur site client",
+    audience: "Professionnels",
+    places: 10,
+  },
+  {
+    date: "09 juillet 2026",
+    title: "Guide-file / Serre-file",
+    format: "Présentiel inter / intra",
+    audience: "Particuliers / Professionnels",
+    places: 9,
+  },
+  {
+    date: "16 septembre 2026",
+    title: "Exploitation sprinkler et référentiels techniques",
+    format: "Présentiel inter / intra",
+    audience: "Professionnels",
+    places: 6,
+  },
+  {
+    date: "23 septembre 2026",
+    title: "SST - Formation initiale",
+    format: "Présentiel inter / intra",
+    audience: "Professionnels",
+    places: 10,
+  },
+  {
+    date: "07 octobre 2026",
+    title: "MAC SST",
+    format: "Présentiel inter / intra",
+    audience: "Professionnels",
+    places: 8,
+  },
+];
 
   const stats = [
     { value: "3 pôles", label: "Électrique, incendie & SST" },
