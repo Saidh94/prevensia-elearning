@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const apiKey = process.env.RESEND_API_KEY;
+const apiKey = process.env.RESEND_API_KEY?.trim();
 
 if (!apiKey) {
   throw new Error("RESEND_API_KEY manquante dans Vercel");
@@ -28,18 +28,23 @@ export async function POST(request: Request) {
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json(
-        { success: false, error: "Champs obligatoires manquants." },
+        {
+          success: false,
+          error: "Champs obligatoires manquants.",
+          received: { firstName, lastName, email, phone, company, sessionId, formation },
+        },
         { status: 400 }
       );
     }
 
-    const adminSubject = `Nouvelle inscription - ${formation || "Formation"}`;
+    const cleanEmail = String(email).trim();
 
+    const adminSubject = `Nouvelle inscription - ${formation || "Formation"}`;
     const adminHtml = `
       <h2>Nouvelle demande d'inscription</h2>
       <p><strong>Nom :</strong> ${lastName}</p>
       <p><strong>Prénom :</strong> ${firstName}</p>
-      <p><strong>Email :</strong> ${email}</p>
+      <p><strong>Email :</strong> ${cleanEmail}</p>
       <p><strong>Téléphone :</strong> ${phone || "Non renseigné"}</p>
       <p><strong>Société :</strong> ${company || "Non renseignée"}</p>
       <p><strong>Formation :</strong> ${formation || "Non renseignée"}</p>
@@ -49,24 +54,22 @@ export async function POST(request: Request) {
     const adminResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: [ADMIN_EMAIL],
-      replyTo: email,
       subject: adminSubject,
       html: adminHtml,
     });
 
     if (adminResult.error) {
-      console.error("Erreur Resend mail admin :", adminResult.error);
       return NextResponse.json(
         {
           success: false,
-          error: `Mail admin impossible : ${adminResult.error.message}`,
+          step: "admin",
+          error: adminResult.error.message,
         },
         { status: 500 }
       );
     }
 
     const userSubject = "Confirmation de votre demande d'inscription";
-
     const userHtml = `
       <p>Bonjour ${firstName},</p>
       <p>Nous avons bien reçu votre demande d'inscription${
@@ -78,17 +81,19 @@ export async function POST(request: Request) {
 
     const userResult = await resend.emails.send({
       from: FROM_EMAIL,
-      to: [email],
+      to: [cleanEmail],
       subject: userSubject,
       html: userHtml,
     });
 
     if (userResult.error) {
-      console.error("Erreur Resend mail utilisateur :", userResult.error);
       return NextResponse.json(
         {
           success: false,
-          error: `Mail utilisateur impossible : ${userResult.error.message}`,
+          step: "user",
+          error: userResult.error.message,
+          adminSent: true,
+          adminMessageId: adminResult.data?.id ?? null,
         },
         { status: 500 }
       );
@@ -100,8 +105,6 @@ export async function POST(request: Request) {
       userMessageId: userResult.data?.id ?? null,
     });
   } catch (error) {
-    console.error("Erreur envoi email :", error);
-
     return NextResponse.json(
       {
         success: false,
