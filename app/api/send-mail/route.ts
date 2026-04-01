@@ -9,7 +9,7 @@ if (!apiKey) {
 
 const resend = new Resend(apiKey);
 
-const FROM_EMAIL = "PREVENSIA <onboarding@resend.dev>";
+const FROM_EMAIL = "PREVENSIA <contact@prevensia-formation.fr>";
 const ADMIN_EMAIL = "prevensia.formation@outlook.fr";
 
 export async function POST(request: Request) {
