@@ -1,8 +1,41 @@
 "use client";
 
+import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { createClient } from "../../lib/supabase/client";
 
 export default function ConnexionPage() {
+  const router = useRouter();
+  const supabase = createClient();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      setError(error.message);
+      return;
+    }
+
+    // IMPORTANT : refresh pour sync cookie serveur
+    router.push("/dashboard");
+    router.refresh();
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 py-10">
       <div className="mx-auto w-full max-w-xl px-4 sm:px-6 lg:px-8">
@@ -10,19 +43,19 @@ export default function ConnexionPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
             E-learning PREVENSIA
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-slate-900">Connexion</h1>
-          <p className="mt-3 text-slate-600">
-            Connectez-vous pour accéder à vos modules et à votre progression.
-          </p>
+          <h1 className="mt-2 text-3xl font-bold text-slate-900">
+            Connexion
+          </h1>
 
-          <form className="mt-6 space-y-4">
+          <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
               Adresse e-mail
               <input
                 type="email"
                 required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="vous@entreprise.fr"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="rounded-xl border border-slate-300 px-4 py-3 text-sm"
               />
             </label>
 
@@ -31,22 +64,31 @@ export default function ConnexionPage() {
               <input
                 type="password"
                 required
-                className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                placeholder="Votre mot de passe"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="rounded-xl border border-slate-300 px-4 py-3 text-sm"
               />
             </label>
 
+            {error && (
+              <p className="text-sm text-red-600">{error}</p>
+            )}
+
             <button
               type="submit"
-              className="inline-flex w-full justify-center rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
+              disabled={loading}
+              className="w-full rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white"
             >
-              Se connecter
+              {loading ? "Connexion..." : "Se connecter"}
             </button>
           </form>
 
           <p className="mt-5 text-sm text-slate-600">
             Pas encore de compte ?{" "}
-            <Link href="/inscription" className="font-semibold text-red-700 underline underline-offset-2">
+            <Link
+              href="/inscription"
+              className="font-semibold text-red-700 underline"
+            >
               Créer un compte
             </Link>
           </p>
