@@ -58,33 +58,55 @@ export default function PlanningPage() {
             Erreur de chargement des sessions : {error}
           </div>
         )}
+{!error && sessions.length > 0 && (
+  <div className="grid gap-4">
+    {sessions.map((session) => (
+      <div
+        key={session.id}
+        className={`rounded-2xl border p-5 shadow-sm transition ${
+          selected?.id === session.id
+            ? "border-green-700 bg-green-50"
+            : "border-slate-200 bg-white"
+        }`}
+      >
+        <button
+          type="button"
+          onClick={() => setSelected(session)}
+          className="w-full text-left"
+        >
+          <p className="text-lg font-semibold text-slate-900">
+            {session.title}
+          </p>
+          <p className="mt-1 text-slate-600">
+            {new Date(session.date_start).toLocaleDateString("fr-FR")}
+          </p>
+          {session.location && (
+            <p className="mt-1 text-sm text-slate-500">{session.location}</p>
+          )}
+        </button>
 
-        {!error && sessions.length > 0 && (
-          <div className="grid gap-4">
-            {sessions.map((session) => (
-              <button
-                key={session.id}
-                type="button"
-                onClick={() => setSelected(session)}
-                className={`rounded-2xl border p-5 text-left shadow-sm transition ${
-                  selected?.id === session.id
-                    ? "border-green-700 bg-green-50"
-                    : "border-slate-200 bg-white hover:border-slate-300"
-                }`}
-              >
-                <p className="text-lg font-semibold text-slate-900">
-                  {session.title}
-                </p>
-                <p className="mt-1 text-slate-600">
-                  {new Date(session.date_start).toLocaleDateString("fr-FR")}
-                </p>
-                {session.location && (
-                  <p className="mt-1 text-sm text-slate-500">{session.location}</p>
-                )}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className="mt-4 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => setSelected(session)}
+            className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+          >
+            Voir cette session
+          </button>
+
+          <Link
+            href={`/inscription?sessionId=${session.id}&formation=${encodeURIComponent(
+              session.title
+            )}`}
+            className="inline-flex rounded-xl bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
+          >
+            S&apos;inscrire
+          </Link>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
 
         {selected ? (
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

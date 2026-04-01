@@ -618,25 +618,27 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#catalogue"
-                  className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
-                >
-                  Voir le catalogue
-                </a>
-                <a
-                  href="#planning"
-                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  Voir les sessions
-                </a>
-                <a
-                  href="/demande-devis"
-                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  Demander un devis
-                </a>
-              </div>
+  <a
+    href="#catalogue"
+    className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+  >
+    Voir le catalogue
+  </a>
+
+  <a
+    href="/planning"
+    className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+  >
+    Voir les sessions
+  </a>
+
+  <a
+    href="/demande-devis"
+    className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+  >
+    Demander un devis
+  </a>
+</div>
 
               <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {stats.map((item) => (
