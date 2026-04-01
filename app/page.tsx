@@ -402,12 +402,12 @@ export default function Home() {
                         </Link>
 
                         <Link
-                          href="/inscription"
-                          className="transition hover:text-red-700"
-                          onClick={closeDesktopMenu}
-                        >
-                          E-learning habilitation électrique
-                        </Link>
+  href="/elearning"
+  className="transition hover:text-red-700"
+  onClick={closeDesktopMenu}
+>
+  E-learning habilitation électrique
+</Link>
                       </div>
                     </div>
                   </div>
@@ -559,13 +559,13 @@ export default function Home() {
                       Formation SSI
                     </Link>
 
-                    <Link
-                      href="/inscription"
-                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
-                      onClick={closeMobileMenu}
-                    >
-                      E-learning habilitation électrique
-                    </Link>
+                 <Link
+  href="/elearning"
+  className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+  onClick={closeMobileMenu}
+>
+  E-learning habilitation électrique
+</Link>
                   </div>
                 ) : null}
               </div>
@@ -630,6 +630,13 @@ export default function Home() {
     className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
   >
     Voir les sessions
+  </a>
+
+  <a
+    href="/elearning"
+    className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+  >
+    E-learning
   </a>
 
   <a
@@ -1039,20 +1046,22 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-            <a href="#catalogue" className="hover:text-red-700">
-              Catalogue
-            </a>
-            <a href="#planning" className="hover:text-red-700">
-              Planning
-            </a>
-            <a href="/demande-devis" className="hover:text-red-700">
-              Demande de devis
-            </a>
-            <a href="#contact" className="hover:text-red-700">
-              Contact
-            </a>
-          </div>
-        </div>
+  <a href="#catalogue" className="hover:text-red-700">
+    Catalogue
+  </a>
+  <a href="#planning" className="hover:text-red-700">
+    Planning
+  </a>
+  <a href="/elearning" className="hover:text-red-700">
+    E-learning
+  </a>
+  <a href="/demande-devis" className="hover:text-red-700">
+    Demande de devis
+  </a>
+  <a href="#contact" className="hover:text-red-700">
+    Contact
+  </a>
+</div>
       </footer>
 
       {showScrollTopButton ? (

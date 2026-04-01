@@ -10,8 +10,14 @@ export function Header() {
           <a href="/" className="hover:text-red-700">
             Accueil
           </a>
-          <a href="/formation-habilitation-electrique" className="hover:text-red-700">
+          <a
+            href="/formation-habilitation-electrique"
+            className="hover:text-red-700"
+          >
             Habilitation
+          </a>
+          <a href="/elearning" className="hover:text-red-700">
+            E-learning
           </a>
           <a href="/formation-sst" className="hover:text-red-700">
             SST
@@ -24,12 +30,21 @@ export function Header() {
           </a>
         </nav>
 
-        <a
-          href="/demande-devis"
-          className="rounded-xl bg-red-700 px-4 py-2 text-sm font-semibold text-white"
-        >
-          Devis
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="/elearning"
+            className="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 sm:inline-flex"
+          >
+            E-learning
+          </a>
+
+          <a
+            href="/demande-devis"
+            className="rounded-xl bg-red-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-800"
+          >
+            Devis
+          </a>
+        </div>
       </div>
     </header>
   );
