@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const apiKey = process.env.RESEND_API_KEY;
+
+if (!apiKey) {
+  throw new Error("RESEND_API_KEY manquante dans Vercel");
+}
+
 const resend = new Resend(apiKey);
 
 const FROM_EMAIL = "PREVENSIA <onboarding@resend.dev>";
@@ -41,13 +46,24 @@ export async function POST(request: Request) {
       <p><strong>ID session :</strong> ${sessionId || "Non renseigné"}</p>
     `;
 
-    await resend.emails.send({
+    const adminResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: [ADMIN_EMAIL],
       replyTo: email,
       subject: adminSubject,
       html: adminHtml,
     });
+
+    if (adminResult.error) {
+      console.error("Erreur Resend mail admin :", adminResult.error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: `Mail admin impossible : ${adminResult.error.message}`,
+        },
+        { status: 500 }
+      );
+    }
 
     const userSubject = "Confirmation de votre demande d'inscription";
 
@@ -60,19 +76,37 @@ export async function POST(request: Request) {
       <p>Cordialement,<br />PREVENSIA FORMATION</p>
     `;
 
-    await resend.emails.send({
+    const userResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: [email],
       subject: userSubject,
       html: userHtml,
     });
 
-    return NextResponse.json({ success: true });
+    if (userResult.error) {
+      console.error("Erreur Resend mail utilisateur :", userResult.error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: `Mail utilisateur impossible : ${userResult.error.message}`,
+        },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      adminMessageId: adminResult.data?.id ?? null,
+      userMessageId: userResult.data?.id ?? null,
+    });
   } catch (error) {
     console.error("Erreur envoi email :", error);
 
     return NextResponse.json(
-      { success: false, error: "Erreur lors de l'envoi des emails." },
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Erreur inconnue",
+      },
       { status: 500 }
     );
   }
