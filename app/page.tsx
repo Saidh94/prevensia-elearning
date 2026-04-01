@@ -402,12 +402,12 @@ export default function Home() {
                         </Link>
 
                         <Link
-  href="/elearning"
-  className="transition hover:text-red-700"
-  onClick={closeDesktopMenu}
->
-  E-learning habilitation électrique
-</Link>
+                          href="/elearning"
+                          className="transition hover:text-red-700"
+                          onClick={closeDesktopMenu}
+                        >
+                          E-learning habilitation électrique
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -509,7 +509,9 @@ export default function Home() {
                   type="button"
                   className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left font-semibold"
                   aria-expanded={isMobileFormationsOpen}
-                  onClick={() => setIsMobileFormationsOpen((previous) => !previous)}
+                  onClick={() =>
+                    setIsMobileFormationsOpen((previous) => !previous)
+                  }
                 >
                   Formations
                   <span className="text-slate-500">
@@ -559,13 +561,13 @@ export default function Home() {
                       Formation SSI
                     </Link>
 
-                 <Link
-  href="/elearning"
-  className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
-  onClick={closeMobileMenu}
->
-  E-learning habilitation électrique
-</Link>
+                    <Link
+                      href="/elearning"
+                      className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                      onClick={closeMobileMenu}
+                    >
+                      E-learning habilitation électrique
+                    </Link>
                   </div>
                 ) : null}
               </div>
@@ -612,40 +614,41 @@ export default function Home() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-                PREVENSIA FORMATION accompagne les particuliers et les professionnels
-                avec des parcours e-learning et des formations présentielles orientées
-                terrain, conformité réglementaire et efficacité opérationnelle.
+                PREVENSIA FORMATION accompagne les particuliers et les
+                professionnels avec des parcours e-learning et des formations
+                présentielles orientées terrain, conformité réglementaire et
+                efficacité opérationnelle.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-  <a
-    href="#catalogue"
-    className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
-  >
-    Voir le catalogue
-  </a>
+                <a
+                  href="#catalogue"
+                  className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
+                >
+                  Voir le catalogue
+                </a>
 
-  <a
-    href="/planning"
-    className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-  >
-    Voir les sessions
-  </a>
+                <a
+                  href="/planning"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  Voir les sessions
+                </a>
 
-  <a
-    href="/elearning"
-    className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-  >
-    E-learning
-  </a>
+                <a
+                  href="/elearning"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  E-learning
+                </a>
 
-  <a
-    href="/demande-devis"
-    className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-  >
-    Demander un devis
-  </a>
-</div>
+                <a
+                  href="/demande-devis"
+                  className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                >
+                  Demander un devis
+                </a>
+              </div>
 
               <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {stats.map((item) => (
@@ -668,16 +671,22 @@ export default function Home() {
 
                 <div className="mt-5 grid gap-4">
                   <div className="rounded-2xl bg-white/10 p-4">
-                    <p className="text-sm font-semibold text-red-100">E-learning</p>
-                    <p className="mt-2 text-lg font-semibold">Habilitation électrique</p>
+                    <p className="text-sm font-semibold text-red-100">
+                      E-learning
+                    </p>
+                    <p className="mt-2 text-lg font-semibold">
+                      Habilitation électrique
+                    </p>
                     <p className="mt-2 text-sm text-slate-200">
-                      Modules accessibles à distance avec progression structurée,
-                      contenu réglementaire et suivi apprenant.
+                      Modules accessibles à distance avec progression
+                      structurée, contenu réglementaire et suivi apprenant.
                     </p>
                   </div>
 
                   <div className="rounded-2xl bg-white/10 p-4">
-                    <p className="text-sm font-semibold text-red-100">Présentiel</p>
+                    <p className="text-sm font-semibold text-red-100">
+                      Présentiel
+                    </p>
                     <p className="mt-2 text-lg font-semibold">
                       Sécurité incendie & exploitation sprinkler
                     </p>
@@ -687,10 +696,13 @@ export default function Home() {
                   </div>
 
                   <div className="rounded-2xl bg-white/10 p-4">
-                    <p className="text-sm font-semibold text-red-100">Présentiel</p>
+                    <p className="text-sm font-semibold text-red-100">
+                      Présentiel
+                    </p>
                     <p className="mt-2 text-lg font-semibold">SST</p>
                     <p className="mt-2 text-sm text-slate-200">
-                      Formation SST initiale et MAC SST avec mises en situation concrètes.
+                      Formation SST initiale et MAC SST avec mises en situation
+                      concrètes.
                     </p>
                   </div>
 
@@ -700,8 +712,8 @@ export default function Home() {
                       Particuliers & Professionnels
                     </p>
                     <p className="mt-2 text-sm text-white/90">
-                      Décrivez votre besoin, le nombre de participants et votre délai
-                      souhaité pour obtenir une proposition adaptée.
+                      Décrivez votre besoin, le nombre de participants et votre
+                      délai souhaité pour obtenir une proposition adaptée.
                     </p>
                   </div>
                 </div>
@@ -719,11 +731,12 @@ export default function Home() {
               Domaines de formation
             </p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Une offre pensée pour la conformité, la sécurité et l’efficacité terrain
+              Une offre pensée pour la conformité, la sécurité et l’efficacité
+              terrain
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              Trois grands domaines : l’habilitation électrique, la sécurité incendie
-              et la formation SST.
+              Trois grands domaines : l’habilitation électrique, la sécurité
+              incendie et la formation SST.
             </p>
           </div>
 
@@ -743,7 +756,9 @@ export default function Home() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">{bloc.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{bloc.text}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {bloc.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -766,7 +781,8 @@ export default function Home() {
                     Certification Qualiopi
                   </p>
                   <p className="mt-1 text-sm text-slate-700">
-                    Organisme certifié Qualiopi au titre des actions de formation.
+                    Organisme certifié Qualiopi au titre des actions de
+                    formation.
                   </p>
                 </div>
               </div>
@@ -783,39 +799,41 @@ export default function Home() {
         <section className="bg-white py-16">
           <div className="mx-auto max-w-5xl px-6 text-slate-700">
             <h2 className="mb-6 text-3xl font-bold text-slate-900">
-              Organisme de formation en habilitation électrique, sécurité incendie et SST
+              Organisme de formation en habilitation électrique, sécurité
+              incendie et SST
             </h2>
 
             <p className="mb-4">
-              PREVENSIA FORMATION propose des formations professionnelles destinées aux
-              entreprises, collectivités et particuliers souhaitant développer leurs
-              compétences en prévention des risques. Nos formations couvrent
-              l’habilitation électrique, la sécurité incendie, l’exploitation du SSI,
-              l’exploitation des installations sprinkler ainsi que la formation
-              Sauveteur Secouriste du Travail.
+              PREVENSIA FORMATION propose des formations professionnelles
+              destinées aux entreprises, collectivités et particuliers
+              souhaitant développer leurs compétences en prévention des risques.
+              Nos formations couvrent l’habilitation électrique, la sécurité
+              incendie, l’exploitation du SSI, l’exploitation des installations
+              sprinkler ainsi que la formation Sauveteur Secouriste du Travail.
             </p>
 
             <p className="mb-4">
               Nos sessions sont organisées partout en France en présentiel ou en
               e-learning selon les besoins. La formation e-learning permet une
-              organisation flexible et rapide, particulièrement adaptée aux salariés
-              itinérants ou aux entreprises multisites.
+              organisation flexible et rapide, particulièrement adaptée aux
+              salariés itinérants ou aux entreprises multisites.
             </p>
 
             <p className="mb-4">
-              PREVENSIA FORMATION accompagne les exploitants, responsables sécurité,
-              services techniques, bureaux d’études et gestionnaires de sites
-              industriels, logistiques ou tertiaires. L’objectif est de garantir la
-              conformité réglementaire et l’efficacité opérationnelle face aux risques
-              électriques et incendie.
+              PREVENSIA FORMATION accompagne les exploitants, responsables
+              sécurité, services techniques, bureaux d’études et gestionnaires
+              de sites industriels, logistiques ou tertiaires. L’objectif est
+              de garantir la conformité réglementaire et l’efficacité
+              opérationnelle face aux risques électriques et incendie.
             </p>
 
             <p>
-              Nos formations intègrent les référentiels techniques et réglementaires
-              applicables : habilitation électrique selon la norme NF C 18-510,
-              sécurité incendie selon la réglementation ERP, Code du travail et ICPE,
-              exploitation du SSI selon la série de normes NF S 61, et exploitation
-              sprinkler selon EN 12845, APSAD R1, NFPA 13 et FM Global.
+              Nos formations intègrent les référentiels techniques et
+              réglementaires applicables : habilitation électrique selon la
+              norme NF C 18-510, sécurité incendie selon la réglementation ERP,
+              Code du travail et ICPE, exploitation du SSI selon la série de
+              normes NF S 61, et exploitation sprinkler selon EN 12845, APSAD
+              R1, NFPA 13 et FM Global.
             </p>
           </div>
         </section>
@@ -834,8 +852,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-2xl text-slate-600">
-              Un catalogue lisible pour présenter les objectifs, la durée, le mode de
-              réalisation et le public visé.
+              Un catalogue lisible pour présenter les objectifs, la durée, le
+              mode de réalisation et le public visé.
             </p>
           </div>
 
@@ -856,8 +874,12 @@ export default function Home() {
                   {item.title}
                 </div>
                 <div className="text-slate-600 md:col-span-2">{item.mode}</div>
-                <div className="text-slate-600 md:col-span-2">{item.duration}</div>
-                <div className="text-slate-600 md:col-span-3">{item.description}</div>
+                <div className="text-slate-600 md:col-span-2">
+                  {item.duration}
+                </div>
+                <div className="text-slate-600 md:col-span-3">
+                  {item.description}
+                </div>
               </div>
             ))}
           </div>
@@ -873,8 +895,8 @@ export default function Home() {
                 Consultez les prochaines dates
               </h2>
               <p className="mt-4 text-slate-600">
-                Une vue simple des prochaines sessions pour réserver rapidement ou nous
-                consulter pour une organisation sur mesure.
+                Une vue simple des prochaines sessions pour réserver rapidement
+                ou nous consulter pour une organisation sur mesure.
               </p>
             </div>
 
@@ -893,10 +915,14 @@ export default function Home() {
 
                   <div>
                     <p className="text-xl font-semibold">{item.title}</p>
-                    <p className="mt-1 text-sm text-slate-600">{item.format}</p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {item.format}
+                    </p>
                     <p className="mt-2 text-sm font-medium text-slate-700">
                       Places restantes :{" "}
-                      <span className="font-bold text-red-700">{item.places}</span>
+                      <span className="font-bold text-red-700">
+                        {item.places}
+                      </span>
                     </p>
                   </div>
 
@@ -904,7 +930,9 @@ export default function Home() {
                     <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
                       Public
                     </p>
-                    <p className="mt-1 text-sm text-slate-700">{item.audience}</p>
+                    <p className="mt-1 text-sm text-slate-700">
+                      {item.audience}
+                    </p>
                   </div>
 
                   <div className="flex justify-start md:justify-end">
@@ -927,10 +955,13 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 Contact
               </p>
-              <h2 className="mt-3 text-3xl font-bold">Échangeons sur votre besoin</h2>
+              <h2 className="mt-3 text-3xl font-bold">
+                Échangeons sur votre besoin
+              </h2>
               <p className="mt-4 text-slate-600">
-                PREVENSIA FORMATION accompagne les particuliers et les professionnels
-                pour leurs besoins en formation réglementaire et opérationnelle.
+                PREVENSIA FORMATION accompagne les particuliers et les
+                professionnels pour leurs besoins en formation réglementaire et
+                opérationnelle.
               </p>
 
               <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -963,7 +994,9 @@ export default function Home() {
                   <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
                     Réponse
                   </p>
-                  <p className="mt-2 text-lg font-semibold">Retour rapide sur demande</p>
+                  <p className="mt-2 text-lg font-semibold">
+                    Retour rapide sur demande
+                  </p>
                 </div>
 
                 <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5 md:col-span-2">
@@ -1037,7 +1070,9 @@ export default function Home() {
               className="h-auto w-[130px]"
             />
             <div>
-              <p className="font-semibold text-slate-900">PREVENSIA FORMATION</p>
+              <p className="font-semibold text-slate-900">
+                PREVENSIA FORMATION
+              </p>
               <p>
                 Formations en habilitation électrique, sécurité incendie,
                 sprinkler et SST
@@ -1046,22 +1081,23 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4">
-  <a href="#catalogue" className="hover:text-red-700">
-    Catalogue
-  </a>
-  <a href="#planning" className="hover:text-red-700">
-    Planning
-  </a>
-  <a href="/elearning" className="hover:text-red-700">
-    E-learning
-  </a>
-  <a href="/demande-devis" className="hover:text-red-700">
-    Demande de devis
-  </a>
-  <a href="#contact" className="hover:text-red-700">
-    Contact
-  </a>
-</div>
+            <a href="#catalogue" className="hover:text-red-700">
+              Catalogue
+            </a>
+            <a href="#planning" className="hover:text-red-700">
+              Planning
+            </a>
+            <a href="/elearning" className="hover:text-red-700">
+              E-learning
+            </a>
+            <a href="/demande-devis" className="hover:text-red-700">
+              Demande de devis
+            </a>
+            <a href="#contact" className="hover:text-red-700">
+              Contact
+            </a>
+          </div>
+        </div>
       </footer>
 
       {showScrollTopButton ? (
