@@ -83,6 +83,11 @@ export default function Home() {
     window.history.replaceState(null, "", "/");
   };
 
+  const goTo = (path: string) => {
+    closeAllMenus();
+    window.location.href = path;
+  };
+
   const formationsElearning = [
     {
       title: "Habilitation électrique H0B0",
@@ -319,13 +324,13 @@ export default function Home() {
                       Catalogue
                     </Link>
 
-                    <Link
-                      href="/#planning"
-                      className="transition hover:text-red-700"
-                      onClick={closeDesktopMenu}
+                    <button
+                      type="button"
+                      className="text-left transition hover:text-red-700"
+                      onClick={() => goTo("/planning")}
                     >
-                      Planning
-                    </Link>
+                      Planning présentiel
+                    </button>
 
                     <Link
                       href="/demande-devis"
@@ -466,13 +471,13 @@ export default function Home() {
                 Catalogue
               </Link>
 
-              <Link
-                href="/#planning"
-                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
-                onClick={closeMobileMenu}
+              <button
+                type="button"
+                className="rounded-xl px-3 py-2 text-left transition hover:bg-slate-100 hover:text-red-700"
+                onClick={() => goTo("/planning")}
               >
-                Planning
-              </Link>
+                Planning présentiel
+              </button>
 
               <Link
                 href="/demande-devis"
@@ -614,26 +619,27 @@ export default function Home() {
                   Voir le catalogue
                 </a>
 
-                <a
+                <Link
                   href="/elearning"
                   className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
                   Accéder au e-learning
-                </a>
+                </Link>
 
-                <a
-                  href="/planning"
+                <button
+                  type="button"
+                  onClick={() => goTo("/planning")}
                   className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
                   Voir les sessions présentielles
-                </a>
+                </button>
 
-                <a
+                <Link
                   href="/demande-devis"
                   className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
                   Demander un devis
-                </a>
+                </Link>
               </div>
 
               <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -772,12 +778,12 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <a
+              <Link
                 href="/demande-devis"
                 className="inline-flex rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
               >
                 Demander un devis
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -932,12 +938,13 @@ export default function Home() {
                 </div>
 
                 <div className="mt-6">
-                  <Link
-                    href="/planning"
+                  <button
+                    type="button"
+                    onClick={() => goTo("/planning")}
                     className="inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                   >
                     Voir le planning présentiel
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -948,10 +955,10 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                Sessions en présentiel
+                Aperçu des sessions présentielles
               </p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Consultez les prochaines dates
+                Quelques prochaines dates
               </h2>
               <p className="mt-4 text-slate-600">
                 Une vue simple des prochaines sessions présentielles pour
@@ -996,24 +1003,25 @@ export default function Home() {
                   </div>
 
                   <div className="flex justify-start md:justify-end">
-                    <a
+                    <Link
                       href="/demande-devis"
                       className="rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
                     >
                       Réserver / Demander
-                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="mt-8">
-              <Link
-                href="/planning"
+              <button
+                type="button"
+                onClick={() => goTo("/planning")}
                 className="inline-flex rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
               >
                 Voir toutes les sessions présentielles
-              </Link>
+              </button>
             </div>
           </div>
         </section>
@@ -1086,12 +1094,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <a
+              <Link
                 href="/demande-devis"
                 className="mt-8 inline-flex rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
               >
                 Demander un devis
-              </a>
+              </Link>
             </div>
 
             <div className="rounded-[1.75rem] bg-slate-900 p-8 text-white shadow-sm">
@@ -1153,15 +1161,15 @@ export default function Home() {
             <a href="#catalogue" className="hover:text-red-700">
               Catalogue
             </a>
-            <a href="#planning" className="hover:text-red-700">
-              Planning
-            </a>
-            <a href="/elearning" className="hover:text-red-700">
+            <Link href="/planning" className="hover:text-red-700">
+              Planning présentiel
+            </Link>
+            <Link href="/elearning" className="hover:text-red-700">
               E-learning
-            </a>
-            <a href="/demande-devis" className="hover:text-red-700">
+            </Link>
+            <Link href="/demande-devis" className="hover:text-red-700">
               Demande de devis
-            </a>
+            </Link>
             <a href="#contact" className="hover:text-red-700">
               Contact
             </a>
