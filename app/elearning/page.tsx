@@ -4,7 +4,7 @@ const formations = [
   {
     slug: "h0b0",
     title: "Habilitation électrique H0B0",
-    duration: "7 heures",
+    duration: "Durée indicative : 7 heures",
     mode: "E-learning",
     audience:
       "Personnel non électricien amené à évoluer dans un environnement présentant un risque électrique.",
@@ -24,7 +24,7 @@ const formations = [
   {
     slug: "bs-be-manoeuvre",
     title: "Habilitation électrique BS / BE Manœuvre",
-    duration: "10 heures",
+    duration: "Durée indicative : 10 heures",
     mode: "E-learning",
     audience:
       "Personnel réalisant des interventions élémentaires ou des manœuvres d’exploitation dans le respect des prescriptions de sécurité.",
@@ -44,7 +44,7 @@ const formations = [
   {
     slug: "b1-b1v-b2-b2v-br-bc",
     title: "Habilitation électrique B1 B1V B2 B2V BR BC",
-    duration: "14 heures",
+    duration: "Durée indicative : 14 heures",
     mode: "E-learning",
     audience:
       "Personnel électricien amené à réaliser, diriger, intervenir ou consigner dans le cadre d’opérations d’ordre électrique.",
@@ -196,9 +196,9 @@ export default function ElearningPage() {
                     <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-700">
                       {formation.mode}
                     </span>
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700">
-                      {formation.duration}
-                    </span>
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold tracking-wide text-slate-700">
+  {formation.duration}
+</span>
                   </div>
 
                   <h3 className="mt-4 text-2xl font-bold text-slate-900">
