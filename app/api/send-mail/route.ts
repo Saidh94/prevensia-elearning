@@ -16,38 +16,56 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      company,
-      sessionId,
-      formation,
-    } = body;
+    const type = String(body?.type ?? "").trim();
+
+    const firstName = String(body?.firstName ?? body?.prenom ?? "").trim();
+    const lastName = String(body?.lastName ?? body?.nom ?? "").trim();
+    const email = String(body?.email ?? "").trim();
+    const phone = String(body?.phone ?? body?.telephone ?? "").trim();
+    const company = String(body?.company ?? body?.entreprise ?? "").trim();
+    const sessionId = String(body?.sessionId ?? "").trim();
+    const formation = String(body?.formation ?? "").trim();
+    const categorie = String(body?.categorie ?? "").trim();
+    const dateSession = String(body?.dateSession ?? body?.date ?? "").trim();
+    const format = String(body?.format ?? "").trim();
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json(
         {
           success: false,
           error: "Champs obligatoires manquants.",
-          received: { firstName, lastName, email, phone, company, sessionId, formation },
+          received: {
+            type,
+            firstName,
+            lastName,
+            email,
+            phone,
+            company,
+            sessionId,
+            formation,
+            categorie,
+            dateSession,
+            format,
+          },
         },
         { status: 400 }
       );
     }
 
-    const cleanEmail = String(email).trim();
-
     const adminSubject = `Nouvelle inscription - ${formation || "Formation"}`;
+
     const adminHtml = `
       <h2>Nouvelle demande d'inscription</h2>
+      <p><strong>Type :</strong> ${type || "Non renseigné"}</p>
       <p><strong>Nom :</strong> ${lastName}</p>
       <p><strong>Prénom :</strong> ${firstName}</p>
-      <p><strong>Email :</strong> ${cleanEmail}</p>
+      <p><strong>Email :</strong> ${email}</p>
       <p><strong>Téléphone :</strong> ${phone || "Non renseigné"}</p>
-      <p><strong>Société :</strong> ${company || "Non renseignée"}</p>
+      <p><strong>Entreprise :</strong> ${company || "Non renseignée"}</p>
+      <p><strong>Catégorie :</strong> ${categorie || "Non renseignée"}</p>
       <p><strong>Formation :</strong> ${formation || "Non renseignée"}</p>
+      <p><strong>Date de session :</strong> ${dateSession || "Non renseignée"}</p>
+      <p><strong>Format :</strong> ${format || "Non renseigné"}</p>
       <p><strong>ID session :</strong> ${sessionId || "Non renseigné"}</p>
     `;
 
@@ -70,18 +88,31 @@ export async function POST(request: Request) {
     }
 
     const userSubject = "Confirmation de votre demande d'inscription";
+
     const userHtml = `
       <p>Bonjour ${firstName},</p>
-      <p>Nous avons bien reçu votre demande d'inscription${
-        formation ? ` pour la formation <strong>${formation}</strong>` : ""
-      }.</p>
+      <p>
+        Nous avons bien reçu votre demande d'inscription${
+          formation ? ` pour la formation <strong>${formation}</strong>` : ""
+        }.
+      </p>
+      ${
+        dateSession
+          ? `<p><strong>Date de session :</strong> ${dateSession}</p>`
+          : ""
+      }
+      ${
+        format
+          ? `<p><strong>Format :</strong> ${format}</p>`
+          : ""
+      }
       <p>Nous reviendrons vers vous rapidement.</p>
       <p>Cordialement,<br />PREVENSIA FORMATION</p>
     `;
 
     const userResult = await resend.emails.send({
       from: FROM_EMAIL,
-      to: [cleanEmail],
+      to: [email],
       subject: userSubject,
       html: userHtml,
     });
