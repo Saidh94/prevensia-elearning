@@ -290,37 +290,36 @@ export default function DashboardPage() {
                     </div>
 
                     <div className="flex w-full flex-col gap-3 lg:w-auto lg:min-w-[220px]">
-                      <Link
-                        href={safeSlug ? `/modules/${safeSlug}` : "/dashboard"}
-                        className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-                      >
-                        {progress > 0 ? "Reprendre" : "Commencer"}
-                      </Link>
+  <Link
+    href={safeSlug ? `/modules/${safeSlug}` : "/dashboard"}
+    className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+  >
+    {progress > 0 ? "Reprendre" : "Commencer"}
+  </Link>
 
-                      <Link
-                        href={
-                          safeSlug
-                            ? `/modules/${safeSlug}/quiz`
-                            : "/dashboard"
-                        }
-                        className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                      >
-                        Accéder au quiz
-                      </Link>
+  <Link
+    href={safeSlug ? `/modules/${safeSlug}/quiz` : "/dashboard"}
+    className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+  >
+    Accéder au quiz
+  </Link>
 
-                      {formation.completed ? (
-                        <Link
-                          href={
-                            safeSlug
-                              ? `/modules/${safeSlug}/attestation`
-                              : "/dashboard"
-                          }
-                          className="inline-flex items-center justify-center rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-100"
-                        >
-                          Voir l’attestation
-                        </Link>
-                      ) : null}
-                    </div>
+  <Link
+    href="/booking"
+    className="inline-flex items-center justify-center rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+  >
+    Planifier mon entretien
+  </Link>
+
+  {formation.completed ? (
+    <Link
+      href={safeSlug ? `/modules/${safeSlug}/attestation` : "/dashboard"}
+      className="inline-flex items-center justify-center rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-100"
+    >
+      Voir l’attestation
+    </Link>
+  ) : null}
+</div>
                   </div>
                 </article>
               );

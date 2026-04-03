@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { useParams } from "next/navigation";
 
 type ModuleSection = {
   id: string;
@@ -109,11 +110,8 @@ const modulesContent: Record<string, ModuleContent> = {
   },
 };
 
-export default function ModulePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function ModulePage() {
+  const params = useParams<{ slug: string }>();
   const slug = params.slug?.toLowerCase() ?? "";
   const moduleData = useMemo(() => modulesContent[slug], [slug]);
   const [progress, setProgress] = useState(0);
