@@ -87,8 +87,8 @@ export default function Home() {
           return;
         }
 
-        const filtered = data
-          .filter((s: HomeSession) => {
+        const filtered = (data as HomeSession[])
+          .filter((s) => {
             const format = (s.format ?? "").toLowerCase();
             const title = (s.title ?? "").toLowerCase();
 
@@ -798,19 +798,30 @@ export default function Home() {
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                   Contact
                 </p>
+
                 <h3 className="mt-3 text-xl font-bold text-slate-900">
                   Échangeons sur votre besoin
                 </h3>
+
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  PREVENSIA FORMATION accompagne les particuliers et les professionnels sur toute la France
-                  selon la prestation.
+                  PREVENSIA FORMATION accompagne les particuliers et les professionnels sur toute la France selon la prestation.
                 </p>
-                <p className="mt-4 text-sm font-medium text-slate-800">
-                  prevensia.formation@outlook.fr
-                </p>
-                <p className="mt-1 text-sm font-medium text-slate-800">
-                  01 89 62 94 92
-                </p>
+
+                <div className="mt-4 space-y-2 text-sm text-slate-800">
+                  <p className="font-medium">contact@prevensia-formation.fr</p>
+                  <p className="font-medium">01 89 62 94 92</p>
+                </div>
+
+                <div className="mt-5">
+                  <Link
+                    href="https://lnkd.in/ez6gfj_G"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                  >
+                    Voir LinkedIn
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
