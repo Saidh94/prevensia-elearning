@@ -187,6 +187,10 @@ export default function PlanningPage() {
                     <Link
                       href={`/inscription?sessionId=${session.id}&formation=${encodeURIComponent(
                         session.title
+                      )}&date=${encodeURIComponent(
+                        session.date_start
+                      )}&format=${encodeURIComponent(
+                        session.format ?? "Présentiel"
                       )}`}
                       className="inline-flex rounded-xl bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
                     >

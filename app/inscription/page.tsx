@@ -20,15 +20,14 @@ const formationsParCategorie = {
     "Exploitation SSI",
     "Exploitation sprinkler et référentiels techniques",
   ],
-  SST: [
-    "SST - Formation initiale",
-    "MAC SST",
-  ],
+  SST: ["SST - Formation initiale", "MAC SST"],
 } as const;
 
 type CategorieFormation = keyof typeof formationsParCategorie;
 
-function trouverCategorieDepuisFormation(formation: string): CategorieFormation | "" {
+function trouverCategorieDepuisFormation(
+  formation: string
+): CategorieFormation | "" {
   const entree = formation.trim().toLowerCase();
 
   for (const [categorie, formations] of Object.entries(formationsParCategorie)) {
@@ -44,11 +43,28 @@ function trouverCategorieDepuisFormation(formation: string): CategorieFormation 
   return "";
 }
 
+function formaterDate(dateIso: string) {
+  if (!dateIso) return "";
+  const date = new Date(dateIso);
+
+  if (Number.isNaN(date.getTime())) {
+    return dateIso;
+  }
+
+  return date.toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
+
 function InscriptionForm() {
   const searchParams = useSearchParams();
 
   const sessionId = searchParams.get("sessionId") ?? "";
   const formationDepuisUrl = searchParams.get("formation") ?? "";
+  const dateDepuisUrl = searchParams.get("date") ?? "";
+  const formatDepuisUrl = searchParams.get("format") ?? "";
 
   const categorieInitiale = trouverCategorieDepuisFormation(formationDepuisUrl);
 
@@ -61,6 +77,8 @@ function InscriptionForm() {
     categorie: categorieInitiale,
     formation: formationDepuisUrl,
     sessionId,
+    dateSession: dateDepuisUrl,
+    format: formatDepuisUrl,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -73,8 +91,6 @@ function InscriptionForm() {
   }, [form.categorie]);
 
   useEffect(() => {
-    if (!formationDepuisUrl) return;
-
     const categorieTrouvee = trouverCategorieDepuisFormation(formationDepuisUrl);
 
     setForm((prev) => ({
@@ -82,8 +98,10 @@ function InscriptionForm() {
       categorie: categorieTrouvee,
       formation: formationDepuisUrl,
       sessionId,
+      dateSession: dateDepuisUrl,
+      format: formatDepuisUrl,
     }));
-  }, [formationDepuisUrl, sessionId]);
+  }, [formationDepuisUrl, sessionId, dateDepuisUrl, formatDepuisUrl]);
 
   const isValid = useMemo(() => {
     return (
@@ -112,9 +130,9 @@ function InscriptionForm() {
         ? formationsParCategorie[nouvelleCategorie]
         : [];
 
-      const formationEncoreValide = formationsDisponibles.includes(
-        prev.formation as never
-      );
+     const formationEncoreValide = formationsDisponibles.some(
+  (item) => item === prev.formation
+);
 
       return {
         ...prev,
@@ -197,12 +215,32 @@ function InscriptionForm() {
             à une session de formation.
           </p>
 
-          {formationDepuisUrl ? (
+          {formationDepuisUrl || dateDepuisUrl || formatDepuisUrl ? (
             <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4">
               <p className="text-sm font-semibold text-green-800">
-                Formation sélectionnée
+                Session sélectionnée
               </p>
-              <p className="mt-1 text-sm text-green-700">{formationDepuisUrl}</p>
+
+              {formationDepuisUrl ? (
+                <p className="mt-2 text-sm text-green-700">
+                  <span className="font-semibold">Formation :</span>{" "}
+                  {formationDepuisUrl}
+                </p>
+              ) : null}
+
+              {dateDepuisUrl ? (
+                <p className="mt-1 text-sm text-green-700">
+                  <span className="font-semibold">Date :</span>{" "}
+                  {formaterDate(dateDepuisUrl)}
+                </p>
+              ) : null}
+
+              {formatDepuisUrl ? (
+                <p className="mt-1 text-sm text-green-700">
+                  <span className="font-semibold">Format :</span>{" "}
+                  {formatDepuisUrl}
+                </p>
+              ) : null}
             </div>
           ) : null}
 
@@ -323,6 +361,13 @@ function InscriptionForm() {
             </div>
 
             <input type="hidden" name="sessionId" value={form.sessionId} readOnly />
+            <input
+              type="hidden"
+              name="dateSession"
+              value={form.dateSession}
+              readOnly
+            />
+            <input type="hidden" name="format" value={form.format} readOnly />
 
             {success && (
               <div className="rounded-2xl border border-green-200 bg-green-50 p-4 text-green-700">

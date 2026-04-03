@@ -12,8 +12,8 @@ type RegistrationRow = {
 };
 
 function getMaxPlaces(session: SessionRow): number {
-  const title = (session.title || "").toLowerCase();
-  const format = (session.format || "").toLowerCase();
+  const title = (session.title ?? "").toLowerCase();
+  const format = (session.format ?? "").toLowerCase();
 
   if (title.includes("sprinkler")) return 6;
 
@@ -40,18 +40,16 @@ function getMaxPlaces(session: SessionRow): number {
     title.includes("br") ||
     title.includes("bc")
   ) {
-    if (
+    const isElearning =
       title.includes("e-learning") ||
       title.includes("elearning") ||
       title.includes("distanciel") ||
       format.includes("e-learning") ||
       format.includes("elearning") ||
-      format.includes("distanciel")
-    ) {
-      return 20;
-    }
+      format.includes("distanciel") ||
+      format.includes("en ligne");
 
-    return 14;
+    return isElearning ? 20 : 14;
   }
 
   return 12;
@@ -59,24 +57,27 @@ function getMaxPlaces(session: SessionRow): number {
 
 export async function GET() {
   try {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-    const key =
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim() ||
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
-    if (!url || !key) {
+    if (!supabaseUrl || !supabaseAnonKey) {
       return NextResponse.json(
         { error: "Variables Supabase manquantes" },
         { status: 500 }
       );
     }
 
-    const sessionsUrl = `${url}/rest/v1/sessions?select=id,title,date_start,format&order=date_start.asc`;
-    const registrationsUrl = `${url}/rest/v1/registrations?select=session_id`;
+    const sessionsUrl =
+      `${supabaseUrl}/rest/v1/sessions` +
+      `?select=id,title,date_start,format&order=date_start.asc`;
 
-    const headers = {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
+    const registrationsUrl =
+      `${supabaseUrl}/rest/v1/registrations` +
+      `?select=session_id`;
+
+    const headers: HeadersInit = {
+      apikey: supabaseAnonKey,
+      Authorization: `Bearer ${supabaseAnonKey}`,
       "Content-Type": "application/json",
     };
 
@@ -101,16 +102,27 @@ export async function GET() {
       throw new Error(`Erreur registrations : ${errorText}`);
     }
 
-    const sessions = (await sessionsRes.json()) as SessionRow[];
-    const registrations = (await registrationsRes.json()) as RegistrationRow[];
+    const sessionsJson: unknown = await sessionsRes.json();
+    const registrationsJson: unknown = await registrationsRes.json();
+
+    if (!Array.isArray(sessionsJson)) {
+      throw new Error("Réponse sessions invalide");
+    }
+
+    if (!Array.isArray(registrationsJson)) {
+      throw new Error("Réponse registrations invalide");
+    }
+
+    const sessions = sessionsJson as SessionRow[];
+    const registrations = registrationsJson as RegistrationRow[];
 
     const countBySession = registrations.reduce<Record<string, number>>(
       (acc, registration) => {
-        if (!registration.session_id) return acc;
+        const sessionId = registration.session_id?.trim();
 
-        acc[registration.session_id] =
-          (acc[registration.session_id] || 0) + 1;
+        if (!sessionId) return acc;
 
+        acc[sessionId] = (acc[sessionId] ?? 0) + 1;
         return acc;
       },
       {}
@@ -118,7 +130,7 @@ export async function GET() {
 
     const result = sessions.map((session) => {
       const places_total = getMaxPlaces(session);
-      const places_taken = countBySession[session.id] || 0;
+      const places_taken = countBySession[session.id] ?? 0;
       const places_restantes = Math.max(places_total - places_taken, 0);
 
       return {
