@@ -57,72 +57,73 @@ export default function Home() {
 
   const desktopMenuRef = useRef<HTMLDivElement>(null);
 
- useEffect(() => {
-  let isMounted = true;
+  useEffect(() => {
+    let isMounted = true;
 
-  const loadSessions = async () => {
-    try {
-      const res = await fetch("/api/sessions", { cache: "no-store" });
-
-      if (!res.ok) {
-        console.error("Erreur API /api/sessions :", res.status);
-        if (isMounted) setHomeSessions([]);
-        return;
-      }
-
-      const text = await res.text();
-
-      let data: unknown;
-
+    const loadSessions = async () => {
       try {
-        data = JSON.parse(text);
-      } catch (error) {
-        console.error("Réponse non JSON /api/sessions :", text);
+        const res = await fetch("/api/sessions", { cache: "no-store" });
+
+        if (!res.ok) {
+          console.error("Erreur API /api/sessions :", res.status);
+          if (isMounted) setHomeSessions([]);
+          return;
+        }
+
+        const text = await res.text();
+
+        let data: unknown;
+
+        try {
+          data = JSON.parse(text);
+        } catch {
+          console.error("Réponse non JSON /api/sessions :", text);
+          if (isMounted) setHomeSessions([]);
+          return;
+        }
+
+        if (!Array.isArray(data)) {
+          if (isMounted) setHomeSessions([]);
+          return;
+        }
+
+        const filtered = data
+          .filter((s: HomeSession) => {
+            const format = (s.format ?? "").toLowerCase();
+            const title = (s.title ?? "").toLowerCase();
+
+            return (
+              !format.includes("e-learning") &&
+              !format.includes("elearning") &&
+              !title.includes("e-learning") &&
+              !title.includes("elearning")
+            );
+          })
+          .sort(
+            (a, b) =>
+              new Date(a.date_start).getTime() -
+              new Date(b.date_start).getTime()
+          )
+          .slice(0, 6);
+
+        if (isMounted) {
+          setHomeSessions(filtered);
+        }
+      } catch (err) {
+        console.error("Erreur chargement sessions Home :", err);
         if (isMounted) setHomeSessions([]);
-        return;
+      } finally {
+        if (isMounted) setLoading(false);
       }
+    };
 
-      if (!Array.isArray(data)) {
-        if (isMounted) setHomeSessions([]);
-        return;
-      }
+    loadSessions();
 
-      const filtered = data
-        .filter((s: HomeSession) => {
-          const format = (s.format ?? "").toLowerCase();
-          const title = (s.title ?? "").toLowerCase();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
-          return (
-            !format.includes("e-learning") &&
-            !format.includes("elearning") &&
-            !title.includes("e-learning") &&
-            !title.includes("elearning")
-          );
-        })
-        .sort(
-          (a, b) =>
-            new Date(a.date_start).getTime() -
-            new Date(b.date_start).getTime()
-        )
-        .slice(0, 6);
-
-      if (isMounted) {
-        setHomeSessions(filtered);
-      }
-    } catch (err) {
-      console.error("Erreur chargement sessions Home :", err);
-      if (isMounted) setHomeSessions([]);
-    } finally {
-      if (isMounted) setLoading(false);
-    }
-  };
-
-  loadSessions();
-
-  return () => {
-    isMounted = false;
-  };
-}, []);
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTopButton(window.scrollY > 300);
@@ -185,8 +186,14 @@ export default function Home() {
     setIsMobileMenuOpen(false);
     setIsMobileFormationsOpen(false);
     setIsDesktopMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    window.history.replaceState(null, "", "/");
+
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.replaceState(null, "", "/");
+      return;
+    }
+
+    window.location.href = "/";
   };
 
   const closeMobileMenu = () => {
@@ -258,7 +265,7 @@ export default function Home() {
                       className="transition hover:text-red-700"
                       onClick={closeDesktopMenu}
                     >
-                      Espace apprenant
+                      E-learning / Espace apprenant
                     </Link>
 
                     <Link
@@ -405,7 +412,7 @@ export default function Home() {
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
                 onClick={closeMobileMenu}
               >
-                Espace apprenant
+                E-learning / Espace apprenant
               </Link>
 
               <Link
@@ -537,7 +544,7 @@ export default function Home() {
                   href="/elearning"
                   className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  Espace apprenant
+                  Accéder à l’espace e-learning
                 </Link>
 
                 <Link
@@ -599,17 +606,17 @@ export default function Home() {
                       E-learning
                     </p>
                     <p className="mt-2 text-lg font-semibold">
-                      Accès apprenant
+                      Espace apprenant
                     </p>
                     <p className="mt-2 text-sm text-slate-200">
-                      L’espace e-learning a vocation à accueillir les parcours,
-                      modules, quiz, résultats et certificats.
+                      L’espace e-learning permet d’accéder aux parcours, modules,
+                      quiz, résultats et certificats.
                     </p>
                     <Link
                       href="/elearning"
                       className="mt-4 inline-flex text-sm font-semibold text-white underline underline-offset-4"
                     >
-                      Accéder à l’espace apprenant
+                      Accéder à l’espace e-learning
                     </Link>
                   </div>
                 </div>
@@ -683,7 +690,8 @@ export default function Home() {
             ) : (
               <div className="mt-8 grid gap-4">
                 {homeSessions.map((s) => {
-                  const places = s.places_restantes ?? s.places_total - s.places_taken;
+                  const places =
+                    s.places_restantes ?? s.places_total - s.places_taken;
 
                   return (
                     <div
@@ -716,7 +724,13 @@ export default function Home() {
 
                       <div className="flex justify-start md:justify-end">
                         <Link
-                          href={`/inscription?sessionId=${s.id}`}
+                          href={`/inscription?sessionId=${s.id}&formation=${encodeURIComponent(
+                            s.title
+                          )}&date=${encodeURIComponent(
+                            s.date_start
+                          )}&format=${encodeURIComponent(
+                            s.format ?? "Présentiel"
+                          )}`}
                           className="rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                         >
                           Réserver
@@ -766,17 +780,17 @@ export default function Home() {
                   Apprenants
                 </p>
                 <h3 className="mt-3 text-xl font-bold text-slate-900">
-                  Espace e-learning
+                  E-learning / Espace apprenant
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  L’espace apprenant a vocation à accueillir les comptes, les modules, les quiz,
-                  la progression et les certificats de réussite.
+                  Accédez à votre espace e-learning pour retrouver vos comptes,
+                  modules, quiz, progression et certificats.
                 </p>
                 <Link
                   href="/elearning"
                   className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
-                  Accéder à l’espace apprenant
+                  Accéder à l’espace e-learning
                 </Link>
               </div>
 
@@ -801,144 +815,134 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="bg-slate-900 py-16 text-white">
-  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
+                Pourquoi choisir PREVENSIA FORMATION
+              </p>
 
-    {/* INTRO */}
-    <div className="max-w-3xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-        Pourquoi choisir PREVENSIA FORMATION
-      </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Une expertise technique et réglementaire au service de vos formations
+              </h2>
 
-      <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-        Une expertise technique et réglementaire au service de vos formations
-      </h2>
+              <p className="mt-4 text-slate-300 leading-8">
+                Nos formations sont conçues pour répondre aux exigences réglementaires en vigueur,
+                notamment en matière d’habilitation électrique (référentiel NF C 18-510),
+                de sécurité incendie et de prévention des risques. Elles s’appuient sur une approche
+                concrète du terrain, adaptée aux contraintes opérationnelles des entreprises.
+              </p>
+            </div>
 
-      <p className="mt-4 text-slate-300 leading-8">
-        Nos formations sont conçues pour répondre aux exigences réglementaires en vigueur,
-        notamment en matière d’habilitation électrique (référentiel NF C 18-510),
-        de sécurité incendie et de prévention des risques. Elles s’appuient sur une approche
-        concrète du terrain, adaptée aux contraintes opérationnelles des entreprises.
-      </p>
-    </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="text-lg font-bold">Conformité réglementaire</h3>
+                <p className="mt-2 text-sm text-slate-300">
+                  Programmes construits selon les référentiels en vigueur (NF C 18-510,
+                  Code du travail, exigences sécurité incendie).
+                </p>
+              </div>
 
-    {/* POINTS FORTS */}
-    <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="text-lg font-bold">Approche terrain</h3>
+                <p className="mt-2 text-sm text-slate-300">
+                  Formations basées sur des situations réelles d’exploitation et des retours
+                  d’expérience issus du terrain.
+                </p>
+              </div>
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-lg font-bold">Conformité réglementaire</h3>
-        <p className="mt-2 text-sm text-slate-300">
-          Programmes construits selon les référentiels en vigueur (NF C 18-510,
-          Code du travail, exigences sécurité incendie).
-        </p>
-      </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="text-lg font-bold">Adaptabilité</h3>
+                <p className="mt-2 text-sm text-slate-300">
+                  Organisation en présentiel, en e-learning ou en intra-entreprise selon
+                  vos contraintes opérationnelles.
+                </p>
+              </div>
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-lg font-bold">Approche terrain</h3>
-        <p className="mt-2 text-sm text-slate-300">
-          Formations basées sur des situations réelles d’exploitation et des retours
-          d’expérience issus du terrain.
-        </p>
-      </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <h3 className="text-lg font-bold">Lisibilité des parcours</h3>
+                <p className="mt-2 text-sm text-slate-300">
+                  Une offre structurée pour orienter rapidement vers le bon niveau
+                  d’habilitation et le bon format.
+                </p>
+              </div>
+            </div>
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-lg font-bold">Adaptabilité</h3>
-        <p className="mt-2 text-sm text-slate-300">
-          Organisation en présentiel, en e-learning ou en intra-entreprise selon
-          vos contraintes opérationnelles.
-        </p>
-      </div>
+            <div className="mt-16 grid gap-10 lg:grid-cols-2">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
+                  Domaines d’intervention
+                </p>
 
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h3 className="text-lg font-bold">Lisibilité des parcours</h3>
-        <p className="mt-2 text-sm text-slate-300">
-          Une offre structurée pour orienter rapidement vers le bon niveau
-          d’habilitation et le bon format.
-        </p>
-      </div>
+                <h3 className="mt-3 text-2xl font-bold">
+                  Des formations adaptées aux enjeux techniques et réglementaires
+                </h3>
 
-    </div>
+                <ul className="mt-6 space-y-3 text-sm text-slate-300 leading-7">
+                  <li>• Habilitation électrique (NF C 18-510)</li>
+                  <li>• Sécurité incendie et évacuation</li>
+                  <li>• Équipier de première intervention (EPI)</li>
+                  <li>• Exploitation des systèmes de sécurité incendie (SSI)</li>
+                  <li>• Exploitation sprinkler et référentiels techniques (APSAD, NFPA, FM Global)</li>
+                  <li>• Sauveteur Secouriste du Travail (SST)</li>
+                </ul>
 
-    {/* DOMAINES D'INTERVENTION */}
-    <div className="mt-16 grid gap-10 lg:grid-cols-2">
+                <p className="mt-6 text-sm text-slate-300 leading-7">
+                  Chaque formation est conçue pour intégrer les obligations réglementaires
+                  applicables et garantir une mise en conformité opérationnelle des
+                  apprenants et des entreprises.
+                </p>
+              </div>
 
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-          Domaines d’intervention
-        </p>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
+                  Zone d’intervention
+                </p>
 
-        <h3 className="mt-3 text-2xl font-bold">
-          Des formations adaptées aux enjeux techniques et réglementaires
-        </h3>
+                <h3 className="mt-3 text-2xl font-bold">
+                  Une présence en Île-de-France et des interventions partout en France
+                </h3>
 
-        <ul className="mt-6 space-y-3 text-sm text-slate-300 leading-7">
-          <li>• Habilitation électrique (NF C 18-510)</li>
-          <li>• Sécurité incendie et évacuation</li>
-          <li>• Équipier de première intervention (EPI)</li>
-          <li>• Exploitation des systèmes de sécurité incendie (SSI)</li>
-          <li>• Exploitation sprinkler et référentiels techniques (APSAD, NFPA, FM Global)</li>
-          <li>• Sauveteur Secouriste du Travail (SST)</li>
-        </ul>
+                <p className="mt-6 text-sm text-slate-300 leading-7">
+                  PREVENSIA FORMATION intervient principalement en Île-de-France pour
+                  les formations en présentiel. Des sessions peuvent également être
+                  organisées sur l’ensemble du territoire national selon vos besoins,
+                  notamment dans le cadre de formations intra-entreprise.
+                </p>
 
-        <p className="mt-6 text-sm text-slate-300 leading-7">
-          Chaque formation est conçue pour intégrer les obligations réglementaires
-          applicables et garantir une mise en conformité opérationnelle des
-          apprenants et des entreprises.
-        </p>
-      </div>
+                <p className="mt-4 text-sm text-slate-300 leading-7">
+                  Cette organisation permet de concilier proximité, réactivité et
+                  adaptation aux contraintes spécifiques de chaque site.
+                </p>
+              </div>
+            </div>
 
-      {/* LOCALISATION */}
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-          Zone d’intervention
-        </p>
+            <div className="mt-16 max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
+                Qui sommes-nous ?
+              </p>
 
-        <h3 className="mt-3 text-2xl font-bold">
-          Une présence en Île-de-France et des interventions partout en France
-        </h3>
+              <h3 className="mt-3 text-2xl font-bold">
+                Un organisme de formation ancré dans la réalité du terrain
+              </h3>
 
-        <p className="mt-6 text-sm text-slate-300 leading-7">
-          PREVENSIA FORMATION intervient principalement en Île-de-France pour
-          les formations en présentiel. Des sessions peuvent également être
-          organisées sur l’ensemble du territoire national selon vos besoins,
-          notamment dans le cadre de formations intra-entreprise.
-        </p>
+              <p className="mt-4 text-slate-300 leading-8">
+                PREVENSIA FORMATION s’appuie sur une expertise issue de l’ingénierie
+                sécurité et de la prévention des risques. Notre objectif est de proposer
+                des formations claires, efficaces et directement applicables en
+                exploitation, en intégrant les exigences réglementaires et normatives
+                propres à chaque domaine.
+              </p>
 
-        <p className="mt-4 text-sm text-slate-300 leading-7">
-          Cette organisation permet de concilier proximité, réactivité et
-          adaptation aux contraintes spécifiques de chaque site.
-        </p>
-      </div>
-
-    </div>
-
-    {/* QUI SOMMES-NOUS */}
-    <div className="mt-16 max-w-3xl">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-        Qui sommes-nous ?
-      </p>
-
-      <h3 className="mt-3 text-2xl font-bold">
-        Un organisme de formation ancré dans la réalité du terrain
-      </h3>
-
-      <p className="mt-4 text-slate-300 leading-8">
-        PREVENSIA FORMATION s’appuie sur une expertise issue de l’ingénierie
-        sécurité et de la prévention des risques. Notre objectif est de proposer
-        des formations claires, efficaces et directement applicables en
-        exploitation, en intégrant les exigences réglementaires et normatives
-        propres à chaque domaine.
-      </p>
-
-      <p className="mt-4 text-slate-300 leading-8">
-        Nous accompagnons les entreprises et les apprenants avec une approche
-        pragmatique, orientée résultats et conformité, afin de garantir une
-        montée en compétence réelle et durable.
-      </p>
-    </div>
-
-  </div>
-</section>
+              <p className="mt-4 text-slate-300 leading-8">
+                Nous accompagnons les entreprises et les apprenants avec une approche
+                pragmatique, orientée résultats et conformité, afin de garantir une
+                montée en compétence réelle et durable.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
 
       {showScrollTopButton ? (
