@@ -754,79 +754,88 @@ export default function Home() {
         </section>
 
         <section className="bg-slate-100 py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-[1.75rem] bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                  Entreprises
-                </p>
-                <h3 className="mt-3 text-xl font-bold text-slate-900">
-                  Demandes de devis
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Pour plusieurs apprenants, des besoins intra-entreprise ou une organisation spécifique,
-                  la demande de devis reste l’entrée la plus pertinente.
-                </p>
-                <Link
-                  href="/demande-devis"
-                  className="mt-5 inline-flex rounded-2xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
-                >
-                  Demander un devis
-                </Link>
-              </div>
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="grid gap-6 md:grid-cols-3">
+      <div className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+          Entreprises
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Demandes de devis
+        </h3>
+        <p className="mt-3 text-sm leading-7 text-slate-600">
+          Pour plusieurs apprenants, des besoins intra-entreprise ou une organisation spécifique,
+          la demande de devis reste l’entrée la plus pertinente.
+        </p>
 
-              <div className="rounded-[1.75rem] bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                  Apprenants
-                </p>
-                <h3 className="mt-3 text-xl font-bold text-slate-900">
-                  E-learning / Espace apprenant
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Accédez à votre espace e-learning pour retrouver vos comptes,
-                  modules, quiz, progression et certificats.
-                </p>
-                <Link
-                  href="/elearning"
-                  className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                >
-                  Accéder à l’espace e-learning
-                </Link>
-              </div>
+        <div className="mt-auto pt-6">
+          <Link
+            href="/demande-devis"
+            className="inline-flex rounded-2xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
+          >
+            Demander un devis
+          </Link>
+        </div>
+      </div>
 
-              <div id="contact" className="rounded-[1.75rem] bg-white p-6 shadow-sm">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                  Contact
-                </p>
+      <div className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+          Apprenants
+        </p>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          E-learning / Espace apprenant
+        </h3>
+        <p className="mt-3 text-sm leading-7 text-slate-600">
+          Accédez à votre espace e-learning pour retrouver vos comptes,
+          modules, quiz, progression et certificats.
+        </p>
 
-                <h3 className="mt-3 text-xl font-bold text-slate-900">
-                  Échangeons sur votre besoin
-                </h3>
+        <div className="mt-auto pt-6">
+          <Link
+            href="/elearning"
+            className="inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          >
+            Accéder à l’espace e-learning
+          </Link>
+        </div>
+      </div>
 
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  PREVENSIA FORMATION accompagne les particuliers et les professionnels sur toute la France selon la prestation.
-                </p>
+      <div
+        id="contact"
+        className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm"
+      >
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+          Contact
+        </p>
 
-                <div className="mt-4 space-y-2 text-sm text-slate-800">
-                  <p className="font-medium">contact@prevensia-formation.fr</p>
-                  <p className="font-medium">01 89 62 94 92</p>
-                </div>
+        <h3 className="mt-3 text-xl font-bold text-slate-900">
+          Échangeons sur votre besoin
+        </h3>
 
-                <div className="mt-5">
-                <a
-  href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
->
-  Voir LinkedIn
-</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <p className="mt-3 text-sm leading-7 text-slate-600">
+          PREVENSIA FORMATION accompagne les particuliers et les professionnels
+          sur toute la France selon la prestation.
+        </p>
 
+        <div className="mt-4 space-y-2 text-sm text-slate-800">
+          <p className="font-medium">contact@prevensia-formation.fr</p>
+          <p className="font-medium">01 89 62 94 92</p>
+        </div>
+
+        <div className="mt-auto pt-6">
+          <a
+            href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Voir LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         <section className="bg-slate-900 py-16 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
