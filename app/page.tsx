@@ -813,14 +813,14 @@ export default function Home() {
                 </div>
 
                 <div className="mt-5">
-                  <Link
-                    href="https://lnkd.in/ez6gfj_G"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                  >
-                    Voir LinkedIn
-                  </Link>
+                <a
+  href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+>
+  Voir LinkedIn
+</a>
                 </div>
               </div>
             </div>
