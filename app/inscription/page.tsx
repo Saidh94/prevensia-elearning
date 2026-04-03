@@ -1,210 +1,378 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-type Session = {
-  id: string;
-  title: string;
-  date_start: string;
-  format?: string | null;
-  places_total: number;
-  places_taken: number;
-  places_restantes: number;
-};
+const formationsParCategorie = {
+  "Habilitations électriques": [
+    "H0B0",
+    "BS / BE Manœuvre",
+    "B1 B1V B2 B2V BR BC",
+    "Habilitation électrique H0B0 - Présentiel",
+    "BS / BE Manœuvre - Présentiel",
+    "B1 B1V B2 B2V BR BC - Présentiel",
+  ],
+  "Sécurité incendie": [
+    "Manipulation extincteurs",
+    "Guide-file / Serre-file",
+    "Équipier de Première Intervention (EPI)",
+    "Exploitation SSI",
+    "Exploitation sprinkler et référentiels techniques",
+  ],
+  SST: [
+    "SST - Formation initiale",
+    "MAC SST",
+  ],
+} as const;
 
-export default function PlanningPage() {
-  const [sessions, setSessions] = useState<Session[]>([]);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+type CategorieFormation = keyof typeof formationsParCategorie;
 
-  useEffect(() => {
-    const loadSessions = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
+function trouverCategorieDepuisFormation(formation: string): CategorieFormation | "" {
+  const entree = formation.trim().toLowerCase();
 
-        const res = await fetch("/api/sessions", { cache: "no-store" });
-        const data = await res.json();
+  for (const [categorie, formations] of Object.entries(formationsParCategorie)) {
+    const trouve = formations.some(
+      (item) => item.trim().toLowerCase() === entree
+    );
 
-        if (!res.ok) {
-          throw new Error(data?.error || "Erreur de chargement");
-        }
-
-        if (!Array.isArray(data)) {
-          throw new Error("Format de réponse invalide");
-        }
-
-        setSessions(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Erreur inconnue");
-        setSessions([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadSessions();
-  }, []);
-
-  const filteredSessions = useMemo(() => {
-    return sessions.filter((session) => {
-      const title = (session.title ?? "").toLowerCase().trim();
-      const format = (session.format ?? "").toLowerCase().trim();
-
-      const isElearningTitle =
-        title.includes("h0b0") ||
-        title.includes("bs / be") ||
-        title.includes("bs/be") ||
-        title.includes("b1 b1v b2 b2v br bc") ||
-        title.includes("habilitation électrique h0b0") ||
-        title.includes("habilitation electrique h0b0");
-
-      const isElearningFormat =
-        format.includes("e-learning") ||
-        format.includes("elearning") ||
-        format.includes("en ligne") ||
-        format.includes("distanciel");
-
-      return !isElearningTitle && !isElearningFormat;
-    });
-  }, [sessions]);
-
-  useEffect(() => {
-    if (filteredSessions.length > 0) {
-      setSelectedId(filteredSessions[0].id);
-    } else {
-      setSelectedId(null);
+    if (trouve) {
+      return categorie as CategorieFormation;
     }
-  }, [filteredSessions]);
+  }
+
+  return "";
+}
+
+function InscriptionForm() {
+  const searchParams = useSearchParams();
+
+  const sessionId = searchParams.get("sessionId") ?? "";
+  const formationDepuisUrl = searchParams.get("formation") ?? "";
+
+  const categorieInitiale = trouverCategorieDepuisFormation(formationDepuisUrl);
+
+  const [form, setForm] = useState({
+    nom: "",
+    prenom: "",
+    email: "",
+    telephone: "",
+    entreprise: "",
+    categorie: categorieInitiale,
+    formation: formationDepuisUrl,
+    sessionId,
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const optionsFormation = useMemo(() => {
+    if (!form.categorie) return [];
+    return formationsParCategorie[form.categorie];
+  }, [form.categorie]);
+
+  useEffect(() => {
+    if (!formationDepuisUrl) return;
+
+    const categorieTrouvee = trouverCategorieDepuisFormation(formationDepuisUrl);
+
+    setForm((prev) => ({
+      ...prev,
+      categorie: categorieTrouvee,
+      formation: formationDepuisUrl,
+      sessionId,
+    }));
+  }, [formationDepuisUrl, sessionId]);
+
+  const isValid = useMemo(() => {
+    return (
+      form.nom.trim() !== "" &&
+      form.prenom.trim() !== "" &&
+      form.email.trim() !== "" &&
+      form.categorie.trim() !== "" &&
+      form.formation.trim() !== ""
+    );
+  }, [form]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleCategorieChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const nouvelleCategorie = e.target.value as CategorieFormation | "";
+
+    setForm((prev) => {
+      const formationsDisponibles = nouvelleCategorie
+        ? formationsParCategorie[nouvelleCategorie]
+        : [];
+
+      const formationEncoreValide = formationsDisponibles.includes(
+        prev.formation as never
+      );
+
+      return {
+        ...prev,
+        categorie: nouvelleCategorie,
+        formation: formationEncoreValide ? prev.formation : "",
+      };
+    });
+  };
+
+  const handleFormationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+
+    setForm((prev) => ({
+      ...prev,
+      formation: value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSuccess(null);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type: "inscription",
+          ...form,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error || "Erreur lors de l'envoi");
+      }
+
+      setSuccess(
+        "Votre demande d’inscription a bien été envoyée. Nous vous recontacterons rapidement."
+      );
+
+      setForm((prev) => ({
+        ...prev,
+        nom: "",
+        prenom: "",
+        email: "",
+        telephone: "",
+        entreprise: "",
+      }));
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Une erreur est survenue lors de l’envoi."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-slate-50 py-10">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-600">
             PREVENSIA FORMATION
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Sessions en présentiel
+            Inscription à une formation
           </h1>
 
           <p className="mt-4 text-slate-600">
-            Consultez les prochaines sessions en présentiel et réservez votre
-            place ou contactez-nous pour une organisation sur mesure.
+            Remplissez le formulaire ci-dessous pour demander votre inscription
+            à une session de formation.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/elearning"
-              className="inline-flex rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
-            >
-              Voir les formations e-learning
-            </Link>
+          {formationDepuisUrl ? (
+            <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4">
+              <p className="text-sm font-semibold text-green-800">
+                Formation sélectionnée
+              </p>
+              <p className="mt-1 text-sm text-green-700">{formationDepuisUrl}</p>
+            </div>
+          ) : null}
 
-            <Link
-              href="/demande-devis"
-              className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-            >
-              Demander un devis
-            </Link>
-          </div>
-        </div>
+          <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Nom
+                </label>
+                <input
+                  type="text"
+                  name="nom"
+                  value={form.nom}
+                  onChange={handleInputChange}
+                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-600"
+                />
+              </div>
 
-        {isLoading && (
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-            Chargement des sessions...
-          </div>
-        )}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Prénom
+                </label>
+                <input
+                  type="text"
+                  name="prenom"
+                  value={form.prenom}
+                  onChange={handleInputChange}
+                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-600"
+                />
+              </div>
+            </div>
 
-        {!isLoading && error && (
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 text-red-700 shadow-sm">
-            Erreur de chargement des sessions : {error}
-          </div>
-        )}
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleInputChange}
+                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-600"
+                />
+              </div>
 
-        {!isLoading && !error && filteredSessions.length > 0 && (
-          <div className="grid gap-4">
-            {filteredSessions.map((session) => {
-              const isSelected = selectedId === session.id;
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Téléphone
+                </label>
+                <input
+                  type="text"
+                  name="telephone"
+                  value={form.telephone}
+                  onChange={handleInputChange}
+                  className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-600"
+                />
+              </div>
+            </div>
 
-              return (
-                <div
-                  key={session.id}
-                  className={`rounded-2xl border p-5 shadow-sm transition ${
-                    isSelected
-                      ? "border-green-700 bg-green-50"
-                      : "border-slate-200 bg-white"
-                  }`}
+            <div>
+              <label className="mb-2 block text-sm font-medium text-slate-700">
+                Entreprise
+              </label>
+              <input
+                type="text"
+                name="entreprise"
+                value={form.entreprise}
+                onChange={handleInputChange}
+                className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-600"
+              />
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Catégorie de formation
+                </label>
+                <select
+                  name="categorie"
+                  value={form.categorie}
+                  onChange={handleCategorieChange}
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-red-600"
                 >
-                  <button
-                    type="button"
-                    onClick={() => setSelectedId(session.id)}
-                    className="w-full text-left"
-                  >
-                    <p className="text-lg font-semibold text-slate-900">
-                      {session.title}
-                    </p>
+                  <option value="">Choisir une catégorie</option>
+                  {Object.keys(formationsParCategorie).map((categorie) => (
+                    <option key={categorie} value={categorie}>
+                      {categorie}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-                    <p className="mt-1 text-slate-600">
-                      {new Date(session.date_start).toLocaleDateString("fr-FR", {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                      })}
-                    </p>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Formation
+                </label>
+                <select
+                  name="formation"
+                  value={form.formation}
+                  onChange={handleFormationChange}
+                  disabled={!form.categorie}
+                  className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-red-600 disabled:cursor-not-allowed disabled:bg-slate-100"
+                >
+                  <option value="">
+                    {form.categorie
+                      ? "Choisir une formation"
+                      : "Sélectionnez d’abord une catégorie"}
+                  </option>
 
-                    {session.format ? (
-                      <p className="mt-2 text-sm text-slate-600">
-                        {session.format}
-                      </p>
-                    ) : null}
+                  {optionsFormation.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
 
-                    <p className="mt-2 text-sm font-medium text-slate-700">
-                      Places restantes :{" "}
-                      <span className="font-bold text-green-700">
-                        {session.places_restantes}
-                      </span>
-                    </p>
+            <input type="hidden" name="sessionId" value={form.sessionId} readOnly />
 
-                    <p className="mt-1 text-sm text-slate-500">
-                      {session.places_taken} inscrit(s) / {session.places_total}{" "}
-                      places
-                    </p>
-                  </button>
+            {success && (
+              <div className="rounded-2xl border border-green-200 bg-green-50 p-4 text-green-700">
+                {success}
+              </div>
+            )}
 
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedId(session.id)}
-                      className="inline-flex rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
-                    >
-                      Voir cette session
-                    </button>
+            {error && (
+              <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-red-700">
+                {error}
+              </div>
+            )}
 
-                    <Link
-                      href={`/inscription?sessionId=${session.id}&formation=${encodeURIComponent(
-                        session.title
-                      )}`}
-                      className="inline-flex rounded-xl bg-green-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-800"
-                    >
-                      S&apos;inscrire
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+            <div className="flex flex-wrap gap-3 pt-2">
+              <button
+                type="submit"
+                disabled={!isValid || isSubmitting}
+                className="inline-flex rounded-xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
+              </button>
 
-        {!isLoading && !error && filteredSessions.length === 0 && (
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 text-slate-600 shadow-sm">
-            Aucune session présentielle disponible pour le moment.
-          </div>
-        )}
+              <Link
+                href="/planning"
+                className="inline-flex rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Retour au planning
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
     </main>
+  );
+}
+
+export default function InscriptionPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-50 py-10">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 text-slate-600">
+              Chargement du formulaire...
+            </div>
+          </div>
+        </main>
+      }
+    >
+      <InscriptionForm />
+    </Suspense>
   );
 }
