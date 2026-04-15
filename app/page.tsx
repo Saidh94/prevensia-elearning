@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import CommercialProofSection from "@/components/site/CommercialProofSection";
 import TrainingCatalogTabs from "@/components/site/TrainingCatalogTabs";
 import FloatingContactButtons from "@/components/site/FloatingContactButtons";
@@ -77,6 +78,9 @@ const testimonials = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileFormationsOpen, setIsMobileFormationsOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
@@ -200,28 +204,29 @@ export default function Home() {
     };
   }, [isMobileMenuOpen]);
 
-  const goTo = (path: string) => {
+  const closeAllMenus = () => {
     setIsMobileMenuOpen(false);
     setIsMobileFormationsOpen(false);
     setIsDesktopMenuOpen(false);
-    window.location.href = path;
+  };
+
+  const goTo = (path: string) => {
+    closeAllMenus();
+    router.push(path);
   };
 
   const handleAccueilClick = (
     event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
   ) => {
     event?.preventDefault();
-    setIsMobileMenuOpen(false);
-    setIsMobileFormationsOpen(false);
-    setIsDesktopMenuOpen(false);
+    closeAllMenus();
 
-    if (window.location.pathname === "/") {
+    if (pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-      window.history.replaceState(null, "", "/");
       return;
     }
 
-    window.location.href = "/";
+    router.push("/");
   };
 
   const closeMobileMenu = () => {
@@ -279,6 +284,7 @@ export default function Home() {
                     >
                       Catalogue
                     </Link>
+
                     <button
                       type="button"
                       className="text-left transition hover:text-red-700"
@@ -286,6 +292,7 @@ export default function Home() {
                     >
                       Planning présentiel
                     </button>
+
                     <Link
                       href="/elearning"
                       className="transition hover:text-red-700"
@@ -293,6 +300,7 @@ export default function Home() {
                     >
                       E-learning / Espace apprenant
                     </Link>
+
                     <Link
                       href="/demande-devis"
                       className="transition hover:text-red-700"
@@ -300,6 +308,7 @@ export default function Home() {
                     >
                       Demande de devis
                     </Link>
+
                     <Link
                       href="/#contact"
                       className="transition hover:text-red-700"
@@ -409,6 +418,7 @@ export default function Home() {
               >
                 Accueil
               </button>
+
               <Link
                 href="/#catalogue"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
@@ -416,6 +426,7 @@ export default function Home() {
               >
                 Catalogue
               </Link>
+
               <button
                 type="button"
                 className="rounded-xl px-3 py-2 text-left transition hover:bg-slate-100 hover:text-red-700"
@@ -423,6 +434,7 @@ export default function Home() {
               >
                 Planning présentiel
               </button>
+
               <Link
                 href="/elearning"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
@@ -430,6 +442,7 @@ export default function Home() {
               >
                 E-learning / Espace apprenant
               </Link>
+
               <Link
                 href="/demande-devis"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
@@ -437,6 +450,7 @@ export default function Home() {
               >
                 Demande de devis
               </Link>
+
               <Link
                 href="/#contact"
                 className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
@@ -515,6 +529,7 @@ export default function Home() {
               priority
             />
           </div>
+
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/95 to-slate-900" />
 
           <div className="relative border-b border-white/10 bg-white/5">
@@ -559,18 +574,19 @@ export default function Home() {
               Organisme de formation certifié
             </p>
 
-            <h1 className="mx-auto max-w-4xl text-4xl font-bold leading-tight sm:text-5xl lg:text-[3.25rem]">
-              Formations conformes aux{" "}
-              <span className="text-red-400">
-                référentiels réglementaires
-              </span>{" "}
-              en vigueur
+            <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight sm:text-5xl lg:text-[3.35rem]">
+              Formations sécurité incendie, habilitations électriques, SSI et
+              SST
+              <span className="block text-red-400">
+                pour entreprises, sites techniques et exploitants
+              </span>
             </h1>
 
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              Habilitation électrique, sécurité incendie, SSI, sprinkler et SST
-              — en présentiel ou en e-learning, avec une approche claire,
-              technique et directement exploitable.
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300">
+              PREVENSIA FORMATION accompagne les entreprises et les
+              professionnels avec des formations en présentiel, en intra et en
+              e-learning, conçues pour la conformité réglementaire, l’efficacité
+              opérationnelle et les réalités terrain.
             </p>
           </div>
 
@@ -581,17 +597,17 @@ export default function Home() {
                   Entreprises
                 </span>
                 <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-                  Formation intra &amp; devis groupe
+                  Formation intra, groupe et accompagnement sur mesure
                 </h2>
                 <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Plusieurs salariés à mettre en conformité, une organisation sur
-                  site ou un besoin réglementaire spécifique ? La demande de
-                  devis est votre point d&apos;entrée.
+                  Plusieurs salariés à former, un besoin réglementaire précis ou
+                  une organisation sur site ? Nous vous orientons vers une
+                  solution adaptée à votre activité et à vos contraintes.
                 </p>
                 <ul className="mt-5 space-y-2 text-sm text-slate-300">
                   <li className="flex items-center gap-2">
                     <span className="mt-0.5 text-red-400">✓</span>
-                    Formations sur mesure &amp; intra-entreprise
+                    Formations sur mesure et intra-entreprise
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="mt-0.5 text-red-400">✓</span>
@@ -614,7 +630,7 @@ export default function Home() {
                     onClick={() => goTo("/planning")}
                     className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
                   >
-                    Planning présentiel
+                    Voir le planning
                   </button>
                 </div>
               </div>
@@ -624,12 +640,11 @@ export default function Home() {
                   Particuliers &amp; Apprenants
                 </span>
                 <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-                  E-learning &amp; espace apprenant
+                  E-learning et espace apprenant
                 </h2>
                 <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Vous souhaitez obtenir votre habilitation H0B0 en ligne ou
-                  accéder à vos modules, quiz et attestations ? Connectez-vous à
-                  votre espace.
+                  Accédez à vos modules, quiz, résultats et attestations dans un
+                  espace dédié, avec un parcours souple et lisible.
                 </p>
                 <ul className="mt-5 space-y-2 text-sm text-slate-300">
                   <li className="flex items-center gap-2">
@@ -691,7 +706,8 @@ export default function Home() {
                     Présentiel, intra et e-learning
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    Des formats adaptés aux particuliers et entreprises.
+                    Des formats adaptés aux particuliers, entreprises et
+                    groupes.
                   </p>
                 </div>
               </div>
@@ -699,10 +715,11 @@ export default function Home() {
               <div className="flex items-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
                 <div>
                   <p className="text-sm font-bold text-slate-900">
-                    SSI, incendie et habilitations
+                    Approche technique et réglementaire
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    Une offre orientée exploitation réelle et conformité.
+                    Formation pensée pour les environnements tertiaires,
+                    industriels, logistiques et techniques.
                   </p>
                 </div>
               </div>
@@ -710,10 +727,10 @@ export default function Home() {
               <div className="flex items-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
                 <div>
                   <p className="text-sm font-bold text-slate-900">
-                    Interventions en Île-de-France
+                    Île-de-France et France entière
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    Et déplacements partout en France selon la mission.
+                    Interventions sur site selon la nature de la prestation.
                   </p>
                 </div>
               </div>
@@ -806,36 +823,36 @@ export default function Home() {
               </h2>
 
               <p className="mt-5 text-base leading-8 text-slate-600">
-                PREVENSIA FORMATION propose également des formations dédiées aux
-                systèmes de sécurité incendie, orientées exploitation réelle des
-                installations et compréhension des logiques de fonctionnement.
+                Formation dédiée à l’exploitation des systèmes de sécurité
+                incendie, à la compréhension de leur architecture et à la
+                conduite à tenir face aux événements d’alarme, de défaut ou de
+                mise en sécurité.
               </p>
 
               <p className="mt-4 text-base leading-8 text-slate-600">
-                L’objectif est de permettre aux apprenants de comprendre le rôle
-                du SSI dans la mise en sécurité, d’identifier les équipements
-                (SDI, CMSI, UGA, DAS) et d’adopter les bons réflexes en situation
-                d’alarme.
+                L’approche est conçue pour les exploitants, les responsables
+                techniques, les services maintenance et les référents sécurité
+                évoluant dans des contextes ERP, Code du travail, ICPE ou IGH.
               </p>
 
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
                   <p className="text-sm font-bold text-slate-900">
-                    Logiques d’exploitation
+                    Exploitation réelle du SSI
                   </p>
                   <p className="mt-2 text-sm leading-7 text-slate-600">
-                    Comprendre les interactions entre détection, alarme et mise
-                    en sécurité.
+                    Comprendre les chaînes de détection, l’alarme, la mise en
+                    sécurité et les réactions attendues face aux défauts.
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-white p-5">
                   <p className="text-sm font-bold text-slate-900">
-                    Références normatives
+                    Référentiels et contexte réglementaire
                   </p>
                   <p className="mt-2 text-sm leading-7 text-slate-600">
-                    Approche structurée selon les principes de la série NF S 61
-                    et les exigences d’exploitation.
+                    Lecture structurée des logiques NF S 61, ERP, Code du
+                    travail, ICPE, IGH et principes APSAD liés à l’exploitation.
                   </p>
                 </div>
               </div>
@@ -1008,7 +1025,7 @@ export default function Home() {
                   Entreprises
                 </p>
                 <h3 className="mt-3 text-xl font-bold text-slate-900">
-                  Formation intra &amp; devis groupe
+                  Formation intra et devis groupe
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   Plusieurs salariés à former, une organisation intra ou un
@@ -1018,7 +1035,7 @@ export default function Home() {
                 <ul className="mt-4 space-y-1.5 text-sm text-slate-700">
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
-                    Formations sur mesure &amp; intra-entreprise
+                    Formations sur mesure et intra-entreprise
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
@@ -1044,11 +1061,11 @@ export default function Home() {
                   Particuliers &amp; apprenants
                 </p>
                 <h3 className="mt-3 text-xl font-bold text-slate-900">
-                  E-learning &amp; espace apprenant
+                  E-learning et espace apprenant
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Vous souhaitez obtenir votre habilitation H0B0 en ligne ou
-                  accéder à vos modules et attestations ?
+                  Accédez à vos modules, quiz, résultats et attestations dans un
+                  espace dédié.
                 </p>
                 <ul className="mt-4 space-y-1.5 text-sm text-slate-700">
                   <li className="flex items-start gap-2">
@@ -1135,22 +1152,22 @@ export default function Home() {
               className="object-cover opacity-10"
             />
           </div>
+
           <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-slate-950/95" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-                Pourquoi choisir PREVENSIA FORMATION
+                Pourquoi PREVENSIA FORMATION
               </p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Une expertise technique et réglementaire au service de vos
-                formations
+                Une approche plus technique, plus terrain et plus exploitable
               </h2>
               <p className="mt-4 leading-8 text-slate-300">
-                Nos formations sont construites selon les référentiels en
-                vigueur — NF&nbsp;C&nbsp;18-510, Code du travail, SSI,
-                exigences sécurité incendie — et s&apos;appuient sur une
-                approche terrain adaptée aux contraintes opérationnelles réelles.
+                Nos formations sont conçues pour répondre aux exigences réelles
+                des entreprises, des exploitants et des environnements
+                techniques : conformité, compréhension des installations,
+                prévention et mise en pratique.
               </p>
             </div>
 
@@ -1158,32 +1175,32 @@ export default function Home() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="text-lg font-bold">Conformité réglementaire</h3>
                 <p className="mt-2 text-sm text-slate-300">
-                  Programmes construits selon les référentiels en vigueur :
-                  habilitations, SSI, sécurité incendie et cadre réglementaire.
+                  Programmes construits selon les référentiels en vigueur et
+                  adaptés aux obligations de l’employeur.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <h3 className="text-lg font-bold">Approche terrain</h3>
                 <p className="mt-2 text-sm text-slate-300">
-                  Formations basées sur des situations réelles d&apos;exploitation
-                  et des retours d&apos;expérience concrets.
+                  Des contenus pensés pour l’exploitation réelle, la
+                  maintenance, la prévention et les situations concrètes.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold">Adaptabilité</h3>
+                <h3 className="text-lg font-bold">Adaptation au site</h3>
                 <p className="mt-2 text-sm text-slate-300">
-                  Organisation en présentiel, e-learning ou intra-entreprise
-                  selon vos contraintes opérationnelles.
+                  Tertiaire, logistique, industriel, technique ou multi-sites :
+                  la formation s’adapte à votre contexte.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold">Lisibilité des parcours</h3>
+                <h3 className="text-lg font-bold">Lisibilité commerciale</h3>
                 <p className="mt-2 text-sm text-slate-300">
-                  Une offre structurée pour orienter rapidement vers le bon
-                  niveau, le bon format et le bon besoin.
+                  Tarifs, formats, publics, durées et accès sont clairement
+                  présentés pour faciliter votre décision.
                 </p>
               </div>
             </div>
