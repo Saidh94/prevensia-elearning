@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import CommercialProofSection from "@/components/site/CommercialProofSection";
 import TrainingCatalogTabs from "@/components/site/TrainingCatalogTabs";
 import FloatingContactButtons from "@/components/site/FloatingContactButtons";
 import LocationCoverageSection from "@/components/site/LocationCoverageSection";
@@ -65,15 +64,15 @@ const formations = [
 const testimonials = [
   {
     name: "Nadia Benyahia",
-    text: "Formation claire, bien structurée et très professionnelle. Le contenu est concret et facile à exploiter sur le terrain.",
+    text: "Formation claire, bien structurée et adaptée à notre environnement de travail.",
   },
   {
     name: "Karim El Mansouri",
-    text: "Très bonne pédagogie et très bon niveau technique. Le parcours H0B0 est plus sérieux que beaucoup d'offres vues ailleurs.",
+    text: "Très bon niveau technique, avec une vraie compréhension des contraintes d’exploitation.",
   },
   {
     name: "Sophie Martin",
-    text: "Organisation fluide, supports propres et explications adaptées. Une vraie impression de qualité et de maîtrise réglementaire.",
+    text: "Approche concrète, utile et directement applicable sur site.",
   },
 ];
 
@@ -809,7 +808,6 @@ export default function Home() {
         </section>
 
         <TrainingCatalogTabs />
-        <CommercialProofSection />
 
         <section className="bg-white py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
@@ -885,14 +883,14 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                Avis
+                Avis clients
               </p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
                 Ce que disent les personnes formées
               </h2>
               <p className="mt-4 text-slate-600">
-                Une présentation plus crédible, plus humaine et plus rassurante
-                pour les futurs clients et apprenants.
+                Des formations adaptées aux réalités du terrain, avec une
+                approche concrète et opérationnelle.
               </p>
             </div>
 
@@ -1214,7 +1212,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-6 z-50 rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-xl transition hover:-translate-y-0.5 hover:text-red-700"
+          className="fixed bottom-6 left-6 z-40 rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-xl transition hover:-translate-y-0.5 hover:text-red-700"
           aria-label="Revenir en haut de la page"
         >
           ↑
