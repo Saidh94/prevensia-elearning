@@ -71,7 +71,7 @@ export default function TrainingCatalogTabs() {
                   price: "500 € HT",
                   group: "À partir de 2 000 € HT",
                   participants: "10 max",
-                ctaHref: "/formation-habilitation-electrique",
+                  ctaHref: "/formation-habilitation-electrique",
                   ctaLabel: "Voir la formation",
                 },
               ]}
@@ -99,7 +99,7 @@ export default function TrainingCatalogTabs() {
                   price: "200 € HT",
                   group: "À partir de 1 500 € HT",
                   participants: "12 max",
-                  ctaHref: "/formations/formation-ssi",
+                  ctaHref: "/formation-ssi",
                   ctaLabel: "Voir la formation",
                 },
                 {
@@ -108,7 +108,7 @@ export default function TrainingCatalogTabs() {
                   price: "390 € HT",
                   group: "À partir de 2 400 € HT",
                   participants: "10 max",
-                  ctaHref: "/formations/formation-ssi",
+                  ctaHref: "/formation-ssi",
                   ctaLabel: "Voir la formation",
                 },
               ]}
@@ -136,7 +136,7 @@ export default function TrainingCatalogTabs() {
                   price: "200 € HT",
                   group: "À partir de 1 000 € HT",
                   participants: "6 max",
-                  ctaHref: "/formations/exploitation-sprinkler",
+                  ctaHref: "/formation-sprinkler",
                   ctaLabel: "Voir la formation",
                 },
                 {
@@ -145,7 +145,7 @@ export default function TrainingCatalogTabs() {
                   price: "490 € HT",
                   group: "À partir de 2 800 € HT",
                   participants: "6 max",
-                  ctaHref: "/formations/exploitation-sprinkler",
+                  ctaHref: "/formation-sprinkler",
                   ctaLabel: "Voir la formation",
                 },
               ]}
@@ -173,7 +173,7 @@ export default function TrainingCatalogTabs() {
                   price: "120 € HT",
                   group: "À partir de 490 € HT",
                   participants: "10 max",
-                  ctaHref: "/formations/securite-incendie",
+                  ctaHref: "/formation-securite-incendie",
                   ctaLabel: "Voir la formation",
                 },
                 {
@@ -182,7 +182,7 @@ export default function TrainingCatalogTabs() {
                   price: "120 € HT",
                   group: "À partir de 590 € HT",
                   participants: "10 max",
-                  ctaHref: "/formations/securite-incendie",
+                  ctaHref: "/formation-securite-incendie",
                   ctaLabel: "Voir la formation",
                 },
                 {
@@ -191,7 +191,7 @@ export default function TrainingCatalogTabs() {
                   price: "190 € HT",
                   group: "À partir de 790 € HT",
                   participants: "10 max",
-                  ctaHref: "/formations/securite-incendie",
+                  ctaHref: "/formation-securite-incendie",
                   ctaLabel: "Voir la formation",
                 },
               ]}
@@ -219,7 +219,7 @@ export default function TrainingCatalogTabs() {
                   price: "240 € HT",
                   group: "À partir de 1 190 € HT",
                   participants: "4 à 10",
-                  ctaHref: "/formations/sst",
+                  ctaHref: "/formation-sst",
                   ctaLabel: "Voir la formation",
                 },
                 {
@@ -228,7 +228,7 @@ export default function TrainingCatalogTabs() {
                   price: "130 € HT",
                   group: "À partir de 690 € HT",
                   participants: "4 à 10",
-                  ctaHref: "/formations/sst",
+                  ctaHref: "/formation-sst",
                   ctaLabel: "Voir la formation",
                 },
               ]}
@@ -293,7 +293,6 @@ export default function TrainingCatalogTabs() {
 function Table({ rows }: { rows: TableRow[] }) {
   return (
     <>
-      {/* Mobile */}
       <div className="space-y-4 md:hidden">
         {rows.map((r) => (
           <article
@@ -336,14 +335,14 @@ function Table({ rows }: { rows: TableRow[] }) {
 
             <div className="mt-4 flex flex-col gap-3">
               <Link
-                href={r.ctaHref ?? "/devis"}
+                href={r.ctaHref ?? "/demande-devis"}
                 className="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
               >
                 {r.ctaLabel ?? "Voir la formation"}
               </Link>
 
               <Link
-                href="/devis"
+                href="/demande-devis"
                 className="inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition hover:bg-slate-100"
               >
                 Demander un devis
@@ -353,7 +352,6 @@ function Table({ rows }: { rows: TableRow[] }) {
         ))}
       </div>
 
-      {/* Desktop / tablette */}
       <div className="hidden overflow-hidden rounded-2xl border border-slate-200 md:block">
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm">
@@ -381,7 +379,7 @@ function Table({ rows }: { rows: TableRow[] }) {
                   </td>
                   <td className="px-4 py-3">
                     <Link
-                      href={r.ctaHref ?? "/devis"}
+                      href={r.ctaHref ?? "/demande-devis"}
                       className="inline-flex rounded-xl bg-slate-900 px-3 py-2 text-xs font-medium text-white transition hover:bg-slate-800"
                     >
                       {r.ctaLabel ?? "Voir la formation"}
