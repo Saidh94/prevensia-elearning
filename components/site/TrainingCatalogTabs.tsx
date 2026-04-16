@@ -44,7 +44,7 @@ export default function TrainingCatalogTabs() {
                   price: "150 € HT",
                   group: "-",
                   participants: "Accès individuel",
-                  ctaHref: "/formations/habilitation-electrique",
+                  ctaHref: "/formation-habilitation-electrique",
                   ctaLabel: "Voir le parcours e-learning",
                 },
                 {
@@ -62,7 +62,7 @@ export default function TrainingCatalogTabs() {
                   price: "350 € HT",
                   group: "À partir de 1 600 € HT",
                   participants: "10 max",
-                  ctaHref: "/formations/habilitation-electrique",
+                  ctaHref: "/formation-habilitation-electrique",
                   ctaLabel: "Voir la formation",
                 },
                 {
@@ -71,7 +71,7 @@ export default function TrainingCatalogTabs() {
                   price: "500 € HT",
                   group: "À partir de 2 000 € HT",
                   participants: "10 max",
-                  ctaHref: "/formations/habilitation-electrique",
+                ctaHref: "/formation-habilitation-electrique",
                   ctaLabel: "Voir la formation",
                 },
               ]}
