@@ -5,20 +5,19 @@ import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 const formationsParCategorie = {
-  "Habilitations électriques": [
-    "H0B0",
-    "BS / BE Manœuvre",
-    "B1 B1V B2 B2V BR BC",
-    "Habilitation électrique H0B0 - Présentiel",
-    "BS / BE Manœuvre - Présentiel",
-    "B1 B1V B2 B2V BR BC - Présentiel",
+  "Habilitations electriques": [
+    "H0B0 / H0V - E-learning + entretien 30 min",
+    "BS / BE Manoeuvre - E-learning + visio",
+    "B1 B1V B2 B2V BR BC - Parcours mixte",
+    "BS / BE Manoeuvre - Recyclage",
+    "B1 B1V B2 B2V BR BC - Recyclage",
   ],
-  "Sécurité incendie": [
+  "Securite incendie": [
     "Manipulation extincteurs",
     "Guide-file / Serre-file",
-    "Équipier de Première Intervention (EPI)",
+    "Equipier de Premiere Intervention (EPI)",
     "Exploitation SSI",
-    "Exploitation sprinkler et référentiels techniques",
+    "Exploitation sprinkler et referentiels techniques",
   ],
   SST: ["SST - Formation initiale", "MAC SST"],
 } as const;
@@ -130,9 +129,9 @@ function InscriptionForm() {
         ? formationsParCategorie[nouvelleCategorie]
         : [];
 
-     const formationEncoreValide = formationsDisponibles.some(
-  (item) => item === prev.formation
-);
+      const formationEncoreValide = formationsDisponibles.some(
+        (item) => item === prev.formation
+      );
 
       return {
         ...prev,
@@ -176,7 +175,7 @@ function InscriptionForm() {
       }
 
       setSuccess(
-        "Votre demande d’inscription a bien été envoyée. Nous vous recontacterons rapidement."
+        "Votre demande d'inscription a bien ete envoyee. Nous vous recontacterons rapidement."
       );
 
       setForm((prev) => ({
@@ -191,7 +190,7 @@ function InscriptionForm() {
       setError(
         err instanceof Error
           ? err.message
-          : "Une erreur est survenue lors de l’envoi."
+          : "Une erreur est survenue lors de l'envoi."
       );
     } finally {
       setIsSubmitting(false);
@@ -207,18 +206,18 @@ function InscriptionForm() {
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Inscription à une formation
+            Inscription a une formation
           </h1>
 
           <p className="mt-4 text-slate-600">
             Remplissez le formulaire ci-dessous pour demander votre inscription
-            à une session de formation.
+            a une session de formation.
           </p>
 
           {formationDepuisUrl || dateDepuisUrl || formatDepuisUrl ? (
             <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4">
               <p className="text-sm font-semibold text-green-800">
-                Session sélectionnée
+                Session selectionnee
               </p>
 
               {formationDepuisUrl ? (
@@ -261,7 +260,7 @@ function InscriptionForm() {
 
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
-                  Prénom
+                  Prenom
                 </label>
                 <input
                   type="text"
@@ -289,7 +288,7 @@ function InscriptionForm() {
 
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
-                  Téléphone
+                  Telephone
                 </label>
                 <input
                   type="text"
@@ -317,7 +316,7 @@ function InscriptionForm() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
-                  Catégorie de formation
+                  Categorie de formation
                 </label>
                 <select
                   name="categorie"
@@ -325,7 +324,7 @@ function InscriptionForm() {
                   onChange={handleCategorieChange}
                   className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-red-600"
                 >
-                  <option value="">Choisir une catégorie</option>
+                  <option value="">Choisir une categorie</option>
                   {Object.keys(formationsParCategorie).map((categorie) => (
                     <option key={categorie} value={categorie}>
                       {categorie}
@@ -348,7 +347,7 @@ function InscriptionForm() {
                   <option value="">
                     {form.categorie
                       ? "Choisir une formation"
-                      : "Sélectionnez d’abord une catégorie"}
+                      : "Selectionnez d'abord une categorie"}
                   </option>
 
                   {optionsFormation.map((item) => (
@@ -410,7 +409,7 @@ export default function InscriptionPage() {
       fallback={
         <main className="min-h-screen bg-slate-50 py-10">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 text-slate-600">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 text-slate-600 shadow-sm sm:p-8">
               Chargement du formulaire...
             </div>
           </div>

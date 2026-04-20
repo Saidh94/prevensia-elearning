@@ -4,15 +4,15 @@ export const b1b2brbcModuleContent: ModuleContent = {
   title: "B1 / B2 / BR / BC - Executants, charges de travaux, interventions et consignation en basse tension",
   shortTitle: "B1 / B2 / BR / BC",
   subtitle:
-    "Parcours e-learning de preparation theorique destine aux electriciens et personnels techniques appeles a executer, encadrer, consigner ou intervenir en basse tension dans un cadre professionnel formalise.",
-  duration: "2 h 00 a 2 h 30",
+    "Parcours e-learning de preparation theorique destine aux electriciens et personnels techniques appeles a executer, encadrer, consigner ou intervenir en basse tension dans un cadre professionnel formalise, complete par une journee presentielle de validation et d'application.",
+  duration: "7 h 00 a 10 h 00 de theorie guidee",
   level: "Avance",
   objective:
     "Comprendre les symboles B1, B2, BR et BC, distinguer les roles et responsabilites, preparer une operation en securite, maitriser les principes de consignation, d'intervention et de travaux en basse tension, identifier les ecarts critiques et adopter les bons reflexes face aux anomalies ou a l'urgence.",
   audience:
     "Electriciens, techniciens de maintenance, responsables techniques et personnels amenes a executer des travaux, conduire une intervention generale, preparer une consignation ou assurer un role d'encadrement electrique en basse tension.",
   certificationNote:
-    "Ce parcours constitue la base theorique. La delivrance de l'habilitation releve de l'employeur apres evaluation des acquis, verification de l'adequation entre les taches reelles et le niveau retenu, ainsi qu'apres mise en situation pratique adaptee.",
+    "Ce parcours constitue la base theorique. La delivrance de l'habilitation releve de l'employeur apres evaluation des acquis, verification de l'adequation entre les taches reelles et le niveau retenu, ainsi qu'apres mise en situation pratique adaptee et sequence presentielle d'application.",
   heroBadge: "Habilitation electrique",
   finalMessage:
     "Le parcours B1 / B2 / BR / BC doit conduire a une logique de securite exigeante : preparation, verification, respect du role attribue, rigueur documentaire et refus de toute improvisation sur une installation electrique.",
@@ -56,6 +56,8 @@ export const b1b2brbcModuleContent: ModuleContent = {
         subtitle: "Executer, diriger, intervenir, consigner : chaque role a ses limites.",
         items: ["B1", "B2", "BR", "BC"],
         tone: "blue",
+        imagePath: "/images/armoire-electrique.jpg",
+        imageAlt: "Repere visuel d'un tableau electrique pour le parcours B1 B2 BR BC",
       },
     },
     {
@@ -372,6 +374,48 @@ export const b1b2brbcModuleContent: ModuleContent = {
         subtitle: "Identifier, preparer, respecter son role, arreter si doute.",
         items: ["Identifier", "Preparer", "Respecter son role", "Arreter si doute"],
         tone: "blue",
+      },
+    },
+    {
+      id: "documents-coordination",
+      title: "11. Documents, autorisations et coordination de chantier",
+      intro:
+        "Les habilitations B1, B2, BR et BC prennent toute leur valeur dans une organisation documentee. Le travail electrique se securise aussi par les autorisations, plans, permis et consignes de chantier.",
+      content: [
+        "Les dossiers techniques, reperages, schemas, plans de prevention, permis ou autorisations d'acces permettent de confirmer le perimetre reel d'une operation electrique.",
+        "Le charge de travaux, l'intervenant BR ou le charge de consignation doivent savoir quels documents verifier avant d'agir, lesquels mettre a jour et quels interlocuteurs alerter si une incoherence apparait.",
+        "Sur un chantier ou dans un site en exploitation, la coordination avec les autres entreprises, l'encadrement local et les exploitants techniques est un point de securite a part entiere.",
+      ],
+      deepDive: [
+        "Une operation bien preparee sur le plan technique peut devenir dangereuse si la coordination est mauvaise : interface non signalee, acces concurrent, modification non tracee, ou mauvaise information sur l'etat electrique reel.",
+        "Le professionnalisme attendu sur ces habilitations ne consiste pas seulement a savoir faire un geste technique, mais a maitriser la chaine complete : preparation, documents, consignes, execution, compte rendu et retour d'experience.",
+      ],
+      keyPoints: [
+        "Documenter avant d'agir.",
+        "Coordonner avec les autres intervenants.",
+        "Tracer les ecarts et les reprises.",
+      ],
+      forbiddenPoints: [
+        "Executer sans dossier ou repere fiable.",
+        "Ignorer une interface chantier ou exploitation.",
+        "Reprendre une installation sans verification documentaire.",
+      ],
+      legalRefs: [
+        "Code du travail - coordination, prevention et organisation des interventions.",
+        "NF C 18-510 - preparation des operations, designation des roles et support documentaire.",
+      ],
+      practicalCase:
+        "Exemple : une equipe B2 doit intervenir sur un depart consigne, mais un sous-traitant voisin annonce une remise en service partielle de zone. L'operation est suspendue jusqu'a coordination et revalidation du cadre.",
+      visual: {
+        title: "Le chantier ne se gere pas seul",
+        subtitle: "Plan, consigne et coordination font partie de la securite electrique.",
+        items: [
+          "Dossier technique",
+          "Autorisation claire",
+          "Coordination des acteurs",
+          "Trace ecrite",
+        ],
+        tone: "slate",
       },
     },
   ],

@@ -18,10 +18,10 @@ export default function DemandeDevis() {
         </h1>
 
         <p className="mt-4 text-slate-600">
-          Décrivez votre besoin en formation en habilitation électrique, SST,
-          sécurité incendie, exploitation SSI ou exploitation sprinkler. Nous
-          vous répondrons avec une proposition adaptée à votre activité, à votre
-          effectif et à votre délai souhaité.
+          Decrivez votre besoin en formation en habilitation electrique, SST,
+          securite incendie, exploitation SSI ou exploitation sprinkler. Nous
+          vous repondrons avec une proposition adaptee a votre activite, a votre
+          effectif et a votre delai souhaite.
         </p>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
@@ -29,7 +29,7 @@ export default function DemandeDevis() {
             <strong>Email :</strong> prevensia.formation@outlook.fr
           </p>
           <p>
-            <strong>Téléphone :</strong> 01 89 62 94 92
+            <strong>Telephone :</strong> 01 89 62 94 92
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function DemandeDevis() {
         >
           <div>
             <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Vous êtes
+              Vous etes
             </label>
             <select
               name="profil"
@@ -66,19 +66,19 @@ export default function DemandeDevis() {
               }}
               className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
             >
-              <option value="">Sélectionnez une famille de formation</option>
-              <option value="habilitation">Habilitation électrique</option>
+              <option value="">Selectionnez une famille de formation</option>
+              <option value="habilitation">Habilitation electrique</option>
               <option value="sst">SST</option>
               <option value="ssi">Exploitation SSI</option>
               <option value="sprinkler">Exploitation sprinkler</option>
-              <option value="incendie">Sécurité incendie</option>
+              <option value="incendie">Securite incendie</option>
             </select>
           </div>
 
           {formationType === "habilitation" && (
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail habilitation électrique
+                Detail habilitation electrique
               </label>
               <select
                 name="detail_formation"
@@ -87,11 +87,21 @@ export default function DemandeDevis() {
                 onChange={(e) => setFormationDetail(e.target.value)}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
               >
-                <option value="">Sélectionnez une habilitation</option>
-                <option value="h0b0">H0B0</option>
-                <option value="bs-be-manoeuvre">BS / BE Manœuvre</option>
+                <option value="">Selectionnez une habilitation</option>
+                <option value="h0b0-h0v">
+                  H0B0 / H0V - E-learning + entretien 30 min
+                </option>
+                <option value="bs-be-manoeuvre">
+                  BS / BE Manoeuvre - E-learning + visio
+                </option>
+                <option value="bs-be-recyclage">
+                  BS / BE Manoeuvre - Recyclage
+                </option>
                 <option value="b1-b1v-b2-b2v-br-bc">
-                  B1 B1V B2 B2V BR BC
+                  B1 B1V B2 B2V BR BC - Parcours mixte
+                </option>
+                <option value="b1-b1v-b2-b2v-br-bc-recyclage">
+                  B1 B1V B2 B2V BR BC - Recyclage
                 </option>
               </select>
             </div>
@@ -100,7 +110,7 @@ export default function DemandeDevis() {
           {formationType === "sst" && (
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation SST
+                Detail formation SST
               </label>
               <select
                 name="detail_formation"
@@ -109,7 +119,7 @@ export default function DemandeDevis() {
                 onChange={(e) => setFormationDetail(e.target.value)}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
               >
-                <option value="">Sélectionnez une formation SST</option>
+                <option value="">Selectionnez une formation SST</option>
                 <option value="sst-initial">SST initial</option>
                 <option value="mac-sst">MAC SST</option>
               </select>
@@ -119,7 +129,7 @@ export default function DemandeDevis() {
           {formationType === "ssi" && (
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation SSI
+                Detail formation SSI
               </label>
               <select
                 name="detail_formation"
@@ -128,7 +138,7 @@ export default function DemandeDevis() {
                 onChange={(e) => setFormationDetail(e.target.value)}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
               >
-                <option value="">Sélectionnez une formation SSI</option>
+                <option value="">Selectionnez une formation SSI</option>
                 <option value="exploitation-ssi">Exploitation SSI</option>
               </select>
             </div>
@@ -137,7 +147,7 @@ export default function DemandeDevis() {
           {formationType === "sprinkler" && (
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation sprinkler
+                Detail formation sprinkler
               </label>
               <select
                 name="detail_formation"
@@ -146,7 +156,7 @@ export default function DemandeDevis() {
                 onChange={(e) => setFormationDetail(e.target.value)}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
               >
-                <option value="">Sélectionnez une formation sprinkler</option>
+                <option value="">Selectionnez une formation sprinkler</option>
                 <option value="exploitation-sprinkler">
                   Exploitation sprinkler
                 </option>
@@ -157,7 +167,7 @@ export default function DemandeDevis() {
           {formationType === "incendie" && (
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation sécurité incendie
+                Detail formation securite incendie
               </label>
               <select
                 name="detail_formation"
@@ -166,7 +176,7 @@ export default function DemandeDevis() {
                 onChange={(e) => setFormationDetail(e.target.value)}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
               >
-                <option value="">Sélectionnez une formation incendie</option>
+                <option value="">Selectionnez une formation incendie</option>
                 <option value="manipulation-extincteurs">
                   Manipulation des extincteurs
                 </option>
@@ -174,7 +184,7 @@ export default function DemandeDevis() {
                   Guide-file / Serre-file
                 </option>
                 <option value="evacuation-incendie">
-                  Évacuation incendie
+                  Evacuation incendie
                 </option>
               </select>
             </div>
@@ -195,12 +205,12 @@ export default function DemandeDevis() {
 
           <div>
             <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Société
+              Societe
             </label>
             <input
               type="text"
               name="societe"
-              placeholder="Nom de la société"
+              placeholder="Nom de la societe"
               className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
             />
           </div>
@@ -220,12 +230,12 @@ export default function DemandeDevis() {
 
           <div>
             <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Téléphone
+              Telephone
             </label>
             <input
               type="tel"
               name="telephone"
-              placeholder="Votre téléphone"
+              placeholder="Votre telephone"
               className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
             />
           </div>
@@ -256,7 +266,7 @@ export default function DemandeDevis() {
 
           <div>
             <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Délai souhaité
+              Delai souhaite
             </label>
             <input
               type="text"
@@ -272,7 +282,7 @@ export default function DemandeDevis() {
             </label>
             <textarea
               name="message"
-              placeholder="Décrivez votre besoin, le niveau attendu, le nombre de stagiaires et toute contrainte particulière."
+              placeholder="Decrivez votre besoin, le niveau attendu, le nombre de stagiaires et toute contrainte particuliere."
               required
               className="min-h-[160px] w-full rounded-[1.5rem] border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
             />

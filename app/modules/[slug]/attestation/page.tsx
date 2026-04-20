@@ -46,6 +46,21 @@ function normalizeStatus(value: string | null | undefined): string {
     .replace(/[\s-]+/g, "_");
 }
 
+function formatDate(value: string | null | undefined) {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toLocaleDateString("fr-FR");
+}
+
+function buildReference(slug: string, completedAt?: string | null) {
+  const date = completedAt ? new Date(completedAt) : new Date();
+  const yy = date.getFullYear().toString().slice(-2);
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  return `PF-${yy}${mm}${dd}-${slug.toUpperCase()}`;
+}
+
 export default function AttestationPage() {
   const params = useParams();
   const slugParam = params.slug;
@@ -98,7 +113,7 @@ export default function AttestationPage() {
         } = await supabase.auth.getUser();
 
         if (userError || !user) {
-          setAccessError("Utilisateur non authentifié.");
+          setAccessError("Utilisateur non authentifie.");
           setEnrollmentStatus(null);
           return;
         }
@@ -123,14 +138,16 @@ export default function AttestationPage() {
 
         const { data, error } = await supabase
           .from("enrollments")
-          .select(`
-            id,
-            status,
-            formation:formations (
-              slug,
-              title
-            )
-          `)
+          .select(
+            `
+              id,
+              status,
+              formation:formations (
+                slug,
+                title
+              )
+            `
+          )
           .eq("user_id", user.id);
 
         if (error) {
@@ -148,7 +165,7 @@ export default function AttestationPage() {
 
         if (!matchedEnrollment) {
           setEnrollmentStatus(null);
-          setAccessError("Aucune inscription trouvée pour cette formation.");
+          setAccessError("Aucune inscription trouvee pour cette formation.");
           return;
         }
 
@@ -157,14 +174,14 @@ export default function AttestationPage() {
         setFormationTitle(
           matchedFormation?.title ||
             (slug === "h0b0"
-              ? "H0B0 — Exécuter en sécurité des travaux d’ordre non électrique"
+              ? "Habilitation electrique H0B0"
               : slug.toUpperCase())
         );
 
         setEnrollmentStatus(normalizeStatus(matchedEnrollment.status));
       } catch (error) {
         console.error("Erreur chargement attestation :", error);
-        setAccessError("Impossible de vérifier vos droits d’accès à l’attestation.");
+        setAccessError("Impossible de verifier vos droits d'acces a l'attestation.");
       } finally {
         setLoading(false);
       }
@@ -175,15 +192,15 @@ export default function AttestationPage() {
 
   const formationLabel =
     formationTitle ||
-    (slug === "h0b0"
-      ? "H0B0 — Exécuter en sécurité des travaux d’ordre non électrique"
-      : slug.toUpperCase());
+    (slug === "h0b0" ? "Habilitation electrique H0B0" : slug.toUpperCase());
 
-  const completedDate = quizResult?.completedAt
-    ? new Date(quizResult.completedAt).toLocaleDateString("fr-FR")
-    : null;
-
+  const completedDate = formatDate(quizResult?.completedAt);
   const issueDate = new Date().toLocaleDateString("fr-FR");
+  const reference = buildReference(slug, quizResult?.completedAt);
+  const scorePercent =
+    quizResult && quizResult.total > 0
+      ? Math.round((quizResult.score / quizResult.total) * 100)
+      : null;
 
   if (loading) {
     return (
@@ -193,10 +210,10 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Vérification de la validation finale
+            Verification de la validation finale
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Vérification de vos droits d’accès à l’attestation en cours…
+            Verification de vos droits d&apos;acces a l&apos;attestation en cours...
           </p>
         </div>
       </main>
@@ -211,7 +228,7 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Impossible de vérifier votre accès
+            Impossible de verifier votre acces
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
             {accessError}
@@ -235,7 +252,7 @@ export default function AttestationPage() {
       <main className="min-h-screen bg-slate-50 px-4 py-10">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
-            Attestation verrouillée
+            Attestation verrouillee
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
@@ -243,32 +260,32 @@ export default function AttestationPage() {
           </h1>
 
           <p className="mt-4 text-base leading-7 text-slate-600">
-            L’attestation n’est disponible qu’après validation finale du parcours
-            avec le formateur.
+            L&apos;attestation n&apos;est disponible qu&apos;apres validation finale
+            du parcours avec le formateur.
           </p>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
             <p className="text-sm font-semibold text-slate-900">
-              État actuel du parcours
+              Etat actuel du parcours
             </p>
 
             <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
               <li>
-                • Quiz :{" "}
+                Quiz :{" "}
                 <span className="font-semibold text-slate-900">
-                  {quizResult?.success ? "réussi" : "non validé ou non trouvé"}
+                  {quizResult?.success ? "reussi" : "non valide ou non trouve"}
                 </span>
               </li>
               <li>
-                • Statut dossier :{" "}
+                Statut dossier :{" "}
                 <span className="font-semibold text-slate-900">
-                  {enrollmentStatus ?? "non défini"}
+                  {enrollmentStatus ?? "non defini"}
                 </span>
               </li>
               <li>
-                • Attestation :{" "}
+                Attestation :{" "}
                 <span className="font-semibold text-slate-900">
-                  disponible après entretien et validation finale
+                  disponible apres entretien et validation finale
                 </span>
               </li>
             </ul>
@@ -279,7 +296,7 @@ export default function AttestationPage() {
               href="/booking"
               className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
             >
-              Planifier / voir l’entretien
+              Planifier / voir l&apos;entretien
             </Link>
 
             <Link
@@ -302,111 +319,141 @@ export default function AttestationPage() {
         </p>
 
         <h1 className="mt-3 text-3xl font-bold text-slate-900 print:hidden">
-          Attestation de formation validée
+          Attestation de formation validee
         </h1>
 
         <div className="mt-8 rounded-[1.75rem] border-2 border-slate-300 bg-slate-50 p-8 print:mt-4 print:rounded-none print:border-slate-300 print:bg-white">
-          <div className="flex items-center justify-between gap-6">
-            <div>
+          <div className="flex items-start justify-between gap-6">
+            <div className="min-w-0">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">
                 PREVENSIA FORMATION
               </p>
               <h2 className="mt-3 text-2xl font-bold text-slate-900">
-                Attestation de formation et de réussite
+                Fiche de reussite et validation apprenant
               </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Document apprenant remis apres validation complete du parcours.
+              </p>
             </div>
 
-            <div className="shrink-0">
-              <Image
-                src="/images/logo-prevensia-formation.jpg"
-                alt="Logo Prevensia Formation"
-                width={130}
-                height={130}
-                className="h-auto w-[110px] object-contain"
-              />
+            <div className="shrink-0 text-right">
+              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  Reference
+                </p>
+                <p className="mt-1 text-sm font-bold text-slate-900">
+                  {reference}
+                </p>
+                <p className="mt-1 text-xs text-slate-500">Edite le {issueDate}</p>
+              </div>
+
+              <div className="mt-4 flex justify-end">
+                <Image
+                  src="/images/logo-prevensia-formation.jpg"
+                  alt="Logo Prevensia Formation"
+                  width={120}
+                  height={120}
+                  className="h-auto w-[110px] object-contain"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-8 space-y-4 text-base leading-8 text-slate-700">
-            <p>
-              Je soussigné PREVENSIA FORMATION atteste que :
-            </p>
-
-            <p className="rounded-xl border border-slate-200 bg-white px-4 py-3">
-              <span className="font-semibold text-slate-900">
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Apprenant
+              </p>
+              <p className="mt-3 text-2xl font-bold text-slate-900">
                 {learnerName || "Apprenant"}
-              </span>
-            </p>
+              </p>
+            </div>
 
-            <p>
-              a suivi et validé le parcours de formation suivant :
-              <span className="ml-2 font-semibold text-slate-900">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Formation
+              </p>
+              <p className="mt-3 text-xl font-bold text-slate-900">
+                {formationLabel}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Statut
+              </p>
+              <p className="mt-3 text-4xl font-extrabold text-emerald-700">
+                {quizResult?.success ? "REUSSI" : "VALIDE"}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Resultat obtenu
+              </p>
+              <p className="mt-3 text-2xl font-bold text-slate-900">
+                {quizResult
+                  ? `${quizResult.score} / ${quizResult.total}`
+                  : "Validation finale"}
+              </p>
+              {scorePercent !== null ? (
+                <p className="mt-2 text-sm text-slate-600">{scorePercent}% de reussite</p>
+              ) : null}
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Cadre
+              </p>
+              <p className="mt-3 text-2xl font-bold text-blue-800">
+                {slug.toUpperCase()}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+            <p className="text-base leading-8 text-slate-700">
+              Nous attestons que{" "}
+              <span className="font-semibold text-slate-900">
+                {learnerName || "l'apprenant"}
+              </span>{" "}
+              a suivi et valide le parcours theorique PREVENSIA FORMATION
+              correspondant a{" "}
+              <span className="font-semibold text-slate-900">
                 {formationLabel}
               </span>
+              .
             </p>
 
-            <p>
-              Référentiel / cadre pédagogique :
-              <span className="ml-2 font-semibold text-slate-900">
-                NF C 18-510
-              </span>
-            </p>
-
-            {quizResult ? (
-              <>
-                <p>
-                  Résultat de l’évaluation théorique :
-                  <span className="ml-2 font-semibold text-slate-900">
-                    {quizResult.score} / {quizResult.total}
-                  </span>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Referentiel
                 </p>
-
-                <p>
-                  Seuil requis :
-                  <span className="ml-2 font-semibold text-slate-900">
-                    {quizResult.passingScore} / {quizResult.total}
-                  </span>
+                <p className="mt-2 text-base font-semibold text-slate-900">
+                  NF C 18-510
                 </p>
-              </>
-            ) : (
-              <p>
-                Évaluation théorique :
-                <span className="ml-2 font-semibold text-slate-900">
-                  validée
-                </span>
-              </p>
-            )}
+              </div>
 
-            <p>
-              Validation finale du parcours :
-              <span className="ml-2 font-semibold text-slate-900">
-                acquise après entretien avec le formateur
-              </span>
-            </p>
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Date de validation
+                </p>
+                <p className="mt-2 text-base font-semibold text-slate-900">
+                  {completedDate || issueDate}
+                </p>
+              </div>
+            </div>
 
-            {completedDate ? (
-              <p>
-                Date de réussite au quiz :
-                <span className="ml-2 font-semibold text-slate-900">
-                  {completedDate}
-                </span>
-              </p>
-            ) : null}
-
-            <p>
-              Date d’émission de l’attestation :
-              <span className="ml-2 font-semibold text-slate-900">
-                {issueDate}
-              </span>
-            </p>
-
-            <p className="pt-4 text-sm leading-7 text-slate-600">
-              Cette attestation confirme la validation complète du parcours de
-              formation PREVENSIA FORMATION. Elle ne constitue pas à elle seule
-              une habilitation électrique. La délivrance de l’habilitation relève
-              exclusivement de l’employeur après formation adaptée, vérification
-              des acquis, analyse de l’activité réelle et prise en compte des
-              conditions effectives d’intervention.
+            <p className="mt-6 text-sm leading-7 text-slate-600">
+              Cette fiche de reussite apprenant confirme la validation du
+              parcours e-learning et de l&apos;entretien ou de la validation
+              finale prevue par PREVENSIA FORMATION. La delivrance de
+              l&apos;habilitation electrique releve exclusivement de
+              l&apos;employeur selon le poste, le contexte d&apos;intervention
+              et les exigences applicables.
             </p>
           </div>
 
@@ -415,7 +462,7 @@ export default function AttestationPage() {
               <p className="text-sm font-semibold text-slate-900">
                 Signature organisme
               </p>
-              <div className="mt-8 border-t border-slate-300 pt-2 text-sm text-slate-500">
+              <div className="mt-6 flex min-h-[72px] items-end border-t border-slate-300 pt-2 text-sm text-slate-500">
                 PREVENSIA FORMATION
               </div>
             </div>
@@ -424,7 +471,7 @@ export default function AttestationPage() {
               <p className="text-sm font-semibold text-slate-900">
                 Signature apprenant
               </p>
-              <div className="mt-8 border-t border-slate-300 pt-2 text-sm text-slate-500">
+              <div className="mt-6 flex min-h-[72px] items-end border-t border-slate-300 pt-2 text-sm text-slate-500">
                 {learnerName || "Nom / signature"}
               </div>
             </div>
@@ -433,8 +480,8 @@ export default function AttestationPage() {
               <p className="text-sm font-semibold text-slate-900">
                 Validation finale
               </p>
-              <div className="mt-8 border-t border-slate-300 pt-2 text-sm text-slate-500">
-                Entretien formateur validé
+              <div className="mt-6 flex min-h-[72px] items-end border-t border-slate-300 pt-2 text-sm text-slate-500">
+                Parcours valide
               </div>
             </div>
           </div>

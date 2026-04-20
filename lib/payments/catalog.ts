@@ -54,19 +54,19 @@ const paymentRules: PaymentRule[] = [
   {
     envKey: "STRIPE_PRICE_H0B0_ELEARNING_CENTS",
     kind: "direct",
-    label: "Habilitation electrique H0B0 e-learning",
-    allKeywords: ["h0b0"],
+    label: "Habilitation electrique H0B0 / H0V",
+    anyKeywords: ["h0b0", "h0v"],
   },
   {
     envKey: "STRIPE_PRICE_BSBE_ELEARNING_CENTS",
     kind: "direct",
-    label: "BS / BE Manoeuvre e-learning",
+    label: "BS / BE Manoeuvre - e-learning + visio",
     anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
     envKey: "STRIPE_PRICE_B1B2BRBC_CENTS",
     kind: "direct",
-    label: "Habilitation electrique B1 / B2 / BR / BC",
+    label: "B1 / B2 / BR / BC - parcours mixte",
     anyKeywords: ["b1", "b2", "br", "bc"],
   },
   {

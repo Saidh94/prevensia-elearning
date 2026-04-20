@@ -2,63 +2,66 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Formation habilitation électrique | PREVENSIA FORMATION",
+  title: "Formation habilitation electrique | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique en présentiel et e-learning avec PREVENSIA FORMATION pour particuliers, salariés et entreprises.",
+    "Formation habilitation electrique en e-learning, visio et presentiel avec PREVENSIA FORMATION pour particuliers, salaries et entreprises.",
 };
 
 const parcours = [
   {
-    title: "H0B0",
-    audience: "Personnel non-électricien",
+    title: "H0B0 / H0V",
+    audience: "Personnel non electricien",
     description:
-      "Parcours destiné aux personnes amenées à évoluer dans un environnement électrique sans réaliser d’opérations d’ordre électrique.",
-    elearning: "Disponible en e-learning",
-    presentiel: "Disponible en présentiel selon organisation",
-    duration: "Durée indicative : 7 h",
+      "Parcours destine aux personnes amenees a evoluer dans un environnement electrique sans realiser d'operations d'ordre electrique, avec un entretien de validation en complement du module en ligne.",
+    elearning: "E-learning theorique structure",
+    presentiel: "Entretien de validation : 30 min",
+    duration: "Duree e-learning : 3 h a 4 h",
+    pricing: "A partir de 150 EUR HT",
   },
   {
-    title: "BS / BE Manœuvre",
-    audience: "Personnel réalisant des opérations simples ou manœuvres",
+    title: "BS / BE Manoeuvre",
+    audience: "Personnel realisant des operations simples et manoeuvres",
     description:
-      "Parcours adapté aux opérations élémentaires, interventions simples et manœuvres sur installations basse tension selon les missions confiées.",
-    elearning: "Disponible en e-learning",
-    presentiel: "Disponible en présentiel selon organisation",
-    duration: "Durée indicative : 10 h",
+      "Parcours pense pour les interventions elementaires et manoeuvres en basse tension, avec une partie theorique en ligne puis une sequence d'accompagnement en visio sur une demi-journee.",
+    elearning: "E-learning + quiz de validation",
+    presentiel: "Classe virtuelle / visio accompagnee",
+    duration: "E-learning : 5 h a 7 h + visio : 2 h 30 a 3 h",
+    pricing: "A partir de 320 EUR HT",
   },
   {
     title: "B1 B1V B2 B2V BR BC",
-    audience: "Personnel électricien",
+    audience: "Personnel electricien",
     description:
-      "Formation destinée au personnel électricien selon le niveau visé, les tâches réalisées et l’environnement d’intervention.",
-    elearning: "Disponible en e-learning",
-    presentiel: "Disponible en présentiel selon organisation",
-    duration: "Durée indicative : 14 h",
+      "Parcours mixte destine au personnel electricien avec une partie theorique solide en ligne, un quiz de validation et une journee presentielle pour l'application, l'echange et la mise en situation.",
+    elearning: "Parcours mixte e-learning + quiz",
+    presentiel: "Journee presentielle d'application",
+    duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
+    pricing: "A partir de 549 EUR HT",
   },
 ];
 
 const pointsForts = [
-  "Parcours disponibles en e-learning et en présentiel",
-  "Approche adaptée aux particuliers, salariés et entreprises",
-  "Organisation souple selon le niveau recherché",
-  "Possibilité d’achat direct ou de demande de devis",
-  "Progression pédagogique claire et lisible",
-  "Orientation possible vers la solution la plus adaptée",
+  "Parcours structures selon le niveau d'habilitation vise",
+  "Approche adaptee aux particuliers, salaries et entreprises",
+  "Positionnement plus solide que le simple e-learning low cost",
+  "Possibilite d'achat direct ou de demande de devis",
+  "Progression pedagogique claire avec quiz et validation",
+  "Orientation vers le format le plus adapte au besoin reel",
 ];
 
 const formats = [
   {
-    title: "E-learning",
+    title: "E-learning encadre",
     description:
-      "Format souple pour suivre les contenus théoriques à distance, avec progression structurée, accès apprenant et future intégration de modules, quiz et validation.",
-    ctaLabel: "Accéder à l’espace apprenant",
+      "Format pense pour la theorie, la progression apprenant, les quiz et la validation intermediaire. Selon le niveau vise, il est complete par un entretien de validation, une visio accompagnee ou une journee presentielle.",
+    ctaLabel: "Acceder a l'espace apprenant",
     href: "/elearning",
   },
   {
-    title: "Présentiel",
+    title: "Parcours mixte / presentiel",
     description:
-      "Organisation adaptée aux besoins opérationnels de l’entreprise ou du stagiaire, en inter ou en intra selon le nombre d’apprenants et le niveau visé.",
-    ctaLabel: "Voir le planning présentiel",
+      "Organisation adaptee au niveau d'habilitation recherche, avec sequence visio ou presentielle selon la formation : entretien H0B0, visio BS/BE ou journee terrain pour B1 a BC.",
+    ctaLabel: "Voir le planning presentiel",
     href: "/planning",
   },
 ];
@@ -66,23 +69,23 @@ const formats = [
 const engagementCards = [
   {
     title: "Inscription rapide",
-    text: "Pour un besoin individuel ou un premier parcours identifié, vous pouvez passer directement à l’inscription.",
+    text: "Pour un besoin individuel ou un premier parcours identifie, vous pouvez passer directement a l'inscription.",
     href: "/inscription",
-    label: "S’inscrire",
+    label: "S'inscrire",
     style:
       "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50",
   },
   {
     title: "Besoin entreprise",
-    text: "Pour plusieurs apprenants, une organisation sur mesure ou une demande spécifique, privilégiez la demande de devis.",
+    text: "Pour plusieurs apprenants, une organisation sur mesure ou une demande specifique, privilegiez la demande de devis.",
     href: "/demande-devis",
     label: "Demander un devis",
     style:
       "bg-slate-900 text-white border border-slate-900 hover:bg-slate-800",
   },
   {
-    title: "Accès e-learning",
-    text: "L’espace e-learning a vocation à accueillir les parcours payants, les modules, les quiz et le suivi apprenant.",
+    title: "Acces e-learning",
+    text: "L'espace e-learning accueille les parcours payants, les modules, les quiz et le suivi apprenant.",
     href: "/elearning",
     label: "Espace apprenant",
     style:
@@ -97,7 +100,7 @@ export default function FormationHabilitationElectriquePage() {
         <div className="absolute inset-0">
           <Image
             src="/images/armoire-electrique.jpg"
-            alt="Armoire électrique"
+            alt="Armoire electrique"
             fill
             className="object-cover opacity-20"
             priority
@@ -113,22 +116,21 @@ export default function FormationHabilitationElectriquePage() {
 
           <div className="mt-6 max-w-5xl">
             <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Formation habilitation électrique
+              Formation habilitation electrique
             </h1>
 
             <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-200">
-              PREVENSIA FORMATION propose une offre en habilitation électrique
-              pensée pour les particuliers, les salariés et les entreprises,
-              avec des parcours disponibles en présentiel et en e-learning
-              selon le niveau recherché, le profil de l’apprenant et les
-              contraintes d’organisation.
+              PREVENSIA FORMATION propose une offre en habilitation electrique
+              pensee pour les particuliers, les salaries et les entreprises,
+              avec des parcours structures en e-learning, visio ou presentiel
+              selon le niveau recherche, le profil de l&apos;apprenant et les
+              contraintes d&apos;organisation.
             </p>
 
             <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-300">
-              Cette page constitue l’entrée principale pour l’offre habilitation
-              électrique. Le présentiel permet une organisation terrain et
-              entreprise. Le e-learning a vocation à porter les parcours en
-              ligne, les modules, les quiz et le suivi apprenant.
+              Nous assumons une logique claire : H0B0 / H0V en e-learning avec
+              entretien de validation, BS / BE Manoeuvre en e-learning +
+              visio, et B1 a BC en parcours mixte avec journee presentielle.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -136,7 +138,7 @@ export default function FormationHabilitationElectriquePage() {
                 href="/inscription"
                 className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:-translate-y-0.5"
               >
-                S’inscrire
+                S&apos;inscrire
               </Link>
 
               <Link
@@ -150,43 +152,42 @@ export default function FormationHabilitationElectriquePage() {
                 href="/elearning"
                 className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                Accéder à l’espace apprenant
+                Acceder a l&apos;espace apprenant
               </Link>
 
               <Link
                 href="/planning"
                 className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                Voir le planning présentiel
+                Voir le planning presentiel
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-           <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-              Formation habilitation électrique
+              Formation habilitation electrique
             </p>
 
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Une offre claire pour les particuliers, les salariés et les entreprises
+              Une offre claire pour les particuliers, les salaries et les entreprises
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              PREVENSIA FORMATION propose des formations en habilitation électrique
-              adaptées aux profils non-électriciens, au personnel réalisant des
-              opérations simples ou manœuvres, ainsi qu’au personnel électricien
-              selon le niveau recherché.
+              PREVENSIA FORMATION propose des formations en habilitation
+              electrique adaptees aux profils non electriciens, au personnel
+              realisant des operations simples ou manoeuvres, ainsi qu&apos;au
+              personnel electricien selon le niveau recherche.
             </p>
 
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              Selon votre besoin, les parcours peuvent être organisés en présentiel
-              ou en e-learning. L’objectif est de vous orienter vers la formule la
-              plus adaptée à votre organisation, à vos contraintes et au niveau
-              d’habilitation visé.
+              L&apos;objectif n&apos;est pas de sous-vendre une habilitation par un simple
+              module en ligne. Nous privilegions des parcours credibles,
+              structures et raccords aux attentes du marche.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -203,18 +204,18 @@ export default function FormationHabilitationElectriquePage() {
 
           <div className="rounded-[1.75rem] bg-slate-900 p-8 text-white shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-              Accès rapide
+              Acces rapide
             </p>
 
             <h2 className="mt-3 text-2xl font-bold">
-              Choisissez votre prochaine étape
+              Choisissez votre prochaine etape
             </h2>
 
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              Vous avez déjà identifié votre besoin ? Passez à l’inscription.
+              Vous avez deja identifie votre besoin ? Passez a l&apos;inscription.
               Vous avez un projet pour plusieurs apprenants ou une demande
-              spécifique ? Faites une demande de devis. Vous souhaitez suivre un
-              parcours en ligne ? Accédez à l’espace e-learning.
+              specifique ? Faites une demande de devis. Vous souhaitez suivre un
+              parcours en ligne ? Accedez a l&apos;espace e-learning.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">
@@ -222,7 +223,7 @@ export default function FormationHabilitationElectriquePage() {
                 href="/inscription"
                 className="inline-flex items-center justify-center rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
               >
-                Aller à l’inscription
+                Aller a l&apos;inscription
               </Link>
 
               <Link
@@ -236,14 +237,14 @@ export default function FormationHabilitationElectriquePage() {
                 href="/elearning"
                 className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                Accéder à l’espace e-learning
+                Acceder a l&apos;espace e-learning
               </Link>
 
               <Link
                 href="/planning"
                 className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
-                Voir le planning présentiel
+                Voir le planning presentiel
               </Link>
             </div>
           </div>
@@ -258,13 +259,13 @@ export default function FormationHabilitationElectriquePage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Des parcours adaptés au niveau d’habilitation recherché
+              Des parcours adaptes au niveau d&apos;habilitation recherche
             </h2>
 
             <p className="mt-4 text-slate-600">
-              Chaque parcours est conçu pour répondre à des profils et à des
-              niveaux d’intervention différents. L’organisation peut ensuite être
-              proposée en e-learning ou en présentiel selon le besoin.
+              Chaque parcours est pense pour un public, un format et un niveau
+              d&apos;encadrement precis. Le but est d&apos;afficher une offre lisible,
+              credible et commercialement solide.
             </p>
           </div>
 
@@ -302,6 +303,10 @@ export default function FormationHabilitationElectriquePage() {
                 <p className="mt-5 text-sm font-semibold text-slate-800">
                   {item.duration}
                 </p>
+
+                <p className="mt-2 text-sm font-bold text-red-700">
+                  {item.pricing}
+                </p>
               </div>
             ))}
           </div>
@@ -315,12 +320,12 @@ export default function FormationHabilitationElectriquePage() {
           </p>
 
           <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Présentiel ou e-learning selon votre organisation
+            Presentiel ou e-learning selon votre organisation
           </h2>
 
           <p className="mt-4 text-slate-600">
-            PREVENSIA FORMATION vous oriente vers le mode de formation le plus
-            adapté selon le niveau recherché, le nombre d’apprenants et les
+              PREVENSIA FORMATION vous oriente vers le mode de formation le plus
+              adapte selon le niveau recherche, le nombre d&apos;apprenants et les
             contraintes de votre structure.
           </p>
         </div>
@@ -359,14 +364,14 @@ export default function FormationHabilitationElectriquePage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold text-slate-900">
-              Choisissez le mode de formation adapté à votre besoin
+              Choisissez le mode de formation adapte a votre besoin
             </h2>
 
             <p className="mt-4 max-w-4xl text-slate-600 leading-8">
               PREVENSIA FORMATION vous accompagne dans votre habilitation
-              électrique selon votre situation : inscription individuelle,
-              formation en entreprise ou parcours e-learning. Accédez rapidement
-              à la solution la plus adaptée à vos contraintes et à votre
+              electrique selon votre situation : inscription individuelle,
+              formation en entreprise ou parcours e-learning. Accedez rapidement
+              a la solution la plus adaptee a vos contraintes et a votre
               organisation.
             </p>
 

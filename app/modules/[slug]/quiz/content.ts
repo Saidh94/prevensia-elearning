@@ -193,6 +193,63 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le premier objectif est d'eviter le suraccident en supprimant le danger electrique.",
       timeLimit: 40,
     },
+    {
+      question:
+        "Avant de lancer un travail B2 avec plusieurs intervenants, quel point doit etre clarifie en priorite ?",
+      choices: [
+        "Le role de chacun, la zone de travail et les conditions d'arret",
+        "Le numero de telephone personnel de tous les intervenants",
+        "Le choix libre des outils par chaque operateur",
+        "Le fait de terminer avant l'horaire prevu",
+      ],
+      answer: [0],
+      explanation:
+        "Le B2 doit d'abord clarifier les roles, le perimetre de travail, les protections et les conditions de suspension.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quelles situations imposent une relecture documentaire avant toute poursuite ?",
+      choices: [
+        "Un schema qui ne correspond pas au reperage local",
+        "Une modification ancienne non tracee",
+        "Une interface chantier avec un autre intervenant",
+        "Un local bien eclaire sans autre anomalie",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "La documentation, le reperage et la coordination doivent etre confirms avant toute reprise d'action.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Lequel de ces cas reste normalement dans le cadre BR ?",
+      choices: [
+        "Une extension complete d'armoire avec ajout de nouveaux circuits",
+        "Une intervention generale de depannage identifiee et methodique dans le cadre prevu",
+        "Des travaux de chantier avec plusieurs corps d'etat",
+        "Une consignation generale de site sans designation BC",
+      ],
+      answer: [1],
+      explanation:
+        "Le BR couvre les interventions generales en basse tension dans un cadre defini, pas les travaux structures ni la consignation generale.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Pourquoi la coordination de chantier est-elle un sujet de securite electrique a part entiere ?",
+      choices: [
+        "Parce qu'une remise en service voisine ou une interface mal signee peut remettre en cause le cadre de securite",
+        "Parce qu'elle remplace la consignation",
+        "Parce qu'elle n'a d'utilite que pour la paperasse",
+        "Parce qu'elle dispense de verifier l'identification du materiel",
+      ],
+      answer: [0],
+      explanation:
+        "Une coordination insuffisante peut exposer l'equipe a une reprise d'energie, a une erreur de zone ou a une mauvaise comprehension de l'etat reel de l'installation.",
+      timeLimit: 45,
+    },
   ],
   bsbe: [
     {
@@ -374,6 +431,63 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "La securite repose sur une decision correcte avant le geste, pas sur l'improvisation.",
       timeLimit: 45,
+    },
+    {
+      question:
+        "Quel document ou support aide le plus a maintenir une operation BS ou BE Manoeuvre dans un cadre autorise ?",
+      choices: [
+        "Une procedure ou fiche reflexe de l'entreprise adaptee au materiel concerne",
+        "Un souvenir d'une intervention realisee il y a plusieurs mois",
+        "Une consigne orale non tracee",
+        "Le fait que l'installation semble familiere",
+      ],
+      answer: [0],
+      explanation:
+        "Le support ecrit, clair et adapte au materiel constitue le meilleur repere pour rester dans le cadre autorise.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Parmi ces elements, lesquels doivent conduire a suspendre une manoeuvre en attendant clarification ?",
+      choices: [
+        "Un reperage incoherent entre la procedure et le tableau",
+        "Une consigne de rearmement non documentee",
+        "Un organe identifie et conforme a la procedure",
+        "Une anomalie deja signalee mais non analysee",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Doute sur le repere, absence de consigne fiable ou anomalie non traitee imposent l'arret avant toute manoeuvre.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Lequel de ces exemples sort clairement du cadre BS ?",
+      choices: [
+        "Un remplacement simple prevu dans une procedure",
+        "Un raccordement elementaire sur un materiel identifie",
+        "Une recherche de panne sur un circuit non documente",
+        "Une verification visuelle prealable de l'environnement",
+      ],
+      answer: [2],
+      explanation:
+        "La recherche de panne sort du cadre de l'intervention elementaire BS et doit etre prise en charge autrement.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Pourquoi la tracabilite d'un ecart ou d'un refus d'intervention est-elle utile ?",
+      choices: [
+        "Parce qu'elle permet d'eviter qu'une meme situation dangereuse se reproduise sans analyse",
+        "Parce qu'elle remplace la formation",
+        "Parce qu'elle autorise ensuite l'operateur a depanner seul",
+        "Parce qu'elle n'a d'utilite que si l'incident a deja provoque un accident",
+      ],
+      answer: [0],
+      explanation:
+        "Tracer un ecart ou un refus permet a l'organisation de corriger la cause et d'eviter sa repetition.",
+      timeLimit: 40,
     },
   ],
   h0b0: [

@@ -4,15 +4,15 @@ export const bsbeModuleContent: ModuleContent = {
   title: "BS / BE Manoeuvre - Interventions elementaires et manoeuvres en basse tension",
   shortTitle: "BS / BE Manoeuvre",
   subtitle:
-    "Parcours e-learning destine aux personnels amenes a realiser des remplacements simples, des raccordements elementaires et des manoeuvres d'exploitation en basse tension dans un cadre strictement defini.",
-  duration: "1 h 30 a 2 h 00",
+    "Parcours e-learning destine aux personnels amenes a realiser des remplacements simples, des raccordements elementaires et des manoeuvres d'exploitation en basse tension dans un cadre strictement defini, complete par une classe virtuelle de validation.",
+  duration: "5 h 00 a 7 h 00 de theorie guidee",
   level: "Intermediaire",
   objective:
     "Identifier le cadre des habilitations BS et BE Manoeuvre, comprendre les limites d'autorisation, preparer une operation en securite, realiser une manoeuvre simple dans le respect des consignes, reconnaitre les situations interdites et adopter la bonne conduite en cas d'anomalie.",
   audience:
     "Personnel non electricien ou faiblement electricien amene a effectuer des remplacements simples, des raccordements elementaires, des remises en service, des rearments ou des manoeuvres d'exploitation en basse tension selon l'organisation de l'entreprise.",
   certificationNote:
-    "Ce parcours constitue la base theorique. L'habilitation BS ou BE Manoeuvre reste delivree par l'employeur apres formation adaptee, evaluation des acquis et verification de l'adequation entre les taches reelles et le niveau d'autorisation retenu.",
+    "Ce parcours constitue la base theorique. L'habilitation BS ou BE Manoeuvre reste delivree par l'employeur apres formation adaptee, evaluation des acquis, verification de l'adequation entre les taches reelles et le niveau d'autorisation retenu, puis sequence de validation a distance ou en situation.",
   heroBadge: "Habilitation electrique",
   finalMessage:
     "Le parcours BS / BE Manoeuvre vise a faire travailler avec methode, preparation et sang-froid. L'objectif n'est jamais d'improviser une action electrique, mais d'appliquer strictement les gestes autorises, les verifications prealables et les consignes de l'entreprise.",
@@ -60,6 +60,8 @@ export const bsbeModuleContent: ModuleContent = {
           "Pas d'improvisation",
         ],
         tone: "blue",
+        imagePath: "/images/armoire-electrique.jpg",
+        imageAlt: "Tableau electrique utilise comme repere visuel pour le cadre BS et BE Manoeuvre",
       },
     },
     {
@@ -431,6 +433,48 @@ export const bsbeModuleContent: ModuleContent = {
           "Alerter si doute",
         ],
         tone: "blue",
+      },
+    },
+    {
+      id: "documents-consignes",
+      title: "11. Documents, consignes et tracabilite",
+      intro:
+        "Une operation BS ou BE Manoeuvre ne doit jamais reposer uniquement sur l'habitude. Les documents d'entreprise, consignes locales et traces d'intervention structurent la securite reelle.",
+      content: [
+        "Les fiches reflexes, procedures internes, reperages, plans simplifies et consignes de site permettent de verifier qu'une action reste bien dans le cadre autorise.",
+        "Le titulaire BS ou BE Manoeuvre doit connaitre les documents utiles, savoir quand les consulter et ne pas agir si le support d'execution est absent, incoherent ou depasse.",
+        "La tracabilite des ecarts, rearmements anormaux, anomalies constatees ou refus d'intervention participe a la prevention. Elle evite que la meme situation dangereuse se reproduise sans analyse.",
+      ],
+      deepDive: [
+        "Une organisation mature ne demande pas seulement d'executer, elle fournit aussi des supports clairs. Quand le document manque, l'operateur ne doit pas compenser par l'improvisation.",
+        "La remontee d'information fait partie du professionnalisme. Un doute bien signale vaut mieux qu'une action hasardeuse qui banalise un ecart electrique.",
+      ],
+      keyPoints: [
+        "Procedure ecrite = repere de securite.",
+        "Sans support clair, on s'arrete.",
+        "Tracer un ecart permet d'eviter sa repetition.",
+      ],
+      forbiddenPoints: [
+        "Intervenir sur simple habitude de terrain.",
+        "Ignorer un support obsolescent ou incoherent.",
+        "Ne rien consigner apres un incident ou un refus d'action.",
+      ],
+      legalRefs: [
+        "Code du travail - organisation de la prevention et adaptation des instructions.",
+        "NF C 18-510 - adequation des operations, consignes et organisation du travail.",
+      ],
+      practicalCase:
+        "Exemple : une procedure de rearmement n'est plus coherente avec le reperage du tableau apres modification. L'operateur suspend l'action et fait corriger le support avant toute manoeuvre.",
+      visual: {
+        title: "La preuve ecrite protege l'operateur",
+        subtitle: "Consigne, support et tracabilite font partie du geste professionnel.",
+        items: [
+          "Procedure disponible",
+          "Repere coherent",
+          "Consigne connue",
+          "Ecart trace",
+        ],
+        tone: "slate",
       },
     },
   ],

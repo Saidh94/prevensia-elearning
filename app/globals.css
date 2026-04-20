@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  .module-shell-header {
+    display: none !important;
+  }
+
+  .module-shell {
+    background: #ffffff !important;
+  }
+}

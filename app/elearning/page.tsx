@@ -3,199 +3,202 @@ import Link from "next/link";
 const formations = [
   {
     slug: "h0b0",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique H0B0",
-    duration: "Durée e-learning : 1 h 20 à 1 h 45",
-    mode: "E-learning",
-    level: "Débutant",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique H0B0 / H0V",
+    duration: "Duree e-learning : 3 h a 4 h",
+    mode: "E-learning + entretien 30 min",
+    price: "150 EUR HT",
+    level: "Debutant",
     audience:
-      "Personnel non électricien amené à évoluer dans un environnement présentant un risque électrique.",
+      "Personnel non electricien amene a evoluer dans un environnement presentant un risque electrique.",
     description:
-      "Parcours de sensibilisation au risque électrique destiné aux personnels non électriciens. Le module pose les bases de la prévention, des comportements adaptés et de la conduite à tenir.",
+      "Parcours de sensibilisation au risque electrique destine aux personnels non electriciens. Le module pose les bases de la prevention, des comportements adaptes et de la conduite a tenir.",
     objectifs: [
-      "Identifier les risques liés à l’électricité dans son environnement de travail",
-      "Comprendre les prescriptions de sécurité applicables aux opérations d’ordre non électrique",
-      "Adopter les bons comportements pour prévenir l’accident d’origine électrique",
+      "Identifier les risques lies a l'electricite dans son environnement de travail",
+      "Comprendre les prescriptions de securite applicables aux operations d'ordre non electrique",
+      "Adopter les bons comportements pour prevenir l'accident d'origine electrique",
     ],
     programme: [
-      "Notions élémentaires sur le risque électrique",
-      "Effets du courant électrique sur le corps humain",
-      "Environnement de travail et zones à risque",
-      "Limites des opérations autorisées en H0B0",
-      "Conduite à tenir en cas d’incident ou d’accident",
+      "Notions elementaires sur le risque electrique",
+      "Effets du courant electrique sur le corps humain",
+      "Environnement de travail et zones a risque",
+      "Limites des operations autorisees en H0B0 / H0V",
+      "Conduite a tenir en cas d'incident ou d'accident",
     ],
     note:
-      "Module théorique de sensibilisation. La partie pratique et l’évaluation finale avec formateur restent indispensables dans une logique d’habilitation.",
+      "Module theorique de sensibilisation complete par un entretien de validation de 30 minutes.",
   },
   {
     slug: "bs-be-manoeuvre",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique BS / BE Manœuvre",
-    duration: "Durée indicative : 10 heures",
-    mode: "E-learning",
-    level: "Intermédiaire",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique BS / BE Manoeuvre",
+    duration: "E-learning : 5 h a 7 h + visio : 2 h 30 a 3 h",
+    mode: "E-learning + visio accompagnee",
+    price: "320 EUR HT",
+    level: "Intermediaire",
     audience:
-      "Personnel réalisant des interventions élémentaires ou des manœuvres d’exploitation dans le respect des prescriptions de sécurité.",
+      "Personnel realisant des interventions elementaires ou des manoeuvres d'exploitation dans le respect des prescriptions de securite.",
     description:
-      "Parcours préparatoire aux interventions élémentaires et manœuvres simples, avec un accent sur les limites d’intervention, la préparation et la sécurité opérationnelle.",
+      "Parcours preparatoire aux interventions elementaires et manoeuvres simples, avec un accent sur les limites d'intervention, la preparation et la securite operationnelle.",
     objectifs: [
-      "Comprendre les limites d’intervention liées aux symboles BS et BE Manœuvre",
-      "Appliquer les prescriptions de sécurité avant, pendant et après l’opération",
-      "Identifier les situations nécessitant l’arrêt de l’intervention ou l’appel à un personnel habilité adapté",
+      "Comprendre les limites d'intervention liees aux symboles BS et BE Manoeuvre",
+      "Appliquer les prescriptions de securite avant, pendant et apres l'operation",
+      "Identifier les situations necessitant l'arret de l'intervention ou l'appel a un personnel habilite adapte",
     ],
     programme: [
-      "Rappels sur le risque électrique et les mesures de prévention",
-      "Rôle et limites d’un exécutant BS",
-      "Rôle et limites d’un habilité BE Manœuvre",
-      "Mise en sécurité, vérifications visuelles et environnement de travail",
-      "Conduite à tenir en cas d’anomalie, d’incident ou d’accident",
+      "Rappels sur le risque electrique et les mesures de prevention",
+      "Role et limites d'un executant BS",
+      "Role et limites d'un habilite BE Manoeuvre",
+      "Mise en securite, verifications visuelles et environnement de travail",
+      "Conduite a tenir en cas d'anomalie, d'incident ou d'accident",
     ],
     note:
-      "Module théorique préparatoire. À compléter par une mise en situation pratique adaptée au poste.",
+      "Parcours pense pour une validation serieuse en distanciel, avec visio de demi-journee en complement du module en ligne.",
   },
   {
     slug: "b1-b1v-b2-b2v-br-bc",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique B1 B1V B2 B2V BR BC",
-    duration: "Durée indicative : 14 heures",
-    mode: "E-learning",
-    level: "Avancé",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique B1 B1V B2 B2V BR BC",
+    duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
+    mode: "Parcours mixte",
+    price: "549 EUR HT",
+    level: "Avance",
     audience:
-      "Personnel électricien amené à réaliser, diriger, intervenir ou consigner dans le cadre d’opérations d’ordre électrique.",
+      "Personnel electricien amene a realiser, diriger, intervenir ou consigner dans le cadre d'operations d'ordre electrique.",
     description:
-      "Parcours théorique structuré autour des rôles, responsabilités, séquences de sécurité, consignation et organisation des opérations d’ordre électrique.",
+      "Parcours theorique structure autour des roles, responsabilites, sequences de securite, consignation et organisation des operations d'ordre electrique.",
     objectifs: [
-      "Maîtriser les prescriptions de sécurité applicables aux opérations d’ordre électrique",
-      "Comprendre les rôles, responsabilités et limites des différents symboles d’habilitation",
-      "Mettre en œuvre une démarche de prévention cohérente avant toute opération",
+      "Maitriser les prescriptions de securite applicables aux operations d'ordre electrique",
+      "Comprendre les roles, responsabilites et limites des differents symboles d'habilitation",
+      "Mettre en oeuvre une demarche de prevention coherente avant toute operation",
     ],
     programme: [
-      "Cadre réglementaire et principes de prévention du risque électrique",
-      "Domaines de tension, zones, voisinage et conditions d’intervention",
-      "Rôles des habilitations B1, B2, BR, BC et variantes au voisinage",
+      "Cadre reglementaire et principes de prevention du risque electrique",
+      "Domaines de tension, zones, voisinage et conditions d'intervention",
+      "Roles des habilitations B1, B2, BR, BC et variantes au voisinage",
       "Consignation, intervention, remplacement, raccordement et organisation du travail",
-      "Analyse des risques, conduite à tenir et cas pratiques",
+      "Analyse des risques, conduite a tenir et cas pratiques",
     ],
     note:
-      "Socle théorique. Les habilitations concernées nécessitent un complément pratique et une évaluation métier.",
+      "Socle theorique premium complete par une journee presentielle d'application, d'echange et d'evaluation.",
   },
   {
     slug: "securite-incendie",
-    category: "Prévention incendie",
-    title: "Sécurité incendie, alerte et évacuation",
-    duration: "Durée indicative : 4 à 7 heures",
+    category: "Prevention incendie",
+    title: "Securite incendie, alerte et evacuation",
+    duration: "Duree indicative : 4 a 7 heures",
     mode: "E-learning",
-    level: "Débutant à intermédiaire",
+    level: "Debutant a intermediaire",
     audience:
-      "Tout personnel amené à évoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
+      "Tout personnel amene a evoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
     description:
-      "Module de sensibilisation à la prévention incendie, à l’alerte, à l’alarme, aux premiers réflexes et à l’évacuation, avec repères sur le Code du travail, les ERP, les IGH et les ICPE.",
+      "Module de sensibilisation a la prevention incendie, a l'alerte, a l'alarme, aux premiers reflexes et a l'evacuation, avec reperes sur le Code du travail, les ERP, les IGH et les ICPE.",
     objectifs: [
-      "Reconnaître les causes de départ de feu et les facteurs aggravants",
-      "Réagir correctement en cas d’alerte ou d’alarme",
-      "Connaître les principes d’évacuation et les comportements de prévention",
+      "Reconnaitre les causes de depart de feu et les facteurs aggravants",
+      "Reagir correctement en cas d'alerte ou d'alarme",
+      "Connaitre les principes d'evacuation et les comportements de prevention",
     ],
     programme: [
       "Naissance du feu et facteurs de propagation",
-      "Alerte, alarme et premiers réflexes",
-      "Évacuation et point de rassemblement",
-      "Cadre réglementaire : Code du travail, ERP, IGH, ICPE",
-      "Prévention incendie au quotidien",
+      "Alerte, alarme et premiers reflexes",
+      "Evacuation et point de rassemblement",
+      "Cadre reglementaire : Code du travail, ERP, IGH, ICPE",
+      "Prevention incendie au quotidien",
     ],
     note:
-      "Formation théorique de sensibilisation. Les consignes du site, exercices et mises en situation restent indispensables.",
+      "Formation theorique de sensibilisation. Les consignes du site, exercices et mises en situation restent indispensables.",
   },
   {
     slug: "ssi-exploitation",
     category: "SSI",
     title: "Exploitation des SSI - fondamentaux",
-    duration: "Durée indicative : 5 à 8 heures",
+    duration: "Duree indicative : 5 a 8 heures",
     mode: "E-learning",
-    level: "Intermédiaire",
+    level: "Intermediaire",
     audience:
-      "Exploitants, responsables de site, personnel technique ou utilisateurs amenés à interagir avec un système de sécurité incendie.",
+      "Exploitants, responsables de site, personnel technique ou utilisateurs amenes a interagir avec un systeme de securite incendie.",
     description:
-      "Module d’initiation au fonctionnement des SSI, à l’exploitation des informations incendie et aux principaux référentiels français de la famille NF S 61.",
+      "Module d'initiation au fonctionnement des SSI, a l'exploitation des informations incendie et aux principaux referentiels francais de la famille NF S 61.",
     objectifs: [
-      "Comprendre le rôle d’un SSI et ses fonctions principales",
-      "Distinguer SDI, SMSI et logique de mise en sécurité",
-      "Adopter les bons réflexes face à une alarme, un dérangement ou un défaut",
+      "Comprendre le role d'un SSI et ses fonctions principales",
+      "Distinguer SDI, SMSI et logique de mise en securite",
+      "Adopter les bons reflexes face a une alarme, un derangement ou un defaut",
     ],
     programme: [
-      "Rôle et logique fonctionnelle d’un SSI",
-      "Distinction SDI / SMSI / alarme / mise en sécurité",
-      "Référentiels utiles : NF S 61-931, NF S 61-932, NF S 61-970",
-      "Réflexes d’exploitation et limites utilisateur",
-      "Cas pratiques d’anomalies d’exploitation",
+      "Role et logique fonctionnelle d'un SSI",
+      "Distinction SDI / SMSI / alarme / mise en securite",
+      "Referentiels utiles : NF S 61-931, NF S 61-932, NF S 61-970",
+      "Reflexes d'exploitation et limites utilisateur",
+      "Cas pratiques d'anomalies d'exploitation",
     ],
     note:
-      "Ce module ne remplace pas une coordination SSI, une étude de conception ou une maintenance spécialisée.",
+      "Ce module ne remplace pas une coordination SSI, une etude de conception ou une maintenance specialisee.",
   },
   {
     slug: "sprinkler",
     category: "Protection incendie",
-    title: "Exploitation sprinkler et référentiels techniques",
-    duration: "Durée indicative : 5 à 8 heures",
+    title: "Exploitation sprinkler et referentiels techniques",
+    duration: "Duree indicative : 5 a 8 heures",
     mode: "E-learning",
-    level: "Intermédiaire",
+    level: "Intermediaire",
     audience:
-      "Personnel d’exploitation, maintenance, encadrement technique ou responsables de site.",
+      "Personnel d'exploitation, maintenance, encadrement technique ou responsables de site.",
     description:
-      "Module d’initiation à l’exploitation d’une installation sprinkler, à la surveillance des organes critiques et à la compréhension des principaux référentiels techniques.",
+      "Module d'initiation a l'exploitation d'une installation sprinkler, a la surveillance des organes critiques et a la comprehension des principaux referentiels techniques.",
     objectifs: [
-      "Comprendre le rôle d’une installation sprinkler",
-      "Reconnaître ses composants principaux et états anormaux",
-      "Identifier les bons réflexes d’exploitation et de remontée des anomalies",
+      "Comprendre le role d'une installation sprinkler",
+      "Reconnaitre ses composants principaux et etats anormaux",
+      "Identifier les bons reflexes d'exploitation et de remontee des anomalies",
     ],
     programme: [
-      "Principe de fonctionnement d’une installation sprinkler",
-      "Composants principaux et logique d’exploitation",
-      "Anomalies, dérives et états non conformes",
-      "Référentiels : APSAD R1, EN 12845, logique assurantielle et exploitation",
-      "Focus entrepôts, stockage et ICPE 1510",
+      "Principe de fonctionnement d'une installation sprinkler",
+      "Composants principaux et logique d'exploitation",
+      "Anomalies, derives et etats non conformes",
+      "Referentiels : APSAD R1, EN 12845, logique assurantielle et exploitation",
+      "Focus entrepots, stockage et ICPE 1510",
     ],
     note:
-      "Module d’exploitation et de sensibilisation technique. Il ne remplace pas une étude sprinkler ni un audit de conformité.",
+      "Module d'exploitation et de sensibilisation technique. Il ne remplace pas une etude sprinkler ni un audit de conformite.",
   },
   {
     slug: "sst",
     category: "Secours au travail",
     title: "SST - Sauveteur Secouriste du Travail",
-    duration: "Durée indicative : 7 à 14 heures selon parcours",
+    duration: "Duree indicative : 7 a 14 heures selon parcours",
     mode: "E-learning",
-    level: "Débutant à intermédiaire",
+    level: "Debutant a intermediaire",
     audience:
-      "Salariés amenés à participer à la prévention des risques et à la prise en charge initiale d’une victime.",
+      "Salaries amenes a participer a la prevention des risques et a la prise en charge initiale d'une victime.",
     description:
-      "Parcours théorique d’introduction aux principes SST : protéger, examiner, alerter, secourir et participer à la prévention dans l’entreprise.",
+      "Parcours theorique d'introduction aux principes SST : proteger, examiner, alerter, secourir et participer a la prevention dans l'entreprise.",
     objectifs: [
-      "Repérer une situation dangereuse et éviter le suraccident",
-      "Adopter la logique protéger, examiner, alerter, secourir",
-      "Comprendre le cadre général d’intervention du SST",
+      "Reperer une situation dangereuse et eviter le suraccident",
+      "Adopter la logique proteger, examiner, alerter, secourir",
+      "Comprendre le cadre general d'intervention du SST",
     ],
     programme: [
-      "Protéger",
+      "Proteger",
       "Examiner",
       "Alerter ou faire alerter",
       "Secourir",
-      "Prévention et rôle du salarié dans l’entreprise",
+      "Prevention et role du salarie dans l'entreprise",
     ],
     note:
-      "La pratique reste indispensable pour maîtriser les gestes et valider réellement la compétence SST.",
+      "La pratique reste indispensable pour maitriser les gestes et valider reellement la competence SST.",
   },
 ];
 
 const pointsForts = [
   "Parcours accessibles en ligne",
-  "Contenus structurés autour des risques réels en entreprise",
-  "Approche progressive selon les niveaux et métiers",
-  "Modules pédagogiques avec chapitres, synthèses et quiz",
-  "Vision opérationnelle et réglementaire adaptée au terrain",
+  "Contenus structures autour des risques reels en entreprise",
+  "Approche progressive selon les niveaux et metiers",
+  "Modules pedagogiques avec chapitres, syntheses et quiz",
+  "Vision operationnelle et reglementaire adaptee au terrain",
 ];
 
 const categories = [
-  "Habilitation électrique",
-  "Prévention incendie",
+  "Habilitation electrique",
+  "Prevention incendie",
   "SSI",
   "Protection incendie",
   "Secours au travail",
@@ -213,21 +216,21 @@ export default function ElearningPage() {
             </p>
 
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
-              Formations e-learning en prévention, sécurité incendie et habilitations
+              Formations e-learning en prevention, securite incendie et habilitations
             </h1>
 
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              Développez les connaissances théoriques essentielles en habilitation
-              électrique, sécurité incendie, SSI, sprinkler et SST grâce à des
-              parcours en ligne structurés, pédagogiques et orientés terrain.
+              Developpez les connaissances theoriques essentielles en habilitation
+              electrique, securite incendie, SSI, sprinkler et SST grace a des
+              parcours en ligne structures, pedagogiques et orientes terrain.
             </p>
 
             <p className="mt-4 text-base leading-7 text-slate-400">
-              Nos modules ont vocation à accompagner l’acquisition des
-              connaissances, des bons réflexes et des repères techniques ou
-              réglementaires. Selon les formations concernées, ils ont vocation à
-              être complétés par une partie pratique, une mise en situation, une
-              évaluation avec formateur ou une adaptation au poste de travail.
+              Nos modules ont vocation a accompagner l&apos;acquisition des
+              connaissances, des bons reflexes et des reperes techniques ou
+              reglementaires. Selon les formations concernees, ils sont completes
+              par un entretien de validation, une visio accompagnee ou une
+              sequence presentielle.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -235,7 +238,7 @@ export default function ElearningPage() {
                 href="/inscription"
                 className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg transition hover:-translate-y-0.5"
               >
-                Créer un compte
+                Creer un compte
               </Link>
 
               <Link
@@ -260,21 +263,21 @@ export default function ElearningPage() {
         <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="text-2xl font-bold text-slate-900">
-              Une approche e-learning pensée pour la prévention et l’exploitation
+              Une approche e-learning pensee pour la prevention et l&apos;exploitation
             </h2>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Les parcours proposés sur PREVENSIA FORMATION visent à transmettre
-              les fondamentaux indispensables à la compréhension des risques, aux
-              limites des opérations autorisées et à l’adoption des bons réflexes
-              dans l’environnement professionnel.
+              Les parcours proposes sur PREVENSIA FORMATION visent a transmettre
+              les fondamentaux indispensables a la comprehension des risques, aux
+              limites des operations autorisees et a l&apos;adoption des bons reflexes
+              dans l&apos;environnement professionnel.
             </p>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Le catalogue s’adresse aussi bien aux besoins en habilitation
-              électrique qu’aux besoins de sensibilisation à la sécurité incendie,
-              à l’exploitation d’un SSI, à l’exploitation sprinkler ou aux bases
-              SST.
+              Le catalogue s&apos;adresse aussi bien aux besoins en habilitation
+              electrique qu&apos;aux besoins de sensibilisation a la securite
+              incendie, a l&apos;exploitation d&apos;un SSI, a l&apos;exploitation sprinkler ou
+              aux bases SST.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -315,9 +318,9 @@ export default function ElearningPage() {
             Nos modules disponibles
           </h2>
           <p className="mt-4 leading-7 text-slate-600">
-            Des parcours progressifs, pensés pour la prévention, la sécurité et
-            l’exploitation, avec une logique claire entre sensibilisation,
-            acquisition théorique, quiz et validation du parcours.
+            Des parcours progressifs, penses pour la prevention, la securite et
+            l&apos;exploitation, avec une logique claire entre sensibilisation,
+            acquisition theorique, quiz et validation du parcours.
           </p>
         </div>
 
@@ -336,6 +339,11 @@ export default function ElearningPage() {
                     <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold tracking-wide text-slate-700">
                       {formation.duration}
                     </span>
+                    {"price" in formation ? (
+                      <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold tracking-wide text-amber-700">
+                        {formation.price}
+                      </span>
+                    ) : null}
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold tracking-wide text-blue-700">
                       {formation.level}
                     </span>
@@ -354,7 +362,7 @@ export default function ElearningPage() {
 
                   <p className="mt-4 text-sm leading-7 text-slate-600">
                     <span className="font-semibold text-slate-900">
-                      Public concerné :
+                      Public concerne :
                     </span>{" "}
                     {formation.audience}
                   </p>
@@ -379,7 +387,7 @@ export default function ElearningPage() {
                     href="/inscription"
                     className="rounded-2xl bg-green-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-800"
                   >
-                    Créer un compte
+                    Creer un compte
                   </Link>
                 </div>
               </div>
@@ -387,7 +395,7 @@ export default function ElearningPage() {
               <div className="mt-8 grid gap-6 lg:grid-cols-2">
                 <div className="rounded-2xl bg-slate-50 p-5">
                   <h4 className="text-base font-bold text-slate-900">
-                    Objectifs pédagogiques
+                    Objectifs pedagogiques
                   </h4>
 
                   <ul className="mt-4 space-y-3">
@@ -422,7 +430,7 @@ export default function ElearningPage() {
 
               <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4">
                 <p className="text-sm leading-6 text-amber-900">
-                  <span className="font-semibold">À noter :</span>{" "}
+                  <span className="font-semibold">A noter :</span>{" "}
                   {formation.note}
                 </p>
               </div>
@@ -436,17 +444,17 @@ export default function ElearningPage() {
           <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-sm sm:p-10">
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-red-400">
-                Besoin d’un accompagnement
+                Besoin d&apos;un accompagnement
               </p>
 
               <h2 className="mt-3 text-3xl font-bold">
-                Vous souhaitez déployer ces modules dans votre entreprise ?
+                Vous souhaitez deployer ces modules dans votre entreprise ?
               </h2>
 
               <p className="mt-4 leading-7 text-slate-300">
                 PREVENSIA FORMATION peut vous accompagner pour structurer un
-                parcours adapté à vos salariés, à vos opérations, à vos risques
-                et à votre environnement réglementaire ou technique.
+                parcours adapte a vos salaries, a vos operations, a vos risques
+                et a votre environnement reglementaire ou technique.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -461,7 +469,7 @@ export default function ElearningPage() {
                   href="/connexion"
                   className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  Accéder à mon espace
+                  Acceder a mon espace
                 </Link>
               </div>
             </div>
