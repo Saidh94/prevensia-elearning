@@ -1,11 +1,18 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { resolveModuleSlug } from "@/lib/supabase/elearning/module-registry";
+import {
+  getModuleLabelBySlug,
+  resolveModuleSlug,
+} from "@/lib/supabase/elearning/module-registry";
 
 type ModuleLayoutProps = {
   children: React.ReactNode;
   params: Promise<{ slug: string }>;
+};
+
+type ProfileRow = {
+  role: string | null;
 };
 
 type FormationRow = {
@@ -88,6 +95,14 @@ export default async function ModuleLayout({
     redirect(`/connexion?redirectTo=/modules/${slug}`);
   }
 
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .maybeSingle<ProfileRow>();
+
+  const isAdmin = profile?.role === "admin";
+
   const { data, error } = await supabase
     .from("enrollments")
     .select(`
@@ -152,12 +167,16 @@ export default async function ModuleLayout({
   const currentStatus = normalizeStatus(enrollment?.status);
 
   const hasAccess =
-    !!enrollment &&
-    !!formation &&
-    normalizedFormationSlug === normalizedRouteSlug &&
-    isAllowedStatus(currentStatus) &&
-    isDateStarted(enrollment.access_start) &&
-    isDateNotExpired(enrollment.access_end);
+    isAdmin ||
+    (!!enrollment &&
+      !!formation &&
+      normalizedFormationSlug === normalizedRouteSlug &&
+      isAllowedStatus(currentStatus) &&
+      isDateStarted(enrollment.access_start) &&
+      isDateNotExpired(enrollment.access_end));
+
+  const displayFormationTitle =
+    formation?.title ?? getModuleLabelBySlug(normalizedRouteSlug);
 
   if (!hasAccess) {
     return (
@@ -238,17 +257,17 @@ export default async function ModuleLayout({
                 E-learning
               </p>
               <p className="text-sm font-bold text-slate-900">
-                {formation?.title ?? "Espace formation"}
+                {displayFormationTitle}
               </p>
             </div>
           </div>
 
           <div className="hidden sm:block text-right">
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
-              Module
+              {isAdmin ? "Prévisualisation" : "Module"}
             </p>
             <p className="text-sm font-semibold text-slate-700">
-              Parcours en cours
+              {isAdmin ? "Accès admin" : "Parcours en cours"}
             </p>
           </div>
         </div>

@@ -29,7 +29,7 @@ export async function GET(_: Request, context: RouteContext) {
 
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
-      .select("first_name, last_name, company")
+      .select("first_name, last_name, company, role")
       .eq("id", user.id)
       .maybeSingle();
 
@@ -78,6 +78,7 @@ export async function GET(_: Request, context: RouteContext) {
       companyName: enrollment?.company_name ?? profile?.company ?? "",
       managerEmail: enrollment?.manager_email ?? "",
       orderedByEmployer: Boolean(enrollment?.ordered_by_employer),
+      isAdmin: profile?.role === "admin",
     });
   } catch (error) {
     console.error("Erreur chargement contexte quiz :", error);

@@ -34,6 +34,7 @@ type QuizContext = {
   companyName: string;
   managerEmail: string;
   orderedByEmployer: boolean;
+  isAdmin: boolean;
 };
 
 const DEFAULT_QUESTION_TIME_LIMIT = 60;
@@ -54,6 +55,7 @@ const defaultQuizContext: QuizContext = {
   companyName: "",
   managerEmail: "",
   orderedByEmployer: false,
+  isAdmin: false,
 };
 
 export default function QuizPage() {
@@ -165,6 +167,7 @@ export default function QuizPage() {
           companyName: data?.companyName ?? "",
           managerEmail: data?.managerEmail ?? "",
           orderedByEmployer: Boolean(data?.orderedByEmployer),
+          isAdmin: Boolean(data?.isAdmin),
         });
       } catch (error) {
         console.error("Erreur chargement contexte quiz :", error);
@@ -185,7 +188,10 @@ export default function QuizPage() {
     return progressData.filter((item) => item.is_completed).length;
   }, [progressData]);
 
+  const isAdminPreview = quizContext.isAdmin && !quizContext.enrollmentId;
+
   const allChaptersCompleted =
+    isAdminPreview ||
     requiredChapterCount > 0 &&
     completedChapterCount >= requiredChapterCount;
 
@@ -332,7 +338,7 @@ export default function QuizPage() {
         localStorage.setItem(resultStorageKey, JSON.stringify(payload));
         localStorage.removeItem(progressStorageKey);
 
-        if (!success) {
+        if (!success || isAdminPreview) {
           return;
         }
 
@@ -376,6 +382,7 @@ export default function QuizPage() {
     success,
     resultStorageKey,
     progressStorageKey,
+    isAdminPreview,
   ]);
 
   const handleRestoreProgress = () => {
