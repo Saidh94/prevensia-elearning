@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import type { ModuleContent } from "@/lib/supabase/elearning/module-types";
+import {
+  getModuleContentBySlug,
+  getModuleLabelBySlug,
+  resolveModuleSlug,
+} from "@/lib/supabase/elearning/module-registry";
 
 type ChapterReference = {
   label: string;
@@ -35,13 +41,17 @@ const REG_REFERENCES = {
     label:
       "Code du travail — dispositions relatives aux opérations sur les installations électriques ou dans leur voisinage",
   },
+  r4544_1_11: {
+    label:
+      "Code du travail — articles R.4544-1 à R.4544-11 : prévention du risque électrique, formation, habilitation et organisation",
+  },
   r4544_9: {
     label:
-      "Code du travail — article R.4544-9 : les opérations sur les installations électriques ou dans leur voisinage ne peuvent être effectuées que par des travailleurs habilités",
+      "Code du travail — article R.4544-9 : les opérations sur les installations électriques ou dans leur voisinage ne peuvent être effectuées que par des travailleurs habilités lorsque la réglementation l’exige",
   },
   r4544_10: {
     label:
-      "Code du travail — article R.4544-10 : formation théorique et pratique, délivrance de l’habilitation par l’employeur, maintien et renouvellement",
+      "Code du travail — article R.4544-10 : formation théorique et pratique adaptée, délivrance de l’habilitation par l’employeur, maintien des compétences",
   },
   nfC18510: {
     label:
@@ -53,39 +63,42 @@ const REG_REFERENCES = {
   },
   inrs: {
     label:
-      "INRS — habilitation électrique, prévention du risque électrique et maintien des compétences",
+      "INRS — habilitation électrique, prévention du risque électrique, formation préalable et maintien des compétences",
   },
 };
 
 const H0B0_CHAPTERS: Chapter[] = [
   {
     key: "intro",
-    title: "Chapitre 1 — Cadre du H0B0 et logique de l’habilitation",
+    title: "Chapitre 1 — Cadre du B0 / H0 / H0V et logique de l’habilitation",
     subtitle:
-      "Comprendre le périmètre du H0B0, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
-    minSeconds: 120,
+      "Comprendre le périmètre de l’habilitation, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
+    minSeconds: 150,
     image: "/elearning/h0b0/armoire-electrique.png",
-    imageAlt: "Illustration du périmètre H0B0 et des limites d’intervention",
+    imageAlt:
+      "Illustration du périmètre B0 H0 H0V et des limites d’intervention",
     highlights: [
-      "Le H0B0 vise exclusivement des opérations d’ordre non électrique.",
+      "Le B0, le H0 et le H0V concernent exclusivement des opérations d’ordre non électrique.",
       "La formation préalable ne vaut jamais habilitation à elle seule.",
-      "L’habilitation est délivrée par l’employeur après analyse du poste, des risques et des compétences.",
+      "L’habilitation est délivrée par l’employeur selon le poste, les risques et l’environnement réel de travail.",
     ],
     content: [
       "L’habilitation électrique est une reconnaissance formalisée par l’employeur de la capacité d’un travailleur à accomplir en sécurité les opérations qui lui sont confiées dans un environnement présentant un risque électrique. Elle s’inscrit dans le cadre du Code du travail et de la norme NF C 18-510.",
-      "Le symbole H0B0 concerne des opérations d’ordre non électrique. Il ne permet ni intervention électrique, ni consignation, ni mesurage, ni vérification, ni ouverture d’enveloppe pour agir sur l’installation, ni modification d’un appareil électrique.",
-      "La formation préalable constitue un prérequis indispensable, mais elle ne vaut pas habilitation à elle seule. L’employeur doit vérifier l’adéquation entre le symbole délivré, le poste occupé, les conditions réelles de travail, les zones fréquentées et les risques effectivement rencontrés.",
+      "Les symboles B0, H0 et H0V concernent des opérations d’ordre non électrique. Ils ne permettent ni intervention électrique, ni dépannage, ni consignation, ni mesurage, ni vérification, ni modification d’un équipement électrique, ni ouverture d’enveloppe pour agir sur l’installation.",
+      "La formation préalable constitue un prérequis indispensable, mais elle ne vaut jamais habilitation à elle seule. L’employeur doit vérifier l’adéquation entre le symbole délivré, le poste occupé, les tâches confiées, les zones fréquentées et les risques réellement rencontrés.",
       "L’article R.4544-9 du Code du travail impose que les opérations sur les installations électriques ou dans leur voisinage soient confiées à des travailleurs habilités lorsque la réglementation le requiert. L’article R.4544-10 précise la nécessité d’une formation théorique et pratique adaptée ainsi que le maintien des compétences.",
-      "Le H0B0 s’adresse donc à des personnels non électriciens amenés à circuler, nettoyer, manutentionner, peindre, exploiter, surveiller ou réaliser d’autres tâches non électriques dans un environnement où existe un risque électrique, sans jamais sortir de leur périmètre autorisé.",
+      "Le B0 concerne les opérations d’ordre non électrique en basse tension. Le H0 concerne les opérations d’ordre non électrique en haute tension hors voisinage dangereux. Le H0V concerne les opérations d’ordre non électrique réalisées au voisinage d’installations haute tension, dans un cadre strictement défini.",
+      "Cette distinction ne donne jamais le droit d’agir sur l’installation électrique. Elle permet uniquement de définir le niveau d’exposition au risque et les conditions dans lesquelles une présence ou une activité non électrique est autorisée.",
     ],
     essentials: [
-      "H0B0 = opérations d’ordre non électrique uniquement.",
+      "B0 / H0 / H0V = opérations d’ordre non électrique uniquement.",
       "La formation ne vaut pas habilitation.",
-      "L’employeur délivre l’habilitation selon le poste et les risques.",
-      "Le respect du périmètre constitue la règle de base.",
+      "L’employeur délivre l’habilitation selon le poste, les risques et l’environnement.",
+      "Respecter son périmètre est une règle de sécurité fondamentale.",
     ],
     references: [
       REG_REFERENCES.codeTravail,
+      REG_REFERENCES.r4544_1_11,
       REG_REFERENCES.r4544_9,
       REG_REFERENCES.r4544_10,
       REG_REFERENCES.nfC18510,
@@ -94,45 +107,34 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "symbols",
-    title: "Chapitre 2 — Symboles d’habilitation électrique",
+    title: "Chapitre 2 — Lecture des symboles d’habilitation",
     subtitle:
-      "Lire correctement les symboles pour comprendre ce qu’ils autorisent réellement et ce qu’ils n’autorisent pas",
-    minSeconds: 120,
+      "Comprendre précisément ce que signifient B, H, 0 et V, et ce qu’un symbole n’autorise jamais",
+    minSeconds: 150,
     image: "/elearning/h0b0/symboles-habilitation.png",
     imageAlt: "Illustration pédagogique des symboles d’habilitation électrique",
     highlights: [
       "B = basse tension, H = haute tension.",
       "0 = opérations d’ordre non électrique.",
-      "Un symbole d’habilitation ne doit jamais être interprété au-delà de son périmètre réel.",
+      "V = voisinage : présence autorisée dans une zone plus exposée, sans intervention électrique.",
     ],
     content: [
-  "Les symboles d’habilitation électrique sont construits de manière logique et doivent être lus caractère par caractère. Chaque élément du symbole a une signification précise qui ne doit jamais être interprétée de manière approximative.",
-
-  "La lettre indique le domaine de tension : B signifie basse tension (BT) et H signifie haute tension (HT). Cette distinction est essentielle car elle conditionne le niveau de danger, les distances de sécurité et les règles d’accès.",
-
-  "Le chiffre 0 désigne les opérations d’ordre non électrique. Cela signifie que le titulaire n’est pas autorisé à intervenir sur l’installation électrique, ni à réaliser de dépannage, de consignation, de mesurage, ni à ouvrir un équipement pour agir sur des parties électriques.",
-
-  "La lettre V signifie voisinage. Elle indique que l’opérateur est amené à évoluer dans une zone où le risque électrique existe du fait de la proximité d’éléments sous tension. En haute tension, ce voisinage est particulièrement critique car un amorçage électrique peut se produire sans contact direct.",
-
-  "Ainsi, le symbole B0 correspond à des opérations d’ordre non électrique en basse tension. Le symbole H0 correspond à des opérations d’ordre non électrique en environnement haute tension, hors zone de voisinage dangereux. Le symbole H0V correspond à des opérations d’ordre non électrique réalisées au voisinage d’installations haute tension.",
-
-  "Le symbole H0V ne donne aucun droit supplémentaire sur l’installation électrique. Il traduit uniquement une situation de travail plus exposée nécessitant une vigilance renforcée et un respect strict des distances de sécurité définies par la norme NF C 18-510.",
-
-  "Un symbole d’habilitation n’est jamais une autorisation générale. Il doit toujours être rapproché des tâches confiées, des zones accessibles, des consignes du site, du balisage, des protections en place et de l’analyse de risque.",
-
-  "La compréhension exacte des symboles permet d’éviter les dérives fréquentes consistant à croire qu’un accès, une proximité ou une contrainte opérationnelle donnent le droit d’ouvrir, de réarmer, de déplacer ou de modifier un équipement électrique.",
-
-  "Une erreur fréquente consiste à considérer le H0V comme une habilitation plus 'élevée'. Ce n’est pas le cas. Il s’agit uniquement d’une situation de travail différente, plus exposée, qui impose une discipline renforcée, sans jamais autoriser une intervention électrique."
-],
+      "Les symboles d’habilitation électrique sont construits de manière logique et doivent être lus caractère par caractère. Chaque élément du symbole a une signification précise qui ne doit jamais être interprétée de façon approximative.",
+      "La lettre indique le domaine de tension : B signifie basse tension et H signifie haute tension. Cette distinction conditionne le niveau de danger, les distances de sécurité et les règles d’accès aux installations.",
+      "Le chiffre 0 désigne les opérations d’ordre non électrique. Le titulaire n’est donc pas autorisé à intervenir sur l’installation électrique, à réaliser un dépannage, une mesure, une consignation ou une remise en service.",
+      "La lettre V signifie voisinage. Elle indique que l’opérateur est amené à évoluer dans une zone où le risque électrique existe du fait de la proximité d’éléments sous tension. En haute tension, ce voisinage est particulièrement critique car un amorçage peut se produire sans contact direct.",
+      "Le symbole B0 correspond à des opérations d’ordre non électrique en basse tension. Le symbole H0 correspond à des opérations d’ordre non électrique en environnement haute tension hors voisinage dangereux. Le symbole H0V correspond à des opérations d’ordre non électrique réalisées au voisinage d’installations haute tension.",
+      "Le symbole H0V ne donne aucun droit supplémentaire sur l’installation électrique. Il traduit seulement une situation de travail plus exposée nécessitant une vigilance renforcée, le respect strict des distances et l’application rigoureuse des consignes.",
+      "Dans la pratique, la distinction entre B0, H0 et H0V ne donne jamais de droit d’action sur l’installation électrique. Elle permet uniquement de définir le niveau d’exposition au risque et les conditions dans lesquelles une présence est autorisée.",
+      "Une erreur fréquente consiste à croire qu’une proximité, un besoin d’exploitation ou une urgence donne le droit d’ouvrir, de réarmer, de déplacer ou de modifier un équipement électrique. C’est faux. Le symbole d’habilitation doit toujours être interprété strictement.",
+    ],
     essentials: [
-  "B = basse tension, H = haute tension.",
-  "0 = opérations d’ordre non électrique (aucune action sur l’installation).",
-  "V = voisinage : présence dans une zone où le risque existe sans contact direct.",
-  "H0 = environnement haute tension hors voisinage dangereux.",
-  "H0V = environnement haute tension avec contrainte de voisinage (vigilance renforcée).",
-  "Le symbole ne donne jamais le droit d’intervenir sur l’installation électrique.",
-  "H0V n’est pas une habilitation supérieure : il signale une situation plus exposée.",
-],
+      "B = basse tension, H = haute tension.",
+      "0 = opérations d’ordre non électrique.",
+      "V = voisinage : zone plus exposée, sans droit d’intervention électrique.",
+      "H0V n’est pas une habilitation “supérieure” : c’est une situation plus exposée.",
+      "Le symbole n’autorise jamais à agir sur l’installation électrique.",
+    ],
     references: [
       REG_REFERENCES.r4544_9,
       REG_REFERENCES.r4544_10,
@@ -147,7 +149,8 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Identifier qui fait quoi dans la prévention du risque électrique et comprendre la chaîne de responsabilité",
     minSeconds: 120,
     image: "/elearning/h0b0/roles-responsabilites.png",
-    imageAlt: "Illustration des rôles et responsabilités en habilitation électrique",
+    imageAlt:
+      "Illustration des rôles et responsabilités en habilitation électrique",
     highlights: [
       "L’employeur organise la prévention et délivre l’habilitation.",
       "L’encadrement veille à la cohérence entre mission confiée et niveau d’habilitation.",
@@ -158,12 +161,13 @@ const H0B0_CHAPTERS: Chapter[] = [
       "L’encadrement de proximité s’assure que les tâches confiées correspondent réellement aux habilitations détenues, que les consignes sont comprises, que les conditions de sécurité sont réunies et que les écarts sont traités.",
       "Le salarié habilité doit appliquer les consignes, respecter les limites de son symbole, utiliser correctement les protections, refuser toute action hors périmètre et signaler immédiatement toute situation anormale.",
       "Le formateur transmet le cadre théorique et pratique nécessaire à la compréhension du risque, mais il ne délivre pas l’habilitation. Celle-ci relève uniquement de l’employeur.",
+      "Dans les situations réelles, cette organisation évite notamment qu’un salarié non électricien prenne l’initiative d’intervenir sur un équipement en cas d’anomalie, ce qui constitue l’une des causes classiques d’accident.",
       "La sécurité ne repose donc pas sur une simple connaissance individuelle. Elle résulte d’une articulation entre réglementation, organisation, supervision, compétences et comportement professionnel.",
     ],
     essentials: [
       "L’employeur délivre l’habilitation.",
-      "L’encadrement doit contrôler l’adéquation mission/habilitation.",
-      "Le salarié doit rester dans son périmètre et signaler les anomalies.",
+      "L’encadrement contrôle l’adéquation mission / habilitation.",
+      "Le salarié respecte son périmètre et signale toute anomalie.",
     ],
     references: [
       REG_REFERENCES.codeTravail,
@@ -174,30 +178,35 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "voltage-domains",
-    title: "Chapitre 4 — Domaines de tension en BT et HT",
+    title:
+      "Chapitre 4 — Domaines de tension en courant alternatif et en courant continu",
     subtitle:
-      "Distinguer les domaines de tension et comprendre leur impact sur le niveau de danger, l’accès et les mesures de prévention",
-    minSeconds: 120,
-    image: "/elearning/h0b0/domaines-tension.png",
-    imageAlt: "Illustration pédagogique des domaines de tension BT et HT",
+      "Distinguer BT et HT en alternatif et en continu, et comprendre les conséquences pratiques sur le niveau de danger",
+    minSeconds: 180,
+    image: "/elearning/h0b0/courant-alternatif-continu.png",
+    imageAlt:
+      "Illustration pédagogique du courant alternatif et du courant continu",
     highlights: [
-      "Le domaine de tension conditionne les distances, les protections et les règles d’accès.",
-      "En HT, le risque d’arc s’ajoute au risque de contact.",
-      "Une mauvaise appréciation du domaine de tension augmente fortement le danger.",
+      "Le domaine de tension conditionne le danger, les distances et les règles d’accès.",
+      "Le courant alternatif et le courant continu n’impliquent pas exactement les mêmes seuils.",
+      "En haute tension, le risque d’arc s’ajoute au risque de contact.",
     ],
     content: [
-  "La norme NF C 18-510 distingue les domaines de tension afin de qualifier le niveau de danger et d’adapter les mesures de prévention. En courant alternatif, la très basse tension est inférieure ou égale à 50 V, la basse tension est supérieure à 50 V et inférieure ou égale à 1 000 V, et la haute tension est supérieure à 1 000 V.",
-  "En courant continu, la très basse tension est inférieure ou égale à 120 V, la basse tension est supérieure à 120 V et inférieure ou égale à 1 500 V, et la haute tension est supérieure à 1 500 V.",
-  "Cette distinction conditionne les règles d’accès, les distances de voisinage, les protections à mettre en place, les procédures applicables et le niveau d’habilitation requis. Elle ne constitue donc pas une simple classification théorique.",
-  "En basse tension, le risque principal est le contact direct avec une partie active normalement sous tension ou le contact indirect avec une masse métallique devenue dangereuse à la suite d’un défaut d’isolement. En haute tension, il faut intégrer en plus le risque d’amorçage et d’arc électrique, qui peut se produire sans contact direct.",
-  "Le danger ne dépend pas uniquement de la valeur de la tension. Il dépend aussi de la durée d’exposition, du trajet du courant dans le corps, de l’état du matériel, de l’environnement, du niveau d’humidité et des protections présentes ou absentes.",
-  "Dans un parcours H0B0, il n’est pas demandé de manipuler ces domaines comme un électricien, mais il est indispensable de savoir les reconnaître, d’en comprendre les conséquences sur le niveau de danger et de ne jamais banaliser la présence d’une installation électrique sous prétexte qu’elle semble fermée ou éloignée.",
-  "Reconnaître si une zone relève de la BT ou de la HT est donc une compétence de prévention. En cas de doute sur le domaine de tension ou sur les limites d’accès, la bonne conduite consiste à s’arrêter, ne pas s’engager et demander l’avis d’une personne compétente."
-],
+      "La norme NF C 18-510 distingue les domaines de tension afin de qualifier le niveau de danger et d’adapter les mesures de prévention. En courant alternatif, la très basse tension est inférieure ou égale à 50 V, la basse tension est supérieure à 50 V et inférieure ou égale à 1 000 V, et la haute tension est supérieure à 1 000 V.",
+      "En courant continu, la très basse tension est inférieure ou égale à 120 V, la basse tension est supérieure à 120 V et inférieure ou égale à 1 500 V, et la haute tension est supérieure à 1 500 V.",
+      "Cette distinction conditionne les règles d’accès, les distances de voisinage, les protections à mettre en place, les procédures applicables et le niveau d’habilitation requis. Il ne s’agit donc pas d’une simple classification théorique.",
+      "En basse tension, le risque principal est le contact direct avec une partie active normalement sous tension ou le contact indirect avec une masse métallique devenue dangereuse après défaut d’isolement. En haute tension, il faut intégrer en plus le risque d’amorçage et d’arc électrique, qui peut se produire sans contact direct.",
+      "Le danger ne dépend pas uniquement de la valeur de la tension. Il dépend aussi de la durée d’exposition, du trajet du courant dans le corps, de l’état du matériel, de l’environnement, du niveau d’humidité et des protections présentes ou absentes.",
+      "Dans les installations modernes, le courant continu est de plus en plus présent, notamment dans les batteries, les systèmes photovoltaïques, les onduleurs ou certains équipements industriels. Contrairement au courant alternatif, le courant continu peut présenter un risque d’arc plus stable et une coupure plus difficile.",
+      "La présence de batteries, de chargeurs, d’installations photovoltaïques ou d’équipements secourus impose donc une vigilance particulière, même en l’absence de réseau classique visible.",
+      "Dans un parcours B0 / H0 / H0V, il n’est pas demandé de manipuler ces domaines comme un électricien, mais il est indispensable de savoir les reconnaître, d’en comprendre les conséquences et de ne jamais banaliser une installation parce qu’elle semble fermée ou éloignée.",
+      "En cas de doute sur le domaine de tension ou sur les limites d’accès, la bonne conduite consiste à s’arrêter, ne pas s’engager et demander l’avis d’une personne compétente.",
+    ],
     essentials: [
-      "Le domaine de tension conditionne le niveau de risque.",
-      "BT et HT n’impliquent pas les mêmes distances ni les mêmes règles.",
-      "En HT, le danger existe même sans contact direct.",
+      "BT et HT n’impliquent pas les mêmes risques ni les mêmes distances.",
+      "Le courant alternatif et le courant continu ne se rencontrent pas dans les mêmes contextes.",
+      "Batteries, photovoltaïque et onduleurs imposent une vigilance spécifique.",
+      "En HT, le danger peut exister sans contact direct.",
     ],
     references: [
       REG_REFERENCES.nfC18510,
@@ -207,42 +216,36 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "zones",
-    title: "Chapitre 5 — Zones d’environnement électrique et distances d’approche",
+    title:
+      "Chapitre 5 — Zones d’environnement électrique et distances d’approche",
     subtitle:
-      "Identifier les zones à risque, comprendre la notion de voisinage et respecter strictement les limites d’approche",
-    minSeconds: 150,
+      "Identifier les zones à risque, comprendre le voisinage et respecter strictement les limites d’approche",
+    minSeconds: 180,
     image: "/elearning/h0b0/zones-approche.png",
-    imageAlt: "Illustration des zones d’environnement électrique et distances d’approche",
+    imageAlt:
+      "Illustration des zones d’environnement électrique et distances d’approche",
     highlights: [
       "Le danger commence avant le contact.",
       "Le voisinage d’une pièce nue sous tension constitue déjà un risque.",
       "Le balisage, les obstacles et les distances doivent être respectés sans exception.",
     ],
-   content: [
-  "La norme NF C 18-510 structure la prévention autour de zones d’environnement électrique définies par des distances de sécurité autour des pièces nues sous tension. Ces zones permettent de prévenir le risque de contact direct et, en haute tension, le risque d’amorçage électrique à distance.",
-
-  "Plusieurs distances normatives structurent ces zones : la DLVS (Distance Limite de Voisinage Simple) et la DLVR (Distance Limite de Voisinage Renforcé). Ces distances dépendent du domaine de tension et ne doivent jamais être appréciées de manière approximative ou empirique. Elles sont définies pour éviter toute exposition dangereuse, même sans contact.",
-
-  "En basse tension, la distance de voisinage simple est communément de l’ordre de 30 cm autour des pièces nues sous tension. Cette valeur pédagogique permet de visualiser le danger, mais elle ne remplace ni les prescriptions du site, ni les dispositions normatives, ni le balisage réellement en place.",
-
-  "En haute tension, les distances sont nettement plus importantes et le risque d’arc électrique rend la proximité dangereuse même sans contact physique avec l’installation. Le simple fait de ne pas toucher une installation ne garantit jamais la sécurité.",
-
-  "Ces zones peuvent être matérialisées par un balisage, des pancartes, des écrans, des obstacles, des capotages, des enveloppes fermées, un verrouillage d’accès ou des règles strictes d’entrée dans les locaux électriques. L’absence de balisage visible ne signifie jamais l’absence de risque.",
-
-  "Une armoire ouverte, un bornier accessible, un jeu de barres apparent, un capot retiré, une cellule haute tension ouverte ou un local électrique non sécurisé constituent immédiatement des situations de voisinage à risque. Ces situations doivent être considérées comme dangereuses, même en l’absence d’intervention directe.",
-
-  "Dans la pratique, la distinction entre H0 et H0V repose directement sur cette notion de voisinage. Un titulaire H0 évolue en environnement haute tension sans pénétrer dans une zone de voisinage dangereux. À l’inverse, un titulaire H0V est amené à évoluer dans une zone où le respect des distances DLVS ou DLVR devient critique.",
-
-  "Le H0V implique une vigilance renforcée : le risque peut exister sans contact, notamment en raison de l’amorçage électrique. Il est strictement interdit d’apprécier une distance à vue, de s’approcher d’une installation sous tension sans cadre défini ou de franchir un balisage.",
-
-  "Le titulaire H0B0 ne réalise aucune opération électrique. Il doit reconnaître les limites de sécurité, respecter les distances d’approche, ne jamais pénétrer dans une zone douteuse et ne jamais contourner un dispositif de protection pour des raisons pratiques ou opérationnelles.",
-
-  "La règle opérationnelle est stricte : repérer la zone, identifier le danger avant le contact, respecter sans discussion les limites d’approche et, en cas de doute, s’arrêter immédiatement, se mettre en sécurité et alerter. Toute interprétation personnelle des distances ou des protections constitue une prise de risque inacceptable."
-],
+    content: [
+      "La norme NF C 18-510 structure la prévention autour de zones d’environnement électrique définies par des distances de sécurité autour des pièces nues sous tension. Ces zones permettent de prévenir le risque de contact direct et, en haute tension, le risque d’amorçage à distance.",
+      "Plusieurs distances normatives structurent ces zones, notamment la distance limite de voisinage simple et la distance limite de voisinage renforcé. Ces distances dépendent du domaine de tension et ne doivent jamais être appréciées de manière approximative ou empirique.",
+      "En basse tension, la distance de voisinage simple est souvent illustrée pédagogiquement autour de 30 cm des pièces nues sous tension. Cette valeur aide à visualiser le danger, mais elle ne remplace ni les prescriptions du site, ni les dispositions normatives, ni le balisage réellement en place.",
+      "En haute tension, les distances sont nettement plus importantes et le risque d’arc rend la proximité dangereuse même sans contact physique avec l’installation. Le simple fait de ne pas toucher une installation ne garantit donc jamais la sécurité.",
+      "Ces zones peuvent être matérialisées par un balisage, des pancartes, des écrans, des obstacles, des capotages, des enveloppes fermées, un verrouillage d’accès ou des règles strictes d’entrée dans les locaux électriques. L’absence de balisage visible ne signifie jamais absence de risque.",
+      "Une armoire ouverte, un bornier accessible, un jeu de barres apparent, un capot retiré, une cellule haute tension ouverte ou un local électrique non sécurisé constituent immédiatement des situations de voisinage à risque.",
+      "Dans la pratique, ces zones sont fréquemment rencontrées lors de l’ouverture d’une armoire électrique, de la présence de coffrets provisoires sur chantier, de tableaux accessibles dans des locaux techniques ou lors d’interventions à proximité d’équipements en fonctionnement.",
+      "La distinction entre H0 et H0V repose directement sur cette notion de voisinage. Un titulaire H0 évolue en environnement haute tension sans pénétrer dans une zone de voisinage dangereux. Un titulaire H0V est amené à évoluer dans une zone où le respect des distances devient critique.",
+      "Le titulaire B0 / H0 / H0V ne réalise aucune opération électrique. Il doit reconnaître les limites de sécurité, respecter les distances d’approche, ne jamais pénétrer dans une zone douteuse et ne jamais contourner un dispositif de protection pour des raisons pratiques.",
+      "La règle opérationnelle est stricte : repérer la zone, identifier le danger avant le contact, respecter sans discussion les limites d’approche et, en cas de doute, s’arrêter immédiatement, se mettre en sécurité et alerter.",
+    ],
     essentials: [
-      "Les zones d’environnement électrique matérialisent des limites de sécurité.",
       "Le voisinage dangereux existe avant le contact.",
-      "En cas de doute sur une distance ou une limite, il faut s’arrêter et signaler.",
+      "En HT, le risque d’arc impose une vigilance renforcée.",
+      "Une armoire ouverte ou un capot retiré créent immédiatement une situation à risque.",
+      "En cas de doute sur une distance ou une limite : arrêt et signalement.",
     ],
     references: [
       REG_REFERENCES.codeTravail,
@@ -255,25 +258,27 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 6 — Accès aux locaux et zones électriques",
     subtitle:
       "Comprendre dans quelles conditions un accès est autorisé et reconnaître les situations où il faut immédiatement s’arrêter",
-    minSeconds: 120,
+    minSeconds: 150,
     image: "/elearning/h0b0/acces-local-electrique.png",
-    imageAlt: "Illustration pédagogique de l’accès aux locaux et zones électriques",
+    imageAlt:
+      "Illustration pédagogique de l’accès aux locaux et zones électriques",
     highlights: [
       "L’accès à une zone électrique n’est jamais banal.",
       "Signalisation, protections et consignes conditionnent l’autorisation d’accès.",
       "Une situation dégradée impose l’arrêt et le signalement.",
     ],
     content: [
-  "L’accès à un local ou à une zone électrique n’est jamais anodin. Il dépend des consignes du site, de la fonction du local, du niveau d’habilitation, des protections en place, du balisage, de l’état apparent des installations et de la mission réellement confiée.",
-  "Une porte ouverte sur un local réservé, une armoire déverrouillée, une enveloppe manquante, un capot retiré, une odeur anormale, une fuite d’eau, un câble détérioré, un bruit inhabituel ou une signalisation temporaire de chantier doivent être considérés comme des signaux d’alerte imposant une vigilance renforcée, voire l’arrêt immédiat de l’accès.",
-  "Le titulaire H0B0 n’a pas à forcer un accès, franchir une séparation, entrer dans un local électrique pour récupérer un objet, contourner un verrouillage, ni pénétrer dans une zone technique au motif qu’aucun électricien n’est présent. Une facilité d’accès apparente ne vaut jamais autorisation.",
-  "L’accès n’est acceptable que si la situation est prévue, lisible, protégée et compatible avec les consignes du site. Cela suppose une zone clairement définie, l’absence d’anomalie visible, le maintien des protections et un environnement compatible avec une présence non électrique.",
-  "Dans tous les autres cas, la réaction attendue n’est pas l’adaptation improvisée mais l’arrêt de l’action, la mise à distance et le signalement à l’encadrement ou à une personne compétente. En matière de risque électrique, l’hésitation doit toujours être traitée comme un signal faible de danger."
-],
+      "L’accès à un local ou à une zone électrique n’est jamais anodin. Il dépend des consignes du site, de la fonction du local, du niveau d’habilitation, des protections en place, du balisage, de l’état apparent des installations et de la mission réellement confiée.",
+      "Une porte ouverte sur un local réservé, une armoire déverrouillée, une enveloppe manquante, un capot retiré, une odeur anormale, une fuite d’eau, un câble détérioré, un bruit inhabituel ou une signalisation temporaire de chantier doivent être considérés comme des signaux d’alerte imposant une vigilance renforcée, voire l’arrêt immédiat de l’accès.",
+      "Le titulaire B0 / H0 / H0V n’a pas à forcer un accès, franchir une séparation, entrer dans un local électrique pour récupérer un objet, contourner un verrouillage, ni pénétrer dans une zone technique au motif qu’aucun électricien n’est présent.",
+      "L’accès n’est acceptable que si la situation est prévue, lisible, protégée et compatible avec les consignes du site. Cela suppose une zone clairement définie, l’absence d’anomalie visible, le maintien des protections et un environnement compatible avec une présence non électrique.",
+      "Par exemple, entrer dans un local technique pour récupérer du matériel, intervenir à proximité d’une armoire ouverte ou pénétrer dans une zone de maintenance sans encadrement constitue une situation à risque qui doit être immédiatement stoppée.",
+      "Dans tous les autres cas, la réaction attendue n’est pas l’adaptation improvisée mais l’arrêt de l’action, la mise à distance et le signalement à l’encadrement ou à une personne compétente. En matière de risque électrique, l’hésitation doit toujours être traitée comme un signal faible de danger.",
+    ],
     essentials: [
       "L’accès dépend des consignes et de l’état des protections.",
       "Une situation anormale impose l’arrêt immédiat.",
-      "Le H0B0 n’autorise jamais à forcer un accès ou franchir une limite.",
+      "Une facilité d’accès apparente ne vaut jamais autorisation.",
     ],
     references: [
       REG_REFERENCES.codeTravail,
@@ -282,8 +287,42 @@ const H0B0_CHAPTERS: Chapter[] = [
     ],
   },
   {
+    key: "documents",
+    title: "Chapitre 7 — Consignes, signalisation et documents applicables",
+    subtitle:
+      "Comprendre que la sécurité ne repose pas seulement sur la mémoire du cours, mais aussi sur les consignes et dispositifs du site",
+    minSeconds: 150,
+    image: "/elearning/h0b0/signalisation-electrique.png",
+    imageAlt:
+      "Illustration des consignes, de la signalisation et des documents applicables",
+    highlights: [
+      "Le balisage et la signalisation doivent être respectés sans interprétation personnelle.",
+      "Les consignes du site complètent la formation générale.",
+      "Un document, une pancarte ou une procédure ont une valeur opérationnelle immédiate.",
+    ],
+    content: [
+      "La prévention du risque électrique ne repose pas uniquement sur la connaissance générale des dangers. Elle repose aussi sur les consignes du site, la signalisation en place, les règles d’accès, le balisage, les autorisations éventuelles et l’organisation retenue par l’employeur.",
+      "Une pancarte d’interdiction, un affichage de danger électrique, un balisage temporaire, une condamnation d’accès ou une procédure interne doivent être considérés comme des dispositifs de sécurité à part entière. Ils ne doivent ni être ignorés, ni déplacés, ni contournés.",
+      "Dans certaines entreprises, des documents spécifiques complètent le cadre général : consignes de sécurité, plans de prévention, permis d’accès, procédures d’intervention, règles de coactivité ou carnets de prescriptions. Même si un titulaire B0 / H0 / H0V n’en rédige pas le contenu, il doit connaître ceux qui s’appliquent à sa mission.",
+      "Le non-respect d’une signalisation ou d’une consigne écrite constitue une prise de risque, même lorsqu’aucun danger n’est immédiatement visible. En environnement électrique, le fait de ne rien voir ne signifie jamais qu’il n’y a rien à craindre.",
+      "La bonne conduite consiste à lire, comprendre et appliquer les consignes du site avant toute activité, puis à s’arrêter en cas de doute sur une règle d’accès, une zone balisée ou un document applicable.",
+    ],
+    essentials: [
+      "Le balisage et la signalisation ont une valeur opérationnelle immédiate.",
+      "Les consignes du site complètent la formation générale.",
+      "On ne contourne jamais un affichage, un verrouillage ou une interdiction.",
+      "En cas de doute sur une consigne : arrêt et demande d’avis.",
+    ],
+    references: [
+      REG_REFERENCES.codeTravail,
+      REG_REFERENCES.r4544_1_11,
+      REG_REFERENCES.nfC18510,
+      REG_REFERENCES.inrs,
+    ],
+  },
+  {
     key: "environments",
-    title: "Chapitre 7 — Types d’environnements électriques",
+    title: "Chapitre 8 — Types d’environnements électriques",
     subtitle:
       "Reconnaître les contextes où le risque varie selon le lieu, l’activité, l’humidité, l’état des matériels et l’organisation",
     minSeconds: 150,
@@ -298,12 +337,14 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Le risque électrique ne dépend pas uniquement du niveau de tension. Il dépend aussi de l’environnement de travail : atelier, chantier, zone logistique, local technique, extérieur, environnement humide, milieu conducteur ou installation provisoire.",
       "Un local technique contenant des tableaux, armoires ou câbles accessibles présente un niveau de vigilance supérieur à une zone administrative. Un chantier temporaire avec coffrets mobiles, rallonges et outillages portatifs présente des vulnérabilités spécifiques.",
       "En extérieur, la pluie, la poussière, la boue ou la corrosion peuvent dégrader les enveloppes et l’isolement. En milieu humide ou conducteur, la résistance du corps et du sol diminue, ce qui augmente le risque d’électrisation.",
-      "Le personnel H0B0 doit donc observer avant d’agir : présence d’armoires, câbles au sol, coffrets ouverts, matériels provisoires, protections absentes, sols humides, balisage insuffisant ou anomalies visibles.",
+      "Le personnel B0 / H0 / H0V doit donc observer avant d’agir : présence d’armoires, câbles au sol, coffrets ouverts, matériels provisoires, protections absentes, sols humides, balisage insuffisant ou anomalies visibles.",
+      "Certains environnements modernes présentent des risques spécifiques, notamment les zones équipées de batteries de stockage, les installations photovoltaïques ou les systèmes automatisés. Ces environnements peuvent présenter des sources d’énergie non visibles et maintenir un risque même en l’absence d’alimentation apparente.",
       "L’environnement de travail fait partie intégrante de l’analyse du risque. Il ne s’agit jamais d’un simple décor autour de l’installation électrique.",
     ],
     essentials: [
       "Le risque varie selon le contexte de travail.",
       "Une installation provisoire ou un milieu humide aggravent le danger.",
+      "Batteries, photovoltaïque et automatismes imposent une vigilance spécifique.",
       "L’observation de l’environnement précède toute action.",
     ],
     references: [
@@ -313,8 +354,42 @@ const H0B0_CHAPTERS: Chapter[] = [
     ],
   },
   {
+    key: "movement-tools",
+    title: "Chapitre 9 — Déplacement, outillage et situations de travail",
+    subtitle:
+      "Identifier les situations courantes où un déplacement, un outil ou une manutention créent un risque électrique sans intervention directe",
+    minSeconds: 180,
+    image: "/elearning/h0b0/outillage-risque.png",
+    imageAlt:
+      "Illustration des déplacements, manutentions et outillages en environnement électrique",
+    highlights: [
+      "Un outil ou une manutention peuvent créer un risque même sans intention d’agir sur l’installation.",
+      "Les objets longs, métalliques ou conducteurs exigent une vigilance renforcée.",
+      "Le danger naît souvent d’une action banale réalisée au mauvais endroit.",
+    ],
+    content: [
+      "En environnement électrique, le risque ne provient pas uniquement d’une action directe sur une installation. Il peut aussi résulter d’un déplacement, d’une manutention, de l’usage d’un outil ou d’un matériel inadapté à proximité d’une zone dangereuse.",
+      "L’utilisation d’une échelle métallique, le transport d’un tube, d’une barre, d’un profilé, d’un outil long ou d’un matériel encombrant peut provoquer un rapprochement dangereux d’une partie sous tension ou le franchissement involontaire d’une limite de sécurité.",
+      "Le nettoyage d’un local technique, l’usage d’un aspirateur, le passage d’une rallonge, la manutention d’un chariot, l’installation d’un escabeau ou le déplacement de matériel à proximité d’armoires, de coffrets ou de câbles exigent une analyse préalable de l’environnement.",
+      "Un titulaire B0 / H0 / H0V ne doit jamais choisir seul d’adapter son outillage ou sa méthode si l’environnement devient douteux. Il doit s’arrêter dès qu’une manœuvre banale risque de le rapprocher d’une zone électrique dangereuse.",
+      "Le danger apparaît souvent lorsque l’on veut gagner du temps, finir une tâche rapidement ou rendre service. Or une activité non électrique reste interdite dès lors qu’elle conduit à pénétrer dans une zone de risque ou à exposer une personne, un outil ou une charge à proximité d’éléments sous tension.",
+      "La bonne pratique consiste à observer l’environnement, vérifier les cheminements, choisir un matériel adapté, respecter le balisage et interrompre toute action dès qu’un doute apparaît sur les distances ou sur la sécurité de la manœuvre.",
+    ],
+    essentials: [
+      "Un objet long, métallique ou conducteur peut créer un risque majeur.",
+      "Une tâche banale devient dangereuse si elle se déroule au mauvais endroit.",
+      "On n’improvise jamais une adaptation d’outillage en zone à risque.",
+      "En cas de doute sur un déplacement ou une manutention : arrêt immédiat.",
+    ],
+    references: [
+      REG_REFERENCES.codeTravail,
+      REG_REFERENCES.nfC18510,
+      REG_REFERENCES.inrs,
+    ],
+  },
+  {
     key: "contacts",
-    title: "Chapitre 8 — Contacts directs et indirects",
+    title: "Chapitre 10 — Contacts directs et indirects",
     subtitle:
       "Différencier les principaux mécanismes d’exposition et comprendre pourquoi un matériel apparemment banal peut devenir dangereux",
     minSeconds: 150,
@@ -330,7 +405,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Le contact indirect correspond au fait de toucher une masse métallique devenue accidentellement sous tension à la suite d’un défaut d’isolement : carcasse de machine, enveloppe métallique, coffret, châssis ou appareil présentant un défaut interne.",
       "Le contact indirect est souvent plus trompeur, car l’équipement peut sembler normal visuellement alors qu’il est devenu dangereux. C’est pourquoi les installations reposent sur l’isolement, la mise à la terre, les protections différentielles et les enveloppes pour limiter ce risque.",
       "Dans les deux cas, le passage du courant dans le corps peut produire douleur, contraction musculaire, impossibilité de lâcher, brûlures, troubles respiratoires, fibrillation cardiaque ou décès.",
-      "Le titulaire H0B0 doit retenir qu’un danger électrique n’est pas toujours visible et qu’une partie métallique ou un appareil fermé peuvent devenir dangereux en présence d’un défaut.",
+      "Le titulaire B0 / H0 / H0V doit retenir qu’un danger électrique n’est pas toujours visible et qu’une partie métallique ou un appareil fermé peuvent devenir dangereux en présence d’un défaut.",
     ],
     essentials: [
       "Le contact direct concerne une partie active.",
@@ -345,12 +420,14 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "current-effects",
-    title: "Chapitre 9 — Intensité du courant, durée d’exposition et dommages",
+    title:
+      "Chapitre 11 — Intensité du courant, durée d’exposition et dommages",
     subtitle:
       "Comprendre comment l’intensité, la durée de passage et le trajet du courant conditionnent la gravité des effets",
     minSeconds: 150,
     image: "/elearning/h0b0/intensites-effets.png",
-    imageAlt: "Illustration pédagogique de la relation entre intensité du courant et dommages",
+    imageAlt:
+      "Illustration pédagogique de la relation entre intensité du courant et dommages",
     highlights: [
       "Les effets dépendent de l’intensité, de la durée et du trajet du courant.",
       "Une durée d’exposition plus longue aggrave fortement les conséquences.",
@@ -376,12 +453,13 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "electrisation",
-    title: "Chapitre 10 — Électrisation et électrocution",
+    title: "Chapitre 12 — Électrisation et électrocution",
     subtitle:
       "Distinguer le passage du courant dans le corps et l’issue mortelle, et comprendre pourquoi toute électrisation est grave",
     minSeconds: 120,
     image: "/elearning/h0b0/electrisation-electrocution.png",
-    imageAlt: "Illustration pédagogique de l’électrisation et de l’électrocution",
+    imageAlt:
+      "Illustration pédagogique de l’électrisation et de l’électrocution",
     highlights: [
       "L’électrisation correspond au passage du courant dans le corps.",
       "L’électrocution correspond à une électrisation mortelle.",
@@ -399,32 +477,31 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Électrocution = électrisation mortelle.",
       "Toute électrisation nécessite une réaction rapide et sérieuse.",
     ],
-    references: [
-      REG_REFERENCES.nfC18510,
-      REG_REFERENCES.inrs,
-    ],
+    references: [REG_REFERENCES.nfC18510, REG_REFERENCES.inrs],
   },
   {
     key: "body-resistance",
-    title: "Chapitre 11 — Résistance du corps humain, peau sèche ou humide",
+    title:
+      "Chapitre 13 — Résistance du corps humain, peau sèche ou humide",
     subtitle:
       "Comprendre l’influence de l’état du corps, du milieu et de l’humidité sur le niveau réel de danger",
     minSeconds: 150,
     image: "/elearning/h0b0/milieu-sec-humide.png",
-    imageAlt: "Illustration de l’influence du milieu sec ou humide sur le risque électrique",
+    imageAlt:
+      "Illustration de l’influence du milieu sec ou humide sur le risque électrique",
     highlights: [
       "La résistance du corps humain n’est pas constante.",
       "L’humidité réduit fortement cette résistance.",
       "Le milieu conducteur augmente le risque d’électrisation.",
     ],
     content: [
-  "La résistance du corps humain au passage du courant n’est pas constante. Elle dépend de l’état de la peau, de l’humidité, de la sueur, de la présence de blessures, de la pression de contact, de la surface touchée ainsi que de la nature du sol et de l’environnement.",
-  "En conditions sèches, la résistance du corps humain peut atteindre plusieurs milliers d’ohms, généralement de l’ordre de 1 000 à 10 000 Ω. À l’inverse, en milieu humide ou avec une peau mouillée, cette résistance chute fortement et peut descendre en dessous de 1 000 Ω, voire quelques centaines d’ohms.",
-  "Cette diminution de résistance augmente le courant traversant le corps pour une même tension (loi d’Ohm : I = U / R), ce qui accroît fortement la gravité des effets physiologiques.",
-  "Les environnements humides ou conducteurs, tels que les zones de nettoyage, les chantiers extérieurs, les ateliers avec structures métalliques ou les sols mouillés, favorisent le passage du courant et aggravent significativement le risque d’électrisation.",
-  "Ainsi, un même contact électrique n’a pas les mêmes conséquences dans un environnement sec et isolant que dans un milieu humide ou conducteur.",
-  "Le titulaire H0B0 doit intégrer que le milieu fait partie intégrante du risque et qu’un environnement dégradé (humidité, conductivité, défaut d’isolement) impose une vigilance renforcée et une stricte limitation des actions."
-],
+      "La résistance du corps humain au passage du courant n’est pas constante. Elle dépend de l’état de la peau, de l’humidité, de la sueur, de la présence de blessures, de la pression de contact, de la surface touchée ainsi que de la nature du sol et de l’environnement.",
+      "En conditions sèches, la résistance du corps humain peut atteindre plusieurs milliers d’ohms, généralement de l’ordre de 1 000 à 10 000 Ω. À l’inverse, en milieu humide ou avec une peau mouillée, cette résistance chute fortement et peut descendre en dessous de 1 000 Ω, voire quelques centaines d’ohms.",
+      "Cette diminution de résistance augmente le courant traversant le corps pour une même tension. La gravité des effets physiologiques s’en trouve fortement accrue.",
+      "Les environnements humides ou conducteurs, tels que les zones de nettoyage, les chantiers extérieurs, les ateliers avec structures métalliques ou les sols mouillés, favorisent le passage du courant et aggravent significativement le risque.",
+      "Ainsi, un même contact électrique n’a pas les mêmes conséquences dans un environnement sec et isolant que dans un milieu humide ou conducteur.",
+      "Le titulaire B0 / H0 / H0V doit intégrer que le milieu fait partie intégrante du risque et qu’un environnement dégradé impose une vigilance renforcée et une stricte limitation des actions.",
+    ],
     essentials: [
       "La résistance du corps varie selon l’état de la peau et du milieu.",
       "L’humidité favorise le passage du courant.",
@@ -438,27 +515,29 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "equipment",
-    title: "Chapitre 12 — Matériels défectueux et signaux d’alerte",
+    title: "Chapitre 14 — Matériels défectueux et signaux d’alerte",
     subtitle:
       "Reconnaître rapidement un matériel dangereux et adopter la bonne réaction sans bricolage ni improvisation",
-    minSeconds: 120,
+    minSeconds: 150,
     image: "/elearning/h0b0/materiel-defectueux.png",
-    imageAlt: "Illustration de matériels, câbles et équipements électriques défectueux",
+    imageAlt:
+      "Illustration de matériels, câbles et équipements électriques défectueux",
     highlights: [
       "Une anomalie visible est déjà un motif d’arrêt.",
       "Échauffement, fumée, déclenchements répétés ou gaine abîmée doivent alerter immédiatement.",
-      "Le titulaire H0B0 ne doit jamais réparer ni remettre en service un matériel défectueux.",
+      "Le titulaire B0 / H0 / H0V ne doit jamais réparer ni remettre en service un matériel défectueux.",
     ],
     content: [
       "Un matériel électrique défectueux peut devenir dangereux même sans pièce nue visible. Une gaine abîmée, une prise fissurée, un câble écrasé, une odeur anormale, un échauffement, de la fumée, des étincelles ou des déclenchements répétés constituent des signaux d’alerte.",
       "Ces anomalies peuvent traduire un défaut d’isolement, un serrage défectueux, un échauffement interne, une surcharge, un vieillissement ou une dégradation mécanique.",
       "Le risque peut prendre la forme d’un contact indirect, d’un arc interne, d’un départ de feu ou d’une mise sous tension accidentelle d’une masse métallique.",
-      "Le titulaire H0B0 ne doit ni réparer, ni réenclencher à répétition, ni bricoler, ni ouvrir pour “voir ce qu’il y a”. La bonne réaction consiste à arrêter l’usage, empêcher la réutilisation si nécessaire, sécuriser la zone et signaler immédiatement.",
+      "Le titulaire B0 / H0 / H0V ne doit ni réparer, ni réenclencher à répétition, ni bricoler, ni ouvrir pour “voir ce qu’il y a”. La bonne réaction consiste à arrêter l’usage, empêcher la réutilisation si nécessaire, sécuriser la zone et signaler immédiatement.",
+      "Dans un contexte professionnel, ces situations sont fréquemment rencontrées sur les chantiers, dans les zones logistiques ou dans les ateliers. Le réflexe attendu n’est jamais de réparer ou d’adapter le matériel, mais d’isoler la situation et de la signaler.",
       "En matière de prévention, voir un écart constitue déjà une raison valable de stopper l’action.",
     ],
     essentials: [
       "Une anomalie visible est un signal d’alerte.",
-      "Un matériel défectueux ne doit jamais être remis en service par un titulaire H0B0.",
+      "Un matériel défectueux ne doit jamais être remis en service par un titulaire non électricien.",
       "Réaction attendue : arrêt, mise en sécurité, signalement.",
     ],
     references: [
@@ -470,63 +549,63 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "ppe",
-    title: "Chapitre 13 — Équipements de protection collective et individuelle",
+    title:
+      "Chapitre 15 — Équipements de protection collective et individuelle",
     subtitle:
       "Identifier les protections qui réduisent le risque et comprendre leur hiérarchie dans la prévention",
     minSeconds: 150,
     image: "/elearning/h0b0/epi-epc.png",
-    imageAlt: "Illustration des équipements de protection collective et individuelle",
-   highlights: [
-  "La protection collective est prioritaire sur la protection individuelle.",
-  "Les EPI viennent en complément et ne rendent jamais licite une opération interdite.",
-  "Une protection déposée, absente ou neutralisée constitue un signal d’alerte immédiat.",
-],
-    content: [
-  "La prévention du risque électrique repose d’abord sur les mesures de protection collective. Il s’agit notamment des enveloppes fermées, capotages, écrans, obstacles, séparations physiques, balisages, signalisations, verrouillages d’accès et dispositifs empêchant l’exposition ou limitant l’approche du danger.",
-  "Ces protections collectives sont prioritaires car elles agissent à la source ou sur l’environnement de travail et protègent simultanément plusieurs personnes. Leur présence ne doit jamais être banalisée, déplacée ou neutralisée pour des raisons de confort, de rapidité ou d’habitude.",
-  "Les équipements de protection individuelle interviennent en complément lorsque l’analyse de risque, l’organisation de l’activité ou une situation particulière le justifient. Ils peuvent comprendre, selon les cas prévus par l’entreprise, des équipements adaptés de protection des mains, du visage, du corps ou des pieds.",
-  "Dans une logique H0B0, il faut être très clair : le port d’un EPI ne transforme jamais une opération interdite en opération autorisée. Un titulaire H0B0 ne devient pas autorisé à ouvrir une enveloppe, à intervenir sur un matériel ou à s’approcher d’une zone interdite au motif qu’il porte une protection individuelle.",
-  "Le rôle attendu du titulaire H0B0 est d’identifier les protections en place, de comprendre leur fonction, de les respecter, de ne pas les détériorer et de signaler immédiatement toute protection absente, déposée, contournée ou manifestement dégradée.",
-  "La hiérarchie des mesures de prévention doit donc être retenue sans ambiguïté : organisation et consignes, protections collectives, protections individuelles en complément, puis comportement rigoureux de l’opérateur. Dans le doute, l’arrêt de l’action reste la règle."
-],
-    essentials: [
-  "EPC d’abord : enveloppes, obstacles, écrans, balisage, verrouillage.",
-  "EPI ensuite, uniquement en complément selon l’analyse de risque et l’organisation.",
-  "Le port d’un EPI n’autorise jamais une action électrique ou un dépassement de périmètre.",
-  "Toute protection absente, déplacée ou dégradée doit être signalée immédiatement.",
-],
-    references: [
-      REG_REFERENCES.nfC18510,
-      REG_REFERENCES.inrs,
+    imageAlt:
+      "Illustration des équipements de protection collective et individuelle",
+    highlights: [
+      "La protection collective est prioritaire sur la protection individuelle.",
+      "Les EPI viennent en complément et ne rendent jamais licite une opération interdite.",
+      "Une protection déposée, absente ou neutralisée constitue un signal d’alerte immédiat.",
     ],
+    content: [
+      "La prévention du risque électrique repose d’abord sur les mesures de protection collective. Il s’agit notamment des enveloppes fermées, capotages, écrans, obstacles, séparations physiques, balisages, signalisations, verrouillages d’accès et dispositifs empêchant l’exposition ou limitant l’approche du danger.",
+      "Ces protections collectives sont prioritaires car elles agissent à la source ou sur l’environnement de travail et protègent simultanément plusieurs personnes. Leur présence ne doit jamais être banalisée, déplacée ou neutralisée pour des raisons de confort, de rapidité ou d’habitude.",
+      "Les équipements de protection individuelle interviennent en complément lorsque l’analyse de risque, l’organisation de l’activité ou une situation particulière le justifient. Ils peuvent comprendre, selon les cas prévus par l’entreprise, des équipements adaptés de protection des mains, du visage, du corps ou des pieds.",
+      "Dans une logique B0 / H0 / H0V, il faut être très clair : le port d’un EPI ne transforme jamais une opération interdite en opération autorisée. Un titulaire non électricien ne devient pas autorisé à ouvrir une enveloppe, à intervenir sur un matériel ou à s’approcher d’une zone interdite au motif qu’il porte une protection individuelle.",
+      "Le rôle attendu du titulaire est d’identifier les protections en place, de comprendre leur fonction, de les respecter, de ne pas les détériorer et de signaler immédiatement toute protection absente, déposée, contournée ou manifestement dégradée.",
+      "La hiérarchie des mesures de prévention doit être retenue sans ambiguïté : organisation et consignes, protections collectives, protections individuelles en complément, puis comportement rigoureux de l’opérateur. Dans le doute, l’arrêt de l’action reste la règle.",
+    ],
+    essentials: [
+      "EPC d’abord : enveloppes, obstacles, écrans, balisage, verrouillage.",
+      "EPI ensuite, uniquement en complément.",
+      "Le port d’un EPI n’autorise jamais une action électrique.",
+      "Toute protection absente, déplacée ou dégradée doit être signalée.",
+    ],
+    references: [REG_REFERENCES.nfC18510, REG_REFERENCES.inrs],
   },
   {
     key: "authorized-forbidden",
-    title: "Chapitre 14 — Comportements autorisés et interdits",
+    title: "Chapitre 16 — Comportements autorisés et interdits",
     subtitle:
-      "Savoir précisément ce qu’un titulaire H0B0 peut faire, ne peut pas faire, et doit immédiatement signaler",
+      "Savoir précisément ce qu’un titulaire B0 / H0 / H0V peut faire, ne peut pas faire, et doit immédiatement signaler",
     minSeconds: 180,
     image: "/elearning/h0b0/autorise-interdit.png",
-    imageAlt: "Illustration des comportements autorisés et interdits en H0B0",
+    imageAlt:
+      "Illustration des comportements autorisés et interdits en B0 H0 H0V",
     highlights: [
-      "Le H0B0 n’autorise aucune opération d’ordre électrique.",
+      "Le B0 / H0 / H0V n’autorise aucune opération d’ordre électrique.",
       "Respecter ses limites est une compétence professionnelle de sécurité.",
       "Toute situation anormale doit être signalée sans improvisation.",
     ],
-  content: [
-  "L’habilitation H0B0 autorise exclusivement des opérations d’ordre non électrique réalisées dans un environnement où existe un risque électrique. Elle ne permet jamais d’intervenir sur l’installation électrique elle-même, même pour une action présentée comme rapide, simple ou de dépannage.",
-  "Sont notamment interdits : ouvrir une armoire ou un coffret électrique, déposer un capot, accéder à des bornes ou conducteurs, remplacer un appareillage, raccorder ou débrancher un élément d’installation, intervenir sur un câble, rechercher un défaut, effectuer une mesure, réarmer techniquement un dispositif ou remettre en service un matériel après anomalie.",
-  "Sont également interdits les comportements consistant à contourner un balisage, entrer dans un local réservé sans cadre prévu, utiliser une échelle métallique à proximité d’une zone dangereuse sans maîtrise du risque, manipuler une prise ou un câble dégradé, ou chercher à apprécier seul si une distance reste acceptable.",
-  "Les comportements autorisés relèvent d’une logique d’observation, de respect des consignes et de maintien dans le périmètre prévu : circuler sur les cheminements autorisés, réaliser sa tâche non électrique dans les limites définies, respecter la signalisation, signaler une anomalie, s’arrêter si les protections ne sont plus conformes ou si l’environnement devient douteux.",
-  "Le titulaire H0B0 doit comprendre que beaucoup d’accidents surviennent lorsqu’une personne veut rendre service, gagner du temps, éviter une attente ou régler un problème qu’elle considère comme mineur. Le dépassement de périmètre est précisément ce que l’habilitation vise à empêcher.",
-  "La règle professionnelle est donc stricte : ce qui n’est pas explicitement autorisé dans le cadre de la mission, de l’habilitation et des consignes doit être considéré comme interdit ou doit faire l’objet d’une vérification préalable auprès d’une personne compétente."
-],
+    content: [
+      "L’habilitation B0 / H0 / H0V autorise exclusivement des opérations d’ordre non électrique réalisées dans un environnement où existe un risque électrique. Elle ne permet jamais d’intervenir sur l’installation électrique elle-même, même pour une action présentée comme rapide, simple ou de dépannage.",
+      "Sont notamment interdits : ouvrir une armoire ou un coffret électrique, déposer un capot, accéder à des bornes ou conducteurs, remplacer un appareillage, raccorder ou débrancher un élément d’installation, intervenir sur un câble, rechercher un défaut, effectuer une mesure, réarmer techniquement un dispositif ou remettre en service un matériel après anomalie.",
+      "Sont également interdits les comportements consistant à contourner un balisage, entrer dans un local réservé sans cadre prévu, utiliser une échelle métallique à proximité d’une zone dangereuse sans maîtrise du risque, manipuler une prise ou un câble dégradé, ou chercher à apprécier seul si une distance reste acceptable.",
+      "Les comportements autorisés relèvent d’une logique d’observation, de respect des consignes et de maintien dans le périmètre prévu : circuler sur les cheminements autorisés, réaliser sa tâche non électrique dans les limites définies, respecter la signalisation, signaler une anomalie, s’arrêter si les protections ne sont plus conformes ou si l’environnement devient douteux.",
+      "Les situations les plus accidentogènes surviennent souvent lorsqu’un salarié souhaite dépanner rapidement un équipement, réarmer un disjoncteur ou rendre service. Ces comportements doivent être strictement évités car ils sortent du périmètre d’un non-électricien habilité B0 / H0 / H0V.",
+      "La règle professionnelle est stricte : ce qui n’est pas explicitement autorisé dans le cadre de la mission, de l’habilitation et des consignes doit être considéré comme interdit ou doit faire l’objet d’une vérification préalable auprès d’une personne compétente.",
+    ],
     essentials: [
-  "Le H0B0 autorise des opérations d’ordre non électrique uniquement.",
-  "Ouvrir, mesurer, dépanner, raccorder, réarmer techniquement ou modifier est interdit.",
-  "Le respect du périmètre fait partie de la compétence sécurité attendue.",
-  "En cas de doute : arrêt, mise à distance, signalement.",
-],
+      "Le B0 / H0 / H0V autorise des opérations d’ordre non électrique uniquement.",
+      "Ouvrir, mesurer, dépanner, raccorder ou modifier est interdit.",
+      "Le respect du périmètre fait partie de la compétence sécurité attendue.",
+      "En cas de doute : arrêt, mise à distance, signalement.",
+    ],
     references: [
       REG_REFERENCES.r4544_9,
       REG_REFERENCES.nfC18510,
@@ -536,29 +615,30 @@ const H0B0_CHAPTERS: Chapter[] = [
   {
     key: "conduct",
     title:
-      "Chapitre 15 — Conduite à tenir en cas d’anomalie, d’électrisation ou de départ de feu",
+      "Chapitre 17 — Conduite à tenir en cas d’anomalie, d’électrisation ou de départ de feu",
     subtitle:
       "Réagir avec méthode, éviter le suraccident et appliquer la bonne séquence de protection et d’alerte",
     minSeconds: 180,
     image: "/elearning/h0b0/conduite-tenir.png",
-    imageAlt: "Illustration de la conduite à tenir en cas d’anomalie ou d’accident électrique",
+    imageAlt:
+      "Illustration de la conduite à tenir en cas d’anomalie ou d’accident électrique",
     highlights: [
       "La priorité est de se protéger avant toute autre action.",
       "Il ne faut jamais improviser face à une anomalie électrique.",
       "En présence d’une victime, il faut éviter de devenir soi-même une seconde victime.",
     ],
-   content: [
-  "En cas d’anomalie électrique, la réaction doit être immédiate : arrêter l’activité en cours, s’écarter du danger et alerter. Une anomalie peut se manifester par une odeur anormale, un échauffement, de la fumée, un bruit inhabituel, des étincelles, un câble dégradé, un déclenchement répété ou un comportement anormal d’un équipement.",
-  "Face à une situation dégradée, il est strictement interdit d’improviser une action sur l’installation. Le titulaire H0B0 ne doit ni intervenir, ni tenter de réparer, ni remettre en service un équipement électrique.",
-  "En cas d’électrisation, il ne faut jamais toucher directement la victime tant que le risque électrique persiste. Le danger doit être supprimé en priorité, notamment par la coupure de l’alimentation via un organe identifié (arrêt d’urgence, disjoncteur, sectionneur), uniquement si cette action peut être réalisée sans s’exposer.",
-  "Une fois le risque maîtrisé, il convient de sécuriser la zone, d’alerter les secours (18 ou 112), puis d’appliquer les gestes de premiers secours si l’on est formé (mise en sécurité, contrôle de la conscience et de la respiration, alerte, assistance). L’objectif est d’éviter tout suraccident.",
-  "En cas de départ de feu d’origine électrique, il faut appliquer les consignes du site. Si les conditions le permettent, un moyen d’extinction adapté peut être utilisé, notamment un extincteur CO2 ou poudre. L’utilisation d’eau est strictement interdite sur une installation sous tension.",
-  "Si le doute subsiste sur la mise hors tension, aucune action d’extinction ne doit être engagée. La priorité reste l’évacuation de la zone et l’alerte.",
-  "La conduite à tenir repose sur une logique simple et systématique : STOP (arrêt immédiat), PROTECTION (se mettre hors danger), ALERTE (prévenir les secours et l’encadrement), sans jamais improviser une action sur le risque électrique."
-],
+    content: [
+      "En cas d’anomalie électrique, la réaction doit être immédiate : arrêter l’activité en cours, s’écarter du danger et alerter. Une anomalie peut se manifester par une odeur anormale, un échauffement, de la fumée, un bruit inhabituel, des étincelles, un câble dégradé, un déclenchement répété ou un comportement anormal d’un équipement.",
+      "Face à une situation dégradée, il est strictement interdit d’improviser une action sur l’installation. Le titulaire B0 / H0 / H0V ne doit ni intervenir, ni tenter de réparer, ni remettre en service un équipement électrique.",
+      "En cas d’électrisation, il ne faut jamais toucher directement la victime tant que le risque électrique persiste. Le danger doit être supprimé en priorité, notamment par la coupure de l’alimentation via un organe identifié, uniquement si cette action peut être réalisée sans s’exposer.",
+      "Une fois le risque maîtrisé, il convient de sécuriser la zone, d’alerter les secours, puis d’appliquer les gestes de premiers secours si l’on est formé. L’objectif est d’éviter tout suraccident.",
+      "En cas de départ de feu d’origine électrique, il faut appliquer les consignes du site. Si les conditions le permettent, un moyen d’extinction adapté peut être utilisé selon l’organisation prévue. L’utilisation d’eau sur une installation sous tension est strictement interdite.",
+      "Si le doute subsiste sur la mise hors tension, aucune action d’extinction ne doit être engagée. La priorité reste l’évacuation de la zone et l’alerte.",
+      "La séquence d’action doit rester constante : STOP, PROTECTION, ALERTE, sans jamais improviser une action sur le risque électrique.",
+    ],
     essentials: [
       "En cas d’anomalie : arrêt, mise en sécurité, alerte.",
-      "Ne jamais toucher une victime tant que le danger électrique persiste.",
+      "Ne jamais toucher une victime tant que le danger persiste.",
       "Face à un feu d’origine électrique, appliquer les consignes du site sans improvisation.",
     ],
     references: [
@@ -569,31 +649,30 @@ const H0B0_CHAPTERS: Chapter[] = [
   },
   {
     key: "summary",
-    title: "Chapitre 16 — Synthèse opérationnelle",
+    title: "Chapitre 18 — Synthèse opérationnelle",
     subtitle:
       "Consolider les réflexes essentiels avant l’évaluation finale et fixer les règles à retenir durablement",
-    minSeconds: 120,
+    minSeconds: 150,
     image: "/elearning/h0b0/reflexes-h0b0.png",
-    imageAlt: "Illustration de synthèse des réflexes H0B0",
+    imageAlt: "Illustration de synthèse des réflexes B0 H0 H0V",
     highlights: [
       "L’habilitation est délivrée par l’employeur, pas par la formation seule.",
-      "Le H0B0 concerne uniquement les opérations d’ordre non électrique.",
-      "Observer, respecter, ne pas improviser et alerter sont les réflexes fondamentaux."
-      ,
+      "Le B0 / H0 / H0V concerne uniquement les opérations d’ordre non électrique.",
+      "Observer, respecter, ne pas improviser et alerter sont les réflexes fondamentaux.",
     ],
     content: [
-      "Le H0B0 concerne des opérations d’ordre non électrique réalisées dans un environnement où un risque électrique existe. Il ne permet jamais d’agir sur l’installation électrique elle-même.",
+      "Le B0 / H0 / H0V concerne des opérations d’ordre non électrique réalisées dans un environnement où un risque électrique existe. Il ne permet jamais d’agir sur l’installation électrique elle-même.",
       "L’habilitation est délivrée par l’employeur après analyse des tâches confiées, des zones accessibles, des risques identifiés et des compétences détenues. La formation préalable ne vaut donc jamais habilitation à elle seule.",
-      "La compréhension des domaines de tension, des zones d’environnement, des distances d’approche, des risques de contact direct et indirect, des effets du courant, de l’influence du milieu et du rôle des protections constitue le socle technique minimal du titulaire H0B0.",
+      "La compréhension des domaines de tension, des zones d’environnement, des distances d’approche, des risques de contact direct et indirect, des effets du courant, de l’influence du milieu, du rôle des protections et des consignes du site constitue le socle minimal du titulaire B0 / H0 / H0V.",
       "Le danger électrique peut être visible ou invisible. Il peut résulter d’une pièce active accessible, d’une masse sous tension, d’un défaut d’isolement, d’un voisinage dangereux, d’une installation dégradée, d’un environnement humide ou d’un comportement inadapté.",
+      "La distinction entre B0, H0 et H0V constitue un point clé à retenir. Le B0 concerne la basse tension, le H0 concerne la haute tension hors voisinage dangereux, et le H0V concerne la haute tension avec notion de voisinage. Cette distinction ne donne jamais le droit d’intervenir sur une installation, mais elle modifie le niveau d’exposition au risque.",
+      "Les installations modernes peuvent intégrer à la fois du courant alternatif et du courant continu. La présence de batteries, de panneaux photovoltaïques, d’onduleurs ou d’équipements automatisés implique que le risque électrique peut persister même après une coupure partielle ou lorsqu’aucun réseau classique n’est visible.",
       "La règle opérationnelle finale est simple : observer l’environnement, reconnaître le risque, respecter les distances et les protections, rester strictement dans son périmètre, stopper en cas de doute et alerter immédiatement sans jamais improviser une action électrique.",
-      "La distinction entre H0, B0 et H0V constitue un point clé à retenir. Le B0 concerne la basse tension, le H0 concerne la haute tension hors voisinage dangereux, et le H0V concerne la haute tension avec notion de voisinage. Cette distinction ne donne jamais le droit d’intervenir sur une installation, mais elle modifie le niveau d’exposition au risque.",
-"Le point critique à retenir est que le danger électrique, notamment en haute tension, peut exister sans contact. Le respect strict des distances, des protections et des consignes constitue la seule garantie de sécurité dans ces situations."
     ],
     essentials: [
-      "Le H0B0 ne permet jamais d’intervenir sur l’installation électrique.",
+      "Le B0 / H0 / H0V ne permet jamais d’intervenir sur l’installation électrique.",
       "Le niveau de risque dépend de la tension, du voisinage, de l’environnement et du comportement adopté.",
-      "Les protections collectives sont prioritaires et les limites doivent être respectées strictement.",
+      "Les protections collectives et les consignes priment toujours.",
       "Le réflexe final est : observer, respecter, ne pas improviser, alerter.",
     ],
     references: [
@@ -617,6 +696,63 @@ function chapterProgressPercent(current: number, required: number) {
   return Math.min(100, Math.round((current / required) * 100));
 }
 
+function getFormationTitle(slug: string) {
+  if (slug === "h0b0") {
+    return "Habilitation électrique B0 – H0 – H0V";
+  }
+
+  return `Formation ${slug.toUpperCase()}`;
+}
+
+function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
+  return moduleData.sections.map((section, index) => {
+    const chapterContent = [
+      ...(section.intro ? [section.intro] : []),
+      ...(section.content ?? []),
+      ...(section.deepDive ?? []),
+      ...(section.practicalCase
+        ? [`Cas pratique : ${section.practicalCase}`]
+        : []),
+    ];
+
+    const highlights = [
+      ...(section.keyPoints ?? []).slice(0, 3),
+      ...(!section.keyPoints?.length && section.visual?.items?.length
+        ? section.visual.items.slice(0, 3)
+        : []),
+    ];
+
+    const essentials = [
+      ...(section.keyPoints ?? []),
+      ...((section.forbiddenPoints ?? []).map(
+        (item) => `A eviter : ${item}`
+      ) ?? []),
+    ];
+
+    const minSeconds = Math.max(
+      90,
+      Math.min(240, 75 + chapterContent.length * 18 + essentials.length * 8)
+    );
+
+    return {
+      key: section.id,
+      title: `Chapitre ${index + 1} - ${section.title}`,
+      subtitle: section.intro ?? moduleData.subtitle ?? moduleData.title,
+      minSeconds,
+      image: section.visual?.imagePath,
+      imageAlt:
+        section.visual?.imageAlt ?? section.visual?.title ?? section.title,
+      highlights,
+      content:
+        chapterContent.length > 0
+          ? chapterContent
+          : ["Contenu a enrichir pour cette section."],
+      essentials,
+      references: (section.legalRefs ?? []).map((label) => ({ label })),
+    };
+  });
+}
+
 export default function CoursPage() {
   const params = useParams();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? "";
@@ -627,10 +763,17 @@ export default function CoursPage() {
   const [, setTick] = useState(0);
 
   const normalizedSlug = String(slug).toLowerCase();
+  const canonicalSlug = resolveModuleSlug(normalizedSlug) ?? normalizedSlug;
 
   const chapters = useMemo<Chapter[]>(() => {
-    if (normalizedSlug === "h0b0") {
+    if (canonicalSlug === "h0b0") {
       return H0B0_CHAPTERS;
+    }
+
+    const moduleData = getModuleContentBySlug(canonicalSlug);
+
+    if (moduleData) {
+      return buildModuleChapters(moduleData);
     }
 
     return [
@@ -646,16 +789,21 @@ export default function CoursPage() {
         references: [REG_REFERENCES.nfC18510],
       },
     ];
-  }, [normalizedSlug]);
+  }, [canonicalSlug]);
+
+  const formationTitle = useMemo(
+    () => getModuleLabelBySlug(canonicalSlug),
+    [canonicalSlug]
+  );
 
   const currentChapter = chapters[currentIndex] ?? chapters[0];
 
   useEffect(() => {
-    if (!normalizedSlug) return;
+    if (!canonicalSlug) return;
 
     const load = async () => {
       try {
-        const res = await fetch(`/api/chapter-progress/${normalizedSlug}`, {
+        const res = await fetch(`/api/chapter-progress/${canonicalSlug}`, {
           cache: "no-store",
         });
         const data = await res.json();
@@ -668,7 +816,7 @@ export default function CoursPage() {
     };
 
     load();
-  }, [normalizedSlug]);
+  }, [canonicalSlug]);
 
   const currentProgress = progressData.find(
     (item) => item.chapter_key === currentChapter?.key
@@ -703,7 +851,7 @@ export default function CoursPage() {
     currentCompleted || currentSeconds >= (currentChapter?.minSeconds ?? 0);
 
   useEffect(() => {
-    if (!normalizedSlug || !currentChapter) return;
+    if (!canonicalSlug || !currentChapter) return;
 
     const saveInterval = setInterval(async () => {
       try {
@@ -713,7 +861,7 @@ export default function CoursPage() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            formation_slug: normalizedSlug,
+            formation_slug: canonicalSlug,
             chapter_key: currentChapter.key,
             chapter_order: currentIndex + 1,
             seconds: 5,
@@ -721,7 +869,7 @@ export default function CoursPage() {
           }),
         });
 
-        const res = await fetch(`/api/chapter-progress/${normalizedSlug}`, {
+        const res = await fetch(`/api/chapter-progress/${canonicalSlug}`, {
           cache: "no-store",
         });
         const data = await res.json();
@@ -732,7 +880,7 @@ export default function CoursPage() {
     }, 5000);
 
     return () => clearInterval(saveInterval);
-  }, [normalizedSlug, currentChapter, currentIndex]);
+  }, [canonicalSlug, currentChapter, currentIndex]);
 
   useEffect(() => {
     const visualTick = setInterval(() => {
@@ -762,7 +910,7 @@ export default function CoursPage() {
             </p>
 
             <h1 className="mt-3 text-2xl font-bold text-slate-900">
-              Parcours H0B0
+              {formationTitle}
             </h1>
 
             <div className="mt-6 rounded-2xl bg-slate-50 p-4">
@@ -1020,7 +1168,9 @@ export default function CoursPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
                   type="button"
-                  onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
+                  onClick={() =>
+                    setCurrentIndex((prev) => Math.max(0, prev - 1))
+                  }
                   disabled={currentIndex === 0}
                   className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
                 >
@@ -1038,7 +1188,7 @@ export default function CoursPage() {
                   </button>
                 ) : (
                   <Link
-                    href={`/modules/${normalizedSlug}/quiz`}
+                    href={`/modules/${canonicalSlug}/quiz`}
                     className={`rounded-xl px-5 py-3 text-sm font-semibold text-white transition ${
                       globalPercent === 100
                         ? "bg-green-600 hover:opacity-90"

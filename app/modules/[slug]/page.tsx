@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 import FormationHomePage from "../../components/elearning/FormationHomePage";
-import { modulesContent } from "../../../lib/supabase/elearning/module-content";
+import {
+  getModuleContentBySlug,
+  resolveModuleSlug,
+} from "../../../lib/supabase/elearning/module-registry";
 
 type PageProps = {
   params: Promise<{
@@ -10,12 +13,12 @@ type PageProps = {
 
 export default async function ModuleLandingPage({ params }: PageProps) {
   const { slug } = await params;
-  const normalizedSlug = slug?.toLowerCase();
-  const moduleData = modulesContent[normalizedSlug];
+  const canonicalSlug = resolveModuleSlug(slug);
+  const moduleData = getModuleContentBySlug(slug);
 
-  if (!moduleData) {
+  if (!moduleData || !canonicalSlug) {
     notFound();
   }
 
-  return <FormationHomePage slug={normalizedSlug} moduleData={moduleData} />;
+  return <FormationHomePage slug={canonicalSlug} moduleData={moduleData} />;
 }

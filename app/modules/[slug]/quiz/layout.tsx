@@ -52,6 +52,7 @@ function isAllowedQuizStatus(status: string): boolean {
     "enrolled",
     "paid",
     "pending",
+    "pending_interview",
   ]).has(status);
 }
 
@@ -167,7 +168,8 @@ export default async function QuizLayout({
 
           <p className="mt-4 text-base leading-7 text-slate-600">
             L’accès au quiz est réservé aux inscrits disposant d’une inscription
-            active, validée ou en cours sur cette formation.
+            active, validée, en cours ou en attente d’entretien sur cette
+            formation.
           </p>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -184,8 +186,11 @@ export default async function QuizLayout({
 
                   return (
                     <li key={item.id}>
-                      • {linkedFormation?.title ?? linkedFormation?.slug ?? "Formation"} — slug :{" "}
-                      {linkedFormation?.slug ?? "non défini"} — statut :{" "}
+                      •{" "}
+                      {linkedFormation?.title ??
+                        linkedFormation?.slug ??
+                        "Formation"}{" "}
+                      — slug : {linkedFormation?.slug ?? "non défini"} — statut :{" "}
                       {item.status ?? "non défini"}
                     </li>
                   );

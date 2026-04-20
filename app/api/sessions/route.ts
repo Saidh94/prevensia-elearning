@@ -72,8 +72,7 @@ export async function GET() {
       `?select=id,title,date_start,format&order=date_start.asc`;
 
     const registrationsUrl =
-      `${supabaseUrl}/rest/v1/registrations` +
-      `?select=session_id`;
+      `${supabaseUrl}/rest/v1/registrations` + `?select=session_id`;
 
     const headers: HeadersInit = {
       apikey: supabaseAnonKey,
@@ -97,24 +96,32 @@ export async function GET() {
       throw new Error(`Erreur sessions : ${errorText}`);
     }
 
-    if (!registrationsRes.ok) {
-      const errorText = await registrationsRes.text();
-      throw new Error(`Erreur registrations : ${errorText}`);
-    }
-
     const sessionsJson: unknown = await sessionsRes.json();
-    const registrationsJson: unknown = await registrationsRes.json();
 
     if (!Array.isArray(sessionsJson)) {
       throw new Error("Réponse sessions invalide");
     }
 
-    if (!Array.isArray(registrationsJson)) {
-      throw new Error("Réponse registrations invalide");
-    }
-
     const sessions = sessionsJson as SessionRow[];
-    const registrations = registrationsJson as RegistrationRow[];
+    let registrations: RegistrationRow[] = [];
+
+    if (!registrationsRes.ok) {
+      const errorText = await registrationsRes.text();
+      console.warn(
+        "[api/sessions] Comptage des inscriptions indisponible, retour sans occupation :",
+        errorText
+      );
+    } else {
+      const registrationsJson: unknown = await registrationsRes.json();
+
+      if (Array.isArray(registrationsJson)) {
+        registrations = registrationsJson as RegistrationRow[];
+      } else {
+        console.warn(
+          "[api/sessions] Réponse registrations invalide, comptage ignoré."
+        );
+      }
+    }
 
     const countBySession = registrations.reduce<Record<string, number>>(
       (acc, registration) => {

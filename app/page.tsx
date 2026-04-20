@@ -517,166 +517,172 @@ export default function Home() {
       ) : null}
 
       <main>
-        <section className="relative overflow-hidden bg-slate-950 text-white">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/salle-de-formation.jpg"
-              alt="Formation en salle"
-              fill
-              sizes="100vw"
-              className="object-cover opacity-20"
-              priority
-            />
-          </div>
+       <section className="relative overflow-hidden bg-slate-950 text-white">
+  <div className="absolute inset-0">
+    <Image
+      src="/images/hero-prevensia.jpg"
+      alt="Prévensia Formation - prévention des risques en entreprise"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover"
+    />
+  </div>
 
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-950/95 to-slate-900" />
+  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/60 to-slate-900/75" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(220,38,38,0.18),transparent_38%)]" />
 
-          <div className="relative border-b border-white/10 bg-white/5">
-            <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                <div className="flex items-center gap-2.5">
-                  <Image
-                    src="/images/qualiopi.jpg"
-                    alt="Certification Qualiopi"
-                    width={44}
-                    height={44}
-                    className="h-auto w-9 shrink-0"
-                  />
-                  <span className="text-xs font-bold uppercase tracking-wide text-white">
-                    Certifié Qualiopi
-                  </span>
-                </div>
+  <div className="relative border-b border-white/10 bg-slate-950/35 backdrop-blur-[2px]">
+    <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+        <div className="flex items-center gap-2.5">
+          <Image
+            src="/images/qualiopi.jpg"
+            alt="Certification Qualiopi"
+            width={44}
+            height={44}
+            className="h-auto w-9 shrink-0"
+          />
+          <span className="text-xs font-bold uppercase tracking-wide text-white">
+            Certifié Qualiopi
+          </span>
+        </div>
 
-                <span className="hidden h-3 w-px bg-white/20 sm:block" />
+        <span className="hidden h-3 w-px bg-white/20 sm:block" />
 
-                <span className="text-xs font-semibold text-white/70">
-                  Référentiel NF C 18-510
-                </span>
+        <span className="text-xs font-semibold text-white/70">
+          Référentiel NF C 18-510
+        </span>
 
-                <span className="hidden h-3 w-px bg-white/20 sm:block" />
+        <span className="hidden h-3 w-px bg-white/20 sm:block" />
 
-                <span className="text-xs font-semibold text-white/70">
-                  Habilitation électrique · Incendie · SSI · SST
-                </span>
+        <span className="text-xs font-semibold text-white/70">
+          Habilitation électrique · Incendie · SSI · SST
+        </span>
 
-                <span className="hidden h-3 w-px bg-white/20 sm:block" />
+        <span className="hidden h-3 w-px bg-white/20 sm:block" />
 
-                <span className="text-xs font-semibold text-white/70">
-                  Présentiel · E-learning · Intra
-                </span>
-              </div>
-            </div>
-          </div>
+        <span className="text-xs font-semibold text-white/70">
+          Présentiel · E-learning · Intra
+        </span>
+      </div>
+    </div>
+  </div>
 
-          <div className="relative mx-auto max-w-7xl px-4 pt-14 text-center sm:px-6 lg:px-8">
-            <p className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-              Organisme de formation certifié
-            </p>
+  <div className="relative mx-auto max-w-7xl px-4 pt-16 text-center sm:px-6 lg:px-8">
+    <p className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100 backdrop-blur">
+      Organisme de formation certifié
+    </p>
 
-            <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight sm:text-5xl lg:text-[3.35rem]">
-              Formations sécurité incendie, habilitations électriques, SSI et
-              SST
-              <span className="block text-red-400">
-                pour entreprises, sites techniques et exploitants
-              </span>
-            </h1>
+    <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.35rem]">
+      Formations sécurité incendie, habilitations électriques, SSI et SST
+      <span className="block text-red-400">
+        {" "}pour les entreprises et les professionnels intervenant en environnement technique
+      </span>
+    </h1>
 
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-300">
-              PREVENSIA FORMATION accompagne les entreprises et les
-              professionnels avec des formations en présentiel, en intra et en
-              e-learning, conçues pour la conformité réglementaire, l’efficacité
-              opérationnelle et les réalités terrain.
-            </p>
-          </div>
+    <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-200">
+      PREVENSIA FORMATION accompagne les entreprises dans la prévention des risques
+      professionnels, notamment incendie, risque électrique, santé et sécurité au travail,
+      à travers des formations conçues pour la conformité réglementaire, la prévention et
+      l’efficacité opérationnelle.
+    </p>
 
-          <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8">
-            <div className="grid gap-5 lg:grid-cols-2">
-              <div className="flex flex-col rounded-[2rem] border border-red-700/30 bg-gradient-to-br from-red-900/50 to-slate-900/80 p-8 shadow-2xl">
-                <span className="inline-flex w-fit rounded-xl bg-red-700/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-red-300">
-                  Entreprises
-                </span>
-                <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-                  Formation intra, groupe et accompagnement sur mesure
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Plusieurs salariés à former, un besoin réglementaire précis ou
-                  une organisation sur site ? Nous vous orientons vers une
-                  solution adaptée à votre activité et à vos contraintes.
-                </p>
-                <ul className="mt-5 space-y-2 text-sm text-slate-300">
-                  <li className="flex items-center gap-2">
-                    <span className="mt-0.5 text-red-400">✓</span>
-                    Formations sur mesure et intra-entreprise
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="mt-0.5 text-red-400">✓</span>
-                    Prise en charge OPCO possible
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="mt-0.5 text-red-400">✓</span>
-                    Attestations et documents de conformité
-                  </li>
-                </ul>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/demande-devis"
-                    className="rounded-2xl bg-red-700 px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-red-600"
-                  >
-                    Demander un devis
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => goTo("/planning")}
-                    className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
-                  >
-                    Voir le planning
-                  </button>
-                </div>
-              </div>
+    <p className="mx-auto mt-3 max-w-3xl text-sm leading-7 text-slate-300">
+      Nos formations s’adressent aux employeurs, exploitants, équipes terrain et
+      intervenants techniques souhaitant sécuriser leurs activités et renforcer les
+      compétences de leurs collaborateurs.
+    </p>
+  </div>
 
-              <div className="flex flex-col rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-800/60 to-slate-900/80 p-8 shadow-2xl">
-                <span className="inline-flex w-fit rounded-xl bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate-300">
-                  Particuliers &amp; Apprenants
-                </span>
-                <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-                  E-learning et espace apprenant
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Accédez à vos modules, quiz, résultats et attestations dans un
-                  espace dédié, avec un parcours souple et lisible.
-                </p>
-                <ul className="mt-5 space-y-2 text-sm text-slate-300">
-                  <li className="flex items-center gap-2">
-                    <span className="mt-0.5 text-slate-400">✓</span>
-                    Parcours 100&nbsp;% en ligne, à votre rythme
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="mt-0.5 text-slate-400">✓</span>
-                    Quiz, résultats et attestation intégrés
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="mt-0.5 text-slate-400">✓</span>
-                    Conforme NF&nbsp;C&nbsp;18-510
-                  </li>
-                </ul>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/elearning"
-                    className="rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:bg-slate-100"
-                  >
-                    Accéder à l&apos;espace e-learning
-                  </Link>
-                  <a
-                    href="#catalogue"
-                    className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
-                  >
-                    Voir le catalogue
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+  <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8">
+    <div className="grid gap-5 lg:grid-cols-2">
+      <div className="flex flex-col rounded-[2rem] border border-red-700/30 bg-gradient-to-br from-red-900/50 to-slate-900/80 p-8 shadow-2xl">
+        <span className="inline-flex w-fit rounded-xl bg-red-700/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-red-300">
+          Entreprises
+        </span>
+        <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
+          Formation intra, groupe et accompagnement sur mesure
+        </h2>
+        <p className="mt-3 text-sm leading-7 text-slate-300">
+          Plusieurs salariés à former, un besoin réglementaire précis ou
+          une organisation sur site ? Nous vous orientons vers une
+          solution adaptée à votre activité et à vos contraintes.
+        </p>
+        <ul className="mt-5 space-y-2 text-sm text-slate-300">
+          <li className="flex items-center gap-2">
+            <span className="mt-0.5 text-red-400">✓</span>
+            Formations sur mesure et intra-entreprise
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="mt-0.5 text-red-400">✓</span>
+            Prise en charge OPCO possible
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="mt-0.5 text-red-400">✓</span>
+            Attestations et documents de conformité
+          </li>
+        </ul>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/demande-devis"
+            className="rounded-2xl bg-red-700 px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:bg-red-600"
+          >
+            Demander un devis
+          </Link>
+          <button
+            type="button"
+            onClick={() => goTo("/planning")}
+            className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
+          >
+            Voir le planning
+          </button>
+        </div>
+      </div>
+
+      <div className="flex flex-col rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-800/60 to-slate-900/80 p-8 shadow-2xl">
+        <span className="inline-flex w-fit rounded-xl bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate-300">
+          Particuliers &amp; Apprenants
+        </span>
+        <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
+          E-learning et espace apprenant
+        </h2>
+        <p className="mt-3 text-sm leading-7 text-slate-300">
+          Accédez à vos modules, quiz, résultats et attestations dans un
+          espace dédié, avec un parcours souple et lisible.
+        </p>
+        <ul className="mt-5 space-y-2 text-sm text-slate-300">
+          <li className="flex items-center gap-2">
+            <span className="mt-0.5 text-slate-400">✓</span>
+            Parcours 100&nbsp;% en ligne, à votre rythme
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="mt-0.5 text-slate-400">✓</span>
+            Quiz, résultats et attestation intégrés
+          </li>
+          <li className="flex items-center gap-2">
+            <span className="mt-0.5 text-slate-400">✓</span>
+            Conforme NF&nbsp;C&nbsp;18-510
+          </li>
+        </ul>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/elearning"
+            className="rounded-2xl bg-white px-6 py-3 text-sm font-bold text-slate-900 shadow-lg transition hover:bg-slate-100"
+          >
+            Accéder à l&apos;espace e-learning
+          </Link>
+          <a
+            href="#catalogue"
+            className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
+          >
+            Voir le catalogue
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section className="border-y border-slate-200 bg-white">
           <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">

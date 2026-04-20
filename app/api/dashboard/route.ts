@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "../../../lib/supabase/server";
+import { getRequiredChapterCount } from "../../../lib/supabase/elearning/module-registry";
 
 type ProfileRow = {
   id: string;
@@ -8,6 +9,7 @@ type ProfileRow = {
   last_name: string | null;
   phone: string | null;
   company: string | null;
+  role: string | null;
 };
 
 type FormationRow = {
@@ -43,15 +45,6 @@ function getSingleFormation(
   return Array.isArray(formation) ? formation[0] ?? null : formation;
 }
 
-function getRequiredChapterCount(slug: string | null): number {
-  switch ((slug ?? "").toLowerCase()) {
-    case "h0b0":
-      return 16;
-    default:
-      return 0;
-  }
-}
-
 export async function GET() {
   try {
     const supabase = await createClient();
@@ -68,7 +61,7 @@ export async function GET() {
 
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
-      .select("id, email, first_name, last_name, phone, company")
+      .select("id, email, first_name, last_name, phone, company, role")
       .eq("id", user.id)
       .maybeSingle();
 
@@ -180,14 +173,14 @@ export async function GET() {
 
       const completed = enrollment.status === "completed";
 
-const derivedStatus =
-  enrollment.status === "completed"
-    ? "completed"
-    : enrollment.status === "pending_interview"
-    ? "in_progress"
-    : completionPercent > 0
-    ? "in_progress"
-    : enrollment.status ?? "not_started";
+      const derivedStatus =
+        enrollment.status === "completed"
+          ? "completed"
+          : enrollment.status === "pending_interview"
+          ? "pending_interview"
+          : completionPercent > 0
+          ? "in_progress"
+          : enrollment.status ?? "not_started";
 
       const latestUpdatedAt =
         formationChapterRows

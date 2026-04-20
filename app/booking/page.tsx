@@ -307,7 +307,7 @@ export default async function BookingPage() {
 
         <div className="mt-8 rounded-2xl border bg-white p-6 shadow-sm">
           <a
-            href="TON_VRAI_LIEN_CALENDLY"
+            href="https://calendly.com/prevensia-formation-kq6l/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex rounded-2xl bg-green-600 px-6 py-4 text-base font-semibold text-white transition hover:bg-green-700"

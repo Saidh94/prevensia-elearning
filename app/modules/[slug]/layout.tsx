@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import LogoutButton from "@/app/components/logout-button";
+import { resolveModuleSlug } from "@/lib/supabase/elearning/module-registry";
 
 type ModuleLayoutProps = {
   children: React.ReactNode;
@@ -52,6 +52,7 @@ function isAllowedStatus(status: string): boolean {
     "enrolled",
     "paid",
     "pending",
+    "pending_interview",
   ]).has(status);
 }
 
@@ -74,7 +75,8 @@ export default async function ModuleLayout({
   params,
 }: ModuleLayoutProps) {
   const { slug } = await params;
-  const normalizedRouteSlug = normalizeSlug(slug);
+  const normalizedRouteSlug =
+    resolveModuleSlug(slug) ?? normalizeSlug(slug);
 
   const supabase = await createClient();
 
@@ -138,11 +140,15 @@ export default async function ModuleLayout({
 
   const enrollment = enrollments.find((item) => {
     const linkedFormation = normalizeFormation(item.formation);
-    return normalizeSlug(linkedFormation?.slug) === normalizedRouteSlug;
+    return (
+      (resolveModuleSlug(linkedFormation?.slug) ??
+        normalizeSlug(linkedFormation?.slug)) === normalizedRouteSlug
+    );
   });
 
   const formation = normalizeFormation(enrollment?.formation ?? null);
-  const normalizedFormationSlug = normalizeSlug(formation?.slug);
+  const normalizedFormationSlug =
+    resolveModuleSlug(formation?.slug) ?? normalizeSlug(formation?.slug);
   const currentStatus = normalizeStatus(enrollment?.status);
 
   const hasAccess =
@@ -167,7 +173,8 @@ export default async function ModuleLayout({
 
           <p className="mt-4 text-base leading-7 text-slate-600">
             L’accès à ce module est réservé aux inscrits disposant d’une
-            inscription active, validée ou en cours sur cette formation.
+            inscription active, validée, en cours ou en attente d’entretien sur
+            cette formation.
           </p>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -216,35 +223,33 @@ export default async function ModuleLayout({
 
   return (
     <main className="min-h-screen bg-slate-100">
-      <header className="sticky top-0 z-40 border-b border-slate-800 bg-slate-900 text-white">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="inline-flex items-center rounded-lg bg-white/10 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+              className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
             >
               ← Retour au site
             </Link>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 E-learning
               </p>
-              <p className="text-sm font-bold text-white">
+              <p className="text-sm font-bold text-slate-900">
                 {formation?.title ?? "Espace formation"}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Link
-              href="/dashboard"
-              className="inline-flex items-center rounded-lg border border-white/20 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Dashboard
-            </Link>
-
-            <LogoutButton />
+          <div className="hidden sm:block text-right">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
+              Module
+            </p>
+            <p className="text-sm font-semibold text-slate-700">
+              Parcours en cours
+            </p>
           </div>
         </div>
       </header>

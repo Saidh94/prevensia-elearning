@@ -4,6 +4,11 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import { quizContent, type QuizQuestion } from "./content";
+import {
+  getModuleLabelBySlug,
+  getRequiredChapterCount as getRequiredModuleChapterCount,
+  resolveModuleSlug,
+} from "@/lib/supabase/elearning/module-registry";
 
 type ChapterProgress = {
   chapter_key: string;
@@ -16,13 +21,40 @@ type SavedQuizProgress = {
   version: number;
   totalQuestions: number;
   current: number;
-  answers: number[];
+  answers: number[][];
   finished: boolean;
   timeLeft: number;
   updatedAt: string;
 };
 
-const QUESTION_TIME_LIMIT = 25;
+type QuizContext = {
+  enrollmentId: string;
+  employeeFirstName: string;
+  employeeLastName: string;
+  companyName: string;
+  managerEmail: string;
+  orderedByEmployer: boolean;
+};
+
+const DEFAULT_QUESTION_TIME_LIMIT = 60;
+
+function arraysEqual(a: number[] = [], b: number[] = []) {
+  if (a.length !== b.length) return false;
+
+  const sortedA = [...a].sort((x, y) => x - y);
+  const sortedB = [...b].sort((x, y) => x - y);
+
+  return sortedA.every((value, index) => value === sortedB[index]);
+}
+
+const defaultQuizContext: QuizContext = {
+  enrollmentId: "",
+  employeeFirstName: "",
+  employeeLastName: "",
+  companyName: "",
+  managerEmail: "",
+  orderedByEmployer: false,
+};
 
 export default function QuizPage() {
   const params = useParams();
@@ -34,23 +66,29 @@ export default function QuizPage() {
     }
     return String(slugParam ?? "").toLowerCase();
   }, [slugParam]);
+  const canonicalSlug = useMemo(() => resolveModuleSlug(slug) ?? slug, [slug]);
+
+  const formationLabel = useMemo(
+    () => getModuleLabelBySlug(canonicalSlug),
+    [canonicalSlug]
+  );
 
   const quiz: QuizQuestion[] = useMemo(() => {
-    return quizContent[slug] ?? [];
-  }, [slug]);
+    return quizContent[canonicalSlug] ?? [];
+  }, [canonicalSlug]);
 
   const progressStorageKey = useMemo(() => {
-    return slug ? `quiz-progress-${slug}` : "";
-  }, [slug]);
+    return canonicalSlug ? `quiz-progress-${canonicalSlug}` : "";
+  }, [canonicalSlug]);
 
   const resultStorageKey = useMemo(() => {
-    return slug ? `quiz-result-${slug}` : "";
-  }, [slug]);
+    return canonicalSlug ? `quiz-result-${canonicalSlug}` : "";
+  }, [canonicalSlug]);
 
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
+  const [answers, setAnswers] = useState<number[][]>([]);
   const [finished, setFinished] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(QUESTION_TIME_LIMIT);
+  const [timeLeft, setTimeLeft] = useState(DEFAULT_QUESTION_TIME_LIMIT);
 
   const [progressData, setProgressData] = useState<ChapterProgress[]>([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
@@ -63,8 +101,15 @@ export default function QuizPage() {
   const [restoreChoicePending, setRestoreChoicePending] = useState(false);
   const [progressRestored, setProgressRestored] = useState(false);
 
+  const [quizContext, setQuizContext] = useState<QuizContext>(defaultQuizContext);
+  const [loadingQuizContext, setLoadingQuizContext] = useState(true);
+
+  const currentQuestion = quiz[current];
+  const currentQuestionTimeLimit =
+    currentQuestion?.timeLimit ?? DEFAULT_QUESTION_TIME_LIMIT;
+
   useEffect(() => {
-    if (!slug) {
+    if (!canonicalSlug) {
       setProgressData([]);
       setLoadingProgress(false);
       return;
@@ -72,7 +117,7 @@ export default function QuizPage() {
 
     const loadProgress = async () => {
       try {
-        const res = await fetch(`/api/chapter-progress/${slug}`, {
+        const res = await fetch(`/api/chapter-progress/${canonicalSlug}`, {
           cache: "no-store",
         });
 
@@ -90,16 +135,51 @@ export default function QuizPage() {
     };
 
     loadProgress();
-  }, [slug]);
+  }, [canonicalSlug]);
+
+  useEffect(() => {
+    if (!canonicalSlug) {
+      setQuizContext(defaultQuizContext);
+      setLoadingQuizContext(false);
+      return;
+    }
+
+    const loadQuizContext = async () => {
+      try {
+        setLoadingQuizContext(true);
+
+        const response = await fetch(`/api/quiz/context/${canonicalSlug}`, {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error("Impossible de charger le contexte quiz");
+        }
+
+        const data = await response.json();
+
+        setQuizContext({
+          enrollmentId: data?.enrollmentId ?? "",
+          employeeFirstName: data?.employeeFirstName ?? "",
+          employeeLastName: data?.employeeLastName ?? "",
+          companyName: data?.companyName ?? "",
+          managerEmail: data?.managerEmail ?? "",
+          orderedByEmployer: Boolean(data?.orderedByEmployer),
+        });
+      } catch (error) {
+        console.error("Erreur chargement contexte quiz :", error);
+        setQuizContext(defaultQuizContext);
+      } finally {
+        setLoadingQuizContext(false);
+      }
+    };
+
+    loadQuizContext();
+  }, [canonicalSlug]);
 
   const requiredChapterCount = useMemo(() => {
-    switch (slug) {
-      case "h0b0":
-        return 16;
-      default:
-        return 0;
-    }
-  }, [slug]);
+    return getRequiredModuleChapterCount(canonicalSlug);
+  }, [canonicalSlug]);
 
   const completedChapterCount = useMemo(() => {
     return progressData.filter((item) => item.is_completed).length;
@@ -109,11 +189,10 @@ export default function QuizPage() {
     requiredChapterCount > 0 &&
     completedChapterCount >= requiredChapterCount;
 
-  const currentQuestion = quiz[current];
-
   const score = useMemo(() => {
-    return quiz.reduce((acc, q, i) => {
-      return acc + (answers[i] === q.answer ? 1 : 0);
+    return quiz.reduce((acc, question, index) => {
+      const selectedAnswers = answers[index] ?? [];
+      return acc + (arraysEqual(selectedAnswers, question.answer) ? 1 : 0);
     }, 0);
   }, [quiz, answers]);
 
@@ -128,7 +207,7 @@ export default function QuizPage() {
   }, [score, quiz.length]);
 
   useEffect(() => {
-    if (!slug || !progressStorageKey || quiz.length === 0) return;
+    if (!canonicalSlug || !progressStorageKey || quiz.length === 0) return;
 
     try {
       const savedRaw = localStorage.getItem(progressStorageKey);
@@ -139,11 +218,12 @@ export default function QuizPage() {
 
       const isValid =
         saved &&
-        saved.version === 1 &&
+        saved.version === 2 &&
         saved.totalQuestions === quiz.length &&
         Array.isArray(saved.answers) &&
         typeof saved.current === "number" &&
-        typeof saved.finished === "boolean";
+        typeof saved.finished === "boolean" &&
+        typeof saved.timeLeft === "number";
 
       if (!isValid) {
         localStorage.removeItem(progressStorageKey);
@@ -155,7 +235,11 @@ export default function QuizPage() {
         return;
       }
 
-      if (saved.answers.length === 0 && saved.current === 0) {
+      const hasAnyAnswer = saved.answers.some(
+        (entry) => Array.isArray(entry) && entry.length > 0
+      );
+
+      if (!hasAnyAnswer && saved.current === 0) {
         localStorage.removeItem(progressStorageKey);
         return;
       }
@@ -166,15 +250,15 @@ export default function QuizPage() {
       console.error("Erreur lecture sauvegarde quiz :", error);
       localStorage.removeItem(progressStorageKey);
     }
-  }, [slug, quiz.length, progressStorageKey]);
+  }, [canonicalSlug, quiz.length, progressStorageKey]);
 
   useEffect(() => {
-    if (!slug || !progressStorageKey || quiz.length === 0) return;
+    if (!canonicalSlug || !progressStorageKey || quiz.length === 0) return;
     if (restoreChoicePending) return;
     if (finished) return;
 
     const payload: SavedQuizProgress = {
-      version: 1,
+      version: 2,
       totalQuestions: quiz.length,
       current,
       answers,
@@ -185,7 +269,7 @@ export default function QuizPage() {
 
     localStorage.setItem(progressStorageKey, JSON.stringify(payload));
   }, [
-    slug,
+    canonicalSlug,
     quiz.length,
     current,
     answers,
@@ -196,7 +280,8 @@ export default function QuizPage() {
   ]);
 
   useEffect(() => {
-    if (restoreChoicePending || finished || quiz.length === 0) return;
+    if (restoreChoicePending || finished || quiz.length === 0 || !currentQuestion)
+      return;
 
     const interval = window.setInterval(() => {
       setTimeLeft((prev) => {
@@ -204,8 +289,9 @@ export default function QuizPage() {
           window.clearInterval(interval);
 
           if (current < quiz.length - 1) {
-            setCurrent((value) => value + 1);
-            return QUESTION_TIME_LIMIT;
+            const nextIndex = current + 1;
+            setCurrent(nextIndex);
+            return quiz[nextIndex]?.timeLimit ?? DEFAULT_QUESTION_TIME_LIMIT;
           }
 
           setFinished(true);
@@ -217,16 +303,16 @@ export default function QuizPage() {
     }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [current, finished, quiz.length, restoreChoicePending]);
+  }, [current, finished, quiz, quiz.length, restoreChoicePending, currentQuestion]);
 
   useEffect(() => {
     if (!finished) {
-      setTimeLeft(QUESTION_TIME_LIMIT);
+      setTimeLeft(currentQuestionTimeLimit);
     }
-  }, [current, finished]);
+  }, [current, finished, currentQuestionTimeLimit]);
 
   useEffect(() => {
-    if (!finished || !slug || quiz.length === 0) return;
+    if (!finished || !canonicalSlug || quiz.length === 0) return;
 
     const saveQuizResult = async () => {
       try {
@@ -235,7 +321,7 @@ export default function QuizPage() {
 
         const nowIso = new Date().toISOString();
         const payload = {
-          slug,
+          slug: canonicalSlug,
           score,
           total: quiz.length,
           passingScore,
@@ -256,7 +342,7 @@ export default function QuizPage() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            formationSlug: slug,
+            formationSlug: canonicalSlug,
             score,
             total: quiz.length,
             passingScore,
@@ -283,7 +369,7 @@ export default function QuizPage() {
     saveQuizResult();
   }, [
     finished,
-    slug,
+    canonicalSlug,
     score,
     quiz.length,
     passingScore,
@@ -302,13 +388,20 @@ export default function QuizPage() {
       0,
       Math.min(savedProgress.current, quiz.length - 1)
     );
-    const safeAnswers = savedProgress.answers.slice(0, quiz.length);
+
+    const safeAnswers = savedProgress.answers
+      .slice(0, quiz.length)
+      .map((entry) => (Array.isArray(entry) ? entry : []));
+
+    const maxTime =
+      quiz[safeCurrent]?.timeLimit ?? DEFAULT_QUESTION_TIME_LIMIT;
+
     const safeTimeLeft =
       typeof savedProgress.timeLeft === "number" &&
       savedProgress.timeLeft > 0 &&
-      savedProgress.timeLeft <= QUESTION_TIME_LIMIT
+      savedProgress.timeLeft <= maxTime
         ? savedProgress.timeLeft
-        : QUESTION_TIME_LIMIT;
+        : maxTime;
 
     setAnswers(safeAnswers);
     setCurrent(safeCurrent);
@@ -329,14 +422,31 @@ export default function QuizPage() {
     setCurrent(0);
     setAnswers([]);
     setFinished(false);
-    setTimeLeft(QUESTION_TIME_LIMIT);
+    setTimeLeft(DEFAULT_QUESTION_TIME_LIMIT);
     setSaveError(null);
   };
 
-  const handleAnswer = (index: number) => {
+  const handleSingleAnswer = (index: number) => {
     setAnswers((prev) => {
       const nextAnswers = [...prev];
-      nextAnswers[current] = index;
+      nextAnswers[current] = [index];
+      return nextAnswers;
+    });
+  };
+
+  const handleMultipleAnswer = (index: number) => {
+    setAnswers((prev) => {
+      const nextAnswers = [...prev];
+      const currentAnswers = Array.isArray(nextAnswers[current])
+        ? [...nextAnswers[current]]
+        : [];
+
+      if (currentAnswers.includes(index)) {
+        nextAnswers[current] = currentAnswers.filter((value) => value !== index);
+      } else {
+        nextAnswers[current] = [...currentAnswers, index];
+      }
+
       return nextAnswers;
     });
   };
@@ -354,7 +464,7 @@ export default function QuizPage() {
     setCurrent(0);
     setAnswers([]);
     setFinished(false);
-    setTimeLeft(QUESTION_TIME_LIMIT);
+    setTimeLeft(DEFAULT_QUESTION_TIME_LIMIT);
     setSaveError(null);
     setProgressRestored(false);
     setSavedProgress(null);
@@ -369,18 +479,21 @@ export default function QuizPage() {
     }
   };
 
-  if (loadingProgress) {
+  const hasAnsweredCurrentQuestion =
+    Array.isArray(answers[current]) && answers[current].length > 0;
+
+  if (loadingProgress || loadingQuizContext) {
     return (
-      <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Quiz
+      <main className="min-h-screen bg-slate-50 px-4 py-8">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+            Quiz de validation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
             Vérification du parcours
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Vérification de la validation des chapitres en cours…
+            Vérification de la validation des chapitres et du contexte de formation en cours…
           </p>
         </div>
       </main>
@@ -389,8 +502,8 @@ export default function QuizPage() {
 
   if (!allChaptersCompleted) {
     return (
-      <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
+      <main className="min-h-screen bg-slate-50 px-4 py-8">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
             Quiz verrouillé
           </p>
@@ -435,10 +548,10 @@ export default function QuizPage() {
 
   if (!quiz.length) {
     return (
-      <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Quiz
+      <main className="min-h-screen bg-slate-50 px-4 py-8">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+            Quiz de validation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
             Quiz indisponible
@@ -462,10 +575,10 @@ export default function QuizPage() {
 
   if (restoreChoicePending && savedProgress) {
     return (
-      <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Quiz
+      <main className="min-h-screen bg-slate-50 px-4 py-8">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+            Quiz de validation
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
@@ -492,7 +605,7 @@ export default function QuizPage() {
               Réponses déjà enregistrées :{" "}
               <span className="font-semibold text-slate-900">
                 {savedProgress.answers.filter(
-                  (value) => value !== undefined && value !== null
+                  (entry) => Array.isArray(entry) && entry.length > 0
                 ).length}
               </span>
             </p>
@@ -529,10 +642,10 @@ export default function QuizPage() {
 
   if (!currentQuestion && !finished) {
     return (
-      <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-            Quiz
+      <main className="min-h-screen bg-slate-50 px-4 py-8">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+            Quiz de validation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
             Erreur de chargement du quiz
@@ -563,172 +676,273 @@ export default function QuizPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-10">
-      <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-        {!finished ? (
-          <>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+    <main className="min-h-screen bg-slate-50 px-4 py-8">
+      <div className="mx-auto max-w-4xl">
+        <section className="mb-6 overflow-hidden rounded-[1.75rem] border border-slate-900 bg-slate-900 text-white shadow-sm">
+          <div className="border-b border-white/10 px-6 py-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300">
               Quiz de validation
             </p>
-
-            {progressRestored && answers.length > 0 ? (
-              <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-700">
-                Votre progression précédente a été restaurée.
-              </div>
-            ) : null}
-
-            <div className="mt-4 flex items-center justify-between gap-4">
-              <p className="text-sm text-slate-600">
-                Question {current + 1} sur {quiz.length}
-              </p>
-              <p className="text-sm font-medium text-slate-500">
-                Seuil requis : {passingScore}/{quiz.length}
-              </p>
-            </div>
-
-            <div className="mt-4 flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-              <span className="text-sm font-medium text-slate-700">
-                Temps restant pour cette question
-              </span>
-              <span className="text-lg font-bold text-slate-900">
-                {timeLeft}s
-              </span>
-            </div>
-
-            <div className="mt-4 h-3 w-full rounded-full bg-slate-200">
-              <div
-                className="h-3 rounded-full bg-slate-900 transition-all duration-1000"
-                style={{ width: `${(timeLeft / QUESTION_TIME_LIMIT) * 100}%` }}
-              />
-            </div>
-
-            <h1 className="mt-6 text-2xl font-bold text-slate-900">
-              {currentQuestion.question}
+            <h1 className="mt-2 text-3xl font-bold">
+              {formationLabel}
             </h1>
-
-            <div className="mt-6 space-y-3">
-              {currentQuestion.choices.map((choice: string, i: number) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => handleAnswer(i)}
-                  className={`w-full rounded-xl border px-4 py-3 text-left text-sm font-medium transition ${
-                    answers[current] === i
-                      ? "border-slate-900 bg-slate-900 text-white"
-                      : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
-                  }`}
-                >
-                  {choice}
-                </button>
-              ))}
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={`/modules/${slug}/cours`}
-                className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-              >
-                Retour au cours
-              </Link>
-
-              <button
-                type="button"
-                onClick={next}
-                disabled={answers[current] === undefined}
-                className="rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                {current < quiz.length - 1
-                  ? "Question suivante"
-                  : "Terminer le quiz"}
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-              Résultat
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
+              Cette étape permet de valider les acquis théoriques du module avant
+              finalisation du parcours.
             </p>
+          </div>
 
-            <h1 className="mt-3 text-3xl font-bold text-slate-900">
-              Quiz terminé
-            </h1>
-
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-base leading-7 text-slate-700">
-                Votre score est de{" "}
-                <span className="font-semibold text-slate-900">{score}</span>{" "}
-                bonne(s) réponse(s) sur{" "}
-                <span className="font-semibold text-slate-900">
-                  {quiz.length}
-                </span>
-                .
-              </p>
-
-              <p className="mt-2 text-base leading-7 text-slate-700">
-                Pourcentage obtenu :{" "}
-                <span className="font-semibold text-slate-900">
-                  {scorePercent}%
-                </span>
-              </p>
-
-              <p className="mt-2 text-base leading-7 text-slate-700">
-                Seuil de validation :{" "}
-                <span className="font-semibold text-slate-900">
-                  {passingScore} / {quiz.length}
-                </span>
-              </p>
-
-              {success ? (
-                <p className="mt-4 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
-                  Validation réussie. Vous pouvez désormais planifier l’entretien avec le formateur pour finaliser votre parcours.
-                </p>
-              ) : (
-                <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
-                  Score insuffisant. Vous devez recommencer le quiz pour valider
-                  la formation.
-                </p>
-              )}
-
-              {savingResult && (
-                <p className="mt-4 text-sm text-slate-500">
-                  Enregistrement du résultat en cours…
-                </p>
-              )}
-
-              {saveError && (
-                <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-700">
-                  {saveError}
-                </p>
-              )}
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-white/5 px-6 py-4">
+            <div className="flex flex-wrap items-center gap-2 text-sm">
+              <span className="rounded-full bg-white/10 px-3 py-1 font-semibold text-white">
+                {quiz.length} question{quiz.length > 1 ? "s" : ""}
+              </span>
+              <span className="rounded-full bg-emerald-500/15 px-3 py-1 font-semibold text-emerald-200">
+                Seuil : {passingScore}/{quiz.length}
+              </span>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={restartQuiz}
-                className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-              >
-                Recommencer le quiz
-              </button>
+            <Link
+              href={`/modules/${slug}/cours`}
+              className="inline-flex items-center rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Retour au cours
+            </Link>
+          </div>
+        </section>
 
-              <Link
-                href={`/modules/${slug}/cours`}
-                className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-              >
-                Retour au cours
-              </Link>
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          {!finished ? (
+            <>
+              {progressRestored && answers.length > 0 ? (
+                <div className="mb-5 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-700">
+                  Votre progression précédente a été restaurée.
+                </div>
+              ) : null}
 
-              {success && !saveError && (
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Session en cours
+                  </p>
+                  <h2 className="mt-2 text-2xl font-bold text-slate-900">
+                    Question {current + 1} sur {quiz.length}
+                  </h2>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3 text-sm">
+                  <span
+                    className={`rounded-full px-3 py-1 font-semibold ${
+                      currentQuestion.multiple
+                        ? "bg-amber-100 text-amber-800"
+                        : "bg-emerald-100 text-emerald-800"
+                    }`}
+                  >
+                    {currentQuestion.multiple
+                      ? "Plusieurs réponses possibles"
+                      : "Une seule réponse"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-sm font-medium text-slate-700">
+                    Temps restant pour cette question
+                  </span>
+                  <span className="text-lg font-bold text-slate-900">
+                    {timeLeft}s
+                  </span>
+                </div>
+
+                <div className="mt-4 h-3 w-full rounded-full bg-slate-200">
+                  <div
+                    className="h-3 rounded-full bg-emerald-600 transition-all duration-1000"
+                    style={{
+                      width: `${(timeLeft / currentQuestionTimeLimit) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-1">
+                <h3 className="rounded-[1rem] bg-slate-50 px-5 py-5 text-2xl font-bold leading-9 text-slate-900">
+                  {currentQuestion.question}
+                </h3>
+              </div>
+
+              <div className="mt-6 space-y-3">
+                {currentQuestion.choices.map((choice: string, i: number) => {
+                  const isSelected = (answers[current] ?? []).includes(i);
+
+                  if (currentQuestion.multiple) {
+                    return (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => handleMultipleAnswer(i)}
+                        className={`flex w-full items-start gap-3 rounded-xl border px-4 py-4 text-left text-sm font-medium transition ${
+                          isSelected
+                            ? "border-emerald-600 bg-emerald-600 text-white"
+                            : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+                        }`}
+                      >
+                        <span
+                          className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border text-xs font-bold ${
+                            isSelected
+                              ? "border-white bg-white text-emerald-700"
+                              : "border-slate-300 text-slate-500"
+                          }`}
+                        >
+                          {isSelected ? "✓" : ""}
+                        </span>
+                        <span>{choice}</span>
+                      </button>
+                    );
+                  }
+
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => handleSingleAnswer(i)}
+                      className={`w-full rounded-xl border px-4 py-4 text-left text-sm font-medium transition ${
+                        isSelected
+                          ? "border-emerald-600 bg-emerald-600 text-white"
+                          : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
+                      }`}
+                    >
+                      {choice}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/booking"
-                  className="inline-flex items-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+                  href={`/modules/${slug}/cours`}
+                  className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
                 >
-                  Planifier l’entretien
+                  Retour au cours
                 </Link>
-              )}
-            </div>
-          </>
-        )}
+
+                <button
+                  type="button"
+                  onClick={next}
+                  disabled={!hasAnsweredCurrentQuestion}
+                  className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {current < quiz.length - 1
+                    ? "Question suivante"
+                    : "Terminer le quiz"}
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Résultat
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold text-slate-900">
+                Quiz terminé
+              </h2>
+
+              <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <p className="text-base leading-7 text-slate-700">
+                  Votre score est de{" "}
+                  <span className="font-semibold text-slate-900">{score}</span>{" "}
+                  bonne(s) réponse(s) sur{" "}
+                  <span className="font-semibold text-slate-900">
+                    {quiz.length}
+                  </span>
+                  .
+                </p>
+
+                <p className="mt-2 text-base leading-7 text-slate-700">
+                  Pourcentage obtenu :{" "}
+                  <span className="font-semibold text-slate-900">
+                    {scorePercent}%
+                  </span>
+                </p>
+
+                <p className="mt-2 text-base leading-7 text-slate-700">
+                  Seuil de validation :{" "}
+                  <span className="font-semibold text-slate-900">
+                    {passingScore} / {quiz.length}
+                  </span>
+                </p>
+
+                {success ? (
+                  <p className="mt-4 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
+                    Validation réussie. Votre dossier passe maintenant à l’étape entretien.
+                  </p>
+                ) : (
+                  <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+                    Score insuffisant. Vous devez recommencer le quiz pour valider
+                    la formation.
+                  </p>
+                )}
+
+                {quizContext.orderedByEmployer && success && !saveError ? (
+                  <p className="mt-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700">
+                    Cette formation a été commandée par votre employeur. Le gestionnaire
+                    pourra planifier l’entretien puis récupérer l’attestation après validation finale.
+                  </p>
+                ) : null}
+
+                {savingResult && (
+                  <p className="mt-4 text-sm text-slate-500">
+                    Enregistrement du résultat en cours…
+                  </p>
+                )}
+
+                {saveError && (
+                  <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-700">
+                    {saveError}
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={restartQuiz}
+                  className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+                >
+                  Recommencer le quiz
+                </button>
+
+                <Link
+                  href={`/modules/${slug}/cours`}
+                  className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                >
+                  Retour au cours
+                </Link>
+
+                {success && !saveError && !quizContext.orderedByEmployer && (
+                  <>
+                    <Link
+                      href="/booking"
+                      className="inline-flex items-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
+                    >
+                      Planifier l’entretien
+                    </Link>
+                  </>
+                )}
+
+                {success && !saveError && quizContext.orderedByEmployer && (
+                  <Link
+                    href="/booking"
+                    className="inline-flex items-center rounded-xl border border-emerald-600 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
+                  >
+                    Planifier l’entretien
+                  </Link>
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </main>
   );

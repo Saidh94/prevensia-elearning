@@ -1,7 +1,11 @@
+import { b1b2brbcModuleContent } from "./b1b2brbc-content";
+import { bsbeModuleContent } from "./bsbe-content";
 import { ModuleContent } from "./module-types";
 
 export const modulesContent: Record<string, ModuleContent> = {
- h0b0: {
+  bsbe: bsbeModuleContent,
+  b1b2brbc: b1b2brbcModuleContent,
+  h0b0: {
   title: "H0B0 - Exécuter en sécurité des travaux d’ordre non électrique",
   shortTitle: "H0B0",
   subtitle:
