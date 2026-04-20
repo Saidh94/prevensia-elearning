@@ -1,5 +1,6 @@
 import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 function formatDate(value: string | null) {
@@ -232,15 +233,34 @@ export default async function AdminPage({
     <main className="min-h-screen bg-slate-50 px-4 py-10">
       <div className="mx-auto max-w-7xl">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-700">
-            Administration
-          </p>
-          <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Admin PREVENSIA
-          </h1>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
-            Gestion des dossiers clients, apprenants, paiements et activations.
-          </p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-700">
+                Administration
+              </p>
+              <h1 className="mt-3 text-3xl font-bold text-slate-900">
+                Admin PREVENSIA
+              </h1>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Gestion des dossiers clients, apprenants, paiements et activations.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Dashboard
+              </Link>
+              <Link
+                href="/mot-de-passe"
+                className="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Mot de passe
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">

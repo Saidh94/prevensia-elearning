@@ -176,6 +176,13 @@ export default function DashboardPage() {
               Retour au site
             </Link>
 
+            <Link
+              href="/mot-de-passe"
+              className="inline-flex items-center rounded-xl border border-white/20 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Mot de passe
+            </Link>
+
             {isAdmin ? (
               <Link
                 href="/admin"
