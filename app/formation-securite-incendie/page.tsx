@@ -29,6 +29,23 @@ const atouts = [
   "Demande de devis rapide pour les besoins ponctuels, multisites ou urgents",
 ];
 
+const inrsIncendieResources = [
+  {
+    title: "INRS - Selection videos risque incendie",
+    description:
+      "Recherche officielle sur la chaine INRS France pour completer les notions de depart de feu, prevention, alerte et premiers reflexes.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+    badge: "INRS France",
+  },
+  {
+    title: "INRS - Selection videos evacuation incendie",
+    description:
+      "Recherche officielle utile pour enrichir les parcours guide-file, serre-file, EPI et l'organisation de l'evacuation.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=evacuation%20incendie",
+    badge: "INRS France",
+  },
+];
+
 export default function FormationSecuriteIncendie() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
@@ -177,6 +194,45 @@ export default function FormationSecuriteIncendie() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+            Ressources INRS
+          </p>
+          <h2 className="mt-3 text-2xl font-bold">
+            Videos officielles sur le risque incendie et l'evacuation
+          </h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+            PREVENSIA recommande aussi des ressources officielles INRS pour
+            completer la sensibilisation au risque incendie, aux premiers
+            reflexes et a l'organisation de l'evacuation.
+          </p>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {inrsIncendieResources.map((item) => (
+              <article
+                key={item.href}
+                className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6"
+              >
+                <span className="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
+                  {item.badge}
+                </span>
+                <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {item.description}
+                </p>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >
+                  Voir la selection INRS
+                </a>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">

@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/prepare-next.mjs dev",
+    "dev:turbopack": "next dev",
+    "build": "node scripts/prepare-next.mjs build",
+    "clean:next": "node scripts/prepare-next.mjs clean",
     "start": "next start",
     "lint": "eslint"
   },
