@@ -1851,4 +1851,574 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 90,
     },
   ],
+  "securite-incendie": [
+    {
+      question:
+        "Un départ de feu résulte classiquement de la rencontre de quels éléments ?",
+      choices: [
+        "Un combustible, un comburant et une énergie d'activation",
+        "Un extincteur, une alarme et un point de rassemblement",
+        "Une évacuation, un dérangement et un désenfumage",
+        "Un SSI, un sprinkler et un RIA",
+      ],
+      answer: [0],
+      explanation:
+        "La prévention incendie agit d'abord sur les sources d'ignition, les combustibles et les conditions de propagation.",
+      timeLimit: 45,
+      contextLabel:
+        "Le triangle du feu aide à comprendre les trois conditions de base nécessaires à la combustion.",
+      imagePath: "/images/triangle-du-feu.jpg",
+      imageAlt:
+        "Schéma pédagogique du triangle du feu avec énergie, comburant et combustible",
+    },
+    {
+      question:
+        "Face à une fumée anormale ou à un début d'incendie, quel est le premier réflexe professionnel ?",
+      choices: [
+        "Aller seul vérifier plus près pour être certain",
+        "Alerter rapidement selon la procédure du site",
+        "Attendre qu'un collègue confirme la situation",
+        "Couper soi-même tous les équipements sans consigne",
+      ],
+      answer: [1],
+      explanation:
+        "L'alerte doit partir vite. La reconnaissance ne doit pas se faire au prix d'une exposition inutile.",
+      timeLimit: 40,
+      contextLabel:
+        "Le déclenchement de l'alarme et l'alerte utile font partie des premières minutes décisives.",
+      imagePath: "/images/alarme-incendie.jpg",
+      imageAlt:
+        "Déclencheur d'alarme incendie ou dispositif d'alerte sur un site",
+    },
+    {
+      question:
+        "Lors d'une évacuation, quelles actions font partie des bons réflexes attendus ?",
+      choices: [
+        "Rejoindre le point de rassemblement",
+        "Revenir dans le bâtiment pour récupérer un objet",
+        "Aider une personne en difficulté sans se mettre en danger",
+        "Attendre les consignes au point de rassemblement",
+      ],
+      answer: [0, 2, 3],
+      multiple: true,
+      explanation:
+        "Une évacuation réussie repose sur le calme, la discipline, l'aide adaptée et l'interdiction de retour intempestif.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Dans quel cas l'emploi d'un moyen de première intervention peut-il rester envisageable ?",
+      choices: [
+        "Le feu est encore limité et une issue de repli est conservée",
+        "Le local est fortement enfumé",
+        "Le moyen est adapté et l'alerte a déjà été donnée",
+        "La situation devient rapidement incontrôlable",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "On n'intervient que dans un cadre maîtrisé, sans s'exposer et sans retarder l'alerte ou l'évacuation.",
+      timeLimit: 75,
+      contextLabel:
+        "L'emploi d'un extincteur suppose une gestuelle connue, une distance adaptée et surtout une situation encore maîtrisable.",
+      imagePath: "/images/comment-utiliser-un-extincteur-1.webp",
+      imageAlt:
+        "Étapes pédagogiques d'utilisation d'un extincteur avec goupille, percussion, test et attaque de la base des flammes",
+    },
+    {
+      question:
+        "Sur le repère pédagogique présenté pour un extincteur à eau pulvérisée avec additif, quelle distance d'attaque est illustrée ?",
+      choices: [
+        "Moins de 50 cm",
+        "Environ 1,50 m à 2,50 m",
+        "Plus de 5 m",
+        "La distance n'a aucune importance",
+      ],
+      answer: [1],
+      explanation:
+        "Le visuel rappelle un ordre de grandeur pédagogique de distance d'attaque, sans remplacer les consignes du site ni la formation pratique.",
+      timeLimit: 50,
+      contextLabel:
+        "Le visuel présenté rappelle aussi les classes de feu visées et les précautions d'emploi à proximité d'une origine électrique.",
+      imagePath:
+        "/images/distance-de-securite-extincteur-a-eau-pulverisee.webp",
+      imageAlt:
+        "Schéma de distance de sécurité pour extincteur à eau pulvérisée avec additif",
+    },
+    {
+      question:
+        "Sur le schéma de l'extincteur présenté, quel organe correspond à la goupille de sécurité ?",
+      choices: [
+        "Le repère 1",
+        "Le repère 2",
+        "Le repère 6",
+        "Le repère 8",
+      ],
+      answer: [1],
+      explanation:
+        "Le repère 2 du visuel correspond à la goupille de sécurité, élément de base à identifier avant toute utilisation encadrée de l'appareil.",
+      timeLimit: 45,
+      contextLabel:
+        "Le visuel présente les organes d'un extincteur à pression permanente et aide à repérer les éléments usuels d'utilisation.",
+      imagePath: "/images/extincteur-à-pression-permanente.jpg",
+      imageAlt:
+        "Schéma d'un extincteur à pression permanente avec repères des différents organes",
+    },
+    {
+      question:
+        "Quelles affirmations sont justes à propos d’un robinet d’incendie armé (RIA) ?",
+      choices: [
+        "Il permet, lorsque l’eau n’est pas interdite, une action puissante et continue sur un début d’incendie",
+        "Il doit rester clairement signalé et accessible",
+        "Il doit être implanté à proximité des accès et protégé contre le gel si nécessaire",
+        "Il remplace à lui seul l’alerte, l’évacuation et l’organisation du site"
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Le RIA est un moyen interne de première intervention. Il doit être disponible, signalé, bien implanté et utilisé dans un cadre cohérent avec les consignes du site.",
+      timeLimit: 75,
+      contextLabel:
+        "L’INRS rappelle que les RIA permettent une action puissante et efficace lorsque l’emploi de l’eau n’est pas interdit.",
+      imagePath: "/images/extincteur-ria-extincteur-mobile.jpg",
+      imageAlt:
+        "Extincteur et robinet d'incendie armé en entreprise à proximité d'une zone technique",
+    },
+    {
+      question:
+        "Quelle précaution reste juste pour l’emploi d’un extincteur à proximité d’une origine électrique inférieure à 1 000 volts ?",
+      choices: [
+        "L’appareil doit porter une mention spécifique adaptée à cet emploi",
+        "L’eau de ruissellement peut rester conductrice et impose de la prudence",
+        "N’importe quel extincteur à eau convient sans condition",
+        "Le risque électrique disparaît automatiquement dès que l’extincteur est déclenché"
+      ],
+      answer: [0, 1],
+      multiple: true,
+      explanation:
+        "L’usage au voisinage d’une origine électrique impose un appareil adapté et une vigilance forte sur les effets du ruissellement et l’exposition de l’intervenant.",
+      timeLimit: 70,
+      contextLabel:
+        "Les repères INRS sur les extincteurs distinguent bien l’agent extincteur, les classes de feu et les limites d’emploi près d’une origine électrique.",
+      imagePath:
+        "/images/distance-de-securite-extincteur-a-eau-pulverisee.webp",
+      imageAlt:
+        "Schéma de distance de sécurité pour extincteur à eau pulvérisée avec additif",
+    },
+    {
+      question:
+        "Selon le Code du travail, quels éléments font partie du socle de base en matière de sécurité incendie ?",
+      choices: [
+        "Des moyens de premier secours contre l'incendie",
+        "Des consignes adaptées",
+        "Des essais et exercices",
+        "La neutralisation libre des alarmes répétitives",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Le socle de base repose notamment sur les moyens de secours, les consignes, les essais et les exercices, pas sur la banalisation des écarts.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Pourquoi les fumées sont-elles particulièrement redoutables lors d'un incendie ?",
+      choices: [
+        "Elles réduisent la visibilité",
+        "Elles peuvent intoxiquer rapidement",
+        "Elles facilitent l'orientation dans le bâtiment",
+        "Elles compliquent l'évacuation bien avant l'arrivée des flammes",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Les fumées sont un danger majeur pour l'évacuation et la survie des personnes exposées.",
+      timeLimit: 65,
+    },
+    {
+      question:
+        "Parmi ces écarts du quotidien, lesquels dégradent directement la prévention incendie ?",
+      choices: [
+        "Bloquer une porte coupe-feu",
+        "Stocker devant une issue",
+        "Masquer un extincteur ou un déclencheur manuel",
+        "Signaler un défaut pour traitement",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "La sécurité incendie se joue aussi dans les comportements quotidiens et le traitement des anomalies visibles.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Dans un ERP ou un IGH, quelle idée reste juste pour un apprenant en exploitation ?",
+      choices: [
+        "Le cadre réglementaire peut être plus exigeant que le seul Code du travail",
+        "Les règles ERP et IGH n'ont aucun effet sur l'évacuation ou le SSI",
+        "Le type de bâtiment influence l'organisation incendie",
+        "Le bâtiment et son usage n'ont pas d'impact sur les moyens à prévoir",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Le type de bâtiment et son usage modifient le niveau d'exigence et l'organisation de sécurité incendie.",
+      timeLimit: 65,
+    },
+    {
+      question:
+        "Pourquoi un travail par points chauds doit-il être encadré par un permis de feu ?",
+      choices: [
+        "Parce qu’il formalise l’analyse de la zone et les mesures de sécurité",
+        "Parce qu’il identifie les responsables, la durée et les vérifications à effectuer",
+        "Parce qu’il remplace toutes les consignes incendie permanentes du site",
+        "Parce qu’il prévoit aussi la surveillance après la fin des travaux"
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Le permis de feu sert à préparer, autoriser et contrôler les travaux par points chauds avant, pendant et après l’intervention. Il ne remplace pas les autres consignes du site.",
+      timeLimit: 75,
+    },
+  ],
+  "ssi-exploitation": [
+    {
+      question:
+        "Le rôle principal d'un SSI est de :",
+      choices: [
+        "Détecter, alerter et contribuer à la mise en sécurité incendie",
+        "Remplacer l'ensemble des consignes du site",
+        "Servir uniquement à enregistrer les horaires d'occupation",
+        "Supprimer le besoin d'exercices d'évacuation",
+      ],
+      answer: [0],
+      explanation:
+        "Le SSI participe à la détection, à l'alarme et à la mise en sécurité, mais il ne remplace ni l'organisation ni les consignes.",
+      timeLimit: 45,
+      contextLabel:
+        "La centrale SSI doit être lue comme un organe de sécurité et d'exploitation, pas comme un simple tableau technique.",
+      imagePath: "/images/centrale-ssi.jpg",
+      imageAlt:
+        "Centrale ou tableau de système de sécurité incendie",
+    },
+    {
+      question:
+        "Dans le schéma de fonctionnement SSI présenté, quelle chaîne logique est la plus juste ?",
+      choices: [
+        "Détecter et signaler l'incendie, puis commander des organes de sécurité",
+        "Contourner l'alarme et intervenir sans évacuation",
+        "Déclencher uniquement des diffuseurs sonores sans autre action possible",
+        "Supprimer toute mise en sécurité dès qu'un défaut apparaît",
+      ],
+      answer: [0],
+      explanation:
+        "Le schéma rappelle la logique générale du SSI: détecter, signaler, puis commander des fonctions utiles à l'évacuation et à la limitation de la propagation.",
+      timeLimit: 50,
+      contextLabel:
+        "Le visuel présente la logique d'un système de sécurité incendie entre détection, commande, évacuation et limitation de la propagation.",
+      imagePath: "/images/fonction-systeme-de-securite-incendie.gif",
+      imageAlt:
+        "Schéma fonctionnel d'un système de sécurité incendie",
+    },
+    {
+      question:
+        "Dans le repère pédagogique des catégories de SSI, l'équipement d'alarme de type 4 est associé à quelle catégorie simple ?",
+      choices: ["Catégorie A", "Catégorie C", "Catégorie E", "Catégorie B"],
+      answer: [2],
+      explanation:
+        "Le visuel pédagogique de correspondance rappelle qu'un équipement d'alarme de type 4 se rattache au niveau simple de la catégorie E.",
+      timeLimit: 45,
+      contextLabel:
+        "Le schéma de correspondance entre niveau de risque, catégorie de SSI et type d'équipement d'alarme aide à situer le type 4.",
+      imagePath: "/images/niveau-ssi.jpg",
+      imageAlt:
+        "Correspondance pédagogique entre niveau de risque, catégorie de SSI et équipement d'alarme",
+    },
+    {
+      question:
+        "Sur le schéma type 4 présenté, quel élément déclenche l'équipement d'alarme avant diffusion sonore ?",
+      choices: [
+        "Le déclencheur manuel",
+        "Le compartimentage automatique seul",
+        "La porte coupe-feu seule",
+        "Le point de rassemblement",
+      ],
+      answer: [0],
+      explanation:
+        "Dans cette logique simple, le déclencheur manuel alimente la chaîne d'alarme avant diffusion sonore et éventuelles fonctions associées.",
+      timeLimit: 45,
+      contextLabel:
+        "Le schéma type 4 permet de visualiser la chaîne simple entre déclenchement manuel, équipement d'alarme et diffuseurs sonores.",
+      imagePath: "/images/alarme-type-4.png",
+      imageAlt:
+        "Schéma d'alarme type 4 avec déclencheur manuel, équipement d'alarme et diffuseurs sonores",
+    },
+    {
+      question:
+        "Quelle distinction est correcte ?",
+      choices: [
+        "Le SDI recueille les informations de détection",
+        "Le SMSI pilote les fonctions de mise en sécurité",
+        "Le SDI remplace toutes les consignes d'évacuation",
+        "Le SMSI n'a aucun lien avec les dispositifs actionnés de sécurité",
+      ],
+      answer: [0, 1],
+      multiple: true,
+      explanation:
+        "Le SDI et le SMSI n'ont pas le même rôle. L'un traite la détection, l'autre pilote la mise en sécurité prévue.",
+      timeLimit: 70,
+      contextLabel:
+        "Le schéma SSI permet de distinguer détection, traitement, alarme et commandes de mise en sécurité.",
+      imagePath: "/images/schema-ssi.gif",
+      imageAlt:
+        "Schéma de système de sécurité incendie avec alarme type 4, DAC, DAS et diffuseurs sonores",
+    },
+    {
+      question:
+        "Face à un affichage SSI, quelle lecture est la plus professionnelle ?",
+      choices: [
+        "Distinguer une alarme feu d'un dérangement ou d'un essai",
+        "Traiter toute information comme un simple défaut technique",
+        "Banaliser une alarme répétitive si elle finit par disparaître",
+        "Tracer l'anomalie et appliquer la procédure adaptée",
+      ],
+      answer: [0, 3],
+      multiple: true,
+      explanation:
+        "L'exploitation SSI repose sur une lecture correcte des états et sur la traçabilité des suites données.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Parmi ces comportements, lesquels sortent du rôle normal d'un exploitant non mainteneur ?",
+      choices: [
+        "Neutraliser un équipement sans procédure",
+        "Réarmer à répétition sans analyse",
+        "Alerter le bon interlocuteur selon la consigne du site",
+        "Confondre exploitation et maintenance spécialisée",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "L'exploitant ne doit ni neutraliser, ni improviser de maintenance, ni banaliser les défauts répétitifs.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Dans le domaine SSI, la famille NF S 61 sert principalement de :",
+      choices: [
+        "Repère normatif français utile pour le SSI",
+        "Simple recommandation sans lien avec l'installation",
+        "Base de référence pour certaines règles générales et d'installation",
+        "Remplacement du règlement de sécurité ERP ou IGH",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Les normes NF S 61 structurent le domaine SSI, sans se substituer aux règlements applicables au bâtiment.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Pourquoi la traçabilité d'une alarme ou d'un dérangement est-elle importante ?",
+      choices: [
+        "Pour garder la mémoire de l'événement et des mesures prises",
+        "Pour suivre les anomalies répétitives",
+        "Parce qu'un simple réarmement suffit toujours",
+        "Pour faciliter le dialogue avec le mainteneur ou le responsable de site",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Sans traçabilité, on banalise les défauts et on perd la maîtrise de l'exploitation du SSI.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Dans une logique SSI, que peuvent piloter ou concerner des fonctions de mise en sécurité ?",
+      choices: [
+        "Le compartimentage",
+        "Le désenfumage",
+        "La gestion d'issues ou de dispositifs associés",
+        "Uniquement un affichage décoratif en PC sécurité",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Le SSI peut être lié à des fonctions concrètes de sécurité du bâtiment, pas à un simple affichage passif.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Quel raisonnement est le plus juste pour un site ERP ou IGH équipé d'un SSI ?",
+      choices: [
+        "Le SSI fait partie d'un cadre réglementaire global propre au bâtiment",
+        "Le SSI est indépendant des consignes et du dossier de sécurité du site",
+        "L'exploitation doit rester cohérente avec l'organisation incendie du bâtiment",
+        "Le type de bâtiment n'a pas d'impact sur les exigences d'exploitation",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Le SSI est un maillon d'un dispositif réglementaire et organisationnel plus large, qui dépend du bâtiment et de son usage.",
+      timeLimit: 70,
+    },
+  ],
+  sprinkler: [
+    {
+      question:
+        "Comment fonctionne une installation sprinkler en situation d'incendie ?",
+      choices: [
+        "Toutes les têtes se déclenchent automatiquement en même temps",
+        "Seules les têtes soumises à une chaleur suffisante s'ouvrent",
+        "Le système agit localement au plus près du foyer",
+        "Le sprinkler remplace toute autre organisation incendie du site",
+      ],
+      answer: [1, 2],
+      multiple: true,
+      explanation:
+        "Le sprinkler agit localement et précocement. Il ne remplace ni l'organisation du site ni les autres moyens de sécurité incendie.",
+      timeLimit: 70,
+      contextLabel:
+        "Une installation sprinkler doit être lue comme une protection technique intégrée à une stratégie incendie plus large.",
+      imagePath: "/images/installation-sprinkler.png",
+      imageAlt:
+        "Schéma de principe d'une installation sprinkler avec réserve d'eau, pompe, poste de contrôle et réseau",
+    },
+    {
+      question:
+        "Quels éléments appartiennent typiquement à une installation sprinkler ?",
+      choices: [
+        "Des têtes sprinkler",
+        "Un réseau de tuyauteries",
+        "Un poste de contrôle et une source d'eau",
+        "Uniquement un extincteur mobile",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Le sprinkler repose sur un ensemble cohérent: têtes, réseau, contrôle, alimentation en eau et alarmes.",
+      timeLimit: 70,
+      contextLabel:
+        "Le réseau sprinkler comprend plusieurs parties visibles ou techniques qu'un exploitant doit savoir reconnaître.",
+      imagePath: "/images/reseau-sprinkler.jpg",
+      imageAlt:
+        "Réseau sprinkler dans un bâtiment avec poste de contrôle, réseaux et sources d'eau",
+    },
+    {
+      question:
+        "Quelles anomalies doivent être prises au sérieux en exploitation sprinkler ?",
+      choices: [
+        "Une vanne fermée ou mal positionnée",
+        "Une pression anormale",
+        "Une alarme non traitée",
+        "Une corrosion ou une fuite visible",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "Une petite anomalie apparente peut dégrader fortement la protection réelle du site.",
+      timeLimit: 80,
+    },
+    {
+      question:
+        "Pourquoi une modification de stockage ou d'exploitation doit-elle alerter sur un site protégé par sprinkler ?",
+      choices: [
+        "Parce qu'elle peut remettre en cause l'adéquation entre le risque et la protection installée",
+        "Parce qu'un sprinkler est universel et ne dépend jamais du risque réel",
+        "Parce que la hauteur, la densité ou la nature des produits peuvent changer la situation",
+        "Parce que seule la présence des têtes suffit à garantir la conformité en toute circonstance",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Le sprinkler reste efficace dans un cadre de conception et d'exploitation donné, qu'il faut préserver dans le temps.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Quels référentiels sont fréquemment rencontrés dans l'univers sprinkler selon les sites ?",
+      choices: [
+        "EN 12845",
+        "APSAD R1",
+        "NFPA 13",
+        "FM Global Data Sheets",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "Ces référentiels peuvent s'appliquer selon le contexte technique, contractuel ou assurantiel du site.",
+      timeLimit: 80,
+      contextLabel:
+        "Le monde de l'extinction automatique ne se limite pas à une seule technologie: le choix du système dépend du risque, du volume et des équipements protégés.",
+      imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+      imageAlt:
+        "Schéma de système fixe d'extinction automatique par agent extincteur autre que sprinkler",
+    },
+    {
+      question:
+        "Dans une logique d'exploitation, qu'impose particulièrement un système d'extinction automatique à gaz ?",
+      choices: [
+        "Une attention à l'intégrité du local protégé",
+        "Une gestion rigoureuse de l'alarme, de la temporisation et de l'évacuation",
+        "Le même raisonnement qu'un sprinkler, sans différence notable",
+        "Une maîtrise des accès après émission",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Un système à gaz impose une vigilance spécifique sur le volume protégé, l'alarme, l'évacuation préalable et le contrôle des accès après déclenchement.",
+      timeLimit: 75,
+      contextLabel:
+        "L'extinction automatique à gaz n'est pas une variante du sprinkler: elle repose sur une logique de local protégé, de temporisation et de sécurité des personnes.",
+      imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+      imageAlt:
+        "Schéma de système d'extinction automatique à gaz avec détection, commande et réservoirs",
+    },
+    {
+      question:
+        "En cas d'indisponibilité temporaire d'une partie de l'installation sprinkler, quel raisonnement est le plus juste ?",
+      choices: [
+        "Il faut tracer la situation et appliquer les mesures compensatoires prévues",
+        "Une vanne fermée n'a pas d'importance si elle est remise plus tard",
+        "L'organisation du site doit savoir qui alerter et qui autorise",
+        "Aucune action n'est nécessaire tant qu'il n'y a pas de départ de feu",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Une indisponibilité sprinkler se pilote avec méthode, traçabilité et mesures compensatoires adaptées.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Dans un entrepôt ou une logique ICPE 1510, quelle affirmation est correcte ?",
+      choices: [
+        "Le sprinkler fait partie d'un ensemble plus large de prescriptions et d'organisation",
+        "La seule présence du sprinkler suffit à régler le risque incendie d'un entrepôt",
+        "Les changements d'exploitation doivent être analysés",
+        "Le compartimentage et l'organisation du site restent sans importance",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Le sprinkler est un maillon d'une stratégie plus large qui dépend aussi du stockage, des cellules, de l'organisation et du risque réel.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Quel comportement traduit une bonne maturité d'exploitation sprinkler ?",
+      choices: [
+        "Considérer un défaut chronique comme normal",
+        "Suivre les essais et contrôles périodiques",
+        "Traiter et suivre les anomalies jusqu'au retour à la normale",
+        "Laisser les accès aux organes se dégrader avec le temps",
+      ],
+      answer: [1, 2],
+      multiple: true,
+      explanation:
+        "La qualité d'exploitation se voit dans la surveillance, la traçabilité et le traitement effectif des écarts.",
+      timeLimit: 65,
+    },
+  ],
 };

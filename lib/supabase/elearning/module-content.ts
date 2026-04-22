@@ -1137,35 +1137,52 @@ export const modulesContent: Record<string, ModuleContent> = {
     title: "Sécurité incendie, alerte et évacuation",
     shortTitle: "Sécurité incendie",
     subtitle:
-      "Parcours e-learning de sensibilisation à la prévention incendie, à l’alerte, à l’alarme, aux premiers moyens de secours et à l’évacuation.",
-    duration: "35 à 50 minutes",
+      "Parcours e-learning structuré sur la prévention du risque incendie, l’alerte, l’alarme, les premiers moyens de secours, l’évacuation, les travaux par points chauds et les repères réglementaires utiles en exploitation.",
+    duration: "65 à 85 minutes",
     level: "Débutant à intermédiaire",
     objective:
-      "Reconnaître les causes de départ de feu, réagir correctement en cas d’alerte, connaître les principes d’évacuation et adopter les bons comportements de prévention dans les principaux environnements de travail.",
+      "Comprendre comment naît et se propage un incendie, réagir correctement en cas d’alerte ou d’alarme, utiliser les premiers moyens dans le strict cadre prévu, appliquer les principes d’évacuation, encadrer les travaux par points chauds et intégrer les repères réglementaires essentiels du Code du travail, des ERP, des IGH et de l’habitation.",
     audience:
       "Tout personnel amené à évoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
     certificationNote:
-      "Ce module constitue une sensibilisation théorique. Les consignes du site, les exercices, la reconnaissance des circulations et la prise en main pratique des moyens de première intervention restent indispensables.",
+      "Ce module constitue une sensibilisation théorique structurée. Les consignes du site, la reconnaissance des circulations, les exercices, les essais et la prise en main pratique des moyens de première intervention restent indispensables.",
     heroBadge: "Prévention incendie",
     finalMessage:
-      "Vous avez parcouru les fondamentaux de la prévention incendie et de l’évacuation. Le quiz permettra de valider les bons réflexes avant mise en situation ou exercice.",
+      "Vous avez parcouru les fondamentaux de la prévention incendie, de l’alerte, de l’évacuation et de l’encadrement des situations à risque. La vraie efficacité repose ensuite sur les consignes du site, les exercices périodiques, le traitement des écarts et l’application disciplinée des rôles prévus.",
     quizCtaLabel: "Passer au quiz sécurité incendie",
     sections: [
       {
         id: "naissance-feu",
-        title: "1. Naissance du feu",
+        title: "1. Naissance du feu, développement et propagation",
+        estimatedMinutes: 12,
+        intro:
+          "La prévention incendie commence par une lecture réaliste du sinistre: un feu ne naît pas par hasard, il trouve toujours un combustible, un comburant, une énergie d’activation et un contexte favorable à sa propagation.",
         content: [
-          "Un feu naît de la rencontre d’une énergie d’activation, d’un combustible et d’un comburant. La prévention consiste à agir sur ces paramètres en limitant les sources d’ignition, en maîtrisant les combustibles et en organisant correctement les locaux.",
-          "Les causes fréquentes de départ de feu sont les défaillances électriques, les travaux par points chauds, les échauffements mécaniques, les négligences humaines et l’accumulation de matières combustibles."
+          "Un feu naît de la rencontre d’une énergie d’activation, d’un combustible et d’un comburant. Dans les démarches de prévention, cette logique est fondamentale: on réduit le risque en supprimant les sources d’ignition, en maîtrisant les combustibles et en organisant les locaux de façon cohérente.",
+          "Les causes fréquentes de départ de feu restent très concrètes: défaillance électrique, échauffement mécanique, travail par point chaud, stockage anarchique, déchets combustibles, cigarette mal gérée, défaut d’entretien ou intervention de maintenance mal préparée.",
+          "Le sinistre ne se limite pas au départ de feu. Il faut aussi comprendre la propagation par rayonnement, convection, fumées et circulation d’air. Une porte coupe-feu bloquée ouverte, un local encombré, un faux plafond non maîtrisé ou une gaine technique mal gérée peuvent accélérer l’extension du sinistre.",
+          "Les fumées constituent souvent le premier danger mortel. Elles réduisent la visibilité, gênent l’orientation, intoxiquent rapidement et compliquent l’évacuation bien avant que les flammes n’atteignent les personnes. C’est pour cela que la prévention ne se résume pas à l’extincteur: elle inclut le compartimentage, le désenfumage, l’alarme et l’organisation humaine."
         ],
+        keyPoints: [
+          "Un feu naît d’une combinaison de facteurs identifiables.",
+          "La propagation dépend aussi de l’organisation des locaux.",
+          "Les fumées sont un danger majeur pour l’évacuation."
+        ],
+        legalRefs: [
+          "INRS - démarche de prévention du risque incendie dans les lieux de travail.",
+          "Code du travail - organisation de la prévention et des moyens de secours contre l’incendie."
+        ],
+        chapterImagePath: "/images/evolution-d-un-feu.jpg",
+        chapterImageAlt:
+          "Schéma d'évolution d'un feu avec inflammation, saut de feu et embrasement généralisé",
         visual: {
           title: "Triangle du feu",
-          subtitle: "Comprendre pour prévenir.",
+          subtitle: "Comprendre l’origine du sinistre pour agir avant l’incendie.",
           items: [
             "Combustible",
             "Comburant",
             "Énergie d’activation",
-            "Supprimer un élément = empêcher ou limiter le feu"
+            "Propagation facilitée si les locaux sont mal maîtrisés"
           ],
           tone: "red",
         },
@@ -1173,18 +1190,36 @@ export const modulesContent: Record<string, ModuleContent> = {
       {
         id: "alerte-alarme",
         title: "2. Alerte, alarme et premiers réflexes",
+        estimatedMinutes: 10,
+        intro:
+          "Dans un incendie, les premières secondes servent à faire partir la bonne information, pas à improviser seul une reconnaissance dangereuse.",
         content: [
-          "Détecter une situation anormale, transmettre l’alerte rapidement et reconnaître le signal d’alarme sont essentiels pour éviter l’aggravation.",
-          "Le premier bon réflexe consiste à alerter sans retard, sans banaliser la situation et sans se mettre en danger."
+          "Détecter une situation anormale, transmettre l’alerte rapidement et reconnaître le signal d’alarme sont essentiels pour éviter l’aggravation. La chaîne d’information doit être simple, rapide et fiable.",
+          "L’alerte permet d’informer les secours ou l’organisation interne qu’un événement sérieux est en cours. L’alarme permet de déclencher la réaction collective prévue par le site ou le bâtiment. Les deux ne doivent pas être confondues.",
+          "Le premier bon réflexe consiste à alerter sans retard, sans banaliser la situation et sans se mettre en danger. Chercher à vérifier seul un local enfumé, retarder l’alarme ou perdre du temps à discuter du caractère réel du départ de feu est une erreur classique.",
+          "Les informations transmises doivent être utiles: lieu précis, nature du phénomène observé, présence éventuelle de fumées ou de flammes, personnes potentiellement exposées, accès possible pour les secours."
         ],
         keyPoints: [
-          "Alerter vite.",
-          "Déclencher l’alarme si nécessaire selon les consignes.",
-          "Ne pas perdre de temps à vérifier seul une situation dangereuse."
+          "Alerter vite et utilement.",
+          "Déclencher l’alarme si nécessaire selon la consigne du site.",
+          "Ne pas vérifier seul une situation dangereuse."
+        ],
+        chapterImagePath: "/images/alarme-incendie.jpg",
+        chapterImageAlt:
+          "Déclencheur et dispositif d'alarme incendie en environnement de travail",
+        resourceVideos: [
+          {
+            title: "Ressource INRS - risque incendie",
+            description:
+              "Sélection officielle INRS utile pour renforcer la culture de prévention avant l’alerte et l’intervention.",
+            url: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+            provider: "INRS",
+            ctaLabel: "Voir les ressources INRS",
+          },
         ],
         visual: {
           title: "Réaction immédiate",
-          subtitle: "Voir, alerter, sécuriser.",
+          subtitle: "Observer, alerter, déclencher, se mettre à l’abri.",
           items: [
             "Repérer la situation anormale",
             "Alerter selon la procédure du site",
@@ -1195,15 +1230,80 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "premiers-moyens",
+        title: "3. Premiers moyens de secours et limites d’action",
+        estimatedMinutes: 12,
+        intro:
+          "Les moyens de première intervention existent pour agir très tôt, mais uniquement si le cadre, la formation et la sécurité personnelle le permettent.",
+        content: [
+          "L’extincteur, le robinet d’incendie armé ou d’autres moyens présents sur site ne sont utiles que si l’opérateur sait quand agir, quand s’arrêter et quand privilégier immédiatement l’évacuation.",
+          "Le premier principe est simple: on ne lutte pas contre un feu si l’on se met soi-même en danger, si le local est enfumé, si la propagation est rapide, si l’on n’a pas d’issue derrière soi ou si le moyen n’est pas adapté au type de feu.",
+          "La prise en main des moyens n’est pas une pure théorie. Elle suppose de connaître l’implantation des extincteurs, des RIA lorsqu’ils existent, les accès, les catégories de feux traitables dans le cadre du site, les conditions d’attaque et la manière d’alerter simultanément.",
+          "L’extincteur et le RIA ne répondent pas exactement au même usage. L’extincteur permet une attaque très précoce avec un agent extincteur donné. Le RIA permet, lorsque l’emploi de l’eau n’est pas interdit, une action plus puissante et plus continue dans l’attente des secours. Il doit rester signalé clairement, accessible, situé à proximité des accès et protégé contre le gel si nécessaire.",
+          "Les extincteurs pouvant être employés sur des appareils ou conducteurs sous tension inférieure à 1 000 volts portent une mention spécifique. Même dans ce cas, l’opérateur doit rester vigilant au ruissellement et ne jamais improviser une attaque en se mettant en danger.",
+          "L’agent de terrain doit aussi retenir que l’intervention initiale n’est qu’une composante d’un dispositif plus large. Même après une extinction apparente, il faut signaler, baliser si nécessaire et laisser la suite à l’organisation prévue."
+        ],
+        keyPoints: [
+          "Intervenir seulement si la situation reste maîtrisable.",
+          "Garder une issue et ne jamais s’exposer aux fumées.",
+          "Alerter reste obligatoire, même en cas d’action initiale.",
+          "Un RIA doit rester accessible, signalé et employé dans un cadre compatible avec l’eau."
+        ],
+        forbiddenPoints: [
+          "Se lancer seul dans un local enfumé.",
+          "Utiliser un moyen sans connaître son cadre d’emploi.",
+          "Croire qu’une extinction apparente clôt la situation."
+        ],
+        legalRefs: [
+          "Code du travail - moyens de premier secours contre l’incendie et personnel instruit de leur emploi.",
+          "INRS ED 6054 - Les extincteurs d’incendie portatifs, mobiles et fixes.",
+          "INRS - évacuation, intervention et consignes de sécurité sur le lieu de travail.",
+          "NF EN 2 et NF EN 2/A - classes de feu utilisées comme repères pour le choix pédagogique des agents extincteurs.",
+          "Consignes du site et organisation interne de première intervention."
+        ],
+        chapterImagePath: "/images/extincteur-ria-extincteur-mobile.jpg",
+        chapterImageAlt:
+          "Extincteur et robinet d'incendie armé en entreprise à proximité d'une zone technique",
+        visual: {
+          title: "Décider vite, sans improviser",
+          subtitle: "Agir seulement si le feu est limité, l’issue maîtrisée et le moyen adapté.",
+          items: [
+            "Alerte déjà donnée",
+            "Feu encore limité",
+            "Issue de repli disponible",
+            "Moyen de première intervention adapté"
+          ],
+          tone: "amber",
+        },
+      },
+      {
         id: "evacuation",
-        title: "3. Évacuation",
+        title: "4. Évacuation, mise en sécurité et point de rassemblement",
+        estimatedMinutes: 12,
+        intro:
+          "L’évacuation n’est pas une fuite désordonnée: c’est une organisation collective visant à faire sortir, orienter, regrouper et rendre compte.",
         content: [
           "Une évacuation réussie repose sur des cheminements connus, un comportement calme, le respect des consignes et la prise en compte des personnes vulnérables.",
-          "Le point de rassemblement, le comptage des personnes, la transmission d’une information fiable et l’attente des consignes font partie intégrante de l’évacuation."
+          "Le point de rassemblement, le comptage des personnes, la transmission d’une information fiable et l’attente des consignes font partie intégrante de l’évacuation. Sortir du bâtiment ne suffit pas: encore faut-il s’assurer que l’information remonte correctement et que personne ne retourne de sa propre initiative dans la zone sinistrée.",
+          "Guide-file, serre-file, chargé d’évacuation ou encadrement de zone ont des rôles différents selon l’organisation du site. Même lorsqu’aucun rôle spécifique n’est attribué, chaque salarié doit connaître les circulations, l’alarme, les accès interdits et la conduite à tenir envers les visiteurs ou personnes vulnérables.",
+          "Une bonne évacuation dépend aussi de la préparation: exercices réguliers, plans lisibles, circulations dégagées, portes fonctionnelles, zones de rassemblement identifiées, messages d’alarme compris et rôles clairs."
         ],
+        resourceVideos: [
+          {
+            title: "Ressource INRS - évacuation incendie",
+            description:
+              "Sélection INRS utile pour ancrer les bons réflexes d’évacuation et de mise en sécurité des personnes.",
+            url: "https://www.youtube.com/@INRSFrance/search?query=evacuation%20incendie",
+            provider: "INRS",
+            ctaLabel: "Voir les ressources INRS",
+          },
+        ],
+        chapterImagePath: "/images/evacuation-securite-incendie.jpg",
+        chapterImageAlt:
+          "Brassards d'évacuation et d'organisation de mise en sécurité lors d'un exercice ou d'une situation incendie",
         visual: {
           title: "Principes d’évacuation",
-          subtitle: "Quitter, rejoindre, rendre compte.",
+          subtitle: "Quitter, rejoindre, compter, rendre compte.",
           items: [
             "Suivre le cheminement",
             "Aider sans se mettre en danger",
@@ -1215,35 +1315,121 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "cadre-reglementaire",
-        title: "4. Cadre réglementaire",
+        title: "5. Cadre réglementaire et contextes de bâtiments",
+        estimatedMinutes: 12,
+        intro:
+          "Le cadre incendie n’est pas unique. Le socle vient du Code du travail, puis il se renforce ou se précise selon le type de bâtiment et l’activité accueillie.",
         content: [
-          "En Code du travail, l’employeur doit organiser les moyens de premier secours contre l’incendie, les consignes, les essais et les exercices.",
-          "Dans les ERP, IGH ou certaines ICPE, des exigences complémentaires existent selon la nature du bâtiment et du risque."
+          "En Code du travail, l’employeur doit organiser les moyens de premier secours contre l’incendie, les consignes, les essais et les exercices. Cela constitue le socle de base applicable dans les lieux de travail.",
+          "Dans les établissements recevant du public, la logique est complétée par des règles spécifiques de sécurité contre l’incendie et la panique, avec des exigences renforcées sur l’alarme, l’évacuation, les moyens de secours, le compartimentage et, selon les cas, le système de sécurité incendie.",
+          "Dans les immeubles de grande hauteur, l’organisation devient plus exigeante encore: compartimentage, désenfumage, alarme, équipes de sécurité et exploitation sont traités dans un cadre très structuré.",
+          "En habitation collective, les exigences poursuivent le même objectif de protection des personnes, mais selon des règles propres. Dans l’industrie ou la logistique, d’autres prescriptions peuvent aussi s’ajouter selon le classement du site et la nature des risques."
         ],
         keyPoints: [
-          "Code du travail = socle général.",
+          "Code du travail = socle de base.",
           "ERP = sécurité du public.",
           "IGH = organisation renforcée.",
-          "ICPE = prescriptions liées au risque industriel."
+          "Le type de bâtiment change le niveau d’exigence."
+        ],
+        legalRefs: [
+          "Code du travail - articles R.4227-28 à R.4227-39 sur les dégagements, moyens de secours, consignes, essais et exercices.",
+          "Arrêté du 25 juin 1980 modifié - règlement de sécurité contre les risques d’incendie et de panique dans les ERP.",
+          "Arrêté du 31 janvier 1986 modifié - protection contre l’incendie des bâtiments d’habitation.",
+          "Arrêté du 30 décembre 2011 - règlement de sécurité pour la construction des immeubles de grande hauteur et leur protection contre les risques d’incendie et de panique."
         ],
         visual: {
           title: "Comprendre les environnements réglementaires",
-          subtitle: "Même objectif : protéger les personnes et limiter le sinistre.",
+          subtitle: "Même objectif de protection, mais des cadres différents selon le bâtiment.",
           items: [
             "Code du travail",
             "ERP",
             "IGH",
-            "ICPE"
+            "Habitation / autres prescriptions de site"
           ],
           tone: "blue",
         },
       },
       {
+        id: "consignes-exercices",
+        title: "6. Consignes, essais, exercices et culture de sécurité",
+        estimatedMinutes: 10,
+        intro:
+          "Un dispositif incendie n’est efficace que s’il est connu, exercé et maintenu dans le temps.",
+        content: [
+          "Les consignes de sécurité incendie ne doivent pas rester théoriques. Elles doivent être connues, affichées lorsque nécessaire, expliquées, testées et adaptées aux réalités du site: zones à risques particuliers, accueil du public, horaires décalés, prestataires, locaux techniques ou stockages.",
+          "Les consignes générales, spéciales et particulières doivent être cohérentes avec l’activité et les locaux. Les plans d’évacuation et les plans d’intervention doivent rester lisibles, utiles et placés là où ils servent réellement à l’action.",
+          "Les essais et exercices servent à vérifier que les cheminements, les messages, les automatismes, les rôles et les réactions humaines fonctionnent réellement. Un bâtiment peut être correctement équipé et rester inefficace si personne ne sait quoi faire quand l’alarme se déclenche.",
+          "La culture incendie repose sur la régularité: essais, comptes rendus, traitement des écarts, retour d’expérience et mise à jour des consignes après modification des locaux ou de l’exploitation. Une consigne n’est efficace que si elle est expliquée, commentée et réentraînée."
+        ],
+        keyPoints: [
+          "Consignes connues et accessibles.",
+          "Essais et exercices réguliers.",
+          "Retour d’expérience et traitement des écarts."
+        ],
+        chapterImagePath: "/images/formation-ssi.jpg",
+        chapterImageAlt:
+          "Session de formation ou d'information autour des consignes incendie et de l'organisation d'évacuation",
+        visual: {
+          title: "Le bon dispositif est aussi humain",
+          subtitle: "Écrire une consigne ne suffit pas: il faut la faire vivre.",
+          items: [
+            "Informer",
+            "Tester",
+            "Corriger",
+            "Rejouer les scénarios utiles"
+          ],
+          tone: "green",
+        },
+      },
+      {
+        id: "travaux-points-chauds",
+        title: "7. Travaux par points chauds et permis de feu",
+        estimatedMinutes: 11,
+        intro:
+          "Les travaux par points chauds sont une cause classique d’incendie en entreprise. Ils imposent une préparation particulière avant, pendant et après l’intervention.",
+        content: [
+          "Le soudage, le meulage, le découpage, le chalumeau et d’autres travaux générant flammes, projections ou échauffements ne doivent jamais être banalisés. L’INRS rappelle qu’ils représentent une part importante des origines d’incendie dans les entreprises.",
+          "Le permis de feu n’est pas un papier de plus. Il sert à formaliser l’analyse de la zone, les produits ou stockages voisins, les opérateurs autorisés, la durée de validité, les matériels employés et les mesures de mise en sécurité à vérifier avant le démarrage.",
+          "Selon la situation, il faut notamment éloigner ou protéger les combustibles, baliser la zone, vérifier les moyens d’extinction, neutraliser de façon encadrée certains automatismes si la procédure du site l’impose, consigner les énergies utiles, nettoyer, dépoussiérer, dégazer ou inertiser lorsque le risque l’exige.",
+          "La vigilance ne s’arrête pas à la fin du point chaud. Une surveillance post-travaux et une revalidation de la zone sont indispensables pour détecter une reprise de feu, un échauffement résiduel ou une situation laissée dégradée."
+        ],
+        keyPoints: [
+          "Point chaud = risque incendie majeur si la zone n’est pas préparée.",
+          "Le permis de feu formalise l’analyse et les mesures de sécurité.",
+          "La surveillance après travaux fait partie intégrante du dispositif."
+        ],
+        forbiddenPoints: [
+          "Commencer un point chaud sans autorisation ni analyse de zone.",
+          "Laisser combustibles et dépôts au voisinage immédiat.",
+          "Clôturer le chantier sans contrôle ni surveillance post-travaux."
+        ],
+        legalRefs: [
+          "INRS ED 6030 - Le permis de feu, démarche et document support.",
+          "Formulaire INRS ED 6030 - mesures de mise en sécurité, responsabilités et validation des travaux par points chauds.",
+          "Plan de prévention, PPSPS ou autorisation de travail selon l’organisation du site et des entreprises intervenantes."
+        ],
+        visual: {
+          title: "Avant d’allumer, on sécurise",
+          subtitle: "Préparer la zone, autoriser, contrôler, surveiller.",
+          items: [
+            "Analyser la zone et les risques voisins",
+            "Déplacer ou protéger les combustibles",
+            "Vérifier les moyens et la consignation utile",
+            "Surveiller pendant et après les travaux"
+          ],
+          tone: "amber",
+        },
+      },
+      {
         id: "prevention-quotidienne",
-        title: "5. Prévention au quotidien",
+        title: "8. Prévention au quotidien et anomalies à signaler",
+        estimatedMinutes: 10,
+        intro:
+          "La majorité des situations dangereuses visibles avant sinistre relèvent de l’exploitation quotidienne: désordre, stockage, non-respect des équipements et banalisation des écarts.",
         content: [
           "La sécurité incendie dépend largement des comportements quotidiens : ordre, propreté, maîtrise des déchets, respect des consignes électriques et dégagement des issues.",
-          "La prévention repose aussi sur le signalement des anomalies : bloc porte non conforme, dispositif hors service, déclencheur manuel inaccessible, stockage inadapté."
+          "La prévention repose aussi sur le signalement des anomalies : bloc porte non conforme, dispositif hors service, déclencheur manuel inaccessible, stockage inadapté, travaux non encadrés, issue condamnée, local électrique encombré ou produit inflammable mal géré.",
+          "Le bon niveau professionnel n’est pas de s’habituer aux écarts. C’est de les voir, de les signaler et de contribuer à leur suppression avant qu’ils ne deviennent un départ de feu ou un obstacle à l’évacuation."
         ],
         forbiddenPoints: [
           "Bloquer une porte coupe-feu.",
@@ -1251,6 +1437,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Masquer un extincteur ou un déclencheur manuel.",
           "Laisser s’installer un désordre chronique."
         ],
+        chapterImagePath: "/images/extincteurs-de-chantier.jpg",
+        chapterImageAlt:
+          "Ensemble d'extincteurs mobiles de chantier ou d'intervention regroupés pour mise à disposition",
         visual: {
           title: "Prévention quotidienne",
           subtitle: "Les écarts simples créent souvent les sinistres.",
@@ -1270,27 +1459,34 @@ export const modulesContent: Record<string, ModuleContent> = {
     title: "Exploitation des SSI - fondamentaux",
     shortTitle: "SSI",
     subtitle:
-      "Parcours e-learning d’initiation au fonctionnement d’un système de sécurité incendie, à son exploitation et aux bons réflexes utilisateur.",
-    duration: "45 à 60 minutes",
+      "Parcours e-learning structuré sur le fonctionnement d’un système de sécurité incendie, son exploitation au quotidien, ses limites et ses principaux repères réglementaires et normatifs.",
+    duration: "65 à 90 minutes",
     level: "Intermédiaire",
     objective:
-      "Comprendre le rôle d’un SSI, distinguer les grandes fonctions SDI / SMSI / alarme, connaître les réflexes d’exploitation et situer les principaux référentiels français.",
+      "Comprendre le rôle d’un SSI, distinguer les grandes fonctions SDI / SMSI / CMSI / UGA / DAS, connaître les réflexes d’exploitation, savoir lire les états usuels d’une installation et situer les principaux référentiels français applicables.",
     audience:
       "Exploitants, responsables de site, encadrement, personnel technique ou utilisateurs amenés à interagir avec un SSI sans en assurer la conception réglementaire complète.",
     certificationNote:
-      "Ce module traite de l’exploitation et de la compréhension fonctionnelle. Il ne remplace ni la coordination SSI, ni l’étude de conception, ni la maintenance spécialisée.",
+      "Ce module traite de l’exploitation et de la compréhension fonctionnelle. Il ne remplace ni la coordination SSI, ni l’étude de conception, ni la maintenance spécialisée, ni les vérifications réglementaires du site.",
     heroBadge: "Système de sécurité incendie",
     finalMessage:
-      "Vous disposez désormais d’une base pour comprendre le rôle d’un SSI et dialoguer plus efficacement avec l’exploitant, le mainteneur, le coordinateur SSI ou la maîtrise d’œuvre.",
+      "Vous disposez désormais d’une base pour comprendre le rôle d’un SSI et dialoguer plus efficacement avec l’exploitant, le mainteneur, le coordinateur SSI, la sécurité incendie ou la maîtrise d’œuvre. En exploitation, le professionnalisme consiste à reconnaître ses limites et à tracer correctement les écarts.",
     quizCtaLabel: "Passer au quiz SSI",
     sections: [
       {
         id: "role-ssi",
         title: "1. Rôle d’un SSI",
+        estimatedMinutes: 12,
+        intro:
+          "Le SSI n’est pas un simple boîtier d’alarme. C’est un ensemble organisé destiné à détecter, signaler, traiter et piloter des fonctions de sécurité incendie.",
         content: [
           "Un système de sécurité incendie participe à la détection, à l’alarme, à la mise en sécurité et à l’exploitation des informations utiles en cas d’incendie.",
-          "Selon les bâtiments et leur réglementation, il peut intégrer ou piloter différentes fonctions : détection automatique ou manuelle, diffusion de l’alarme, compartimentage, désenfumage, gestion des issues, arrêt technique."
+          "Selon les bâtiments et leur réglementation, il peut intégrer ou piloter différentes fonctions : détection automatique ou manuelle, diffusion de l’alarme, compartimentage, désenfumage, gestion des issues, arrêt technique ou commandes associées.",
+          "Le bon niveau d’exploitation ne consiste pas à connaître toute l’ingénierie d’un SSI, mais à savoir ce que l’installation fait, quels équipements elle pilote, quels locaux elle protège et quelles conséquences une information incendie peut déclencher sur le site."
         ],
+        chapterImagePath: "/images/fonctionnement-systeme-incendie.jpg",
+        chapterImageAlt:
+          "Schéma simplifié de fonctionnement d'un système incendie avec détecteurs, déclencheurs manuels, sirène et centrale",
         visual: {
           title: "Fonctions principales d’un SSI",
           subtitle: "Détecter, alerter, mettre en sécurité.",
@@ -1305,16 +1501,25 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "sdi-smsi",
-        title: "2. SDI, SMSI et exploitation",
+        title: "2. SDI, SMSI, CMSI, UGA et DAS",
+        estimatedMinutes: 14,
+        intro:
+          "Pour exploiter un SSI, il faut distinguer les familles fonctionnelles sans mélanger détection, traitement et commande de sécurité.",
         content: [
           "Le système de détection incendie recueille les informations de détection. Le système de mise en sécurité incendie commande ensuite les fonctions de sécurité prévues.",
-          "L’exploitation d’un SSI suppose de savoir identifier l’origine d’une information, reconnaître une alarme feu, un dérangement, un défaut technique ou une situation d’essai."
+          "L’exploitation d’un SSI suppose de savoir identifier l’origine d’une information, reconnaître une alarme feu, un dérangement, un défaut technique, un défaut secteur, une perte de liaison ou une situation d’essai.",
+          "Dans la pratique, il est utile de connaître le rôle d’un CMSI, d’une UGA et des dispositifs actionnés de sécurité. Même sans intervenir en maintenance, l’exploitant doit comprendre qu’un ordre incendie peut fermer des portes, libérer des issues, déclencher un désenfumage ou envoyer un report d’information.",
+          "L’enjeu est d’éviter les confusions: une alarme feu n’est pas un simple dérangement, un réarmement n’est pas une réparation, et une commande de sécurité ne doit jamais être neutralisée sans procédure."
         ],
         keyPoints: [
           "SDI = collecte et traitement des informations de détection.",
           "SMSI = commandes de mise en sécurité.",
+          "CMSI, UGA et DAS sont des repères d’exploitation essentiels.",
           "L’exploitation repose sur la lecture correcte des états."
         ],
+        chapterImagePath: "/images/schema-ssi.gif",
+        chapterImageAlt:
+          "Schéma SSI avec équipement d'alarme, mise en sécurité, DAC, DAS et diffuseurs sonores",
         visual: {
           title: "Lecture simple de l’architecture SSI",
           subtitle: "Information puis action de sécurité.",
@@ -1329,16 +1534,31 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "normes-referentiels",
-        title: "3. Référentiels français utiles",
+        title: "3. Référentiels normatifs et cadres réglementaires utiles",
+        estimatedMinutes: 12,
+        intro:
+          "Un exploitant n’a pas besoin de réciter toutes les normes, mais il doit savoir sur quels repères repose le SSI de son bâtiment.",
         content: [
           "La famille NF S 61 sert de base de référence dans le domaine SSI. Elle couvre notamment les dispositions générales, les règles d’installation et certaines exigences techniques selon les fonctions considérées.",
-          "La NF S 61-931 constitue une référence générale du SSI, la NF S 61-932 traite des règles d’installation du SMSI et la NF S 61-970 des règles d’installation du SDI."
+          "La NF S 61-931 constitue une référence générale du SSI, la NF S 61-932 traite des règles d’installation du SMSI et la NF S 61-970 des règles d’installation du SDI.",
+          "Le SSI s’inscrit aussi dans un contexte réglementaire de bâtiment. En ERP, en IGH ou dans certains établissements techniques, la présence, la catégorie ou les fonctions attendues du SSI dépendent du règlement applicable et de l’analyse de risque associée.",
+          "L’exploitant doit donc retenir une idée simple: le SSI n’est pas un équipement isolé, c’est un maillon d’un dispositif réglementaire global de sécurité incendie."
         ],
         keyPoints: [
           "NF S 61-931 : cadre général SSI.",
           "NF S 61-932 : règles d’installation du SMSI.",
-          "NF S 61-970 : règles d’installation du SDI."
+          "NF S 61-970 : règles d’installation du SDI.",
+          "ERP et IGH imposent des exigences d’exploitation cohérentes avec le bâtiment."
         ],
+        legalRefs: [
+          "Famille NF S 61 - références françaises courantes en matière de SSI.",
+          "Arrêté du 25 juin 1980 modifié - règlement de sécurité contre les risques d’incendie et de panique dans les ERP.",
+          "Arrêté du 30 décembre 2011 - règlement de sécurité pour les IGH.",
+          "Consignes et dossier de sécurité propres au site exploité."
+        ],
+        chapterImagePath: "/images/niveau-ssi.jpg",
+        chapterImageAlt:
+          "Niveau de risque, catégories de SSI et types d'équipement d'alarme",
         visual: {
           title: "Référentiels à connaître",
           subtitle: "Normes et textes se complètent.",
@@ -1352,17 +1572,57 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "lecture-etats",
+        title: "4. Lire les états: alarme feu, dérangement, défaut, essai",
+        estimatedMinutes: 14,
+        intro:
+          "La qualité d’exploitation d’un SSI se joue souvent sur la capacité à distinguer correctement les états affichés et à déclencher la bonne réponse.",
+        content: [
+          "Une alarme feu doit être traitée comme une information potentiellement réelle jusqu’à levée de doute organisée selon la procédure du site. Un dérangement traduit un défaut de disponibilité ou de fonctionnement qui doit être suivi et traité. Un essai doit être identifiable comme tel pour éviter les confusions.",
+          "Le risque d’erreur est important lorsque les équipes s’habituent à des défauts répétitifs ou à des signaux considérés comme normaux. Cette banalisation dégrade la culture incendie du site et affaiblit la réponse en cas de vrai sinistre.",
+          "Une bonne exploitation suppose donc une traçabilité: date, heure, localisation, type d’information, mesure prise, interlocuteur contacté, retour à la normale ou suite à engager."
+        ],
+        keyPoints: [
+          "Alarme feu = traitement immédiat selon consigne.",
+          "Dérangement = anomalie technique à suivre.",
+          "Essai = état encadré et identifié comme tel."
+        ],
+        chapterImagePath: "/images/alarme-type-4.png",
+        chapterImageAlt:
+          "Schéma d'alarme type 4 avec déclencheur manuel, équipement d'alarme et diffuseur sonore",
+        visual: {
+          title: "Ne pas tout lire de la même manière",
+          subtitle: "Le bon réflexe dépend du type exact d’information affichée.",
+          items: [
+            "Alarme feu",
+            "Dérangement",
+            "Défaut technique",
+            "Essai / mise hors service encadrée"
+          ],
+          tone: "amber",
+        },
+      },
+      {
         id: "bons-reflexes",
-        title: "4. Bons réflexes d’exploitation",
+        title: "5. Bons réflexes d’exploitation et limites utilisateur",
+        estimatedMinutes: 13,
+        intro:
+          "L’exploitation d’un SSI demande de l’autonomie, mais jamais au prix d’une dérive vers la maintenance ou la neutralisation improvisée.",
         content: [
           "En exploitation courante, il faut connaître les accès autorisés, les procédures d’acquittement ou de réarmement prévues par l’organisation du site, et surtout les limites de ce qui peut être fait par un utilisateur non mainteneur.",
-          "Une alarme, un dérangement ou un défaut technique ne doivent jamais être ignorés. Toute anomalie répétitive doit être tracée, analysée et traitée."
+          "Une alarme, un dérangement ou un défaut technique ne doivent jamais être ignorés. Toute anomalie répétitive doit être tracée, analysée et traitée.",
+          "L’exploitant doit aussi savoir quand escalader: mainteneur, sécurité incendie, coordinateur SSI, responsable de site, prestataire ou secours externes selon la situation.",
+          "Le professionnalisme consiste à comprendre, agir dans son rôle, puis transmettre proprement. Un réarmement ne remplace ni une analyse, ni une réparation."
         ],
         forbiddenPoints: [
           "Neutraliser un équipement sans procédure.",
           "Réarmer à répétition sans analyse.",
-          "Confondre exploitation et maintenance spécialisée."
+          "Confondre exploitation et maintenance spécialisée.",
+          "Laisser persister des défauts chroniques sans traitement."
         ],
+        chapterImagePath: "/images/formation-ssi.jpg",
+        chapterImageAlt:
+          "Personnel exploitant ou technique en situation de suivi d'un système de sécurité incendie",
         visual: {
           title: "Exploiter un SSI avec méthode",
           subtitle: "Comprendre, agir dans son rôle, tracer.",
@@ -1382,27 +1642,35 @@ export const modulesContent: Record<string, ModuleContent> = {
     title: "Exploitation sprinkler et référentiels techniques",
     shortTitle: "Sprinkler",
     subtitle:
-      "Parcours e-learning d’initiation à l’exploitation d’une installation sprinkler, à la surveillance et aux principaux repères techniques associés.",
-    duration: "45 à 60 minutes",
+      "Parcours e-learning structuré sur le fonctionnement d’une installation sprinkler, sa surveillance, ses anomalies d’exploitation et les principaux référentiels rencontrés sur les sites protégés.",
+    duration: "60 à 85 minutes",
     level: "Intermédiaire",
     objective:
-      "Comprendre le rôle d’une installation sprinkler, reconnaître ses composants principaux, identifier les anomalies d’exploitation et situer les grands référentiels de référence.",
+      "Comprendre le rôle d’une installation sprinkler, reconnaître ses composants principaux, intégrer les bons réflexes de surveillance, identifier les écarts qui dégradent la protection et situer les grands référentiels techniques rencontrés en exploitation.",
     audience:
       "Personnel d’exploitation, maintenance, encadrement technique, responsables de site, utilisateurs en environnement industriel, logistique ou tertiaire.",
     certificationNote:
-      "Ce module traite de l’exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude sprinkler, ni un audit de conformité, ni une mission de conception.",
+      "Ce module traite de l’exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude sprinkler, ni un audit de conformité, ni une mission de conception, ni la vérification spécialisée des référentiels applicables au site.",
     heroBadge: "Protection incendie",
     finalMessage:
-      "Vous avez acquis les fondamentaux de l’exploitation sprinkler. Le quiz final permettra de vérifier votre compréhension des composants, alarmes et réflexes d’exploitation.",
+      "Vous avez acquis les fondamentaux de l’exploitation sprinkler. La performance d’une installation dépend ensuite de son maintien en état, de la qualité des contrôles, de la traçabilité et de l’adéquation permanente entre protection installée et risque réel.",
     quizCtaLabel: "Passer au quiz sprinkler",
     sections: [
       {
         id: "principe",
         title: "1. Principe de fonctionnement",
+        estimatedMinutes: 12,
+        intro:
+          "Le sprinkler n’est ni un décor ni un déversement général automatique. C’est un système conçu pour réagir localement et tôt, au plus près du foyer.",
         content: [
           "Une installation sprinkler est conçue pour détecter et maîtriser automatiquement un incendie au plus près du foyer grâce au déclenchement thermique des têtes concernées.",
-          "Elle ne fonctionne pas comme un déversement général : seules les têtes exposées à une chaleur suffisante s’ouvrent."
+          "Elle ne fonctionne pas comme un déversement général : seules les têtes exposées à une chaleur suffisante s’ouvrent.",
+          "Cette logique doit être comprise par l’exploitant pour éviter les idées fausses courantes, par exemple penser que toutes les têtes se déclenchent simultanément ou qu’une tête ouverte signifie nécessairement une défaillance du système.",
+          "Le sprinkler est conçu pour contenir, maîtriser ou contrôler un incendie en attendant les autres moyens de secours et l’action de l’organisation du site. Il s’inscrit donc dans une stratégie globale de sécurité incendie."
         ],
+        chapterImagePath: "/images/installation-sprinkler.png",
+        chapterImageAlt:
+          "Schéma de principe d'une installation sprinkler avec réserve d'eau, pompe, poste de contrôle et réseau de sprinkleurs",
         visual: {
           title: "Principe sprinkler",
           subtitle: "Détection thermique locale et attaque précoce.",
@@ -1418,9 +1686,14 @@ export const modulesContent: Record<string, ModuleContent> = {
       {
         id: "composants",
         title: "2. Composants principaux",
+        estimatedMinutes: 12,
+        intro:
+          "Un exploitant sprinkler doit savoir reconnaître l’architecture générale de l’installation, même s’il n’en assure pas la conception.",
         content: [
           "Une installation comprend notamment les têtes sprinkler, un réseau de tuyauteries, des postes de contrôle, une source d’eau et des dispositifs d’alarme.",
-          "L’exploitation suppose de savoir reconnaître les organes essentiels, les positions normales d’exploitation et les états anormaux à surveiller."
+          "L’exploitation suppose de savoir reconnaître les organes essentiels, les positions normales d’exploitation et les états anormaux à surveiller.",
+          "La disponibilité de la source d’eau, l’accessibilité des organes, l’état apparent du réseau, la lisibilité des repères et la compréhension des alarmes sont des points de vigilance de premier niveau pour l’exploitant.",
+          "Le niveau attendu n’est pas celui d’un bureau d’études, mais celui d’un professionnel capable de voir immédiatement ce qui n’est pas conforme à l’état normal d’exploitation."
         ],
         keyPoints: [
           "Poste de contrôle",
@@ -1429,6 +1702,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Têtes sprinkler",
           "Alarme et report"
         ],
+        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImageAlt:
+          "Vue schématique d'un réseau sprinkler desservant différentes zones d'un bâtiment",
         visual: {
           title: "Vue d’ensemble d’une installation",
           subtitle: "Les organes à connaître en exploitation.",
@@ -1444,9 +1720,14 @@ export const modulesContent: Record<string, ModuleContent> = {
       {
         id: "anomalies",
         title: "3. Anomalies et vigilance",
+        estimatedMinutes: 12,
+        intro:
+          "Une protection sprinkler peut exister sur le papier et être gravement dégradée dans la réalité si les anomalies d’exploitation sont banalisées.",
         content: [
           "Une vanne fermée, une pression anormale, une alarme non traitée, un local source encombré, une fuite ou une corrosion visible doivent être considérées avec sérieux.",
-          "L’exploitation sprinkler demande de la rigueur, de la traçabilité et une remontée rapide des écarts."
+          "L’exploitation sprinkler demande de la rigueur, de la traçabilité et une remontée rapide des écarts.",
+          "Un local technique inaccessible, un accès obstrué, un stockage trop proche des têtes, une modification non déclarée du process ou un réseau détérioré peuvent réduire fortement l’efficacité réelle de l’installation.",
+          "Les anomalies doivent être consignées, traitées et suivies jusqu’au retour à la situation nominale. L’habitude d’un défaut permanent est l’un des plus mauvais signaux de maturité d’exploitation."
         ],
         forbiddenPoints: [
           "Fermer une vanne sans procédure.",
@@ -1469,10 +1750,25 @@ export const modulesContent: Record<string, ModuleContent> = {
       {
         id: "referentiels",
         title: "4. Référentiels et cadre d’exploitation",
+        estimatedMinutes: 12,
+        intro:
+          "Le sprinkler est souvent associé à des référentiels techniques exigeants. L’exploitant n’a pas à les réciter, mais il doit comprendre leur rôle.",
         content: [
           "Les installations sprinkler sont fréquemment exploitées, surveillées ou auditées au regard de référentiels tels qu’APSAD R1, EN 12845, NFPA 13 ou certaines fiches FM selon le contexte du site.",
-          "L’enjeu est de connaître les exigences de maintien en état, les essais périodiques et la cohérence entre la protection installée et le risque réellement présent."
+          "L’enjeu est de connaître les exigences de maintien en état, les essais périodiques et la cohérence entre la protection installée et le risque réellement présent.",
+          "Selon les sites, le référentiel contractuel ou technique ne sera pas le même. Cela ne change pas le fond: une installation n’est performante que si elle est maintenue disponible, essayée, surveillée et adaptée à la réalité du stockage ou du process.",
+          "Il faut donc toujours relier la technique au terrain: hauteur de stockage, nature des produits, évolution d’activité, encombrement, ambiance corrosive, travaux, indisponibilités temporaires et mesures compensatoires.",
+          "Le sprinkler n’est pas la seule famille de système fixe d’extinction automatique. Selon les volumes, les équipements protégés et la nature du risque, d’autres solutions peuvent exister, par exemple à gaz ou sur d’autres agents extincteurs. Cette diversité rappelle un principe simple: la protection doit toujours être adaptée au risque réel, pas choisie par habitude."
         ],
+        legalRefs: [
+          "EN 12845 - référentiel européen souvent rencontré pour les installations sprinkler.",
+          "APSAD R1 - référentiel fréquemment utilisé en France dans les démarches de protection incendie.",
+          "NFPA 13 et FM Global Data Sheets - référentiels pouvant s’appliquer selon les sites, cahiers des charges ou assureurs.",
+          "Consignes d’exploitation, dossier de sécurité et exigences contractuelles du site protégé."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schéma de système fixe d'extinction automatique montrant qu'il existe d'autres solutions que le sprinkler selon le risque protégé",
         visual: {
           title: "Cadre technique d’exploitation",
           subtitle: "Protection installée, risque réel, organisation du site.",
@@ -1486,11 +1782,62 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "extinction-gaz",
+        title: "5. Extinction automatique à gaz, APSAD R13 et NF EN 15004-1",
+        estimatedMinutes: 12,
+        intro:
+          "Le sprinkler n’est pas la seule technologie d’extinction automatique. Certains risques sont protégés par des systèmes à gaz, qui obéissent à une logique très différente et imposent une vigilance particulière en exploitation.",
+        content: [
+          "Les systèmes fixes d’extinction automatique à gaz sont utilisés lorsque la protection par eau n’est pas adaptée ou lorsqu’il faut préserver des équipements, des volumes techniques ou des locaux sensibles. On les rencontre notamment dans certains locaux informatiques, électriques, techniques ou process.",
+          "Du point de vue de l’exploitation, il faut retenir qu’un système à gaz n’est pas un sprinkler sans eau. Il repose sur une chaîne de détection, de commande, de temporisation, d’alarme et d’émission de l’agent extincteur dans un volume protégé. L’efficacité dépend fortement de l’étanchéité du local, de l’organisation des accès et du maintien en état des composants.",
+          "Le référentiel APSAD R13 constitue un repère technique connu pour la conception, l’installation et la maintenance des systèmes d’extinction automatique à gaz. La norme NF EN 15004-1, en vigueur en décembre 2024, fournit le cadre général relatif au calcul, à l’installation et à la maintenance des installations fixes d’extinction à gaz. Sans entrer dans le détail du dimensionnement, un exploitant doit comprendre que le système n’est fiable que si les conditions du local protégé restent conformes: volume, fermeture, intégrité des passages, signalisation, temporisation, arrêts techniques éventuels et procédures d’accès.",
+          "La sécurité des personnes est un point majeur. Un local protégé par gaz ne se traite pas comme un local sprinkler. L’alarme, la temporisation, l’évacuation préalable, la signalisation d’émission, la gestion des accès et les consignes après déclenchement sont essentielles. L’exploitant doit savoir qui alerter, comment interdire l’accès et dans quel cadre un retour dans le local peut être envisagé.",
+          "Les documents INRS relatifs aux agents extincteurs gazeux rappellent aussi un point essentiel pour l’exploitation: après émission, le risque ne se limite pas au feu initial. Il faut tenir compte de l’atmosphère du local, des produits de décomposition éventuels, du besoin de ventilation ou de contrôle avant réaccès et du strict respect des consignes du site."
+        ],
+        keyPoints: [
+          "L’extinction automatique à gaz répond à des risques et des locaux spécifiques.",
+          "APSAD R13 est un repère technique important pour ces systèmes.",
+          "L’efficacité dépend aussi du local protégé et de son intégrité.",
+          "La sécurité des personnes impose alarme, temporisation et contrôle d’accès."
+        ],
+        forbiddenPoints: [
+          "Considérer un système à gaz comme équivalent à un sprinkler classique.",
+          "Laisser évoluer le local protégé sans analyse des conséquences.",
+          "Négliger l’alarme, la signalisation ou les consignes d’accès après émission."
+        ],
+        legalRefs: [
+          "APSAD R13 - repère technique pour la conception, l’installation et la maintenance des systèmes d’extinction automatique à gaz.",
+          "NF EN 15004-1 - Installations fixes de lutte contre l’incendie - Installations d’extinction à gaz - Partie 1 : calcul, installation et maintenance (édition en vigueur publiée en décembre 2024).",
+          "INRS ND 2191 - Les agents extincteurs gazeux utilisés dans les installations fixes d’extinction.",
+          "CNPP - systèmes d’extinction automatique à gaz et certifications associées.",
+          "Consignes d’exploitation et procédures spécifiques du site protégé."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schéma de système fixe d'extinction automatique à gaz avec détection, alarme, commande et réservoirs",
+        visual: {
+          title: "Un système automatique, mais pas sans organisation",
+          subtitle: "Détection, temporisation, évacuation, émission, contrôle des accès.",
+          items: [
+            "Local protégé adapté",
+            "Chaîne de détection et de commande",
+            "Temporisation et évacuation",
+            "Accès maîtrisé après émission"
+          ],
+          tone: "blue",
+        },
+      },
+      {
         id: "icpe-1510",
-        title: "5. Focus entrepôts et ICPE 1510",
+        title: "6. Focus entrepôts, stockage et ICPE 1510",
+        estimatedMinutes: 12,
+        intro:
+          "Dans les environnements logistiques et les entrepôts, le sprinkler doit être lu dans une logique globale de maîtrise du risque incendie.",
         content: [
           "Dans les entrepôts couverts relevant de la rubrique ICPE 1510, la prévention des sinistres s’apprécie dans un ensemble plus large de prescriptions : cellules, séparation, toiture, moyens de secours, exploitation et gestion du risque.",
-          "Toute modification d’exploitation significative peut justifier une relecture de la stratégie incendie du site afin de confirmer que la protection reste adaptée."
+          "Toute modification d’exploitation significative peut justifier une relecture de la stratégie incendie du site afin de confirmer que la protection reste adaptée.",
+          "Changer la hauteur de stockage, la nature des marchandises, la densité de palettes, le conditionnement ou l’occupation d’une zone peut remettre en cause l’adéquation entre le risque et la protection installée.",
+          "Le sprinkler n’est donc pas un passe-partout. Il reste performant dans un cadre de conception et d’exploitation donné, qui doit rester cohérent dans le temps."
         ],
         keyPoints: [
           "ICPE 1510 = approche globale du risque entrepôt.",
@@ -1507,6 +1854,34 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Suivi des modifications d’exploitation"
           ],
           tone: "green",
+        },
+      },
+      {
+        id: "essais-surveillance",
+        title: "7. Essais, surveillance et gestion des indisponibilités",
+        estimatedMinutes: 10,
+        intro:
+          "Une installation sprinkler reste crédible si elle est surveillée dans le temps et si toute indisponibilité est pilotée avec méthode.",
+        content: [
+          "L’exploitant doit connaître l’existence des essais périodiques, des levées de doute, des contrôles de routine et des remontées d’anomalies. Sans cette discipline, la protection peut sembler en place tout en étant partiellement dégradée.",
+          "Une indisponibilité temporaire, une vanne fermée, un arrêt de source d’eau, une intervention de maintenance ou une zone neutralisée doivent déclencher des mesures compensatoires selon l’organisation du site.",
+          "Le vrai sujet d’exploitation n’est pas seulement technique: c’est la capacité à savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protégé pendant la période dégradée."
+        ],
+        keyPoints: [
+          "Essais et contrôles réguliers.",
+          "Indisponibilités tracées et compensées.",
+          "Retour à la normale formalisé."
+        ],
+        visual: {
+          title: "Garder la protection réellement disponible",
+          subtitle: "Surveiller, tracer, compenser, remettre en état.",
+          items: [
+            "Essais périodiques",
+            "Suivi des alarmes et défauts",
+            "Mesures compensatoires en mode dégradé",
+            "Retour à la normale vérifié"
+          ],
+          tone: "blue",
         },
       },
     ],
