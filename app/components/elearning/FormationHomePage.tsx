@@ -11,6 +11,15 @@ export default function FormationHomePage({
   slug,
   moduleData,
 }: FormationHomePageProps) {
+  const topCards = [
+    { label: "Parcours", value: moduleData.shortTitle ?? "" },
+    { label: "Duree estimee", value: moduleData.duration ?? "" },
+    ...(moduleData.deliveryFormat
+      ? [{ label: "Format", value: moduleData.deliveryFormat }]
+      : []),
+    { label: "Niveau", value: moduleData.level ?? "" },
+  ];
+
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6">
       <div className="mx-auto max-w-6xl space-y-8">
@@ -40,22 +49,22 @@ export default function FormationHomePage({
                 href={`/modules/${slug}/quiz`}
                 className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
               >
-                Accéder au quiz
+                Acceder au quiz
               </Link>
             </div>
           </div>
 
-          <div className="grid gap-4 px-6 py-6 sm:grid-cols-3 sm:px-8 sm:py-8">
-           <InfoCard label="Parcours" value={moduleData.shortTitle ?? ""} />
-<InfoCard label="Durée estimée" value={moduleData.duration ?? ""} />
-<InfoCard label="Niveau" value={moduleData.level ?? ""} />
+          <div className="grid gap-4 px-6 py-6 sm:grid-cols-2 xl:grid-cols-4 sm:px-8 sm:py-8">
+            {topCards.map((card) => (
+              <InfoCard key={card.label} label={card.label} value={card.value} />
+            ))}
           </div>
         </section>
 
         <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-              Objectif pédagogique
+              Objectif pedagogique
             </p>
             <p className="mt-4 text-base leading-8 text-slate-700">
               {moduleData.objective}
@@ -63,12 +72,23 @@ export default function FormationHomePage({
 
             <div className="mt-8">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Public concerné
+                Public concerne
               </p>
               <p className="mt-4 text-base leading-8 text-slate-700">
                 {moduleData.audience}
               </p>
             </div>
+
+            {moduleData.deliveryFormat ? (
+              <div className="mt-8 rounded-3xl border border-blue-200 bg-blue-50 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
+                  Format pedagogique
+                </p>
+                <p className="mt-3 text-sm leading-7 text-blue-950">
+                  {moduleData.deliveryFormat}
+                </p>
+              </div>
+            ) : null}
 
             {moduleData.certificationNote ? (
               <div className="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-5">
@@ -93,9 +113,16 @@ export default function FormationHomePage({
                   key={section.id}
                   className="rounded-2xl border border-slate-200 bg-slate-50 p-4"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    Chapitre {index + 1}
-                  </p>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      Chapitre {index + 1}
+                    </p>
+                    {section.estimatedMinutes ? (
+                      <span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-slate-600">
+                        ~ {section.estimatedMinutes} min
+                      </span>
+                    ) : null}
+                  </div>
                   <p className="mt-1 text-sm font-semibold leading-6 text-slate-900">
                     {section.title}
                   </p>
@@ -115,7 +142,7 @@ export default function FormationHomePage({
                 href={`/modules/${slug}/attestation`}
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
               >
-                Voir l’attestation
+                Voir l&apos;attestation
               </Link>
             </div>
           </div>

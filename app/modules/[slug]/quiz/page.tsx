@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import { quizContent, type QuizQuestion } from "./content";
+import { formatFrenchDisplayText } from "@/lib/french-display";
 import {
   getModuleLabelBySlug,
   getRequiredChapterCount as getRequiredModuleChapterCount,
@@ -74,6 +76,7 @@ export default function QuizPage() {
     () => getModuleLabelBySlug(canonicalSlug),
     [canonicalSlug]
   );
+  const formattedFormationLabel = formatFrenchDisplayText(formationLabel);
 
   const quiz: QuizQuestion[] = useMemo(() => {
     return quizContent[canonicalSlug] ?? [];
@@ -188,7 +191,7 @@ export default function QuizPage() {
     return progressData.filter((item) => item.is_completed).length;
   }, [progressData]);
 
-  const isAdminPreview = quizContext.isAdmin && !quizContext.enrollmentId;
+  const isAdminPreview = quizContext.isAdmin;
 
   const allChaptersCompleted =
     isAdminPreview ||
@@ -211,6 +214,26 @@ export default function QuizPage() {
   const scorePercent = useMemo(() => {
     return quiz.length > 0 ? Math.round((score / quiz.length) * 100) : 0;
   }, [score, quiz.length]);
+
+  const reviewItems = useMemo(() => {
+    return quiz.map((question, index) => {
+      const selectedAnswers = answers[index] ?? [];
+      const correct = arraysEqual(selectedAnswers, question.answer);
+
+      return {
+        index,
+        question,
+        correct,
+        selectedAnswers,
+        correctChoices: question.answer.map(
+          (choiceIndex) => question.choices[choiceIndex] ?? ""
+        ),
+        selectedChoices: selectedAnswers.map(
+          (choiceIndex) => question.choices[choiceIndex] ?? ""
+        ),
+      };
+    });
+  }, [answers, quiz]);
 
   useEffect(() => {
     if (!canonicalSlug || !progressStorageKey || quiz.length === 0) return;
@@ -262,6 +285,7 @@ export default function QuizPage() {
     if (!canonicalSlug || !progressStorageKey || quiz.length === 0) return;
     if (restoreChoicePending) return;
     if (finished) return;
+    if (isAdminPreview) return;
 
     const payload: SavedQuizProgress = {
       version: 2,
@@ -283,10 +307,17 @@ export default function QuizPage() {
     timeLeft,
     progressStorageKey,
     restoreChoicePending,
+    isAdminPreview,
   ]);
 
   useEffect(() => {
-    if (restoreChoicePending || finished || quiz.length === 0 || !currentQuestion)
+    if (
+      isAdminPreview ||
+      restoreChoicePending ||
+      finished ||
+      quiz.length === 0 ||
+      !currentQuestion
+    )
       return;
 
     const interval = window.setInterval(() => {
@@ -309,7 +340,15 @@ export default function QuizPage() {
     }, 1000);
 
     return () => window.clearInterval(interval);
-  }, [current, finished, quiz, quiz.length, restoreChoicePending, currentQuestion]);
+  }, [
+    current,
+    finished,
+    quiz,
+    quiz.length,
+    restoreChoicePending,
+    currentQuestion,
+    isAdminPreview,
+  ]);
 
   useEffect(() => {
     if (!finished) {
@@ -691,7 +730,7 @@ export default function QuizPage() {
               Quiz de validation
             </p>
             <h1 className="mt-2 text-3xl font-bold">
-              {formationLabel}
+              {formattedFormationLabel}
             </h1>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">
               Cette étape permet de valider les acquis théoriques du module avant
@@ -724,6 +763,13 @@ export default function QuizPage() {
               {progressRestored && answers.length > 0 ? (
                 <div className="mb-5 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-700">
                   Votre progression précédente a été restaurée.
+                </div>
+              ) : null}
+
+              {isAdminPreview ? (
+                <div className="mb-5 rounded-xl border border-fuchsia-200 bg-fuchsia-50 px-4 py-3 text-sm font-medium text-fuchsia-700">
+                  Mode admin : passage libre entre les questions, sans blocage de
+                  timer ni obligation de réponse.
                 </div>
               ) : null}
 
@@ -774,9 +820,37 @@ export default function QuizPage() {
 
               <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-1">
                 <h3 className="rounded-[1rem] bg-slate-50 px-5 py-5 text-2xl font-bold leading-9 text-slate-900">
-                  {currentQuestion.question}
+                  {formatFrenchDisplayText(currentQuestion.question)}
                 </h3>
               </div>
+
+              {currentQuestion.contextLabel ? (
+                <div className="mt-4 rounded-2xl border border-blue-200 bg-blue-50 px-4 py-3">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-blue-700">
+                    Contexte
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                    {formatFrenchDisplayText(currentQuestion.contextLabel)}
+                  </p>
+                </div>
+              ) : null}
+
+              {currentQuestion.imagePath ? (
+                <div className="mt-5 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50 p-3">
+                  <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white">
+                    <Image
+                      src={currentQuestion.imagePath}
+                      alt={formatFrenchDisplayText(
+                        currentQuestion.imageAlt ?? currentQuestion.question
+                      )}
+                      width={1200}
+                      height={800}
+                      className="mx-auto max-h-[320px] h-auto w-full object-contain"
+                      unoptimized={currentQuestion.imagePath.toLowerCase().endsWith(".svg")}
+                    />
+                  </div>
+                </div>
+              ) : null}
 
               <div className="mt-6 space-y-3">
                 {currentQuestion.choices.map((choice: string, i: number) => {
@@ -803,7 +877,7 @@ export default function QuizPage() {
                         >
                           {isSelected ? "✓" : ""}
                         </span>
-                        <span>{choice}</span>
+                        <span>{formatFrenchDisplayText(choice)}</span>
                       </button>
                     );
                   }
@@ -819,7 +893,7 @@ export default function QuizPage() {
                           : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
                       }`}
                     >
-                      {choice}
+                      {formatFrenchDisplayText(choice)}
                     </button>
                   );
                 })}
@@ -835,8 +909,17 @@ export default function QuizPage() {
 
                 <button
                   type="button"
+                  onClick={() => setCurrent((prev) => Math.max(0, prev - 1))}
+                  disabled={current === 0}
+                  className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Question précédente
+                </button>
+
+                <button
+                  type="button"
                   onClick={next}
-                  disabled={!hasAnsweredCurrentQuestion}
+                  disabled={!isAdminPreview && !hasAnsweredCurrentQuestion}
                   className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {current < quiz.length - 1
@@ -909,6 +992,72 @@ export default function QuizPage() {
                     {saveError}
                   </p>
                 )}
+              </div>
+
+              <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Débrief pédagogique
+                </p>
+                <div className="mt-4 space-y-4">
+                  {reviewItems.map((item) => (
+                    <div
+                      key={`review-${item.index}`}
+                      className={`rounded-2xl border p-4 ${
+                        item.correct
+                          ? "border-green-200 bg-green-50"
+                          : "border-red-200 bg-white"
+                      }`}
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <p className="text-sm font-semibold text-slate-900">
+                          Question {item.index + 1}
+                        </p>
+                        <span
+                          className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                            item.correct
+                              ? "bg-green-600 text-white"
+                              : "bg-red-100 text-red-700"
+                          }`}
+                        >
+                          {item.correct ? "Bon réflexe" : "À retravailler"}
+                        </span>
+                      </div>
+
+                      <p className="mt-3 text-base font-medium leading-7 text-slate-800">
+                        {formatFrenchDisplayText(item.question.question)}
+                      </p>
+
+                      <div className="mt-4 space-y-2 text-sm leading-6 text-slate-700">
+                        <p>
+                          <span className="font-semibold text-slate-900">
+                            Votre réponse :
+                          </span>{" "}
+                          {item.selectedChoices.length
+                            ? item.selectedChoices
+                                .map((choice) => formatFrenchDisplayText(choice))
+                                .join(" | ")
+                            : "Aucune réponse enregistrée"}
+                        </p>
+                        <p>
+                          <span className="font-semibold text-slate-900">
+                            Réponse attendue :
+                          </span>{" "}
+                          {item.correctChoices
+                            .map((choice) => formatFrenchDisplayText(choice))
+                            .join(" | ")}
+                        </p>
+                        {item.question.explanation ? (
+                          <p className="rounded-xl border border-white/70 bg-white/80 px-4 py-3">
+                            <span className="font-semibold text-slate-900">
+                              À retenir :
+                            </span>{" "}
+                            {formatFrenchDisplayText(item.question.explanation)}
+                          </p>
+                        ) : null}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">

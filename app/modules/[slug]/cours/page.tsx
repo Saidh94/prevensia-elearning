@@ -4,7 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import type { ModuleContent } from "@/lib/supabase/elearning/module-types";
+import VisualCard from "@/app/components/elearning/VisualCard";
+import { formatFrenchDisplayText } from "@/lib/french-display";
+import type {
+  ModuleContent,
+  ModuleResourceVideo,
+} from "@/lib/supabase/elearning/module-types";
 import {
   getModuleContentBySlug,
   getModuleLabelBySlug,
@@ -27,6 +32,7 @@ type Chapter = {
   content: string[];
   essentials?: string[];
   references?: ChapterReference[];
+  resourceVideos?: ModuleResourceVideo[];
 };
 
 type ChapterProgress = {
@@ -34,6 +40,10 @@ type ChapterProgress = {
   seconds_spent: number;
   min_seconds_required: number;
   is_completed: boolean;
+};
+
+type ModuleViewerContext = {
+  isAdmin: boolean;
 };
 
 const REG_REFERENCES = {
@@ -67,13 +77,40 @@ const REG_REFERENCES = {
   },
 };
 
+const INRS_VIDEO_RESOURCES = {
+  basics: {
+    title: "Video INRS - Les bases de l'habilitation electrique",
+    description:
+      "Ressource officielle INRS pour rappeler le role de l'habilitation, la place de l'employeur et les grands reperes de prevention.",
+    url: "https://www.inrs.fr/media.html?refINRS=Anim-132",
+    provider: "INRS",
+    ctaLabel: "Voir la video INRS",
+  },
+  webinar: {
+    title: "Webinaire INRS - Comment choisir les habilitations electriques ?",
+    description:
+      "Support INRS utile pour recaler les symboles, les roles, les limites d'action et la logique de choix des habilitations.",
+    url: "https://www.inrs.fr/media.html?refINRS=Anim-184",
+    provider: "INRS",
+    ctaLabel: "Voir le webinaire INRS",
+  },
+  channel: {
+    title: "Chaine INRS France - selection risque electrique",
+    description:
+      "Acces direct a la selection officielle INRS sur YouTube autour du risque electrique et de l'habilitation.",
+    url: "https://www.youtube.com/@INRSFrance/search?query=Risque%20%C3%A9lectrique",
+    provider: "INRS France",
+    ctaLabel: "Voir la selection YouTube",
+  },
+} as const;
+
 const H0B0_CHAPTERS: Chapter[] = [
   {
     key: "intro",
     title: "Chapitre 1 — Cadre du B0 / H0 / H0V et logique de l’habilitation",
     subtitle:
       "Comprendre le périmètre de l’habilitation, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
-    minSeconds: 150,
+    minSeconds: 240,
     image: "/elearning/h0b0/armoire-electrique.png",
     imageAlt:
       "Illustration du périmètre B0 H0 H0V et des limites d’intervention",
@@ -104,15 +141,17 @@ const H0B0_CHAPTERS: Chapter[] = [
       REG_REFERENCES.nfC18510,
       REG_REFERENCES.inrs,
     ],
+    resourceVideos: [INRS_VIDEO_RESOURCES.basics],
   },
   {
     key: "symbols",
     title: "Chapitre 2 — Lecture des symboles d’habilitation",
     subtitle:
       "Comprendre précisément ce que signifient B, H, 0 et V, et ce qu’un symbole n’autorise jamais",
-    minSeconds: 150,
-    image: "/elearning/h0b0/symboles-habilitation.png",
-    imageAlt: "Illustration pédagogique des symboles d’habilitation électrique",
+    minSeconds: 210,
+    image: "/elearning/references/symboles-travaux-non-electriques.jpg",
+    imageAlt:
+      "Tableau des symboles d'habilitation utilises pour les travaux d'ordre non electrique",
     highlights: [
       "B = basse tension, H = haute tension.",
       "0 = opérations d’ordre non électrique.",
@@ -141,13 +180,14 @@ const H0B0_CHAPTERS: Chapter[] = [
       REG_REFERENCES.nfC18510,
       REG_REFERENCES.inrs,
     ],
+    resourceVideos: [INRS_VIDEO_RESOURCES.channel],
   },
   {
     key: "roles",
     title: "Chapitre 3 — Rôles et responsabilités",
     subtitle:
       "Identifier qui fait quoi dans la prévention du risque électrique et comprendre la chaîne de responsabilité",
-    minSeconds: 120,
+    minSeconds: 180,
     image: "/elearning/h0b0/roles-responsabilites.png",
     imageAlt:
       "Illustration des rôles et responsabilités en habilitation électrique",
@@ -175,6 +215,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       REG_REFERENCES.nfC18510,
       REG_REFERENCES.inrs,
     ],
+    resourceVideos: [INRS_VIDEO_RESOURCES.webinar],
   },
   {
     key: "voltage-domains",
@@ -182,7 +223,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Chapitre 4 — Domaines de tension en courant alternatif et en courant continu",
     subtitle:
       "Distinguer BT et HT en alternatif et en continu, et comprendre les conséquences pratiques sur le niveau de danger",
-    minSeconds: 180,
+    minSeconds: 240,
     image: "/elearning/h0b0/courant-alternatif-continu.png",
     imageAlt:
       "Illustration pédagogique du courant alternatif et du courant continu",
@@ -220,10 +261,10 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Chapitre 5 — Zones d’environnement électrique et distances d’approche",
     subtitle:
       "Identifier les zones à risque, comprendre le voisinage et respecter strictement les limites d’approche",
-    minSeconds: 180,
-    image: "/elearning/h0b0/zones-approche.png",
+    minSeconds: 300,
+    image: "/elearning/references/zones-conducteur-nu-bt.jpg",
     imageAlt:
-      "Illustration des zones d’environnement électrique et distances d’approche",
+      "Schema des zones d'environnement electrique autour d'un conducteur nu en basse tension",
     highlights: [
       "Le danger commence avant le contact.",
       "Le voisinage d’une pièce nue sous tension constitue déjà un risque.",
@@ -258,10 +299,10 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 6 — Accès aux locaux et zones électriques",
     subtitle:
       "Comprendre dans quelles conditions un accès est autorisé et reconnaître les situations où il faut immédiatement s’arrêter",
-    minSeconds: 150,
-    image: "/elearning/h0b0/acces-local-electrique.png",
+    minSeconds: 270,
+    image: "/elearning/references/distances-locaux-acces.jpg",
     imageAlt:
-      "Illustration pédagogique de l’accès aux locaux et zones électriques",
+      "Schema des distances limites et des zones definies dans les locaux et emplacements d'acces",
     highlights: [
       "L’accès à une zone électrique n’est jamais banal.",
       "Signalisation, protections et consignes conditionnent l’autorisation d’accès.",
@@ -269,14 +310,17 @@ const H0B0_CHAPTERS: Chapter[] = [
     ],
     content: [
       "L’accès à un local ou à une zone électrique n’est jamais anodin. Il dépend des consignes du site, de la fonction du local, du niveau d’habilitation, des protections en place, du balisage, de l’état apparent des installations et de la mission réellement confiée.",
+      "La norme distingue ici des situations très différentes. Un titulaire H0 peut évoluer en haute tension hors voisinage dangereux, alors qu’un titulaire H0V intervient dans un cadre plus exigeant, au voisinage renforcé HT, avec des distances à respecter, un accès encadré et une surveillance permanente organisée pour empêcher tout franchissement de la limite dangereuse.",
+      "Dans la zone de voisinage renforcé HT, l’accès n’est pas une simple tolérance orale. Il suppose une désignation par l’employeur, une autorisation adaptée délivrée par le chargé d’exploitation électrique ou l’organisation compétente, un balisage de la zone de travail, et un contrôle réel des personnes qui y évoluent.",
+      "Le chargé de chantier H0V doit prendre connaissance des instructions de sécurité, faire appliquer les consignes, vérifier les protections en place, organiser la surveillance du personnel et s’assurer que chacun dispose du bon niveau d’habilitation pour la zone concernée. Cette logique doit être comprise même par l’exécutant, car elle explique pourquoi on n’entre jamais seul ni 'pour deux minutes' dans une zone HT sensible.",
       "Une porte ouverte sur un local réservé, une armoire déverrouillée, une enveloppe manquante, un capot retiré, une odeur anormale, une fuite d’eau, un câble détérioré, un bruit inhabituel ou une signalisation temporaire de chantier doivent être considérés comme des signaux d’alerte imposant une vigilance renforcée, voire l’arrêt immédiat de l’accès.",
-      "Le titulaire B0 / H0 / H0V n’a pas à forcer un accès, franchir une séparation, entrer dans un local électrique pour récupérer un objet, contourner un verrouillage, ni pénétrer dans une zone technique au motif qu’aucun électricien n’est présent.",
+      "Le titulaire B0 / H0 / H0V n’a pas à forcer un accès, franchir une séparation, entrer dans un local électrique pour récupérer un objet, contourner un verrouillage, ni pénétrer dans une zone technique au motif qu’aucun électricien n’est présent. En H0V, il n’a pas non plus à apprécier seul si la distance reste acceptable : la surveillance et le balisage sont justement là pour empêcher cette dérive.",
       "L’accès n’est acceptable que si la situation est prévue, lisible, protégée et compatible avec les consignes du site. Cela suppose une zone clairement définie, l’absence d’anomalie visible, le maintien des protections et un environnement compatible avec une présence non électrique.",
-      "Par exemple, entrer dans un local technique pour récupérer du matériel, intervenir à proximité d’une armoire ouverte ou pénétrer dans une zone de maintenance sans encadrement constitue une situation à risque qui doit être immédiatement stoppée.",
       "Dans tous les autres cas, la réaction attendue n’est pas l’adaptation improvisée mais l’arrêt de l’action, la mise à distance et le signalement à l’encadrement ou à une personne compétente. En matière de risque électrique, l’hésitation doit toujours être traitée comme un signal faible de danger.",
     ],
     essentials: [
-      "L’accès dépend des consignes et de l’état des protections.",
+      "L’accès dépend des consignes, de l’état des protections et du cadre d’autorisation.",
+      "Le H0V implique un contrôle plus strict en voisinage HT.",
       "Une situation anormale impose l’arrêt immédiat.",
       "Une facilité d’accès apparente ne vaut jamais autorisation.",
     ],
@@ -291,10 +335,10 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 7 — Consignes, signalisation et documents applicables",
     subtitle:
       "Comprendre que la sécurité ne repose pas seulement sur la mémoire du cours, mais aussi sur les consignes et dispositifs du site",
-    minSeconds: 150,
-    image: "/elearning/h0b0/signalisation-electrique.png",
+    minSeconds: 240,
+    image: "/elearning/references/document-chantier.jpg",
     imageAlt:
-      "Illustration des consignes, de la signalisation et des documents applicables",
+      "Exemple de document technique ou administratif associe a une installation electrique",
     highlights: [
       "Le balisage et la signalisation doivent être respectés sans interprétation personnelle.",
       "Les consignes du site complètent la formation générale.",
@@ -304,12 +348,15 @@ const H0B0_CHAPTERS: Chapter[] = [
       "La prévention du risque électrique ne repose pas uniquement sur la connaissance générale des dangers. Elle repose aussi sur les consignes du site, la signalisation en place, les règles d’accès, le balisage, les autorisations éventuelles et l’organisation retenue par l’employeur.",
       "Une pancarte d’interdiction, un affichage de danger électrique, un balisage temporaire, une condamnation d’accès ou une procédure interne doivent être considérés comme des dispositifs de sécurité à part entière. Ils ne doivent ni être ignorés, ni déplacés, ni contournés.",
       "Dans certaines entreprises, des documents spécifiques complètent le cadre général : consignes de sécurité, plans de prévention, permis d’accès, procédures d’intervention, règles de coactivité ou carnets de prescriptions. Même si un titulaire B0 / H0 / H0V n’en rédige pas le contenu, il doit connaître ceux qui s’appliquent à sa mission.",
+      "Pour les opérations d’ordre non électrique concourant à l’exploitation ou à la maintenance, la norme fait aussi apparaître des documents de pilotage comme l’autorisation de travail, le certificat pour tiers ou l’avis de fin de travail selon la situation. Tous les salariés n’émettent pas ces documents, mais ils doivent comprendre leur rôle: matérialiser qu’un accès, une zone et un cadre de sécurité ont bien été définis.",
+      "En H0V, cette culture documentaire est encore plus importante. L’autorisation ne sert pas à 'faire joli': elle confirme la zone concernée, les protections attendues, les limites à ne pas franchir et l’existence d’une surveillance compatible avec le voisinage HT.",
       "Le non-respect d’une signalisation ou d’une consigne écrite constitue une prise de risque, même lorsqu’aucun danger n’est immédiatement visible. En environnement électrique, le fait de ne rien voir ne signifie jamais qu’il n’y a rien à craindre.",
-      "La bonne conduite consiste à lire, comprendre et appliquer les consignes du site avant toute activité, puis à s’arrêter en cas de doute sur une règle d’accès, une zone balisée ou un document applicable.",
+      "La bonne conduite consiste à lire, comprendre et appliquer les consignes du site avant toute activité, puis à s’arrêter en cas de doute sur une règle d’accès, une zone balisée ou un document applicable. Un compte rendu de fin d’activité fait aussi partie de la prévention, car il interdit les retours non autorisés dans la zone de travail et permet à l’organisation de reprendre la main.",
     ],
     essentials: [
       "Le balisage et la signalisation ont une valeur opérationnelle immédiate.",
       "Les consignes du site complètent la formation générale.",
+      "Autorisation de travail et cadre documentaire sécurisent l’accès.",
       "On ne contourne jamais un affichage, un verrouillage ou une interdiction.",
       "En cas de doute sur une consigne : arrêt et demande d’avis.",
     ],
@@ -325,7 +372,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 8 — Types d’environnements électriques",
     subtitle:
       "Reconnaître les contextes où le risque varie selon le lieu, l’activité, l’humidité, l’état des matériels et l’organisation",
-    minSeconds: 150,
+    minSeconds: 210,
     image: "/elearning/h0b0/environnement-travail.png",
     imageAlt: "Illustration des différents types d’environnements électriques",
     highlights: [
@@ -358,7 +405,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 9 — Déplacement, outillage et situations de travail",
     subtitle:
       "Identifier les situations courantes où un déplacement, un outil ou une manutention créent un risque électrique sans intervention directe",
-    minSeconds: 180,
+    minSeconds: 210,
     image: "/elearning/h0b0/outillage-risque.png",
     imageAlt:
       "Illustration des déplacements, manutentions et outillages en environnement électrique",
@@ -392,7 +439,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 10 — Contacts directs et indirects",
     subtitle:
       "Différencier les principaux mécanismes d’exposition et comprendre pourquoi un matériel apparemment banal peut devenir dangereux",
-    minSeconds: 150,
+    minSeconds: 180,
     image: "/elearning/h0b0/risque-electrique.png",
     imageAlt: "Illustration du contact direct et du contact indirect",
     highlights: [
@@ -424,7 +471,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Chapitre 11 — Intensité du courant, durée d’exposition et dommages",
     subtitle:
       "Comprendre comment l’intensité, la durée de passage et le trajet du courant conditionnent la gravité des effets",
-    minSeconds: 150,
+    minSeconds: 210,
     image: "/elearning/h0b0/intensites-effets.png",
     imageAlt:
       "Illustration pédagogique de la relation entre intensité du courant et dommages",
@@ -456,7 +503,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 12 — Électrisation et électrocution",
     subtitle:
       "Distinguer le passage du courant dans le corps et l’issue mortelle, et comprendre pourquoi toute électrisation est grave",
-    minSeconds: 120,
+    minSeconds: 150,
     image: "/elearning/h0b0/electrisation-electrocution.png",
     imageAlt:
       "Illustration pédagogique de l’électrisation et de l’électrocution",
@@ -485,7 +532,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Chapitre 13 — Résistance du corps humain, peau sèche ou humide",
     subtitle:
       "Comprendre l’influence de l’état du corps, du milieu et de l’humidité sur le niveau réel de danger",
-    minSeconds: 150,
+    minSeconds: 180,
     image: "/elearning/h0b0/milieu-sec-humide.png",
     imageAlt:
       "Illustration de l’influence du milieu sec ou humide sur le risque électrique",
@@ -518,7 +565,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 14 — Matériels défectueux et signaux d’alerte",
     subtitle:
       "Reconnaître rapidement un matériel dangereux et adopter la bonne réaction sans bricolage ni improvisation",
-    minSeconds: 150,
+    minSeconds: 180,
     image: "/elearning/h0b0/materiel-defectueux.png",
     imageAlt:
       "Illustration de matériels, câbles et équipements électriques défectueux",
@@ -553,7 +600,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Chapitre 15 — Équipements de protection collective et individuelle",
     subtitle:
       "Identifier les protections qui réduisent le risque et comprendre leur hiérarchie dans la prévention",
-    minSeconds: 150,
+    minSeconds: 180,
     image: "/elearning/h0b0/epi-epc.png",
     imageAlt:
       "Illustration des équipements de protection collective et individuelle",
@@ -583,7 +630,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 16 — Comportements autorisés et interdits",
     subtitle:
       "Savoir précisément ce qu’un titulaire B0 / H0 / H0V peut faire, ne peut pas faire, et doit immédiatement signaler",
-    minSeconds: 180,
+    minSeconds: 240,
     image: "/elearning/h0b0/autorise-interdit.png",
     imageAlt:
       "Illustration des comportements autorisés et interdits en B0 H0 H0V",
@@ -618,7 +665,7 @@ const H0B0_CHAPTERS: Chapter[] = [
       "Chapitre 17 — Conduite à tenir en cas d’anomalie, d’électrisation ou de départ de feu",
     subtitle:
       "Réagir avec méthode, éviter le suraccident et appliquer la bonne séquence de protection et d’alerte",
-    minSeconds: 180,
+    minSeconds: 240,
     image: "/elearning/h0b0/conduite-tenir.png",
     imageAlt:
       "Illustration de la conduite à tenir en cas d’anomalie ou d’accident électrique",
@@ -652,7 +699,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     title: "Chapitre 18 — Synthèse opérationnelle",
     subtitle:
       "Consolider les réflexes essentiels avant l’évaluation finale et fixer les règles à retenir durablement",
-    minSeconds: 150,
+    minSeconds: 180,
     image: "/elearning/h0b0/reflexes-h0b0.png",
     imageAlt: "Illustration de synthèse des réflexes B0 H0 H0V",
     highlights: [
@@ -696,16 +743,9 @@ function chapterProgressPercent(current: number, required: number) {
   return Math.min(100, Math.round((current / required) * 100));
 }
 
-function getFormationTitle(slug: string) {
-  if (slug === "h0b0") {
-    return "Habilitation électrique B0 – H0 – H0V";
-  }
-
-  return `Formation ${slug.toUpperCase()}`;
-}
-
 function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
   return moduleData.sections.map((section, index) => {
+    const normalizedSectionTitle = section.title.replace(/^\d+\.\s*/, "");
     const chapterContent = [
       ...(section.intro ? [section.intro] : []),
       ...(section.content ?? []),
@@ -722,26 +762,29 @@ function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
         : []),
     ];
 
-    const essentials = [
-      ...(section.keyPoints ?? []),
-      ...((section.forbiddenPoints ?? []).map(
-        (item) => `A eviter : ${item}`
-      ) ?? []),
-    ];
+    const essentials = [...(section.keyPoints ?? [])];
 
-    const minSeconds = Math.max(
+    const computedSeconds = Math.max(
       90,
       Math.min(240, 75 + chapterContent.length * 18 + essentials.length * 8)
     );
 
+    const minSeconds =
+      typeof section.estimatedMinutes === "number"
+        ? Math.max(0, section.estimatedMinutes * 60)
+        : computedSeconds;
+
     return {
       key: section.id,
-      title: `Chapitre ${index + 1} - ${section.title}`,
+      title: `Chapitre ${index + 1} - ${normalizedSectionTitle}`,
       subtitle: section.intro ?? moduleData.subtitle ?? moduleData.title,
       minSeconds,
-      image: section.visual?.imagePath,
-      imageAlt:
-        section.visual?.imageAlt ?? section.visual?.title ?? section.title,
+        image: section.chapterImagePath,
+        imageAlt:
+          section.chapterImageAlt ??
+          section.visual?.imageAlt ??
+          section.visual?.title ??
+          section.title,
       highlights,
       content:
         chapterContent.length > 0
@@ -749,6 +792,7 @@ function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
           : ["Contenu a enrichir pour cette section."],
       essentials,
       references: (section.legalRefs ?? []).map((label) => ({ label })),
+      resourceVideos: section.resourceVideos,
     };
   });
 }
@@ -760,17 +804,27 @@ export default function CoursPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progressData, setProgressData] = useState<ChapterProgress[]>([]);
   const [loading, setLoading] = useState(true);
+  const [viewerContext, setViewerContext] = useState<ModuleViewerContext>({
+    isAdmin: false,
+  });
   const [, setTick] = useState(0);
 
   const normalizedSlug = String(slug).toLowerCase();
   const canonicalSlug = resolveModuleSlug(normalizedSlug) ?? normalizedSlug;
+  const currentModuleData = useMemo(() => {
+    if (canonicalSlug === "h0b0") {
+      return null;
+    }
+
+    return getModuleContentBySlug(canonicalSlug);
+  }, [canonicalSlug]);
 
   const chapters = useMemo<Chapter[]>(() => {
     if (canonicalSlug === "h0b0") {
       return H0B0_CHAPTERS;
     }
 
-    const moduleData = getModuleContentBySlug(canonicalSlug);
+    const moduleData = currentModuleData;
 
     if (moduleData) {
       return buildModuleChapters(moduleData);
@@ -789,7 +843,7 @@ export default function CoursPage() {
         references: [REG_REFERENCES.nfC18510],
       },
     ];
-  }, [canonicalSlug]);
+  }, [canonicalSlug, currentModuleData]);
 
   const formationTitle = useMemo(
     () => getModuleLabelBySlug(canonicalSlug),
@@ -797,6 +851,36 @@ export default function CoursPage() {
   );
 
   const currentChapter = chapters[currentIndex] ?? chapters[0];
+  const currentSectionVisual =
+    currentModuleData?.sections[currentIndex]?.visual ?? null;
+  const leadingParagraphs = currentChapter?.content?.slice(0, 4) ?? [];
+  const remainingParagraphs = currentChapter?.content?.slice(4) ?? [];
+  const formattedFormationTitle = formatFrenchDisplayText(formationTitle);
+  const formattedCurrentTitle = formatFrenchDisplayText(currentChapter?.title);
+  const formattedCurrentSubtitle = formatFrenchDisplayText(
+    currentChapter?.subtitle
+  );
+  const formattedSectionVisual = currentSectionVisual
+    ? {
+        ...currentSectionVisual,
+        title: formatFrenchDisplayText(currentSectionVisual.title),
+        subtitle: formatFrenchDisplayText(currentSectionVisual.subtitle),
+        imageAlt: formatFrenchDisplayText(
+          currentSectionVisual.imageAlt ?? currentSectionVisual.title ?? ""
+        ),
+        items: (currentSectionVisual.items ?? []).map((item) =>
+          formatFrenchDisplayText(item)
+        ),
+      }
+    : null;
+  const shouldRenderInlineVisual = Boolean(formattedSectionVisual) &&
+    remainingParagraphs.length >= 3;
+  const earlyBodyParagraphs = shouldRenderInlineVisual
+    ? remainingParagraphs.slice(0, 2)
+    : remainingParagraphs;
+  const lateBodyParagraphs = shouldRenderInlineVisual
+    ? remainingParagraphs.slice(2)
+    : [];
 
   useEffect(() => {
     if (!canonicalSlug) return;
@@ -816,6 +900,31 @@ export default function CoursPage() {
     };
 
     load();
+  }, [canonicalSlug]);
+
+  useEffect(() => {
+    if (!canonicalSlug) return;
+
+    const loadViewerContext = async () => {
+      try {
+        const response = await fetch(`/api/quiz/context/${canonicalSlug}`, {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error("Impossible de charger le contexte du module");
+        }
+
+        const data = await response.json();
+        setViewerContext({
+          isAdmin: Boolean(data?.isAdmin),
+        });
+      } catch {
+        setViewerContext({ isAdmin: false });
+      }
+    };
+
+    loadViewerContext();
   }, [canonicalSlug]);
 
   const currentProgress = progressData.find(
@@ -848,7 +957,9 @@ export default function CoursPage() {
 
   const isLastChapter = currentIndex === chapters.length - 1;
   const canGoNext =
-    currentCompleted || currentSeconds >= (currentChapter?.minSeconds ?? 0);
+    viewerContext.isAdmin ||
+    currentCompleted ||
+    currentSeconds >= (currentChapter?.minSeconds ?? 0);
 
   useEffect(() => {
     if (!canonicalSlug || !currentChapter) return;
@@ -910,7 +1021,7 @@ export default function CoursPage() {
             </p>
 
             <h1 className="mt-3 text-2xl font-bold text-slate-900">
-              {formationTitle}
+              {formattedFormationTitle}
             </h1>
 
             <div className="mt-6 rounded-2xl bg-slate-50 p-4">
@@ -940,6 +1051,7 @@ export default function CoursPage() {
                 );
                 const done = itemProgress?.is_completed ?? false;
                 const unlocked =
+                  viewerContext.isAdmin ||
                   index === 0 ||
                   progressData.some(
                     (item) =>
@@ -966,7 +1078,9 @@ export default function CoursPage() {
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <p className="text-sm font-semibold">{chapter.title}</p>
+                        <p className="text-sm font-semibold">
+                          {formatFrenchDisplayText(chapter.title)}
+                        </p>
                         <p
                           className={`mt-1 text-xs ${
                             currentIndex === index
@@ -999,10 +1113,10 @@ export default function CoursPage() {
           <section className="rounded-[2rem] border border-slate-200 bg-white shadow-sm">
             <div className="border-b border-slate-200 bg-gradient-to-r from-slate-900 via-slate-800 to-red-800 px-6 py-6 text-white md:px-8">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">
-                {currentChapter.title}
+                {formattedCurrentTitle}
               </p>
               <h2 className="mt-2 text-3xl font-bold">
-                {currentChapter.subtitle}
+                {formattedCurrentSubtitle}
               </h2>
 
               <div className="mt-5 grid gap-3 md:grid-cols-3">
@@ -1046,19 +1160,49 @@ export default function CoursPage() {
                   />
                 </div>
               </div>
+
+              {viewerContext.isAdmin ? (
+                <div className="mt-5 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-medium text-white/90 backdrop-blur">
+                  Mode admin : navigation libre entre les chapitres pour
+                  vérification du parcours.
+                </div>
+              ) : null}
             </div>
 
             <div className="px-6 py-6 md:px-8">
+              {leadingParagraphs.length > 0 ? (
+                <div className="mb-6 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Lecture du chapitre
+                  </p>
+                  <div className="mt-3 space-y-4 text-[15px] leading-8 text-slate-700">
+                    {leadingParagraphs.map((paragraph, index) => (
+                      <p key={`${currentChapter.key}-lead-${index}`}>
+                        {formatFrenchDisplayText(paragraph)}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               {currentChapter.image ? (
                 <div className="mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
                   <Image
                     src={currentChapter.image}
-                    alt={currentChapter.imageAlt ?? currentChapter.title}
+                    alt={formatFrenchDisplayText(
+                      currentChapter.imageAlt ?? currentChapter.title
+                    )}
                     width={1200}
                     height={700}
-                    className="mx-auto h-auto max-h-[420px] w-auto object-contain"
+                    className="mx-auto h-auto max-h-[460px] w-full object-contain"
                     priority
                   />
+                </div>
+              ) : null}
+
+              {formattedSectionVisual ? (
+                <div className={currentChapter.image ? "mt-6" : ""}>
+                  <VisualCard visual={formattedSectionVisual} />
                 </div>
               ) : null}
 
@@ -1073,7 +1217,7 @@ export default function CoursPage() {
                         Point clé {index + 1}
                       </p>
                       <p className="mt-2 text-sm leading-6 text-slate-700">
-                        {item}
+                        {formatFrenchDisplayText(item)}
                       </p>
                     </div>
                   ))}
@@ -1081,12 +1225,28 @@ export default function CoursPage() {
               ) : null}
 
               <div className="mt-8 space-y-5 text-[15px] leading-8 text-slate-700">
-                {currentChapter.content.map((paragraph, index) => (
+                {earlyBodyParagraphs.map((paragraph, index) => (
                   <p key={`${currentChapter.key}-content-${index}`}>
-                    {paragraph}
+                    {formatFrenchDisplayText(paragraph)}
                   </p>
                 ))}
               </div>
+
+              {shouldRenderInlineVisual && formattedSectionVisual ? (
+                <div className="mt-8">
+                  <VisualCard visual={formattedSectionVisual} compact />
+                </div>
+              ) : null}
+
+              {lateBodyParagraphs.length > 0 ? (
+                <div className="mt-8 space-y-5 text-[15px] leading-8 text-slate-700">
+                  {lateBodyParagraphs.map((paragraph, index) => (
+                    <p key={`${currentChapter.key}-late-content-${index}`}>
+                      {formatFrenchDisplayText(paragraph)}
+                    </p>
+                  ))}
+                </div>
+              ) : null}
 
               {(currentChapter.essentials ?? []).length > 0 && (
                 <div className="mt-8 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-5 shadow-sm">
@@ -1101,7 +1261,7 @@ export default function CoursPage() {
                         className="rounded-xl border border-amber-100 bg-white p-4"
                       >
                         <p className="text-sm leading-6 text-slate-700">
-                          {item}
+                          {formatFrenchDisplayText(item)}
                         </p>
                       </div>
                     ))}
@@ -1122,9 +1282,44 @@ export default function CoursPage() {
                         className="rounded-xl border border-slate-100 bg-slate-50 p-4"
                       >
                         <p className="text-sm leading-6 text-slate-700">
-                          {ref.label}
+                          {formatFrenchDisplayText(ref.label)}
                         </p>
                       </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {(currentChapter.resourceVideos ?? []).length > 0 && (
+                <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Ressources video INRS
+                  </p>
+
+                  <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                    {(currentChapter.resourceVideos ?? []).map((video, index) => (
+                      <article
+                        key={`${currentChapter.key}-video-${index}`}
+                        className="rounded-[1.25rem] border border-slate-200 bg-white p-5"
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
+                          {video.provider ?? "Video"}
+                        </p>
+                        <h3 className="mt-3 text-lg font-bold text-slate-900">
+                          {formatFrenchDisplayText(video.title)}
+                        </h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-600">
+                          {formatFrenchDisplayText(video.description)}
+                        </p>
+                        <a
+                          href={video.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                        >
+                          {video.ctaLabel ?? "Voir la ressource"}
+                        </a>
+                      </article>
                     ))}
                   </div>
                 </div>
@@ -1190,7 +1385,7 @@ export default function CoursPage() {
                   <Link
                     href={`/modules/${canonicalSlug}/quiz`}
                     className={`rounded-xl px-5 py-3 text-sm font-semibold text-white transition ${
-                      globalPercent === 100
+                      viewerContext.isAdmin || globalPercent === 100
                         ? "bg-green-600 hover:opacity-90"
                         : "pointer-events-none bg-slate-400"
                     }`}
@@ -1207,7 +1402,7 @@ export default function CoursPage() {
                 </p>
               )}
 
-              {isLastChapter && globalPercent < 100 && (
+              {isLastChapter && globalPercent < 100 && !viewerContext.isAdmin && (
                 <p className="mt-4 text-sm font-medium text-amber-700">
                   Le quiz sera débloqué lorsque tous les chapitres auront été
                   validés.

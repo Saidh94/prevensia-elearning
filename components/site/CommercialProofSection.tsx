@@ -17,7 +17,7 @@ type TrainingRow = {
 
 const electricalRows: TrainingRow[] = [
   {
-    title: "H0B0 e-learning",
+    title: "H0B0 / H0V - e-learning + entretien 30 min",
     duration: "4 à 6 heures",
     pricePerPerson: "À partir de 150 € HT / personne",
     participants: "Accès individuel",
@@ -52,7 +52,7 @@ const electricalRows: TrainingRow[] = [
     secondaryCtaLabel: "Demander un devis",
   },
   {
-    title: "BS / BE Manœuvre",
+    title: "BS et BE Manœuvre - e-learning + classe virtuelle",
     duration: "2 jours en initial / 1,5 jour en recyclage",
     pricePerPerson: "À partir de 350 € HT / personne",
     pricePerGroup: "À partir de 1 600 € HT / groupe",
@@ -68,7 +68,7 @@ const electricalRows: TrainingRow[] = [
     secondaryCtaLabel: "Demander un devis",
   },
   {
-    title: "B1 / B2 / BR / BC / BE",
+    title: "B1 / B1V / B2 / B2V / BR / BC - e-learning + journée présentielle",
     duration: "3 jours en initial / 2 jours en recyclage",
     pricePerPerson: "À partir de 500 € HT / personne",
     pricePerGroup: "À partir de 2 000 € HT / groupe",

@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 type QuizResult = {
@@ -26,9 +25,15 @@ type EnrollmentRecord = {
   formation: FormationRecord[] | FormationRecord | null;
 };
 
-type ProfileRecord = {
-  first_name: string | null;
-  last_name: string | null;
+type PdfPayload = {
+  enrollmentId: string;
+  formation: string;
+  date: string;
+  score?: string;
+  total?: string;
+  passingScore?: string;
+  scorePercent?: string;
+  passed?: string;
 };
 
 function normalizeFormation(
@@ -46,40 +51,26 @@ function normalizeStatus(value: string | null | undefined): string {
     .replace(/[\s-]+/g, "_");
 }
 
-function formatDate(value: string | null | undefined) {
-  if (!value) return null;
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return null;
-  return date.toLocaleDateString("fr-FR");
-}
-
-function buildReference(slug: string, completedAt?: string | null) {
-  const date = completedAt ? new Date(completedAt) : new Date();
-  const yy = date.getFullYear().toString().slice(-2);
-  const mm = String(date.getMonth() + 1).padStart(2, "0");
-  const dd = String(date.getDate()).padStart(2, "0");
-  return `PF-${yy}${mm}${dd}-${slug.toUpperCase()}`;
-}
-
 export default function AttestationPage() {
   const params = useParams();
   const slugParam = params.slug;
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const slug = useMemo(() => {
     if (Array.isArray(slugParam)) {
       return (slugParam[0] ?? "").toLowerCase();
     }
+
     return String(slugParam ?? "").toLowerCase();
   }, [slugParam]);
 
   const supabase = useMemo(() => createClient(), []);
 
   const [loading, setLoading] = useState(true);
-  const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
-  const [enrollmentStatus, setEnrollmentStatus] = useState<string | null>(null);
   const [accessError, setAccessError] = useState<string | null>(null);
-  const [formationTitle, setFormationTitle] = useState<string | null>(null);
-  const [learnerName, setLearnerName] = useState<string | null>(null);
+  const [enrollmentStatus, setEnrollmentStatus] = useState<string | null>(null);
+  const [payload, setPayload] = useState<PdfPayload | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     if (!slug) {
@@ -93,18 +84,16 @@ export default function AttestationPage() {
         setLoading(true);
         setAccessError(null);
 
+        let quizResult: QuizResult | null = null;
         const storageKey = `quiz-result-${slug}`;
         const raw = localStorage.getItem(storageKey);
 
         if (raw) {
           try {
-            const parsed = JSON.parse(raw) as QuizResult;
-            setQuizResult(parsed);
+            quizResult = JSON.parse(raw) as QuizResult;
           } catch {
-            setQuizResult(null);
+            quizResult = null;
           }
-        } else {
-          setQuizResult(null);
         }
 
         const {
@@ -114,39 +103,20 @@ export default function AttestationPage() {
 
         if (userError || !user) {
           setAccessError("Utilisateur non authentifie.");
-          setEnrollmentStatus(null);
           return;
-        }
-
-        const { data: profileData, error: profileError } = await supabase
-          .from("profiles")
-          .select("first_name, last_name")
-          .eq("id", user.id)
-          .maybeSingle();
-
-        if (!profileError && profileData) {
-          const typedProfile = profileData as ProfileRecord;
-          const fullName = [typedProfile.first_name, typedProfile.last_name]
-            .filter(Boolean)
-            .join(" ")
-            .trim();
-
-          setLearnerName(fullName || user.email || "Apprenant");
-        } else {
-          setLearnerName(user.email || "Apprenant");
         }
 
         const { data, error } = await supabase
           .from("enrollments")
           .select(
             `
-              id,
-              status,
-              formation:formations (
-                slug,
-                title
-              )
-            `
+            id,
+            status,
+            formation:formations (
+              slug,
+              title
+            )
+          `
           )
           .eq("user_id", user.id);
 
@@ -164,24 +134,64 @@ export default function AttestationPage() {
         });
 
         if (!matchedEnrollment) {
-          setEnrollmentStatus(null);
           setAccessError("Aucune inscription trouvee pour cette formation.");
           return;
         }
 
         const matchedFormation = normalizeFormation(matchedEnrollment.formation);
+        const normalizedEnrollmentStatus = normalizeStatus(matchedEnrollment.status);
 
-        setFormationTitle(
-          matchedFormation?.title ||
+        setEnrollmentStatus(normalizedEnrollmentStatus);
+
+        if (normalizedEnrollmentStatus !== "completed") {
+          return;
+        }
+
+        const completedAt = quizResult?.completedAt
+          ? new Date(quizResult.completedAt).toLocaleDateString("fr-FR")
+          : new Date().toLocaleDateString("fr-FR");
+
+        const computedPercent =
+          typeof quizResult?.score === "number" &&
+          typeof quizResult?.total === "number" &&
+          quizResult.total > 0
+            ? Math.round((quizResult.score / quizResult.total) * 100)
+            : undefined;
+
+        setPayload({
+          enrollmentId: matchedEnrollment.id,
+          formation:
+            matchedFormation?.title ||
             (slug === "h0b0"
               ? "Habilitation electrique H0B0"
-              : slug.toUpperCase())
-        );
-
-        setEnrollmentStatus(normalizeStatus(matchedEnrollment.status));
+              : slug.toUpperCase()),
+          date: completedAt,
+          score:
+            typeof quizResult?.score === "number"
+              ? String(quizResult.score)
+              : undefined,
+          total:
+            typeof quizResult?.total === "number"
+              ? String(quizResult.total)
+              : undefined,
+          passingScore:
+            typeof quizResult?.passingScore === "number"
+              ? String(quizResult.passingScore)
+              : undefined,
+          scorePercent:
+            typeof computedPercent === "number"
+              ? String(computedPercent)
+              : undefined,
+          passed:
+            typeof quizResult?.success === "boolean"
+              ? String(quizResult.success)
+              : undefined,
+        });
       } catch (error) {
         console.error("Erreur chargement attestation :", error);
-        setAccessError("Impossible de verifier vos droits d'acces a l'attestation.");
+        setAccessError(
+          "Impossible de preparer l'attestation de reussite pour cette formation."
+        );
       } finally {
         setLoading(false);
       }
@@ -190,17 +200,18 @@ export default function AttestationPage() {
     loadData();
   }, [slug, supabase]);
 
-  const formationLabel =
-    formationTitle ||
-    (slug === "h0b0" ? "Habilitation electrique H0B0" : slug.toUpperCase());
+  useEffect(() => {
+    if (!payload || submitted || loading || enrollmentStatus !== "completed") {
+      return;
+    }
 
-  const completedDate = formatDate(quizResult?.completedAt);
-  const issueDate = new Date().toLocaleDateString("fr-FR");
-  const reference = buildReference(slug, quizResult?.completedAt);
-  const scorePercent =
-    quizResult && quizResult.total > 0
-      ? Math.round((quizResult.score / quizResult.total) * 100)
-      : null;
+    const timeout = window.setTimeout(() => {
+      formRef.current?.requestSubmit();
+      setSubmitted(true);
+    }, 150);
+
+    return () => window.clearTimeout(timeout);
+  }, [enrollmentStatus, loading, payload, submitted]);
 
   if (loading) {
     return (
@@ -210,10 +221,11 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Verification de la validation finale
+            Preparation du document PDF
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Verification de vos droits d&apos;acces a l&apos;attestation en cours...
+            Verification de votre validation finale et preparation du titre
+            d&apos;habilitation en cours...
           </p>
         </div>
       </main>
@@ -228,12 +240,9 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Impossible de verifier votre acces
+            Impossible de preparer votre attestation
           </h1>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            {accessError}
-          </p>
-
+          <p className="mt-4 text-base leading-7 text-slate-600">{accessError}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/dashboard"
@@ -254,56 +263,19 @@ export default function AttestationPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
             Attestation verrouillee
           </p>
-
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
             Validation finale requise
           </h1>
-
           <p className="mt-4 text-base leading-7 text-slate-600">
-            L&apos;attestation n&apos;est disponible qu&apos;apres validation finale
-            du parcours avec le formateur.
+            Le PDF de reussite n&apos;est disponible qu&apos;apres validation finale du
+            parcours.
           </p>
-
-          <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <p className="text-sm font-semibold text-slate-900">
-              Etat actuel du parcours
-            </p>
-
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
-              <li>
-                Quiz :{" "}
-                <span className="font-semibold text-slate-900">
-                  {quizResult?.success ? "reussi" : "non valide ou non trouve"}
-                </span>
-              </li>
-              <li>
-                Statut dossier :{" "}
-                <span className="font-semibold text-slate-900">
-                  {enrollmentStatus ?? "non defini"}
-                </span>
-              </li>
-              <li>
-                Attestation :{" "}
-                <span className="font-semibold text-slate-900">
-                  disponible apres entretien et validation finale
-                </span>
-              </li>
-            </ul>
-          </div>
-
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/booking"
+              href="/dashboard"
               className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
             >
-              Planifier / voir l&apos;entretien
-            </Link>
-
-            <Link
-              href={`/modules/${slug}/quiz`}
-              className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-            >
-              Retour au quiz
+              Retour au dashboard
             </Link>
           </div>
         </div>
@@ -311,197 +283,73 @@ export default function AttestationPage() {
     );
   }
 
+  if (!payload) {
+    return (
+      <main className="min-h-screen bg-slate-50 px-4 py-10">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Attestation
+          </p>
+          <h1 className="mt-3 text-3xl font-bold text-slate-900">
+            Preparation du PDF en cours
+          </h1>
+        </div>
+      </main>
+    );
+  }
+
   return (
-    <main className="min-h-screen bg-slate-100 px-4 py-10 print:bg-white print:px-0 print:py-0">
-      <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm print:max-w-none print:rounded-none print:border-0 print:p-10 print:shadow-none">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 print:hidden">
-          Attestation
+    <main className="min-h-screen bg-slate-50 px-4 py-10">
+      <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+          Attestation de reussite
         </p>
 
-        <h1 className="mt-3 text-3xl font-bold text-slate-900 print:hidden">
-          Attestation de formation validee
+        <h1 className="mt-3 text-3xl font-bold text-slate-900">
+          Ouverture du PDF PREVENSIA
         </h1>
 
-        <div className="mt-8 rounded-[1.75rem] border-2 border-slate-300 bg-slate-50 p-8 print:mt-4 print:rounded-none print:border-slate-300 print:bg-white">
-          <div className="flex items-start justify-between gap-6">
-            <div className="min-w-0">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-500">
-                PREVENSIA FORMATION
-              </p>
-              <h2 className="mt-3 text-2xl font-bold text-slate-900">
-                Fiche de reussite et validation apprenant
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Document apprenant remis apres validation complete du parcours.
-              </p>
-            </div>
+        <p className="mt-4 text-base leading-7 text-slate-600">
+          Le document PDF 2 pages est prepare avec le titre d&apos;habilitation en
+          page 1 et l&apos;attestation de reussite en page 2.
+        </p>
 
-            <div className="shrink-0 text-right">
-              <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                  Reference
-                </p>
-                <p className="mt-1 text-sm font-bold text-slate-900">
-                  {reference}
-                </p>
-                <p className="mt-1 text-xs text-slate-500">Edite le {issueDate}</p>
-              </div>
+        <form ref={formRef} action="/api/attestation" method="POST" className="hidden">
+          <input type="hidden" name="enrollmentId" value={payload.enrollmentId} />
+          <input type="hidden" name="formation" value={payload.formation} />
+          <input type="hidden" name="date" value={payload.date} />
+          {payload.score ? <input type="hidden" name="score" value={payload.score} /> : null}
+          {payload.total ? <input type="hidden" name="total" value={payload.total} /> : null}
+          {payload.passingScore ? (
+            <input type="hidden" name="passingScore" value={payload.passingScore} />
+          ) : null}
+          {payload.scorePercent ? (
+            <input type="hidden" name="scorePercent" value={payload.scorePercent} />
+          ) : null}
+          {payload.passed ? <input type="hidden" name="passed" value={payload.passed} /> : null}
+        </form>
 
-              <div className="mt-4 flex justify-end">
-                <Image
-                  src="/images/logo-prevensia-formation.jpg"
-                  alt="Logo Prevensia Formation"
-                  width={120}
-                  height={120}
-                  className="h-auto w-[110px] object-contain"
-                />
-              </div>
-            </div>
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-sm font-semibold text-slate-900">
+            {submitted
+              ? "Si le PDF ne s'ouvre pas, utilisez le bouton ci-dessous."
+              : "Ouverture automatique en cours..."}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => formRef.current?.requestSubmit()}
+              className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Ouvrir le PDF
+            </button>
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+            >
+              Retour au dashboard
+            </Link>
           </div>
-
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Apprenant
-              </p>
-              <p className="mt-3 text-2xl font-bold text-slate-900">
-                {learnerName || "Apprenant"}
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Formation
-              </p>
-              <p className="mt-3 text-xl font-bold text-slate-900">
-                {formationLabel}
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Statut
-              </p>
-              <p className="mt-3 text-4xl font-extrabold text-emerald-700">
-                {quizResult?.success ? "REUSSI" : "VALIDE"}
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Resultat obtenu
-              </p>
-              <p className="mt-3 text-2xl font-bold text-slate-900">
-                {quizResult
-                  ? `${quizResult.score} / ${quizResult.total}`
-                  : "Validation finale"}
-              </p>
-              {scorePercent !== null ? (
-                <p className="mt-2 text-sm text-slate-600">{scorePercent}% de reussite</p>
-              ) : null}
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Cadre
-              </p>
-              <p className="mt-3 text-2xl font-bold text-blue-800">
-                {slug.toUpperCase()}
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
-            <p className="text-base leading-8 text-slate-700">
-              Nous attestons que{" "}
-              <span className="font-semibold text-slate-900">
-                {learnerName || "l'apprenant"}
-              </span>{" "}
-              a suivi et valide le parcours theorique PREVENSIA FORMATION
-              correspondant a{" "}
-              <span className="font-semibold text-slate-900">
-                {formationLabel}
-              </span>
-              .
-            </p>
-
-            <div className="mt-6 grid gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  Referentiel
-                </p>
-                <p className="mt-2 text-base font-semibold text-slate-900">
-                  NF C 18-510
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                  Date de validation
-                </p>
-                <p className="mt-2 text-base font-semibold text-slate-900">
-                  {completedDate || issueDate}
-                </p>
-              </div>
-            </div>
-
-            <p className="mt-6 text-sm leading-7 text-slate-600">
-              Cette fiche de reussite apprenant confirme la validation du
-              parcours e-learning et de l&apos;entretien ou de la validation
-              finale prevue par PREVENSIA FORMATION. La delivrance de
-              l&apos;habilitation electrique releve exclusivement de
-              l&apos;employeur selon le poste, le contexte d&apos;intervention
-              et les exigences applicables.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="text-sm font-semibold text-slate-900">
-                Signature organisme
-              </p>
-              <div className="mt-6 flex min-h-[72px] items-end border-t border-slate-300 pt-2 text-sm text-slate-500">
-                PREVENSIA FORMATION
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="text-sm font-semibold text-slate-900">
-                Signature apprenant
-              </p>
-              <div className="mt-6 flex min-h-[72px] items-end border-t border-slate-300 pt-2 text-sm text-slate-500">
-                {learnerName || "Nom / signature"}
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-4">
-              <p className="text-sm font-semibold text-slate-900">
-                Validation finale
-              </p>
-              <div className="mt-6 flex min-h-[72px] items-end border-t border-slate-300 pt-2 text-sm text-slate-500">
-                Parcours valide
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-3 print:hidden">
-          <button
-            type="button"
-            onClick={() => window.print()}
-            className="rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
-          >
-            Imprimer / enregistrer en PDF
-          </button>
-
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
-          >
-            Retour au dashboard
-          </Link>
         </div>
       </div>
     </main>

@@ -1,0 +1,20 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F0FDF4"/>
+  <rect x="56" y="56" width="1088" height="588" rx="28" fill="white" stroke="#BBF7D0" stroke-width="2"/>
+  <text x="92" y="124" fill="#166534" font-family="Arial, sans-serif" font-size="38" font-weight="700">Operations BS autorisees</text>
+  <text x="92" y="166" fill="#166534" font-family="Arial, sans-serif" font-size="22">Remplacement simple et raccordement elementaire dans un cadre strict</text>
+  <rect x="92" y="228" width="470" height="300" rx="24" fill="#ECFCCB" stroke="#84CC16"/>
+  <rect x="638" y="228" width="470" height="300" rx="24" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <text x="126" y="284" fill="#3F6212" font-family="Arial, sans-serif" font-size="30" font-weight="700">Autorise si cadre reuni</text>
+  <text x="126" y="330" fill="#365314" font-family="Arial, sans-serif" font-size="22">• Remplacement lampe, fusible BT, prise, interrupteur</text>
+  <text x="126" y="370" fill="#365314" font-family="Arial, sans-serif" font-size="22">• Raccordement simple hors tension</text>
+  <text x="126" y="410" fill="#365314" font-family="Arial, sans-serif" font-size="22">• Circuit identifie et procedure connue</text>
+  <text x="126" y="450" fill="#365314" font-family="Arial, sans-serif" font-size="22">• Materiel simple, support adapte, environnement sain</text>
+  <text x="672" y="284" fill="#991B1B" font-family="Arial, sans-serif" font-size="30" font-weight="700">Interdit / hors cadre</text>
+  <text x="672" y="330" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="22">• Recherche de panne</text>
+  <text x="672" y="370" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="22">• Modification de schema ou adaptation de cablage</text>
+  <text x="672" y="410" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="22">• Circuit non reperé ou documentation absente</text>
+  <text x="672" y="450" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="22">• Situation qui bascule vers BR ou travaux</text>
+  <rect x="92" y="566" width="1016" height="46" rx="16" fill="#0F172A"/>
+  <text x="120" y="596" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="20">Reflexe PREVENSIA: si l'action cesse d'etre simple, on stoppe et on requalifie.</text>
+</svg>

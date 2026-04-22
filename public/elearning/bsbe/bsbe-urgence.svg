@@ -1,0 +1,20 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FEF2F2"/>
+  <rect x="56" y="56" width="1088" height="588" rx="28" fill="white" stroke="#FECACA" stroke-width="2"/>
+  <text x="92" y="124" fill="#B91C1C" font-family="Arial, sans-serif" font-size="38" font-weight="700">Incident, incendie, electrisation</text>
+  <text x="92" y="166" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">La bonne reaction vaut mieux qu'un geste precipite</text>
+  <rect x="92" y="236" width="1016" height="110" rx="20" fill="#7F1D1D"/>
+  <text x="130" y="304" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="28" font-weight="700">STOPPER - PROTEGER - ALERTER - SECOURIR SANS SURACCIDENT</text>
+  <rect x="92" y="396" width="312" height="168" rx="24" fill="#FFF1F2" stroke="#FDA4AF"/>
+  <rect x="444" y="396" width="312" height="168" rx="24" fill="#FFF1F2" stroke="#FDA4AF"/>
+  <rect x="796" y="396" width="312" height="168" rx="24" fill="#FFF1F2" stroke="#FDA4AF"/>
+  <text x="128" y="454" fill="#9F1239" font-family="Arial, sans-serif" font-size="26" font-weight="700">Incident</text>
+  <text x="128" y="492" fill="#881337" font-family="Arial, sans-serif" font-size="18">Pas de rearmement repetitif</text>
+  <text x="128" y="520" fill="#881337" font-family="Arial, sans-serif" font-size="18">Pas d'ouverture pour comprendre</text>
+  <text x="482" y="454" fill="#9F1239" font-family="Arial, sans-serif" font-size="26" font-weight="700">Incendie</text>
+  <text x="482" y="492" fill="#881337" font-family="Arial, sans-serif" font-size="18">Consignes de site et mise a distance</text>
+  <text x="482" y="520" fill="#881337" font-family="Arial, sans-serif" font-size="18">Ne jamais se surexposer</text>
+  <text x="836" y="454" fill="#9F1239" font-family="Arial, sans-serif" font-size="26" font-weight="700">Electrisation</text>
+  <text x="836" y="492" fill="#881337" font-family="Arial, sans-serif" font-size="18">Supprimer le danger avant le secours</text>
+  <text x="836" y="520" fill="#881337" font-family="Arial, sans-serif" font-size="18">Une seule victime, pas deux</text>
+</svg>

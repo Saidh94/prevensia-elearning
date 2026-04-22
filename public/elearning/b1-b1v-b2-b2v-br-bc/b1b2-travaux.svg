@@ -1,0 +1,32 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#FEFCE8"/>
+  <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#FDE68A" stroke-width="2"/>
+
+  <text x="92" y="122" fill="#A16207" font-family="Arial, sans-serif" font-size="38" font-weight="700">
+    Preparation des travaux et execution encadree
+  </text>
+  <text x="92" y="164" fill="#854D0E" font-family="Arial, sans-serif" font-size="22">
+    Le B2 organise le travail. Le B1 execute selon les consignes dans une zone maitrisee.
+  </text>
+
+  <rect x="92" y="228" width="1016" height="110" rx="22" fill="#B45309"/>
+  <text x="600" y="276" text-anchor="middle" fill="#FFF7ED" font-family="Arial, sans-serif" font-size="26" font-weight="700">
+    Identifier le materiel - delimiter la zone - verifier les protections
+  </text>
+  <text x="600" y="312" text-anchor="middle" fill="#FFF7ED" font-family="Arial, sans-serif" font-size="22">
+    briefer l'equipe - suspendre si l'operation change de nature
+  </text>
+
+  <rect x="92" y="406" width="470" height="210" rx="24" fill="#FEF3C7" stroke="#F59E0B"/>
+  <rect x="638" y="406" width="470" height="210" rx="24" fill="#DBEAFE" stroke="#60A5FA"/>
+
+  <text x="136" y="474" fill="#92400E" font-family="Arial, sans-serif" font-size="30" font-weight="700">Charge de travaux B2</text>
+  <text x="136" y="520" fill="#78350F" font-family="Arial, sans-serif" font-size="20">Prepare la methode, delimite la zone,</text>
+  <text x="136" y="552" fill="#78350F" font-family="Arial, sans-serif" font-size="20">controle les protections et coordonne l'equipe.</text>
+  <text x="136" y="584" fill="#78350F" font-family="Arial, sans-serif" font-size="20">Stoppe le travail au moindre ecart.</text>
+
+  <text x="682" y="474" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="30" font-weight="700">Executant B1</text>
+  <text x="682" y="520" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="20">Respecte les consignes, reste dans la zone</text>
+  <text x="682" y="552" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="20">definie et remonte immediatement tout doute,</text>
+  <text x="682" y="584" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="20">incident ou changement de contexte.</text>
+</svg>

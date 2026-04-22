@@ -1,10 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function DemandeDevis() {
-  const [formationType, setFormationType] = useState("");
-  const [formationDetail, setFormationDetail] = useState("");
+function buildPrefillMessage({
+  formation,
+  date,
+  format,
+  location,
+}: {
+  formation: string;
+  date: string;
+  format: string;
+  location: string;
+}) {
+  const lines = [
+    formation ? `Je souhaite organiser le format suivant : ${formation}.` : "",
+    date ? `Date souhaitee ou creneau repere : ${date}.` : "",
+    format ? `Format repere : ${format}.` : "",
+    location ? `Lieu souhaite / repere : ${location}.` : "",
+  ].filter(Boolean);
+
+  return lines.length > 0
+    ? `${lines.join("\n")}\n\nMerci de me recontacter pour confirmer l'organisation et les modalites.`
+    : "";
+}
+
+function DemandeDevisForm() {
+  const searchParams = useSearchParams();
+  const requestedType = searchParams.get("type") ?? "";
+  const requestedDetail = searchParams.get("detail") ?? "";
+  const requestedFormation = searchParams.get("formation") ?? "";
+  const requestedDate = searchParams.get("date") ?? "";
+  const requestedFormat = searchParams.get("format") ?? "";
+  const requestedLocation = searchParams.get("location") ?? "";
+
+  const [formationType, setFormationType] = useState(requestedType);
+  const [formationDetail, setFormationDetail] = useState(requestedDetail);
+
+  useEffect(() => {
+    setFormationType(requestedType);
+    setFormationDetail(requestedDetail);
+  }, [requestedDetail, requestedType]);
+
+  const prefillMessage = useMemo(
+    () =>
+      buildPrefillMessage({
+        formation: requestedFormation,
+        date: requestedDate,
+        format: requestedFormat,
+        location: requestedLocation,
+      }),
+    [requestedDate, requestedFormation, requestedFormat, requestedLocation]
+  );
 
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-16 text-slate-900 sm:px-6 lg:px-8">
@@ -21,7 +69,9 @@ export default function DemandeDevis() {
           Decrivez votre besoin en formation en habilitation electrique, SST,
           securite incendie, exploitation SSI ou exploitation sprinkler. Nous
           vous repondrons avec une proposition adaptee a votre activite, a votre
-          effectif et a votre delai souhaite.
+          effectif, a votre delai souhaite et au bon format PREVENSIA :
+          e-learning seul, e-learning + classe virtuelle, e-learning + entretien
+          30 min ou parcours mixte avec presentiel.
         </p>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
@@ -32,6 +82,16 @@ export default function DemandeDevis() {
             <strong>Telephone :</strong> 01 89 62 94 92
           </p>
         </div>
+
+        {requestedFormation || requestedDate || requestedFormat || requestedLocation ? (
+          <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
+            <p className="font-semibold">Contexte pre-rempli depuis le calendrier</p>
+            {requestedFormation ? <p className="mt-2">Formation : {requestedFormation}</p> : null}
+            {requestedDate ? <p className="mt-1">Date reperee : {requestedDate}</p> : null}
+            {requestedFormat ? <p className="mt-1">Format : {requestedFormat}</p> : null}
+            {requestedLocation ? <p className="mt-1">Lieu : {requestedLocation}</p> : null}
+          </div>
+        ) : null}
 
         <form
           action="https://formspree.io/f/myknqwyb"
@@ -92,16 +152,46 @@ export default function DemandeDevis() {
                   H0B0 / H0V - E-learning + entretien 30 min
                 </option>
                 <option value="bs-be-manoeuvre">
-                  BS / BE Manoeuvre - E-learning + visio
+                  BS / BE Manoeuvre - Initiale e-learning + classe virtuelle
+                </option>
+                <option value="bs-be-manoeuvre-entreprise">
+                  BS / BE Manoeuvre - Initiale e-learning + session entreprise
                 </option>
                 <option value="bs-be-recyclage">
-                  BS / BE Manoeuvre - Recyclage
+                  BS / BE Manoeuvre - Recyclage e-learning + visio
+                </option>
+                <option value="b1-b1v">
+                  B1 / B1V - Parcours cible executant electricien
+                </option>
+                <option value="b1-b1v-recyclage">
+                  B1 / B1V - Recyclage
+                </option>
+                <option value="b2-b2v">
+                  B2 / B2V - Parcours cible charge de travaux
+                </option>
+                <option value="b2-b2v-recyclage">
+                  B2 / B2V - Recyclage
+                </option>
+                <option value="br">
+                  BR - Parcours cible intervention generale
+                </option>
+                <option value="br-recyclage">
+                  BR - Recyclage
+                </option>
+                <option value="bc">
+                  BC - Parcours cible consignation
+                </option>
+                <option value="bc-recyclage">
+                  BC - Recyclage
+                </option>
+                <option value="be-verification-mesurage">
+                  BE Verification / BE Mesurage - Sur devis
                 </option>
                 <option value="b1-b1v-b2-b2v-br-bc">
-                  B1 B1V B2 B2V BR BC - Parcours mixte
+                  B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles
                 </option>
                 <option value="b1-b1v-b2-b2v-br-bc-recyclage">
-                  B1 B1V B2 B2V BR BC - Recyclage
+                  B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles
                 </option>
               </select>
             </div>
@@ -260,6 +350,7 @@ export default function DemandeDevis() {
               type="text"
               name="ville"
               placeholder="Ex : Paris, Noisy-le-Grand, sur site client..."
+              defaultValue={requestedLocation}
               className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
             />
           </div>
@@ -284,9 +375,15 @@ export default function DemandeDevis() {
               name="message"
               placeholder="Decrivez votre besoin, le niveau attendu, le nombre de stagiaires et toute contrainte particuliere."
               required
+              defaultValue={prefillMessage}
               className="min-h-[160px] w-full rounded-[1.5rem] border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
             />
           </div>
+
+          <input type="hidden" name="formation_prefill" value={requestedFormation} readOnly />
+          <input type="hidden" name="date_prefill" value={requestedDate} readOnly />
+          <input type="hidden" name="format_prefill" value={requestedFormat} readOnly />
+          <input type="hidden" name="location_prefill" value={requestedLocation} readOnly />
 
           <button
             type="submit"
@@ -297,5 +394,21 @@ export default function DemandeDevis() {
         </form>
       </div>
     </main>
+  );
+}
+
+export default function DemandeDevisPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-50 px-4 py-16 text-slate-900 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
+            Chargement du formulaire...
+          </div>
+        </main>
+      }
+    >
+      <DemandeDevisForm />
+    </Suspense>
   );
 }

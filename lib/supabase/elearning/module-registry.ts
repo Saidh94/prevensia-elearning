@@ -15,6 +15,8 @@ const MODULE_ALIASES: Record<string, string[]> = {
   ],
   b1b2brbc: [
     "b1b2brbc",
+    "b1-b1v-b2-b2v-br-bc",
+    "b1_b1v_b2_b2v_br_bc",
     "b1-b2-br-bc",
     "b1_b2_br_bc",
     "b1b2-brbc",
@@ -36,13 +38,14 @@ export function resolveModuleSlug(value: string | null | undefined): string | nu
   const normalized = normalizeSlugKey(value);
 
   if (!normalized) return null;
-  if (modulesContent[normalized]) return normalized;
 
   for (const [canonical, aliases] of Object.entries(MODULE_ALIASES)) {
     if (aliases.includes(normalized)) {
       return canonical;
     }
   }
+
+  if (modulesContent[normalized]) return normalized;
 
   return null;
 }

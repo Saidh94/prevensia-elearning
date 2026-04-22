@@ -7,7 +7,6 @@ import {
   rgb,
 } from "pdf-lib";
 import fs from "fs/promises";
-import path from "path";
 
 export type AttestationPdfInput = {
   userId: string;
@@ -186,13 +185,10 @@ function drawLine(
   });
 }
 
-async function loadLogoBuffer() {
-  const projectRoot = /* turbopackIgnore: true */ process.cwd();
-  const candidates = [
-    path.join(projectRoot, "public", "images", "logo-prevensia.png"),
-    path.join(projectRoot, "public", "images", "logo-prevensia-formation.jpg"),
-    path.join(projectRoot, "public", "images", "logo-prevensia.jpg"),
-  ];
+async function readFirstExistingAsset(relativePaths: string[]) {
+  const candidates = relativePaths.map(
+    (relativePath) => new URL(relativePath, import.meta.url)
+  );
 
   for (const filePath of candidates) {
     try {
@@ -205,22 +201,19 @@ async function loadLogoBuffer() {
   return null;
 }
 
+async function loadLogoBuffer() {
+  return readFirstExistingAsset([
+    "../../public/images/logo-prevensia.png",
+    "../../public/images/logo-prevensia-formation.jpg",
+    "../../public/images/logo-prevensia.jpg",
+  ]);
+}
+
 async function loadSignatureBuffer() {
-  const projectRoot = /* turbopackIgnore: true */ process.cwd();
-  const candidates = [
-    path.join(projectRoot, "public", "images", "signature-prevensia.png"),
-    path.join(projectRoot, "public", "images", "signature-prevensia.jpg"),
-  ];
-
-  for (const filePath of candidates) {
-    try {
-      return await fs.readFile(filePath);
-    } catch {
-      // continue
-    }
-  }
-
-  return null;
+  return readFirstExistingAsset([
+    "../../public/images/signature-prevensia.png",
+    "../../public/images/signature-prevensia.jpg",
+  ]);
 }
 
 function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
@@ -304,7 +297,7 @@ function getFormationFrameLabel(formation: string) {
     normalized.includes("bs") &&
     (normalized.includes("be manoeuvre") || normalized.includes("manoeuvre"))
   ) {
-    return "BS / BE Manoeuvre";
+    return "BS et BE Manoeuvre";
   }
 
   if (normalized.includes("be manoeuvre") || normalized.includes("manoeuvre")) {
@@ -321,7 +314,7 @@ function getFormationFrameLabel(formation: string) {
     normalized.includes("br") ||
     normalized.includes("bc")
   ) {
-    return "B1 / B2 / BR / BC";
+    return "B1 / B1V / B2 / B2V / BR / BC";
   }
 
   if (normalized.includes("sst")) {

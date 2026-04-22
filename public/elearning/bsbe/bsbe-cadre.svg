@@ -1,0 +1,24 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
+  <rect x="48" y="48" width="1104" height="604" rx="32" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <rect x="80" y="80" width="380" height="196" rx="24" fill="#0F172A"/>
+  <text x="112" y="136" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="38" font-weight="700">Cadre BS / BE Manoeuvre</text>
+  <text x="112" y="184" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="22">La formation prepare. L'employeur habilite.</text>
+  <circle cx="200" cy="390" r="86" fill="#EFF6FF" stroke="#93C5FD" stroke-width="2"/>
+  <circle cx="430" cy="390" r="86" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="660" cy="390" r="86" fill="#ECFCCB" stroke="#65A30D" stroke-width="2"/>
+  <circle cx="890" cy="390" r="86" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <text x="148" y="382" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Former</text>
+  <text x="355" y="382" fill="#92400E" font-family="Arial, sans-serif" font-size="24" font-weight="700">Evaluer</text>
+  <text x="588" y="382" fill="#3F6212" font-family="Arial, sans-serif" font-size="24" font-weight="700">Valider</text>
+  <text x="815" y="382" fill="#991B1B" font-family="Arial, sans-serif" font-size="24" font-weight="700">Habiliter</text>
+  <text x="150" y="416" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="18">Cours et cadre normatif</text>
+  <text x="344" y="416" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Quiz et cas terrain</text>
+  <text x="560" y="416" fill="#3F6212" font-family="Arial, sans-serif" font-size="18">Avis formateur PREVENSIA</text>
+  <text x="790" y="416" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">Titre employeur selon poste</text>
+  <path d="M286 390H344" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M516 390H574" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M746 390H804" stroke="#94A3B8" stroke-width="6" stroke-linecap="round"/>
+  <rect x="80" y="520" width="1040" height="92" rx="20" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="114" y="570" fill="#334155" font-family="Arial, sans-serif" font-size="24">BS = interventions elementaires hors tension | BE Manoeuvre = manoeuvres d'exploitation sur organe identifie</text>
+</svg>

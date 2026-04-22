@@ -4,9 +4,10 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import TrainingCatalogTabs from "@/components/site/TrainingCatalogTabs";
+import TrainingCatalogTabsClean from "@/components/site/TrainingCatalogTabsClean";
 import FloatingContactButtons from "@/components/site/FloatingContactButtons";
 import LocationCoverageSection from "@/components/site/LocationCoverageSection";
+import { homepageElectricalSummary } from "@/lib/electrical-offers";
 
 type HomeSession = {
   id: string;
@@ -23,9 +24,9 @@ const formations = [
     title: "Habilitation électrique",
     href: "/formation-habilitation-electrique",
     badge: "NF C 18-510",
-    description:
-      "Formations en présentiel et e-learning pour H0B0, BS / BE Manœuvre et personnel électricien.",
+    description: homepageElectricalSummary,
     image: "/images/armoire-electrique.jpg",
+    imageClass: "object-cover object-[center_48%]",
   },
   {
     title: "Sécurité incendie",
@@ -34,6 +35,7 @@ const formations = [
     description:
       "Manipulation extincteurs, guide-file / serre-file et équipier de première intervention.",
     image: "/images/alarme-incendie.jpg",
+    imageClass: "object-cover object-[center_42%]",
   },
   {
     title: "Formation SSI",
@@ -42,6 +44,7 @@ const formations = [
     description:
       "Exploitation du SSI, logiques SDI / CMSI / UGA / DAS et conduite à tenir en cas d'alarme.",
     image: "/images/image-ssi.jpg",
+    imageClass: "object-cover object-[center_30%]",
   },
   {
     title: "Exploitation sprinkler",
@@ -50,6 +53,7 @@ const formations = [
     description:
       "Formation sur l'exploitation des installations sprinkler et les principaux référentiels techniques.",
     image: "/images/installation-spk.jpg",
+    imageClass: "object-cover object-[center_46%]",
   },
   {
     title: "Formation SST",
@@ -58,6 +62,7 @@ const formations = [
     description:
       "SST initial et MAC SST pour les entreprises et les apprenants souhaitant se former aux premiers secours.",
     image: "/images/sst.jpg",
+    imageClass: "object-cover object-[center_30%]",
   },
 ];
 
@@ -73,6 +78,23 @@ const testimonials = [
   {
     name: "Sophie Martin",
     text: "Approche concrète, utile et directement applicable sur site.",
+  },
+];
+
+const inrsVideoResources = [
+  {
+    title: "INRS - Les bases de l'habilitation electrique",
+    description:
+      "Une ressource officielle utile pour comprendre le role de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
+    href: "https://www.inrs.fr/media.html?refINRS=Anim-132",
+    badge: "Video INRS",
+  },
+  {
+    title: "INRS - Comment choisir les habilitations electriques ?",
+    description:
+      "Webinaire officiel pour recaler les symboles, les roles et le choix du bon parcours selon les missions reelles.",
+    href: "https://www.inrs.fr/media.html?refINRS=Anim-184",
+    badge: "Webinaire INRS",
   },
 ];
 
@@ -301,6 +323,14 @@ export default function Home() {
                     </Link>
 
                     <Link
+                      href="/employeur/dashboard"
+                      className="transition hover:text-red-700"
+                      onClick={closeDesktopMenu}
+                    >
+                      Espace employeur
+                    </Link>
+
+                    <Link
                       href="/demande-devis"
                       className="transition hover:text-red-700"
                       onClick={closeDesktopMenu}
@@ -440,6 +470,14 @@ export default function Home() {
                 onClick={closeMobileMenu}
               >
                 E-learning / Espace apprenant
+              </Link>
+
+              <Link
+                href="/employeur/dashboard"
+                className="rounded-xl px-3 py-2 transition hover:bg-slate-100 hover:text-red-700"
+                onClick={closeMobileMenu}
+              >
+                Espace employeur
               </Link>
 
               <Link
@@ -778,16 +816,19 @@ export default function Home() {
               {formations.map((item) => (
                 <div
                   key={item.title}
-                  className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="relative h-48 w-full">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-cover"
+                      className={`transition duration-500 group-hover:scale-[1.03] ${
+                        item.imageClass ?? "object-cover object-center"
+                      }`}
                     />
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/45 to-transparent" />
                   </div>
 
                   <div className="p-6">
@@ -813,7 +854,53 @@ export default function Home() {
           </div>
         </section>
 
-        <TrainingCatalogTabs />
+          <TrainingCatalogTabsClean />
+
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Ressources INRS
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Deux videos utiles pour cadrer le risque electrique
+              </h2>
+              <p className="mt-4 text-slate-600">
+                PREVENSIA s'appuie sur ses propres parcours, mais recommande
+                aussi des ressources officielles INRS pour consolider les
+                reperes reglementaires, le choix des symboles et la logique de
+                prevention.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {inrsVideoResources.map((item) => (
+                <article
+                  key={item.href}
+                  className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm"
+                >
+                  <span className="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
+                    {item.badge}
+                  </span>
+                  <h3 className="mt-4 text-2xl font-bold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {item.description}
+                  </p>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Voir la ressource officielle
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="bg-white py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
@@ -872,13 +959,13 @@ export default function Home() {
             </div>
 
             <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="relative mx-auto h-[220px] w-full max-w-[520px]">
+              <div className="relative mx-auto aspect-[16/10] w-full max-w-[560px] overflow-hidden rounded-[1.5rem] bg-slate-100">
                 <Image
                   src="/images/image-ssi.jpg"
                   alt="Système de sécurité incendie"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 520px"
-                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                  className="object-cover object-[center_30%]"
                 />
               </div>
             </div>
@@ -1097,8 +1184,9 @@ export default function Home() {
 
               <div
                 id="contact"
-                className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm"
+                className="relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"
               >
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-red-700 via-amber-400 to-slate-900" />
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                   Contact
                 </p>
@@ -1109,6 +1197,15 @@ export default function Home() {
                   PREVENSIA FORMATION accompagne les particuliers et les
                   professionnels sur toute la France selon la prestation.
                 </p>
+                <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    Orientation rapide
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Habilitation electrique, SSI, incendie, SST, e-learning,
+                    presentiel, intra-entreprise et accompagnement employeur.
+                  </p>
+                </div>
                 <div className="mt-4 space-y-2 text-sm text-slate-800">
                   <p className="font-medium">
                     contact@prevensia-formation.fr

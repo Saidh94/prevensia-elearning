@@ -1,0 +1,35 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#EFF6FF"/>
+  <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+
+  <text x="92" y="122" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="40" font-weight="700">
+    Roles B1 / B2 / BR / BC
+  </text>
+  <text x="92" y="166" fill="#1E40AF" font-family="Arial, sans-serif" font-size="22">
+    Chaque habilitation correspond a une fonction precise dans l'organisation electrique.
+  </text>
+
+  <rect x="92" y="228" width="470" height="180" rx="24" fill="#DBEAFE" stroke="#60A5FA"/>
+  <rect x="638" y="228" width="470" height="180" rx="24" fill="#FEF3C7" stroke="#F59E0B"/>
+  <rect x="92" y="448" width="470" height="180" rx="24" fill="#DCFCE7" stroke="#22C55E"/>
+  <rect x="638" y="448" width="470" height="180" rx="24" fill="#FEE2E2" stroke="#EF4444"/>
+
+  <text x="327" y="296" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="42" font-weight="700">B1</text>
+  <text x="327" y="342" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="26" font-weight="700">Executant electricien</text>
+  <text x="327" y="382" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="20">Agit dans un cadre prepare</text>
+
+  <text x="873" y="296" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="42" font-weight="700">B2</text>
+  <text x="873" y="342" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="26" font-weight="700">Charge de travaux</text>
+  <text x="873" y="382" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="20">Prepare, dirige et surveille</text>
+
+  <text x="327" y="516" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="42" font-weight="700">BR</text>
+  <text x="327" y="562" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="26" font-weight="700">Interventions generales</text>
+  <text x="327" y="602" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="20">Entretien, depannage et essais limites</text>
+
+  <text x="873" y="516" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="42" font-weight="700">BC</text>
+  <text x="873" y="562" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="26" font-weight="700">Charge de consignation</text>
+  <text x="873" y="594" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="20">Separation, condamnation</text>
+  <text x="873" y="622" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="20">identification et VAT</text>
+
+  <rect x="92" y="656" width="1016" height="28" rx="14" fill="#0F172A"/>
+</svg>

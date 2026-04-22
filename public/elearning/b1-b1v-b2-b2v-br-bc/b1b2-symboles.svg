@@ -1,0 +1,32 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#ECFDF5"/>
+  <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#BBF7D0" stroke-width="2"/>
+
+  <text x="92" y="122" fill="#14532D" font-family="Arial, sans-serif" font-size="38" font-weight="700">
+    Lire correctement les symboles d'habilitation
+  </text>
+  <text x="92" y="164" fill="#166534" font-family="Arial, sans-serif" font-size="22">
+    La lettre, l'indice et l'attribut commandent le cadre reel de l'operation.
+  </text>
+
+  <rect x="92" y="236" width="470" height="180" rx="24" fill="#DCFCE7" stroke="#22C55E"/>
+  <rect x="638" y="236" width="470" height="180" rx="24" fill="#DBEAFE" stroke="#60A5FA"/>
+  <rect x="92" y="450" width="470" height="180" rx="24" fill="#FEF3C7" stroke="#F59E0B"/>
+  <rect x="638" y="450" width="470" height="180" rx="24" fill="#FEE2E2" stroke="#EF4444"/>
+
+  <text x="327" y="298" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="52" font-weight="700">B</text>
+  <text x="327" y="346" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="24" font-weight="700">Basse tension</text>
+  <text x="327" y="382" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="18">Domaine electrique concerne</text>
+
+  <text x="873" y="298" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="52" font-weight="700">1 / 2</text>
+  <text x="873" y="346" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="24" font-weight="700">Executer / diriger</text>
+  <text x="873" y="382" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18">Role dans l'operation</text>
+
+  <text x="327" y="512" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="52" font-weight="700">R / C</text>
+  <text x="327" y="560" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="24" font-weight="700">Intervenir / consigner</text>
+  <text x="327" y="596" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Nature de l'action autorisee</text>
+
+  <text x="873" y="512" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="52" font-weight="700">V</text>
+  <text x="873" y="560" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="24" font-weight="700">Voisinage renforce</text>
+  <text x="873" y="596" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">Exigences de securite supplementaires</text>
+</svg>

@@ -9,6 +9,45 @@ import {
   writeSlots,
 } from "../../reservation/slots";
 
+const formatOptions = [
+  { value: "virtual", label: "Classe virtuelle" },
+  { value: "onsite", label: "En entreprise" },
+  { value: "in_person", label: "Salle / presentiel" },
+] as const;
+
+const audienceOptions = [
+  { value: "individual", label: "Individuel" },
+  { value: "group", label: "Groupe / entreprise" },
+  { value: "both", label: "Individuel ou groupe" },
+] as const;
+
+const categoryOptions = [
+  { value: "h0b0_validation", label: "H0B0 / H0V - validation 30 min" },
+  { value: "bsbe_initial", label: "BS / BE - initial" },
+  { value: "bsbe_recyclage", label: "BS / BE - recyclage" },
+  { value: "b1b2brbc_initial", label: "B1 / B2 / BR / BC - initial" },
+  { value: "b1b2brbc_recyclage", label: "B1 / B2 / BR / BC - recyclage" },
+  { value: "other", label: "Autre" },
+] as const;
+
+function formatSlotType(slot: ReservationSlot) {
+  const formatLabel =
+    slot.format === "virtual"
+      ? "Classe virtuelle"
+      : slot.format === "onsite"
+      ? "En entreprise"
+      : "Salle / presentiel";
+
+  const audienceLabel =
+    slot.audience === "individual"
+      ? "Individuel"
+      : slot.audience === "group"
+      ? "Groupe / entreprise"
+      : "Individuel ou groupe";
+
+  return `${formatLabel} - ${audienceLabel}`;
+}
+
 export default function AdminCalendrierPage() {
   const [slots, setSlots] = useState<ReservationSlot[]>(() => readSlots());
   const [message, setMessage] = useState("");
@@ -29,6 +68,11 @@ export default function AdminCalendrierPage() {
       endTime: String(formData.get("endTime") ?? ""),
       location: String(formData.get("location") ?? ""),
       seats: Number(formData.get("seats") ?? 0),
+      format: String(formData.get("format") ?? "in_person") as ReservationSlot["format"],
+      audience: String(formData.get("audience") ?? "both") as ReservationSlot["audience"],
+      category: String(formData.get("category") ?? "other") as ReservationSlot["category"],
+      minParticipants: Number(formData.get("minParticipants") ?? 1),
+      note: String(formData.get("note") ?? ""),
     };
 
     const nextSlots = [...slots, newSlot].sort((a, b) =>
@@ -36,44 +80,52 @@ export default function AdminCalendrierPage() {
     );
 
     setSlots(nextSlots);
-    setMessage("Session ajoutée au calendrier.");
+    setMessage("Session ajoutee au calendrier.");
     event.currentTarget.reset();
   };
 
   const handleDeleteSlot = (id: string) => {
     const nextSlots = slots.filter((slot) => slot.id !== id);
     setSlots(nextSlots);
-    setMessage("Session supprimée.");
+    setMessage("Session supprimee.");
   };
 
   const handleReset = () => {
     setSlots(cloneDefaultSlots());
-    setMessage("Calendrier réinitialisé avec les sessions par défaut.");
+    setMessage("Calendrier reinitialise avec les sessions par defaut.");
   };
 
   return (
     <main className="min-h-screen bg-slate-50 py-10">
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-700">
             Administration planning
           </p>
-          <h1 className="mt-2 text-3xl font-bold text-slate-900">Gérer les dates de formation</h1>
+          <h1 className="mt-2 text-3xl font-bold text-slate-900">
+            Gerer les validations et classes virtuelles
+          </h1>
           <p className="mt-3 text-slate-600">
-            Ajoutez ou supprimez des sessions présentielles. Vos clients voient ces
-            dates sur la page de réservation.
+            Ajoutez ici les entretiens H0B0, les classes virtuelles BS / BE,
+            les recyclages ou les sessions en entreprise afin de rendre la
+            reservation plus lisible cote client.
           </p>
           <p className="mt-3 text-sm text-slate-500">
-            Voir côté client :{" "}
-            <Link href="/reservation-formation" className="font-semibold text-red-700 underline underline-offset-2">
-              page réservation
+            Voir cote client :{" "}
+            <Link
+              href="/reservation-formation"
+              className="font-semibold text-red-700 underline underline-offset-2"
+            >
+              page reservation
             </Link>
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900">Ajouter une session</h2>
+            <h2 className="text-xl font-semibold text-slate-900">
+              Ajouter une session
+            </h2>
 
             <form className="mt-5 space-y-4" onSubmit={handleAddSlot}>
               <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
@@ -82,8 +134,23 @@ export default function AdminCalendrierPage() {
                   name="formation"
                   required
                   className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                  placeholder="Ex : SST - Initial"
+                  placeholder="Ex : BS / BE Manoeuvre - Initial groupe"
                 />
+              </label>
+
+              <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+                Categorie
+                <select
+                  name="category"
+                  defaultValue="other"
+                  className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                >
+                  {categoryOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </label>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -103,14 +170,46 @@ export default function AdminCalendrierPage() {
                     name="location"
                     required
                     className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                    placeholder="Ex : Bordeaux"
+                    placeholder="Ex : Classe virtuelle / Paris / Site client"
                   />
                 </label>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-                  Début
+                  Format
+                  <select
+                    name="format"
+                    defaultValue="in_person"
+                    className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                  >
+                    {formatOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+                  Public
+                  <select
+                    name="audience"
+                    defaultValue="both"
+                    className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                  >
+                    {audienceOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-4">
+                <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+                  Debut
                   <input
                     name="startTime"
                     type="time"
@@ -137,10 +236,31 @@ export default function AdminCalendrierPage() {
                     min={1}
                     required
                     className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                    placeholder="10"
+                    placeholder="8"
+                  />
+                </label>
+
+                <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+                  Minimum
+                  <input
+                    name="minParticipants"
+                    type="number"
+                    min={1}
+                    defaultValue={1}
+                    className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
                   />
                 </label>
               </div>
+
+              <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+                Note operationnelle
+                <textarea
+                  name="note"
+                  rows={3}
+                  className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                  placeholder="Ex : Classe virtuelle initiale reservee aux groupes, ouverture aux individuels a partir de 4 apprenants."
+                />
+              </label>
 
               <div className="flex flex-wrap gap-3">
                 <button
@@ -155,19 +275,21 @@ export default function AdminCalendrierPage() {
                   onClick={handleReset}
                   className="inline-flex rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400"
                 >
-                  Réinitialiser planning
+                  Reinitialiser planning
                 </button>
               </div>
             </form>
           </section>
 
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-slate-900">Sessions actuelles</h2>
+            <h2 className="text-xl font-semibold text-slate-900">
+              Sessions actuelles
+            </h2>
 
             <div className="mt-5 space-y-3">
               {slots.length === 0 ? (
                 <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
-                  Aucune session enregistrée.
+                  Aucune session enregistree.
                 </p>
               ) : (
                 slots.map((slot) => (
@@ -181,6 +303,14 @@ export default function AdminCalendrierPage() {
                     <p className="mt-1 text-sm text-slate-600">
                       {slot.location} · {slot.seats} places
                     </p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {formatSlotType(slot)} · Minimum : {slot.minParticipants ?? 1}
+                    </p>
+                    {slot.note ? (
+                      <p className="mt-2 rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-600">
+                        {slot.note}
+                      </p>
+                    ) : null}
                     <button
                       type="button"
                       onClick={() => handleDeleteSlot(slot.id)}

@@ -69,7 +69,7 @@ export const modulesContent: Record<string, ModuleContent> = {
   ],
   tone: "blue",
   illustrationKey: "habilitation-scope",
-  imagePath: "/elearning/h0b0/perimetre-h0b0.png",
+  imagePath: "/elearning/h0b0/roles-responsabilites.png",
   imageAlt: "Illustration du périmètre H0B0 et des limites d’intervention"
 }
     },

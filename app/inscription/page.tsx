@@ -7,10 +7,11 @@ import { useSearchParams } from "next/navigation";
 const formationsParCategorie = {
   "Habilitations electriques": [
     "H0B0 / H0V - E-learning + entretien 30 min",
-    "BS / BE Manoeuvre - E-learning + visio",
-    "B1 B1V B2 B2V BR BC - Parcours mixte",
-    "BS / BE Manoeuvre - Recyclage",
-    "B1 B1V B2 B2V BR BC - Recyclage",
+    "BS / BE Manoeuvre - E-learning + classe virtuelle",
+    "BS / BE Manoeuvre - E-learning + session entreprise",
+    "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles",
+    "BS / BE Manoeuvre - E-learning + visio de recyclage",
+    "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
   ],
   "Securite incendie": [
     "Manipulation extincteurs",
@@ -23,6 +24,45 @@ const formationsParCategorie = {
 } as const;
 
 type CategorieFormation = keyof typeof formationsParCategorie;
+
+function normaliserFormationDepuisCalendrier(
+  formation: string,
+  format: string
+): string {
+  const entree = formation.trim().toLowerCase();
+  const formatNormalise = format.trim().toLowerCase();
+
+  if (entree.includes("h0b0") || entree.includes("h0v")) {
+    return "H0B0 / H0V - E-learning + entretien 30 min";
+  }
+
+  if (
+    entree.includes("bs") &&
+    entree.includes("be") &&
+    entree.includes("recyclage")
+  ) {
+    return "BS / BE Manoeuvre - E-learning + visio de recyclage";
+  }
+
+  if (entree.includes("bs") && entree.includes("be")) {
+    return formatNormalise.includes("entreprise")
+      ? "BS / BE Manoeuvre - E-learning + session entreprise"
+      : "BS / BE Manoeuvre - E-learning + classe virtuelle";
+  }
+
+  if (
+    entree.includes("b1") ||
+    entree.includes("b2") ||
+    entree.includes("br") ||
+    entree.includes("bc")
+  ) {
+    return entree.includes("recyclage")
+      ? "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles"
+      : "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles";
+  }
+
+  return formation;
+}
 
 function trouverCategorieDepuisFormation(
   formation: string
@@ -64,8 +104,12 @@ function InscriptionForm() {
   const formationDepuisUrl = searchParams.get("formation") ?? "";
   const dateDepuisUrl = searchParams.get("date") ?? "";
   const formatDepuisUrl = searchParams.get("format") ?? "";
+  const formationNormalisee = normaliserFormationDepuisCalendrier(
+    formationDepuisUrl,
+    formatDepuisUrl
+  );
 
-  const categorieInitiale = trouverCategorieDepuisFormation(formationDepuisUrl);
+  const categorieInitiale = trouverCategorieDepuisFormation(formationNormalisee);
 
   const [form, setForm] = useState({
     nom: "",
@@ -74,7 +118,7 @@ function InscriptionForm() {
     telephone: "",
     entreprise: "",
     categorie: categorieInitiale,
-    formation: formationDepuisUrl,
+    formation: formationNormalisee,
     sessionId,
     dateSession: dateDepuisUrl,
     format: formatDepuisUrl,
@@ -90,12 +134,16 @@ function InscriptionForm() {
   }, [form.categorie]);
 
   useEffect(() => {
-    const categorieTrouvee = trouverCategorieDepuisFormation(formationDepuisUrl);
+    const formationPourFormulaire = normaliserFormationDepuisCalendrier(
+      formationDepuisUrl,
+      formatDepuisUrl
+    );
+    const categorieTrouvee = trouverCategorieDepuisFormation(formationPourFormulaire);
 
     setForm((prev) => ({
       ...prev,
       categorie: categorieTrouvee,
-      formation: formationDepuisUrl,
+      formation: formationPourFormulaire,
       sessionId,
       dateSession: dateDepuisUrl,
       format: formatDepuisUrl,
@@ -175,7 +223,7 @@ function InscriptionForm() {
       }
 
       setSuccess(
-        "Votre demande d'inscription a bien ete envoyee. Nous vous recontacterons rapidement."
+        "Votre inscription a bien ete enregistree. Vous allez recevoir par email vos acces PREVENSIA ou la confirmation de reutilisation de votre compte existant."
       );
 
       setForm((prev) => ({

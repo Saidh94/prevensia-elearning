@@ -32,6 +32,41 @@ export type EnrollmentPaymentOption =
 
 const paymentRules: PaymentRule[] = [
   {
+    kind: "quote",
+    label: "B1 / B1V - parcours cible",
+    anyKeywords: ["b1 / b1v", "b1/b1v", "parcours cible executant", "executant electricien"],
+    reason:
+      "Ce parcours est ajuste selon les travaux reels, le voisinage et l'organisation retenue.",
+  },
+  {
+    kind: "quote",
+    label: "B2 / B2V - parcours cible",
+    anyKeywords: ["b2 / b2v", "b2/b2v", "charge de travaux"],
+    reason:
+      "Ce parcours est ajuste selon le role d'encadrement, le site et les procedures appliquees.",
+  },
+  {
+    kind: "quote",
+    label: "BR - parcours cible",
+    anyKeywords: ["formation br", "habilitation br", "intervention generale"],
+    reason:
+      "Le parcours BR est dimensionne selon les interventions generales reellement confiees.",
+  },
+  {
+    kind: "quote",
+    label: "BC - parcours cible",
+    anyKeywords: ["formation bc", "habilitation bc", "charge de consignation"],
+    reason:
+      "Le parcours BC depend des procedures de consignation et de l'organisation du site.",
+  },
+  {
+    kind: "quote",
+    label: "BE Verification / BE Mesurage",
+    anyKeywords: ["be verification", "be mesurage", "verification", "mesurage"],
+    reason:
+      "Les attributs BE Verification et BE Mesurage doivent etre calibres selon les missions reellement prevues.",
+  },
+  {
     envKey: "STRIPE_PRICE_H0B0_RECYCLAGE_CENTS",
     kind: "direct",
     label: "Recyclage H0B0 e-learning",
@@ -40,16 +75,15 @@ const paymentRules: PaymentRule[] = [
   {
     envKey: "STRIPE_PRICE_BSBE_RECYCLAGE_CENTS",
     kind: "direct",
-    label: "Recyclage BS / BE Manoeuvre e-learning",
+    label: "Recyclage BS et BE Manoeuvre e-learning",
     allKeywords: ["recyclage"],
     anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
     envKey: "STRIPE_PRICE_B1B2BRBC_RECYCLAGE_CENTS",
     kind: "direct",
-    label: "Recyclage B1 / B2 / BR / BC",
-    allKeywords: ["recyclage"],
-    anyKeywords: ["b1", "b2", "br", "bc"],
+    label: "Recyclage B1 / B1V / B2 / B2V / BR / BC",
+    allKeywords: ["recyclage", "b1", "b2", "br", "bc"],
   },
   {
     envKey: "STRIPE_PRICE_H0B0_ELEARNING_CENTS",
@@ -60,14 +94,14 @@ const paymentRules: PaymentRule[] = [
   {
     envKey: "STRIPE_PRICE_BSBE_ELEARNING_CENTS",
     kind: "direct",
-    label: "BS / BE Manoeuvre - e-learning + visio",
+    label: "BS et BE Manoeuvre - e-learning + visio",
     anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
     envKey: "STRIPE_PRICE_B1B2BRBC_CENTS",
     kind: "direct",
-    label: "B1 / B2 / BR / BC - parcours mixte",
-    anyKeywords: ["b1", "b2", "br", "bc"],
+    label: "B1 / B1V / B2 / B2V / BR / BC - parcours mixte",
+    allKeywords: ["b1", "b2", "br", "bc"],
   },
   {
     envKey: "STRIPE_PRICE_INCENDIE_EXTINCTEURS_CENTS",
@@ -250,9 +284,12 @@ export function getEnrollmentPaymentOption({
     };
   }
 
-  throw new Error(
-    "Aucun tarif Stripe n'est configure. Ajoute au minimum STRIPE_DEFAULT_AMOUNT_CENTS dans .env.local."
-  );
+  return {
+    kind: "quote",
+    label: formationTitle?.trim() || "Formation PREVENSIA",
+    reason:
+      "Le paiement en ligne n'est pas encore configure pour cette offre. Utilisez la demande de devis ou marquez le paiement manuellement.",
+  };
 }
 
 export function resolveEnrollmentPricing(context: PricingContext): DirectPaymentOption {

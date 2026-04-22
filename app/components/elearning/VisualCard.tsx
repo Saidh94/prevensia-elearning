@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { formatFrenchDisplayText } from "@/lib/french-display";
 import type {
   IllustrationKey,
   ModuleVisual,
@@ -7,6 +11,7 @@ import type {
 
 type VisualCardProps = {
   visual: ModuleVisual;
+  compact?: boolean;
 };
 
 const toneClasses: Record<
@@ -283,58 +288,123 @@ function Illustration({
   }
 }
 
-export default function VisualCard({ visual }: VisualCardProps) {
+export default function VisualCard({
+  visual,
+  compact = false,
+}: VisualCardProps) {
   const tone = visual.tone ?? "blue";
   const styles = toneClasses[tone];
+  const imagePath = visual.imagePath?.trim() ?? "";
+  const isSvg = imagePath.toLowerCase().endsWith(".svg");
+  const [hasImageError, setHasImageError] = useState(false);
+  const title = formatFrenchDisplayText(visual.title);
+  const subtitle = formatFrenchDisplayText(visual.subtitle);
+  const imageAlt = formatFrenchDisplayText(visual.imageAlt ?? visual.title ?? "");
+  const items = (visual.items ?? []).map((item) =>
+    formatFrenchDisplayText(item)
+  );
+  const badgeLabel = compact ? "Repère visuel" : "Illustration pédagogique";
+
+  useEffect(() => {
+    setHasImageError(false);
+  }, [imagePath]);
+
+  const shouldRenderImage = Boolean(imagePath) && !hasImageError;
+  const hasTextBlock = Boolean(title || subtitle || items.length > 0);
 
   return (
-    <div className={`rounded-[2rem] border p-6 shadow-sm ${styles.wrapper}`}>
-      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className={`rounded-[1.75rem] p-4 ${styles.panel}`}>
-          {visual.imagePath ? (
-            <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white">
-              <Image
-              src={visual.imagePath ?? ""}
-alt={visual.imageAlt ?? visual.title ?? ""}
-                width={1200}
-                height={800}
-                className="h-auto w-full object-contain"
-                priority={false}
-              />
+    <div
+      className={`rounded-[1.5rem] border shadow-sm ${styles.wrapper} ${
+        compact ? "p-3" : "p-4"
+      }`}
+    >
+      <div className={compact ? "space-y-3" : "space-y-4"}>
+        <div className={`rounded-[1.5rem] p-3 ${styles.panel}`}>
+          {shouldRenderImage ? (
+            <div
+              className={`overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white ${
+                compact ? "p-2" : "p-3"
+              }`}
+            >
+              {isSvg ? (
+                <img
+                  src={imagePath}
+                  alt={imageAlt}
+                  className={`mx-auto h-auto w-full object-contain object-top ${
+                    compact ? "max-h-[240px]" : "max-h-[420px]"
+                  }`}
+                  loading="lazy"
+                  onError={() => setHasImageError(true)}
+                />
+              ) : (
+                <Image
+                  src={imagePath}
+                  alt={imageAlt}
+                  width={1200}
+                  height={800}
+                  className={`mx-auto h-auto w-full object-contain object-top ${
+                    compact ? "max-h-[240px]" : "max-h-[420px]"
+                  }`}
+                  priority={false}
+                  onError={() => setHasImageError(true)}
+                />
+              )}
             </div>
           ) : (
-            <Illustration
-              illustrationKey={visual.illustrationKey}
-              stroke={styles.stroke}
-              fillSoft={styles.fillSoft}
-              fillStrong={styles.fillStrong}
-            />
+            <div className={`mx-auto ${compact ? "max-w-[320px]" : "max-w-[520px]"}`}>
+              <Illustration
+                illustrationKey={visual.illustrationKey}
+                stroke={styles.stroke}
+                fillSoft={styles.fillSoft}
+                fillStrong={styles.fillStrong}
+              />
+            </div>
           )}
         </div>
 
-        <div>
-          <p
-            className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] ${styles.badge}`}
-          >
-            Illustration pédagogique
-          </p>
-          <h3 className="mt-4 text-xl font-bold text-slate-900">{visual.title}</h3>
-          <p className={`mt-2 text-sm leading-6 ${styles.subtitle}`}>
-            {visual.subtitle}
-          </p>
-
-          <div className="mt-6 space-y-3">
-            {(visual.items ?? []).map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-3 rounded-2xl border border-white/70 bg-white/70 p-4"
+        {hasTextBlock ? (
+          <div>
+            <p
+              className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] ${styles.badge}`}
+            >
+              {badgeLabel}
+            </p>
+            {title ? (
+              <h3
+                className={`font-bold text-slate-900 ${
+                  compact ? "mt-3 text-lg" : "mt-4 text-xl"
+                }`}
               >
-                <span className={`mt-2 h-2.5 w-2.5 rounded-full ${styles.dot}`} />
-                <p className="text-sm font-medium leading-6 text-slate-800">{item}</p>
+                {title}
+              </h3>
+            ) : null}
+            {subtitle ? (
+              <p
+                className={`leading-6 ${styles.subtitle} ${
+                  compact ? "mt-1 text-sm" : "mt-2 text-sm"
+                }`}
+              >
+                {subtitle}
+              </p>
+            ) : null}
+
+            {items.length > 0 ? (
+              <div className={`${compact ? "mt-4 space-y-2" : "mt-6 space-y-3"}`}>
+                {items.map((item) => (
+                  <div
+                    key={item}
+                    className={`flex items-start gap-3 rounded-2xl border border-white/70 bg-white/70 ${
+                      compact ? "p-3" : "p-4"
+                    }`}
+                  >
+                    <span className={`mt-2 h-2.5 w-2.5 rounded-full ${styles.dot}`} />
+                    <p className="text-sm font-medium leading-6 text-slate-800">{item}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : null}
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

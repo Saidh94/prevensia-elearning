@@ -20,16 +20,28 @@ export type ModuleVisual = {
   imageAlt?: string;
 };
 
+export type ModuleResourceVideo = {
+  title: string;
+  description: string;
+  url: string;
+  provider?: string;
+  ctaLabel?: string;
+};
+
 export type ModuleSection = {
   id: string;
   title: string;
+  estimatedMinutes?: number;
   intro?: string;
-  content?: string[]; // 🔥 devient optionnel
+  content?: string[];
   deepDive?: string[];
   keyPoints?: string[];
   forbiddenPoints?: string[];
   practicalCase?: string;
   legalRefs?: string[];
+  chapterImagePath?: string;
+  chapterImageAlt?: string;
+  resourceVideos?: ModuleResourceVideo[];
   visual?: ModuleVisual;
 };
 
@@ -38,6 +50,7 @@ export type ModuleContent = {
   shortTitle: string;
   subtitle?: string;
   duration?: string;
+  deliveryFormat?: string;
   level?: string;
   objective?: string;
   audience?: string;

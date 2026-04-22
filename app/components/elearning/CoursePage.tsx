@@ -8,6 +8,15 @@ type CoursePageProps = {
 };
 
 export default function CoursePage({ slug, moduleData }: CoursePageProps) {
+  const topCards = [
+    { label: "Parcours", value: moduleData.shortTitle },
+    { label: "Duree estimee", value: moduleData.duration ?? "" },
+    ...(moduleData.deliveryFormat
+      ? [{ label: "Format", value: moduleData.deliveryFormat }]
+      : []),
+    { label: "Niveau", value: moduleData.level ?? "" },
+  ];
+
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6">
       <div className="mx-auto max-w-7xl">
@@ -42,37 +51,24 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
             </div>
           </div>
 
-          <div className="grid gap-4 px-6 py-6 sm:grid-cols-3 sm:px-8">
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Parcours
-              </p>
-              <p className="mt-3 text-base font-semibold text-slate-900">
-                {moduleData.shortTitle}
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Durée estimée
-              </p>
-              <p className="mt-3 text-base font-semibold text-slate-900">
-                {moduleData.duration}
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Niveau
-              </p>
-              <p className="mt-3 text-base font-semibold text-slate-900">
-                {moduleData.level}
-              </p>
-            </div>
+          <div className="grid gap-4 px-6 py-6 sm:grid-cols-2 xl:grid-cols-4 sm:px-8">
+            {topCards.map((card) => (
+              <div
+                key={card.label}
+                className="rounded-3xl border border-slate-200 bg-slate-50 p-5"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  {card.label}
+                </p>
+                <p className="mt-3 text-base font-semibold text-slate-900">
+                  {card.value}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
           <aside className="h-fit rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm lg:sticky lg:top-6">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
               Sommaire
@@ -85,14 +81,25 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   href={`#${section.id}`}
                   className="block rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium leading-6 text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
                 >
-                  <span className="mr-2 text-slate-400">{index + 1}.</span>
-                  {section.title}
+                  <div className="flex items-center justify-between gap-3">
+                    <span>
+                      <span className="mr-2 text-slate-400">{index + 1}.</span>
+                      {section.title}
+                    </span>
+                    {section.estimatedMinutes ? (
+                      <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
+                        {section.estimatedMinutes} min
+                      </span>
+                    ) : null}
+                  </div>
                 </a>
               ))}
             </nav>
 
             <div className="mt-6 rounded-3xl border border-blue-200 bg-blue-50 p-5">
-              <p className="text-sm font-semibold text-slate-900">Objectif du module</p>
+              <p className="text-sm font-semibold text-slate-900">
+                Objectif du module
+              </p>
               <p className="mt-3 text-sm leading-7 text-slate-700">
                 {moduleData.objective}
               </p>
@@ -107,9 +114,17 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                 className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
               >
                 <div className="border-b border-slate-200 px-6 py-6 sm:px-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Chapitre {index + 1}
-                  </p>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Chapitre {index + 1}
+                    </p>
+                    {section.estimatedMinutes ? (
+                      <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                        Temps estime : {section.estimatedMinutes} min
+                      </span>
+                    ) : null}
+                  </div>
+
                   <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900">
                     {section.title}
                   </h2>
@@ -124,13 +139,13 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                 <div className="space-y-8 px-6 py-6 sm:px-8 sm:py-8">
                   <div className="space-y-5">
                     {(section.content ?? []).map((paragraph, paragraphIndex) => (
-  <p
-    key={`${section.id}-content-${paragraphIndex}`}
-    className="text-base leading-8 text-slate-700"
-  >
-    {paragraph}
-  </p>
-))}
+                      <p
+                        key={`${section.id}-content-${paragraphIndex}`}
+                        className="text-base leading-8 text-slate-700"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
                   </div>
 
                   {section.visual ? <VisualCard visual={section.visual} /> : null}
@@ -156,7 +171,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.keyPoints?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-green-200 bg-green-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-green-800">
-                        Points clés à retenir
+                        Points cles a retenir
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.keyPoints!.map((point) => (
@@ -174,7 +189,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.forbiddenPoints?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-red-200 bg-red-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-                        Interdictions / erreurs à éviter
+                        Interdictions / erreurs a eviter
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.forbiddenPoints!.map((point) => (
@@ -203,7 +218,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.legalRefs?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-blue-200 bg-blue-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
-                        Repères réglementaires et normatifs
+                        Reperes reglementaires et normatifs
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.legalRefs!.map((ref) => (
@@ -225,7 +240,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
                 Fin du parcours
               </p>
-              <h2 className="mt-3 text-2xl font-bold">Synthèse finale</h2>
+              <h2 className="mt-3 text-2xl font-bold">Synthese finale</h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200">
                 {moduleData.finalMessage}
               </p>
@@ -242,7 +257,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   href={`/modules/${slug}/attestation`}
                   className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
                 >
-                  Voir l’attestation
+                  Voir l&apos;attestation
                 </Link>
               </div>
             </section>

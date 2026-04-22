@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { electricalCommercialOffers } from "@/lib/electrical-offers";
 
 export const metadata = {
   title: "Formation habilitation electrique | PREVENSIA FORMATION",
@@ -7,46 +8,13 @@ export const metadata = {
     "Formation habilitation electrique en e-learning, visio et presentiel avec PREVENSIA FORMATION pour particuliers, salaries et entreprises.",
 };
 
-const parcours = [
-  {
-    title: "H0B0 / H0V",
-    audience: "Personnel non electricien",
-    description:
-      "Parcours destine aux personnes amenees a evoluer dans un environnement electrique sans realiser d'operations d'ordre electrique, avec un entretien de validation en complement du module en ligne.",
-    elearning: "E-learning theorique structure",
-    presentiel: "Entretien de validation : 30 min",
-    duration: "Duree e-learning : 3 h a 4 h",
-    pricing: "A partir de 150 EUR HT",
-  },
-  {
-    title: "BS / BE Manoeuvre",
-    audience: "Personnel realisant des operations simples et manoeuvres",
-    description:
-      "Parcours pense pour les interventions elementaires et manoeuvres en basse tension, avec une partie theorique en ligne puis une sequence d'accompagnement en visio sur une demi-journee.",
-    elearning: "E-learning + quiz de validation",
-    presentiel: "Classe virtuelle / visio accompagnee",
-    duration: "E-learning : 5 h a 7 h + visio : 2 h 30 a 3 h",
-    pricing: "A partir de 320 EUR HT",
-  },
-  {
-    title: "B1 B1V B2 B2V BR BC",
-    audience: "Personnel electricien",
-    description:
-      "Parcours mixte destine au personnel electricien avec une partie theorique solide en ligne, un quiz de validation et une journee presentielle pour l'application, l'echange et la mise en situation.",
-    elearning: "Parcours mixte e-learning + quiz",
-    presentiel: "Journee presentielle d'application",
-    duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
-    pricing: "A partir de 549 EUR HT",
-  },
-];
-
 const pointsForts = [
-  "Parcours structures selon le niveau d'habilitation vise",
-  "Approche adaptee aux particuliers, salaries et entreprises",
-  "Positionnement plus solide que le simple e-learning low cost",
-  "Possibilite d'achat direct ou de demande de devis",
-  "Progression pedagogique claire avec quiz et validation",
-  "Orientation vers le format le plus adapte au besoin reel",
+  "Offres separees par symbole et par role vise",
+  "Logique alignee sur la NF C 18-510 et le Code du travail",
+  "La formation prepare, l'employeur delivre l'habilitation",
+  "Achat direct uniquement sur les parcours deja branches",
+  "Devis pour les parcours a calibrer selon les missions reelles",
+  "Progression pedagogique claire avec quiz, visio ou presentiel",
 ];
 
 const formats = [
@@ -58,9 +26,9 @@ const formats = [
     href: "/elearning",
   },
   {
-    title: "Parcours mixte / presentiel",
+    title: "Presentiel ou visio selon le symbole",
     description:
-      "Organisation adaptee au niveau d'habilitation recherche, avec sequence visio ou presentielle selon la formation : entretien H0B0, visio BS/BE ou journee terrain pour B1 a BC.",
+      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manoeuvre ajoute une classe virtuelle ou une session entreprise. Les symboles B1, B2, BR et BC demandent une sequence presentielle et une evaluation plus ciblee.",
     ctaLabel: "Voir le planning presentiel",
     href: "/planning",
   },
@@ -69,16 +37,16 @@ const formats = [
 const engagementCards = [
   {
     title: "Inscription rapide",
-    text: "Pour un besoin individuel ou un premier parcours identifie, vous pouvez passer directement a l'inscription.",
+    text: "Pour un besoin individuel deja identifie sur une offre ouverte a l'achat direct, vous pouvez passer directement a l'inscription.",
     href: "/inscription",
     label: "S'inscrire",
     style:
       "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50",
   },
   {
-    title: "Besoin entreprise",
-    text: "Pour plusieurs apprenants, une organisation sur mesure ou une demande specifique, privilegiez la demande de devis.",
-    href: "/demande-devis",
+    title: "Projet entreprise",
+    text: "Pour plusieurs apprenants, un symbole cible ou une organisation sur mesure, la demande de devis reste la voie la plus propre.",
+    href: "/demande-devis?type=habilitation",
     label: "Demander un devis",
     style:
       "bg-slate-900 text-white border border-slate-900 hover:bg-slate-800",
@@ -122,15 +90,17 @@ export default function FormationHabilitationElectriquePage() {
             <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-200">
               PREVENSIA FORMATION propose une offre en habilitation electrique
               pensee pour les particuliers, les salaries et les entreprises,
-              avec des parcours structures en e-learning, visio ou presentiel
-              selon le niveau recherche, le profil de l&apos;apprenant et les
-              contraintes d&apos;organisation.
+              avec des offres distinguees selon le symbole recherche, le role
+              confie et le niveau reel d&apos;intervention : H0B0 / H0V, BS / BE
+              Manoeuvre, B1 / B1V, B2 / B2V, BR, BC ou parcours BT
+              multi-symboles.
             </p>
 
             <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-300">
-              Nous assumons une logique claire : H0B0 / H0V en e-learning avec
-              entretien de validation, BS / BE Manoeuvre en e-learning +
-              visio, et B1 a BC en parcours mixte avec journee presentielle.
+              La formation prepare l&apos;apprenant aux prescriptions de securite.
+              Le titre d&apos;habilitation reste delivre par l&apos;employeur apres
+              verification de l&apos;aptitude, de la pratique et de l&apos;adequation au
+              poste, dans l&apos;esprit du Code du travail et de la NF C 18-510.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -142,7 +112,7 @@ export default function FormationHabilitationElectriquePage() {
               </Link>
 
               <Link
-                href="/demande-devis"
+                href="/demande-devis?type=habilitation"
                 className="rounded-2xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
                 Demander un devis
@@ -180,14 +150,18 @@ export default function FormationHabilitationElectriquePage() {
             <p className="mt-5 text-lg leading-8 text-slate-600">
               PREVENSIA FORMATION propose des formations en habilitation
               electrique adaptees aux profils non electriciens, au personnel
-              realisant des operations simples ou manoeuvres, ainsi qu&apos;au
-              personnel electricien selon le niveau recherche.
+              charge d&apos;operations elementaires ou de manoeuvres, ainsi qu&apos;au
+              personnel electricien selon les symboles et responsabilites
+              effectivement recherches.
             </p>
 
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              L&apos;objectif n&apos;est pas de sous-vendre une habilitation par un simple
-              module en ligne. Nous privilegions des parcours credibles,
-              structures et raccords aux attentes du marche.
+              L&apos;objectif n&apos;est pas de reduire une habilitation a un simple
+              module en ligne ni de vendre un symbole trop large par commodite.
+              Nous privilegions des parcours credibles, structures et coherents
+              avec la NF C 18-510, avec une vraie articulation entre theorie,
+              quiz, sequence encadree, evaluation pratique et titre
+              d&apos;habilitation remis par l&apos;employeur.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -212,10 +186,10 @@ export default function FormationHabilitationElectriquePage() {
             </h2>
 
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              Vous avez deja identifie votre besoin ? Passez a l&apos;inscription.
-              Vous avez un projet pour plusieurs apprenants ou une demande
-              specifique ? Faites une demande de devis. Vous souhaitez suivre un
-              parcours en ligne ? Accedez a l&apos;espace e-learning.
+              Vous avez deja identifie un parcours ouvert a l&apos;achat direct ?
+              Passez a l&apos;inscription. Vous cherchez un symbole cible, un
+              recyclage, un format entreprise ou un parcours sur mesure ? Faites
+              une demande de devis.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">
@@ -227,7 +201,7 @@ export default function FormationHabilitationElectriquePage() {
               </Link>
 
               <Link
-                href="/demande-devis"
+                href="/demande-devis?type=habilitation"
                 className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
               >
                 Faire une demande de devis
@@ -255,28 +229,31 @@ export default function FormationHabilitationElectriquePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-              Parcours disponibles
+              Offres disponibles
             </p>
 
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-              Des parcours adaptes au niveau d&apos;habilitation recherche
+              Une lecture plus fine des habilitations electriques
             </h2>
 
             <p className="mt-4 text-slate-600">
-              Chaque parcours est pense pour un public, un format et un niveau
+              Chaque offre est pensee pour un public, un role et un niveau
               d&apos;encadrement precis. Le but est d&apos;afficher une offre lisible,
-              credible et commercialement solide.
+              credible et raccord avec les missions reelles confiees aux
+              apprenants.
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {parcours.map((item) => (
-              <div
-                key={item.title}
+            {electricalCommercialOffers.map((item) => (
+              <article
+                key={item.slug}
                 className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm"
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-                  Parcours
+                  {item.availability === "direct"
+                    ? "Inscription directe"
+                    : "Parcours sur devis"}
                 </p>
 
                 <h3 className="mt-3 text-2xl font-bold text-slate-900">
@@ -288,26 +265,52 @@ export default function FormationHabilitationElectriquePage() {
                 </p>
 
                 <p className="mt-4 text-sm leading-7 text-slate-600">
-                  {item.description}
+                  {item.objective}
                 </p>
 
                 <div className="mt-5 space-y-2 text-sm">
                   <p className="rounded-xl bg-white px-3 py-2 font-medium text-slate-700 ring-1 ring-slate-200">
-                    {item.elearning}
+                    {item.delivery}
                   </p>
                   <p className="rounded-xl bg-white px-3 py-2 font-medium text-slate-700 ring-1 ring-slate-200">
-                    {item.presentiel}
+                    Metiers vises : {item.jobs}
                   </p>
                 </div>
 
-                <p className="mt-5 text-sm font-semibold text-slate-800">
-                  {item.duration}
+                <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+                  <p>
+                    <span className="font-semibold text-slate-900">Initiale :</span>{" "}
+                    {item.initialDuration}
+                  </p>
+                  <p className="mt-1">
+                    <span className="font-semibold text-slate-900">Recyclage :</span>{" "}
+                    {item.recycleDuration ?? "Selon besoin"}
+                  </p>
+                  <p className="mt-3">
+                    <span className="font-semibold text-slate-900">Inter :</span>{" "}
+                    {item.interPrice}
+                  </p>
+                  <p className="mt-1">
+                    <span className="font-semibold text-slate-900">Intra :</span>{" "}
+                    {item.intraPrice}
+                  </p>
+                  <p className="mt-1">
+                    <span className="font-semibold text-slate-900">Participants :</span>{" "}
+                    {item.participants}
+                  </p>
+                </div>
+
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  {item.note}
                 </p>
 
-                <p className="mt-2 text-sm font-bold text-red-700">
-                  {item.pricing}
-                </p>
-              </div>
+                <Link
+                  href={item.ctaHref}
+                  className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >
+                  {item.ctaLabel}
+                </Link>
+              </article>
             ))}
           </div>
         </div>
@@ -324,8 +327,8 @@ export default function FormationHabilitationElectriquePage() {
           </h2>
 
           <p className="mt-4 text-slate-600">
-              PREVENSIA FORMATION vous oriente vers le mode de formation le plus
-              adapte selon le niveau recherche, le nombre d&apos;apprenants et les
+            PREVENSIA FORMATION vous oriente vers le mode de formation le plus
+            adapte selon le symbole recherche, le nombre d&apos;apprenants et les
             contraintes de votre structure.
           </p>
         </div>
@@ -342,9 +345,7 @@ export default function FormationHabilitationElectriquePage() {
               <h3 className="mt-3 text-2xl font-bold text-slate-900">
                 {item.title}
               </h3>
-              <p className="mt-4 text-slate-600 leading-8">
-                {item.description}
-              </p>
+              <p className="mt-4 leading-8 text-slate-600">{item.description}</p>
               <Link
                 href={item.href}
                 className="mt-8 inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
@@ -367,12 +368,11 @@ export default function FormationHabilitationElectriquePage() {
               Choisissez le mode de formation adapte a votre besoin
             </h2>
 
-            <p className="mt-4 max-w-4xl text-slate-600 leading-8">
-              PREVENSIA FORMATION vous accompagne dans votre habilitation
-              electrique selon votre situation : inscription individuelle,
-              formation en entreprise ou parcours e-learning. Accedez rapidement
-              a la solution la plus adaptee a vos contraintes et a votre
-              organisation.
+            <p className="mt-4 max-w-4xl leading-8 text-slate-600">
+              PREVENSIA FORMATION vous accompagne selon votre situation :
+              inscription individuelle, besoin entreprise, symbole cible, ou
+              parcours e-learning deja ouvert. Accedez rapidement a la solution
+              la plus adaptee a vos contraintes et a votre organisation.
             </p>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">

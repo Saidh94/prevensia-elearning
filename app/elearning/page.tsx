@@ -31,9 +31,9 @@ const formations = [
   {
     slug: "bs-be-manoeuvre",
     category: "Habilitation electrique",
-    title: "Habilitation electrique BS / BE Manoeuvre",
-    duration: "E-learning : 5 h a 7 h + visio : 2 h 30 a 3 h",
-    mode: "E-learning + visio accompagnee",
+    title: "Habilitation electrique BS et BE Manoeuvre",
+    duration: "E-learning : 5 h a 7 h + sequence encadree : 45 min a 4 h",
+    mode: "E-learning + classe virtuelle / visio",
     price: "320 EUR HT",
     level: "Intermediaire",
     audience:
@@ -53,14 +53,14 @@ const formations = [
       "Conduite a tenir en cas d'anomalie, d'incident ou d'accident",
     ],
     note:
-      "Parcours pense pour une validation serieuse en distanciel, avec visio de demi-journee en complement du module en ligne.",
+      "Initial en classe virtuelle ou session entreprise, puis recyclage possible en visio accompagnee selon le besoin.",
   },
   {
     slug: "b1-b1v-b2-b2v-br-bc",
     category: "Habilitation electrique",
-    title: "Habilitation electrique B1 B1V B2 B2V BR BC",
+    title: "Habilitation electrique B1 / B1V / B2 / B2V / BR / BC",
     duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
-    mode: "Parcours mixte",
+    mode: "E-learning + journee presentielle",
     price: "549 EUR HT",
     level: "Avance",
     audience:
@@ -75,12 +75,12 @@ const formations = [
     programme: [
       "Cadre reglementaire et principes de prevention du risque electrique",
       "Domaines de tension, zones, voisinage et conditions d'intervention",
-      "Roles des habilitations B1, B2, BR, BC et variantes au voisinage",
+      "Roles des habilitations B1, B1V, B2, B2V, BR, BC et variantes au voisinage",
       "Consignation, intervention, remplacement, raccordement et organisation du travail",
       "Analyse des risques, conduite a tenir et cas pratiques",
     ],
     note:
-      "Socle theorique premium complete par une journee presentielle d'application, d'echange et d'evaluation.",
+      "Socle theorique premium complete par une journee presentielle d'application, de mise en situation et d'evaluation.",
   },
   {
     slug: "securite-incendie",
@@ -189,11 +189,11 @@ const formations = [
 ];
 
 const pointsForts = [
-  "Parcours accessibles en ligne",
+  "Offres structurees selon le niveau d'habilitation vise",
   "Contenus structures autour des risques reels en entreprise",
-  "Approche progressive selon les niveaux et metiers",
-  "Modules pedagogiques avec chapitres, syntheses et quiz",
-  "Vision operationnelle et reglementaire adaptee au terrain",
+  "Approche progressive selon les niveaux, metiers et contraintes terrain",
+  "Modules pedagogiques avec chapitres, syntheses et quiz serieux",
+  "Validation finale encadree : entretien, visio ou presentiel",
 ];
 
 const categories = [
@@ -228,9 +228,11 @@ export default function ElearningPage() {
             <p className="mt-4 text-base leading-7 text-slate-400">
               Nos modules ont vocation a accompagner l&apos;acquisition des
               connaissances, des bons reflexes et des reperes techniques ou
-              reglementaires. Selon les formations concernees, ils sont completes
-              par un entretien de validation, une visio accompagnee ou une
-              sequence presentielle.
+              reglementaires. Chez PREVENSIA, la promesse est claire : les
+              symboles sont vendus de maniere plus lisible sur le site
+              commercial, tandis que l&apos;espace e-learning s&apos;appuie sur des
+              socles pedagogiques adaptes aux parcours H0B0 / H0V, BS / BE
+              Manoeuvre et BT electricien.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">

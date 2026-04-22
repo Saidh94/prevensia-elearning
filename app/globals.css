@@ -26,11 +26,21 @@ body {
 }
 
 @media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
   .module-shell-header {
     display: none !important;
   }
 
   .module-shell {
     background: #ffffff !important;
+  }
+
+  .learner-attestation-shell {
+    background: #ffffff !important;
+    color: #0f172a !important;
   }
 }

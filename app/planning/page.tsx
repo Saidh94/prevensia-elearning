@@ -57,7 +57,9 @@ export default function PlanningPage() {
         title.includes("h0b0") ||
         title.includes("bs / be") ||
         title.includes("bs/be") ||
+        title.includes("bs et be manoeuvre") ||
         title.includes("b1 b1v b2 b2v br bc") ||
+        title.includes("b1 / b1v / b2 / b2v / br / bc") ||
         title.includes("habilitation électrique h0b0") ||
         title.includes("habilitation electrique h0b0");
 

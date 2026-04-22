@@ -24,7 +24,7 @@ export default function ConnexionForm({
     setLoading(true);
     setError(null);
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -36,7 +36,9 @@ export default function ConnexionForm({
       return;
     }
 
-    router.replace(redirectTo || "/dashboard");
+    const mustChangePassword = Boolean(data.user?.user_metadata?.must_change_password);
+
+    router.replace(mustChangePassword ? "/mot-de-passe" : redirectTo || "/dashboard");
     router.refresh();
   }
 

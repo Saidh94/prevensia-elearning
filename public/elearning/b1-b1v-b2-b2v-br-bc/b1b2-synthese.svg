@@ -1,0 +1,32 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#EFF6FF"/>
+  <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+
+  <text x="92" y="122" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="38" font-weight="700">
+    Les 4 reflexes a retenir
+  </text>
+  <text x="92" y="164" fill="#1E40AF" font-family="Arial, sans-serif" font-size="22">
+    Une operation electrique sure reste toujours lisible, preparee et interrompue au moindre doute.
+  </text>
+
+  <circle cx="220" cy="430" r="120" fill="#DBEAFE" stroke="#60A5FA" stroke-width="2"/>
+  <circle cx="470" cy="430" r="120" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+  <circle cx="720" cy="430" r="120" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <circle cx="970" cy="430" r="120" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+
+  <text x="220" y="410" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="26" font-weight="700">Identifier</text>
+  <text x="220" y="446" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="18">Le materiel, la zone</text>
+  <text x="220" y="472" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="18">et le bon role</text>
+
+  <text x="470" y="410" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="26" font-weight="700">Preparer</text>
+  <text x="470" y="446" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="18">La methode, les moyens</text>
+  <text x="470" y="472" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="18">et les protections</text>
+
+  <text x="720" y="396" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="26" font-weight="700">Respecter</text>
+  <text x="720" y="432" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Son symbole, ses limites</text>
+  <text x="720" y="458" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="18">et la consigne du jour</text>
+
+  <text x="970" y="410" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="26" font-weight="700">Arreter</text>
+  <text x="970" y="446" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">Au moindre doute</text>
+  <text x="970" y="472" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">et faire verifier</text>
+</svg>

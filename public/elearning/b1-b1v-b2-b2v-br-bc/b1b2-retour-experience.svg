@@ -1,0 +1,40 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#F8FAFC"/>
+  <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+
+  <text x="92" y="122" fill="#0F172A" font-family="Arial, sans-serif" font-size="38" font-weight="700">
+    Apprendre de chaque operation
+  </text>
+  <text x="92" y="164" fill="#475569" font-family="Arial, sans-serif" font-size="22">
+    Le compte rendu et le retour d'experience renforcent la securite des prochaines interventions.
+  </text>
+
+  <rect x="92" y="240" width="1016" height="110" rx="22" fill="#0F172A"/>
+  <text x="600" y="286" text-anchor="middle" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="26" font-weight="700">
+    Observer - tracer - corriger - maintenir les competences
+  </text>
+  <text x="600" y="322" text-anchor="middle" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="20">
+    Aucun ecart critique ne doit disparaitre sans traitement ni retour documentaire.
+  </text>
+
+  <rect x="92" y="404" width="220" height="186" rx="24" fill="#E2E8F0"/>
+  <rect x="350" y="404" width="220" height="186" rx="24" fill="#E2E8F0"/>
+  <rect x="608" y="404" width="220" height="186" rx="24" fill="#E2E8F0"/>
+  <rect x="866" y="404" width="242" height="186" rx="24" fill="#E2E8F0"/>
+
+  <text x="202" y="468" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Retour terrain</text>
+  <text x="202" y="510" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">Constater les faits</text>
+  <text x="202" y="538" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">sans minimiser</text>
+
+  <text x="460" y="468" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Trace ecrite</text>
+  <text x="460" y="510" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">Compte rendu, repere</text>
+  <text x="460" y="538" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">et information fiable</text>
+
+  <text x="718" y="468" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Correction</text>
+  <text x="718" y="510" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">Mise a jour des</text>
+  <text x="718" y="538" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">documents et consignes</text>
+
+  <text x="987" y="468" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="24" font-weight="700">Competences</text>
+  <text x="987" y="510" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">Maintenir les reflexes</text>
+  <text x="987" y="538" text-anchor="middle" fill="#334155" font-family="Arial, sans-serif" font-size="18">et les limites du role</text>
+</svg>

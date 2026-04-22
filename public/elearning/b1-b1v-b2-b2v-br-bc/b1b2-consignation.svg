@@ -1,0 +1,50 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="36" fill="#F8FAFC"/>
+  <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+
+  <text x="92" y="122" fill="#0F172A" font-family="Arial, sans-serif" font-size="38" font-weight="700">
+    Consignation et verification d'absence de tension
+  </text>
+  <text x="92" y="164" fill="#334155" font-family="Arial, sans-serif" font-size="22">
+    Une sequence rigoureuse qui n'admet ni approximation ni memoire selective.
+  </text>
+
+  <rect x="92" y="236" width="184" height="238" rx="22" fill="#DBEAFE" stroke="#60A5FA"/>
+  <rect x="298" y="236" width="184" height="238" rx="22" fill="#DBEAFE" stroke="#60A5FA"/>
+  <rect x="504" y="236" width="184" height="238" rx="22" fill="#DBEAFE" stroke="#60A5FA"/>
+  <rect x="710" y="236" width="184" height="238" rx="22" fill="#DBEAFE" stroke="#60A5FA"/>
+  <rect x="916" y="236" width="192" height="238" rx="22" fill="#DBEAFE" stroke="#60A5FA"/>
+
+  <text x="184" y="296" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Separation</text>
+  <text x="184" y="344" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">Isoler le bon</text>
+  <text x="184" y="370" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">circuit</text>
+
+  <text x="390" y="296" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Condamnation</text>
+  <text x="390" y="344" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">Bloquer toute</text>
+  <text x="390" y="370" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">remise sous tension</text>
+
+  <text x="596" y="296" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Identification</text>
+  <text x="596" y="344" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">Verifier le</text>
+  <text x="596" y="370" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">bon perimetre</text>
+
+  <text x="802" y="296" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="22" font-weight="700">VAT</text>
+  <text x="802" y="344" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">Verifier</text>
+  <text x="802" y="370" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">reellement</text>
+
+  <text x="1012" y="296" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="22" font-weight="700">Remise</text>
+  <text x="1012" y="344" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">Restituer sous</text>
+  <text x="1012" y="370" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="16">controle</text>
+
+  <path d="M276 356H298" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+  <path d="M482 356H504" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+  <path d="M688 356H710" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+  <path d="M894 356H916" stroke="#3B82F6" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="92" y="538" width="1016" height="86" rx="18" fill="#0F172A"/>
+  <text x="126" y="586" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="20">
+    Le BC garantit la fiabilite du processus. La VAT n'est jamais presumee :
+  </text>
+  <text x="126" y="614" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="20">
+    elle se fait au bon point, avec la bonne methode et le bon materiel.
+  </text>
+</svg>

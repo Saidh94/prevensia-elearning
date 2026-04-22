@@ -363,7 +363,7 @@ export default function DashboardPage() {
                           Planifier mon entretien
                         </Link>
                       ) : showAttestation ? (
-                        <div className="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
+                        <div className="flex w-full items-center justify-center rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-sm font-medium text-green-700">
                           Parcours validé
                         </div>
                       ) : (
