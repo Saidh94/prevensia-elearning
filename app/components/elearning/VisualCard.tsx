@@ -295,8 +295,7 @@ export default function VisualCard({
   const tone = visual.tone ?? "blue";
   const styles = toneClasses[tone];
   const imagePath = visual.imagePath?.trim() ?? "";
-  const isSvg = imagePath.toLowerCase().endsWith(".svg");
-  const [hasImageError, setHasImageError] = useState(false);
+    const [hasImageError, setHasImageError] = useState(false);
   const title = formatFrenchDisplayText(visual.title);
   const subtitle = formatFrenchDisplayText(visual.subtitle);
   const imageAlt = formatFrenchDisplayText(visual.imageAlt ?? visual.title ?? "");
@@ -310,6 +309,9 @@ export default function VisualCard({
   }, [imagePath]);
 
   const shouldRenderImage = Boolean(imagePath) && !hasImageError;
+  const shouldRenderIllustration =
+    !shouldRenderImage && Boolean(visual.illustrationKey);
+  const shouldRenderMedia = shouldRenderImage || shouldRenderIllustration;
   const hasTextBlock = Boolean(title || subtitle || items.length > 0);
 
   return (
@@ -319,48 +321,36 @@ export default function VisualCard({
       }`}
     >
       <div className={compact ? "space-y-3" : "space-y-4"}>
-        <div className={`rounded-[1.5rem] p-3 ${styles.panel}`}>
-          {shouldRenderImage ? (
-            <div
-              className={`overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white ${
-                compact ? "p-2" : "p-3"
-              }`}
-            >
-              {isSvg ? (
+        {shouldRenderMedia ? (
+          <div className={`rounded-[1.5rem] p-3 ${styles.panel}`}>
+            {shouldRenderImage ? (
+              <div
+                className={`overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white ${
+                  compact ? "p-2" : "p-3"
+                }`}
+              >
                 <img
-                  src={imagePath}
-                  alt={imageAlt}
-                  className={`mx-auto h-auto w-full object-contain object-top ${
-                    compact ? "max-h-[240px]" : "max-h-[420px]"
-                  }`}
-                  loading="lazy"
-                  onError={() => setHasImageError(true)}
+                    src={imagePath}
+                    alt={imageAlt}
+                    className={`mx-auto h-auto w-full object-contain object-top ${
+                      compact ? "max-h-[240px]" : "max-h-[420px]"
+                    }`}
+                    loading="lazy"
+                    onError={() => setHasImageError(true)}
+                  />
+              </div>
+            ) : (
+              <div className={`mx-auto ${compact ? "max-w-[320px]" : "max-w-[520px]"}`}>
+                <Illustration
+                  illustrationKey={visual.illustrationKey}
+                  stroke={styles.stroke}
+                  fillSoft={styles.fillSoft}
+                  fillStrong={styles.fillStrong}
                 />
-              ) : (
-                <Image
-                  src={imagePath}
-                  alt={imageAlt}
-                  width={1200}
-                  height={800}
-                  className={`mx-auto h-auto w-full object-contain object-top ${
-                    compact ? "max-h-[240px]" : "max-h-[420px]"
-                  }`}
-                  priority={false}
-                  onError={() => setHasImageError(true)}
-                />
-              )}
-            </div>
-          ) : (
-            <div className={`mx-auto ${compact ? "max-w-[320px]" : "max-w-[520px]"}`}>
-              <Illustration
-                illustrationKey={visual.illustrationKey}
-                stroke={styles.stroke}
-                fillSoft={styles.fillSoft}
-                fillStrong={styles.fillStrong}
-              />
-            </div>
-          )}
-        </div>
+              </div>
+            )}
+          </div>
+        ) : null}
 
         {hasTextBlock ? (
           <div>

@@ -61,6 +61,30 @@ const engagementCards = [
   },
 ];
 
+const offerSections = [
+  {
+    key: "non-electriciens",
+    eyebrow: "Formation habilitation electrique pour non-electriciens",
+    title: "Parcours non-electriciens",
+    description:
+      "Offres pensees pour les operations d'ordre non electrique, les interventions elementaires, les manoeuvres simples et les chantiers au voisinage de reseaux enterres.",
+  },
+  {
+    key: "electriciens-bt",
+    eyebrow: "Formation habilitation electrique pour electriciens",
+    title: "Parcours electriciens basse tension",
+    description:
+      "Lecture plus fine des symboles B1 / B1V, B2 / B2V, BR, BC, BE et du parcours BT multi-symboles, avec tarifs et durees aligns sur les usages du marche.",
+  },
+  {
+    key: "haute-tension",
+    eyebrow: "Formation habilitation electrique haute tension",
+    title: "Parcours haute tension",
+    description:
+      "Offre HTA sur devis, pour les postes ou les missions reelles imposent un cadrage plus exigeant sur les travaux, la consignation et l'exploitation.",
+  },
+] as const;
+
 export default function FormationHabilitationElectriquePage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
@@ -244,74 +268,96 @@ export default function FormationHabilitationElectriquePage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {electricalCommercialOffers.map((item) => (
-              <article
-                key={item.slug}
-                className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-                  {item.availability === "direct"
-                    ? "Inscription directe"
-                    : "Parcours sur devis"}
-                </p>
+          <div className="mt-10 space-y-10">
+            {offerSections.map((section) => {
+              const sectionOffers = electricalCommercialOffers.filter(
+                (item) => item.segment === section.key
+              );
 
-                <h3 className="mt-3 text-2xl font-bold text-slate-900">
-                  {item.title}
-                </h3>
+              return (
+                <div key={section.key}>
+                  <div className="max-w-3xl">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-700">
+                      {section.eyebrow}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">
+                      {section.title}
+                    </h3>
+                    <p className="mt-3 text-slate-600">{section.description}</p>
+                  </div>
 
-                <p className="mt-2 text-sm font-medium text-slate-500">
-                  {item.audience}
-                </p>
+                  <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    {sectionOffers.map((item) => (
+                      <article
+                        key={item.slug}
+                        className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm"
+                      >
+                        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+                          {item.availability === "direct"
+                            ? "Inscription directe"
+                            : "Parcours sur devis"}
+                        </p>
 
-                <p className="mt-4 text-sm leading-7 text-slate-600">
-                  {item.objective}
-                </p>
+                        <h3 className="mt-3 text-2xl font-bold text-slate-900">
+                          {item.title}
+                        </h3>
 
-                <div className="mt-5 space-y-2 text-sm">
-                  <p className="rounded-xl bg-white px-3 py-2 font-medium text-slate-700 ring-1 ring-slate-200">
-                    {item.delivery}
-                  </p>
-                  <p className="rounded-xl bg-white px-3 py-2 font-medium text-slate-700 ring-1 ring-slate-200">
-                    Metiers vises : {item.jobs}
-                  </p>
+                        <p className="mt-2 text-sm font-medium text-slate-500">
+                          {item.audience}
+                        </p>
+
+                        <p className="mt-4 text-sm leading-7 text-slate-600">
+                          {item.objective}
+                        </p>
+
+                        <div className="mt-5 space-y-2 text-sm">
+                          <p className="rounded-xl bg-white px-3 py-2 font-medium text-slate-700 ring-1 ring-slate-200">
+                            {item.delivery}
+                          </p>
+                          <p className="rounded-xl bg-white px-3 py-2 font-medium text-slate-700 ring-1 ring-slate-200">
+                            Metiers vises : {item.jobs}
+                          </p>
+                        </div>
+
+                        <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+                          <p>
+                            <span className="font-semibold text-slate-900">Initiale :</span>{" "}
+                            {item.initialDuration}
+                          </p>
+                          <p className="mt-1">
+                            <span className="font-semibold text-slate-900">Recyclage :</span>{" "}
+                            {item.recycleDuration ?? "Selon besoin"}
+                          </p>
+                          <p className="mt-3">
+                            <span className="font-semibold text-slate-900">Inter :</span>{" "}
+                            {item.interPrice}
+                          </p>
+                          <p className="mt-1">
+                            <span className="font-semibold text-slate-900">Intra :</span>{" "}
+                            {item.intraPrice}
+                          </p>
+                          <p className="mt-1">
+                            <span className="font-semibold text-slate-900">Participants :</span>{" "}
+                            {item.participants}
+                          </p>
+                        </div>
+
+                        <p className="mt-4 text-sm leading-7 text-slate-600">
+                          {item.note}
+                        </p>
+
+                        <Link
+                          href={item.ctaHref}
+                          className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                        >
+                          {item.ctaLabel}
+                        </Link>
+                      </article>
+                    ))}
+                  </div>
                 </div>
-
-                <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
-                  <p>
-                    <span className="font-semibold text-slate-900">Initiale :</span>{" "}
-                    {item.initialDuration}
-                  </p>
-                  <p className="mt-1">
-                    <span className="font-semibold text-slate-900">Recyclage :</span>{" "}
-                    {item.recycleDuration ?? "Selon besoin"}
-                  </p>
-                  <p className="mt-3">
-                    <span className="font-semibold text-slate-900">Inter :</span>{" "}
-                    {item.interPrice}
-                  </p>
-                  <p className="mt-1">
-                    <span className="font-semibold text-slate-900">Intra :</span>{" "}
-                    {item.intraPrice}
-                  </p>
-                  <p className="mt-1">
-                    <span className="font-semibold text-slate-900">Participants :</span>{" "}
-                    {item.participants}
-                  </p>
-                </div>
-
-                <p className="mt-4 text-sm leading-7 text-slate-600">
-                  {item.note}
-                </p>
-
-                <Link
-                  href={item.ctaHref}
-                  className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                >
-                  {item.ctaLabel}
-                </Link>
-              </article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

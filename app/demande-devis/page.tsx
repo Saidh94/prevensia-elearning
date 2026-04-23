@@ -154,11 +154,8 @@ function DemandeDevisForm() {
                 <option value="bs-be-manoeuvre">
                   BS / BE Manoeuvre - Initiale e-learning + classe virtuelle
                 </option>
-                <option value="bs-be-manoeuvre-entreprise">
-                  BS / BE Manoeuvre - Initiale e-learning + session entreprise
-                </option>
-                <option value="bs-be-recyclage">
-                  BS / BE Manoeuvre - Recyclage e-learning + visio
+                <option value="bf-hf">
+                  BF / HF - Travaux non electriques sur canalisations enterrees
                 </option>
                 <option value="b1-b1v">
                   B1 / B1V - Parcours cible executant electricien

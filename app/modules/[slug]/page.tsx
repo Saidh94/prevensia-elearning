@@ -14,7 +14,7 @@ type PageProps = {
 export default async function ModuleLandingPage({ params }: PageProps) {
   const { slug } = await params;
   const canonicalSlug = resolveModuleSlug(slug);
-  const moduleData = getModuleContentBySlug(slug);
+  const moduleData = canonicalSlug ? getModuleContentBySlug(canonicalSlug) : null;
 
   if (!moduleData || !canonicalSlug) {
     notFound();

@@ -2269,75 +2269,75 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question:
         "Comment fonctionne une installation sprinkler en situation d'incendie ?",
       choices: [
-        "Toutes les têtes se déclenchent automatiquement en même temps",
-        "Seules les têtes soumises à une chaleur suffisante s'ouvrent",
-        "Le système agit localement au plus près du foyer",
+        "Toutes les tetes se declenchent automatiquement en meme temps",
+        "Seules les tetes soumises a une chaleur suffisante s'ouvrent",
+        "Le systeme agit localement au plus pres du foyer",
         "Le sprinkler remplace toute autre organisation incendie du site",
       ],
       answer: [1, 2],
       multiple: true,
       explanation:
-        "Le sprinkler agit localement et précocement. Il ne remplace ni l'organisation du site ni les autres moyens de sécurité incendie.",
+        "Le sprinkler agit localement et precocement. Il ne remplace ni l'organisation du site ni les autres moyens de securite incendie.",
       timeLimit: 70,
       contextLabel:
-        "Une installation sprinkler doit être lue comme une protection technique intégrée à une stratégie incendie plus large.",
+        "Une installation sprinkler doit etre lue comme une protection technique integree a une strategie incendie plus large.",
       imagePath: "/images/installation-sprinkler.png",
       imageAlt:
-        "Schéma de principe d'une installation sprinkler avec réserve d'eau, pompe, poste de contrôle et réseau",
+        "Schema de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de controle et reseau",
     },
     {
       question:
-        "Quels éléments appartiennent typiquement à une installation sprinkler ?",
+        "Quels elements appartiennent typiquement a une installation sprinkler ?",
       choices: [
-        "Des têtes sprinkler",
-        "Un réseau de tuyauteries",
-        "Un poste de contrôle et une source d'eau",
+        "Des tetes sprinkler",
+        "Un reseau de tuyauteries",
+        "Un poste de controle et une source d'eau",
         "Uniquement un extincteur mobile",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "Le sprinkler repose sur un ensemble cohérent: têtes, réseau, contrôle, alimentation en eau et alarmes.",
+        "Le sprinkler repose sur un ensemble coherent: tetes, reseau, controle, alimentation en eau et alarmes.",
       timeLimit: 70,
       contextLabel:
-        "Le réseau sprinkler comprend plusieurs parties visibles ou techniques qu'un exploitant doit savoir reconnaître.",
+        "Le reseau sprinkler comprend plusieurs parties visibles ou techniques qu'un exploitant doit savoir reconnaitre.",
       imagePath: "/images/reseau-sprinkler.jpg",
       imageAlt:
-        "Réseau sprinkler dans un bâtiment avec poste de contrôle, réseaux et sources d'eau",
+        "Reseau sprinkler dans un batiment avec poste de controle, reseaux et sources d'eau",
     },
     {
       question:
-        "Quelles anomalies doivent être prises au sérieux en exploitation sprinkler ?",
+        "Quelles anomalies doivent etre prises au serieux en exploitation sprinkler ?",
       choices: [
-        "Une vanne fermée ou mal positionnée",
+        "Une vanne fermee ou mal positionnee",
         "Une pression anormale",
-        "Une alarme non traitée",
+        "Une alarme non traitee",
         "Une corrosion ou une fuite visible",
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "Une petite anomalie apparente peut dégrader fortement la protection réelle du site.",
+        "Une petite anomalie apparente peut degrader fortement la protection reelle du site.",
       timeLimit: 80,
     },
     {
       question:
-        "Pourquoi une modification de stockage ou d'exploitation doit-elle alerter sur un site protégé par sprinkler ?",
+        "Pourquoi une modification de stockage ou d'exploitation doit-elle alerter sur un site protege par sprinkler ?",
       choices: [
-        "Parce qu'elle peut remettre en cause l'adéquation entre le risque et la protection installée",
-        "Parce qu'un sprinkler est universel et ne dépend jamais du risque réel",
-        "Parce que la hauteur, la densité ou la nature des produits peuvent changer la situation",
-        "Parce que seule la présence des têtes suffit à garantir la conformité en toute circonstance",
+        "Parce qu'elle peut remettre en cause l'adequation entre le risque et la protection installee",
+        "Parce qu'un sprinkler est universel et ne depend jamais du risque reel",
+        "Parce que la hauteur, la densite ou la nature des produits peuvent changer la situation",
+        "Parce que seule la presence des tetes suffit a garantir la conformite en toute circonstance",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Le sprinkler reste efficace dans un cadre de conception et d'exploitation donné, qu'il faut préserver dans le temps.",
+        "Le sprinkler reste efficace dans un cadre de conception et d'exploitation donne, qu'il faut preserver dans le temps.",
       timeLimit: 75,
     },
     {
       question:
-        "Quels référentiels sont fréquemment rencontrés dans l'univers sprinkler selon les sites ?",
+        "Quels referentiels sont frequemment rencontres dans l'univers sprinkler selon les sites ?",
       choices: [
         "EN 12845",
         "APSAD R1",
@@ -2347,78 +2347,508 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "Ces référentiels peuvent s'appliquer selon le contexte technique, contractuel ou assurantiel du site.",
+        "Ces referentiels peuvent s'appliquer selon le contexte technique, contractuel ou assurantiel du site.",
       timeLimit: 80,
       contextLabel:
-        "Le monde de l'extinction automatique ne se limite pas à une seule technologie: le choix du système dépend du risque, du volume et des équipements protégés.",
-      imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        "Le monde sprinkler s'appuie sur plusieurs referentiels techniques selon le site protege et ses exigences d'assurance.",
+      imagePath: "/images/installation-sprinkler.png",
       imageAlt:
-        "Schéma de système fixe d'extinction automatique par agent extincteur autre que sprinkler",
+        "Schema pedagogique d'une installation sprinkler dans un batiment logistique ou industriel",
     },
     {
       question:
-        "Dans une logique d'exploitation, qu'impose particulièrement un système d'extinction automatique à gaz ?",
+        "En cas d'indisponibilite temporaire d'une partie de l'installation sprinkler, quel raisonnement est le plus juste ?",
       choices: [
-        "Une attention à l'intégrité du local protégé",
-        "Une gestion rigoureuse de l'alarme, de la temporisation et de l'évacuation",
-        "Le même raisonnement qu'un sprinkler, sans différence notable",
-        "Une maîtrise des accès après émission",
-      ],
-      answer: [0, 1, 3],
-      multiple: true,
-      explanation:
-        "Un système à gaz impose une vigilance spécifique sur le volume protégé, l'alarme, l'évacuation préalable et le contrôle des accès après déclenchement.",
-      timeLimit: 75,
-      contextLabel:
-        "L'extinction automatique à gaz n'est pas une variante du sprinkler: elle repose sur une logique de local protégé, de temporisation et de sécurité des personnes.",
-      imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-      imageAlt:
-        "Schéma de système d'extinction automatique à gaz avec détection, commande et réservoirs",
-    },
-    {
-      question:
-        "En cas d'indisponibilité temporaire d'une partie de l'installation sprinkler, quel raisonnement est le plus juste ?",
-      choices: [
-        "Il faut tracer la situation et appliquer les mesures compensatoires prévues",
-        "Une vanne fermée n'a pas d'importance si elle est remise plus tard",
+        "Il faut tracer la situation et appliquer les mesures compensatoires prevues",
+        "Une vanne fermee n'a pas d'importance si elle est remise plus tard",
         "L'organisation du site doit savoir qui alerter et qui autorise",
-        "Aucune action n'est nécessaire tant qu'il n'y a pas de départ de feu",
+        "Aucune action n'est necessaire tant qu'il n'y a pas de depart de feu",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Une indisponibilité sprinkler se pilote avec méthode, traçabilité et mesures compensatoires adaptées.",
+        "Une indisponibilite sprinkler se pilote avec methode, tracabilite et mesures compensatoires adaptees.",
       timeLimit: 75,
     },
     {
       question:
-        "Dans un entrepôt ou une logique ICPE 1510, quelle affirmation est correcte ?",
+        "Dans un entrepot ou une logique ICPE 1510, quelle affirmation est correcte ?",
       choices: [
         "Le sprinkler fait partie d'un ensemble plus large de prescriptions et d'organisation",
-        "La seule présence du sprinkler suffit à régler le risque incendie d'un entrepôt",
-        "Les changements d'exploitation doivent être analysés",
+        "La seule presence du sprinkler suffit a regler le risque incendie d'un entrepot",
+        "Les changements d'exploitation doivent etre analyses",
         "Le compartimentage et l'organisation du site restent sans importance",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Le sprinkler est un maillon d'une stratégie plus large qui dépend aussi du stockage, des cellules, de l'organisation et du risque réel.",
+        "Le sprinkler est un maillon d'une strategie plus large qui depend aussi du stockage, des cellules, de l'organisation et du risque reel.",
       timeLimit: 75,
     },
     {
       question:
-        "Quel comportement traduit une bonne maturité d'exploitation sprinkler ?",
+        "Quel comportement traduit une bonne maturite d'exploitation sprinkler ?",
       choices: [
-        "Considérer un défaut chronique comme normal",
-        "Suivre les essais et contrôles périodiques",
-        "Traiter et suivre les anomalies jusqu'au retour à la normale",
-        "Laisser les accès aux organes se dégrader avec le temps",
+        "Considerer un defaut chronique comme normal",
+        "Suivre les essais et controles periodiques",
+        "Traiter et suivre les anomalies jusqu'au retour a la normale",
+        "Laisser les acces aux organes se degrader avec le temps",
       ],
       answer: [1, 2],
       multiple: true,
       explanation:
-        "La qualité d'exploitation se voit dans la surveillance, la traçabilité et le traitement effectif des écarts.",
+        "La qualite d'exploitation se voit dans la surveillance, la tracabilite et le traitement effectif des ecarts.",
+      timeLimit: 65,
+    },
+    {
+      question:
+        "Quelles regles d'exploitation sont justes concernant les tetes sprinkler ?",
+      choices: [
+        "Elles ne doivent pas etre peintes ni utilisees comme support",
+        "Le stockage doit respecter un degagement suffisant sous les tetes",
+        "Un obstacle ajoute sous une tete peut modifier la protection reelle",
+        "Une tete heurtee ou deformee peut etre ignoree si elle n'a pas coule",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Les tetes sprinkler doivent rester intactes, degagees et adaptees au volume protege. Un choc, une peinture ou un obstacle modifient la protection.",
+      timeLimit: 75,
+      contextLabel:
+        "L'exploitation quotidienne doit aussi surveiller les tetes sprinkler, leur degagement et l'absence d'obstacle ou de choc visible.",
+      imagePath: "/images/reseau-sprinkler.jpg",
+      imageAlt:
+        "Reseau sprinkler illustrant la repartition des tetes au-dessus des zones de stockage",
+    },
+    {
+      question:
+        "Quels organes ou etats doivent rester accessibles et lisibles sur une installation sprinkler ?",
+      choices: [
+        "Les postes de controle et reperes associes",
+        "Les vannes et leurs positions normales",
+        "Les alarmes, reports ou organes utiles a l'exploitation",
+        "Peu importe, si l'installation est presente depuis longtemps",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "L'exploitant doit pouvoir lire l'etat de l'installation, acceder aux organes et detecter un ecart sans perdre de temps.",
+      timeLimit: 75,
+      imagePath: "/images/installation-spk.jpg",
+      imageAlt:
+        "Vue d'une installation sprinkler en environnement industriel ou logistique",
+    },
+  ],
+  "extinction-automatique-gaz": [
+    {
+      question:
+        "Quel enonce distingue correctement un systeme d'extinction automatique a gaz d'une installation sprinkler ?",
+      choices: [
+        "Le systeme a gaz protege un volume et impose une logique de temporisation et d'evacuation",
+        "Le systeme a gaz fonctionne comme un sprinkler mais sans eau",
+        "Le systeme a gaz depend fortement de l'integrite du local protege",
+        "Le systeme a gaz n'impose aucune contrainte particuliere sur le reacces",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Un systeme a gaz ne se lit pas comme un sprinkler. Il repose sur un local protege, une chaine de commande et une gestion stricte des acces.",
+      timeLimit: 75,
+      contextLabel:
+        "L'extinction automatique a gaz repose sur une logique de local protege, de temporisation et de securite des personnes.",
+      imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+      imageAlt:
+        "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+    },
+    {
+      question:
+        "Pourquoi l'integrite du local protege est-elle un point critique pour un systeme a gaz ?",
+      choices: [
+        "Parce que la concentration utile doit pouvoir se maintenir",
+        "Parce que les portes, passages et fuites n'ont aucun effet",
+        "Parce que l'efficacite depend aussi de l'etancheite du volume",
+        "Parce que seul le nombre de bouteilles compte",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Le local protege fait partie du systeme. Si son integrite est degradee, la concentration peut devenir insuffisante.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Quels elements de securite des personnes sont essentiels avant une emission de gaz ?",
+      choices: [
+        "Une alarme et une temporisation visibles ou audibles",
+        "L'evacuation prealable du local protege",
+        "L'acces libre au local pendant la diffusion",
+        "Le controle des acces avant et apres emission",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "La securite des personnes impose une chaine claire: alarme, temporisation, evacuation et maitrise des acces.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Apres une emission de gaz, quel comportement est le plus professionnel ?",
+      choices: [
+        "Interdire le reacces tant que les consignes du site ne permettent pas un retour controle",
+        "Rentrer aussitot pour verifier visuellement",
+        "Prendre en compte l'atmosphere du local et les risques residuels",
+        "Considérer que tout danger a disparu des l'extinction apparente",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Apres emission, le risque ne se limite pas au feu initial. Le reacces doit etre strictement encadre.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Quels reperes techniques ou normatifs sont cites pour les systemes d'extinction automatique a gaz ?",
+      choices: [
+        "APSAD R13",
+        "NF EN 15004-1",
+        "INRS ND 2191",
+        "APSAD R1",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "APSAD R13, NF EN 15004-1 et les reperes INRS aident a comprendre l'exploitation et la maintenance de ces systemes.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Quel raisonnement est juste pour un exploitant non mainteneur ?",
+      choices: [
+        "Comprendre la chaine d'information et appliquer la procedure du site",
+        "Improviser une neutralisation technique si une alarme se repete",
+        "Tracer les anomalies et alerter le bon interlocuteur",
+        "Confondre exploitation et maintenance specialisee",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "L'exploitant doit comprendre, agir dans son role et transmettre. Il ne doit pas improviser de maintenance.",
+      timeLimit: 70,
+    },
+    {
+      question:
+        "Lors d'une mise hors service ou d'une maintenance sur un systeme d'extinction a gaz, quelle conduite est correcte ?",
+      choices: [
+        "L'indisponibilite doit etre autorisee et tracee",
+        "Des mesures compensatoires peuvent etre necessaires selon le site",
+        "Une inhibition temporaire peut se faire sans informer personne",
+        "Le retour a la normale doit etre verifie avant de considerer le local de nouveau protege",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Le mode degrade doit etre pilote avec methode: autorisation, tracabilite, compensation et verification du retour a la normale.",
+      timeLimit: 75,
+      imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+      imageAlt:
+        "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+    },
+    {
+      question:
+        "Pourquoi une modification du local protege doit-elle etre analysee avec serieux sur un systeme a gaz ?",
+      choices: [
+        "Parce que passages, portes et percements influencent la tenue de la concentration",
+        "Parce que l'efficacite depend aussi de l'integrite du volume protege",
+        "Parce qu'un local protege reste conforme meme apres n'importe quelle modification",
+        "Parce que l'etancheite et les fermetures font partie du systeme reel",
+      ],
+      answer: [0, 1, 3],
+      multiple: true,
+      explanation:
+        "Le volume protege fait partie du systeme a gaz. Toute modification du local peut degrader la performance et la securite des personnes.",
+      timeLimit: 75,
+    },
+  ],
+  sst: [
+    {
+      question:
+        "Quelle est la premiere priorite d'un SST face a un accident ?",
+      choices: [
+        "Proteger pour eviter le suraccident",
+        "Deplacer immediatement la victime quoi qu'il arrive",
+        "Appeler apres plusieurs minutes d'observation",
+        "Agir sans analyser le danger",
+      ],
+      answer: [0],
+      explanation:
+        "Le SST commence par proteger afin d'eviter une nouvelle victime et de securiser la scene.",
+      timeLimit: 45,
+      imagePath: "/images/sst.jpg",
+      imageAlt:
+        "Formation SST et gestes de premiers secours en environnement professionnel",
+    },
+    {
+      question:
+        "L'examen SST sert principalement a :",
+      choices: [
+        "Identifier l'urgence et orienter le geste immediat",
+        "Remplacer l'avis medical",
+        "Choisir la victime la plus simple a traiter",
+        "Retarder l'alerte",
+      ],
+      answer: [0],
+      explanation:
+        "L'examen permet de rechercher les urgences vitales et de guider la suite de l'intervention.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quelles informations doivent figurer dans une alerte utile ?",
+      choices: [
+        "Le lieu precis",
+        "La nature de l'evenement",
+        "Le nombre de victimes",
+        "Des informations sans lien avec la situation",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Une alerte claire et precise fait gagner du temps et facilite la prise en charge par les secours.",
+      timeLimit: 65,
+    },
+    {
+      question:
+        "Pourquoi la protection prime-t-elle avant le secours ?",
+      choices: [
+        "Parce qu'il faut eviter le suraccident",
+        "Parce qu'un secouriste blesse devient une nouvelle victime",
+        "Parce qu'il faut agir vite sans jamais regarder le danger",
+        "Parce que tout danger disparait automatiquement en quelques secondes",
+      ],
+      answer: [0, 1],
+      multiple: true,
+      explanation:
+        "La scene doit etre securisee avant toute autre action pour eviter d'aggraver la situation.",
+      timeLimit: 60,
+    },
+    {
+      question:
+        "Dans la logique SST, quels signes orientent l'examen initial ?",
+      choices: [
+        "Saignement abondant",
+        "Etouffement",
+        "Reponse de la victime",
+        "Respiration",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "L'examen SST suit une logique methodique de recherche des urgences vitales.",
+      timeLimit: 75,
+    },
+    {
+      question:
+        "Quel enonce reste juste concernant le role du SST ?",
+      choices: [
+        "Le SST secourt et contribue aussi a la prevention dans l'entreprise",
+        "Le SST remplace les secours specialises",
+        "Le SST agit dans le cadre de sa formation et des consignes du site",
+        "Le SST improvise des gestes non appris si la situation est impressionnante",
+      ],
+      answer: [0, 2],
+      multiple: true,
+      explanation:
+        "Le role du SST relie secours et prevention, dans le respect strict du cadre appris en formation.",
+      timeLimit: 65,
+    },
+    {
+      question:
+        "Pourquoi le suivi de la victime reste-t-il important jusqu'a l'arrivee des secours ?",
+      choices: [
+        "Parce que son etat peut evoluer",
+        "Parce qu'il faut pouvoir transmettre un compte rendu utile",
+        "Parce qu'une fois l'alerte donnee, toute surveillance devient inutile",
+        "Parce que l'attente remplace toujours les gestes appris",
+      ],
+      answer: [0, 1],
+      multiple: true,
+      explanation:
+        "Le SST surveille, rassure si possible et transmet des informations utiles a la releve.",
+      timeLimit: 60,
+    },
+    {
+      question:
+        "Dans quel ordre logique s'inscrit l'action du SST face a une situation d'accident ?",
+      choices: [
+        "Proteger",
+        "Examiner",
+        "Alerter ou faire alerter",
+        "Secourir",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "La logique SST suit une methode ordonnee: proteger, examiner, alerter, puis secourir dans le cadre appris.",
+      timeLimit: 70,
+      imagePath: "/images/sst.jpg",
+      imageAlt:
+        "Formation SST et gestes de premiers secours en environnement professionnel",
+    },
+    {
+      question:
+        "Quelles informations sont utiles lors de la releve ou de l'arrivee des secours ?",
+      choices: [
+        "Ce qui a ete observe chez la victime",
+        "Le geste deja realise",
+        "Les risques persistants sur la zone",
+        "Des commentaires sans lien avec la situation",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Une transmission factuelle et utile permet une prise en charge plus rapide et plus juste.",
       timeLimit: 65,
     },
   ],
 };
+
+
+const baseBtMultiSymbolesQuiz = quizContent.b1b2brbc ?? [];
+
+function pickQuizQuestions(
+  predicates: Array<(question: QuizQuestion) => boolean>,
+  limit: number
+): QuizQuestion[] {
+  const picked: QuizQuestion[] = [];
+
+  for (const question of baseBtMultiSymbolesQuiz) {
+    if (predicates.some((predicate) => predicate(question))) {
+      picked.push(question);
+    }
+    if (picked.length >= limit) {
+      break;
+    }
+  }
+
+  return picked;
+}
+
+function includesAny(question: QuizQuestion, patterns: RegExp[]): boolean {
+  const haystack = [
+    question.question,
+    question.explanation ?? "",
+    question.contextLabel ?? "",
+    ...(question.choices ?? []),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  return patterns.some((pattern) => pattern.test(haystack));
+}
+
+const commonBtPredicates = [
+  (question: QuizQuestion) =>
+    includesAny(question, [
+      /employeur/,
+      /pnst/,
+      /voisinage/,
+      /epi/,
+      /epc/,
+      /accident/,
+      /coordination/,
+      /documents?/,
+      /remise en energie/,
+    ]),
+];
+
+quizContent["bt-multi-symboles"] = baseBtMultiSymbolesQuiz;
+
+quizContent["b1-b1v"] = [
+  ...pickQuizQuestions(commonBtPredicates, 8),
+  ...pickQuizQuestions(
+    [
+      (question) =>
+        includesAny(question, [
+          /b1\b/,
+          /b1v/,
+          /executant/,
+          /travaux/,
+          /charge de travaux/,
+        ]),
+    ],
+    10
+  ),
+];
+
+quizContent["b2-b2v"] = [
+  ...pickQuizQuestions(commonBtPredicates, 8),
+  ...pickQuizQuestions(
+    [
+      (question) =>
+        includesAny(question, [
+          /b2\b/,
+          /b2v/,
+          /charge de travaux/,
+          /chantier/,
+          /equipe/,
+          /briefing/,
+        ]),
+    ],
+    10
+  ),
+];
+
+quizContent.br = [
+  ...pickQuizQuestions(commonBtPredicates, 8),
+  ...pickQuizQuestions(
+    [
+      (question) =>
+        includesAny(question, [
+          /br\b/,
+          /intervention/,
+          /depannage/,
+          /remise en etat/,
+          /mesurage/,
+          /essai/,
+        ]),
+    ],
+    10
+  ),
+];
+
+quizContent.bc = [
+  ...pickQuizQuestions(commonBtPredicates, 6),
+  ...pickQuizQuestions(
+    [
+      (question) =>
+        includesAny(question, [
+          /bc\b/,
+          /consignation/,
+          /absence de tension/,
+          /vat/,
+          /condamnation/,
+          /separation/,
+          /identification/,
+        ]),
+    ],
+    12
+  ),
+];
+
+quizContent["be-verification-mesurage"] = [
+  ...pickQuizQuestions(commonBtPredicates, 6),
+  ...pickQuizQuestions(
+    [
+      (question) =>
+        includesAny(question, [
+          /verification/,
+          /mesurage/,
+          /mesures/,
+          /essais/,
+          /connexion/,
+          /deconnexion/,
+        ]),
+    ],
+    12
+  ),
+];

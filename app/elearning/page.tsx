@@ -56,34 +56,164 @@ const formations = [
       "Initial en classe virtuelle ou session entreprise, puis recyclage possible en visio accompagnee selon le besoin.",
   },
   {
-    slug: "b1-b1v-b2-b2v-br-bc",
+    slug: "b1-b1v",
     category: "Habilitation electrique",
-    title: "Habilitation electrique B1 / B1V / B2 / B2V / BR / BC",
-    duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
-    mode: "E-learning + journee presentielle",
+    title: "Habilitation electrique B1 / B1V",
+    duration: "E-learning : 5 h 30 a 7 h + pratique",
+    mode: "E-learning + validation pratique",
+    price: "499 EUR HT",
+    level: "Avance",
+    audience:
+      "Electriciens executants amenes a realiser des travaux electriques en basse tension sous direction.",
+    description:
+      "Parcours theorique cible sur le role d'executant B1 / B1V, le voisinage, la lecture du cadre de travail et la discipline d'execution en securite.",
+    objectifs: [
+      "Comprendre le role d'executant B1 / B1V",
+      "Respecter le cadre de travail fixe par le charge de travaux",
+      "Identifier le voisinage et stopper en cas d'ecart",
+    ],
+    programme: [
+      "Cadre B1 / B1V et role de l'executant",
+      "Voisinage, pieces nues sous tension et limites d'action",
+      "Preparation d'un travail electrique",
+      "Execution sous direction et conduite a tenir en cas d'anomalie",
+    ],
+    note:
+      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+  },
+  {
+    slug: "b2-b2v",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique B2 / B2V",
+    duration: "E-learning : 6 h a 7 h 30 + pratique",
+    mode: "E-learning + validation pratique",
     price: "549 EUR HT",
     level: "Avance",
     audience:
-      "Personnel electricien amene a realiser, diriger, intervenir ou consigner dans le cadre d'operations d'ordre electrique.",
+      "Charges de travaux, chefs d'equipe et responsables amenes a preparer et diriger des travaux electriques en basse tension.",
     description:
-      "Parcours theorique structure autour des roles, responsabilites, sequences de securite, consignation et organisation des operations d'ordre electrique.",
+      "Parcours theorique cible sur le role B2 / B2V, l'organisation du chantier electrique, la coordination et la maitrise du voisinage.",
+    objectifs: [
+      "Comprendre le role de charge de travaux",
+      "Organiser la zone, le briefing et les protections",
+      "Diriger l'equipe et suspendre le chantier si le cadre se degrade",
+    ],
+    programme: [
+      "Cadre B2 / B2V et chaine de responsabilite",
+      "Preparation des travaux et coordination",
+      "Direction du chantier et maitrise du voisinage",
+      "Ecarts, urgences et compte rendu de fin d'operation",
+    ],
+    note:
+      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+  },
+  {
+    slug: "br",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique BR",
+    duration: "E-learning : 6 h a 7 h 30 + pratique",
+    mode: "E-learning + validation pratique",
+    price: "549 EUR HT",
+    level: "Avance",
+    audience:
+      "Techniciens de maintenance et personnels amenes a conduire des interventions generales en basse tension.",
+    description:
+      "Parcours theorique cible sur le depannage, le remplacement, les essais limites et les conditions strictes de l'intervention generale BR.",
+    objectifs: [
+      "Comprendre le cadre BR et ses limites",
+      "Preparer une intervention generale en securite",
+      "Refuser toute derive vers des travaux structures ou hors cadre",
+    ],
+    programme: [
+      "Cadre BR et responsabilites de l'intervenant",
+      "Preparation, mise en securite et verification",
+      "Depannage, remplacement, mesurage et essais limites",
+      "Anomalies, urgences et retour d'experience",
+    ],
+    note:
+      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+  },
+  {
+    slug: "bc",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique BC",
+    duration: "E-learning : 5 h 30 a 7 h + pratique",
+    mode: "E-learning + validation pratique",
+    price: "529 EUR HT",
+    level: "Avance",
+    audience:
+      "Responsables techniques et personnels amenes a assurer la consignation et la deconsignation en basse tension.",
+    description:
+      "Parcours theorique cible sur la chaine de consignation, la verification d'absence de tension, la tracabilite et la remise a disposition de l'installation.",
+    objectifs: [
+      "Comprendre le role de charge de consignation",
+      "Maitriser la chaine de consignation et la VAT",
+      "Fiabiliser la documentation et les interfaces avec les travaux",
+    ],
+    programme: [
+      "Cadre BC et role de charge de consignation",
+      "Identification, separation, condamnation et VAT",
+      "Documents, autorisations et coordination",
+      "Ecarts, doute et retour a la normale",
+    ],
+    note:
+      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+  },
+  {
+    slug: "be-verification-mesurage",
+    category: "Habilitation electrique",
+    title: "Habilitation electrique BE Verification / BE Mesurage",
+    duration: "E-learning : 5 h 30 a 7 h + pratique",
+    mode: "E-learning + validation pratique",
+    price: "529 EUR HT",
+    level: "Avance",
+    audience:
+      "Techniciens amenes a realiser des verifications, mesurages et controles en basse tension.",
+    description:
+      "Parcours theorique cible sur la verification, le mesurage, la lecture du cadre d'action, les instruments et les limites d'intervention.",
+    objectifs: [
+      "Comprendre le cadre BE Verification / BE Mesurage",
+      "Preparer un controle en securite",
+      "Utiliser la bonne methode et refuser toute derive hors cadre",
+    ],
+    programme: [
+      "Cadre BE et role du verificateur ou mesureur",
+      "Voisinage, mise en securite et preparation",
+      "Mesurages, essais et controle documentaire",
+      "Anomalies, resultat incoherent et compte rendu",
+    ],
+    note:
+      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+  },
+  {
+    slug: "bt-multi-symboles",
+    category: "Habilitation electrique",
+    title: "Parcours BT multi-symboles B1 / B1V / B2 / B2V / BR / BC / BE",
+    duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
+    mode: "E-learning + journee presentielle",
+    price: "649 EUR HT",
+    level: "Avance",
+    audience:
+      "Personnel electricien amene a couvrir plusieurs roles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
+    description:
+      "Parcours theorique transversal structure autour des roles, responsabilites, sequences de securite, consignation et organisation des operations d'ordre electrique en basse tension.",
     objectifs: [
       "Maitriser les prescriptions de securite applicables aux operations d'ordre electrique",
       "Comprendre les roles, responsabilites et limites des differents symboles d'habilitation",
-      "Mettre en oeuvre une demarche de prevention coherente avant toute operation",
+      "Donner un socle commun avant requalification pratique par role",
     ],
     programme: [
       "Cadre reglementaire et principes de prevention du risque electrique",
       "Domaines de tension, zones, voisinage et conditions d'intervention",
-      "Roles des habilitations B1, B1V, B2, B2V, BR, BC et variantes au voisinage",
+      "Roles B1, B2, BR, BC et actes de verification / mesurage",
       "Consignation, intervention, remplacement, raccordement et organisation du travail",
       "Analyse des risques, conduite a tenir et cas pratiques",
     ],
     note:
-      "Socle theorique premium complete par une journee presentielle d'application, de mise en situation et d'evaluation.",
+      "Socle theorique premium pour dispositifs multi-symboles, a completer par une validation pratique adaptee a chaque role vise.",
   },
   {
-    slug: "securite-incendie",
+    slug: "incendie",
     category: "Prevention incendie",
     title: "Securite incendie, alerte et evacuation",
     duration: "Duree indicative : 4 a 7 heures",
@@ -137,28 +267,54 @@ const formations = [
   {
     slug: "sprinkler",
     category: "Protection incendie",
-    title: "Exploitation sprinkler et referentiels techniques",
+    title: "Exploitation sprinkler - fondamentaux techniques",
     duration: "Duree indicative : 5 a 8 heures",
     mode: "E-learning",
     level: "Intermediaire",
     audience:
       "Personnel d'exploitation, maintenance, encadrement technique ou responsables de site.",
     description:
-      "Module d'initiation a l'exploitation d'une installation sprinkler, a la surveillance des organes critiques et a la comprehension des principaux referentiels techniques.",
+      "Module d'exploitation d'une installation sprinkler, de ses organes critiques, de ses anomalies et des referentiels techniques qui encadrent son maintien en etat.",
     objectifs: [
       "Comprendre le role d'une installation sprinkler",
       "Reconnaitre ses composants principaux et etats anormaux",
-      "Identifier les bons reflexes d'exploitation et de remontee des anomalies",
+      "Identifier les bons reflexes d'exploitation, d'essais et de remontee des anomalies",
     ],
     programme: [
       "Principe de fonctionnement d'une installation sprinkler",
       "Composants principaux et logique d'exploitation",
       "Anomalies, derives et etats non conformes",
-      "Referentiels : APSAD R1, EN 12845, logique assurantielle et exploitation",
+      "Referentiels : APSAD R1, EN 12845, NFPA 13, FM",
       "Focus entrepots, stockage et ICPE 1510",
+      "Essais, surveillance et gestion des indisponibilites",
     ],
     note:
       "Module d'exploitation et de sensibilisation technique. Il ne remplace pas une etude sprinkler ni un audit de conformite.",
+  },
+  {
+    slug: "extinction-automatique-gaz",
+    category: "Protection incendie",
+    title: "Extinction automatique a gaz - exploitation et referentiels",
+    duration: "Duree indicative : 4 a 6 heures",
+    mode: "E-learning",
+    level: "Intermediaire",
+    audience:
+      "Personnel d'exploitation, maintenance, encadrement technique ou responsables de locaux proteges par extinction automatique a gaz.",
+    description:
+      "Module dedie aux installations fixes d'extinction a gaz, a la securite des personnes, a l'integrite du local protege et aux reperes APSAD R13 / NF EN 15004-1.",
+    objectifs: [
+      "Comprendre la logique d'un systeme d'extinction automatique a gaz",
+      "Distinguer l'extinction a gaz d'une installation sprinkler",
+      "Identifier les contraintes de local protege, d'alarme, de temporisation et de reacces",
+    ],
+    programme: [
+      "Principe d'un systeme fixe d'extinction a gaz",
+      "Detection, commande, temporisation et diffusion",
+      "Local protege et securite des personnes",
+      "Reperes APSAD R13 et NF EN 15004-1",
+    ],
+    note:
+      "Module d'exploitation et de sensibilisation technique. Il ne remplace pas une etude de conception ni une maintenance specialisee.",
   },
   {
     slug: "sst",
@@ -204,6 +360,30 @@ const categories = [
   "Secours au travail",
 ];
 
+const inrsSelections = [
+  {
+    title: "INRS - Risque electrique",
+    description:
+      "Selection officielle INRS pour completer les parcours d'habilitation electrique et la prevention du risque electrique.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=Risque%20%C3%A9lectrique",
+    badge: "INRS France",
+  },
+  {
+    title: "INRS - Risque incendie et evacuation",
+    description:
+      "Selection officielle INRS utile pour renforcer les modules incendie, SSI et evacuation.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+    badge: "INRS France",
+  },
+  {
+    title: "INRS - SST et secourisme au travail",
+    description:
+      "Ressources utiles sur le secourisme au travail, la prevention et la logique d'intervention du SST.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=SST",
+    badge: "INRS France",
+  },
+];
+
 export default function ElearningPage() {
   return (
     <main className="min-h-screen bg-slate-50">
@@ -228,11 +408,11 @@ export default function ElearningPage() {
             <p className="mt-4 text-base leading-7 text-slate-400">
               Nos modules ont vocation a accompagner l&apos;acquisition des
               connaissances, des bons reflexes et des reperes techniques ou
-              reglementaires. Chez PREVENSIA, la promesse est claire : les
-              symboles sont vendus de maniere plus lisible sur le site
-              commercial, tandis que l&apos;espace e-learning s&apos;appuie sur des
-              socles pedagogiques adaptes aux parcours H0B0 / H0V, BS / BE
-              Manoeuvre et BT electricien.
+              reglementaires. Chez PREVENSIA, la promesse est claire : le site
+              commercial distingue des offres par symbole ou par role, tandis
+              que l&apos;espace e-learning s&apos;appuie aujourd&apos;hui sur des socles
+              pedagogiques adaptes aux parcours H0 B0 H0V, BS / BE Manoeuvre,
+              BF / HF et BT electricien.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -438,6 +618,47 @@ export default function ElearningPage() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-[0.24em] text-red-600">
+            Ressources video INRS
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-slate-900">
+            Completer les parcours avec des ressources officielles
+          </h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-600">
+            En plus des modules PREVENSIA, nous orientons aussi les apprenants et les entreprises vers des ressources officielles INRS pour consolider les reperes electriques, incendie et SST.
+          </p>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {inrsSelections.map((item) => (
+              <article
+                key={item.href}
+                className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6"
+              >
+                <span className="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
+                  {item.badge}
+                </span>
+                <h3 className="mt-4 text-xl font-semibold text-slate-900">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {item.description}
+                </p>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >
+                  Voir la selection INRS
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -5,6 +5,10 @@ import {
   getModuleLabelBySlug,
   resolveModuleSlug,
 } from "@/lib/supabase/elearning/module-registry";
+import {
+  canFormationAccessModule,
+  getCanonicalModuleSlug,
+} from "@/lib/supabase/elearning/module-access";
 
 type ModuleLayoutProps = {
   children: React.ReactNode;
@@ -82,8 +86,7 @@ export default async function ModuleLayout({
   params,
 }: ModuleLayoutProps) {
   const { slug } = await params;
-  const normalizedRouteSlug =
-    resolveModuleSlug(slug) ?? normalizeSlug(slug);
+  const normalizedRouteSlug = getCanonicalModuleSlug(slug);
 
   const supabase = await createClient();
 
@@ -155,22 +158,18 @@ export default async function ModuleLayout({
 
   const enrollment = enrollments.find((item) => {
     const linkedFormation = normalizeFormation(item.formation);
-    return (
-      (resolveModuleSlug(linkedFormation?.slug) ??
-        normalizeSlug(linkedFormation?.slug)) === normalizedRouteSlug
-    );
+    return canFormationAccessModule(linkedFormation?.slug, normalizedRouteSlug);
   });
 
   const formation = normalizeFormation(enrollment?.formation ?? null);
-  const normalizedFormationSlug =
-    resolveModuleSlug(formation?.slug) ?? normalizeSlug(formation?.slug);
+  const normalizedFormationSlug = getCanonicalModuleSlug(formation?.slug);
   const currentStatus = normalizeStatus(enrollment?.status);
 
   const hasAccess =
     isAdmin ||
     (!!enrollment &&
       !!formation &&
-      normalizedFormationSlug === normalizedRouteSlug &&
+      canFormationAccessModule(normalizedFormationSlug, normalizedRouteSlug) &&
       isAllowedStatus(currentStatus) &&
       isDateStarted(enrollment.access_start) &&
       isDateNotExpired(enrollment.access_end));

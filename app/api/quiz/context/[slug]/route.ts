@@ -1,9 +1,20 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { resolveModuleSlug } from "@/lib/supabase/elearning/module-registry";
 import {
-  getModuleSlugCandidates,
-  resolveModuleSlug,
-} from "@/lib/supabase/elearning/module-registry";
+  canFormationAccessModule,
+  getCanonicalModuleSlug,
+} from "@/lib/supabase/elearning/module-access";
+
+function getEnrollmentFormationSlug(formation: unknown): string {
+  if (Array.isArray(formation)) {
+    const first = formation[0] as { slug?: string } | undefined;
+    return first?.slug ?? "";
+  }
+
+  const single = formation as { slug?: string } | null;
+  return single?.slug ?? "";
+}
 
 type RouteContext = {
   params: Promise<{
@@ -14,8 +25,9 @@ type RouteContext = {
 export async function GET(_: Request, context: RouteContext) {
   try {
     const { slug } = await context.params;
-    const normalizedSlug = resolveModuleSlug(slug) ?? slug.toLowerCase();
-    const slugCandidates = getModuleSlugCandidates(normalizedSlug);
+    const normalizedSlug = getCanonicalModuleSlug(
+      resolveModuleSlug(slug) ?? slug.toLowerCase()
+    );
     const supabase = await createClient();
 
     const {
@@ -37,35 +49,40 @@ export async function GET(_: Request, context: RouteContext) {
       console.error("Erreur profile quiz context :", profileError);
     }
 
-    const { data: formations, error: formationError } = await supabase
-      .from("formations")
-      .select("id, slug")
-      .in("slug", slugCandidates)
-      .limit(1);
+    const isAdmin = profile?.role === "admin";
 
-    if (formationError) {
-      console.error("Erreur formation quiz context :", formationError);
-      return NextResponse.json(
-        { error: "Formation introuvable." },
-        { status: 404 }
-      );
+    if (isAdmin) {
+      return NextResponse.json({
+        enrollmentId: "",
+        employeeFirstName: profile?.first_name ?? "",
+        employeeLastName: profile?.last_name ?? "",
+        companyName: profile?.company ?? "",
+        managerEmail: "",
+        orderedByEmployer: false,
+        isAdmin: true,
+      });
     }
 
-    const formation = formations?.[0] ?? null;
-
-    if (!formation?.id) {
-      return NextResponse.json(
-        { error: "Formation introuvable." },
-        { status: 404 }
-      );
-    }
-
-    const { data: enrollment, error: enrollmentError } = await supabase
+    const { data: enrollments, error: enrollmentError } = await supabase
       .from("enrollments")
-      .select("id, company_name, manager_email, ordered_by_employer")
-      .eq("user_id", user.id)
-      .eq("formation_id", formation.id)
-      .maybeSingle();
+      .select(`
+        id,
+        company_name,
+        manager_email,
+        ordered_by_employer,
+        formation:formations (
+          slug
+        )
+      `)
+      .eq("user_id", user.id);
+
+    const enrollment =
+      enrollments?.find((item) =>
+        canFormationAccessModule(
+          getEnrollmentFormationSlug(item.formation),
+          normalizedSlug
+        )
+      ) ?? null;
 
     if (enrollmentError) {
       console.error("Erreur enrollment quiz context :", enrollmentError);

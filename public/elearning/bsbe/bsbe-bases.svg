@@ -1,20 +1,29 @@
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
   <rect x="48" y="48" width="1104" height="604" rx="32" fill="white" stroke="#CBD5E1" stroke-width="2"/>
-  <text x="92" y="122" fill="#0F172A" font-family="Arial, sans-serif" font-size="38" font-weight="700">Bases electriques utiles au BS / BE</text>
-  <text x="92" y="164" fill="#475569" font-family="Arial, sans-serif" font-size="22">Comprendre le circuit, les grandeurs et les domaines de tension avant d'agir</text>
+  <text x="92" y="122" fill="#0F172A" font-family="Arial, sans-serif" font-size="38" font-weight="700">Bases électriques utiles au BS / BE</text>
+  <text x="92" y="164" fill="#475569" font-family="Arial, sans-serif" font-size="22">Comprendre le circuit, les grandeurs et les domaines de tension avant d'agir.</text>
+
   <rect x="92" y="224" width="300" height="188" rx="24" fill="#DBEAFE" stroke="#60A5FA"/>
-  <text x="128" y="278" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="28" font-weight="700">Circuit</text>
-  <text x="128" y="322" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="20">Source - conducteurs - charge</text>
-  <text x="128" y="360" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="18">Le courant circule si la boucle existe</text>
   <rect x="450" y="224" width="300" height="188" rx="24" fill="#FEF3C7" stroke="#F59E0B"/>
-  <text x="486" y="278" fill="#92400E" font-family="Arial, sans-serif" font-size="28" font-weight="700">Grandeurs</text>
-  <text x="486" y="322" fill="#92400E" font-family="Arial, sans-serif" font-size="20">Tension, intensite, resistance</text>
-  <text x="486" y="360" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Puissance et echauffement expliquent le risque</text>
   <rect x="808" y="224" width="300" height="188" rx="24" fill="#DCFCE7" stroke="#22C55E"/>
+
+  <text x="128" y="278" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="28" font-weight="700">Circuit</text>
+  <text x="128" y="322" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="20">Source, conducteurs, charge</text>
+  <text x="128" y="356" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="18">Le courant circule si la boucle</text>
+  <text x="128" y="384" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="18">est réellement fermée.</text>
+
+  <text x="486" y="278" fill="#92400E" font-family="Arial, sans-serif" font-size="28" font-weight="700">Grandeurs</text>
+  <text x="486" y="322" fill="#92400E" font-family="Arial, sans-serif" font-size="20">Tension, intensité, résistance</text>
+  <text x="486" y="356" fill="#92400E" font-family="Arial, sans-serif" font-size="18">La puissance et l'échauffement</text>
+  <text x="486" y="384" fill="#92400E" font-family="Arial, sans-serif" font-size="18">aident à comprendre le risque.</text>
+
   <text x="844" y="278" fill="#166534" font-family="Arial, sans-serif" font-size="28" font-weight="700">Domaines</text>
   <text x="844" y="322" fill="#166534" font-family="Arial, sans-serif" font-size="20">TBT / BT / HT</text>
-  <text x="844" y="360" fill="#166534" font-family="Arial, sans-serif" font-size="18">Alternatif et continu ne se lisent pas pareil</text>
+  <text x="844" y="356" fill="#166534" font-family="Arial, sans-serif" font-size="18">Alternatif et continu ne se</text>
+  <text x="844" y="384" fill="#166534" font-family="Arial, sans-serif" font-size="18">lisent pas de la même façon.</text>
+
   <rect x="92" y="476" width="1016" height="104" rx="22" fill="#0F172A"/>
-  <text x="126" y="530" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="24">Un operateur BS / BE n'a pas besoin d'etre expert en etudes, mais doit comprendre ce qu'il regarde avant toute manoeuvre ou remplacement.</text>
+  <text x="126" y="526" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="24">Un opérateur BS / BE n'a pas besoin d'être expert en étude,</text>
+  <text x="126" y="560" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="24">mais doit comprendre ce qu'il regarde avant toute manœuvre ou remplacement.</text>
 </svg>

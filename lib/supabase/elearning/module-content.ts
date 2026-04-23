@@ -1,8 +1,10 @@
 import { b1b2brbcModuleContent } from "./b1b2brbc-content";
 import { bsbeModuleContent } from "./bsbe-content";
 import { ModuleContent } from "./module-types";
+import { electricalCommercialModuleContent } from "./electrical-commercial-content";
 
 export const modulesContent: Record<string, ModuleContent> = {
+  ...electricalCommercialModuleContent,
   bsbe: bsbeModuleContent,
   b1b2brbc: b1b2brbcModuleContent,
   h0b0: {
@@ -205,7 +207,7 @@ export const modulesContent: Record<string, ModuleContent> = {
       visual: {
   title: "Lecture simple des domaines de tension",
   subtitle: "Identifier l’environnement avant toute présence ou travaux non électriques.",
-  items: [
+          items: [
     "BT : installations courantes",
     "HT : postes et environnements techniques spécifiques",
     "Les deux domaines sont dangereux",
@@ -1178,6 +1180,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Triangle du feu",
           subtitle: "Comprendre l’origine du sinistre pour agir avant l’incendie.",
+          imagePath: "/images/triangle-du-feu.jpg",
+          imageAlt:
+            "Triangle du feu avec combustible, comburant et énergie d'activation",
           items: [
             "Combustible",
             "Comburant",
@@ -1220,6 +1225,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Réaction immédiate",
           subtitle: "Observer, alerter, déclencher, se mettre à l’abri.",
+          imagePath: "/images/fonctionnement-systeme-incendie.jpg",
+          imageAlt:
+            "Fonctionnement d'un système incendie avec détection, alarme et commande des organes de sécurité",
           items: [
             "Repérer la situation anormale",
             "Alerter selon la procédure du site",
@@ -1267,6 +1275,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Décider vite, sans improviser",
           subtitle: "Agir seulement si le feu est limité, l’issue maîtrisée et le moyen adapté.",
+          imagePath: "/images/comment-utiliser-un-extincteur-1.webp",
+          imageAlt:
+            "Geste de mise en oeuvre d'un extincteur portatif en quatre étapes",
           items: [
             "Alerte déjà donnée",
             "Feu encore limité",
@@ -1487,9 +1498,22 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImagePath: "/images/fonctionnement-systeme-incendie.jpg",
         chapterImageAlt:
           "Schéma simplifié de fonctionnement d'un système incendie avec détecteurs, déclencheurs manuels, sirène et centrale",
+        resourceVideos: [
+          {
+            title: "INRS France - Selection videos risque incendie",
+            description:
+              "Selection officielle INRS pour completer les notions d'alarme, de detection, de reflexes incendie et de mise en securite.",
+            url: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+            provider: "INRS France",
+            ctaLabel: "Voir la selection INRS",
+          },
+        ],
         visual: {
           title: "Fonctions principales d’un SSI",
           subtitle: "Détecter, alerter, mettre en sécurité.",
+          imagePath: "/images/fonction-systeme-de-securite-incendie.gif",
+          imageAlt:
+            "Fonctionnement global d'un système de sécurité incendie avec détection, alarme et mise en sécurité",
           items: [
             "Détection incendie",
             "Diffusion de l’alarme",
@@ -1523,6 +1547,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Lecture simple de l’architecture SSI",
           subtitle: "Information puis action de sécurité.",
+          imagePath: "/images/schema-ssi.gif",
+          imageAlt:
+            "Architecture SSI avec détection incendie, traitement central et dispositifs actionnés de sécurité",
           items: [
             "Détecteur ou déclencheur manuel",
             "Traitement de l’information incendie",
@@ -1562,6 +1589,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Référentiels à connaître",
           subtitle: "Normes et textes se complètent.",
+          imagePath: "/images/niveau-ssi.jpg",
+          imageAlt:
+            "Niveaux de risque, catégories de SSI et types d'équipement d'alarme",
           items: [
             "NF S 61-931",
             "NF S 61-932",
@@ -1593,6 +1623,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Ne pas tout lire de la même manière",
           subtitle: "Le bon réflexe dépend du type exact d’information affichée.",
+          imagePath: "/images/alarme-type-4.png",
+          imageAlt:
+            "Lecture d'une alarme type 4 avec déclencheur manuel, équipement d'alarme et diffuseur sonore",
           items: [
             "Alarme feu",
             "Dérangement",
@@ -1620,12 +1653,15 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Confondre exploitation et maintenance spécialisée.",
           "Laisser persister des défauts chroniques sans traitement."
         ],
-        chapterImagePath: "/images/formation-ssi.jpg",
+        chapterImagePath: "/images/centrale-ssi.jpg",
         chapterImageAlt:
           "Personnel exploitant ou technique en situation de suivi d'un système de sécurité incendie",
         visual: {
           title: "Exploiter un SSI avec méthode",
           subtitle: "Comprendre, agir dans son rôle, tracer.",
+          imagePath: "/images/centrale-ssi.jpg",
+          imageAlt:
+            "Centrale SSI et exploitation méthodique d'une information incendie",
           items: [
             "Identifier le type d’information",
             "Appliquer la consigne du site",
@@ -1639,21 +1675,21 @@ export const modulesContent: Record<string, ModuleContent> = {
   },
 
   sprinkler: {
-    title: "Exploitation sprinkler et référentiels techniques",
+    title: "Exploitation sprinkler - fondamentaux techniques",
     shortTitle: "Sprinkler",
     subtitle:
-      "Parcours e-learning structuré sur le fonctionnement d’une installation sprinkler, sa surveillance, ses anomalies d’exploitation et les principaux référentiels rencontrés sur les sites protégés.",
-    duration: "60 à 85 minutes",
-    level: "Intermédiaire",
+      "Parcours e-learning structuré sur le fonctionnement d’une installation sprinkler, sa surveillance, ses anomalies d’exploitation et les grands référentiels rencontrés sur les sites protégés.",
+    duration: "60 a 85 minutes",
+    level: "Intermediaire",
     objective:
-      "Comprendre le rôle d’une installation sprinkler, reconnaître ses composants principaux, intégrer les bons réflexes de surveillance, identifier les écarts qui dégradent la protection et situer les grands référentiels techniques rencontrés en exploitation.",
+      "Comprendre le rôle d’une installation sprinkler, reconnaître ses composants, suivre ses états d’exploitation, traiter les anomalies et garder une protection adaptée au risque réel, sans la confondre avec un système fixe d’extinction à gaz.",
     audience:
-      "Personnel d’exploitation, maintenance, encadrement technique, responsables de site, utilisateurs en environnement industriel, logistique ou tertiaire.",
+      "Personnel d'exploitation, maintenance, encadrement technique, responsables de site, utilisateurs en environnement industriel, logistique ou tertiaire.",
     certificationNote:
-      "Ce module traite de l’exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude sprinkler, ni un audit de conformité, ni une mission de conception, ni la vérification spécialisée des référentiels applicables au site.",
+      "Ce module traite de l'exploitation et de la comprehension fonctionnelle. Il ne remplace ni une etude sprinkler, ni un audit de conformite, ni une mission de conception, ni la verification specialisee des referentiels applicables au site.",
     heroBadge: "Protection incendie",
     finalMessage:
-      "Vous avez acquis les fondamentaux de l’exploitation sprinkler. La performance d’une installation dépend ensuite de son maintien en état, de la qualité des contrôles, de la traçabilité et de l’adéquation permanente entre protection installée et risque réel.",
+      "Vous avez acquis les fondamentaux de l'exploitation sprinkler. La performance depend ensuite du maintien en etat, des controles periodiques, de la tracabilite et de l'adequation permanente entre protection installee et risque reel.",
     quizCtaLabel: "Passer au quiz sprinkler",
     sections: [
       {
@@ -1661,24 +1697,27 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "1. Principe de fonctionnement",
         estimatedMinutes: 12,
         intro:
-          "Le sprinkler n’est ni un décor ni un déversement général automatique. C’est un système conçu pour réagir localement et tôt, au plus près du foyer.",
+          "Le sprinkler n'est ni un decor ni un deversement general automatique. C'est un systeme concu pour reagir localement et tot, au plus pres du foyer.",
         content: [
-          "Une installation sprinkler est conçue pour détecter et maîtriser automatiquement un incendie au plus près du foyer grâce au déclenchement thermique des têtes concernées.",
-          "Elle ne fonctionne pas comme un déversement général : seules les têtes exposées à une chaleur suffisante s’ouvrent.",
-          "Cette logique doit être comprise par l’exploitant pour éviter les idées fausses courantes, par exemple penser que toutes les têtes se déclenchent simultanément ou qu’une tête ouverte signifie nécessairement une défaillance du système.",
-          "Le sprinkler est conçu pour contenir, maîtriser ou contrôler un incendie en attendant les autres moyens de secours et l’action de l’organisation du site. Il s’inscrit donc dans une stratégie globale de sécurité incendie."
+          "Une installation sprinkler est concue pour detecter et maitriser automatiquement un incendie au plus pres du foyer grace au declenchement thermique des tetes concernees.",
+          "Elle ne fonctionne pas comme un deversement general : seules les tetes exposees a une chaleur suffisante s'ouvrent.",
+          "Cette logique doit etre comprise par l'exploitant pour eviter les idees fausses courantes, par exemple penser que toutes les tetes se declenchent simultanement.",
+          "Le sprinkler est concu pour contenir, maitriser ou controler un incendie en attendant les autres moyens de secours et l'action de l'organisation du site."
         ],
         chapterImagePath: "/images/installation-sprinkler.png",
         chapterImageAlt:
-          "Schéma de principe d'une installation sprinkler avec réserve d'eau, pompe, poste de contrôle et réseau de sprinkleurs",
+          "Schema de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de controle et reseau de sprinkleurs",
         visual: {
           title: "Principe sprinkler",
-          subtitle: "Détection thermique locale et attaque précoce.",
+          subtitle: "Detection thermique locale et attaque precoce.",
+          imagePath: "/images/installation-sprinkler.png",
+          imageAlt:
+            "Schema de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de controle et reseau de sprinkleurs",
           items: [
-            "La chaleur ouvre la tête concernée",
-            "L’eau est délivrée localement",
-            "L’alarme est transmise",
-            "Le feu est maîtrisé ou contenu"
+            "La chaleur ouvre la tete concernee",
+            "L'eau est delivree localement",
+            "L'alarme est transmise",
+            "Le feu est maitrise ou contenu"
           ],
           tone: "blue",
         },
@@ -1688,31 +1727,34 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "2. Composants principaux",
         estimatedMinutes: 12,
         intro:
-          "Un exploitant sprinkler doit savoir reconnaître l’architecture générale de l’installation, même s’il n’en assure pas la conception.",
+          "Un exploitant sprinkler doit savoir reconnaitre l'architecture generale de l'installation, meme s'il n'en assure pas la conception.",
         content: [
-          "Une installation comprend notamment les têtes sprinkler, un réseau de tuyauteries, des postes de contrôle, une source d’eau et des dispositifs d’alarme.",
-          "L’exploitation suppose de savoir reconnaître les organes essentiels, les positions normales d’exploitation et les états anormaux à surveiller.",
-          "La disponibilité de la source d’eau, l’accessibilité des organes, l’état apparent du réseau, la lisibilité des repères et la compréhension des alarmes sont des points de vigilance de premier niveau pour l’exploitant.",
-          "Le niveau attendu n’est pas celui d’un bureau d’études, mais celui d’un professionnel capable de voir immédiatement ce qui n’est pas conforme à l’état normal d’exploitation."
+          "Une installation comprend notamment les tetes sprinkler, un reseau de tuyauteries, des postes de controle, une source d'eau et des dispositifs d'alarme.",
+          "L'exploitation suppose de savoir reconnaitre les organes essentiels, les positions normales d'exploitation et les etats anormaux a surveiller.",
+          "La disponibilite de la source d'eau, l'accessibilite des organes, l'etat apparent du reseau, la lisibilite des reperes, la position normale des vannes et la comprehension des alarmes sont des points de vigilance de premier niveau.",
+          "Le niveau attendu n'est pas celui d'un bureau d'etudes, mais celui d'un professionnel capable de voir immediatement ce qui n'est pas conforme a l'etat normal d'exploitation."
         ],
         keyPoints: [
-          "Poste de contrôle",
-          "Source d’eau",
-          "Réseau",
-          "Têtes sprinkler",
+          "Poste de controle",
+          "Source d'eau",
+          "Reseau",
+          "Tetes sprinkler",
           "Alarme et report"
         ],
         chapterImagePath: "/images/reseau-sprinkler.jpg",
         chapterImageAlt:
-          "Vue schématique d'un réseau sprinkler desservant différentes zones d'un bâtiment",
+          "Vue schematique d'un reseau sprinkler desservant differentes zones d'un batiment",
         visual: {
-          title: "Vue d’ensemble d’une installation",
-          subtitle: "Les organes à connaître en exploitation.",
+          title: "Vue d'ensemble d'une installation",
+          subtitle: "Les organes a connaitre en exploitation.",
+          imagePath: "/images/installation-spk.jpg",
+          imageAlt:
+            "Vue schematique d'un reseau sprinkler desservant differentes zones d'un batiment",
           items: [
-            "Source d’eau",
-            "Poste de contrôle",
-            "Réseau de distribution",
-            "Têtes sprinkler et alarmes"
+            "Source d'eau",
+            "Poste de controle",
+            "Reseau de distribution",
+            "Tetes sprinkler et alarmes"
           ],
           tone: "slate",
         },
@@ -1722,166 +1764,357 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "3. Anomalies et vigilance",
         estimatedMinutes: 12,
         intro:
-          "Une protection sprinkler peut exister sur le papier et être gravement dégradée dans la réalité si les anomalies d’exploitation sont banalisées.",
+          "Une protection sprinkler peut exister sur le papier et etre gravement degradee dans la realite si les anomalies d'exploitation sont banalisees.",
         content: [
-          "Une vanne fermée, une pression anormale, une alarme non traitée, un local source encombré, une fuite ou une corrosion visible doivent être considérées avec sérieux.",
-          "L’exploitation sprinkler demande de la rigueur, de la traçabilité et une remontée rapide des écarts.",
-          "Un local technique inaccessible, un accès obstrué, un stockage trop proche des têtes, une modification non déclarée du process ou un réseau détérioré peuvent réduire fortement l’efficacité réelle de l’installation.",
-          "Les anomalies doivent être consignées, traitées et suivies jusqu’au retour à la situation nominale. L’habitude d’un défaut permanent est l’un des plus mauvais signaux de maturité d’exploitation."
+          "Une vanne fermee, une pression anormale, une alarme non traitee, un local source encombre, une fuite ou une corrosion visible doivent etre considerees avec serieux.",
+          "L'exploitation sprinkler demande de la rigueur, de la tracabilite et une remontee rapide des ecarts.",
+          "Un local technique inaccessible, un acces obstrue, un stockage trop proche des tetes, une tete peinte ou heurtee, une modification non declaree du process ou un reseau deteriore peuvent reduire fortement l'efficacite reelle de l'installation.",
+          "Les anomalies doivent etre consignees, traitees et suivies jusqu'au retour a la situation nominale."
         ],
         forbiddenPoints: [
-          "Fermer une vanne sans procédure.",
+          "Fermer une vanne sans procedure.",
           "Ignorer une alarme.",
-          "Encombrer les organes d’accès.",
-          "Considérer une fuite comme anodine."
+          "Encombrer les organes d'acces.",
+          "Considerer une fuite comme anodine."
         ],
+        chapterImagePath: "/images/installation-spk.jpg",
+        chapterImageAlt:
+          "Reseau sprinkler et organes de controle a surveiller lors de l'exploitation",
         visual: {
-          title: "Écarts à surveiller",
-          subtitle: "Une petite anomalie peut dégrader toute la protection.",
+          title: "Ecarts a surveiller",
+          subtitle: "Une petite anomalie peut degrader toute la protection.",
+          imagePath: "/images/reseau-sprinkler.jpg",
+          imageAlt:
+            "Reseau sprinkler et organes de controle a surveiller lors de l'exploitation",
           items: [
             "Vanne non conforme",
             "Pression anormale",
-            "Alarme non traitée",
-            "Encombrement ou défaut visible"
+            "Alarme non traitee",
+            "Encombrement ou defaut visible"
           ],
           tone: "red",
         },
       },
       {
         id: "referentiels",
-        title: "4. Référentiels et cadre d’exploitation",
+        title: "4. Referentiels et cadre d'exploitation",
         estimatedMinutes: 12,
         intro:
-          "Le sprinkler est souvent associé à des référentiels techniques exigeants. L’exploitant n’a pas à les réciter, mais il doit comprendre leur rôle.",
+          "Le sprinkler est souvent associe a des referentiels techniques exigeants. L'exploitant n'a pas a les reciter, mais il doit comprendre leur role.",
         content: [
-          "Les installations sprinkler sont fréquemment exploitées, surveillées ou auditées au regard de référentiels tels qu’APSAD R1, EN 12845, NFPA 13 ou certaines fiches FM selon le contexte du site.",
-          "L’enjeu est de connaître les exigences de maintien en état, les essais périodiques et la cohérence entre la protection installée et le risque réellement présent.",
-          "Selon les sites, le référentiel contractuel ou technique ne sera pas le même. Cela ne change pas le fond: une installation n’est performante que si elle est maintenue disponible, essayée, surveillée et adaptée à la réalité du stockage ou du process.",
-          "Il faut donc toujours relier la technique au terrain: hauteur de stockage, nature des produits, évolution d’activité, encombrement, ambiance corrosive, travaux, indisponibilités temporaires et mesures compensatoires.",
-          "Le sprinkler n’est pas la seule famille de système fixe d’extinction automatique. Selon les volumes, les équipements protégés et la nature du risque, d’autres solutions peuvent exister, par exemple à gaz ou sur d’autres agents extincteurs. Cette diversité rappelle un principe simple: la protection doit toujours être adaptée au risque réel, pas choisie par habitude."
+          "Les installations sprinkler sont frequemment exploitees, surveillees ou auditees au regard de referentiels tels qu'APSAD R1, EN 12845, NFPA 13 ou certaines fiches FM selon le contexte du site.",
+          "L'enjeu est de connaitre les exigences de maintien en etat, les essais periodiques et la coherence entre la protection installee et le risque reellement present.",
+          "Selon les sites, le referentiel contractuel ou technique ne sera pas le meme. Cela ne change pas le fond: une installation n'est performante que si elle est maintenue disponible, essayee, surveillee et adaptee a la realite du stockage ou du process.",
+          "Il faut toujours relier la technique au terrain: hauteur de stockage, nature des produits, evolution d'activite, encombrement, ambiance corrosive, travaux, indisponibilites temporaires et mesures compensatoires."
         ],
         legalRefs: [
-          "EN 12845 - référentiel européen souvent rencontré pour les installations sprinkler.",
-          "APSAD R1 - référentiel fréquemment utilisé en France dans les démarches de protection incendie.",
-          "NFPA 13 et FM Global Data Sheets - référentiels pouvant s’appliquer selon les sites, cahiers des charges ou assureurs.",
-          "Consignes d’exploitation, dossier de sécurité et exigences contractuelles du site protégé."
+          "EN 12845 - referentiel europeen souvent rencontre pour les installations sprinkler.",
+          "APSAD R1 - referentiel frequemment utilise en France dans les demarches de protection incendie.",
+          "NFPA 13 et FM Global Data Sheets - referentiels pouvant s'appliquer selon les sites, cahiers des charges ou assureurs.",
+          "Consignes d'exploitation, dossier de securite et exigences contractuelles du site protege."
         ],
-        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImagePath: "/images/reseau-sprinkler.jpg",
         chapterImageAlt:
-          "Schéma de système fixe d'extinction automatique montrant qu'il existe d'autres solutions que le sprinkler selon le risque protégé",
+          "Schema pedagogique d'une installation sprinkler dans un batiment logistique ou industriel",
         visual: {
-          title: "Cadre technique d’exploitation",
-          subtitle: "Protection installée, risque réel, organisation du site.",
+          title: "Cadre technique d'exploitation",
+          subtitle: "Protection installee, risque reel, organisation du site.",
+          imagePath: "/images/installation-spk.jpg",
+          imageAlt:
+            "Vue d'une installation sprinkler en environnement industriel ou logistique",
           items: [
-            "Référentiel technique applicable",
-            "Conditions normales d’exploitation",
+            "Referentiel technique applicable",
+            "Conditions normales d'exploitation",
             "Surveillance et essais",
-            "Adéquation avec le risque stocké ou process"
+            "Adequation avec le risque stocke ou process"
           ],
           tone: "amber",
         },
       },
       {
-        id: "extinction-gaz",
-        title: "5. Extinction automatique à gaz, APSAD R13 et NF EN 15004-1",
-        estimatedMinutes: 12,
-        intro:
-          "Le sprinkler n’est pas la seule technologie d’extinction automatique. Certains risques sont protégés par des systèmes à gaz, qui obéissent à une logique très différente et imposent une vigilance particulière en exploitation.",
-        content: [
-          "Les systèmes fixes d’extinction automatique à gaz sont utilisés lorsque la protection par eau n’est pas adaptée ou lorsqu’il faut préserver des équipements, des volumes techniques ou des locaux sensibles. On les rencontre notamment dans certains locaux informatiques, électriques, techniques ou process.",
-          "Du point de vue de l’exploitation, il faut retenir qu’un système à gaz n’est pas un sprinkler sans eau. Il repose sur une chaîne de détection, de commande, de temporisation, d’alarme et d’émission de l’agent extincteur dans un volume protégé. L’efficacité dépend fortement de l’étanchéité du local, de l’organisation des accès et du maintien en état des composants.",
-          "Le référentiel APSAD R13 constitue un repère technique connu pour la conception, l’installation et la maintenance des systèmes d’extinction automatique à gaz. La norme NF EN 15004-1, en vigueur en décembre 2024, fournit le cadre général relatif au calcul, à l’installation et à la maintenance des installations fixes d’extinction à gaz. Sans entrer dans le détail du dimensionnement, un exploitant doit comprendre que le système n’est fiable que si les conditions du local protégé restent conformes: volume, fermeture, intégrité des passages, signalisation, temporisation, arrêts techniques éventuels et procédures d’accès.",
-          "La sécurité des personnes est un point majeur. Un local protégé par gaz ne se traite pas comme un local sprinkler. L’alarme, la temporisation, l’évacuation préalable, la signalisation d’émission, la gestion des accès et les consignes après déclenchement sont essentielles. L’exploitant doit savoir qui alerter, comment interdire l’accès et dans quel cadre un retour dans le local peut être envisagé.",
-          "Les documents INRS relatifs aux agents extincteurs gazeux rappellent aussi un point essentiel pour l’exploitation: après émission, le risque ne se limite pas au feu initial. Il faut tenir compte de l’atmosphère du local, des produits de décomposition éventuels, du besoin de ventilation ou de contrôle avant réaccès et du strict respect des consignes du site."
-        ],
-        keyPoints: [
-          "L’extinction automatique à gaz répond à des risques et des locaux spécifiques.",
-          "APSAD R13 est un repère technique important pour ces systèmes.",
-          "L’efficacité dépend aussi du local protégé et de son intégrité.",
-          "La sécurité des personnes impose alarme, temporisation et contrôle d’accès."
-        ],
-        forbiddenPoints: [
-          "Considérer un système à gaz comme équivalent à un sprinkler classique.",
-          "Laisser évoluer le local protégé sans analyse des conséquences.",
-          "Négliger l’alarme, la signalisation ou les consignes d’accès après émission."
-        ],
-        legalRefs: [
-          "APSAD R13 - repère technique pour la conception, l’installation et la maintenance des systèmes d’extinction automatique à gaz.",
-          "NF EN 15004-1 - Installations fixes de lutte contre l’incendie - Installations d’extinction à gaz - Partie 1 : calcul, installation et maintenance (édition en vigueur publiée en décembre 2024).",
-          "INRS ND 2191 - Les agents extincteurs gazeux utilisés dans les installations fixes d’extinction.",
-          "CNPP - systèmes d’extinction automatique à gaz et certifications associées.",
-          "Consignes d’exploitation et procédures spécifiques du site protégé."
-        ],
-        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-        chapterImageAlt:
-          "Schéma de système fixe d'extinction automatique à gaz avec détection, alarme, commande et réservoirs",
-        visual: {
-          title: "Un système automatique, mais pas sans organisation",
-          subtitle: "Détection, temporisation, évacuation, émission, contrôle des accès.",
-          items: [
-            "Local protégé adapté",
-            "Chaîne de détection et de commande",
-            "Temporisation et évacuation",
-            "Accès maîtrisé après émission"
-          ],
-          tone: "blue",
-        },
-      },
-      {
         id: "icpe-1510",
-        title: "6. Focus entrepôts, stockage et ICPE 1510",
+        title: "5. Focus entrepots, stockage et ICPE 1510",
         estimatedMinutes: 12,
         intro:
-          "Dans les environnements logistiques et les entrepôts, le sprinkler doit être lu dans une logique globale de maîtrise du risque incendie.",
+          "Dans les environnements logistiques et les entrepots, le sprinkler doit etre lu dans une logique globale de maitrise du risque incendie.",
         content: [
-          "Dans les entrepôts couverts relevant de la rubrique ICPE 1510, la prévention des sinistres s’apprécie dans un ensemble plus large de prescriptions : cellules, séparation, toiture, moyens de secours, exploitation et gestion du risque.",
-          "Toute modification d’exploitation significative peut justifier une relecture de la stratégie incendie du site afin de confirmer que la protection reste adaptée.",
-          "Changer la hauteur de stockage, la nature des marchandises, la densité de palettes, le conditionnement ou l’occupation d’une zone peut remettre en cause l’adéquation entre le risque et la protection installée.",
-          "Le sprinkler n’est donc pas un passe-partout. Il reste performant dans un cadre de conception et d’exploitation donné, qui doit rester cohérent dans le temps."
+          "Dans les entrepots couverts relevant de la rubrique ICPE 1510, la prevention des sinistres s'apprecie dans un ensemble plus large de prescriptions : cellules, separation, toiture, moyens de secours, exploitation et gestion du risque.",
+          "Toute modification d'exploitation significative peut justifier une relecture de la strategie incendie du site afin de confirmer que la protection reste adaptee.",
+          "Changer la hauteur de stockage, la nature des marchandises, la densite de palettes, le conditionnement ou l'occupation d'une zone peut remettre en cause l'adequation entre le risque et la protection installee.",
+          "Le sprinkler n'est donc pas un passe-partout. Il reste performant dans un cadre de conception et d'exploitation donne, qui doit rester coherent dans le temps."
         ],
         keyPoints: [
-          "ICPE 1510 = approche globale du risque entrepôt.",
-          "Le sprinkler reste une composante d’un dispositif plus large.",
-          "Les changements d’exploitation doivent être analysés."
+          "ICPE 1510 = approche globale du risque entrepot.",
+          "Le sprinkler reste une composante d'un dispositif plus large.",
+          "Les changements d'exploitation doivent etre analyses."
         ],
+        chapterImagePath: "/images/installation-sprinkler.png",
+        chapterImageAlt:
+          "Installation sprinkler et logique de protection d'un entrepot ou d'une zone de stockage",
         visual: {
           title: "Logique ICPE 1510",
-          subtitle: "Protection incendie + organisation + adéquation du risque.",
+          subtitle: "Protection incendie + organisation + adequation du risque.",
+          imagePath: "/images/installation-spk.jpg",
+          imageAlt:
+            "Installation sprinkler et logique de protection d'un entrepot ou d'une zone de stockage",
           items: [
             "Compartimentage et cellules",
             "Sprinkler et autres moyens",
             "Conditions de stockage",
-            "Suivi des modifications d’exploitation"
+            "Suivi des modifications d'exploitation"
           ],
           tone: "green",
         },
       },
       {
         id: "essais-surveillance",
-        title: "7. Essais, surveillance et gestion des indisponibilités",
+        title: "6. Essais, surveillance et gestion des indisponibilites",
         estimatedMinutes: 10,
         intro:
-          "Une installation sprinkler reste crédible si elle est surveillée dans le temps et si toute indisponibilité est pilotée avec méthode.",
+          "Une installation sprinkler reste credible si elle est surveillee dans le temps et si toute indisponibilite est pilotee avec methode.",
         content: [
-          "L’exploitant doit connaître l’existence des essais périodiques, des levées de doute, des contrôles de routine et des remontées d’anomalies. Sans cette discipline, la protection peut sembler en place tout en étant partiellement dégradée.",
-          "Une indisponibilité temporaire, une vanne fermée, un arrêt de source d’eau, une intervention de maintenance ou une zone neutralisée doivent déclencher des mesures compensatoires selon l’organisation du site.",
-          "Le vrai sujet d’exploitation n’est pas seulement technique: c’est la capacité à savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protégé pendant la période dégradée."
+          "L'exploitant doit connaitre l'existence des essais periodiques, des levees de doute, des controles de routine et des remontees d'anomalies. Sans cette discipline, la protection peut sembler en place tout en etant partiellement degradee.",
+          "Une indisponibilite temporaire, une vanne fermee, un arret de source d'eau, une intervention de maintenance ou une zone neutralisee doivent declencher des mesures compensatoires selon l'organisation du site.",
+          "Le vrai sujet d'exploitation n'est pas seulement technique: c'est la capacite a savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protege pendant la periode degradee."
         ],
         keyPoints: [
-          "Essais et contrôles réguliers.",
-          "Indisponibilités tracées et compensées.",
-          "Retour à la normale formalisé."
+          "Essais et controles reguliers.",
+          "Indisponibilites tracees et compensees.",
+          "Retour a la normale formalise."
         ],
+        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImageAlt:
+          "Reseau sprinkler et organes techniques faisant l'objet d'essais et de surveillance",
         visual: {
-          title: "Garder la protection réellement disponible",
-          subtitle: "Surveiller, tracer, compenser, remettre en état.",
+          title: "Garder la protection reellement disponible",
+          subtitle: "Surveiller, tracer, compenser, remettre en etat.",
+          imagePath: "/images/installation-spk.jpg",
+          imageAlt:
+            "Reseau sprinkler et organes techniques faisant l'objet d'essais et de surveillance",
           items: [
-            "Essais périodiques",
-            "Suivi des alarmes et défauts",
-            "Mesures compensatoires en mode dégradé",
-            "Retour à la normale vérifié"
+            "Essais periodiques",
+            "Suivi des alarmes et defauts",
+            "Mesures compensatoires en mode degrade",
+            "Retour a la normale verifie"
           ],
           tone: "blue",
+        },
+      },
+      {
+        id: "tetes-obstacles",
+        title: "7. Tetes sprinkler, obstacles et stockage",
+        estimatedMinutes: 10,
+        intro:
+          "Une installation sprinkler peut etre presente, alimentee et pourtant mal exploitee si les tetes sont masquees, endommagees ou mal degagees.",
+        content: [
+          "Les tetes sprinkler ne doivent pas etre peintes, utilisees comme points d'accroche ou exposees a des chocs sans analyse immediate.",
+          "Le stockage, les faux plafonds, luminaires, gaines, rayonnages ou protections ajoutees peuvent creer des obstacles a la diffusion de l'eau ou modifier l'exposition a la chaleur.",
+          "L'exploitant doit surveiller les distances libres, l'absence d'encombrement sous les tetes et les ecarts visibles entre l'etat reel du local et les conditions prevues par la protection installee.",
+          "Toute modification d'implantation ou de stockage qui rapproche les marchandises des tetes, modifie les hauteurs ou ajoute des obstacles doit etre remontee pour analyse."
+        ],
+        keyPoints: [
+          "Ne jamais peindre ni utiliser une tete comme support.",
+          "Respecter les degagements sous les sprinklers.",
+          "Analyser tout obstacle ou modification de stockage."
+        ],
+        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImageAlt:
+          "Reseau sprinkler illustrant la repartition des tetes au-dessus des zones de stockage",
+        visual: {
+          title: "Tetes sprinkler et volume protege",
+          subtitle: "Degagement, absence d'obstacle, integrite visible.",
+          imagePath: "/images/reseau-sprinkler.jpg",
+          imageAlt:
+            "Reseau sprinkler illustrant la repartition des tetes au-dessus des zones de stockage",
+          items: [
+            "Tete intacte et non peinte",
+            "Aucun stockage sous la tete",
+            "Pas d'obstacle a la diffusion",
+            "Modification remontee pour analyse"
+          ],
+          tone: "slate",
+        },
+      },
+    ],
+  },
+
+  "extinction-automatique-gaz": {
+    title: "Extinction automatique a gaz - exploitation et referentiels",
+    shortTitle: "Extinction a gaz",
+    subtitle:
+      "Parcours e-learning structure sur le fonctionnement d'un systeme fixe d'extinction automatique a gaz, la securite des personnes, l'integrite du local protege et les reperes APSAD R13 / NF EN 15004-1.",
+    duration: "55 a 75 minutes",
+    level: "Intermediaire",
+    objective:
+      "Comprendre la logique d'un systeme d'extinction a gaz, distinguer ce systeme d'une installation sprinkler, integrer les contraintes de local protege et appliquer les bons reflexes d'exploitation et de securite.",
+    audience:
+      "Exploitants, responsables techniques, maintenance, encadrement et utilisateurs de locaux proteges par extinction automatique a gaz.",
+    certificationNote:
+      "Ce module traite de l'exploitation et de la comprehension fonctionnelle. Il ne remplace ni une etude de conception, ni un calcul de concentration, ni la maintenance specialisee, ni les verifications reglementaires du site.",
+    heroBadge: "Extinction automatique",
+    finalMessage:
+      "Vous avez acquis les reperes essentiels d'un systeme d'extinction automatique a gaz. L'efficacite repose ensuite sur l'integrite du local protege, la qualite des controles, la maitrise des acces et le strict respect des consignes de securite.",
+    quizCtaLabel: "Passer au quiz extinction a gaz",
+    sections: [
+      {
+        id: "principe-gaz",
+        title: "1. Principe d'un systeme fixe d'extinction a gaz",
+        estimatedMinutes: 12,
+        intro:
+          "Un systeme a gaz n'est pas un sprinkler sans eau. Il repose sur une logique de volume protege, de detection et de diffusion controlee de l'agent extincteur.",
+        content: [
+          "Les systemes fixes d'extinction automatique a gaz sont utilises lorsque la protection par eau n'est pas adaptee ou lorsqu'il faut preserver des equipements, des volumes techniques ou des locaux sensibles.",
+          "L'efficacite du systeme depend d'une detection fiable, d'une chaine de commande correcte et de la capacite du local a conserver la concentration utile pendant le temps prevu.",
+          "L'exploitant doit retenir qu'un systeme a gaz se gere comme un ensemble complet: detection, temporisation, alarmes, signalisation, coupures ou arrets associes, diffusion et controle du reacces."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        visual: {
+          title: "Systeme a gaz : logique generale",
+          subtitle: "Detecter, temporiser, evacuer, diffuser, securiser.",
+          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+          imageAlt:
+            "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          items: [
+            "Local protege",
+            "Detection et commande",
+            "Temporisation et evacuation",
+            "Emission puis controle des acces"
+          ],
+          tone: "blue",
+        },
+      },
+      {
+        id: "local-protege",
+        title: "2. Local protege, integrite et securite des personnes",
+        estimatedMinutes: 12,
+        intro:
+          "Un systeme a gaz n'est efficace que si le local protege reste conforme a l'etat prevu et si la securite des personnes est traitee en priorite.",
+        content: [
+          "L'integrite du local protege est un point critique: portes, passages de cables, clapets, fermetures et etancheite influencent directement la tenue de la concentration de l'agent extincteur.",
+          "La securite des personnes impose une chaine claire: alarme, temporisation, evacuation, interdiction d'acces pendant et apres emission, puis controle strict du reacces.",
+          "Apres declenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphere du local, des produits de decomposition eventuels et des consignes du site avant tout retour."
+        ],
+        keyPoints: [
+          "Le local protege fait partie du systeme.",
+          "L'evacuation doit preceder l'emission.",
+          "Le reacces se pilote selon les consignes du site."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        visual: {
+          title: "Maitriser le volume protege",
+          subtitle: "Etancheite, acces, evacuation et reacces.",
+          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+          imageAlt:
+            "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          items: [
+            "Fermetures et passages maitrises",
+            "Signalisation et alarme",
+            "Evacuation avant emission",
+            "Controle du reacces"
+          ],
+          tone: "red",
+        },
+      },
+      {
+        id: "chaine-fonctionnelle-gaz",
+        title: "3. Detection, temporisation et commande du systeme",
+        estimatedMinutes: 11,
+        intro:
+          "L'exploitation doit permettre de comprendre d'ou vient l'information incendie et quelles actions le systeme peut commander avant l'emission.",
+        content: [
+          "Un systeme d'extinction automatique a gaz comporte une logique de detection et de traitement qui peut inclure des confirmations, une temporisation, des alarmes sonores et lumineuses et des commandes techniques associees.",
+          "L'exploitant doit savoir differencier une alarme reelle, un essai, un derangement et une mise hors service, puis suivre la procedure du site sans improviser de maintenance.",
+          "Une neutralisation, un defaut ou une indisponibilite de la chaine de commande doivent etre traces, traites et compenses selon l'organisation prevue."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schema d'un systeme d'extinction automatique a gaz avec detection, avertisseurs et reserve",
+        visual: {
+          title: "Avant l'emission",
+          subtitle: "Lire l'information et securiser le contexte.",
+          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+          imageAlt:
+            "Schema d'un systeme d'extinction automatique a gaz avec detection, avertisseurs et reserve",
+          items: [
+            "Detection incendie",
+            "Temporisation",
+            "Alarme et avertissement",
+            "Commande de diffusion"
+          ],
+          tone: "amber",
+        },
+      },
+      {
+        id: "referentiels-gaz",
+        title: "4. Reperes APSAD R13 et NF EN 15004-1",
+        estimatedMinutes: 10,
+        intro:
+          "L'exploitant n'a pas a reciter les normes, mais il doit savoir sur quels reperes techniques repose le systeme protege.",
+        content: [
+          "APSAD R13 constitue un repere technique important pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
+          "La NF EN 15004-1 fournit le cadre general relatif au calcul, a l'installation et a la maintenance des installations fixes d'extinction a gaz.",
+          "En exploitation, l'essentiel est de comprendre que la performance depend autant du systeme installe que du maintien des conditions du local protege et du respect strict des procedures."
+        ],
+        legalRefs: [
+          "APSAD R13 - repere technique pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
+          "NF EN 15004-1 - Installations fixes de lutte contre l'incendie - Installations d'extinction a gaz - Partie 1 : calcul, installation et maintenance.",
+          "INRS ND 2191 - Agents extincteurs gazeux utilises dans les installations fixes d'extinction.",
+          "Consignes d'exploitation et procedures specifiques du site protege."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        visual: {
+          title: "Normes et exploitation",
+          subtitle: "Reperes techniques pour un systeme sensible.",
+          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+          imageAlt:
+            "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          items: [
+            "APSAD R13",
+            "NF EN 15004-1",
+            "Conditions du local protege",
+            "Essais, maintenance et tracabilite"
+          ],
+          tone: "green",
+        },
+      },
+      {
+        id: "mise-hors-service-gaz",
+        title: "5. Mise hors service, maintenance et retour a la normale",
+        estimatedMinutes: 10,
+        intro:
+          "Un systeme a gaz neutralise ou en maintenance doit etre gere avec une discipline stricte, car une indisponibilite mal pilotee degrade immediatement la protection du local.",
+        content: [
+          "Une mise hors service, un essai, une intervention de maintenance ou une inhibition temporaire doivent etre autorises, traces et accompagnes des mesures compensatoires prevues par le site.",
+          "L'exploitant doit savoir qui autorise l'indisponibilite, qui informe les utilisateurs, comment la signaler sur place et comment verifier le retour a la situation nominale.",
+          "Le retour a la normale ne se limite pas a reenclencher un systeme. Il implique de confirmer l'etat du local, la remise en service effective, la levee des inhibitions et l'information des acteurs concernes."
+        ],
+        keyPoints: [
+          "Indisponibilite autorisee et tracee.",
+          "Mesures compensatoires appliquees.",
+          "Retour a la normale verifie et formalise."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        visual: {
+          title: "Piloter le mode degrade",
+          subtitle: "Autoriser, tracer, compenser, remettre en service.",
+          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+          imageAlt:
+            "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          items: [
+            "Inhibition ou maintenance autorisee",
+            "Information des acteurs du site",
+            "Mesures compensatoires pendant l'arret",
+            "Retour a la normale formalise"
+          ],
+          tone: "slate",
         },
       },
     ],
@@ -1891,75 +2124,148 @@ export const modulesContent: Record<string, ModuleContent> = {
     title: "SST - Sauveteur Secouriste du Travail",
     shortTitle: "SST",
     subtitle:
-      "Parcours e-learning d’introduction aux principes de prévention et aux gestes de première intervention en attendant les secours.",
-    duration: "45 à 60 minutes",
-    level: "Débutant à intermédiaire",
+      "Parcours e-learning d'introduction aux principes de prevention, au role du SST et aux gestes de premiere intervention en attendant les secours.",
+    duration: "55 a 80 minutes",
+    level: "Debutant a intermediaire",
     objective:
-      "Repérer une situation dangereuse, protéger, examiner, faire alerter ou alerter, et adopter les premiers gestes adaptés dans le cadre SST.",
+      "Reperer une situation dangereuse, proteger, examiner, alerter ou faire alerter, adopter les premiers gestes adaptes et situer la place du SST dans la prevention de l'entreprise.",
     audience:
-      "Salariés amenés à participer à la prévention des risques et à la prise en charge initiale d’une victime.",
+      "Salaries amenes a participer a la prevention des risques et a la prise en charge initiale d'une victime.",
     certificationNote:
-      "Ce module est un support théorique. La mise en pratique gestuelle et l’évaluation terrain restent indispensables dans un parcours SST.",
+      "Ce module est un support theorique. La mise en pratique gestuelle et l'evaluation terrain restent indispensables dans un parcours SST.",
     heroBadge: "Secours au travail",
     finalMessage:
-      "Vous avez parcouru les bases SST. Le quiz vous permettra de consolider la logique d’intervention avant une formation pratique encadrée.",
+      "Vous avez parcouru les bases SST. La competence reelle repose ensuite sur l'entrainement pratique, la repetition des gestes et la maitrise des protocoles d'alerte du site.",
     quizCtaLabel: "Passer au quiz SST",
     sections: [
       {
-        id: "proteger",
-        title: "1. Protéger",
+        id: "role-sst",
+        title: "1. Role du SST et logique d'intervention",
+        estimatedMinutes: 10,
+        intro:
+          "Le SST n'est pas seulement un secouriste occasionnel. Il participe aussi a la prevention des risques dans l'entreprise.",
         content: [
-          "Le premier objectif est d’éviter le suraccident. Il faut analyser rapidement la situation et supprimer ou isoler le danger sans s’exposer soi-même.",
-          "Un secouriste inefficace ou blessé ne peut plus aider. La protection prime donc avant toute autre action."
+          "Le sauveteur secouriste du travail intervient face a une situation d'accident du travail et contribue aussi a la prevention des risques professionnels.",
+          "Son role s'inscrit dans une logique simple: proteger, examiner, alerter ou faire alerter, puis secourir dans le cadre de sa formation.",
+          "Le SST agit dans le respect de son niveau de formation, des procedures du site et de la securite collective. Il ne remplace ni les secours specialises ni les dispositifs medicaux."
+        ],
+        chapterImagePath: "/elearning/sst/sst-role.svg",
+        chapterImageAlt:
+          "Formation SST et gestes de premiers secours en environnement professionnel",
+        resourceVideos: [
+          {
+            title: "INRS - Video SST et secourisme au travail",
+            description:
+              "Ressource INRS utile pour ancrer la place du SST dans l'entreprise et la logique d'intervention face à un accident du travail.",
+            url: "https://www.inrs.fr/media.html?refINRS=Anim-049",
+            provider: "INRS",
+            ctaLabel: "Voir la video INRS",
+          },
+          {
+            title: "INRS France - Selection video SST",
+            description:
+              "Acces direct a une selection de contenus INRS autour du SST, des gestes de secours et de la prevention en entreprise.",
+            url: "https://www.youtube.com/@INRSFrance/search?query=SST",
+            provider: "INRS France",
+            ctaLabel: "Voir la selection INRS",
+          },
         ],
         visual: {
-          title: "Étape 1 : protéger",
-          subtitle: "Éviter le suraccident.",
+          title: "Le SST en entreprise",
+          subtitle: "Secourir et contribuer a la prevention.",
+          imagePath: "/elearning/sst/sst-role.svg",
+          imageAlt:
+            "Formation SST et gestes de premiers secours en environnement professionnel",
+          items: [
+            "Observer la situation",
+            "Alerter utilement",
+            "Agir sans suraccident",
+            "Contribuer a la prevention"
+          ],
+          tone: "blue",
+        },
+      },
+      {
+        id: "proteger",
+        title: "2. Proteger",
+        estimatedMinutes: 10,
+        intro:
+          "Le premier objectif est d'eviter le suraccident. Il faut analyser rapidement la situation et supprimer ou isoler le danger sans s'exposer soi-meme.",
+        content: [
+          "Le SST commence par proteger: baliser, couper si possible et sans risque, eloigner les personnes exposees ou faire cesser le danger quand cela est possible.",
+          "Un secouriste blesse ou expose devient une nouvelle victime. La protection prime donc avant toute autre action.",
+          "La protection se pense en lien avec le danger reel: circulation, electricite, machine, feu, chute, atmosphere dangereuse ou produit chimique."
+        ],
+        chapterImagePath: "/elearning/sst/sst-proteger.svg",
+        chapterImageAlt:
+          "Formation SST et mise en situation de premiers secours en environnement professionnel",
+        visual: {
+          title: "Etape 1 : proteger",
+          subtitle: "Eviter le suraccident.",
+          imagePath: "/elearning/sst/sst-proteger.svg",
+          imageAlt:
+            "Formation SST et mise en sécurité d'une victime dans un environnement professionnel",
           items: [
             "Observer le danger",
-            "Se protéger soi-même",
+            "Se proteger soi-meme",
             "Supprimer ou isoler le risque",
-            "Empêcher l’exposition d’autrui"
+            "Empêcher l'exposition d'autrui"
           ],
           tone: "red",
         },
       },
       {
         id: "examiner",
-        title: "2. Examiner",
+        title: "3. Examiner",
+        estimatedMinutes: 10,
+        intro:
+          "Apres protection, il faut examiner la victime pour identifier l'urgence et orienter la suite des gestes.",
         content: [
-          "Après protection, il faut examiner la victime pour identifier l’urgence : saigne-t-elle abondamment, répond-elle, respire-t-elle ?",
-          "Cet examen conditionne la suite des gestes et l’alerte aux secours."
+          "L'examen SST suit une logique de priorites: saignement abondant, etouffement, reponse, respiration, puis autres signes utiles.",
+          "Cet examen conditionne la nature du geste immediat et la qualite de l'alerte aux secours.",
+          "Le SST doit rester methodique, calme et rigoureux. Oublier l'examen ou agir dans le desordre fait perdre un temps precieux."
         ],
+        chapterImagePath: "/elearning/sst/sst-examiner.svg",
+        chapterImageAlt:
+          "Formation SST et evaluation d'une victime en environnement professionnel",
         visual: {
-          title: "Étape 2 : examiner",
-          subtitle: "Identifier l’urgence vitale.",
+          title: "Etape 2 : examiner",
+          subtitle: "Identifier l'urgence vitale.",
+          imagePath: "/elearning/sst/sst-examiner.svg",
+          imageAlt:
+            "Formation SST et evaluation d'une victime en environnement professionnel",
           items: [
             "Saigne-t-elle ?",
-            "Répond-elle ?",
-            "Respire-t-elle ?",
-            "Quel geste immédiat faut-il engager ?"
+            "S'etouffe-t-elle ?",
+            "Repond-elle ?",
+            "Respire-t-elle ?"
           ],
           tone: "amber",
         },
       },
       {
         id: "alerter",
-        title: "3. Alerter ou faire alerter",
+        title: "4. Alerter ou faire alerter",
+        estimatedMinutes: 8,
+        intro:
+          "L'alerte doit etre claire, rapide et utile. Elle fait partie de la prise en charge, pas d'une formalite secondaire.",
         content: [
-          "L’alerte doit être claire, rapide et utile. Il faut transmettre la nature de l’accident, le lieu précis, le nombre de victimes et les risques persistants éventuels."
+          "Une alerte efficace transmet le lieu exact, la nature de l'evenement, le nombre de victimes, les risques persistants et le geste deja engage.",
+          "Le SST doit connaitre les numeros utiles, les relais internes et les particularites du site: accueil, securite, PC, secours internes ou services externes.",
+          "Une alerte incomplète ralentit la prise en charge. Une alerte précise fait gagner du temps."
         ],
-        keyPoints: [
-          "Qui appelle ?",
-          "Quel numéro ?",
-          "Quelles informations transmettre ?"
-        ],
+        chapterImagePath: "/elearning/sst/sst-alerter.svg",
+        chapterImageAlt:
+          "Formation SST et transmission de l'alerte en environnement professionnel",
         visual: {
-          title: "Étape 3 : alerter",
+          title: "Etape 3 : alerter",
           subtitle: "Une alerte utile fait gagner du temps.",
+          imagePath: "/elearning/sst/sst-alerter.svg",
+          imageAlt:
+            "Formation SST et transmission de l'alerte en environnement professionnel",
           items: [
-            "Lieu précis",
-            "Nature de l’événement",
+            "Lieu precis",
+            "Nature de l'evenement",
             "Nombre de victimes",
             "Risques persistants"
           ],
@@ -1968,21 +2274,86 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "secourir",
-        title: "4. Secourir",
+        title: "5. Secourir selon la situation",
+        estimatedMinutes: 12,
+        intro:
+          "Le bon geste depend de l'etat de la victime et du cadre appris en formation pratique.",
         content: [
-          "Les gestes de secours doivent être adaptés à l’état de la victime et au cadre de formation reçu. Ils ne remplacent pas l’action des secours spécialisés.",
-          "La qualité du geste repose sur la méthode, le calme et la répétition en formation pratique."
+          "Le SST doit connaitre la logique d'action en cas de saignement abondant, perte de connaissance, arret respiratoire, malaise, brulure ou traumatisme simple, selon les protocoles enseignés.",
+          "Les gestes ne remplacent pas l'action des secours specialises, mais ils peuvent limiter l'aggravation et maintenir les fonctions vitales en attendant la releve.",
+          "Le niveau attendu n'est pas l'improvisation mais l'application stricte de la methode apprise, avec surveillance continue de la victime jusqu'a l'arrivee des secours."
         ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt:
+          "Mise en situation de premiers secours dans une formation SST",
         visual: {
-          title: "Étape 4 : secourir",
+          title: "Etape 4 : secourir",
           subtitle: "Le bon geste au bon moment.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt:
+            "Mise en situation de premiers secours dans une formation SST",
           items: [
-            "Agir selon l’état de la victime",
-            "Respecter la méthode apprise",
-            "Surveiller jusqu’à l’arrivée des secours",
-            "Rendre compte à la relève"
+            "Agir selon l'etat de la victime",
+            "Respecter la methode apprise",
+            "Surveiller jusqu'a l'arrivee des secours",
+            "Rendre compte a la releve"
           ],
           tone: "green",
+        },
+      },
+      {
+        id: "surveiller-transmettre",
+        title: "6. Surveiller la victime et transmettre à la relève",
+        estimatedMinutes: 8,
+        intro:
+          "Apres le geste d'urgence, le SST reste mobilisé. Il surveille l'évolution de l'état de la victime et transmet des informations fiables à la relève.",
+        content: [
+          "La surveillance continue permet de repérer une aggravation, un arrêt de la respiration, une reprise de saignement ou un changement de comportement de la victime.",
+          "La transmission doit être structurée: ce qui s'est passé, ce qui a été observé, ce qui a été fait, l'heure si utile et les risques encore présents sur zone.",
+          "Le SST ne quitte pas la victime sans relais organisé, sauf danger immédiat pour lui-même ou consigne explicite des secours."
+        ],
+        chapterImagePath: "/images/sst.jpg",
+        chapterImageAlt:
+          "Surveillance d'une victime et transmission à la relève dans une formation SST",
+        visual: {
+          title: "Etape 5 : surveiller et transmettre",
+          subtitle: "Assurer la continuité de la prise en charge.",
+          imagePath: "/images/sst.jpg",
+          imageAlt:
+            "Surveillance d'une victime et transmission à la relève dans une formation SST",
+          items: [
+            "Surveiller l'etat de la victime",
+            "Repérer toute aggravation",
+            "Transmettre clairement à la relève",
+            "Ne jamais rompre la chaîne d'assistance"
+          ],
+          tone: "blue",
+        },
+      },
+      {
+        id: "prevention-entreprise",
+        title: "7. Prévention et remontée des situations dangereuses",
+        estimatedMinutes: 10,
+        intro:
+          "Le SST participe aussi a la prevention en observant le travail reel et en faisant remonter les situations dangereuses.",
+        content: [
+          "Un SST efficace ne se limite pas aux accidents declares. Il repere les situations a risque, les signale et contribue a l'amelioration des conditions de travail.",
+          "Cette logique relie secours et prevention: voir le danger, remonter l'information, proposer une action simple et contribuer a eviter le prochain accident.",
+          "La prevention en entreprise repose sur cette vigilance quotidienne, pas seulement sur l'intervention d'urgence."
+        ],
+        visual: {
+          title: "Prevenir pour agir moins souvent en urgence",
+          subtitle: "Observer, signaler, contribuer a la prevention.",
+          imagePath: "/images/sst.jpg",
+          imageAlt:
+            "Formation SST et prevention des risques en environnement professionnel",
+          items: [
+            "Reperer les situations dangereuses",
+            "Faire remonter les ecarts",
+            "Participer a l'amelioration",
+            "Relier secours et prevention"
+          ],
+          tone: "slate",
         },
       },
     ],

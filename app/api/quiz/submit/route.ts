@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { Resend } from "resend";
+import { resolveModuleSlug } from "@/lib/supabase/elearning/module-registry";
 import {
-  getModuleSlugCandidates,
-  resolveModuleSlug,
-} from "@/lib/supabase/elearning/module-registry";
+  canFormationAccessModule,
+  getCanonicalModuleSlug,
+} from "@/lib/supabase/elearning/module-access";
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -27,9 +28,10 @@ export async function POST(req: Request) {
 
     const requestedFormationSlug =
       typeof body?.formationSlug === "string" ? body.formationSlug.trim() : "";
-    const formationSlug =
+    const formationSlug = getCanonicalModuleSlug(
       resolveModuleSlug(requestedFormationSlug) ??
-      requestedFormationSlug.toLowerCase();
+      requestedFormationSlug.toLowerCase()
+    );
     const passed = Boolean(body?.passed);
     const score = Number(body?.score ?? 0);
     const total = Number(body?.total ?? 0);
@@ -49,11 +51,12 @@ export async function POST(req: Request) {
 
     const { data: formations, error: formationError } = await supabase
       .from("formations")
-      .select("id, slug, title")
-      .in("slug", getModuleSlugCandidates(formationSlug))
-      .limit(1);
+      .select("id, slug, title");
 
-    const formation = formations?.[0] ?? null;
+    const formation =
+      formations?.find((item) =>
+        canFormationAccessModule(item.slug, formationSlug)
+      ) ?? null;
 
     if (formationError || !formation) {
       return NextResponse.json(

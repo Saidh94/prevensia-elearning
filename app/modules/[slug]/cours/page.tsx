@@ -1005,7 +1005,7 @@ export default function CoursPage() {
     return (
       <main className="min-h-screen bg-slate-100 px-4 py-10">
         <div className="mx-auto max-w-5xl rounded-[2rem] bg-white p-8 shadow-sm">
-          Chargement du cours…
+          {"Chargement du cours\u2026"}
         </div>
       </main>
     );
@@ -1040,7 +1040,7 @@ export default function CoursPage() {
               </div>
 
               <p className="mt-3 text-sm text-slate-600">
-                {completedCount} chapitre(s) validé(s) sur {chapters.length}
+                {completedCount} chapitre(s) validés
               </p>
             </div>
 
@@ -1101,7 +1101,7 @@ export default function CoursPage() {
                             : "bg-slate-100 text-slate-600"
                         }`}
                       >
-                        {done ? "Validé" : unlocked ? "Ouvert" : "Verrouillé"}
+                        {done ? "Valid\u00E9" : unlocked ? "Ouvert" : "Verrouill\u00E9"}
                       </span>
                     </div>
                   </button>
@@ -1131,7 +1131,7 @@ export default function CoursPage() {
 
                 <div className="rounded-2xl bg-white/10 p-4 backdrop-blur">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/70">
-                    Temps validé
+                    {"Temps valid\u00E9"}
                   </p>
                   <p className="mt-2 text-2xl font-bold">
                     {formatSeconds(currentSeconds)}
@@ -1140,7 +1140,7 @@ export default function CoursPage() {
 
                 <div className="rounded-2xl bg-white/10 p-4 backdrop-blur">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/70">
-                    Décompte restant
+                    {"D\u00E9compte restant"}
                   </p>
                   <p className="mt-2 text-2xl font-bold">
                     {formatSeconds(remainingSeconds)}
@@ -1164,7 +1164,7 @@ export default function CoursPage() {
               {viewerContext.isAdmin ? (
                 <div className="mt-5 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-medium text-white/90 backdrop-blur">
                   Mode admin : navigation libre entre les chapitres pour
-                  vérification du parcours.
+                  {"v\u00E9rification du parcours."}
                 </div>
               ) : null}
             </div>
@@ -1184,6 +1184,41 @@ export default function CoursPage() {
                   </div>
                 </div>
               ) : null}
+
+              {(currentChapter.resourceVideos ?? []).length > 0 && (
+                <div className="mb-6 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    {"Ressources vid\u00E9o INRS"}
+                  </p>
+
+                  <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                    {(currentChapter.resourceVideos ?? []).map((video, index) => (
+                      <article
+                        key={`${currentChapter.key}-video-${index}`}
+                        className="rounded-[1.25rem] border border-slate-200 bg-white p-5"
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
+                          {video.provider ?? "Video"}
+                        </p>
+                        <h3 className="mt-3 text-lg font-bold text-slate-900">
+                          {formatFrenchDisplayText(video.title)}
+                        </h3>
+                        <p className="mt-3 text-sm leading-7 text-slate-600">
+                          {formatFrenchDisplayText(video.description)}
+                        </p>
+                        <a
+                          href={video.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                        >
+                          {video.ctaLabel ?? "Voir la ressource"}
+                        </a>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {currentChapter.image ? (
                 <div className="mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
@@ -1285,41 +1320,6 @@ export default function CoursPage() {
                           {formatFrenchDisplayText(ref.label)}
                         </p>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {(currentChapter.resourceVideos ?? []).length > 0 && (
-                <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Ressources video INRS
-                  </p>
-
-                  <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                    {(currentChapter.resourceVideos ?? []).map((video, index) => (
-                      <article
-                        key={`${currentChapter.key}-video-${index}`}
-                        className="rounded-[1.25rem] border border-slate-200 bg-white p-5"
-                      >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-                          {video.provider ?? "Video"}
-                        </p>
-                        <h3 className="mt-3 text-lg font-bold text-slate-900">
-                          {formatFrenchDisplayText(video.title)}
-                        </h3>
-                        <p className="mt-3 text-sm leading-7 text-slate-600">
-                          {formatFrenchDisplayText(video.description)}
-                        </p>
-                        <a
-                          href={video.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                        >
-                          {video.ctaLabel ?? "Voir la ressource"}
-                        </a>
-                      </article>
                     ))}
                   </div>
                 </div>
