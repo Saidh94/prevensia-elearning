@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import VisualCard from "@/app/components/elearning/VisualCard";
+import VisualBlock from "@/app/components/elearning/VisualBlock";
 import { formatFrenchDisplayText } from "@/lib/french-display";
 import type {
   ModuleContent,
@@ -111,9 +110,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre le périmètre de l’habilitation, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
     minSeconds: 240,
-    image: "/elearning/h0b0/armoire-electrique.png",
+    image: "/elearning/references/symboles-travaux-non-electriques.jpg",
     imageAlt:
-      "Illustration du périmètre B0 H0 H0V et des limites d’intervention",
+      "Tableau des symboles d'habilitation utilises pour les travaux d'ordre non electrique",
     highlights: [
       "Le B0, le H0 et le H0V concernent exclusivement des opérations d’ordre non électrique.",
       "La formation préalable ne vaut jamais habilitation à elle seule.",
@@ -224,9 +223,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Distinguer BT et HT en alternatif et en continu, et comprendre les conséquences pratiques sur le niveau de danger",
     minSeconds: 240,
-    image: "/elearning/h0b0/courant-alternatif-continu.png",
+    image: "/elearning/h0b0/domaines-tension.png",
     imageAlt:
-      "Illustration pédagogique du courant alternatif et du courant continu",
+      "Schema pedagogique des domaines de tension et de la difference entre basse tension et haute tension",
     highlights: [
       "Le domaine de tension conditionne le danger, les distances et les règles d’accès.",
       "Le courant alternatif et le courant continu n’impliquent pas exactement les mêmes seuils.",
@@ -262,9 +261,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Identifier les zones à risque, comprendre le voisinage et respecter strictement les limites d’approche",
     minSeconds: 300,
-    image: "/elearning/references/zones-conducteur-nu-bt.jpg",
+    image: "/images/modules/electricite/zones-voisinage-bt.jpg",
     imageAlt:
-      "Schema des zones d'environnement electrique autour d'un conducteur nu en basse tension",
+      "Schema des zones de voisinage et des limites d'approche autour d'un conducteur nu en basse tension",
     highlights: [
       "Le danger commence avant le contact.",
       "Le voisinage d’une pièce nue sous tension constitue déjà un risque.",
@@ -440,8 +439,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Différencier les principaux mécanismes d’exposition et comprendre pourquoi un matériel apparemment banal peut devenir dangereux",
     minSeconds: 180,
-    image: "/elearning/h0b0/risque-electrique.png",
-    imageAlt: "Illustration du contact direct et du contact indirect",
+    image: "/elearning/h0b0/electrisation-electrocution.png",
+    imageAlt: "Illustration pedagogique du contact direct, du contact indirect et de leurs consequences",
     highlights: [
       "Le contact direct concerne une partie active normalement sous tension.",
       "Le contact indirect concerne une masse devenue dangereuse après défaut.",
@@ -603,7 +602,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     minSeconds: 180,
     image: "/elearning/h0b0/epi-epc.png",
     imageAlt:
-      "Illustration des équipements de protection collective et individuelle",
+      "Illustration des equipements de protection collective et individuelle avec priorite a la protection collective",
     highlights: [
       "La protection collective est prioritaire sur la protection individuelle.",
       "Les EPI viennent en complément et ne rendent jamais licite une opération interdite.",
@@ -735,17 +734,20 @@ const H0B0_CHAPTERS: Chapter[] = [
 function formatSeconds(value: number) {
   const minutes = Math.floor(value / 60);
   const seconds = value % 60;
+
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-function chapterProgressPercent(current: number, required: number) {
-  if (!required) return 0;
-  return Math.min(100, Math.round((current / required) * 100));
+function chapterProgressPercent(seconds: number, minSeconds: number) {
+  if (!minSeconds || minSeconds <= 0) return 0;
+
+  return Math.min(100, Math.round((seconds / minSeconds) * 100));
 }
 
 function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
   return moduleData.sections.map((section, index) => {
     const normalizedSectionTitle = section.title.replace(/^\d+\.\s*/, "");
+
     const chapterContent = [
       ...(section.intro ? [section.intro] : []),
       ...(section.content ?? []),
@@ -779,17 +781,17 @@ function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
       title: `Chapitre ${index + 1} - ${normalizedSectionTitle}`,
       subtitle: section.intro ?? moduleData.subtitle ?? moduleData.title,
       minSeconds,
-        image: section.chapterImagePath,
-        imageAlt:
-          section.chapterImageAlt ??
-          section.visual?.imageAlt ??
-          section.visual?.title ??
-          section.title,
+      image: section.chapterImagePath ?? section.visual?.imagePath,
+      imageAlt:
+        section.chapterImageAlt ??
+        section.visual?.imageAlt ??
+        section.visual?.title ??
+        section.title,
       highlights,
       content:
         chapterContent.length > 0
           ? chapterContent
-          : ["Contenu a enrichir pour cette section."],
+          : ["Contenu à enrichir pour cette section."],
       essentials,
       references: (section.legalRefs ?? []).map((label) => ({ label })),
       resourceVideos: section.resourceVideos,
@@ -811,6 +813,7 @@ export default function CoursPage() {
 
   const normalizedSlug = String(slug).toLowerCase();
   const canonicalSlug = resolveModuleSlug(normalizedSlug) ?? normalizedSlug;
+
   const currentModuleData = useMemo(() => {
     if (canonicalSlug === "h0b0") {
       return null;
@@ -824,10 +827,8 @@ export default function CoursPage() {
       return H0B0_CHAPTERS;
     }
 
-    const moduleData = currentModuleData;
-
-    if (moduleData) {
-      return buildModuleChapters(moduleData);
+    if (currentModuleData) {
+      return buildModuleChapters(currentModuleData);
     }
 
     return [
@@ -853,13 +854,16 @@ export default function CoursPage() {
   const currentChapter = chapters[currentIndex] ?? chapters[0];
   const currentSectionVisual =
     currentModuleData?.sections[currentIndex]?.visual ?? null;
+
   const leadingParagraphs = currentChapter?.content?.slice(0, 4) ?? [];
-  const remainingParagraphs = currentChapter?.content?.slice(4) ?? [];
+  const bodyParagraphs = currentChapter?.content?.slice(4) ?? [];
+
   const formattedFormationTitle = formatFrenchDisplayText(formationTitle);
   const formattedCurrentTitle = formatFrenchDisplayText(currentChapter?.title);
   const formattedCurrentSubtitle = formatFrenchDisplayText(
     currentChapter?.subtitle
   );
+
   const formattedSectionVisual = currentSectionVisual
     ? {
         ...currentSectionVisual,
@@ -873,14 +877,24 @@ export default function CoursPage() {
         ),
       }
     : null;
-  const shouldRenderInlineVisual = Boolean(formattedSectionVisual) &&
-    remainingParagraphs.length >= 3;
-  const earlyBodyParagraphs = shouldRenderInlineVisual
-    ? remainingParagraphs.slice(0, 2)
-    : remainingParagraphs;
-  const lateBodyParagraphs = shouldRenderInlineVisual
-    ? remainingParagraphs.slice(2)
-    : [];
+
+  const fallbackVisualBlock =
+    !currentChapter.image && formattedSectionVisual
+      ? {
+          title:
+            formattedSectionVisual.title ??
+            formatFrenchDisplayText(currentChapter.title),
+          subtitle:
+            formattedSectionVisual.subtitle ??
+            formatFrenchDisplayText(currentChapter.subtitle),
+          items: formattedSectionVisual.items ?? [],
+          tone: formattedSectionVisual.tone ?? "blue",
+          imagePath: formattedSectionVisual.imagePath ?? "",
+          imageAlt: formatFrenchDisplayText(
+            formattedSectionVisual.imageAlt ?? currentChapter.title
+          ),
+        }
+      : null;
 
   useEffect(() => {
     if (!canonicalSlug) return;
@@ -890,6 +904,7 @@ export default function CoursPage() {
         const res = await fetch(`/api/chapter-progress/${canonicalSlug}`, {
           cache: "no-store",
         });
+
         const data = await res.json();
         setProgressData(Array.isArray(data) ? data : []);
       } catch {
@@ -916,6 +931,7 @@ export default function CoursPage() {
         }
 
         const data = await response.json();
+
         setViewerContext({
           isAdmin: Boolean(data?.isAdmin),
         });
@@ -956,6 +972,7 @@ export default function CoursPage() {
       : 0;
 
   const isLastChapter = currentIndex === chapters.length - 1;
+
   const canGoNext =
     viewerContext.isAdmin ||
     currentCompleted ||
@@ -983,10 +1000,11 @@ export default function CoursPage() {
         const res = await fetch(`/api/chapter-progress/${canonicalSlug}`, {
           cache: "no-store",
         });
+
         const data = await res.json();
         setProgressData(Array.isArray(data) ? data : []);
       } catch {
-        // no-op
+        // Ne bloque pas l'utilisateur si la sauvegarde de progression échoue.
       }
     }, 5000);
 
@@ -1005,7 +1023,7 @@ export default function CoursPage() {
     return (
       <main className="min-h-screen bg-slate-100 px-4 py-10">
         <div className="mx-auto max-w-5xl rounded-[2rem] bg-white p-8 shadow-sm">
-          {"Chargement du cours\u2026"}
+          Chargement du cours…
         </div>
       </main>
     );
@@ -1040,7 +1058,7 @@ export default function CoursPage() {
               </div>
 
               <p className="mt-3 text-sm text-slate-600">
-                {completedCount} chapitre(s) validés
+                {completedCount} chapitre(s) validé(s)
               </p>
             </div>
 
@@ -1049,7 +1067,9 @@ export default function CoursPage() {
                 const itemProgress = progressData.find(
                   (item) => item.chapter_key === chapter.key
                 );
+
                 const done = itemProgress?.is_completed ?? false;
+
                 const unlocked =
                   viewerContext.isAdmin ||
                   index === 0 ||
@@ -1072,8 +1092,8 @@ export default function CoursPage() {
                       currentIndex === index
                         ? "border-slate-900 bg-slate-900 text-white"
                         : done
-                        ? "border-green-200 bg-green-50 text-slate-800"
-                        : "border-slate-200 bg-white text-slate-700"
+                          ? "border-green-200 bg-green-50 text-slate-800"
+                          : "border-slate-200 bg-white text-slate-700"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     <div className="flex items-start justify-between gap-3">
@@ -1081,6 +1101,7 @@ export default function CoursPage() {
                         <p className="text-sm font-semibold">
                           {formatFrenchDisplayText(chapter.title)}
                         </p>
+
                         <p
                           className={`mt-1 text-xs ${
                             currentIndex === index
@@ -1097,11 +1118,11 @@ export default function CoursPage() {
                           done
                             ? "bg-green-600 text-white"
                             : currentIndex === index
-                            ? "bg-white/15 text-white"
-                            : "bg-slate-100 text-slate-600"
+                              ? "bg-white/15 text-white"
+                              : "bg-slate-100 text-slate-600"
                         }`}
                       >
-                        {done ? "Valid\u00E9" : unlocked ? "Ouvert" : "Verrouill\u00E9"}
+                        {done ? "Validé" : unlocked ? "Ouvert" : "Verrouillé"}
                       </span>
                     </div>
                   </button>
@@ -1115,6 +1136,7 @@ export default function CoursPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">
                 {formattedCurrentTitle}
               </p>
+
               <h2 className="mt-2 text-3xl font-bold">
                 {formattedCurrentSubtitle}
               </h2>
@@ -1131,7 +1153,7 @@ export default function CoursPage() {
 
                 <div className="rounded-2xl bg-white/10 p-4 backdrop-blur">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/70">
-                    {"Temps valid\u00E9"}
+                    Temps validé
                   </p>
                   <p className="mt-2 text-2xl font-bold">
                     {formatSeconds(currentSeconds)}
@@ -1140,7 +1162,7 @@ export default function CoursPage() {
 
                 <div className="rounded-2xl bg-white/10 p-4 backdrop-blur">
                   <p className="text-xs uppercase tracking-[0.18em] text-white/70">
-                    {"D\u00E9compte restant"}
+                    Décompte restant
                   </p>
                   <p className="mt-2 text-2xl font-bold">
                     {formatSeconds(remainingSeconds)}
@@ -1153,6 +1175,7 @@ export default function CoursPage() {
                   <span>Validation du chapitre</span>
                   <span>{currentPercent}%</span>
                 </div>
+
                 <div className="h-3 w-full rounded-full bg-white/20">
                   <div
                     className="h-3 rounded-full bg-green-400 transition-all duration-500"
@@ -1164,7 +1187,7 @@ export default function CoursPage() {
               {viewerContext.isAdmin ? (
                 <div className="mt-5 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-medium text-white/90 backdrop-blur">
                   Mode admin : navigation libre entre les chapitres pour
-                  {"v\u00E9rification du parcours."}
+                  vérification du parcours.
                 </div>
               ) : null}
             </div>
@@ -1175,6 +1198,7 @@ export default function CoursPage() {
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                     Lecture du chapitre
                   </p>
+
                   <div className="mt-3 space-y-4 text-[15px] leading-8 text-slate-700">
                     {leadingParagraphs.map((paragraph, index) => (
                       <p key={`${currentChapter.key}-lead-${index}`}>
@@ -1185,59 +1209,67 @@ export default function CoursPage() {
                 </div>
               ) : null}
 
-              {(currentChapter.resourceVideos ?? []).length > 0 && (
+              {(currentChapter.resourceVideos ?? []).length > 0 ? (
                 <div className="mb-6 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 shadow-sm">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    {"Ressources vid\u00E9o INRS"}
+                    Ressources vidéo
                   </p>
 
-                  <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                    {(currentChapter.resourceVideos ?? []).map((video, index) => (
-                      <article
-                        key={`${currentChapter.key}-video-${index}`}
-                        className="rounded-[1.25rem] border border-slate-200 bg-white p-5"
-                      >
-                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-                          {video.provider ?? "Video"}
-                        </p>
-                        <h3 className="mt-3 text-lg font-bold text-slate-900">
-                          {formatFrenchDisplayText(video.title)}
-                        </h3>
-                        <p className="mt-3 text-sm leading-7 text-slate-600">
-                          {formatFrenchDisplayText(video.description)}
-                        </p>
-                        <a
-                          href={video.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  <div className="mt-4 grid gap-5">
+                    {(currentChapter.resourceVideos ?? []).map(
+                      (video, index) => (
+                        <article
+                          key={`${currentChapter.key}-video-${index}`}
+                          className="rounded-[1.25rem] border border-slate-200 bg-white p-5"
                         >
-                          {video.ctaLabel ?? "Voir la ressource"}
-                        </a>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              )}
+                          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
+                            {video.provider ?? "Vidéo pédagogique"}
+                          </p>
 
-              {currentChapter.image ? (
-                <div className="mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
-                  <Image
-                    src={currentChapter.image}
-                    alt={formatFrenchDisplayText(
-                      currentChapter.imageAlt ?? currentChapter.title
+                          <h3 className="mt-3 text-lg font-bold text-slate-900">
+                            {formatFrenchDisplayText(video.title)}
+                          </h3>
+
+                          {video.description ? (
+                            <p className="mt-3 text-sm leading-7 text-slate-600">
+                              {formatFrenchDisplayText(video.description)}
+                            </p>
+                          ) : null}
+
+                          <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p className="text-sm leading-6 text-slate-700">
+                              Cliquez sur le bouton ci-dessous pour ouvrir la
+                              vidéo dans un nouvel onglet.
+                            </p>
+
+                            <a
+                              href={video.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="mt-4 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                            >
+                              {video.ctaLabel ?? "Voir la vidéo"}
+                            </a>
+                          </div>
+                        </article>
+                      )
                     )}
-                    width={1200}
-                    height={700}
-                    className="mx-auto h-auto max-h-[460px] w-full object-contain"
-                    priority
-                  />
+                  </div>
                 </div>
               ) : null}
 
-              {formattedSectionVisual ? (
-                <div className={currentChapter.image ? "mt-6" : ""}>
-                  <VisualCard visual={formattedSectionVisual} />
+              {currentChapter.image ? (
+                <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-4 shadow-sm">
+                  <img
+                    src={currentChapter.image}
+                    alt={currentChapter.imageAlt ?? currentChapter.title}
+                    className="mx-auto block h-auto max-h-[520px] w-full max-w-5xl rounded-2xl object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ) : fallbackVisualBlock ? (
+                <div className="mb-6">
+                  <VisualBlock visual={fallbackVisualBlock} />
                 </div>
               ) : null}
 
@@ -1251,6 +1283,7 @@ export default function CoursPage() {
                       <p className="text-sm font-semibold text-slate-900">
                         Point clé {index + 1}
                       </p>
+
                       <p className="mt-2 text-sm leading-6 text-slate-700">
                         {formatFrenchDisplayText(item)}
                       </p>
@@ -1260,30 +1293,14 @@ export default function CoursPage() {
               ) : null}
 
               <div className="mt-8 space-y-5 text-[15px] leading-8 text-slate-700">
-                {earlyBodyParagraphs.map((paragraph, index) => (
+                {bodyParagraphs.map((paragraph, index) => (
                   <p key={`${currentChapter.key}-content-${index}`}>
                     {formatFrenchDisplayText(paragraph)}
                   </p>
                 ))}
               </div>
 
-              {shouldRenderInlineVisual && formattedSectionVisual ? (
-                <div className="mt-8">
-                  <VisualCard visual={formattedSectionVisual} compact />
-                </div>
-              ) : null}
-
-              {lateBodyParagraphs.length > 0 ? (
-                <div className="mt-8 space-y-5 text-[15px] leading-8 text-slate-700">
-                  {lateBodyParagraphs.map((paragraph, index) => (
-                    <p key={`${currentChapter.key}-late-content-${index}`}>
-                      {formatFrenchDisplayText(paragraph)}
-                    </p>
-                  ))}
-                </div>
-              ) : null}
-
-              {(currentChapter.essentials ?? []).length > 0 && (
+              {(currentChapter.essentials ?? []).length > 0 ? (
                 <div className="mt-8 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-5 shadow-sm">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-800">
                     Rappel de l’essentiel
@@ -1302,9 +1319,9 @@ export default function CoursPage() {
                     ))}
                   </div>
                 </div>
-              )}
+              ) : null}
 
-              {(currentChapter.references ?? []).length > 0 && (
+              {(currentChapter.references ?? []).length > 0 ? (
                 <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                     Références réglementaires et normatives
@@ -1323,7 +1340,7 @@ export default function CoursPage() {
                     ))}
                   </div>
                 </div>
-              )}
+              ) : null}
 
               <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
@@ -1395,19 +1412,19 @@ export default function CoursPage() {
                 )}
               </div>
 
-              {!canGoNext && !isLastChapter && (
+              {!canGoNext && !isLastChapter ? (
                 <p className="mt-4 text-sm font-medium text-amber-700">
                   Vous devez encore patienter {formatSeconds(remainingSeconds)}{" "}
                   sur ce chapitre avant d’accéder au suivant.
                 </p>
-              )}
+              ) : null}
 
-              {isLastChapter && globalPercent < 100 && !viewerContext.isAdmin && (
+              {isLastChapter && globalPercent < 100 && !viewerContext.isAdmin ? (
                 <p className="mt-4 text-sm font-medium text-amber-700">
                   Le quiz sera débloqué lorsque tous les chapitres auront été
                   validés.
                 </p>
-              )}
+              ) : null}
             </div>
           </section>
         </div>

@@ -1,24 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="700" rx="36" fill="#FFF7ED"/>
-  <rect x="56" y="56" width="1088" height="588" rx="28" fill="white" stroke="#FED7AA" stroke-width="2"/>
-  <text x="92" y="128" fill="#9A3412" font-family="Arial, sans-serif" font-size="38" font-weight="700">Risque électrique et protections</text>
-  <text x="92" y="170" fill="#7C2D12" font-family="Arial, sans-serif" font-size="22">Comprendre le danger avant de remplacer, raccorder ou manœuvrer.</text>
+  <rect width="1200" height="700" rx="40" fill="#FFF7ED"/>
+  <rect x="70" y="70" width="1060" height="560" rx="28" fill="white" stroke="#FDBA74" stroke-width="3"/>
 
-  <rect x="92" y="228" width="300" height="148" rx="22" fill="#FFF1F2" stroke="#FDA4AF"/>
-  <rect x="450" y="228" width="300" height="148" rx="22" fill="#FEF3C7" stroke="#FCD34D"/>
-  <rect x="808" y="228" width="300" height="148" rx="22" fill="#EFF6FF" stroke="#93C5FD"/>
+  <text x="110" y="135" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#9A3412">
+    Risque electrique et protections
+  </text>
 
-  <text x="126" y="286" fill="#9F1239" font-family="Arial, sans-serif" font-size="28" font-weight="700">Contact direct</text>
-  <text x="126" y="324" fill="#881337" font-family="Arial, sans-serif" font-size="18">Toucher une partie active sous tension</text>
+  <text x="110" y="180" font-family="Arial, sans-serif" font-size="23" fill="#9A3412">
+    Comprendre le danger avant de remplacer, raccorder ou manoeuvrer.
+  </text>
 
-  <text x="486" y="286" fill="#92400E" font-family="Arial, sans-serif" font-size="28" font-weight="700">Contact indirect</text>
-  <text x="486" y="324" fill="#78350F" font-family="Arial, sans-serif" font-size="18">Masse métallique devenue dangereuse</text>
+  <rect x="110" y="250" width="260" height="145" rx="24" fill="#FFF1F2" stroke="#FDA4AF" stroke-width="3"/>
+  <text x="240" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#9F1239">
+    Contact direct
+  </text>
+  <text x="240" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#9F1239">
+    Partie active sous tension
+  </text>
 
-  <text x="858" y="286" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="28" font-weight="700">PNST / voisinage</text>
-  <text x="858" y="324" fill="#1E40AF" font-family="Arial, sans-serif" font-size="18">Le danger commence avant le contact</text>
+  <rect x="470" y="250" width="260" height="145" rx="24" fill="#FEF3C7" stroke="#FBBF24" stroke-width="3"/>
+  <text x="600" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#92400E">
+    Contact indirect
+  </text>
+  <text x="600" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#92400E">
+    Masse devenue dangereuse
+  </text>
 
-  <rect x="92" y="436" width="1016" height="152" rx="22" fill="#0F172A"/>
-  <text x="128" y="490" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="28" font-weight="700">À retenir pour BS / BE Manœuvre</text>
-  <text x="128" y="532" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="20">IP2X / IPXXB, enveloppes intactes, repérage fiable, pas d'action si capot retiré</text>
-  <text x="128" y="566" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="20">ou si l'environnement est dégradé. La protection collective reste prioritaire.</text>
+  <rect x="830" y="250" width="260" height="145" rx="24" fill="#DBEAFE" stroke="#93C5FD" stroke-width="3"/>
+  <text x="960" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#1D4ED8">
+    PNST / voisinage
+  </text>
+  <text x="960" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#1D4ED8">
+    Danger avant le contact
+  </text>
+
+  <rect x="110" y="470" width="980" height="120" rx="20" fill="#0F172A"/>
+  <text x="150" y="520" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white">
+    A retenir pour BS / BE Manoeuvre
+  </text>
+  <text x="150" y="560" font-family="Arial, sans-serif" font-size="22" fill="white">
+    IP2X / IPXXB, enveloppes intactes, reperage fiable.
+  </text>
+  <text x="150" y="592" font-family="Arial, sans-serif" font-size="22" fill="white">
+    Pas d'action si capot retire ou environnement degrade.
+  </text>
 </svg>

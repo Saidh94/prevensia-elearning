@@ -5,21 +5,17 @@ import { useEffect, useState } from "react";
 
 const FLOATING_CONTACT_STORAGE_KEY = "prevensia-floating-contact-collapsed";
 
+function getInitialCollapsedState() {
+  if (typeof window === "undefined") return false;
+
+  return window.localStorage.getItem(FLOATING_CONTACT_STORAGE_KEY) === "true";
+}
+
 export default function FloatingContactButtons() {
   const [showDesktopPanel, setShowDesktopPanel] = useState(false);
-  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const savedPreference = window.localStorage.getItem(
-      FLOATING_CONTACT_STORAGE_KEY
-    );
-
-    if (savedPreference === "true") {
-      setIsDesktopPanelCollapsed(true);
-    }
-  }, []);
+  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(
+    getInitialCollapsedState
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +29,6 @@ export default function FloatingContactButtons() {
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     window.localStorage.setItem(
       FLOATING_CONTACT_STORAGE_KEY,
       String(isDesktopPanelCollapsed)
@@ -44,7 +38,7 @@ export default function FloatingContactButtons() {
   return (
     <>
       <div
-        className={`fixed right-5 top-1/2 z-50 hidden -translate-y-1/2 xl:block transition-all duration-300 ${
+        className={`fixed right-5 top-1/2 z-50 hidden -translate-y-1/2 transition-all duration-300 xl:block ${
           showDesktopPanel
             ? "pointer-events-auto translate-x-0 opacity-100"
             : "pointer-events-none translate-x-6 opacity-0"
@@ -60,7 +54,7 @@ export default function FloatingContactButtons() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-slate-950 via-slate-900 to-red-800 text-xs font-bold uppercase tracking-[0.18em] text-white">
               PF
             </span>
-            <span className="leading-tight text-left">
+            <span className="text-left leading-tight">
               Contact
               <span className="block text-[11px] font-medium tracking-[0.08em] text-slate-500">
                 Ouvrir le panneau
@@ -68,7 +62,7 @@ export default function FloatingContactButtons() {
             </span>
           </button>
         ) : (
-          <div className="w-[280px] overflow-hidden rounded-[1.7rem] border border-white/55 bg-white/78 backdrop-blur-xl shadow-[0_24px_70px_rgba(15,23,42,0.18)]">
+          <div className="w-[280px] overflow-hidden rounded-[1.7rem] border border-white/55 bg-white/78 shadow-[0_24px_70px_rgba(15,23,42,0.18)] backdrop-blur-xl">
             <div className="relative bg-gradient-to-r from-slate-950/88 via-slate-900/86 to-red-900/82 px-5 py-4 text-white">
               <button
                 type="button"
@@ -93,7 +87,7 @@ export default function FloatingContactButtons() {
             <div className="space-y-3 px-5 py-4">
               <div className="rounded-2xl border border-slate-200/80 bg-white/75 p-3.5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Reponse rapide
+                  Réponse rapide
                 </p>
                 <div className="mt-2.5 space-y-1.5">
                   <a
@@ -116,7 +110,7 @@ export default function FloatingContactButtons() {
                   Employeurs et responsables formation
                 </p>
                 <p className="mt-2 text-sm leading-5 text-slate-600">
-                  Visibilite sur les parcours salaries et formats disponibles.
+                  Visibilité sur les parcours salariés et formats disponibles.
                 </p>
               </div>
 
@@ -134,7 +128,7 @@ export default function FloatingContactButtons() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-2xl border border-green-300 bg-white px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-50"
                 >
-                  Echanger sur WhatsApp
+                  Échanger sur WhatsApp
                 </a>
 
                 <a
@@ -173,7 +167,7 @@ export default function FloatingContactButtons() {
         <Link
           href="/demande-devis"
           className="flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
-          aria-label="Demander un devis a Prevensia Formation"
+          aria-label="Demander un devis à Prevensia Formation"
           title="Devis"
         >
           Devis

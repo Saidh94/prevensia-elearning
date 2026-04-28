@@ -1,671 +1,922 @@
-import { ModuleContent } from "./module-types";
+import type { ModuleContent } from "./module-types";
+
+const VIDEO = {
+  bsbe: {
+    title: "Habilitation BS / BE Manœuvre",
+    description:
+      "Vidéo pédagogique sur le cadre des habilitations BS et BE Manœuvre, leurs limites et les gestes autorisés.",
+    url: "https://youtu.be/AdI-HeDlla8",
+    provider: "INRS",
+    ctaLabel: "Voir la vidéo",
+  },
+  chocElectrique: {
+    title: "INRS - Choc électrique",
+    description:
+      "Vidéo pédagogique sur les effets du courant électrique et les risques liés au choc électrique.",
+    url: "https://youtu.be/wyJbFJOdGGo",
+    provider: "INRS",
+    ctaLabel: "Voir la vidéo",
+  },
+  consignation: {
+    title: "INRS - Consignation électrique",
+    description:
+      "Vidéo pédagogique sur les étapes et les principes de la consignation électrique.",
+    url: "https://youtu.be/cCqbrFDNrxA",
+    provider: "INRS",
+    ctaLabel: "Voir la vidéo",
+  },
+  zonesDistances: {
+    title: "INRS - Zones et distances",
+    description:
+      "Vidéo pédagogique sur les zones d’environnement électrique et les distances de sécurité.",
+    url: "https://youtu.be/NKV4NYJi8Rk",
+    provider: "INRS",
+    ctaLabel: "Voir la vidéo",
+  },
+  symboles: {
+    title: "INRS - Symboles d’habilitation électrique",
+    description:
+      "Vidéo pédagogique sur la lecture des symboles d’habilitation électrique et leurs limites.",
+    url: "https://youtu.be/-qG3A1eLuUM",
+    provider: "INRS",
+    ctaLabel: "Voir la vidéo",
+  },
+};
 
 export const bsbeModuleContent: ModuleContent = {
   title:
-    "BS et BE Manoeuvre - Interventions elementaires et manoeuvres en basse tension",
-  shortTitle: "BS et BE Manoeuvre",
+    "BS et BE Manœuvre - Interventions élémentaires et manœuvres en basse tension",
+  shortTitle: "BS et BE Manœuvre",
   subtitle:
-    "Parcours e-learning structure selon la NF C 18-510 pour les personnels amenes a realiser des remplacements simples, des raccordements elementaires et des manoeuvres d'exploitation en basse tension.",
-  duration: "7 h 30 a 9 h 30 de theorie guidee",
+    "Parcours e-learning structuré selon la NF C 18-510 pour les personnels amenés à réaliser des remplacements simples, des raccordements élémentaires et des manœuvres d’exploitation en basse tension.",
+  duration:
+    "6 h de théorie guidée + quiz + séquence d’application encadrée",
   deliveryFormat:
-    "E-learning technique + quiz + sequence d'application encadree : classe virtuelle de 3 h a 4 h en initial groupe / entreprise, ou visio de 45 min a 1 h en recyclage",
-  level: "Intermediaire",
+    "E-learning technique + quiz + séquence d’application encadrée : classe virtuelle de 3 h à 4 h en initial groupe / entreprise, ou visio de 45 min à 1 h en recyclage",
+  level: "Intermédiaire",
   objective:
-    "Respecter les prescriptions de securite liees aux habilitations BS et BE Manoeuvre, comprendre les bases electriques utiles, reconnaitre les situations a risque, identifier les limites d'autorisation, preparer une operation simple en securite et adopter la bonne conduite en cas d'anomalie ou d'accident.",
+    "Respecter les prescriptions de sécurité liées aux habilitations BS et BE Manœuvre, comprendre les bases électriques utiles, reconnaître les situations à risque, identifier les limites d’autorisation, préparer une opération simple en sécurité et adopter la bonne conduite en cas d’anomalie ou d’accident.",
   audience:
-    "Agents de maintenance, techniciens polyvalents, gardiens, personnels de sites tertiaires ou industriels, personnels d'exploitation, services generaux et salaries amenes a effectuer des operations simples ou des manoeuvres en basse tension sans etre electriciens executants.",
+    "Agents de maintenance, techniciens polyvalents, gardiens, personnels de sites tertiaires ou industriels, personnels d’exploitation, services généraux et salariés amenés à effectuer des opérations simples ou des manœuvres en basse tension sans être électriciens exécutants.",
   certificationNote:
-    "Ce parcours constitue la preparation theorique. L'habilitation BS ou BE Manoeuvre est delivree uniquement par l'employeur apres verification des acquis, adequation au poste, analyse du risque et evaluation adaptee au poste.",
-  heroBadge: "Habilitation electrique",
+    "Ce parcours constitue la préparation théorique. L’habilitation BS ou BE Manœuvre est délivrée uniquement par l’employeur après vérification des acquis, adéquation au poste, analyse du risque et évaluation adaptée au poste.",
+  heroBadge: "Habilitation électrique",
   finalMessage:
-    "Le bon reflexe en BS ou en BE Manoeuvre n'est pas d'improviser une solution. C'est d'identifier le bon organe, de verifier le contexte, d'appliquer la procedure prevue et de s'arreter immediatement si l'action n'entre plus dans le cadre autorise.",
-  quizCtaLabel: "Passer au quiz BS et BE Manoeuvre",
+    "Le bon réflexe en BS ou en BE Manœuvre n’est pas d’improviser une solution. C’est d’identifier le bon organe, de vérifier le contexte, d’appliquer la procédure prévue et de s’arrêter immédiatement si l’action n’entre plus dans le cadre autorisé.",
+  quizCtaLabel: "Passer au quiz BS et BE Manœuvre",
+
   sections: [
     {
       id: "habilitation-symboles",
-      title: "1. Habilitation electrique, symboles BS et BE Manoeuvre et cadre employeur",
-      estimatedMinutes: 25,
+      title:
+        "1. Habilitation électrique, symboles BS et BE Manœuvre et cadre employeur",
+      estimatedMinutes: 30,
       intro:
-        "La norme NF C 18-510 rappelle qu'une habilitation est une reconnaissance de capacite accordee par l'employeur. Le premier chapitre doit donc poser clairement le cadre, les symboles et les limites reelles du BS et du BE Manoeuvre.",
+        "La norme NF C 18-510 rappelle qu’une habilitation est une reconnaissance de capacité accordée par l’employeur. Le premier chapitre pose donc clairement le cadre, les symboles et les limites réelles du BS et du BE Manœuvre.",
       content: [
-        "L'habilitation electrique est definie par la norme comme la reconnaissance par l'employeur de la capacite d'une personne a accomplir en securite les taches qui lui sont confiees vis-a-vis du risque electrique. Cette logique est centrale: la formation prepare, mais c'est l'employeur qui verifie l'adaptation au poste, aux locaux, aux materiels et aux procedures internes avant de remettre un titre.",
-        "Le symbole BS correspond aux interventions elementaires en basse tension. Il vise des operations simples, limitees, prepares et realisees hors tension, telles que des remplacements simples ou des raccordements elementaires sur des circuits et materiels identifies. Le symbole BE Manoeuvre concerne les manoeuvres d'exploitation, par exemple l'ouverture, la fermeture, le rearmement ou la commande d'organes clairement identifies et prevus pour cela.",
-        "Le BS et le BE Manoeuvre ne sont pas des versions simplifiees des habilitations B1, B2, BR ou BC. Le titulaire BS n'est ni executant electricien de travaux, ni charge de travaux, ni charge de consignation. Le titulaire BE Manoeuvre n'est pas charge d'intervention generale et n'acquiert pas, par ce symbole, le droit de depanner, modifier, diagnostiquer librement ou consigner.",
-        "La prevention exige une chaine coherente: analyse du besoin, designation des taches admissibles, mise a disposition des consignes, verification des acquis, evaluation pratique, puis delivrance du titre. Cette chaine est exactement celle que l'on retrouve dans l'introduction et les definitions de la NF C 18-510, puis dans l'annexe D dediee aux savoirs attendus en formation initiale et recyclage.",
-        "Le bon reflexe a retenir est le suivant: le parcours de formation prepare a agir dans un cadre defini, mais seul le titre d'habilitation remis par l'employeur autorise l'activite sur les taches reellement confiees.",
-        "Le recyclage ne se limite pas a repasser quelques definitions. Il vise a verifier que les reflexes sont toujours maitrises, que les limites du symbole restent comprises et que le salarie sait reconnaitre les situations qui sortent du cadre BS ou BE Manoeuvre.",
+        "L’habilitation électrique est définie comme la reconnaissance par l’employeur de la capacité d’une personne à accomplir en sécurité les tâches qui lui sont confiées vis-à-vis du risque électrique. Cette logique est centrale : la formation prépare, mais c’est l’employeur qui vérifie l’adaptation au poste, aux locaux, aux matériels et aux procédures internes avant de remettre un titre.",
+        "Le symbole BS correspond aux interventions élémentaires en basse tension. Il vise des opérations simples, limitées, préparées et réalisées hors tension, telles que des remplacements simples ou des raccordements élémentaires sur des circuits et matériels identifiés.",
+        "Le symbole BE Manœuvre concerne les manœuvres d’exploitation. Il peut s’agir, selon les consignes du site, d’ouvrir, fermer, mettre en marche, arrêter, basculer ou réarmer un organe prévu pour cet usage.",
+        "Le BS et le BE Manœuvre ne sont pas des versions simplifiées des habilitations B1, B2, BR ou BC. Le titulaire BS n’est ni exécutant électricien de travaux, ni chargé de travaux, ni chargé de consignation. Le titulaire BE Manœuvre n’est pas chargé d’intervention générale et n’acquiert pas, par ce symbole, le droit de dépanner, modifier, diagnostiquer librement ou consigner.",
+        "La prévention exige une chaîne cohérente : analyse du besoin, désignation des tâches admissibles, mise à disposition des consignes, vérification des acquis, évaluation pratique, puis délivrance du titre.",
+        "Le bon réflexe à retenir est le suivant : le parcours de formation prépare à agir dans un cadre défini, mais seul le titre d’habilitation remis par l’employeur autorise l’activité sur les tâches réellement confiées.",
       ],
       deepDive: [
-        "Le risque majeur, dans la vraie vie des sites, n'est pas l'ignorance pure. C'est le glissement progressif: un remplacement simple devient un diagnostic, un rearmement devient une recherche de panne, une manoeuvre devient une intervention improvisee. Le chapitre d'ouverture doit donc apprendre a stopper avant cette derive.",
-        "La norme insiste aussi sur l'unicite, la coherence et la maitrise de l'information. Cela signifie qu'un operateur BS / BE ne doit jamais agir sur une simple habitude orale, sur un repere flou ou sur une demande urgente qui contourne la procedure et le titre d'habilitation.",
-        "Un bon apprenant BS / BE doit savoir formuler sa limite. Dire 'ce geste n'entre pas dans mon cadre' est une competence securite, pas une faiblesse.",
+        "Le risque majeur, dans la vraie vie des sites, n’est pas l’ignorance pure. C’est le glissement progressif : un remplacement simple devient un diagnostic, un réarmement devient une recherche de panne, une manœuvre devient une intervention improvisée.",
+        "La norme insiste aussi sur l’unicité, la cohérence et la maîtrise de l’information. Cela signifie qu’un opérateur BS / BE ne doit jamais agir sur une simple habitude orale, sur un repère flou ou sur une demande urgente qui contourne la procédure et le titre d’habilitation.",
+        "Un bon apprenant BS / BE doit savoir formuler sa limite. Dire que le geste demandé n’entre pas dans son cadre est une compétence sécurité, pas une faiblesse.",
       ],
       keyPoints: [
-        "L'habilitation est delivree par l'employeur, pas par la formation seule.",
-        "BS = interventions elementaires en basse tension, dans un cadre strictement limite.",
-        "BE Manoeuvre = manoeuvres d'exploitation sur organe identifie et prevu a cet effet.",
-        "BS et BE Manoeuvre ne valent ni B1, ni B2, ni BR, ni BC.",
-        "Le poste reel, l'environnement et les procedures conditionnent la delivrance du titre.",
+        "L’habilitation est délivrée par l’employeur, pas par la formation seule.",
+        "BS = interventions élémentaires en basse tension, dans un cadre strictement limité.",
+        "BE Manœuvre = manœuvres d’exploitation sur organe identifié et prévu à cet effet.",
+        "BS et BE Manœuvre ne valent ni B1, ni B2, ni BR, ni BC.",
+        "Le poste réel, l’environnement et les procédures conditionnent la délivrance du titre.",
       ],
       forbiddenPoints: [
-        "Confondre attestation de formation et titre d'habilitation remis par l'employeur.",
-        "Croire que BS ou BE Manoeuvre autorisent des travaux d'electricien executant ou de charge d'intervention.",
-        "Commencer un depannage, une modification ou une recherche de panne hors du cadre autorise.",
+        "Confondre attestation de formation et titre d’habilitation remis par l’employeur.",
+        "Croire que BS ou BE Manœuvre autorisent des travaux d’électricien exécutant ou de chargé d’intervention.",
+        "Commencer un dépannage, une modification ou une recherche de panne hors du cadre autorisé.",
       ],
       legalRefs: [
-        "Code du travail - articles R.4544-9 et R.4544-10 sur la formation, l'habilitation et l'organisation des operations.",
-        "NF C 18-510 - article 3 : habilitation, employeur, operateur et roles des personnes.",
-        "NF C 18-510 - annexe D : referentiels des savoirs attendus en formation initiale et recyclage.",
-        "INRS - habilitation electrique, role de l'employeur et maintien des competences.",
+        "Code du travail - articles R.4544-9 et R.4544-10 sur la formation, l’habilitation et l’organisation des opérations.",
+        "NF C 18-510 - article 3 : habilitation, employeur, opérateur et rôles des personnes.",
+        "NF C 18-510 - article 5 : formation, évaluation, avis après formation et titre d’habilitation.",
+        "NF C 18-510 - tableaux des symboles d’habilitation.",
+        "INRS - habilitation électrique, rôle de l’employeur et maintien des compétences.",
       ],
-      resourceVideos: [
-        {
-          title: "Video INRS - Les bases de l'habilitation electrique",
-          description:
-            "Support officiel utile pour poser le cadre employeur, le role de la formation et la logique des symboles.",
-          url: "https://www.inrs.fr/media.html?refINRS=Anim-132",
-          provider: "INRS",
-          ctaLabel: "Voir la video INRS",
-        },
-      ],
+      resourceVideos: [VIDEO.bsbe, VIDEO.symboles],
       practicalCase:
-        "Exemple : un agent multi-technique sait remplacer une prise simple hors tension. Sur place, il decouvre un coffret mal repere et un cablage ancien. L'operation doit etre stoppee: le cadre BS n'autorise pas une recherche de panne ni une adaptation improvisee.",
+        "Exemple : un agent multi-technique sait remplacer une prise simple hors tension. Sur place, il découvre un coffret mal repéré et un câblage ancien. L’opération doit être stoppée : le cadre BS n’autorise pas une recherche de panne ni une adaptation improvisée.",
+      chapterImagePath: "/elearning/bsbe/bsbe-cadre.svg",
+      chapterImageAlt:
+        "Cadre BS et BE Manœuvre : formation, évaluation, validation et habilitation par l’employeur",
       visual: {
-        title: "De la formation au titre d'habilitation",
-        subtitle: "Le titre BS ou BE Manoeuvre n'est delivre qu'apres verification des acquis et adequation au poste.",
+        title: "De la formation au titre d’habilitation",
+        subtitle:
+          "Le titre BS ou BE Manœuvre est délivré par l’employeur après vérification des acquis, adéquation au poste et analyse du risque.",
         items: [
           "Comprendre le cadre normatif",
-          "Verifier les connaissances et les limites",
-          "Evaluer la capacite a agir en securite",
-          "Habiliter selon les taches reelles du poste",
+          "Vérifier les connaissances et les limites",
+          "Évaluer la capacité à agir en sécurité",
+          "Habiliter selon les tâches réelles du poste",
         ],
         tone: "blue",
         imagePath: "/elearning/bsbe/bsbe-cadre.svg",
         imageAlt:
-          "Schema de la chaine formation evaluation et habilitation employeur pour le BS et le BE Manoeuvre",
+          "Cadre BS et BE Manœuvre : formation, évaluation, validation et habilitation par l’employeur",
       },
     },
+
     {
       id: "bases-electricite",
-      title: "2. Bases electriques indispensables avant toute operation",
-      estimatedMinutes: 25,
+      title: "2. Bases électriques indispensables avant toute opération",
+      estimatedMinutes: 30,
       intro:
-        "Un titulaire BS / BE n'est pas un technicien d'etudes, mais il doit comprendre ce qu'est un circuit, ce que signifient les grandeurs electriques et pourquoi le domaine de tension change la lecture du risque.",
+        "Un titulaire BS / BE n’est pas un technicien d’études, mais il doit comprendre ce qu’est un circuit, ce que signifient les grandeurs électriques et pourquoi le domaine de tension change la lecture du risque.",
       content: [
-        "La norme distingue les domaines de tension parce qu'ils structurent la prevention. En courant alternatif, la tres basse tension est inferieure ou egale a 50 V, la basse tension est superieure a 50 V et inferieure ou egale a 1 000 V, et la haute tension est au-dela. En courant continu, les seuils correspondants sont 120 V puis 1 500 V. Cette lecture est indispensable pour ne pas banaliser un circuit, une batterie, un onduleur ou un coffret apparemment simple.",
-        "Comprendre un circuit electrique, c'est savoir reconnaitre une source, des conducteurs, une charge, un organe de commande et un organe de protection. Sans cette lecture minimale, l'operateur agit a l'aveugle et ne sait pas si le materiel qu'il touche releve d'un simple circuit terminal, d'un depart moteur, d'une alimentation secourue ou d'une chaine continue encore energisee.",
-        "Les grandeurs essentielles a maitriser sont la tension, l'intensite, la resistance et la puissance. La tension traduit une difference de potentiel, l'intensite la quantite de courant qui circule, la resistance l'opposition au passage du courant et la puissance la quantite d'energie mise en jeu. Ces notions servent a comprendre pourquoi un circuit chauffe, pourquoi un conducteur peut se deteriorer et pourquoi une erreur de manoeuvre peut avoir un effet violent sur les personnes et le materiel.",
-        "L'apprenant doit aussi distinguer partie active, masse, conducteur de protection, neutre et, lorsque c'est utile a la comprehension, conducteur PEN. Meme si ces termes paraissent plus techniques, ils permettent d'expliquer ce qu'est un contact direct, un contact indirect et pourquoi une enveloppe metallique peut devenir dangereuse a la suite d'un defaut d'isolement.",
-        "Le chapitre doit aussi parler des energies non evidentes: batteries, chargeurs, onduleurs, photovoltaique, automatismes secourus. Ce n'est pas hors sujet. Au contraire, cela donne au titulaire BS ou BE Manoeuvre le bon reflexe: l'absence de reseau apparent ne suffit pas a conclure a l'absence de risque.",
-        "Un bon chapitre BS / BE doit enfin apprendre a lire les familles de materiels courants: tableau de distribution, disjoncteur, sectionneur, organe de commande, depart terminal, circuit prise, eclairage, chauffe-eau, ventilateur, volet, automatisme. Plus l'operateur comprend ce qu'il regarde, moins il glisse vers une manoeuvre ou un remplacement mal cadre.",
+        "Comprendre un circuit électrique, c’est savoir reconnaître une source, des conducteurs, une charge, un organe de commande et un organe de protection.",
+        "Les grandeurs essentielles à maîtriser sont la tension, l’intensité, la résistance et la puissance. Elles expliquent pourquoi un équipement apparemment simple peut devenir dangereux selon son alimentation, son environnement et son état.",
+        "L’apprenant doit distinguer partie active, masse, conducteur de protection, neutre et, lorsque c’est utile à la compréhension, conducteur PEN.",
+        "Le chapitre doit aussi parler des énergies non évidentes : batteries, chargeurs, onduleurs, photovoltaïque, automatismes secourus et équipements maintenus sous énergie.",
+        "Un bon chapitre BS / BE doit apprendre à lire les familles de matériels courants : tableau de distribution, disjoncteur, sectionneur, organe de commande, départ terminal, circuit prise, éclairage, chauffe-eau, ventilateur, volet, automatisme.",
       ],
       deepDive: [
-        "Le but n'est pas d'empiler des definitions scolaires. Le but est de relier la theorie a la scene terrain: que voit-on devant une armoire, quel type d'energie circule, quel organe coupe, quel organe protege, et le cadre BS / BE est-il encore adapte ?",
-        "Il est important d'expliquer la difference entre un circuit terminal simple et un depart plus energetique. Cette finesse aide l'apprenant a comprendre pourquoi certains materiels restent hors cadre malgre une apparence familiere.",
+        "Le but n’est pas d’empiler des définitions scolaires. Le but est de relier la théorie à la scène terrain : que voit-on devant une armoire, quel type d’énergie circule, quel organe coupe, quel organe protège, et le cadre BS / BE est-il encore adapté ?",
+        "Il est important d’expliquer la différence entre un circuit terminal simple et un départ plus énergétique. Cette finesse aide l’apprenant à comprendre pourquoi certains matériels restent hors cadre malgré une apparence familière.",
       ],
       keyPoints: [
-        "Les domaines de tension structurent la prevention du risque.",
-        "Tension, intensite, resistance et puissance expliquent le comportement du circuit.",
-        "Partie active, masse et conducteur de protection doivent etre compris.",
-        "Alternatif et continu ne se traitent pas exactement de la meme facon.",
+        "Un circuit comprend une source, des conducteurs, une charge, une commande et une protection.",
+        "Tension, intensité, résistance et puissance expliquent le comportement du circuit.",
+        "Partie active, masse et conducteur de protection doivent être compris.",
+        "Les énergies secourues ou autonomes ne doivent pas être banalisées.",
       ],
       forbiddenPoints: [
-        "Confondre une installation familiere avec une installation sans danger.",
-        "Raisonner uniquement a l'apparence exterieure du materiel.",
+        "Confondre une installation familière avec une installation sans danger.",
+        "Raisonner uniquement à l’apparence extérieure du matériel.",
+        "Agir sur un organe dont la fonction n’est pas comprise.",
       ],
       legalRefs: [
-        "NF C 18-510 - tableau des domaines de tension et definitions des parties actives et des masses.",
+        "NF C 18-510 - définitions relatives aux installations, ouvrages, matériels et grandeurs électriques.",
         "NF C 15-100 - vocabulaire de base des installations basse tension.",
-        "INRS - bases du risque electrique et prevention des accidents.",
+        "INRS - bases du risque électrique et prévention des accidents.",
       ],
       practicalCase:
-        "Exemple : un operateur doit reinitialiser un organe alimente par un coffret de commande. Il observe la presence d'un variateur et d'une alimentation secourue. Avant toute action, il comprend que l'energie et le comportement du circuit ne sont pas ceux d'un simple depart d'eclairage.",
+        "Exemple : un opérateur doit réinitialiser un organe alimenté par un coffret de commande. Il observe la présence d’un variateur et d’une alimentation secourue. Il ne doit pas agir tant que le cadre de manœuvre n’est pas confirmé.",
+      chapterImagePath: "/elearning/bsbe/bsbe-bases.svg",
+      chapterImageAlt:
+        "Bases électriques utiles au BS et au BE Manœuvre",
       visual: {
         title: "Lire le circuit avant le geste",
-        subtitle: "Domaines de tension, grandeurs utiles et familles de materiels conditionnent la securite de l'operation.",
+        subtitle:
+          "Source, charge, commande, protection et énergie résiduelle conditionnent la sécurité de l’opération.",
         items: [
-          "TBT / BT / HT",
-          "Alternatif et continu",
-          "Source, charge, commande, protection",
-          "Partie active, masse, conducteur de protection",
+          "Source d’énergie",
+          "Organe de commande",
+          "Protection",
+          "Matériel alimenté",
         ],
         tone: "slate",
         imagePath: "/elearning/bsbe/bsbe-bases.svg",
         imageAlt:
-          "Illustration des bases electriques utiles au BS et au BE Manoeuvre avec circuit, grandeurs et domaines de tension",
+          "Bases électriques utiles au BS et au BE Manœuvre",
       },
     },
+
     {
-      id: "effets-corps",
-      title: "3. Effets du courant sur le corps humain et courbe intensite / temps",
-      estimatedMinutes: 20,
-      intro:
-        "Comprendre le risque electrique, ce n'est pas memoriser une interdiction abstraite. C'est savoir ce que produit concretement le courant sur le corps humain, et pourquoi quelques secondes de plus peuvent tout changer.",
-      content: [
-        "Le passage du courant dans le corps peut provoquer une electrisation, des brulures externes et internes, des contractions musculaires, des troubles respiratoires, des troubles cardiaques et des lesions neurologiques. L'electrocution correspond a l'issue mortelle d'une electrisation. Dans tous les cas, il faut retenir qu'une victime qui parle ou se releve n'est pas forcement hors danger.",
-        "La gravite depend principalement de l'intensite du courant, du temps de passage, du trajet dans l'organisme, de l'etat de la peau, de l'humidite et du contexte de contact. Un courant qui traverse le thorax est particulierement dangereux car il expose le coeur et la respiration.",
-        "Quelques ordres de grandeur pedagogiques doivent etre connus: des les premiers milliamperes le courant devient perceptible; autour de 10 mA le lacher peut devenir difficile; vers 30 mA les troubles respiratoires peuvent apparaitre; plus on approche de 75 a 100 mA avec un passage thoracique, plus le risque de fibrillation devient majeur. Ces reperes ne servent pas a jouer avec la limite, mais a comprendre pourquoi les protections et la rapidite de coupure sont vitales.",
-        "La courbe intensite / temps montre qu'une exposition moins intense mais plus longue peut devenir aussi critique qu'un courant plus fort sur un temps tres court. C'est cette logique qui justifie le role des dispositifs de protection, des coupures rapides et du refus de tout contact prolonge ou toute tentative improvisee.",
-        "Le milieu modifie fortement le risque. Une peau humide, un sol conducteur, des vetements mouilles, une sueur abondante ou des mains abimees reduisent la resistance du corps et favorisent le passage du courant. C'est pourquoi les locaux humides, les exterieurs et les zones techniques degradees doivent etre traites avec une vigilance renforcee.",
-        "Le bon reflexe BS / BE n'est pas seulement d'eviter l'accident. C'est aussi de prendre au serieux tout incident electrique, d'alerter, de faire securiser la zone et de ne jamais minimiser une electrisation meme si elle parait breve.",
-      ],
-      deepDive: [
-        "Les cours trop superficiels parlent d'une simple 'chataigne'. Il faut au contraire faire comprendre l'effet physiologique reel du courant et la raison pour laquelle une manoeuvre apparemment banale peut avoir une consequence grave.",
-        "Cette partie prepare aussi la conduite a tenir en cas d'accident: on ne touche pas une victime tant que le risque electrique persiste, on supprime le danger si cela est possible sans s'exposer, puis on alerte et on applique les gestes de secours adaptes.",
-      ],
-      keyPoints: [
-        "Electrisation et electrocution ne designent pas la meme situation.",
-        "Intensite, duree, trajet et humidite conditionnent la gravite.",
-        "La courbe intensite / temps explique l'importance de la coupure rapide.",
-        "Toute electrisation doit etre prise au serieux.",
-      ],
-      forbiddenPoints: [
-        "Minimiser une decharge electrique sous pretexte qu'elle a ete breve.",
-        "Toucher une victime sans avoir d'abord elimine ou maitrise le danger electrique.",
-      ],
-      legalRefs: [
-        "NF C 18-510 - prevention du risque electrique et connaissance des dangers pour les operateurs.",
-        "INRS - effets du courant electrique sur le corps humain et conduite a tenir apres accident.",
-      ],
-      practicalCase:
-        "Exemple : lors d'un remplacement simple, un operateur ressent une decharge en retirant un accessoire endommage. L'action est interrompue, la zone est securisee, l'evenement est traite comme une electrisation potentielle et non comme un incident anodin.",
-      visual: {
-        title: "Pourquoi un choc electrique peut etre grave",
-        subtitle: "L'intensite, le temps de contact, le trajet et le milieu humide aggravent le risque corporel.",
-        items: [
-          "Electrisation et brulures internes",
-          "Tetanie et impossibilite de lacher",
-          "Troubles respiratoires et cardiaques",
-          "Milieu humide = risque renforce",
-        ],
-        tone: "red",
-        imagePath: "/elearning/bsbe/bsbe-effets.svg",
-        imageAlt:
-          "Illustration des effets du courant electrique sur le corps humain avec intensite, duree et trajet du courant",
-      },
-    },
-    {
-      id: "protections-zones",
-      title: "4. Protection contre les chocs, contact direct, contact indirect et PNST",
+      id: "domaines-tension",
+      title:
+        "3. Domaines de tension, courant alternatif et courant continu",
       estimatedMinutes: 25,
       intro:
-        "Cette partie doit rester normative et concrete: protections contre les chocs, regime TT, dispositif differentiel, classes de materiel, pieces nues sous tension et zones d'environnement.",
+        "Le domaine de tension structure la prévention. Un titulaire BS / BE Manœuvre doit savoir distinguer TBT, BT et HT, et comprendre que le courant continu impose aussi une vigilance spécifique.",
       content: [
-        "Le contact direct correspond au fait de toucher une partie active normalement sous tension. Le contact indirect correspond au fait de toucher une masse devenue dangereuse apres defaut.",
-        "Les mesures de protection contre le contact direct reposent notamment sur l'eloignement, les obstacles, l'isolation, les enveloppes et les capotages. Ces protections ne doivent jamais etre contournees pour des raisons pratiques.",
-        "En basse tension, la protection contre le contact indirect fait notamment intervenir l'organisation de l'installation, le regime de neutre, la mise a la terre, les dispositifs differentiels et les classes de materiel.",
-        "Le regime TT et les dispositifs differentiels sont des notions utiles a comprendre pour expliquer pourquoi certaines coupures surviennent et pourquoi un defaut d'isolement peut rendre une masse metallique dangereuse.",
-        "La PNST, ou piece nue sous tension, reste une notion centrale. L'apprenant doit comprendre que le danger existe avant le contact et que le voisinage d'une piece nue sous tension impose un arret ou des precautions strictes.",
-        "Les zones d'environnement electrique structurent ces limites. En basse tension, une regle pedagogique courante consiste a visualiser un voisinage dangereux autour de la piece nue sous tension, notamment autour d'environ 30 cm, sans jamais remplacer les prescriptions du site ou de la norme par une simple approximation.",
-        "La notion d'IP2X ou IPXXB doit aussi etre abordee serieusement. Une manoeuvre simple n'est admissible que si l'enveloppe et les protections empechent reellement l'acces involontaire a des parties actives. Un coffret degrade, fendu ou partiellement ouvert fait sortir l'operateur de ce confort apparent.",
-        "Les classes de materiel et la logique des dispositifs differentiels ne sont pas la pour faire joli dans un support de cours. Elles expliquent pourquoi un appareil portatif, un tableau de distribution ou un circuit de puissance ne se traitent pas avec le meme niveau de confiance.",
+        "La norme distingue les domaines de tension parce qu’ils structurent la prévention. En courant alternatif, la très basse tension est inférieure ou égale à 50 V, la basse tension est supérieure à 50 V et inférieure ou égale à 1 000 V, et la haute tension est au-delà.",
+        "En courant continu lisse, la très basse tension est inférieure ou égale à 120 V, la basse tension est supérieure à 120 V et inférieure ou égale à 1 500 V, et la haute tension est au-delà.",
+        "Cette distinction conditionne les distances, les zones d’environnement, les prescriptions applicables et le niveau d’habilitation requis.",
+        "Le BS et le BE Manœuvre concernent la basse tension. Cela ne signifie pas que le risque est faible. Une installation BT peut provoquer électrisation, brûlure, arc, court-circuit ou départ de feu.",
+        "Le courant continu peut être présent sur batteries, onduleurs, photovoltaïque, chargeurs ou équipements industriels. Il peut présenter un risque particulier de maintien d’arc et de persistance d’énergie.",
       ],
       deepDive: [
-        "Ce chapitre doit permettre de comprendre ce qu'est une PNST, un contact indirect, un DDR ou un capotage, pas seulement de memoriser des slogans de prevention.",
-        "Il faut aussi apprendre a l'apprenant que le danger est parfois invisible: un coffret ferme peut proteger, mais un capot retire change completement la situation.",
+        "Le titulaire BS / BE n’a pas à devenir électricien concepteur, mais il doit comprendre pourquoi un matériel fermé, un onduleur, une batterie ou un départ non identifié ne doivent jamais être banalisés.",
+      ],
+      keyPoints: [
+        "La BT n’est pas une absence de danger.",
+        "Les seuils AC et DC sont différents.",
+        "Les batteries, onduleurs et sources autonomes peuvent maintenir un risque.",
+      ],
+      forbiddenPoints: [
+        "Croire que la basse tension est sans conséquence.",
+        "Ignorer une source autonome ou une énergie résiduelle.",
+      ],
+      legalRefs: [
+        "NF C 18-510 - tableau des domaines de tension.",
+        "NF C 15-100 - installations électriques basse tension.",
+        "INRS - prévention du risque électrique.",
+      ],
+      practicalCase:
+        "Exemple : un appareil est coupé au disjoncteur, mais reste raccordé à une alimentation secourue. L’opérateur doit considérer que le risque peut persister.",
+      chapterImagePath: "/elearning/h0b0/courant-alternatif-continu.png",
+      chapterImageAlt:
+        "Courant alternatif, courant continu et domaines de tension utiles au BS et au BE Manœuvre",
+      visual: {
+        title: "BT ne veut pas dire sans danger",
+        subtitle:
+          "Le domaine de tension, la nature du courant et les sources autonomes changent la lecture du risque.",
+        items: [
+          "Très basse tension",
+          "Basse tension",
+          "Courant alternatif",
+          "Courant continu",
+        ],
+        tone: "slate",
+        imagePath: "/elearning/h0b0/courant-alternatif-continu.png",
+        imageAlt:
+          "Courant alternatif, courant continu et domaines de tension utiles au BS et au BE Manœuvre",
+      },
+    },
+
+    {
+      id: "effets-corps",
+      title:
+        "4. Effets du courant sur le corps humain et courbe intensité / temps",
+      estimatedMinutes: 30,
+      intro:
+        "Comprendre le risque électrique, ce n’est pas mémoriser une interdiction abstraite. C’est savoir ce que produit concrètement le courant sur le corps humain, et pourquoi quelques secondes de plus peuvent tout changer.",
+      content: [
+        "Le passage du courant dans le corps peut provoquer une électrisation, des brûlures externes et internes, des contractions musculaires, des troubles respiratoires, des troubles cardiaques et des lésions neurologiques.",
+        "La gravité dépend principalement de l’intensité du courant, du temps de passage, du trajet dans l’organisme, de l’état de la peau, de l’humidité et du contexte de contact.",
+        "Quelques ordres de grandeur pédagogiques doivent être connus : dès les premiers milliampères le courant devient perceptible ; autour de 10 mA le lâcher peut devenir difficile ; vers 30 mA les troubles respiratoires peuvent apparaître.",
+        "La courbe intensité / temps montre qu’une exposition moins intense mais plus longue peut devenir aussi critique qu’un courant plus fort sur un temps très court.",
+        "Le milieu modifie fortement le risque. Une peau humide, un sol conducteur, des vêtements mouillés, une sueur abondante ou des mains abîmées réduisent la résistance du corps.",
+        "Le bon réflexe BS / BE n’est pas seulement d’éviter l’accident. C’est aussi de prendre au sérieux tout incident électrique.",
+      ],
+      deepDive: [
+        "Les cours trop superficiels parlent d’une simple châtaigne. Il faut au contraire faire comprendre l’effet physiologique réel du courant.",
+        "Cette partie prépare aussi la conduite à tenir en cas d’accident : on ne touche pas une victime tant que le risque électrique persiste.",
+      ],
+      keyPoints: [
+        "Électrisation et électrocution ne désignent pas la même situation.",
+        "Intensité, durée, trajet et humidité conditionnent la gravité.",
+        "La courbe intensité / temps explique l’importance de la coupure rapide.",
+        "Toute électrisation doit être prise au sérieux.",
+      ],
+      forbiddenPoints: [
+        "Minimiser une décharge électrique sous prétexte qu’elle a été brève.",
+        "Toucher une victime sans avoir d’abord éliminé ou maîtrisé le danger électrique.",
+      ],
+      legalRefs: [
+        "NF C 18-510 - connaissance des dangers pour les opérateurs.",
+        "INRS - effets du courant électrique sur le corps humain et conduite à tenir après accident.",
+      ],
+      resourceVideos: [VIDEO.chocElectrique],
+      practicalCase:
+        "Exemple : lors d’un remplacement simple, un opérateur ressent une décharge en retirant un accessoire endommagé. L’action est interrompue, la situation est signalée et l’équipement n’est pas réutilisé.",
+      chapterImagePath: "/elearning/h0b0/electrisation-electrocution.png",
+      chapterImageAlt:
+        "Électrisation, électrocution et effets du courant électrique sur le corps humain",
+      visual: {
+        title: "Pourquoi un choc électrique peut être grave",
+        subtitle:
+          "L’intensité, le temps de contact, le trajet et le milieu humide aggravent le risque corporel.",
+        items: [
+          "Électrisation",
+          "Tétanisation",
+          "Troubles cardiaques",
+          "Milieu humide",
+        ],
+        tone: "red",
+        imagePath: "/elearning/h0b0/electrisation-electrocution.png",
+        imageAlt:
+          "Électrisation, électrocution et effets du courant électrique sur le corps humain",
+      },
+    },
+
+    {
+      id: "protections-zones",
+      title:
+        "5. Protection contre les chocs, contact direct, contact indirect et PNST",
+      estimatedMinutes: 30,
+      intro:
+        "Cette partie doit rester normative et concrète : protections contre les chocs, régime TT, dispositif différentiel, classes de matériel, pièces nues sous tension et zones d’environnement.",
+      content: [
+        "Le contact direct correspond au fait de toucher une partie active normalement sous tension. Le contact indirect correspond au fait de toucher une masse devenue dangereuse après défaut.",
+        "Les mesures de protection contre le contact direct reposent notamment sur l’éloignement, les obstacles, l’isolation, les enveloppes et les capotages.",
+        "En basse tension, la protection contre le contact indirect fait notamment intervenir l’organisation de l’installation, le régime de neutre, la mise à la terre, les dispositifs différentiels et les classes de matériel.",
+        "La PNST, ou pièce nue sous tension, reste une notion centrale. Une pièce nue sous tension accessible change immédiatement le niveau de risque.",
+        "Les zones d’environnement électrique structurent ces limites. En basse tension, la zone de voisinage renforcé est classiquement associée à la distance de 30 cm autour d’une pièce nue sous tension.",
+        "La notion d’IP2X ou IPXXB doit aussi être comprise : une enveloppe intacte protège contre l’accès aux parties dangereuses, mais une enveloppe ouverte, absente ou dégradée modifie complètement la situation.",
+      ],
+      deepDive: [
+        "Ce chapitre doit permettre de comprendre ce qu’est une PNST, un contact indirect, un DDR ou un capotage.",
+        "Il faut apprendre à l’apprenant que le danger est parfois invisible : un coffret fermé peut protéger, mais un capot retiré change complètement la situation.",
       ],
       keyPoints: [
         "Contact direct et indirect sont deux risques distincts.",
         "Les protections collectives sont prioritaires.",
-        "La PNST et le voisinage doivent etre compris et respectes.",
+        "La PNST et le voisinage doivent être compris et respectés.",
       ],
       forbiddenPoints: [
         "Contourner un capotage ou une enveloppe.",
-        "Se rapprocher d'une piece nue sous tension pour mieux voir.",
+        "Se rapprocher d’une pièce nue sous tension pour mieux voir.",
+        "Continuer une action si l’indice de protection est dégradé.",
       ],
       legalRefs: [
-        "NF C 18-510 - zones, voisinage, protections et environnement electrique.",
+        "NF C 18-510 - zones, voisinage, protections et environnement électrique.",
         "NF C 15-100 - protections en basse tension.",
         "INRS - contact direct, contact indirect et DDR.",
       ],
+      resourceVideos: [VIDEO.zonesDistances],
       practicalCase:
-        "Exemple : un operateur doit agir dans un local technique, mais un bornier est visible car un capot manque. Meme si l'action prevue est simple, la situation bascule en environnement degrade et impose l'arret.",
-      chapterImagePath: "/elearning/references/zones-conducteur-nu-bt.jpg",
+        "Exemple : un opérateur doit agir dans un local technique, mais un bornier est visible car un capot manque. La situation sort du cadre normal : l’action est suspendue.",
+      chapterImagePath: "/elearning/h0b0/risque-electrique.png",
       chapterImageAlt:
-        "Schema des zones de voisinage et des limites d'approche autour d'un conducteur nu en basse tension",
+        "Risque électrique, contact direct, contact indirect, PNST et protections",
       visual: {
         title: "Voir le risque avant le geste",
-        subtitle: "Protection, PNST, distance, environnement.",
+        subtitle:
+          "Contact direct, contact indirect, protection collective, PNST et voisinage.",
         items: [
           "Contact direct",
           "Contact indirect",
-          "DDR et protections",
+          "Protections collectives",
           "PNST et voisinage",
         ],
         tone: "amber",
-        imagePath: "/elearning/bsbe/bsbe-risque.svg",
+        imagePath: "/elearning/h0b0/risque-electrique.png",
         imageAlt:
-          "Illustration des protections contre les chocs electriques et des zones de voisinage autour d'une piece nue sous tension",
+          "Risque électrique, contact direct, contact indirect, PNST et protections",
       },
     },
+
     {
       id: "lecture-installation",
-      title: "5. Lire une installation basse tension et reconnaitre les organes utiles",
-      estimatedMinutes: 20,
+      title:
+        "6. Lire une installation basse tension et reconnaître les organes utiles",
+      estimatedMinutes: 25,
       intro:
-        "Avant toute operation BS ou BE Manoeuvre, il faut savoir ce que l'on regarde: tableau, coffret, disjoncteur, sectionneur, fusible, contacteur, organe de commande ou depart moteur.",
+        "Avant toute opération BS ou BE Manœuvre, il faut savoir ce que l’on regarde : tableau, coffret, disjoncteur, sectionneur, fusible, contacteur, organe de commande ou départ moteur.",
       content: [
-        "L'apprenant doit etre capable d'identifier les principaux organes d'une installation basse tension: tableau, coffret, disjoncteur, interrupteur, sectionneur, fusible, bouton d'arret, commande locale, contacteur, relais, bornier et protections terminales.",
-        "Il doit aussi savoir distinguer ce qui releve de la commande, de la protection, de la coupure et de l'alimentation d'un equipement.",
-        "Cette lecture du materiel est indispensable pour eviter les erreurs de repere, les rearmements sur le mauvais circuit, les actions sur le mauvais organe et les interpretations dangereuses d'une situation apparemment simple.",
-        "Le support documentaire d'entreprise, le schema simplifie, le reperage d'un depart, la fiche reflexe ou l'etiquetage local sont des aides essentielles pour agir dans le bon cadre.",
-        "Dans un parcours BS / BE credible, on doit aussi apprendre a lire les signaux faibles d'un tableau: depart mal repere, ancien etiquetage, juxtaposition de circuits force et commande, presence d'un inverseur, d'un depart moteur ou d'un appareillage qui n'entre plus dans la logique d'une action simple.",
+        "L’apprenant doit être capable d’identifier les principaux organes d’une installation basse tension : tableau, coffret, disjoncteur, interrupteur, sectionneur, fusible, bouton d’arrêt, commande locale, contacteur, relais, bornier et protections terminales.",
+        "Il doit distinguer ce qui relève de la commande, de la protection, de la coupure et de l’alimentation d’un équipement.",
+        "Cette lecture du matériel est indispensable pour éviter les erreurs de repère, les réarmements sur le mauvais circuit, les actions sur le mauvais organe et les interprétations dangereuses d’une situation apparemment simple.",
+        "Le support documentaire d’entreprise, le schéma simplifié, le repérage d’un départ, la fiche réflexe ou l’étiquetage local sont des aides essentielles pour agir dans le bon cadre.",
+        "Dans un parcours BS / BE crédible, on doit apprendre à lire les signaux faibles d’un tableau : départ mal repéré, ancien étiquetage, juxtaposition de circuits force et commande, présence d’un inverseur, d’un départ moteur ou d’un appareillage qui n’entre plus dans la logique d’une action simple.",
       ],
       deepDive: [
-        "Un parcours trop vague sur ce sujet produit des apprenants qui savent reciter des symboles, mais pas reconnaitre un organe en situation. Or cette lecture du materiel est indispensable pour agir en securite.",
+        "Un parcours trop vague sur ce sujet produit des apprenants qui savent réciter des symboles, mais pas reconnaître un organe en situation. Or cette lecture du matériel est indispensable pour agir en sécurité.",
       ],
       keyPoints: [
-        "Identifier l'organe avant d'agir.",
+        "Identifier l’organe avant d’agir.",
         "Ne pas confondre commande, coupure et protection.",
-        "Le reperage local est un support de securite.",
-      ],
-      legalRefs: [
-        "NF C 18-510 - adequation entre operation, materiel et procedure.",
-        "INRS - importance du reperage et des supports d'execution.",
-      ],
-      practicalCase:
-        "Exemple : un organe porte une etiquette ancienne et le schema local est partiellement modifie. L'operateur n'agit pas tant que le repere n'est pas confirme.",
-      chapterImagePath: "/elearning/references/tableau-coffret-bt.jpg",
-      chapterImageAlt:
-        "Photo d'un tableau et d'un coffret basse tension avec depart et protections reperees",
-      visual: {
-        title: "Avant d'agir sur un tableau",
-        subtitle: "Identifier, reperer, confirmer.",
-        items: [
-          "Disjoncteur ?",
-          "Sectionneur ?",
-          "Commande ?",
-          "Bon circuit ?",
-        ],
-        tone: "slate",
-        imagePath: "/images/armoire-electrique.jpg",
-        imageAlt:
-          "Illustration d'un tableau electrique basse tension avec organes de commande et de protection",
-      },
-    },
-    {
-      id: "local-electrique-ip-reperage",
-      title: "6. Acces aux locaux electriques, indices de protection et reperage fiable",
-      estimatedMinutes: 20,
-      intro:
-        "Avant meme le geste BS ou BE Manoeuvre, l'operateur doit savoir si l'acces au materiel est compatible avec son titre, si l'enveloppe protege reellement contre le contact et si le reperage de terrain est suffisant.",
-      content: [
-        "Un local a risques particuliers de choc electrique, une armoire ouverte ou un coffret degrade ne se traitent pas comme un appareillage courant dans un environnement sec et protege. L'acces, le voisinage et l'etat de l'enveloppe changent le niveau de risque.",
-        "Les notions d'indice de protection IP2X ou IPXXB sont utiles pour comprendre dans quels cas certaines manoeuvres simples peuvent etre realisees en securite sur un materiel intact, et dans quels cas la mise hors tension ou l'arret s'imposent.",
-        "Le reperage fiable d'un depart, d'un circuit terminal, d'un bornier en attente ou d'un organe de rearmement est une condition de securite. Un etiquetage partiel, ancien ou incoherent impose une verification complementaire avant tout geste.",
-        "Le professionnel BS / BE ne doit pas raisonner uniquement a partir de l'apparence exterieure. Un coffret ferme peut paraitre rassurant, mais si l'indice de protection est degrade ou si le capotage a ete retire, le cadre de securite n'est plus le meme.",
-      ],
-      deepDive: [
-        "Beaucoup d'erreurs terrain viennent d'une confusion entre 'materiel courant' et 'materiel securise'. Or un appareillage simple n'est admissible dans le cadre BS ou BE Manoeuvre que si son etat, son acces et son repere restent compatibles avec la procedure.",
-        "Cette lecture du local et de l'enveloppe est aussi ce qui permet de distinguer une action admissible d'une situation qui releve d'un electricien plus qualifie ou d'une remise en conformite prealable.",
-      ],
-      keyPoints: [
-        "Acces au local et etat de l'enveloppe modifient le niveau de risque.",
-        "IP2X / IPXXB sont des reperes utiles pour la securite de l'operateur.",
-        "Sans reperage fiable, pas d'action.",
+        "Le repérage local est un support de sécurité.",
       ],
       forbiddenPoints: [
-        "Banaliser un coffret ouvert ou degrade.",
-        "Confondre accessibilite physique et autorisation d'agir.",
+        "Agir sur un organe non identifié.",
+        "Interpréter seul un schéma douteux.",
+        "Réarmer ou couper un départ dont la fonction n’est pas confirmée.",
       ],
       legalRefs: [
-        "INRS - operations simples non habilitees et conditions de securite de type IP2X / IPXXB.",
-        "NF C 18-510 - adequation de l'environnement, du materiel et des protections aux operations confiees.",
+        "NF C 18-510 - adéquation entre opération, matériel et procédure.",
+        "INRS - importance du repérage et des supports d’exécution.",
       ],
       practicalCase:
-        "Exemple : un disjoncteur est situe dans un coffret normalement ferme, mais la facade est fendue et une piece interne devient accessible au doigt. Le geste de rearmement n'est plus banal et l'operateur suspend l'action.",
-      chapterImagePath: "/elearning/references/distances-locaux-acces.jpg",
+        "Exemple : un organe porte une étiquette ancienne et le schéma local est partiellement modifié. L’opérateur n’agit pas tant que le repère n’est pas confirmé.",
+      chapterImagePath: "/elearning/h0b0/armoire-electrique.png",
       chapterImageAlt:
-        "Schema des distances limites et des zones definies dans les locaux et emplacements d'acces electrique",
+        "Armoire électrique basse tension avec organes de commande et de protection",
       visual: {
-        title: "Avant d'acceder au materiel",
-        subtitle: "Local, enveloppe, IP, reperage.",
+        title: "Avant d’agir sur un tableau",
+        subtitle:
+          "Identifier le bon organe, vérifier le repérage et confirmer le circuit.",
+        items: [
+          "Disjoncteur",
+          "Sectionneur",
+          "Commande",
+          "Bon circuit",
+        ],
+        tone: "slate",
+        imagePath: "/elearning/h0b0/armoire-electrique.png",
+        imageAlt:
+          "Armoire électrique basse tension avec organes de commande et de protection",
+      },
+    },
+
+    {
+      id: "local-electrique-ip-reperage",
+      title:
+        "7. Accès aux locaux électriques, indices de protection et repérage fiable",
+      estimatedMinutes: 25,
+      intro:
+        "Avant même le geste BS ou BE Manœuvre, l’opérateur doit savoir si l’accès au matériel est compatible avec son titre, si l’enveloppe protège réellement contre le contact et si le repérage de terrain est suffisant.",
+      content: [
+        "Un local à risques particuliers de choc électrique, une armoire ouverte ou un coffret dégradé ne se traitent pas comme un appareillage courant dans un environnement sec et protégé. L’accès, le voisinage et l’état de l’enveloppe changent le niveau de risque.",
+        "Les notions d’indice de protection IP2X ou IPXXB sont utiles pour comprendre dans quels cas certaines manœuvres simples peuvent être réalisées en sécurité sur un matériel intact, et dans quels cas la mise hors tension ou l’arrêt s’imposent.",
+        "Le repérage fiable d’un départ, d’un circuit terminal, d’un bornier en attente ou d’un organe de réarmement est une condition de sécurité. Un étiquetage partiel, ancien ou incohérent impose une vérification complémentaire avant tout geste.",
+        "Le professionnel BS / BE ne doit pas raisonner uniquement à partir de l’apparence extérieure. Un coffret fermé peut paraître rassurant, mais si l’indice de protection est dégradé ou si le capotage a été retiré, le cadre de sécurité n’est plus le même.",
+      ],
+      deepDive: [
+        "Beaucoup d’erreurs terrain viennent d’une confusion entre matériel courant et matériel sécurisé.",
+        "Cette lecture du local et de l’enveloppe permet de distinguer une action admissible d’une situation relevant d’un électricien plus qualifié ou d’une remise en conformité préalable.",
+      ],
+      keyPoints: [
+        "Accès au local et état de l’enveloppe modifient le niveau de risque.",
+        "IP2X / IPXXB sont des repères utiles pour la sécurité de l’opérateur.",
+        "Sans repérage fiable, pas d’action.",
+      ],
+      forbiddenPoints: [
+        "Banaliser un coffret ouvert ou dégradé.",
+        "Confondre accessibilité physique et autorisation d’agir.",
+        "Entrer dans un local réservé sans cadre prévu.",
+      ],
+      legalRefs: [
+        "NF C 18-510 - locaux et emplacements d’accès réservé aux électriciens.",
+        "NF C 18-510 - ouverture d’une armoire, d’un coffret ou d’une enveloppe de matériel électrique.",
+        "INRS - conditions de sécurité de type IP2X / IPXXB.",
+      ],
+      practicalCase:
+        "Exemple : un disjoncteur est situé dans un coffret normalement fermé, mais la façade est fendue et une pièce interne devient accessible au doigt. Le geste de réarmement n’est plus banal et l’opérateur suspend l’action.",
+      chapterImagePath: "/elearning/h0b0/acces-local-electrique.png",
+      chapterImageAlt:
+        "Accès aux locaux électriques, enveloppes, indices de protection et repérage fiable",
+      visual: {
+        title: "Avant d’accéder au matériel",
+        subtitle:
+          "Local, enveloppe, indice de protection et repérage doivent être compatibles avec l’action.",
         items: [
           "Local compatible",
           "Enveloppe intacte",
           "Indice de protection suffisant",
-          "Reperage confirme",
+          "Repérage confirmé",
         ],
         tone: "slate",
+        imagePath: "/elearning/h0b0/acces-local-electrique.png",
+        imageAlt:
+          "Accès aux locaux électriques, enveloppes, indices de protection et repérage fiable",
       },
     },
+
     {
       id: "operations-bs",
-      title: "7. Operations BS : remplacement simple et raccordement elementaire",
-      estimatedMinutes: 25,
+      title:
+        "8. Opérations BS : remplacement simple et raccordement élémentaire",
+      estimatedMinutes: 35,
       intro:
-        "Le coeur de la trame BS est ici: ce qui est autorise, sur quels types de materiels, avec quelles limites, et comment rester dans un cadre simple et documente.",
+        "Le cœur de la trame BS est ici : ce qui est autorisé, sur quels types de matériels, avec quelles limites, et comment rester dans un cadre simple et documenté.",
       content: [
-        "Le titulaire BS peut realiser des remplacements simples et des raccordements elementaires en basse tension lorsque l'installation, le circuit et le materiel sont identifies et que la procedure de l'entreprise le permet.",
-        "Dans la pratique, il peut s'agir de remplacements de lampe, fusible basse tension, accessoire d'eclairage, socle de prise, interrupteur, convecteur, chauffe-eau, volet ou autre materiel simple, dans la limite du cadre autorise.",
-        "Un repere pedagogique souvent retenu dans les programmes BS est celui de materiels simples jusqu'a 400 V et 32 A en courant alternatif. Ce repere aide a comprendre le niveau vise, mais il ne dispense jamais de verifier le materiel reel et la procedure locale.",
-        "Le raccordement doit rester elementaire, hors tension, sur un support prevu et identifie. Si l'action impose un diagnostic, une adaptation de cablage, un doute sur le reperage ou une complexite technique, elle sort du cadre BS.",
-        "La qualite du raisonnement se voit dans cette capacite a distinguer une operation elementaire d'un depannage improvise.",
-        "Les ordres de grandeur souvent cites pour rester dans le perimetre BS concernent un materiel simple, jusqu'a 32 A en courant alternatif, avec des conducteurs de petite section et une procedure stabilisee. Ce ne sont pas des autorisations automatiques, mais des garde-fous pour ne pas depasser le symbole.",
-        "Avant remplacement ou raccordement, l'operateur doit pouvoir exposer sa sequence: identifier le bon circuit, mettre hors tension, condamner si l'organisation le demande, verifier l'absence de tension selon la methode retenue, realiser le geste simple, refermer et restituer dans un cadre maitrise.",
+        "Le titulaire BS peut réaliser des remplacements simples et des raccordements élémentaires en basse tension lorsque l’installation, le circuit et le matériel sont identifiés et que la procédure de l’entreprise le permet.",
+        "Dans la pratique, il peut s’agir de remplacements de lampe, fusible basse tension, accessoire d’éclairage, socle de prise, interrupteur, convecteur, chauffe-eau, volet ou autre matériel simple, dans la limite du cadre autorisé.",
+        "Un repère pédagogique souvent retenu dans les programmes BS est celui de matériels simples jusqu’à 400 V et 32 A en courant alternatif. Ce repère aide à comprendre le niveau visé, mais il ne dispense jamais de vérifier le matériel réel et la procédure locale.",
+        "Le raccordement doit rester élémentaire, hors tension, sur un support prévu et identifié. Si l’action impose un diagnostic, une adaptation de câblage, un doute sur le repérage ou une complexité technique, elle sort du cadre BS.",
+        "La qualité du raisonnement se voit dans cette capacité à distinguer une opération élémentaire d’un dépannage improvisé.",
       ],
       deepDive: [
-        "Le danger frequent est le glissement de mission: l'operateur commence un remplacement simple, constate que cela ne repart pas et bascule vers une recherche de panne. C'est la que l'accident organisationnel se produit.",
+        "Le danger fréquent est le glissement de mission : l’opérateur commence un remplacement simple, constate que cela ne repart pas et bascule vers une recherche de panne.",
+        "Une opération BS doit pouvoir être expliquée simplement : quel matériel, quel circuit, quelle procédure, quelle mise hors tension, quelle vérification et quelle remise en service.",
       ],
       keyPoints: [
-        "BS = remplacements simples et raccordements elementaires.",
-        "Le cadre doit rester hors tension, repere et documente.",
-        "Le repere 400 V / 32 A aide a comprendre le niveau vise.",
+        "BS = remplacements simples et raccordements élémentaires.",
+        "Le cadre doit rester hors tension, repéré et documenté.",
+        "Le repère 400 V / 32 A aide à comprendre le niveau visé.",
       ],
       forbiddenPoints: [
         "Chercher la panne si le remplacement ne suffit pas.",
-        "Modifier un cablage ou improviser une adaptation.",
-        "Intervenir sur un circuit non identifie.",
+        "Modifier un câblage ou improviser une adaptation.",
+        "Intervenir sur un circuit non identifié.",
       ],
       legalRefs: [
-        "NF C 18-510 - interventions elementaires en basse tension.",
-        "INRS - limites d'autorisation BS et prevention du depannage improvise.",
+        "NF C 18-510 - interventions BT élémentaires.",
+        "NF C 18-510 - remplacement de lampes, accessoires et fusibles BT.",
+        "INRS - limites d’autorisation BS et prévention du dépannage improvisé.",
       ],
+      resourceVideos: [VIDEO.bsbe],
       practicalCase:
-        "Exemple : un luminaire doit etre remplace selon procedure. Si l'equipement neuf ne fonctionne pas et que le support ne permet plus une action elementaire, l'operateur s'arrete et transmet.",
+        "Exemple : un luminaire doit être remplacé selon procédure. Si l’équipement neuf ne fonctionne pas et que le support ne permet plus une action élémentaire, l’opérateur s’arrête et transmet.",
+      chapterImagePath: "/elearning/bsbe/bsbe-operations.svg",
+      chapterImageAlt:
+        "Opérations BS de remplacement simple et raccordement élémentaire",
       visual: {
         title: "BS : ce qui est attendu",
-        subtitle: "Simple, hors tension, repere, documente.",
+        subtitle: "Simple, hors tension, repéré, documenté.",
         items: [
           "Lampe / fusible / appareillage simple",
-          "Raccordement elementaire",
-          "Circuit identifie",
+          "Raccordement élémentaire",
+          "Circuit identifié",
           "Stop si le geste se complique",
         ],
         tone: "green",
         imagePath: "/elearning/bsbe/bsbe-operations.svg",
         imageAlt:
-          "Illustration pedagogique des gestes autorises et interdits dans le cadre BS",
+          "Opérations BS de remplacement simple et raccordement élémentaire",
       },
     },
+
     {
-      id: "operations-be-manoeuvre",
-      title: "8. Operations BE Manoeuvre : rearmement, ouverture, fermeture, basculement",
-      estimatedMinutes: 25,
+      id: "procedure-bs-mise-hors-tension-vat",
+      title:
+        "9. Procédure BS : mise hors tension pour son propre compte, VAT et documents",
+      estimatedMinutes: 30,
       intro:
-        "La manoeuvre doit etre enseignee comme un acte d'exploitation encadre, jamais comme un pretexte a depanner ou a investiguer.",
+        "Le BS doit comprendre la logique de mise en sécurité sans être confondu avec un chargé de consignation BC. Cette partie clarifie la mise hors tension pour son propre compte, la vérification adaptée et les documents de travail.",
       content: [
-        "Le titulaire BE Manoeuvre peut, dans le cadre des consignes du site, ouvrir, fermer, mettre en marche, arreter, basculer ou rearmer un equipement ou un circuit a partir d'un organe identifie et prevu pour cet usage.",
-        "Cela peut concerner un disjoncteur de depart repere, un organe de commande, un dispositif de rearmement, un sectionneur de manoeuvre ou un inverseur prevu a cet effet.",
-        "La manoeuvre reste une action d'exploitation. Elle ne doit pas devenir une recherche de panne, une ouverture d'enveloppe pour diagnostic ou une tentative repetee de remise en service sans analyse du contexte.",
-        "Une instruction de securite ou une procedure de rearmement claire est un prealable indispensable. Sans support fiable, la manoeuvre doit etre suspendue.",
-        "Le reenclenchement repete est l'une des erreurs les plus classiques. Il faut au contraire savoir reconnaitre qu'une anomalie persistante impose l'arret et la transmission.",
-        "Une formation BE Manoeuvre serieuse doit aussi expliquer qu'un organe prevu pour la manoeuvre n'autorise pas n'importe quelle initiative. La manoeuvre est admissible parce qu'elle est encadree par la procedure, par l'identification de l'organe et par un environnement normal. Si l'enveloppe est ouverte, si le repere est douteux ou si l'installation presente une anomalie, on n'est deja plus dans la bonne situation.",
-        "Le dialogue avec l'encadrement, l'exploitant ou le charge de consignation fait partie de la manoeuvre d'exploitation. Le titulaire BE Manoeuvre ne manoeuvre pas contre l'organisation du site, il agit dans cette organisation.",
+        "Le titulaire BS comprend la logique de consignation, mais il n’est pas chargé de consignation BC. Il ne doit donc pas s’approprier un rôle qui ne lui appartient pas.",
+        "Dans le cadre d’une intervention élémentaire prévue, il peut réaliser la mise hors tension nécessaire à son intervention pour son propre compte, lorsque la procédure, le matériel et l’organisation de l’entreprise le permettent.",
+        "La séquence attendue repose sur une logique simple : identifier le circuit, séparer l’alimentation par l’organe prévu, empêcher une remise sous tension intempestive selon les consignes, vérifier l’absence de tension avec un dispositif adapté, réaliser l’opération élémentaire, remettre en état et rendre compte.",
+        "La vérification d’absence de tension doit être comprise comme un point de sécurité majeur. Elle ne se remplace pas par une impression, par l’extinction d’un voyant ou par une simple habitude.",
+        "Les documents ont une vraie valeur opérationnelle : procédure de remplacement, instruction de réarmement, schéma simplifié, repérage local, fiche réflexe, consigne de site, compte rendu et signalement d’anomalie.",
+        "Si la procédure ne correspond plus au terrain, si le repère est douteux, si l’organe n’est pas clairement identifié ou si une source autonome peut maintenir l’alimentation, l’intervention doit être suspendue.",
       ],
       deepDive: [
-        "Un operateur fiable sait rearmer quand c'est legitime, mais surtout sait ne pas rearmer quand le contexte ne le permet plus. C'est cette maturite qui differencie une formation utile d'un simple support theorique.",
+        "Cette partie est importante car elle évite deux erreurs : former trop peu, en oubliant la logique de mise hors tension, ou former trop largement, en laissant croire que le BS devient BC.",
+        "Le bon positionnement pédagogique est donc : comprendre, appliquer la procédure prévue, ne pas dépasser son cadre, transmettre dès qu’une condition manque.",
       ],
       keyPoints: [
-        "BE Manoeuvre = organe prevu, procedure connue, contexte verifie.",
-        "Pas de depannage.",
-        "Pas de reenclenchement en boucle.",
+        "Le BS n’est pas chargé de consignation BC.",
+        "La mise hors tension pour son propre compte doit être prévue et encadrée.",
+        "La VAT est un point de sécurité essentiel.",
+        "Les documents et le compte rendu font partie de l’intervention.",
       ],
       forbiddenPoints: [
-        "Ouvrir un coffret pour comprendre la cause.",
-        "Reenclencher plusieurs fois sans analyse.",
-        "Contourner un verrouillage ou une interdiction.",
+        "Assimiler BS et BC.",
+        "Agir sans document ou avec un support incohérent.",
+        "Remplacer la VAT par une simple impression visuelle.",
+        "Remettre sous tension si une anomalie persiste.",
       ],
       legalRefs: [
-        "NF C 18-510 - manoeuvres d'exploitation et limites d'autorisation.",
-        "INRS - distinction entre manoeuvre et depannage.",
+        "NF C 18-510 - interventions BT élémentaires.",
+        "NF C 18-510 - mise hors tension, VAT et rôles associés.",
+        "NF C 18-510 - documents, procédures d’accès, de suivi et de contrôle.",
       ],
+      resourceVideos: [VIDEO.consignation],
       practicalCase:
-        "Exemple : un disjoncteur de depart a saute. L'operateur constate une odeur de chaud et un bruit anormal. Il n'effectue pas de rearmement et fait traiter la situation par une personne competente.",
-      visual: {
-        title: "BE Manoeuvre : la bonne sequence",
-        subtitle: "Identifier, verifier, manoeuvrer, surveiller.",
-        items: [
-          "Organe prevu",
-          "Contexte sain",
-          "Procedure connue",
-          "Arret si anomalie",
-        ],
-        tone: "blue",
-        imagePath: "/elearning/bsbe/bsbe-operations.svg",
-        imageAlt:
-          "Illustration de la logique de manoeuvre d'exploitation et de la reaction attendue en cas d'anomalie",
-      },
-    },
-    {
-      id: "mise-securite-documents",
-      title: "9. Mise en securite, consignation, deconsignation et documents",
-      estimatedMinutes: 20,
-      intro:
-        "La trame terrain parle toujours de mise en securite de circuit, de consignation et de deconsignation. Le but ici est de faire comprendre le role de ces notions sans sortir du cadre BS / BE.",
-      content: [
-        "Le titulaire BS ou BE Manoeuvre doit comprendre la logique de mise en securite d'un circuit et la place de la consignation dans l'organisation electrique de l'entreprise.",
-        "Il ne s'agit pas de former un charge de consignation BC, mais de savoir reconnaitre qu'une action simple s'inscrit dans une organisation plus large de separation, condamnation, identification et verification.",
-        "Les roles des differents intervenants doivent etre compris: employeur, encadrement, operateur habilite, personne competente, eventuel charge de consignation, eventuel charge de travaux ou intervenant.",
-        "Les documents ont une vraie valeur operationnelle: procedure de remplacement de fusible, procedure de raccordement hors tension, instruction de rearmement, schema simplifie, reperage local, fiche reflexe et consigne de site.",
-        "La deconsignation et la remise en service ne sont jamais improvisees. Elles s'inscrivent dans une logique de coordination, de traçabilite et de verification du cadre de securite.",
-        "La verification d'absence de tension doit etre traitee comme un vrai chapitre de competence. Elle ne peut pas etre presumee parce qu'un disjoncteur est baisse ou parce qu'un voyant est eteint. La methode doit etre connue, reproductible et adaptee au materiel retenu par l'entreprise.",
-        "Les guides les plus serieux insistent aussi sur un point simple: le controle du dispositif avant et apres verification fait partie de la fiabilite du geste. La VAT n'est pas un detail pedagogique, c'est l'un des moments ou l'on transforme une coupure supposee en etat electrique verifie.",
-      ],
-      deepDive: [
-        "Il faut former non seulement un geste, mais aussi une culture documentaire et organisationnelle. C'est cette coherence qui permet ensuite a l'employeur de delivrer un titre adapte au poste.",
-      ],
-      keyPoints: [
-        "Comprendre la mise en securite d'un circuit.",
-        "Connaitre la place de la consignation sans se l'approprier hors cadre.",
-        "S'appuyer sur des procedures ecrites et coherentes.",
-      ],
-      forbiddenPoints: [
-        "Assimiler BS / BE a BC.",
-        "Agir sans document ou avec un support incoherent.",
-      ],
-      legalRefs: [
-        "Code du travail - organisation de la prevention et adequation des consignes.",
-        "NF C 18-510 - mise en securite, consignation, roles et documentation.",
-      ],
-      resourceVideos: [
-        {
-          title: "Webinaire INRS - Comment choisir les habilitations electriques ?",
-          description:
-            "Ressource officielle utile pour replacer la consignation, la VAT, les roles et les limites des symboles dans une logique de terrain.",
-          url: "https://www.inrs.fr/media.html?refINRS=Anim-184",
-          provider: "INRS",
-          ctaLabel: "Voir le webinaire INRS",
-        },
-      ],
-      practicalCase:
-        "Exemple : la procedure de rearmement d'un depart ne correspond plus au reperage du tableau apres modification. L'operateur suspend l'action et demande une remise en coherence documentaire avant reprise.",
-      chapterImagePath: "/elearning/references/consignation-vat.jpg",
+        "Exemple : la procédure de remplacement d’un accessoire indique un départ clairement repéré. Sur place, le repérage ne correspond plus au tableau. L’opérateur suspend l’intervention et demande une clarification avant toute action.",
+      chapterImagePath: "/elearning/bsbe/bsbe-vat.svg",
       chapterImageAlt:
-        "Illustration d'une verification d'absence de tension et d'un balisage avant intervention",
+        "Mise hors tension pour son propre compte, VAT et documents en BS",
       visual: {
-        title: "La securite est aussi documentaire",
-        subtitle: "Procedure, reperage, role, traçabilite.",
+        title: "La sécurité est aussi documentaire",
+        subtitle:
+          "Identifier, mettre hors tension, vérifier, agir, rendre compte.",
         items: [
-          "Procedure ecrite",
-          "Reperage fiable",
-          "Role de chacun",
-          "Mise en securite",
+          "Circuit identifié",
+          "Mise hors tension",
+          "VAT adaptée",
+          "Compte rendu",
         ],
         tone: "slate",
         imagePath: "/elearning/bsbe/bsbe-vat.svg",
         imageAlt:
-          "Illustration de la signalisation, des consignes et des documents necessaires aux operations BS et BE Manoeuvre",
+          "Mise hors tension pour son propre compte, VAT et documents en BS",
       },
     },
+
     {
-      id: "limites-bsbe",
-      title: "10. Savoir dire non : limites BS / BE Manoeuvre et bascule vers BR ou travaux",
-      estimatedMinutes: 20,
+      id: "operations-be-manoeuvre",
+      title:
+        "10. Opérations BE Manœuvre : réarmement, ouverture, fermeture, basculement",
+      estimatedMinutes: 35,
       intro:
-        "Une formation serieuse ne se limite pas a dire ce que BS et BE Manoeuvre autorisent. Elle doit surtout apprendre a reconnaitre les cas qui sortent du cadre et imposent un arret, une requalification ou l'appel a un autre niveau d'habilitation.",
+        "La manœuvre doit être enseignée comme un acte d’exploitation encadré, jamais comme un prétexte à dépanner ou à investiguer.",
       content: [
-        "Le BS ne couvre ni la recherche de panne, ni la modification de schema, ni l'adaptation de cablage, ni l'exploration d'un dysfonctionnement dont la cause n'est pas clairement identifiee.",
-        "Le BE Manoeuvre n'autorise pas l'ouverture d'une enveloppe pour diagnostiquer, l'essai improvise d'un materiel, ni la repetition de manoeuvres sur une installation anormale pour tenter de 'faire repartir'.",
-        "Des circuits multiples, un voisinage non maitrise, une documentation absente, un depart non reperable, un besoin de mesure ou de depannage, une intervention sur un circuit de puissance ou une modification de borne sont autant de signaux de sortie du cadre BS / BE.",
-        "Le vrai professionnalisme ne consiste pas a faire seul tout ce que l'on pense savoir faire. Il consiste a reconnaitre le moment exact ou l'action releve plutot d'un BR, d'un B1/B2 ou d'une intervention organisee autrement.",
+        "Le titulaire BE Manœuvre peut, dans le cadre des consignes du site, ouvrir, fermer, mettre en marche, arrêter, basculer ou réarmer un équipement ou un circuit à partir d’un organe identifié et prévu pour cet usage.",
+        "Cela peut concerner un disjoncteur de départ repéré, un organe de commande, un dispositif de réarmement, un sectionneur de manœuvre ou un inverseur prévu à cet effet.",
+        "La manœuvre reste une action d’exploitation. Elle ne doit pas devenir une recherche de panne, une ouverture d’enveloppe pour diagnostic ou une tentative répétée de remise en service sans analyse du contexte.",
+        "Une instruction de sécurité ou une procédure de réarmement claire est un préalable indispensable. Sans support fiable, la manœuvre doit être suspendue.",
+        "Le réenclenchement répété est l’une des erreurs les plus classiques. Il faut au contraire savoir reconnaître qu’une anomalie persistante impose l’arrêt et la transmission.",
+        "Le BE Manœuvre peut participer à une manœuvre prévue par instruction, mais il ne devient pas chargé de consignation, chargé d’intervention générale ou technicien de dépannage.",
       ],
       deepDive: [
-        "C'est souvent sur ces cas limites que se joue la qualite de la formation. Un apprenant doit sortir du module en sachant refuser un geste techniquement tentant mais organisationnellement dangereux.",
-        "Cette capacite a s'arreter fait partie des acquis attendus: on n'habilite pas seulement quelqu'un qui sait faire, mais quelqu'un qui sait quand ne pas faire.",
+        "Un opérateur fiable sait réarmer quand c’est légitime, mais surtout sait ne pas réarmer quand le contexte ne le permet plus.",
+        "Le cœur de la compétence BE Manœuvre est la discipline d’exploitation : agir sur le bon organe, au bon moment, selon la bonne instruction, et s’arrêter au premier signal anormal.",
       ],
       keyPoints: [
-        "BS / BE Manoeuvre ont des limites strictes.",
-        "Le doute, la panne ou la complexite imposent une requalification.",
+        "BE Manœuvre = organe prévu, procédure connue, contexte vérifié.",
+        "Pas de dépannage.",
+        "Pas de réenclenchement en boucle.",
+      ],
+      forbiddenPoints: [
+        "Ouvrir un coffret pour comprendre la cause.",
+        "Réenclencher plusieurs fois sans analyse.",
+        "Contourner un verrouillage ou une interdiction.",
+        "Transformer une manœuvre en diagnostic.",
+      ],
+      legalRefs: [
+        "NF C 18-510 - opérations spécifiques et attribut BE Manœuvre.",
+        "NF C 18-510 - manœuvres d’exploitation et limites d’autorisation.",
+        "INRS - distinction entre manœuvre et dépannage.",
+      ],
+      resourceVideos: [VIDEO.bsbe],
+      practicalCase:
+        "Exemple : un disjoncteur de départ a sauté. L’opérateur constate une odeur de chaud et un bruit anormal. Il n’effectue pas de réarmement et fait traiter la situation par une personne compétente.",
+      chapterImagePath: "/elearning/bsbe/bsbe-operations.svg",
+      chapterImageAlt:
+        "Opérations BE Manœuvre de réarmement, ouverture, fermeture et basculement",
+      visual: {
+        title: "BE Manœuvre : la bonne séquence",
+        subtitle: "Identifier, vérifier, manœuvrer, surveiller.",
+        items: [
+          "Organe prévu",
+          "Contexte sain",
+          "Procédure connue",
+          "Arrêt si anomalie",
+        ],
+        tone: "blue",
+        imagePath: "/elearning/bsbe/bsbe-operations.svg",
+        imageAlt:
+          "Opérations BE Manœuvre de réarmement, ouverture, fermeture et basculement",
+      },
+    },
+
+    {
+      id: "limites-bsbe",
+      title:
+        "11. Savoir dire non : limites BS / BE Manœuvre et bascule vers BR ou travaux",
+      estimatedMinutes: 25,
+      intro:
+        "Une formation sérieuse ne se limite pas à dire ce que BS et BE Manœuvre autorisent. Elle doit surtout apprendre à reconnaître les cas qui sortent du cadre et imposent un arrêt, une requalification ou l’appel à un autre niveau d’habilitation.",
+      content: [
+        "Le BS ne couvre ni la recherche de panne, ni la modification de schéma, ni l’adaptation de câblage, ni l’exploration d’un dysfonctionnement dont la cause n’est pas clairement identifiée.",
+        "Le BE Manœuvre n’autorise pas l’ouverture d’une enveloppe pour diagnostiquer, l’essai improvisé d’un matériel, ni la répétition de manœuvres sur une installation anormale pour tenter de faire repartir.",
+        "Des circuits multiples, un voisinage non maîtrisé, une documentation absente, un départ non repérable, un besoin de mesure ou de dépannage, une intervention sur un circuit de puissance ou une modification de borne sont autant de signaux de sortie du cadre BS / BE.",
+        "Le vrai professionnalisme consiste à reconnaître le moment exact où l’action relève plutôt d’un BR, d’un B1/B2, d’un BC ou d’une intervention organisée autrement.",
+        "Le refus d’une action hors cadre n’est pas une opposition au travail. C’est une mesure de prévention attendue.",
+      ],
+      deepDive: [
+        "C’est souvent sur ces cas limites que se joue la qualité de la formation.",
+        "Cette capacité à s’arrêter fait partie des acquis attendus.",
+      ],
+      keyPoints: [
+        "BS / BE Manœuvre ont des limites strictes.",
+        "Le doute, la panne ou la complexité imposent une requalification.",
         "Refuser une action hors cadre est un comportement professionnel.",
       ],
       forbiddenPoints: [
-        "Glisser d'un remplacement simple vers un depannage.",
-        "Multiplier les rearmements pour maintenir la production.",
+        "Glisser d’un remplacement simple vers un dépannage.",
+        "Multiplier les réarmements pour maintenir la production.",
+        "Faire une mesure ou une vérification hors cadre.",
       ],
       legalRefs: [
-        "INRS - distinction entre BS, BE Manoeuvre, BR et operations non habilitees.",
-        "NF C 18-510 - limites des interventions elementaires et des manoeuvres d'exploitation.",
+        "NF C 18-510 - limites des interventions élémentaires et des manœuvres d’exploitation.",
+        "NF C 18-510 - distinctions BS, BR, BC, B1, B2 et BE Manœuvre.",
+        "INRS - distinction entre BS, BE Manœuvre, BR et opérations non habilitées.",
       ],
       practicalCase:
-        "Exemple : apres remplacement d'un fusible, le circuit retombe immediatement. L'operateur n'entame pas une recherche de defaut et fait remonter la situation pour requalification.",
+        "Exemple : après remplacement d’un fusible, le circuit retombe immédiatement. L’opérateur n’entame pas une recherche de défaut et fait remonter la situation pour requalification.",
+      chapterImagePath: "/elearning/bsbe/bsbe-limites.svg",
+      chapterImageAlt:
+        "Limites BS BE Manœuvre et bascule vers BR ou travaux",
       visual: {
-        title: "Le bon niveau d'arret",
+        title: "Le bon niveau d’arrêt",
         subtitle: "Si la situation se complique, le cadre change.",
         items: [
-          "Panne non identifiee",
-          "Schema incertain",
-          "Voisinage degrade",
-          "Requalification necessaire",
+          "Panne non identifiée",
+          "Schéma incertain",
+          "Voisinage dégradé",
+          "Requalification nécessaire",
         ],
         tone: "red",
         imagePath: "/elearning/bsbe/bsbe-limites.svg",
+        imageAlt:
+          "Limites BS BE Manœuvre et bascule vers BR ou travaux",
       },
     },
+
     {
       id: "epi-epc-environnement",
-      title: "11. EPI, EPC, environnement de travail et prealables a respecter",
-      estimatedMinutes: 20,
+      title:
+        "12. EPI, EPC, environnement de travail et préalables à respecter",
+      estimatedMinutes: 25,
       intro:
-        "La prevention ne se limite pas au bon geste. Elle repose aussi sur l'environnement, les protections et l'etat du materiel.",
+        "La prévention ne se limite pas au bon geste. Elle repose aussi sur l’environnement, les protections collectives, les protections individuelles et l’état apparent du matériel.",
       content: [
-        "Les equipements de protection collective doivent etre privilegies: enveloppes, capotages, ecrans, obstacles, balisage, verrouillages et organisation de la zone.",
-        "Les equipements de protection individuelle viennent en complement et ne rendent jamais licite une operation interdite ou mal preparee.",
-        "Avant toute action, il faut verifier l'etat apparent du materiel, des cables, des appareillages, des outils, du local, de l'humidite, de l'accessibilite et de l'absence d'anomalie visible.",
-        "Un capot retire, une odeur de chaud, une trace de charbonnage, un sol humide, un cable deteriore, un coffret non referme ou une zone encombrée changent totalement le niveau de risque.",
-        "Les EPI a presenter dans un parcours BS / BE ne doivent pas etre cites de facon decorative. Gants isolants, protection du visage, outillage adapte, tapis ou ecrans n'ont de sens que si l'apprenant comprend dans quelle situation ils interviennent et surtout pourquoi ils ne remplacent jamais le cadre de securite initial.",
-        "Le contexte de travail doit etre lu avec le meme serieux que le materiel lui-meme: local humide, acces encombre, coactivite, maintenance en cours, coffret provisoire ou deteriorations visibles font partie de l'analyse de risque avant action.",
+        "Les équipements de protection collective doivent être privilégiés : enveloppes, capotages, écrans, obstacles, balisage, verrouillages et organisation de la zone.",
+        "Les équipements de protection individuelle viennent en complément et ne rendent jamais licite une opération interdite ou mal préparée.",
+        "Avant toute action, il faut vérifier l’état apparent du matériel, des câbles, des appareillages, des outils, du local, de l’humidité, de l’accessibilité et de l’absence d’anomalie visible.",
+        "Un capot retiré, une odeur de chaud, une trace de charbonnage, un sol humide, un câble détérioré, un coffret non refermé ou une zone encombrée changent totalement le niveau de risque.",
+        "Le port d’un EPI ne transforme jamais un non-électricien en électricien. Le cadre d’habilitation reste prioritaire.",
       ],
       deepDive: [
-        "C'est un point sur lequel les parcours trop faibles se trompent souvent: ils decrivent les EPI, mais n'expliquent pas assez la hierarchie des protections ni la lecture du contexte de travail.",
+        "Les EPI doivent être compris dans la hiérarchie des protections et ne remplacent jamais le cadre de sécurité initial.",
+        "Un équipement de protection dégradé ou absent est un signal d’arrêt, pas un détail.",
       ],
       keyPoints: [
-        "Protection collective d'abord.",
-        "EPI en complement.",
-        "Contexte et etat du materiel avant toute action.",
+        "Protection collective d’abord.",
+        "EPI en complément.",
+        "Contexte et état du matériel avant toute action.",
       ],
       forbiddenPoints: [
-        "Compter sur l'EPI pour justifier une action interdite.",
-        "Ignorer une zone degradee ou humide.",
+        "Compter sur l’EPI pour justifier une action interdite.",
+        "Ignorer une zone dégradée ou humide.",
+        "Déplacer un balisage ou un obstacle sans autorisation.",
       ],
       legalRefs: [
         "Code du travail - protection collective et individuelle.",
-        "NF C 18-510 - adequation des moyens de prevention et du contexte de travail.",
+        "NF C 18-510 - adéquation des moyens de prévention et du contexte de travail.",
+        "NF C 18-510 - équipements de protection et conditions ambiantes.",
       ],
       practicalCase:
-        "Exemple : une manoeuvre simple est demandee dans un local ou le sol est humide et le coffret partiellement abime. L'operateur ne commence pas et fait traiter le risque environnemental.",
+        "Exemple : une manœuvre simple est demandée dans un local où le sol est humide et le coffret partiellement abîmé. L’opérateur ne commence pas et fait traiter le risque environnemental.",
+      chapterImagePath: "/elearning/h0b0/epi-epc.png",
+      chapterImageAlt:
+        "Équipements de protection collective et individuelle en environnement électrique",
       visual: {
-        title: "Verifier le contexte",
-        subtitle: "Materiel, zone, protections, environnement.",
+        title: "Vérifier le contexte",
+        subtitle:
+          "Les protections collectives restent prioritaires ; les EPI viennent en complément.",
         items: [
-          "EPC presents",
-          "EPI adaptes",
+          "EPC présents",
+          "EPI adaptés",
           "Aucune anomalie visible",
-          "Zone compatible avec l'action",
+          "Zone compatible",
         ],
         tone: "amber",
-        imagePath: "/elearning/bsbe/bsbe-risque.svg",
+        imagePath: "/elearning/h0b0/epi-epc.png",
         imageAlt:
-          "Illustration des equipements de protection et des verifications d'environnement avant action",
+          "Équipements de protection collective et individuelle en environnement électrique",
       },
     },
+
     {
-      id: "incendie-urgence",
-      title: "12. Incident, incendie electrique et premiers secours",
+      id: "synthese-pedagogique",
+      title: "13. Synthèse pédagogique",
       estimatedMinutes: 20,
       intro:
-        "La trame BS / BE doit aussi entrainer a la bonne reaction en cas d'anomalie, de debut d'incendie ou d'accident electrique.",
+        "Ce chapitre consolide les acquis avant la fin du parcours. L’objectif n’est pas de répéter mécaniquement les définitions, mais de vérifier que l’apprenant sait raisonner dans une situation réelle BS / BE Manœuvre : identifier le cadre, reconnaître les limites, refuser l’improvisation et transmettre en cas de doute.",
       content: [
-        "En cas d'incident electrique, l'operateur doit arreter l'action, se proteger, mettre a distance si besoin et alerter. Il n'improvise ni depannage ni verification interne.",
-        "En cas d'incendie dans un environnement electrique, il faut appliquer les consignes du site, comprendre qu'un feu d'origine electrique peut rester dangereux meme sans flamme visible et ne jamais agir en se mettant soi-meme en risque.",
-        "En cas d'electrisation, la priorite absolue est de supprimer ou faire supprimer le danger electrique avant toute tentative de secours. On ne touche jamais une victime tant que l'exposition persiste.",
-        "Les notions de premiers secours sont ici traitees sous l'angle du risque electrique: eviter le suraccident, transmettre les bonnes informations et ne pas aggraver la situation par precipitation.",
-        "Le parcours doit egalement preparer a la conduite a tenir en cas de fumee, d'odeur de chaud, de bruits anormaux, de disjoncteur qui retombe ou de materiel qui ne correspond plus a son etat nominal. Dans tous ces cas, le bon reflexe n'est pas de demonter, mais de figer la situation et de transmettre une information exploitable.",
+        "Un titulaire BS ou BE Manœuvre doit être capable de relier les notions vues dans le parcours : habilitation délivrée par l’employeur, domaine basse tension, opération élémentaire, manœuvre d’exploitation, protection contre les contacts, voisinage, repérage, procédure et conduite à tenir en cas d’anomalie.",
+        "Le BS concerne des interventions élémentaires en basse tension, réalisées dans un cadre strictement défini, sur un matériel identifié, hors tension, avec une procédure claire. Il ne s’agit jamais d’un dépannage libre, d’une recherche de panne ou d’une modification de câblage.",
+        "Le BE Manœuvre concerne des manœuvres d’exploitation sur des organes identifiés et prévus pour cela : ouverture, fermeture, mise en marche, arrêt, réarmement ou basculement selon les consignes du site. Là encore, la manœuvre ne doit jamais devenir une investigation technique ou une tentative répétée de remise en service.",
+        "La compétence attendue ne consiste donc pas seulement à connaître les gestes autorisés. Elle consiste surtout à reconnaître le moment où le cadre n’est plus réuni : repérage douteux, procédure absente, capot manquant, odeur de chaud, déclenchement répété, environnement humide, coffret détérioré ou demande qui glisse vers du dépannage.",
+        "La prévention du risque électrique repose sur une décision correcte avant le geste. Avant toute action, l’opérateur doit vérifier le bon matériel, le bon organe, le bon circuit, l’état apparent des protections, l’environnement et la cohérence entre la procédure et la réalité du terrain.",
+        "Si une seule condition importante manque, le bon comportement n’est pas de compenser par l’expérience ou la prudence personnelle. Le bon comportement est de stopper, sécuriser sans s’exposer, alerter l’encadrement ou la personne compétente et transmettre l’information.",
+        "La synthèse pédagogique doit donc ancrer une logique simple : comprendre avant d’agir, vérifier avant de toucher, rester dans son cadre, refuser l’improvisation et demander clarification lorsque le doute apparaît.",
       ],
       deepDive: [
-        "Il faut retenir une logique de professionnalisme: pas une attitude heroique, mais une reaction stable, methodique et compatible avec l'organisation du site.",
+        "Dans beaucoup d’accidents ou de presque-accidents, le problème ne vient pas d’un manque total de connaissance, mais d’un glissement progressif. Une opération présentée comme simple devient une recherche de panne ; un réarmement devient une série d’essais ; un coffret normalement fermé devient une zone exposée ; une procédure ancienne ne correspond plus au terrain.",
+        "Le niveau professionnel attendu en BS / BE Manœuvre est précisément de savoir interrompre cette dérive. Dire non à une action hors cadre, demander une clarification ou transmettre à un niveau d’habilitation supérieur constitue une compétence de sécurité à part entière.",
+        "La synthèse pédagogique prépare aussi le quiz final : les questions ne doivent pas seulement tester la mémoire des sigles, mais la capacité à prendre la bonne décision dans un cas terrain réaliste.",
       ],
       keyPoints: [
-        "Stopper, proteger, alerter.",
-        "Ne jamais devenir la seconde victime.",
-        "Le risque electrique persiste parfois apres l'incident visible.",
+        "Identifier le cadre réel avant toute action.",
+        "Vérifier que le matériel, le circuit et la procédure sont cohérents.",
+        "Distinguer opération élémentaire, manœuvre d’exploitation et dépannage.",
+        "Refuser toute dérive vers une recherche de panne ou une modification.",
+        "Stopper et transmettre dès qu’un doute apparaît.",
       ],
       forbiddenPoints: [
-        "Toucher directement une victime encore exposee.",
-        "Ouvrir un coffret qui fume pour 'voir'.",
+        "Agir sur un matériel mal identifié.",
+        "Réarmer plusieurs fois sans analyse.",
+        "Transformer une opération simple en dépannage.",
+        "Ouvrir une enveloppe ou retirer un capot pour comprendre.",
+        "Continuer malgré une odeur anormale, un échauffement ou un déclenchement répété.",
       ],
       legalRefs: [
-        "Code du travail - organisation des secours et prevention du suraccident.",
-        "INRS - conduite a tenir face a un accident d'origine electrique.",
+        "Code du travail - articles R.4544-9 et R.4544-10 relatifs à l’habilitation, à la formation et à l’organisation des opérations.",
+        "NF C 18-510 - cadre des opérations BS et BE Manœuvre, limites d’intervention et prescriptions de sécurité.",
+        "NF C 18-510 - logique d’adéquation entre symbole d’habilitation, tâche confiée, environnement et instruction de sécurité.",
+        "INRS - prévention du risque électrique, habilitation, maintien des compétences et conduite à tenir en cas d’anomalie.",
       ],
       practicalCase:
-        "Exemple : un coffret de commande degage de la fumee pendant une manoeuvre. L'operateur se met en securite, protege la zone et alerte sans chercher a demonter ou a rearmer.",
+        "Exemple : un opérateur doit réaliser un remplacement simple prévu par une procédure. Sur place, le repérage du circuit ne correspond pas au tableau et l’équipement présente une trace d’échauffement. Même si le geste paraît facile, l’opération doit être suspendue : le cadre BS n’est plus suffisamment maîtrisé.",
+      chapterImagePath: "/elearning/bsbe/synthese-pedagogique.svg",
+      chapterImageAlt:
+        "Synthèse pédagogique BS et BE Manœuvre : comprendre le cadre, vérifier les limites, refuser l’improvisation et transmettre.",
       visual: {
-        title: "La bonne reaction",
-        subtitle: "Stop - proteger - alerter - secourir sans suraccident.",
+        title: "Synthèse pédagogique BS / BE Manœuvre",
+        subtitle:
+          "Consolider la méthode, reconnaître ses limites et adopter la bonne décision.",
+        items: [
+          "Identifier avant d’agir",
+          "Vérifier le cadre réel",
+          "Refuser l’improvisation",
+          "Transmettre en cas de doute",
+        ],
+        tone: "amber",
+        imagePath: "/elearning/bsbe/synthese-pedagogique.svg",
+        imageAlt:
+          "Illustration de synthèse pédagogique BS et BE Manœuvre",
+      },
+    },
+
+    {
+      id: "incendie-urgence",
+      title:
+        "14. Incident, incendie électrique et premiers secours",
+      estimatedMinutes: 25,
+      intro:
+        "La trame BS / BE doit aussi entraîner à la bonne réaction en cas d’anomalie, de début d’incendie ou d’accident électrique.",
+      content: [
+        "En cas d’incident électrique, l’opérateur doit arrêter l’action, se protéger, mettre à distance si besoin et alerter.",
+        "En cas d’incendie dans un environnement électrique, il faut appliquer les consignes du site et ne jamais agir en se mettant soi-même en risque.",
+        "En cas d’électrisation, la priorité absolue est de supprimer ou faire supprimer le danger électrique avant toute tentative de secours.",
+        "Il ne faut jamais toucher directement une victime tant que le risque électrique persiste. L’objectif est d’éviter le suraccident.",
+        "Les notions de premiers secours sont ici traitées sous l’angle du risque électrique : éviter le suraccident, transmettre les bonnes informations et ne pas aggraver la situation par précipitation.",
+        "Face à un feu d’origine électrique, l’utilisation d’un moyen d’extinction doit respecter les consignes du site et l’état de mise hors tension. En cas de doute, la priorité reste l’alerte et l’évacuation.",
+      ],
+      deepDive: [
+        "Il faut retenir une logique de professionnalisme : pas une attitude héroïque, mais une réaction stable, méthodique et compatible avec l’organisation du site.",
+      ],
+      keyPoints: [
+        "Stopper, protéger, alerter.",
+        "Ne jamais devenir la seconde victime.",
+        "Le risque électrique persiste parfois après l’incident visible.",
+      ],
+      forbiddenPoints: [
+        "Toucher directement une victime encore exposée.",
+        "Ouvrir un coffret qui fume pour voir.",
+        "Utiliser de l’eau sur une installation sous tension.",
+      ],
+      legalRefs: [
+        "NF C 18-510 - incendie et accidents sur ou près des ouvrages et installations électriques.",
+        "Code du travail - organisation des secours et prévention du suraccident.",
+        "INRS - conduite à tenir face à un accident d’origine électrique.",
+      ],
+      resourceVideos: [VIDEO.chocElectrique],
+      practicalCase:
+        "Exemple : un coffret de commande dégage de la fumée pendant une manœuvre. L’opérateur se met en sécurité, protège la zone et alerte sans chercher à démonter ou à réarmer.",
+      chapterImagePath: "/elearning/h0b0/conduite-tenir.png",
+      chapterImageAlt:
+        "Conduite à tenir en cas d’incident électrique, d’électrisation ou de départ de feu",
+      visual: {
+        title: "La bonne réaction",
+        subtitle:
+          "Stopper, protéger, alerter et secourir sans créer de suraccident.",
         items: [
           "Incident",
           "Incendie",
-          "Electrisation",
-          "Premier secours",
+          "Électrisation",
+          "Premiers secours",
         ],
         tone: "red",
-        imagePath: "/elearning/bsbe/bsbe-urgence.svg",
+        imagePath: "/elearning/h0b0/conduite-tenir.png",
         imageAlt:
-          "Illustration de la conduite a tenir en cas d'incident, d'incendie electrique ou d'accident pour BS et BE Manoeuvre",
+          "Conduite à tenir en cas d’incident électrique, d’électrisation ou de départ de feu",
       },
     },
+
     {
-      id: "synthese-validation",
-      title: "13. Synthese operationnelle",
+      id: "synthese-operationnelle",
+      title: "15. Synthèse opérationnelle",
       estimatedMinutes: 20,
       intro:
-        "La fin du parcours doit fixer les reflexes utiles avant la classe virtuelle, la session groupe ou la visio de recyclage.",
+        "Ce dernier chapitre fixe les réflexes opérationnels à retenir avant l’évaluation finale. L’objectif est que l’apprenant reparte avec une méthode simple, utilisable sur le terrain, pour agir uniquement lorsque le cadre BS / BE Manœuvre est clair, autorisé et maîtrisé.",
       content: [
-        "Un titulaire BS ou BE Manoeuvre agit seulement sur un materiel identifie, dans un environnement conforme, selon une procedure claire et a l'interieur d'un cadre d'autorisation explicite.",
-        "Le BS couvre les remplacements simples et raccordements elementaires. Le BE Manoeuvre couvre les manoeuvres d'exploitation. Aucun des deux ne doit glisser vers le depannage, la modification ou la recherche de panne.",
-        "Le vrai niveau professionnel se voit dans la capacite a preparer, verifier, agir si autorise, puis s'arreter et transmettre des qu'une condition manque.",
-        "La sequence d'application encadree permet ensuite de retravailler les cas limites, les situations metier reelles, les erreurs de reperage et les rearmements a tort.",
+        "Un titulaire BS ou BE Manœuvre agit seulement si l’opération est clairement identifiée, prévue par l’organisation de l’entreprise, compatible avec son titre d’habilitation et réalisée dans un environnement maîtrisé.",
+        "Pour le BS, l’action doit rester une intervention élémentaire en basse tension : remplacement simple, raccordement élémentaire ou action prévue sur un matériel identifié, hors tension et encadré par une procédure. Dès que l’opération suppose une recherche de panne, une adaptation de câblage ou une modification, elle sort du cadre.",
+        "Pour le BE Manœuvre, l’action doit rester une manœuvre d’exploitation sur un organe identifié : ouverture, fermeture, arrêt, mise en marche, réarmement ou basculement prévu par les consignes. La manœuvre ne doit jamais devenir une tentative de dépannage ou une série d’essais répétés.",
+        "La méthode opérationnelle peut se résumer en quatre réflexes : identifier, vérifier, agir si autorisé, stopper si doute. Cette séquence doit être appliquée avant chaque opération, même lorsque le geste paraît habituel ou rapide.",
+        "Identifier signifie reconnaître le bon organe, le bon circuit, le bon équipement, le bon local et la bonne procédure. Un repère incomplet, une étiquette douteuse ou une incohérence entre le terrain et le document impose de suspendre l’action.",
+        "Vérifier signifie observer l’environnement : état du coffret, capotage, absence de partie accessible dangereuse, absence d’humidité, absence d’odeur anormale, absence d’échauffement, absence de câble détérioré, cohérence de la procédure et maintien des protections collectives.",
+        "Agir si autorisé signifie réaliser uniquement le geste prévu, sans élargir la mission. L’opérateur ne doit pas ouvrir pour voir, chercher la cause d’un défaut, réarmer à répétition, modifier un raccordement ou improviser une solution pour maintenir l’exploitation.",
+        "Stopper si doute signifie interrompre l’action dès qu’une condition de sécurité n’est plus réunie. L’arrêt n’est pas un échec ; c’est le comportement attendu pour éviter l’accident, le suraccident ou l’aggravation d’une anomalie.",
+        "En cas d’incident, d’électrisation, de fumée, d’odeur de chaud ou de déclenchement répété, la priorité reste la protection des personnes : ne pas toucher une victime exposée, ne pas ouvrir un coffret dangereux, se mettre à distance, alerter et appliquer les consignes du site.",
+        "La synthèse finale doit donc être claire : le BS / BE Manœuvre est utile pour des opérations simples et encadrées, mais il ne donne jamais un droit général d’intervention électrique. La sécurité repose sur le respect strict du périmètre confié par l’employeur.",
       ],
       deepDive: [
-        "L'articulation entre theorie, quiz, mise en situation et evaluation finale permet de consolider les reflexes attendus avant la delivrance eventuelle d'un titre d'habilitation par l'employeur.",
+        "Sur le terrain, la pression vient souvent de l’exploitation : remettre un équipement en service, aller vite, rendre service ou éviter un arrêt. C’est précisément dans ces moments que le cadre BS / BE Manœuvre doit être le plus respecté.",
+        "L’opérateur compétent n’est pas celui qui tente coûte que coûte de résoudre le problème. C’est celui qui sait reconnaître que le problème ne relève plus de son niveau d’habilitation ou de la procédure prévue.",
+        "La dernière compétence à acquérir est donc une compétence de décision : savoir quand agir, mais surtout savoir quand ne pas agir.",
       ],
       keyPoints: [
-        "Identifier.",
-        "Verifier.",
-        "Agir si autorise.",
-        "Stopper et transmettre si doute.",
+        "Identifier le matériel, l’organe ou le circuit avant toute action.",
+        "Vérifier la procédure, le repérage, l’environnement et les protections.",
+        "Agir uniquement si l’action est autorisée, simple et maîtrisée.",
+        "Stopper immédiatement en cas de doute, d’anomalie ou de dérive.",
+        "Transmettre à l’encadrement ou à une personne compétente.",
+      ],
+      forbiddenPoints: [
+        "Réarmer en boucle après plusieurs déclenchements.",
+        "Ouvrir un coffret pour rechercher la cause.",
+        "Modifier un câblage ou adapter une installation.",
+        "Agir malgré un repérage incohérent.",
+        "Compenser une protection absente par le seul port d’un EPI.",
       ],
       legalRefs: [
-        "Code du travail - adequation entre poste, competences et risques.",
-        "NF C 18-510 - cadre des interventions elementaires et manoeuvres.",
-        "INRS - maintien des reflexes de prevention.",
+        "Code du travail - articles R.4544-9 et R.4544-10 : travailleurs habilités, formation adaptée, habilitation délivrée par l’employeur.",
+        "NF C 18-510 - interventions élémentaires BS et manœuvres d’exploitation BE Manœuvre.",
+        "NF C 18-510 - prescriptions de sécurité, limites d’habilitation, environnement électrique et rôle des instructions.",
+        "INRS - habilitation électrique : formation, évaluation, avis après formation, maintien des compétences et prévention des accidents.",
       ],
+      resourceVideos: [VIDEO.bsbe],
       practicalCase:
-        "Exemple : un operateur sait techniquement rearmer un depart, mais la zone est encombre et le repere local est douteux. La bonne competence consiste a ne pas agir tant que le cadre n'est pas redevenu clair.",
+        "Exemple : un opérateur sait techniquement réarmer un départ, mais la zone est encombrée, le repère local est douteux et l’équipement a déjà déclenché deux fois. La bonne décision consiste à ne pas réarmer, à sécuriser la situation et à transmettre à une personne compétente.",
+      chapterImagePath: "/elearning/bsbe/synthese-operationnelle.svg",
+      chapterImageAlt:
+        "Synthèse opérationnelle BS et BE Manœuvre : identifier, vérifier, agir si autorisé, stopper si doute.",
       visual: {
-        title: "Les 4 reflexes a retenir",
-        subtitle: "Identifier - verifier - agir ou stopper.",
+        title: "Synthèse opérationnelle BS / BE Manœuvre",
+        subtitle:
+          "Identifier, vérifier, agir si autorisé, stopper si doute.",
         items: [
-          "Materiel repere",
-          "Procedure claire",
+          "Matériel repéré",
+          "Procédure claire",
           "Contexte conforme",
           "Transmission si doute",
         ],
         tone: "green",
-        imagePath: "/elearning/bsbe/bsbe-cadre.svg",
+        imagePath: "/elearning/bsbe/synthese-operationnelle.svg",
         imageAlt:
-          "Illustration de synthese des reflexes de decision pour le parcours BS et BE Manoeuvre",
+          "Illustration de synthèse des réflexes de décision pour le parcours BS et BE Manœuvre",
       },
     },
   ],

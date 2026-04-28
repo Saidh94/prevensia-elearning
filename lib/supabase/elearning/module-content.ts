@@ -644,54 +644,57 @@ export const modulesContent: Record<string, ModuleContent> = {
   imageAlt: "Illustration de matériels, câbles et équipements électriques défectueux"
 }
     },
-    {
-      id: "ppe",
-      title: "13. Équipements de protection collective et individuelle",
-      intro:
-        "La logique de prévention donne la priorité aux protections collectives. Les EPI viennent en complément, jamais en remplacement des règles.",
-      content: [
-        "La protection collective repose notamment sur les capotages, enveloppes, écrans, barrières, balisages, accès maîtrisés et signalisation.",
-        "Les EPI complètent la prévention mais ne rendent jamais une opération interdite autorisée.",
-        "Le titulaire H0B0 doit savoir reconnaître les protections présentes, ne jamais les neutraliser et signaler toute absence ou dégradation.",
-        "Aucun objectif d’exploitation ne justifie le contournement d’une protection."
-      ],
-      deepDive: [
-        "Les protections collectives ont l’avantage de protéger l’ensemble des personnes exposées, et pas uniquement celui qui porte un équipement.",
-        "Les EPI électriques spécialisés relèvent d’un contexte d’opération déterminé. Ils ne constituent jamais un passe-droit pour un H0B0.",
-        "Le respect de la protection existante fait partie intégrante du comportement attendu."
-      ],
-      keyPoints: [
-        "La protection collective est prioritaire.",
-        "Les EPI ne remplacent jamais les règles.",
-        "Une protection manquante doit être signalée.",
-        "Le H0B0 ne neutralise jamais une barrière de sécurité."
-      ],
-      forbiddenPoints: [
-        "Contourner un balisage ou un écran.",
-        "Retirer un capot ou une enveloppe.",
-        "Croire qu’un EPI autorise une action interdite."
-      ],
-      legalRefs: [
-        "NF C 18-510 : priorité à l’organisation de sécurité et aux protections adaptées.",
-        "Prévention du risque électrique : aucune protection ne justifie une action hors périmètre."
-      ],
-      practicalCase:
-        "Exemple : une barrière de protection gêne le passage d’un chariot. Le salarié H0B0 ne la déplace pas de sa propre initiative ; il suit la procédure prévue ou alerte."
-      ,
-    visual: {
-  title: "Protections à respecter",
-  subtitle: "Protection collective d’abord, discipline toujours.",
-  items: [
-    "Capotage et enveloppe",
-    "Signalisation et balisage",
-    "Accès maîtrisés",
-    "EPI en complément selon les cas prévus"
+   {
+  id: "chapter-13",
+  title: "Chapitre 13 - Synthèse pédagogique BS / BE Manoeuvre",
+  intro:
+    "Ce chapitre permet de consolider les acquis avant les situations d'application : identifier le cadre autorisé, vérifier les conditions réelles, reconnaître les limites et savoir stopper en cas de doute.",
+  content: [
+    "Un titulaire BS ou BE Manoeuvre agit uniquement dans un cadre clairement défini : matériel identifié, procédure connue, environnement compatible et limites d'intervention respectées.",
+    "La compétence attendue ne consiste pas seulement à connaître les gestes autorisés. Elle consiste aussi à reconnaître les situations où le cadre BS ou BE Manoeuvre n'est plus suffisant.",
+    "Le BS couvre les interventions élémentaires en basse tension, comme certains remplacements simples ou raccordements élémentaires, lorsque le circuit, le matériel et la procédure sont clairement identifiés.",
+    "Le BE Manoeuvre couvre les manoeuvres d'exploitation sur des organes prévus à cet effet : ouverture, fermeture, réarmement ou basculement, sans recherche de panne ni modification de l'installation.",
+    "Dès qu'un doute apparaît sur le repérage, l'état du matériel, la procédure, le voisinage, la présence d'une anomalie ou la nature réelle de l'opération, l'action doit être suspendue.",
+    "Savoir dire non, demander une clarification ou transmettre à une personne compétente fait partie intégrante de la prévention du risque électrique.",
   ],
-  tone: "green",
-  imagePath: "/elearning/h0b0/epi-epc.png",
-  imageAlt: "Illustration des équipements de protection collective et individuelle"
-}
-    },
+  deepDive: [
+    "Le risque principal dans la pratique n'est pas toujours le geste initial. Il apparaît souvent lorsque l'opération commence simplement puis dérive vers une recherche de panne, une adaptation de câblage ou une manoeuvre répétée.",
+    "La bonne décision professionnelle consiste à rester dans son périmètre d'habilitation. Si la situation change, le cadre d'intervention doit être réévalué avant toute poursuite.",
+    "Cette synthèse prépare l'apprenant à l'évaluation finale en reliant les notions de formation, d'autorisation employeur, de procédure, de contrôle de l'environnement et d'arrêt en cas d'écart.",
+  ],
+  keyPoints: [
+    "Identifier le matériel concerné.",
+    "Vérifier la procédure et l'environnement.",
+    "Agir uniquement si le cadre est clair et autorisé.",
+    "Stopper en cas de doute ou d'anomalie.",
+    "Transmettre à une personne compétente si la situation sort du cadre BS / BE Manoeuvre.",
+  ],
+  legalRefs: [
+    "Code du travail - adéquation entre poste, compétences et risques.",
+    "NF C 18-510 - cadre des interventions élémentaires et des manoeuvres d'exploitation.",
+    "INRS - maintien des réflexes de prévention et respect des limites d'habilitation.",
+  ],
+  practicalCase:
+    "Exemple : un opérateur sait techniquement réarmer un départ, mais la zone est encombrée et le repère local est douteux. La bonne compétence consiste à ne pas agir tant que le cadre n'est pas redevenu clair.",
+  chapterImagePath: "/elearning/bsbe/bsbe-chapitre-13-synthese-pedagogique.svg",
+  chapterImageAlt:
+    "Synthèse pédagogique BS et BE Manoeuvre : identifier, vérifier, agir si autorisé et stopper en cas de doute",
+  visual: {
+    title: "Synthèse pédagogique BS / BE Manoeuvre",
+    subtitle:
+      "Consolider la méthode, reconnaître ses limites et adopter la bonne décision.",
+    items: [
+      "Identifier avant d'agir",
+      "Vérifier le cadre réel",
+      "Refuser l'improvisation",
+      "Transmettre en cas de doute",
+    ],
+    tone: "amber",
+    imagePath: "/elearning/bsbe/bsbe-chapitre-13-synthese-pedagogique.svg",
+    imageAlt:
+      "Illustration de synthèse pédagogique BS et BE Manoeuvre",
+  },
+},
     {
       id: "authorized-forbidden",
       title: "14. Comportements autorisés et interdits",
@@ -741,55 +744,59 @@ export const modulesContent: Record<string, ModuleContent> = {
   imageAlt: "Illustration des comportements autorisés et interdits en H0B0"
 }
     },
-    {
-      id: "conduct",
-      title:
-        "15. Conduite à tenir en cas d’anomalie, d’électrisation ou de départ de feu",
-      intro:
-        "En situation anormale, la priorité est d’éviter le suraccident, de se protéger puis d’alerter.",
-      content: [
-        "En cas d’anomalie, il faut immédiatement cesser l’utilisation du matériel concerné, sécuriser la zone si cela peut être fait sans exposition, puis alerter.",
-        "En cas d’électrisation, il ne faut jamais toucher directement la victime si elle est encore au contact de la source de danger.",
-        "En cas de départ de feu d’origine électrique, la priorité est l’alerte, la protection des personnes, l’évacuation si nécessaire et l’application stricte des consignes du site. L’utilisation d’un moyen d’extinction n’est envisageable que si elle est prévue, maîtrisée et réalisable sans exposition au danger.",
-        "Odeur de brûlé, fumée, échauffement, étincelles, déclenchements répétés ou traces de brûlure doivent toujours être pris au sérieux."
-      ],
-      deepDive: [
-        "La première erreur classique est de vouloir aider trop vite sans supprimer le danger. Cela crée un suraccident.",
-        "La seconde erreur est de banaliser le signe avant-coureur : odeur, chauffe, fumée légère, déclenchement répété.",
-        "Le H0B0 doit retenir une séquence simple : arrêter, se protéger, alerter, appliquer les consignes."
-      ],
-      keyPoints: [
-        "Stopper l’usage et s’éloigner sans s’exposer.",
-        "Ne jamais toucher une victime encore sous danger électrique.",
-        "Alerter immédiatement.",
-        "Respecter les consignes du site."
-      ],
-      forbiddenPoints: [
-        "Toucher une victime encore en contact avec la source électrique.",
-        "Utiliser de l’eau sur une installation sous tension.",
-        "Improviser une extinction ou une manœuvre hors consigne."
-      ],
-      legalRefs: [
-        "NF C 18-510 : la protection contre le suraccident est prioritaire.",
-        "Prévention incendie : application stricte des consignes du site et des moyens adaptés."
-      ],
-      practicalCase:
-        "Exemple : une rallonge fume et dégage une odeur de brûlé. L’opérateur cesse immédiatement l’usage, interdit l’accès proche si possible sans s’exposer et alerte selon la procédure."
-      ,
-    visual: {
-  title: "Réaction en situation anormale",
-  subtitle: "Stop, protection, alerte, pas d’improvisation.",
-  items: [
-    "Arrêter l’usage",
-    "Éviter le suraccident",
-    "Alerter la bonne personne",
-    "Appliquer les consignes de secours et d’évacuation"
+ {
+  id: "bsbe-chapitre-15",
+  title: "Chapitre 15 - Synthèse finale BS / BE Manoeuvre",
+  estimatedMinutes: 20,
+  intro:
+    "Ce dernier chapitre consolide les réflexes opérationnels attendus avant l’évaluation finale. L’objectif est de vérifier que l’apprenant sait rester dans le cadre BS / BE Manoeuvre, reconnaître les limites de son intervention et stopper en cas de doute.",
+  content: [
+    "Le titulaire BS ou BE Manoeuvre agit uniquement dans un cadre défini, sur un matériel identifié, avec une procédure connue et dans un environnement compatible avec l’opération demandée.",
+    "Le BS concerne les interventions élémentaires en basse tension, comme certains remplacements simples ou raccordements élémentaires, lorsque les conditions prévues sont réunies.",
+    "Le BE Manoeuvre concerne les manoeuvres d’exploitation sur des organes clairement identifiés, comme l’ouverture, la fermeture, le réarmement ou le basculement d’un équipement prévu pour cela.",
+    "Aucun de ces symboles ne permet de faire du dépannage libre, de rechercher une panne, de modifier un câblage, d’ouvrir une enveloppe pour investiguer ou de contourner une protection.",
+    "La compétence attendue n’est pas seulement de connaître les gestes autorisés. Elle consiste surtout à reconnaître les situations où le cadre n’est plus suffisant.",
+    "En présence d’un repérage douteux, d’une anomalie visible, d’une odeur de chaud, d’un déclenchement répété, d’un capot manquant, d’une documentation incohérente ou d’un environnement dégradé, l’action doit être suspendue.",
+    "La bonne méthode reste constante : identifier le matériel concerné, vérifier la procédure et l’environnement, agir uniquement si le cadre est clair, puis stopper et transmettre en cas de doute.",
   ],
-  tone: "red",
-  imagePath: "/elearning/h0b0/conduite-tenir.png",
-  imageAlt: "Illustration de la conduite à tenir en cas d’anomalie ou d’accident électrique"
-}
-    },
+  deepDive: [
+    "Le professionnalisme en BS / BE Manoeuvre ne consiste pas à aller le plus loin possible, mais à savoir s’arrêter au bon moment.",
+    "Un remplacement simple peut basculer vers une recherche de panne. Une manoeuvre peut devenir un dépannage improvisé. Un réarmement peut masquer une anomalie persistante. Ces glissements doivent être identifiés immédiatement.",
+    "La synthèse finale doit donc fixer une règle simple : si le geste, le matériel, la procédure ou l’environnement ne sont plus clairement maîtrisés, l’opération sort du cadre prévu.",
+  ],
+  keyPoints: [
+    "Identifier le matériel concerné.",
+    "Vérifier la procédure, le repérage et l’environnement.",
+    "Agir uniquement si le cadre est clair et autorisé.",
+    "Stopper immédiatement en cas de doute ou d’anomalie.",
+    "Transmettre l’information à l’encadrement ou à une personne compétente.",
+  ],
+  legalRefs: [
+    "Code du travail - articles R.4544-9 et R.4544-10 relatifs à la formation, à l’habilitation et à l’organisation des opérations.",
+    "NF C 18-510 - cadre des interventions élémentaires BS et des manoeuvres d’exploitation BE Manoeuvre.",
+    "INRS - prévention du risque électrique, limites d’intervention et maintien des compétences.",
+  ],
+  practicalCase:
+    "Exemple : un opérateur sait techniquement réarmer un départ, mais la zone est encombrée et le repérage local est douteux. La bonne compétence consiste à ne pas agir tant que le cadre n’est pas redevenu clair.",
+  chapterImagePath: "/elearning/bsbe/bsbe-chapitre-15-synthese-operationnelle.svg",
+  chapterImageAlt:
+    "Synthèse finale BS et BE Manoeuvre : identifier, vérifier, agir uniquement si autorisé, stopper en cas de doute",
+  visual: {
+    title: "Synthèse finale BS / BE Manoeuvre",
+    subtitle:
+      "Identifier, vérifier, agir uniquement si autorisé, stopper en cas de doute.",
+    items: [
+      "Matériel identifié",
+      "Procédure claire",
+      "Environnement conforme",
+      "Arrêt si doute",
+    ],
+    tone: "green",
+    imagePath: "/elearning/bsbe/bsbe-chapitre-15-synthese-operationnelle.svg",
+    imageAlt:
+      "Illustration de synthèse finale des réflexes BS et BE Manoeuvre",
+  },
+},
     {
       id: "summary",
       title: "16. Synthèse opérationnelle",
@@ -2312,13 +2319,13 @@ export const modulesContent: Record<string, ModuleContent> = {
           "La transmission doit être structurée: ce qui s'est passé, ce qui a été observé, ce qui a été fait, l'heure si utile et les risques encore présents sur zone.",
           "Le SST ne quitte pas la victime sans relais organisé, sauf danger immédiat pour lui-même ou consigne explicite des secours."
         ],
-        chapterImagePath: "/images/sst.jpg",
+        chapterImagePath: "/elearning/sst/sst-surveiller.svg",
         chapterImageAlt:
           "Surveillance d'une victime et transmission à la relève dans une formation SST",
         visual: {
           title: "Etape 5 : surveiller et transmettre",
           subtitle: "Assurer la continuité de la prise en charge.",
-          imagePath: "/images/sst.jpg",
+          imagePath: "/elearning/sst/sst-surveiller.svg",
           imageAlt:
             "Surveillance d'une victime et transmission à la relève dans une formation SST",
           items: [

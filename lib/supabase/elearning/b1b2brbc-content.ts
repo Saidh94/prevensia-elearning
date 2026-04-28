@@ -117,6 +117,10 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : lors d'une intervention sur une machine, un conducteur supplementaire non documente est decouvert. Le BR suspend l'action, informe l'organisation et la mission est requalifiee avant reprise.",
+      chapterImagePath:
+        "/images/modules/electricite/document-chantier-autorisation.jpg",
+      chapterImageAlt:
+        "Document technique et cadre d'autorisation utilises pour organiser une operation electrique et clarifier les responsabilites",
       visual: {
         title: "Une chaine de responsabilite lisible",
         subtitle: "Employeur, responsables electriques, executants et documents doivent former un dispositif coherent.",
@@ -162,7 +166,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : un technicien B1V travaille a proximite d'un depart voisin. Il ne gagne pas un droit de depannage general: il reste executant dans une situation de voisinage plus exigeante.",
       chapterImagePath:
-        "/elearning/references/symboles-autres-travaux-electriques.jpg",
+        "/images/modules/electricite/symboles-habilitation-travaux-electriques.jpg",
       chapterImageAlt:
         "Tableau des symboles d'habilitation utilises pour les autres operations d'ordre electrique",
       visual: {
@@ -208,7 +212,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une intervention BR prevue sur un circuit terminal devient critique car un bornier voisin est decouvert apres depose partielle d'un capot. L'organisation de l'intervention doit etre revue avant reprise.",
-      chapterImagePath: "/elearning/references/zones-conducteur-nu-bt.jpg",
+      chapterImagePath: "/images/modules/electricite/zones-voisinage-bt.jpg",
       chapterImageAlt:
         "Schema des zones autour d'un conducteur nu et des limites de voisinage en basse tension",
       visual: {
@@ -252,7 +256,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une equipe doit intervenir sur un depart repere en maintenance, mais la signaletique locale ne correspond pas au dossier. L'operation est suspendue jusqu'a verification.",
-      chapterImagePath: "/elearning/references/maintenance-environnement-technique.jpg",
+      chapterImagePath: "/images/modules/electricite/maintenance-environnement-technique.jpg",
       chapterImageAlt:
         "Technicien intervenant devant une armoire electrique en environnement technique controle",
       visual: {
@@ -308,7 +312,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : avant remplacement d'un appareillage, l'equipe constate plusieurs departs similaires dans l'armoire. Le BC doit verrouiller l'identification avant toute consignation effective.",
-      chapterImagePath: "/elearning/references/consignation-vat.jpg",
+      chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
       chapterImageAlt:
         "Illustration de consignation avec verification d'absence de tension et balisage de zone",
       visual: {
@@ -389,7 +393,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : un technicien BR intervient sur un arret machine. En ouvrant le dossier, il constate une modification ancienne non documentee du cablage. L'intervention doit etre requalifiee et encadree autrement.",
       chapterImagePath:
-        "/elearning/references/maintenance-environnement-technique.jpg",
+        "/images/modules/electricite/maintenance-environnement-technique.jpg",
       chapterImageAlt:
         "Technicien intervenant en environnement technique devant une armoire electrique basse tension",
       visual: {
@@ -434,6 +438,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : apres remplacement d'un appareillage, un intervenant souhaite remettre sous tension pour 'voir si ca tient'. Le cadre de remise en service doit etre revalide avant tout essai.",
+      chapterImagePath: "/images/modules/electricite/tableau-coffret-bt.jpg",
+      chapterImageAlt:
+        "Tableau basse tension et appareillage sur lesquels les mesurages, essais et remises en energie exigent une methode stricte",
       visual: {
         title: "Verifier avant la remise en energie",
         subtitle: "Mesurer, tester, reconnecter et remettre sous tension exigent une methode.",
@@ -515,6 +522,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : apres consignation, un voyant reste allume sur un sous-ensemble. L'equipe s'arrete immediatement et fait verifier l'etat reel de l'installation avant toute poursuite.",
+      chapterImagePath: "/elearning/h0b0/conduite-tenir.png",
+      chapterImageAlt:
+        "Conduite a tenir en cas d'anomalie, de doute electrique ou d'urgence sur une installation basse tension",
       visual: {
         title: "Savoir interrompre",
         subtitle: "Le bon reflexe est parfois d'arreter immediatement.",
@@ -552,6 +562,10 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : apres une consignation difficile a confirmer sur un tableau mal repere, l'equipe fait formaliser une correction documentaire au lieu de laisser le probleme en l'etat.",
+      chapterImagePath:
+        "/images/modules/electricite/document-chantier-autorisation.jpg",
+      chapterImageAlt:
+        "Support documentaire et cadre de tracabilite utilises pour formaliser un retour d'experience et corriger durablement un ecart",
       visual: {
         title: "Apprendre de chaque operation",
         subtitle: "Compte rendu, ecarts et maintien des reflexes.",
@@ -589,6 +603,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un chantier electrique prepare glisse vers une modification de schema non prevue. Le bon choix est de suspendre et de redocumenter l'operation avant reprise.",
+      chapterImagePath: "/elearning/h0b0/reflexes-h0b0.png",
+      chapterImageAlt:
+        "Schema de synthese des reflexes a conserver pour preparer, executer ou interrompre une operation electrique en basse tension",
       visual: {
         title: "Les 4 reflexes a retenir",
         subtitle: "Identifier, preparer, respecter son role, arreter si doute.",
@@ -631,7 +648,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une equipe B2 doit intervenir sur un depart consigne, mais un sous-traitant voisin annonce une remise en service partielle de zone. L'operation est suspendue jusqu'a coordination et revalidation du cadre.",
-      chapterImagePath: "/elearning/references/document-chantier.jpg",
+      chapterImagePath: "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
         "Exemple de document technique ou administratif utilise pour tracer une installation et son cadre de conformite",
       visual: {

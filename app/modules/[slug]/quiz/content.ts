@@ -490,690 +490,521 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 75,
     },
   ],
-  bsbe: [
+    bsbe: [
     {
       question:
-        "Qui delivre l'habilitation BS ou BE Manoeuvre apres verification de la formation, du poste et des risques ?",
+        "Qui délivre formellement l’habilitation BS ou BE Manœuvre après formation, vérification des acquis et analyse du poste ?",
       choices: [
         "Le formateur",
-        "L'employeur",
-        "Le fabricant du materiel",
-        "Le chef d'equipe seul",
+        "L’employeur",
+        "Le fabricant du matériel",
+        "Le salarié lui-même après réussite au quiz",
       ],
       answer: [1],
       explanation:
-        "La formation prepare a l'habilitation, mais c'est l'employeur qui la delivre.",
+        "La formation prépare à l’habilitation, mais seul l’employeur délivre le titre en fonction du poste réel, des tâches confiées et des risques.",
       timeLimit: 40,
+      contextLabel:
+        "La chaîne formation, évaluation, validation puis habilitation doit rester claire.",
+      imagePath: "/elearning/bsbe/bsbe-cadre.svg",
+      imageAlt:
+        "Cadre BS et BE Manœuvre avec formation, évaluation, validation et habilitation par l’employeur",
     },
     {
-      question: "Le symbole BS concerne principalement :",
+      question: "Le symbole BS correspond principalement à :",
       choices: [
-        "Les travaux electriques complexes sur tableaux",
-        "Les interventions elementaires en basse tension",
-        "La consignation generale d'une installation",
-        "Les essais sous tension en atelier",
+        "Des travaux électriques complexes en basse tension",
+        "Des interventions élémentaires en basse tension",
+        "La consignation générale d’une installation",
+        "Des opérations d’ordre non électrique uniquement",
       ],
       answer: [1],
       explanation:
-        "Le BS couvre des remplacements et raccordements elementaires dans un cadre strictement defini.",
+        "Le BS couvre des interventions élémentaires en basse tension, dans un cadre strictement limité, identifié et préparé.",
       timeLimit: 40,
     },
     {
-      question: "Le symbole BE Manoeuvre vise surtout :",
+      question: "Le symbole BE Manœuvre correspond principalement à :",
       choices: [
-        "Les manoeuvres d'exploitation sur des organes identifies",
-        "Le cablage complet d'une armoire",
-        "Les travaux sous tension",
-        "La recherche de panne complexe",
+        "Des manœuvres d’exploitation sur des organes identifiés",
+        "Une recherche de panne sur tout équipement basse tension",
+        "Une modification de câblage",
+        "Une consignation complète d’installation",
       ],
       answer: [0],
       explanation:
-        "BE Manoeuvre vise les manoeuvres d'exploitation, pas le depannage ni la modification d'installation.",
+        "Le BE Manœuvre permet des manœuvres d’exploitation prévues, sur organes identifiés, dans le cadre des consignes du site.",
       timeLimit: 40,
     },
     {
       question:
-        "Pourquoi la formation BS / BE ne vaut-elle jamais habilitation a elle seule ?",
+        "Quelle affirmation décrit correctement la différence entre BS et BE Manœuvre ?",
       choices: [
-        "Parce que seul l'employeur peut delivrer le titre selon le poste et les risques reels",
-        "Parce que seul le fabricant du materiel peut l'autoriser",
-        "Parce que le quiz remplace le titre",
-        "Parce que l'habilitation n'existe pas en basse tension",
+        "BS concerne des interventions élémentaires ; BE Manœuvre concerne des manœuvres d’exploitation",
+        "BS autorise la consignation ; BE Manœuvre autorise le dépannage",
+        "BS et BE Manœuvre autorisent les mêmes gestes sans limite particulière",
+        "BE Manœuvre est équivalent à BR",
       ],
       answer: [0],
       explanation:
-        "L'habilitation reste une decision de l'employeur apres verification de l'adequation au poste et des risques reels.",
+        "Le BS et le BE Manœuvre ont des périmètres distincts. Aucun des deux ne vaut BR, B1, B2 ou BC.",
       timeLimit: 45,
     },
     {
       question:
-        "Parmi les notions suivantes, lesquelles font partie des bases electriques utiles dans un parcours BS / BE ?",
+        "Parmi les opérations suivantes, lesquelles peuvent relever du BS si elles sont prévues, identifiées, hors tension et encadrées par procédure ?",
       choices: [
-        "Courant alternatif et courant continu",
-        "Tension et intensite",
-        "Resistance et puissance",
-        "Mecanique des fluides uniquement",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "Le parcours BS / BE doit donner des bases utiles sur le circuit electrique et les grandeurs elementaires.",
-      timeLimit: 65,
-    },
-    {
-      question:
-        "Le contact direct correspond principalement au fait de :",
-      choices: [
-        "Toucher une partie active normalement sous tension",
-        "Toucher une masse devenue dangereuse apres defaut",
-        "Regarder un tableau electrique de loin",
-        "Marcher dans un local technique ferme",
-      ],
-      answer: [0],
-      explanation:
-        "Le contact direct vise une partie active normalement sous tension, alors que le contact indirect concerne une masse devenue dangereuse apres defaut.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Le contact indirect correspond principalement au fait de :",
-      choices: [
-        "Toucher un conducteur nu",
-        "Toucher une masse metallique devenue dangereuse apres defaut",
-        "Toucher un plan de travail sec",
-        "Lire une etiquette de tableau",
-      ],
-      answer: [1],
-      explanation:
-        "Le contact indirect implique une masse devenue dangereuse a la suite d'un defaut d'isolement.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Pourquoi la duree de passage du courant est-elle importante ?",
-      choices: [
-        "Parce qu'elle conditionne, avec l'intensite et le trajet, la gravite des effets sur le corps",
-        "Parce qu'elle remplace la notion de tension",
-        "Parce qu'elle n'a d'effet qu'en haute tension",
-        "Parce qu'elle ne concerne que le materiel",
-      ],
-      answer: [0],
-      explanation:
-        "Les effets du courant sur le corps dependent notamment de l'intensite, de la duree d'exposition et du trajet du courant.",
-      timeLimit: 45,
-    },
-    {
-      question: "L'habilitation BE Manoeuvre permet surtout :",
-      choices: [
-        "Le depannage de tout equipement electrique",
-        "Les manoeuvres d'exploitation sur des organes identifies",
-        "La modification du cablage interne d'un coffret",
-        "La recherche de panne approfondie",
-      ],
-      answer: [1],
-      explanation:
-        "BE Manoeuvre couvre les manoeuvres d'exploitation prevues, pas le depannage ni la modification.",
-      timeLimit: 45,
-    },
-    {
-      question:
-        "Parmi les actions suivantes, lesquelles relevent normalement d'une logique BS ?",
-      choices: [
-        "Remplacement simple d'un element prevu par procedure",
-        "Raccordement elementaire sur materiel identifie",
+        "Remplacement simple d’un appareillage prévu à l’identique",
+        "Raccordement élémentaire d’un matériel sur circuit identifié",
         "Recherche de panne sur un circuit inconnu",
-        "Modification d'une armoire electrique",
+        "Modification du câblage interne d’une armoire",
       ],
       answer: [0, 1],
       multiple: true,
       explanation:
-        "Le BS reste limite a des gestes simples, identifies et formalises.",
-      timeLimit: 60,
+        "Le BS reste limité aux interventions élémentaires. La recherche de panne et la modification de câblage sortent du cadre.",
+      timeLimit: 70,
+      contextLabel:
+        "Le visuel rappelle que le BS reste un cadre simple, hors tension, repéré et documenté.",
+      imagePath: "/elearning/bsbe/bsbe-operations.svg",
+      imageAlt:
+        "Illustration des opérations élémentaires BS et des limites à respecter",
     },
     {
       question:
-        "Quel repere de cadrage est souvent utilise pour presenter des operations BS sur du materiel simple ?",
+        "Quel repère est souvent utilisé pour cadrer pédagogiquement certaines opérations BS sur du matériel simple en courant alternatif ?",
       choices: [
-        "400 V et 32 A en courant alternatif",
-        "20 000 V sans limite d'intensite",
-        "Uniquement les installations photovoltaiques",
-        "Aucun cadrage n'existe jamais",
+        "400 V et 32 A",
+        "1 000 V et 125 A",
+        "20 000 V sans limite d’intensité",
+        "Aucune limite technique n’existe",
       ],
       answer: [0],
       explanation:
-        "Dans les trames BS / BE, on retrouve souvent ce repere pedagogique pour les materiels simples, sans jamais remplacer l'analyse du materiel reel et des procedures d'entreprise.",
+        "Le repère 400 V / 32 A aide à situer le niveau d’intervention élémentaire, sans remplacer l’analyse du matériel réel ni la procédure de l’entreprise.",
       timeLimit: 45,
     },
     {
       question:
-        "Avant un rearmement en BE Manoeuvre, quel reflexe est correct ?",
+        "Un remplacement simple commence correctement, mais le nouvel équipement ne fonctionne pas. Quel est le bon réflexe BS ?",
       choices: [
-        "Reenclencher sans verifier pour gagner du temps",
-        "Verifier le contexte, l'absence d'anomalie visible et l'autorisation de procedure",
-        "Demander a un collegue de rester a cote puis reenclencher",
-        "Enlever le capot pour voir la cause du declenchement",
+        "Rechercher la panne pour terminer l’intervention",
+        "Modifier le câblage pour adapter l’équipement",
+        "S’arrêter et faire requalifier la situation",
+        "Réarmer plusieurs fois pour tester",
+      ],
+      answer: [2],
+      explanation:
+        "Le glissement d’un remplacement simple vers une recherche de panne fait sortir l’opération du cadre BS.",
+      timeLimit: 45,
+      contextLabel:
+        "La limite du BS se joue souvent au moment où l’opération simple devient un diagnostic.",
+      imagePath: "/elearning/bsbe/bsbe-limites.svg",
+      imageAlt:
+        "Illustration des limites BS et BE Manœuvre et de la nécessité de s’arrêter en cas de dérive",
+    },
+    {
+      question:
+        "Avant une manœuvre BE Manœuvre, quels éléments doivent être vérifiés ?",
+      choices: [
+        "L’organe est clairement identifié",
+        "La procédure ou consigne est connue",
+        "L’environnement ne présente pas d’anomalie visible",
+        "L’opérateur peut ouvrir le coffret pour comprendre la cause",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Une manœuvre d’exploitation suppose un organe identifié, une consigne claire et un contexte normal. L’ouverture pour diagnostic sort du cadre.",
+      timeLimit: 75,
+      imagePath: "/elearning/bsbe/bsbe-operations.svg",
+      imageAlt:
+        "Illustration de la logique BE Manœuvre : identifier, vérifier, manœuvrer et surveiller",
+    },
+    {
+      question:
+        "Dans quel cas un réarmement BE Manœuvre ne doit-il pas être tenté ?",
+      choices: [
+        "Présence d’une odeur de chaud ou d’un bruit anormal",
+        "Organe identifié et procédure claire",
+        "Environnement sain et conforme",
+        "Action explicitement prévue dans la consigne du site",
+      ],
+      answer: [0],
+      explanation:
+        "Une odeur anormale, un échauffement, un bruit suspect ou un déclenchement répété impose l’arrêt et le signalement.",
+      timeLimit: 40,
+      imagePath: "/elearning/bsbe/bsbe-urgence.svg",
+      imageAlt:
+        "Conduite à tenir en cas d’anomalie ou d’incident électrique",
+    },
+    {
+      question:
+        "Que faut-il faire après plusieurs déclenchements successifs du même organe ?",
+      choices: [
+        "Continuer à réarmer jusqu’au retour à la normale",
+        "Arrêter les tentatives et signaler l’anomalie",
+        "Ouvrir l’équipement pour chercher la cause",
+        "Neutraliser provisoirement la protection",
       ],
       answer: [1],
       explanation:
-        "Une manoeuvre suppose une verification minimale du contexte, pas un geste automatique.",
-      timeLimit: 45,
-      contextLabel:
-        "Avant toute manoeuvre, l'operateur doit confirmer qu'il agit sur le bon organe dans un tableau ou un coffret clairement identifie.",
-      imagePath: "/elearning/references/tableau-coffret-bt.jpg",
-      imageAlt:
-        "Photo d'un tableau et d'un coffret basse tension avec departs et protections identifiables",
+        "Le réarmement répété est un signal d’alerte. Il ne doit jamais devenir un dépannage improvisé.",
+      timeLimit: 40,
     },
     {
       question:
-        "Que signifie PNST dans un contexte de risque electrique ?",
+        "Parmi les actions suivantes, lesquelles sortent clairement du cadre BS / BE Manœuvre ?",
       choices: [
-        "Piece nue sous tension",
-        "Procedure normative de securite technique",
-        "Protection numerique de section terminale",
+        "Recherche de panne sur cause inconnue",
+        "Ouverture d’une enveloppe pour diagnostic",
+        "Modification d’un câblage",
+        "Manœuvre d’un organe identifié selon procédure",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "BS et BE Manœuvre ne couvrent ni le dépannage, ni la recherche de panne, ni la modification de câblage.",
+      timeLimit: 75,
+      imagePath: "/elearning/bsbe/bsbe-limites.svg",
+      imageAlt:
+        "Limites des habilitations BS et BE Manœuvre",
+    },
+    {
+      question:
+        "Que signifie PNST dans le contexte du risque électrique ?",
+      choices: [
+        "Pièce nue sous tension",
+        "Procédure normative de sécurité technique",
+        "Protection neutre sous tableau",
         "Point neutre sans tension",
       ],
       answer: [0],
       explanation:
-        "La PNST, ou piece nue sous tension, impose de comprendre le voisinage et de ne jamais banaliser la proximite du danger.",
+        "Une PNST est une pièce nue sous tension. Sa présence impose de prendre au sérieux le voisinage électrique.",
       timeLimit: 35,
-    },
-    {
-      question:
-        "Pourquoi le voisinage d'une piece nue sous tension doit-il etre pris au serieux ?",
-      choices: [
-        "Parce que le danger existe avant le contact direct et impose de respecter les limites d'approche",
-        "Parce qu'il autorise automatiquement l'intervention",
-        "Parce qu'il ne concerne que la tres haute tension",
-        "Parce qu'il n'a d'effet que pour les electriciens B2",
-      ],
-      answer: [0],
-      explanation:
-        "Le voisinage reste une situation a risque, notamment si l'environnement est degrade ou si les limites d'approche ne sont pas maitrisees.",
-      timeLimit: 45,
-      contextLabel:
-        "Le visuel de zones permet de relier la notion de PNST a une scene concrete de preparation et de distance d'approche.",
-      imagePath: "/elearning/references/zones-conducteur-nu-bt.jpg",
-      imageAlt:
-        "Representation des zones de voisinage autour d'un conducteur nu en basse tension",
-    },
-    {
-      question: "Quel signe impose l'arret immediat de l'action ?",
-      choices: [
-        "Une odeur anormale ou un echauffement",
-        "Un materiel mal identifie",
-        "Un capot manquant",
-        "Toutes ces reponses",
-      ],
-      answer: [3],
-      explanation:
-        "Toute anomalie visible ou tout doute sur l'identification impose de stopper l'action.",
-      timeLimit: 35,
-    },
-    {
-      question:
-        "Parmi ces situations, lesquelles relevent d'une preparation correcte avant action ?",
-      choices: [
-        "Identifier le bon circuit",
-        "Verifier l'etat de l'environnement et des protections",
-        "S'assurer que la procedure disponible est coherente avec le terrain",
-        "Supposer que tout est correct parce qu'aucune panne n'a eu lieu la veille",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "La preparation repose sur des verifications concretes et documentees, jamais sur des habitudes ou des suppositions.",
-      timeLimit: 70,
-    },
-    {
-      question:
-        "Le titulaire BS ou BE Manoeuvre peut-il faire un depannage hors procedure parce que l'action parait simple ?",
-      choices: [
-        "Oui, si le materiel est en basse tension",
-        "Oui, si le chef insiste",
-        "Non, une action hors procedure sort du cadre d'habilitation",
-        "Oui, si le poste est urgent",
-      ],
-      answer: [2],
-      explanation:
-        "Le cadre d'habilitation ne s'elargit ni par l'urgence ni par l'habitude.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Quel support aide le mieux a maintenir une operation dans le cadre autorise ?",
-      choices: [
-        "Une procedure ou une fiche reflexe d'entreprise a jour",
-        "Une consigne orale ancienne",
-        "Un souvenir d'une intervention similaire",
-        "L'habitude de l'operateur uniquement",
-      ],
-      answer: [0],
-      explanation:
-        "Le support ecrit, adapte et coherent reste le meilleur repere pour rester dans le cadre autorise.",
-      timeLimit: 40,
-      contextLabel:
-        "Une autorisation ou un document de chantier coherent aide a cadrer le geste et a eviter les glissements de mission.",
-      imagePath: "/elearning/references/document-chantier.jpg",
-      imageAlt:
-        "Exemple de document de chantier ou d'autorisation utilise pour cadrer une operation",
-    },
-    {
-      question: "Quelle affirmation sur les protections est correcte ?",
-      choices: [
-        "Un EPI rend licite une action interdite",
-        "Les protections se verifient avant l'operation et ne changent pas les limites d'autorisation",
-        "On peut agir si l'on est prudent meme sans protection prevue",
-        "Les protections ne servent qu'aux electriciens executants",
-      ],
-      answer: [1],
-      explanation:
-        "Les protections reduisent le risque, mais ne transforment jamais une operation interdite en operation autorisee.",
-      timeLimit: 45,
-    },
-    {
-      question:
-        "Quel enonce est juste a propos des EPI et EPC ?",
-      choices: [
-        "Les protections collectives sont prioritaires sur les protections individuelles",
-        "Les EPI remplacent la procedure de travail",
-        "Les EPC ne concernent pas la basse tension",
-        "Le choix depend uniquement de l'habitude de l'operateur",
-      ],
-      answer: [0],
-      explanation:
-        "La logique de prevention place les protections collectives avant les protections individuelles.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Que faut-il faire apres plusieurs declenchements consecutifs d'un meme organe ?",
-      choices: [
-        "Continuer a rearmer jusqu'au retour a la normale",
-        "Arreter les tentatives et signaler la situation",
-        "Ouvrir l'equipement pour inspecter",
-        "Contourner la protection pour maintenir le service",
-      ],
-      answer: [1],
-      explanation:
-        "Le rearmement repete est un signal d'alerte, pas une solution.",
-      timeLimit: 35,
-    },
-    {
-      question:
-        "Quel role joue la consignation dans la culture BS / BE Manoeuvre ?",
-      choices: [
-        "C'est une notion qu'il faut comprendre pour savoir comment un circuit est mis en securite, sans se croire pour autant charge de consignation",
-        "Elle est inutile en basse tension",
-        "Elle remplace toute verification de contexte",
-        "Elle autorise le depannage de tout materiel",
-      ],
-      answer: [0],
-      explanation:
-        "Le titulaire BS ou BE doit comprendre la logique de mise en securite et de consignation, sans sortir de son propre role.",
-      timeLimit: 45,
-      contextLabel:
-        "Le but n'est pas de devenir BC, mais de comprendre comment un circuit passe d'une coupure supposee a un etat electrique verifie.",
-      imagePath: "/elearning/references/consignation-vat.jpg",
-      imageAlt:
-        "Illustration de consignation et de verification d'absence de tension avant intervention",
-    },
-    {
-      question:
-        "Dans une operation BS ou BE Manoeuvre, l'identification du materiel concerne est :",
-      choices: [
-        "Optionnelle si l'operateur a l'habitude",
-        "Importante uniquement en presence du manager",
-        "Obligatoire avant toute action",
-        "Inutile si le materiel est accessible",
-      ],
-      answer: [2],
-      explanation:
-        "Une mauvaise identification peut conduire a agir sur le mauvais circuit ou le mauvais equipement.",
-      timeLimit: 35,
-    },
-    {
-      question:
-        "En cas d'electrisation d'une victime, le premier reflexe est :",
-      choices: [
-        "La toucher pour l'eloigner vite",
-        "Supprimer ou faire supprimer le danger sans se mettre en risque",
-        "Ouvrir immediatement le coffret",
-        "Reenclencher pour verifier la cause",
-      ],
-      answer: [1],
-      explanation:
-        "On ne touche jamais directement une victime tant que le danger electrique persiste.",
-      timeLimit: 45,
-    },
-    {
-      question:
-        "En cas de coffret fumant ou d'odeur de chaud lors d'une manoeuvre, le bon reflexe est :",
-      choices: [
-        "Ouvrir le coffret pour verifier visuellement",
-        "Stopper, se proteger et alerter",
-        "Rearmer une derniere fois pour tester",
-        "Retirer les capots pour laisser refroidir",
-      ],
-      answer: [1],
-      explanation:
-        "Une anomalie visible impose l'arret, la mise en securite et l'alerte, jamais l'ouverture ou le rearmement improvise.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Parmi ces propositions, lesquelles doivent faire partie de la preparation avant une operation ?",
-      choices: [
-        "Verifier l'environnement de travail",
-        "Identifier clairement le materiel",
-        "Controler l'etat apparent des protections et outils",
-        "Supposer que tout est conforme si aucune panne n'a eu lieu la veille",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "La preparation repose sur des verifications concretes, pas sur une supposition.",
-      timeLimit: 70,
-    },
-    {
-      question:
-        "Le bon raisonnement professionnel en BS / BE Manoeuvre est :",
-      choices: [
-        "Agir vite puis prevenir apres",
-        "Identifier, verifier, agir si autorise, sinon stopper et signaler",
-        "Toujours tenter une premiere action pour voir",
-        "Se fier uniquement a son experience personnelle",
-      ],
-      answer: [1],
-      explanation:
-        "La securite repose sur une decision correcte avant le geste, pas sur l'improvisation.",
-      timeLimit: 45,
-    },
-    {
-      question:
-        "Parmi ces elements, lesquels doivent conduire a suspendre une manoeuvre en attendant clarification ?",
-      choices: [
-        "Un reperage incoherent entre la procedure et le tableau",
-        "Une consigne de rearmement non documentee",
-        "Un organe identifie et conforme a la procedure",
-        "Une anomalie deja signalee mais non analysee",
-      ],
-      answer: [0, 1, 3],
-      multiple: true,
-      explanation:
-        "Doute sur le repere, absence de consigne fiable ou anomalie non traitee imposent l'arret avant toute manoeuvre.",
-      timeLimit: 70,
-    },
-    {
-      question:
-        "Lequel de ces exemples sort clairement du cadre BS ?",
-      choices: [
-        "Un remplacement simple prevu dans une procedure",
-        "Un raccordement elementaire sur un materiel identifie",
-        "Une recherche de panne sur un circuit non documente",
-        "Une verification visuelle prealable de l'environnement",
-      ],
-      answer: [2],
-      explanation:
-        "La recherche de panne sort du cadre de l'intervention elementaire BS et doit etre prise en charge autrement.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Pourquoi la tracabilite d'un ecart ou d'un refus d'intervention est-elle utile ?",
-      choices: [
-        "Parce qu'elle permet d'eviter qu'une meme situation dangereuse se reproduise sans analyse",
-        "Parce qu'elle remplace la formation",
-        "Parce qu'elle autorise ensuite l'operateur a depanner seul",
-        "Parce qu'elle n'a d'utilite que si l'incident a deja provoque un accident",
-      ],
-      answer: [0],
-      explanation:
-        "Tracer un ecart ou un refus permet a l'organisation de corriger la cause et d'eviter sa repetition.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Quel est le meilleur raisonnement si une action commence comme un remplacement simple puis devient une recherche de panne ?",
-      choices: [
-        "Continuer tant que l'on reste en basse tension",
-        "Requalifier la situation et sortir du cadre BS / BE si necessaire",
-        "Demander a un collegue de regarder pendant que l'on poursuit",
-        "Enlever les capots pour gagner du temps",
-      ],
-      answer: [1],
-      explanation:
-        "La competence BS / BE inclut la capacite a reconnaitre qu'une operation simple a bascule hors de son cadre et doit etre reprise autrement.",
-      timeLimit: 45,
-    },
-    {
-      question:
-        "Quelles operations peuvent relever du BS lorsqu'elles sont identifiees, hors tension et prevues par procedure ?",
-      choices: [
-        "Remplacement a l'identique d'un appareillage simple",
-        "Raccordement d'un materiel a un circuit en attente",
-        "Modification d'une armoire pour adapter le cablage",
-        "Remplacement simple d'un accessoire d'eclairage",
-      ],
-      answer: [0, 1, 3],
-      multiple: true,
-      explanation:
-        "Le BS reste limite a des operations elementaires, identifiees et formalisees. Toute modification de structure ou adaptation de cablage sort du cadre.",
-      timeLimit: 75,
-    },
-    {
-      question:
-        "Dans quel cas un rearmement de type BE Manoeuvre ne doit-il pas etre tente ?",
-      choices: [
-        "Si une odeur anormale, un echauffement ou un contexte non conforme est constate",
-        "Si l'organe est identifie et la procedure claire",
-        "Si l'environnement est sain et conforme au cadre prevu",
-        "Si l'action est prevue dans une instruction de securite de site",
-      ],
-      answer: [0],
-      explanation:
-        "La manoeuvre d'exploitation ne doit jamais etre poursuivie dans un contexte anormal ou degrade.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "Que signifie concretement la limite couramment associee au BS sur materiel simple en courant alternatif ?",
-      choices: [
-        "Un repere pedagogique autour de 400 V et 32 A, sans dispenser de verifier le materiel reel et la procedure",
-        "Une autorisation generale sur tout tableau basse tension",
-        "Un droit automatique d'intervenir en voisinage",
-        "Une possibilite de depanner si le circuit semble simple",
-      ],
-      answer: [0],
-      explanation:
-        "Le repere 400 V / 32 A aide a cadrer les operations elementaires, mais ne remplace ni l'analyse du materiel ni la procedure locale.",
-      timeLimit: 45,
-    },
-    {
-      question:
-        "Quelles situations imposent de sortir du cadre BS / BE Manoeuvre ?",
-      choices: [
-        "Recherche de panne sur cause inconnue",
-        "Besoin d'ouvrir l'enveloppe pour comprendre",
-        "Schema ou reperage non fiables",
-        "Operation simple clairement documentee",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "Une operation non identifiee, exploratoire ou imposee par un cadre documentaire incoherent doit etre requalifiee avant toute action.",
-      timeLimit: 75,
-    },
-    {
-      question:
-        "Pourquoi les indices de protection de type IP2X ou IPXXB sont-ils utiles dans la culture BS / BE Manoeuvre ?",
-      choices: [
-        "Parce qu'ils aident a comprendre si l'acces aux parties dangereuses est correctement protege",
-        "Parce qu'ils remplacent l'habilitation",
-        "Parce qu'ils autorisent automatiquement toute manoeuvre",
-        "Parce qu'ils concernent uniquement les installations haute tension",
-      ],
-      answer: [0],
-      explanation:
-        "Ces indices aident a apprecier si le materiel protege reellement l'operateur contre l'acces involontaire aux parties dangereuses.",
-      timeLimit: 40,
-      contextLabel:
-        "Un coffret qui semble banal peut sortir du cadre securise si l'enveloppe ou le capotage n'assure plus la protection attendue.",
       imagePath: "/elearning/bsbe/bsbe-risque.svg",
       imageAlt:
-        "Illustration des protections contre les chocs electriques et du voisinage d'une piece nue sous tension",
+        "Illustration des risques liés aux pièces nues sous tension et au voisinage",
     },
     {
       question:
-        "Quels controles font partie d'une preparation serieuse avant operation BS ou BE Manoeuvre ?",
+        "Pourquoi le voisinage d’une pièce nue sous tension est-il dangereux ?",
       choices: [
-        "Identifier le bon organe ou le bon circuit",
-        "Verifier l'etat apparent du materiel et de l'environnement",
-        "S'assurer que la procedure est a jour et applicable",
-        "Supposer que le terrain est identique a la derniere intervention",
+        "Le danger peut exister avant le contact direct",
+        "Un geste, un outil ou un déplacement peut réduire la distance de sécurité",
+        "Le voisinage autorise automatiquement une intervention",
+        "Le voisinage ne concerne jamais la basse tension",
+      ],
+      answer: [0, 1],
+      multiple: true,
+      explanation:
+        "Le voisinage expose au risque avant même le contact direct. Il impose le respect strict des limites d’approche et des protections.",
+      timeLimit: 70,
+      imagePath: "/elearning/bsbe/bsbe-risque.svg",
+      imageAlt:
+        "Zones de risque et voisinage autour d’une pièce nue sous tension",
+    },
+    {
+      question:
+        "Le contact direct correspond au fait de :",
+      choices: [
+        "Toucher une partie active normalement sous tension",
+        "Toucher une masse métallique devenue dangereuse après défaut",
+        "Lire une étiquette sur un tableau fermé",
+        "Être dans un local technique sans anomalie visible",
+      ],
+      answer: [0],
+      explanation:
+        "Le contact direct concerne une partie active normalement sous tension.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Le contact indirect correspond au fait de :",
+      choices: [
+        "Toucher un conducteur nu",
+        "Toucher une masse métallique devenue dangereuse après défaut d’isolement",
+        "Observer un coffret fermé",
+        "Manœuvrer un organe clairement repéré",
+      ],
+      answer: [1],
+      explanation:
+        "Le contact indirect concerne une masse normalement non dangereuse, devenue accidentellement sous tension.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quels facteurs aggravent les effets du courant sur le corps humain ?",
+      choices: [
+        "L’intensité du courant",
+        "La durée de passage",
+        "Le trajet dans le corps",
+        "L’humidité ou la peau mouillée",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "L’intensité, la durée, le trajet et l’état du milieu influencent fortement la gravité d’une électrisation.",
+      timeLimit: 80,
+      imagePath: "/elearning/bsbe/bsbe-effets.svg",
+      imageAlt:
+        "Effets du courant électrique sur le corps humain",
+    },
+    {
+      question:
+        "Autour de quel ordre de grandeur le lâcher peut-il devenir difficile en courant traversant le corps ?",
+      choices: [
+        "Autour de quelques microampères",
+        "Autour de 10 mA",
+        "Autour de 10 A",
+        "Uniquement au-delà de 1 000 V",
+      ],
+      answer: [1],
+      explanation:
+        "Autour de 10 mA, des contractions musculaires peuvent rendre le lâcher difficile. Ce repère sert à comprendre le danger, pas à chercher une limite acceptable.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-effets.svg",
+      imageAlt:
+        "Effets du courant selon l’intensité et la durée d’exposition",
+    },
+    {
+      question:
+        "Pourquoi l’humidité augmente-t-elle le risque électrique ?",
+      choices: [
+        "Elle peut diminuer la résistance du corps",
+        "Elle favorise le passage du courant",
+        "Elle rend le risque nul",
+        "Elle remplace les protections collectives",
+      ],
+      answer: [0, 1],
+      multiple: true,
+      explanation:
+        "Une peau humide, un sol conducteur ou un environnement mouillé facilitent le passage du courant.",
+      timeLimit: 60,
+    },
+    {
+      question:
+        "Que permettent de comprendre les indices IP2X ou IPXXB ?",
+      choices: [
+        "Le niveau de protection contre l’accès aux parties dangereuses",
+        "La durée de validité de l’habilitation",
+        "L’autorisation automatique de dépanner",
+        "La puissance exacte du circuit",
+      ],
+      answer: [0],
+      explanation:
+        "IP2X ou IPXXB aident à apprécier si l’enveloppe protège réellement contre l’accès involontaire aux parties dangereuses.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-risque.svg",
+      imageAlt:
+        "Protection par enveloppe, capotage et indices de protection",
+    },
+    {
+      question:
+        "Quel comportement est adapté devant un coffret fissuré, un capotage absent ou une enveloppe dégradée ?",
+      choices: [
+        "Suspendre l’action et faire analyser la situation",
+        "Continuer avec prudence si c’est de la basse tension",
+        "Retirer le capot restant pour mieux voir",
+        "Compter uniquement sur les EPI",
+      ],
+      answer: [0],
+      explanation:
+        "Une enveloppe dégradée change le niveau de risque. L’action doit être suspendue.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quelle affirmation est correcte concernant les EPI et les EPC ?",
+      choices: [
+        "Les protections collectives sont prioritaires",
+        "Les EPI rendent licite une opération interdite",
+        "Les EPC ne concernent pas la basse tension",
+        "Les EPI remplacent la procédure",
+      ],
+      answer: [0],
+      explanation:
+        "La prévention privilégie les protections collectives. Les EPI viennent en complément et n’élargissent jamais le domaine d’autorisation.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Parmi les éléments suivants, lesquels relèvent plutôt d’une protection collective ?",
+      choices: [
+        "Capotage",
+        "Balisage",
+        "Écran ou obstacle",
+        "Gants isolants",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "La preparation doit reposer sur des controles concrets et actualises, pas sur une hypothese de similarite avec une intervention precedente.",
-      timeLimit: 75,
+        "Capotage, balisage, écrans et obstacles sont des protections collectives. Les gants relèvent des EPI.",
+      timeLimit: 70,
     },
     {
       question:
-        "Quel comportement traduit le mieux une bonne culture documentaire en BS / BE Manoeuvre ?",
+        "Quel support aide le mieux à maintenir une opération BS / BE dans son cadre autorisé ?",
       choices: [
-        "S'appuyer sur une fiche reflexe ou une procedure coherente avec le terrain",
-        "Remplacer la procedure ecrite par un souvenir d'intervention",
-        "Agir d'abord puis demander la documentation ensuite",
-        "Considerer que l'ecrit n'est utile qu'en cas d'accident",
+        "Une procédure ou fiche réflexe à jour",
+        "Une consigne orale ancienne",
+        "Un souvenir d’intervention similaire",
+        "L’habitude de l’opérateur uniquement",
       ],
       answer: [0],
       explanation:
-        "Le support documentaire a jour aide a tenir l'operation dans son vrai cadre d'autorisation et a eviter l'improvisation.",
+        "Un support écrit, cohérent avec le terrain, limite les erreurs de repérage et les glissements de mission.",
       timeLimit: 40,
-    },
-    {
-      question:
-        "En cas de divergence entre le reperage local et la procedure disponible, le bon reflexe est :",
-      choices: [
-        "Suspendre l'action et faire confirmer le bon materiel",
-        "Choisir l'organe qui parait le plus logique",
-        "Demander a un collegue de surveiller et agir quand meme",
-        "Rearmer puis observer le resultat",
-      ],
-      answer: [0],
-      explanation:
-        "Une incoherence de reperage est un signal d'arret. Le materiel doit etre confirme avant toute action.",
-      timeLimit: 40,
-      contextLabel:
-        "Un tableau ou un coffret mal repere peut faire agir sur le mauvais depart. Le doute impose la confirmation documentaire et terrain.",
-      imagePath: "/elearning/references/tableau-coffret-bt.jpg",
-      imageAlt:
-        "Photo d'un tableau electrique basse tension utilise pour le reperage des departs et protections",
-    },
-    {
-      question:
-        "Parmi ces enonces, lequel correspond le mieux a un quiz BS / BE vraiment exigeant ?",
-      choices: [
-        "Verifier la capacite a distinguer ce qui est autorise de ce qui doit etre refuse",
-        "Tester uniquement la memoire des sigles",
-        "Ne poser que des questions de definition sans contexte",
-        "Ignorer les situations de terrain et les ecarts possibles",
-      ],
-      answer: [0],
-      explanation:
-        "Un quiz serieux doit verifier la capacite a prendre la bonne decision face a des situations de terrain, pas seulement a reciter des definitions.",
-      timeLimit: 40,
-    },
-    {
-      question:
-        "En observant le schema de cadrage BS / BE, quel message doit etre retenu ?",
-      choices: [
-        "Une operation simple reste strictement bornee par la procedure, le materiel et le contexte",
-        "Le BS / BE donne un droit general d'ouverture de coffrets",
-        "Le BE Manoeuvre autorise la recherche de panne si l'organe est proche",
-        "Le respect du cadre est secondaire si l'operateur est experimente",
-      ],
-      answer: [0],
-      explanation:
-        "Le cadre BS / BE repose sur une action connue, preparee, identifiee et stoppee au moindre ecart.",
-      timeLimit: 45,
-      contextLabel:
-        "Le schema rappelle que l'habilitation ne vaut pas permission generale d'agir sur n'importe quel materiel basse tension.",
-      imagePath: "/elearning/bsbe/bsbe-cadre.svg",
-      imageAlt:
-        "Illustration du cadre BS BE Manoeuvre avec chaine formation, validation et habilitation employeur",
-    },
-    {
-      question:
-        "Dans une logique BS, quel enonce est juste a propos de la verification d'absence de tension ?",
-      choices: [
-        "C'est une notion de securite a comprendre avant toute operation hors tension, meme si le titulaire BS n'est pas charge de consignation generale",
-        "Elle est inutile si le materiel parait simple",
-        "Elle peut etre remplacee par un regard dans le coffret",
-        "Elle autorise ensuite toute adaptation de cablage",
-      ],
-      answer: [0],
-      explanation:
-        "Le BS doit comprendre que toute operation hors tension serieuse repose sur une vraie logique de mise en securite et de verification, sans sortir de son propre role.",
-      timeLimit: 45,
-      contextLabel:
-        "Le fait de ne pas etre charge de consignation ne dispense pas de comprendre ce qui rend reellement un circuit indisponible et sur.",
       imagePath: "/elearning/bsbe/bsbe-vat.svg",
       imageAlt:
-        "Illustration de verification d'absence de tension avant operation elementaire en basse tension",
+        "Documents, repérage et mise en sécurité avant opération BS ou BE Manœuvre",
     },
     {
       question:
-        "A partir du visuel d'operation simple, quelles verifications doivent preceder l'action ?",
+        "En cas de divergence entre la procédure et le repérage visible sur le tableau, que faut-il faire ?",
       choices: [
-        "Identifier le bon organe ou le bon circuit",
-        "Verifier l'etat apparent du materiel et des protections",
-        "Confirmer que la procedure applicable correspond bien au terrain",
-        "Agir d'abord puis corriger si le contexte semble different",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "Une operation simple n'est admissible que si le materiel, l'environnement et la procedure restent coherents du debut a la fin.",
-      timeLimit: 75,
-      contextLabel:
-        "Le risque BS / BE vient souvent moins de la difficulte du geste que d'une mauvaise lecture du contexte ou du materiel.",
-      imagePath: "/elearning/bsbe/bsbe-operations.svg",
-      imageAlt:
-        "Illustration d'une operation simple BS BE Manoeuvre avec points de controle avant action",
-    },
-    {
-      question:
-        "Quel comportement est adapte en presence d'un capotage deforme, d'un IP douteux ou d'une protection manquante ?",
-      choices: [
-        "Suspendre l'action et faire analyser la situation avant toute manoeuvre ou intervention",
-        "Continuer avec prudence si le circuit est en basse tension",
-        "Retirer le reste du capot pour mieux voir",
-        "Compter sur les EPI pour compenser le defaut de protection collective",
+        "Suspendre l’action et faire confirmer le bon matériel",
+        "Choisir l’organe qui paraît le plus logique",
+        "Agir puis vérifier après",
+        "Réarmer pour observer le résultat",
       ],
       answer: [0],
       explanation:
-        "Une enveloppe ou une protection degradee change le cadre de securite et peut faire sortir l'operation du domaine admissible.",
+        "Une incohérence de repérage est un signal d’arrêt. L’identification doit être confirmée avant toute action.",
       timeLimit: 45,
     },
     {
       question:
-        "En cas de declenchement repete, de fumee ou d'odeur anormale, quelle logique professionnelle doit primer ?",
+        "Dans une logique BS, la vérification d’absence de tension doit être comprise comme :",
       choices: [
-        "Stopper les tentatives, se proteger et alerter",
-        "Rearmer une derniere fois pour verifier",
-        "Ouvrir le materiel si l'on porte des EPI",
-        "Contourner provisoirement la protection pour maintenir le service",
+        "Une étape de sécurité indispensable lorsqu’une opération hors tension est prévue",
+        "Une formalité inutile si le disjoncteur est baissé",
+        "Un simple regard dans le coffret",
+        "Une autorisation de modifier le câblage",
       ],
       answer: [0],
       explanation:
-        "Un declenchement repete ou une anomalie visible sont des signaux d'arret. La manoeuvre ne doit pas devenir un depannage improvise.",
+        "Le BS doit comprendre la logique de mise hors tension et de vérification, même s’il n’est pas chargé de consignation générale.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-vat.svg",
+      imageAlt:
+        "Vérification d’absence de tension et mise en sécurité",
+    },
+    {
+      question:
+        "Le titulaire BS ou BE Manœuvre est-il chargé de consignation BC ?",
+      choices: [
+        "Oui, automatiquement",
+        "Oui, s’il a de l’expérience",
+        "Non, sauf habilitation et désignation adaptée",
+        "Oui, en basse tension uniquement",
+      ],
+      answer: [2],
+      explanation:
+        "BS et BE Manœuvre ne valent pas BC. La consignation générale relève d’un rôle spécifique.",
       timeLimit: 40,
-      contextLabel:
-        "Le geste le plus professionnel n'est pas toujours celui qui remet le service tout de suite, mais celui qui evite l'aggravation du risque.",
+    },
+    {
+      question:
+        "En cas d’électrisation d’une victime, quel est le premier objectif ?",
+      choices: [
+        "Toucher immédiatement la victime pour l’éloigner",
+        "Supprimer ou faire supprimer le danger sans se mettre en risque",
+        "Ouvrir le coffret pour comprendre",
+        "Réarmer pour identifier la cause",
+      ],
+      answer: [1],
+      explanation:
+        "On ne touche jamais directement une victime tant que le danger électrique persiste. La priorité est d’éviter le suraccident.",
+      timeLimit: 45,
       imagePath: "/elearning/bsbe/bsbe-urgence.svg",
       imageAlt:
-        "Illustration de conduite a tenir en cas d'urgence ou d'anomalie pendant une operation BS BE Manoeuvre",
+        "Conduite à tenir en cas d’électrisation",
+    },
+    {
+      question:
+        "En cas de fumée ou d’odeur de chaud dans un coffret pendant une manœuvre, le bon réflexe est :",
+      choices: [
+        "Ouvrir le coffret pour voir",
+        "Stopper, se protéger et alerter",
+        "Réarmer une dernière fois",
+        "Retirer le capot pour ventiler",
+      ],
+      answer: [1],
+      explanation:
+        "Une anomalie électrique impose l’arrêt, la mise à distance et l’alerte. Le geste ne doit pas devenir un dépannage.",
+      timeLimit: 40,
+      imagePath: "/elearning/bsbe/bsbe-urgence.svg",
+      imageAlt:
+        "Réaction attendue en cas d’incident électrique",
+    },
+    {
+      question:
+        "Quelles situations imposent de suspendre l’opération avant toute poursuite ?",
+      choices: [
+        "Matériel non identifié",
+        "Procédure absente ou incohérente",
+        "Voisinage non maîtrisé",
+        "Organe identifié, procédure claire et contexte sain",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Un doute sur le matériel, la procédure ou le voisinage impose l’arrêt et la clarification.",
+      timeLimit: 75,
+      imagePath: "/elearning/bsbe/bsbe-limites.svg",
+      imageAlt:
+        "Signaux de sortie du cadre BS et BE Manœuvre",
+    },
+    {
+      question:
+        "Quel est le meilleur raisonnement professionnel en BS / BE Manœuvre ?",
+      choices: [
+        "Agir vite puis prévenir après",
+        "Identifier, vérifier, agir si autorisé, sinon stopper et signaler",
+        "Toujours tenter une première action pour voir",
+        "Se fier uniquement à son expérience",
+      ],
+      answer: [1],
+      explanation:
+        "Le bon réflexe est de décider correctement avant le geste : identifier, vérifier, agir si le cadre est respecté, sinon s’arrêter.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-cadre.svg",
+      imageAlt:
+        "Synthèse du cadre de décision BS et BE Manœuvre",
+    },
+    {
+      question:
+        "Pourquoi un quiz BS / BE doit-il proposer des cas de terrain et pas seulement des définitions ?",
+      choices: [
+        "Pour vérifier la capacité à distinguer ce qui est autorisé de ce qui doit être refusé",
+        "Pour remplacer l’évaluation pratique de l’employeur",
+        "Pour autoriser automatiquement l’habilitation",
+        "Pour éviter de parler des limites du symbole",
+      ],
+      answer: [0],
+      explanation:
+        "Un quiz sérieux doit vérifier la capacité à prendre la bonne décision face à des situations concrètes, tout en rappelant que l’employeur reste seul décisionnaire de l’habilitation.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "À la fin du parcours BS / BE Manœuvre, quels réflexes doivent rester prioritaires ?",
+      choices: [
+        "Identifier",
+        "Vérifier",
+        "Agir uniquement si autorisé",
+        "Stopper et transmettre en cas de doute",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "Ces quatre réflexes résument la logique opérationnelle du parcours BS / BE Manœuvre.",
+      timeLimit: 75,
+      imagePath: "/elearning/bsbe/bsbe-cadre.svg",
+      imageAlt:
+        "Réflexes opérationnels BS et BE Manœuvre",
     },
   ],
   h0b0: [

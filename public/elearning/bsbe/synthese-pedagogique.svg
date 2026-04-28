@@ -1,0 +1,71 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="32" fill="#FFF7ED"/>
+
+  <rect x="55" y="50" width="1090" height="575" rx="28" fill="#FFFFFF" stroke="#FDBA74" stroke-width="2"/>
+
+  <foreignObject x="110" y="90" width="980" height="85">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Arial, sans-serif; text-align: center;">
+      <div style="font-size: 38px; font-weight: 800; color: #9A3412; line-height: 1.15;">
+        Synthèse pédagogique BS / BE Manœuvre
+      </div>
+      <div style="margin-top: 12px; font-size: 21px; font-weight: 500; color: #7C2D12; line-height: 1.35;">
+        Consolider la méthode, reconnaître ses limites et adopter la bonne décision.
+      </div>
+    </div>
+  </foreignObject>
+
+  <rect x="105" y="220" width="445" height="125" rx="24" fill="#FFF1E6" stroke="#F59E0B" stroke-width="2"/>
+  <foreignObject x="130" y="242" width="395" height="85">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height: 85px; font-family: Arial, sans-serif; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 25px; font-weight: 800; color: #9A3412; line-height: 1.2;">
+        Identifier avant d’agir
+      </div>
+      <div style="margin-top: 10px; font-size: 18px; color: #7C2D12; line-height: 1.35;">
+        Repérer correctement le matériel, l’organe et la situation.
+      </div>
+    </div>
+  </foreignObject>
+
+  <rect x="650" y="220" width="445" height="125" rx="24" fill="#ECFDF5" stroke="#22C55E" stroke-width="2"/>
+  <foreignObject x="675" y="242" width="395" height="85">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height: 85px; font-family: Arial, sans-serif; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 25px; font-weight: 800; color: #166534; line-height: 1.2;">
+        Vérifier le cadre réel
+      </div>
+      <div style="margin-top: 10px; font-size: 18px; color: #14532D; line-height: 1.35;">
+        Contrôler la procédure, le repérage et l’environnement.
+      </div>
+    </div>
+  </foreignObject>
+
+  <rect x="105" y="385" width="445" height="125" rx="24" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2"/>
+  <foreignObject x="130" y="407" width="395" height="85">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height: 85px; font-family: Arial, sans-serif; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 25px; font-weight: 800; color: #1D4ED8; line-height: 1.2;">
+        Refuser l’improvisation
+      </div>
+      <div style="margin-top: 10px; font-size: 18px; color: #1E3A8A; line-height: 1.35;">
+        Ne pas sortir du cadre BS / BE Manœuvre.
+      </div>
+    </div>
+  </foreignObject>
+
+  <rect x="650" y="385" width="445" height="125" rx="24" fill="#FEF2F2" stroke="#F87171" stroke-width="2"/>
+  <foreignObject x="675" y="407" width="395" height="85">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height: 85px; font-family: Arial, sans-serif; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+      <div style="font-size: 25px; font-weight: 800; color: #B91C1C; line-height: 1.2;">
+        Transmettre en cas de doute
+      </div>
+      <div style="margin-top: 10px; font-size: 18px; color: #991B1B; line-height: 1.35;">
+        Suspendre l’action et alerter la bonne personne.
+      </div>
+    </div>
+  </foreignObject>
+
+  <rect x="115" y="545" width="970" height="58" rx="18" fill="#111827"/>
+  <foreignObject x="150" y="557" width="900" height="38">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="height: 38px; font-family: Arial, sans-serif; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 700; color: white; line-height: 1.25;">
+      Le bon réflexe : identifier, vérifier, agir seulement si le cadre est clair, puis s’arrêter en cas de doute.
+    </div>
+  </foreignObject>
+</svg>

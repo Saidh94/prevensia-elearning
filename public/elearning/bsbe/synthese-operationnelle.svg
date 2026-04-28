@@ -1,0 +1,119 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="32" fill="#EAF7EF"/>
+
+  <rect x="40" y="40" width="1120" height="640" rx="28" fill="#FFFFFF" stroke="#86E0A6" stroke-width="3"/>
+
+  <text x="600" y="110" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="34" font-weight="700" fill="#116149">
+    Synthèse opérationnelle BS / BE Manoeuvre
+  </text>
+
+  <text x="600" y="155" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="500" fill="#116149">
+    Les réflexes concrets à retenir avant l’évaluation finale.
+  </text>
+
+  <!-- Bloc 1 -->
+  <rect x="70" y="240" width="250" height="150" rx="22" fill="#EAF7EF" stroke="#22C55E" stroke-width="3"/>
+  <text x="195" y="290" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24" font-weight="700" fill="#116149">
+    1. Identifier
+  </text>
+  <text x="195" y="325" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#116149">
+    Le bon matériel et le bon
+  </text>
+  <text x="195" y="348" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#116149">
+    organe.
+  </text>
+
+  <!-- Flèche 1 -->
+  <line x1="325" y1="315" x2="380" y2="315" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="362,300 382,315 362,330" fill="none" stroke="#64748B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bloc 2 -->
+  <rect x="395" y="240" width="250" height="150" rx="22" fill="#EFF6FF" stroke="#60A5FA" stroke-width="3"/>
+  <text x="520" y="290" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24" font-weight="700" fill="#1D4ED8">
+    2. Vérifier
+  </text>
+  <text x="520" y="325" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#1D4ED8">
+    La procédure, le
+  </text>
+  <text x="520" y="348" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#1D4ED8">
+    repérage et le contexte.
+  </text>
+
+  <!-- Flèche 2 -->
+  <line x1="650" y1="315" x2="705" y2="315" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="687,300 707,315 687,330" fill="none" stroke="#64748B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bloc 3 -->
+  <rect x="720" y="240" width="250" height="150" rx="22" fill="#FFF7ED" stroke="#F59E0B" stroke-width="3"/>
+  <text x="845" y="290" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="24" font-weight="700" fill="#B45309">
+    3. Agir
+  </text>
+  <text x="845" y="325" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#B45309">
+    Seulement si l’action est
+  </text>
+  <text x="845" y="348" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#B45309">
+    autorisée et maîtrisée.
+  </text>
+
+  <!-- Flèche 3 -->
+  <line x1="975" y1="315" x2="1020" y2="315" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  <polyline points="1002,300 1022,315 1002,330" fill="none" stroke="#64748B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Bloc 4 -->
+  <rect x="1035" y="240" width="125" height="150" rx="22" fill="#FEF2F2" stroke="#F87171" stroke-width="3"/>
+  <text x="1097.5" y="285" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20" font-weight="700" fill="#B91C1C">
+    4. Stopper
+  </text>
+  <text x="1097.5" y="320" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" fill="#B91C1C">
+    Si doute,
+  </text>
+  <text x="1097.5" y="342" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" fill="#B91C1C">
+    anomalie ou
+  </text>
+  <text x="1097.5" y="364" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" fill="#B91C1C">
+    dérive.
+  </text>
+
+  <!-- Bandeau bas -->
+  <rect x="120" y="485" width="960" height="100" rx="24" fill="#0B1736"/>
+  <text x="600" y="530" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22" font-weight="700" fill="#FFFFFF">
+    À retenir pour BS / BE Manoeuvre
+  </text>
+  <text x="600" y="565" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16" fill="#FFFFFF">
+    Pas de dépannage libre, pas d’improvisation, pas d’action hors procédure.
+  </text>
+</svg>
