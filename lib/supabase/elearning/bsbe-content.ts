@@ -329,7 +329,7 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.zonesDistances],
       practicalCase:
         "Exemple : un opérateur doit agir dans un local technique, mais un bornier est visible car un capot manque. La situation sort du cadre normal : l’action est suspendue.",
-      chapterImagePath: "/elearning/h0b0/risque-electrique.png",
+      chapterImagePath: "/elearning/bsbe/bsbe-risque.svg",
       chapterImageAlt:
         "Risque électrique, contact direct, contact indirect, PNST et protections",
       visual: {
@@ -343,7 +343,7 @@ export const bsbeModuleContent: ModuleContent = {
           "PNST et voisinage",
         ],
         tone: "amber",
-        imagePath: "/elearning/h0b0/risque-electrique.png",
+        imagePath: "/elearning/bsbe/bsbe-risque.svg",
         imageAlt:
           "Risque électrique, contact direct, contact indirect, PNST et protections",
       },
@@ -382,7 +382,7 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un organe porte une étiquette ancienne et le schéma local est partiellement modifié. L’opérateur n’agit pas tant que le repère n’est pas confirmé.",
-      chapterImagePath: "/elearning/h0b0/armoire-electrique.png",
+      chapterImagePath: "/images/modules/electricite/tableau-coffret-bt.jpg",
       chapterImageAlt:
         "Armoire électrique basse tension avec organes de commande et de protection",
       visual: {
@@ -396,7 +396,7 @@ export const bsbeModuleContent: ModuleContent = {
           "Bon circuit",
         ],
         tone: "slate",
-        imagePath: "/elearning/h0b0/armoire-electrique.png",
+        imagePath: "/images/modules/electricite/tableau-coffret-bt.jpg",
         imageAlt:
           "Armoire électrique basse tension avec organes de commande et de protection",
       },
@@ -501,7 +501,7 @@ export const bsbeModuleContent: ModuleContent = {
         items: [
           "Lampe / fusible / appareillage simple",
           "Raccordement élémentaire",
-          "Circuit identifié",
+          "Circuit repéré",
           "Stop si le geste se complique",
         ],
         tone: "green",
@@ -521,14 +521,14 @@ export const bsbeModuleContent: ModuleContent = {
       content: [
         "Le titulaire BS comprend la logique de consignation, mais il n’est pas chargé de consignation BC. Il ne doit donc pas s’approprier un rôle qui ne lui appartient pas.",
         "Dans le cadre d’une intervention élémentaire prévue, il peut réaliser la mise hors tension nécessaire à son intervention pour son propre compte, lorsque la procédure, le matériel et l’organisation de l’entreprise le permettent.",
-        "La séquence attendue repose sur une logique simple : identifier le circuit, séparer l’alimentation par l’organe prévu, empêcher une remise sous tension intempestive selon les consignes, vérifier l’absence de tension avec un dispositif adapté, réaliser l’opération élémentaire, remettre en état et rendre compte.",
+        "La séquence attendue repose sur une logique simple et rigoureuse : identifier le bon circuit, séparer l’alimentation par l’organe prévu, empêcher toute remise sous tension intempestive selon les consignes du site, confirmer le repérage, vérifier l’absence de tension avec un dispositif adapté, réaliser l’opération élémentaire prévue, remettre en état puis rendre compte.",
         "La vérification d’absence de tension doit être comprise comme un point de sécurité majeur. Elle ne se remplace pas par une impression, par l’extinction d’un voyant ou par une simple habitude.",
         "Les documents ont une vraie valeur opérationnelle : procédure de remplacement, instruction de réarmement, schéma simplifié, repérage local, fiche réflexe, consigne de site, compte rendu et signalement d’anomalie.",
         "Si la procédure ne correspond plus au terrain, si le repère est douteux, si l’organe n’est pas clairement identifié ou si une source autonome peut maintenir l’alimentation, l’intervention doit être suspendue.",
       ],
       deepDive: [
         "Cette partie est importante car elle évite deux erreurs : former trop peu, en oubliant la logique de mise hors tension, ou former trop largement, en laissant croire que le BS devient BC.",
-        "Le bon positionnement pédagogique est donc : comprendre, appliquer la procédure prévue, ne pas dépasser son cadre, transmettre dès qu’une condition manque.",
+        "Le bon positionnement pédagogique est donc : comprendre la logique de mise en sécurité, appliquer la procédure prévue sans se substituer au BC, ne pas dépasser son cadre et transmettre dès qu’une condition manque.",
       ],
       keyPoints: [
         "Le BS n’est pas chargé de consignation BC.",
@@ -550,21 +550,21 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.consignation],
       practicalCase:
         "Exemple : la procédure de remplacement d’un accessoire indique un départ clairement repéré. Sur place, le repérage ne correspond plus au tableau. L’opérateur suspend l’intervention et demande une clarification avant toute action.",
-      chapterImagePath: "/elearning/bsbe/bsbe-vat.svg",
+      chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
       chapterImageAlt:
         "Mise hors tension pour son propre compte, VAT et documents en BS",
       visual: {
-        title: "La sécurité est aussi documentaire",
+        title: "Sécuriser puis tracer l’intervention",
         subtitle:
-          "Identifier, mettre hors tension, vérifier, agir, rendre compte.",
+          "Identifier, mettre hors tension, vérifier, agir puis rendre compte.",
         items: [
           "Circuit identifié",
-          "Mise hors tension",
-          "VAT adaptée",
+          "Séparation / prévention",
+          "VAT confirmée",
           "Compte rendu",
         ],
         tone: "slate",
-        imagePath: "/elearning/bsbe/bsbe-vat.svg",
+        imagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
         imageAlt:
           "Mise hors tension pour son propre compte, VAT et documents en BS",
       },
@@ -580,14 +580,14 @@ export const bsbeModuleContent: ModuleContent = {
       content: [
         "Le titulaire BE Manœuvre peut, dans le cadre des consignes du site, ouvrir, fermer, mettre en marche, arrêter, basculer ou réarmer un équipement ou un circuit à partir d’un organe identifié et prévu pour cet usage.",
         "Cela peut concerner un disjoncteur de départ repéré, un organe de commande, un dispositif de réarmement, un sectionneur de manœuvre ou un inverseur prévu à cet effet.",
-        "La manœuvre reste une action d’exploitation. Elle ne doit pas devenir une recherche de panne, une ouverture d’enveloppe pour diagnostic ou une tentative répétée de remise en service sans analyse du contexte.",
+        "La manœuvre reste une action d’exploitation. Elle s’effectue sur un organe identifié, accessible et prévu pour cet usage. Elle ne doit pas devenir une recherche de panne, une ouverture d’enveloppe pour diagnostic ni une tentative répétée de remise en service sans analyse du contexte.",
         "Une instruction de sécurité ou une procédure de réarmement claire est un préalable indispensable. Sans support fiable, la manœuvre doit être suspendue.",
         "Le réenclenchement répété est l’une des erreurs les plus classiques. Il faut au contraire savoir reconnaître qu’une anomalie persistante impose l’arrêt et la transmission.",
         "Le BE Manœuvre peut participer à une manœuvre prévue par instruction, mais il ne devient pas chargé de consignation, chargé d’intervention générale ou technicien de dépannage.",
       ],
       deepDive: [
         "Un opérateur fiable sait réarmer quand c’est légitime, mais surtout sait ne pas réarmer quand le contexte ne le permet plus.",
-        "Le cœur de la compétence BE Manœuvre est la discipline d’exploitation : agir sur le bon organe, au bon moment, selon la bonne instruction, et s’arrêter au premier signal anormal.",
+        "Le cœur de la compétence BE Manœuvre est la discipline d’exploitation : agir sur le bon organe, au bon moment, selon la bonne instruction, sans démontage de protection, et s’arrêter au premier signal anormal.",
       ],
       keyPoints: [
         "BE Manœuvre = organe prévu, procédure connue, contexte vérifié.",
@@ -689,10 +689,10 @@ export const bsbeModuleContent: ModuleContent = {
       intro:
         "La prévention ne se limite pas au bon geste. Elle repose aussi sur l’environnement, les protections collectives, les protections individuelles et l’état apparent du matériel.",
       content: [
-        "Les équipements de protection collective doivent être privilégiés : enveloppes, capotages, écrans, obstacles, balisage, verrouillages et organisation de la zone.",
-        "Les équipements de protection individuelle viennent en complément et ne rendent jamais licite une opération interdite ou mal préparée.",
+        "Les équipements de protection collective doivent être privilégiés : enveloppes, capotages, écrans, obstacles, balisage, verrouillages, délimitation de zone et organisation du poste de travail.",
+        "Les équipements de protection individuelle viennent en complément. Ils ne rendent jamais licite une opération interdite, mal préparée ou réalisée dans un voisinage dégradé.",
         "Avant toute action, il faut vérifier l’état apparent du matériel, des câbles, des appareillages, des outils, du local, de l’humidité, de l’accessibilité et de l’absence d’anomalie visible.",
-        "Un capot retiré, une odeur de chaud, une trace de charbonnage, un sol humide, un câble détérioré, un coffret non refermé ou une zone encombrée changent totalement le niveau de risque.",
+        "Un capot retiré, une odeur de chaud, une trace de charbonnage, un sol humide, un câble détérioré, un coffret non refermé, une barrière déplacée ou une zone encombrée changent totalement le niveau de risque.",
         "Le port d’un EPI ne transforme jamais un non-électricien en électricien. Le cadre d’habilitation reste prioritaire.",
       ],
       deepDive: [
@@ -700,7 +700,7 @@ export const bsbeModuleContent: ModuleContent = {
         "Un équipement de protection dégradé ou absent est un signal d’arrêt, pas un détail.",
       ],
       keyPoints: [
-        "Protection collective d’abord.",
+        "Protection collective d’abord, EPI ensuite.",
         "EPI en complément.",
         "Contexte et état du matériel avant toute action.",
       ],
@@ -834,7 +834,7 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.chocElectrique],
       practicalCase:
         "Exemple : un coffret de commande dégage de la fumée pendant une manœuvre. L’opérateur se met en sécurité, protège la zone et alerte sans chercher à démonter ou à réarmer.",
-      chapterImagePath: "/elearning/h0b0/conduite-tenir.png",
+      chapterImagePath: "/elearning/bsbe/bsbe-urgence.svg",
       chapterImageAlt:
         "Conduite à tenir en cas d’incident électrique, d’électrisation ou de départ de feu",
       visual: {
@@ -848,7 +848,7 @@ export const bsbeModuleContent: ModuleContent = {
           "Premiers secours",
         ],
         tone: "red",
-        imagePath: "/elearning/h0b0/conduite-tenir.png",
+        imagePath: "/elearning/bsbe/bsbe-urgence.svg",
         imageAlt:
           "Conduite à tenir en cas d’incident électrique, d’électrisation ou de départ de feu",
       },

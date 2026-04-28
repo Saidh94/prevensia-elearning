@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const formations = [
   {
@@ -569,7 +569,7 @@ export default function ElearningPage() {
                     href="/inscription"
                     className="rounded-2xl bg-green-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-800"
                   >
-                    Creer un compte
+                    Créer un compte
                   </Link>
                 </div>
               </div>
@@ -577,7 +577,7 @@ export default function ElearningPage() {
               <div className="mt-8 grid gap-6 lg:grid-cols-2">
                 <div className="rounded-2xl bg-slate-50 p-5">
                   <h4 className="text-base font-bold text-slate-900">
-                    Objectifs pedagogiques
+                    Objectifs pédagogiques
                   </h4>
 
                   <ul className="mt-4 space-y-3">
@@ -612,7 +612,7 @@ export default function ElearningPage() {
 
               <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4">
                 <p className="text-sm leading-6 text-amber-900">
-                  <span className="font-semibold">A noter :</span>{" "}
+                  <span className="font-semibold">À noter :</span>{" "}
                   {formation.note}
                 </p>
               </div>
@@ -624,13 +624,15 @@ export default function ElearningPage() {
       <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-red-600">
-            Ressources video INRS
+            Ressources vidéo INRS
           </p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900">
-            Completer les parcours avec des ressources officielles
+            Compléter les parcours avec des ressources officielles
           </h2>
           <p className="mt-4 max-w-3xl leading-7 text-slate-600">
-            En plus des modules PREVENSIA, nous orientons aussi les apprenants et les entreprises vers des ressources officielles INRS pour consolider les reperes electriques, incendie et SST.
+            En plus des modules PREVENSIA, nous orientons aussi les apprenants
+            et les entreprises vers des ressources officielles INRS pour
+            consolider les repères électriques, incendie et SST.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -702,3 +704,4 @@ export default function ElearningPage() {
     </main>
   );
 }
+

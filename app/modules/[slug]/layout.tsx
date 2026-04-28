@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import {
-  getModuleLabelBySlug,
-  resolveModuleSlug,
-} from "@/lib/supabase/elearning/module-registry";
+import { getModuleLabelBySlug } from "@/lib/supabase/elearning/module-registry";
 import {
   canFormationAccessModule,
   getCanonicalModuleSlug,
@@ -40,10 +37,6 @@ function normalizeFormation(
   return formation;
 }
 
-function normalizeSlug(value: string | null | undefined): string {
-  return (value ?? "").trim().toLowerCase();
-}
-
 function normalizeStatus(value: string | null | undefined): string {
   return (value ?? "")
     .trim()
@@ -62,8 +55,6 @@ function isAllowedStatus(status: string): boolean {
     "validated",
     "enrolled",
     "paid",
-    "pending",
-    "pending_interview",
   ]).has(status);
 }
 
@@ -125,20 +116,19 @@ export default async function ModuleLayout({
       <main className="min-h-screen bg-slate-50 px-4 py-10">
         <div className="mx-auto max-w-3xl rounded-[2rem] border border-red-200 bg-white p-8 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-600">
-            Accès aux modules
+            {"Acc\u00e8s aux modules"}
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Impossible de vérifier votre accès
+            {"Impossible de v\u00e9rifier votre acc\u00e8s"}
           </h1>
 
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Une erreur est survenue lors de la vérification de vos droits d’accès
-            au module.
+            {"Une erreur est survenue lors de la v\u00e9rification de vos droits d\u2019acc\u00e8s au module."}
           </p>
 
           <p className="mt-3 text-sm text-slate-500">
-            Détail technique : {error.message}
+            {"D\u00e9tail technique : "} {error.message}
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
@@ -182,36 +172,41 @@ export default async function ModuleLayout({
       <main className="min-h-screen bg-slate-50 px-4 py-10">
         <div className="mx-auto max-w-3xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
-            Accès réservé
+            {"Acc\u00e8s r\u00e9serv\u00e9"}
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Ce module n’est pas accessible avec votre compte
+            {"Ce module n\u2019est pas accessible avec votre compte"}
           </h1>
 
           <p className="mt-4 text-base leading-7 text-slate-600">
-            L’accès à ce module est réservé aux inscrits disposant d’une
-            inscription active, validée, en cours ou en attente d’entretien sur
-            cette formation.
+            {
+              "L\u2019acc\u00e8s \u00e0 ce module est r\u00e9serv\u00e9 aux inscrits disposant d\u2019une inscription active, valid\u00e9e ou effectivement ouverte sur cette formation."
+            }
           </p>
 
           <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
             <p className="text-sm font-semibold text-slate-900">
-              Formations trouvées sur votre compte
+              {"Formations trouv\u00e9es sur votre compte"}
             </p>
 
             <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
               {enrollments.length === 0 ? (
-                <li>• Aucune inscription trouvée</li>
+                <li>{"\u2022 Aucune inscription trouv\u00e9e"}</li>
               ) : (
                 enrollments.map((item) => {
                   const linkedFormation = normalizeFormation(item.formation);
 
                   return (
                     <li key={item.id}>
-                      • {linkedFormation?.title ?? linkedFormation?.slug ?? "Formation"} — slug :{" "}
-                      {linkedFormation?.slug ?? "non défini"} — statut :{" "}
-                      {item.status ?? "non défini"}
+                      {"\u2022 "}
+                      {linkedFormation?.title ??
+                        linkedFormation?.slug ??
+                        "Formation"}{" "}
+                      {"\u2014 slug : "}
+                      {linkedFormation?.slug ?? "non d\u00e9fini"}
+                      {" \u2014 statut : "}
+                      {item.status ?? "non d\u00e9fini"}
                     </li>
                   );
                 })
@@ -248,7 +243,7 @@ export default async function ModuleLayout({
               href="/"
               className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
             >
-              ← Retour au site
+              {"\u2190 Retour au site"}
             </Link>
 
             <div>
@@ -261,12 +256,12 @@ export default async function ModuleLayout({
             </div>
           </div>
 
-          <div className="hidden sm:block text-right">
+          <div className="hidden text-right sm:block">
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
-              {isAdmin ? "Prévisualisation" : "Module"}
+              {isAdmin ? "Pr\u00e9visualisation" : "Module"}
             </p>
             <p className="text-sm font-semibold text-slate-700">
-              {isAdmin ? "Accès admin" : "Parcours en cours"}
+              {isAdmin ? "Acc\u00e8s admin" : "Parcours en cours"}
             </p>
           </div>
         </div>
