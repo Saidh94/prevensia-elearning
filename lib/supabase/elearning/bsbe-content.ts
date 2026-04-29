@@ -138,12 +138,12 @@ export const bsbeModuleContent: ModuleContent = {
         "Comprendre un circuit électrique, c’est savoir reconnaître une source, des conducteurs, une charge, un organe de commande et un organe de protection.",
         "Les grandeurs essentielles à maîtriser sont la tension, l’intensité, la résistance et la puissance. Elles expliquent pourquoi un équipement apparemment simple peut devenir dangereux selon son alimentation, son environnement et son état.",
         "L’apprenant doit distinguer partie active, masse, conducteur de protection, neutre et, lorsque c’est utile à la compréhension, conducteur PEN.",
-        "Le chapitre doit aussi parler des énergies non évidentes : batteries, chargeurs, onduleurs, photovoltaïque, automatismes secourus et équipements maintenus sous énergie.",
-        "Un bon chapitre BS / BE doit apprendre à lire les familles de matériels courants : tableau de distribution, disjoncteur, sectionneur, organe de commande, départ terminal, circuit prise, éclairage, chauffe-eau, ventilateur, volet, automatisme.",
+        "Certaines énergies restent présentes alors qu’un équipement paraît arrêté. C’est le cas des batteries, chargeurs, onduleurs, installations photovoltaïques, automatismes secourus et matériels maintenus sous énergie. Avant toute action, il faut vérifier si une alimentation auxiliaire, secourue ou autonome peut encore alimenter le circuit.",
+        "L’opérateur doit aussi savoir reconnaître les familles de matériels courants : tableau de distribution, disjoncteur, sectionneur, organe de commande, départ terminal, circuit de prises, éclairage, chauffe-eau, ventilation, volet motorisé ou automatisme. Cette lecture évite de confondre un circuit terminal simple avec un départ plus complexe ou plus énergétique.",
       ],
       deepDive: [
-        "Le but n’est pas d’empiler des définitions scolaires. Le but est de relier la théorie à la scène terrain : que voit-on devant une armoire, quel type d’énergie circule, quel organe coupe, quel organe protège, et le cadre BS / BE est-il encore adapté ?",
-        "Il est important d’expliquer la différence entre un circuit terminal simple et un départ plus énergétique. Cette finesse aide l’apprenant à comprendre pourquoi certains matériels restent hors cadre malgré une apparence familière.",
+        "Devant une armoire ou un coffret, l’observation doit être méthodique : identifier l’organe de coupure, repérer la protection associée, vérifier la fonction du matériel et déterminer si le circuit concerné relève encore du cadre BS ou BE Manœuvre.",
+        "Un circuit terminal simple alimente en général un usage clairement identifié, comme un éclairage, une prise ou un petit récepteur. À l’inverse, un départ moteur, un variateur, un automatisme ou un tableau comportant plusieurs sources exigent une analyse plus poussée et peuvent sortir du cadre BS / BE.",
       ],
       keyPoints: [
         "Un circuit comprend une source, des conducteurs, une charge, une commande et une protection.",
@@ -249,11 +249,11 @@ export const bsbeModuleContent: ModuleContent = {
         "Quelques ordres de grandeur pédagogiques doivent être connus : dès les premiers milliampères le courant devient perceptible ; autour de 10 mA le lâcher peut devenir difficile ; vers 30 mA les troubles respiratoires peuvent apparaître.",
         "La courbe intensité / temps montre qu’une exposition moins intense mais plus longue peut devenir aussi critique qu’un courant plus fort sur un temps très court.",
         "Le milieu modifie fortement le risque. Une peau humide, un sol conducteur, des vêtements mouillés, une sueur abondante ou des mains abîmées réduisent la résistance du corps.",
-        "Le bon réflexe BS / BE n’est pas seulement d’éviter l’accident. C’est aussi de prendre au sérieux tout incident électrique.",
+        "Toute sensation de décharge, toute odeur anormale, tout bruit inhabituel, toute trace d’échauffement ou tout fonctionnement incohérent doit être considéré comme un signal d’alerte sérieux.",
       ],
       deepDive: [
-        "Les cours trop superficiels parlent d’une simple châtaigne. Il faut au contraire faire comprendre l’effet physiologique réel du courant.",
-        "Cette partie prépare aussi la conduite à tenir en cas d’accident : on ne touche pas une victime tant que le risque électrique persiste.",
+        "Une décharge même brève peut provoquer des troubles différés. Après un incident, l’analyse ne s’arrête donc pas au ressenti immédiat de la victime.",
+        "Cette partie prépare aussi la conduite à tenir en cas d’accident : une victime n’est jamais touchée tant que la suppression du danger électrique n’est pas assurée.",
       ],
       keyPoints: [
         "Électrisation et électrocution ne désignent pas la même situation.",
@@ -308,8 +308,8 @@ export const bsbeModuleContent: ModuleContent = {
         "La notion d’IP2X ou IPXXB doit aussi être comprise : une enveloppe intacte protège contre l’accès aux parties dangereuses, mais une enveloppe ouverte, absente ou dégradée modifie complètement la situation.",
       ],
       deepDive: [
-        "Ce chapitre doit permettre de comprendre ce qu’est une PNST, un contact indirect, un DDR ou un capotage.",
-        "Il faut apprendre à l’apprenant que le danger est parfois invisible : un coffret fermé peut protéger, mais un capot retiré change complètement la situation.",
+        "Une pièce nue sous tension, un dispositif différentiel, une masse métallique et un capotage ne jouent pas le même rôle. Les confondre conduit à mal évaluer le risque et à engager une action hors cadre.",
+        "Le danger est parfois invisible. Un coffret fermé et intact peut assurer une protection correcte, alors qu’un capot retiré, une porte ouverte ou un indice de protection dégradé transforment immédiatement la situation en zone à risque.",
       ],
       keyPoints: [
         "Contact direct et indirect sont deux risques distincts.",
