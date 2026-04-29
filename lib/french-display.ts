@@ -1,4 +1,18 @@
 const MOJIBAKE_REPLACEMENTS: Array<[string, string]> = [
+  ["\u00C5\u201C", "\u0153"],
+  ["\u00C5\u2019", "\u0152"],
+  ["\u00C3\u0080", "\u00C0"],
+  ["\u00C3\u0087", "\u00C7"],
+  ["\u00C3\u0088", "\u00C8"],
+  ["\u00C3\u0089", "\u00C9"],
+  ["\u00C3\u008A", "\u00CA"],
+  ["\u00C3\u008B", "\u00CB"],
+  ["\u00C3\u008E", "\u00CE"],
+  ["\u00C3\u008F", "\u00CF"],
+  ["\u00C3\u0094", "\u00D4"],
+  ["\u00C3\u0099", "\u00D9"],
+  ["\u00C3\u009B", "\u00DB"],
+  ["\u00C3\u009C", "\u00DC"],
   ["\u00C3\u00A0", "\u00E0"],
   ["\u00C3\u00A2", "\u00E2"],
   ["\u00C3\u00A4", "\u00E4"],
@@ -23,6 +37,8 @@ const MOJIBAKE_REPLACEMENTS: Array<[string, string]> = [
   ["\u00E2\u20AC\u00A6", "\u2026"],
   ["\u00C2\u00A0", " "],
 ];
+
+const MOJIBAKE_SUSPICIOUS = /[ÃÂÅâ]/g;
 
 const FRENCH_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\badequation\b/gi, "ad\u00E9quation"],
@@ -168,11 +184,44 @@ function applyCase(source: string, replacement: string) {
   return replacement;
 }
 
-function repairMojibake(text: string) {
+function suspiciousScore(text: string) {
+  return (text.match(MOJIBAKE_SUSPICIOUS) ?? []).length;
+}
+
+function decodeLatin1AsUtf8(text: string) {
+  try {
+    const bytes = Uint8Array.from(
+      Array.from(text).map((char) => char.charCodeAt(0) & 0xff)
+    );
+    return new TextDecoder("utf-8").decode(bytes);
+  } catch {
+    return text;
+  }
+}
+
+function applyMojibakeReplacements(text: string) {
   return MOJIBAKE_REPLACEMENTS.reduce(
     (result, [source, replacement]) => result.split(source).join(replacement),
     text
   );
+}
+
+function repairMojibake(text: string) {
+  let result = text;
+
+  for (let index = 0; index < 2; index += 1) {
+    const replaced = applyMojibakeReplacements(result);
+    const decoded = decodeLatin1AsUtf8(replaced);
+
+    if (suspiciousScore(decoded) < suspiciousScore(replaced)) {
+      result = decoded;
+      continue;
+    }
+
+    result = replaced;
+  }
+
+  return result;
 }
 
 export function formatFrenchDisplayText(text: string | null | undefined) {
