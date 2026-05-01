@@ -181,7 +181,7 @@ export default function FormationSSI() {
             <p className="mt-5 leading-8 text-slate-700">
               La formation SSI est particulièrement pertinente pour les ERP,
               bâtiments tertiaires, plateformes logistiques, sites industriels
-              et établissements disposant d’un système de sécurité incendie
+              et établissements disposant d'un système de sécurité incendie
               exploité en routine.
             </p>
 
@@ -198,7 +198,7 @@ export default function FormationSSI() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-700">
-              PREVENSIA FORMATION adapte le contenu en fonction du profil des
+              PREVENSIA FORMATION adapté le contenu en fonction du profil des
               participants, du système installé sur site et du niveau
               d’exploitation attendu dans l’établissement.
             </p>
@@ -240,10 +240,10 @@ export default function FormationSSI() {
           <div className="mt-6">
             <details className="mb-4 rounded-xl border border-slate-200 p-4">
               <summary className="cursor-pointer font-semibold">
-                À qui s’adresse la formation SSI ?
+                À qui s'adresse la formation SSI ?
               </summary>
               <p className="mt-3 text-slate-700">
-                Elle s’adresse aux exploitants, responsables techniques,
+                Elle s'adresse aux exploitants, responsables techniques,
                 équipes maintenance, services généraux et personnels amenés à
                 utiliser ou surveiller un système de sécurité incendie.
               </p>
@@ -307,20 +307,20 @@ export default function FormationSSI() {
   </div>
 </section>
         <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
-          <h2 className="text-2xl font-bold">Besoin d’un devis rapide ?</h2>
+          <h2 className="text-2xl font-bold">Besoin d'un devis rapide ?</h2>
 
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Indiquez votre besoin, votre effectif, votre localisation et le
-            délai souhaité. PREVENSIA FORMATION vous adresse une proposition
-            adaptée à votre demande.
+            Indiquez votre besoin, le nombre de participants, vos contraintes
+            de site et nous revenons vers vous avec une proposition adaptée
+            (présentiel, intra-entreprise, accompagnement).
           </p>
 
           <div className="mt-6">
             <a
-              href="/demande-devis"
-              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+              href="/demande-devis?type=ssi"
+              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
             >
-              Demander un devis
+              Demander un devis SSI
             </a>
           </div>
         </section>

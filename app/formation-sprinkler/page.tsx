@@ -72,7 +72,7 @@ export default function FormationSprinkler() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            PREVENSIA FORMATION accompagne les exploitants, responsables techniques,
+            PREVENSIA FORMATION accompagné les exploitants, responsables techniques,
             responsables sécurité et gestionnaires de sites équipés d'installations
             sprinkler. La formation est encadrée en présentiel sur 1 ou 2 jours.
             La version 2 jours renforcée inclut une visite encadrée d'une
@@ -246,28 +246,12 @@ export default function FormationSprinkler() {
                 La formation remplace-t-elle la maintenance réglementaire ?
               </summary>
               <p className="mt-3 text-slate-700">
-                Non. Elle renforce la compréhension et l'exploitation au quotidien, mais ne
-                remplace pas les contrôles, essais, maintenances et obligations propres au site.
+                          Non. La formation sensibilise aux bons réflexes d'exploitation et
+                aux référentiels techniques. La maintenance préventive et les essais
+                périodiques restent à la charge d'un mainteneur qualifié et d'un
+                contrat dédié.
               </p>
             </details>
-          </div>
-        </section>
-
-        <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
-          <h2 className="text-2xl font-bold">Besoin d'un devis rapide ?</h2>
-
-          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Indiquez votre besoin, votre effectif, votre localisation, le type de site et le
-            référentiel attendu. PREVENSIA FORMATION vous adressera une proposition adaptée.
-          </p>
-
-          <div className="mt-6">
-            <a
-              href="/demande-devis"
-              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
-            >
-              Demander un devis
-            </a>
           </div>
         </section>
       </div>

@@ -8,20 +8,20 @@ export const metadata = {
 
 const inrsSstResources = [
   {
-    title: "INRS - Video SST et secourisme au travail",
+    title: "INRS - Vidéo SST et secourisme au travail",
     description:
-      "Ressource INRS utile pour renforcer la culture de prevention, la logique proteger / examiner / alerter / secourir et la place du SST dans l'entreprise.",
+      "Ressource INRS utile pour renforcer la culture de prévention, la logique proteger / examiner / alerter / secourir et la place du SST dans l'entreprise.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-049",
     badge: "INRS",
-    cta: "Voir la video INRS",
+    cta: "Voir la vidéo INRS",
   },
   {
-    title: "INRS France - Selection videos SST",
+    title: "INRS France - Sélection vidéos SST",
     description:
-      "Selection YouTube INRS pour completer les gestes de secours, la prevention et les reflexes attendus en entreprise.",
+      "Sélection YouTube INRS pour compléter les gestes de secours, la prévention et les réflexes attendus en entreprise.",
     href: "https://www.youtube.com/@INRSFrance/search?query=SST",
     badge: "INRS France",
-    cta: "Voir la selection INRS",
+    cta: "Voir la sélection INRS",
   },
 ];
 
@@ -217,10 +217,10 @@ export default function FormationSST() {
             Ressources INRS
           </p>
           <h2 className="mt-3 text-2xl font-bold">
-            Ressources INRS pour completer la formation SST
+            Ressources INRS pour compléter la formation SST
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            PREVENSIA recommande aussi des ressources officielles INRS pour renforcer la culture de prevention, la lecture de la situation d'accident et les bons reflexes de secourisme au travail.
+            PREVENSIA recommande aussi des ressources officielles INRS pour renforcer la culture de prévention, la lecture de la situation d'accident et les bons réflexes de secourisme au travail.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -257,10 +257,10 @@ export default function FormationSST() {
           <div className="mt-6">
             <details className="mb-4 rounded-xl border border-slate-200 p-4">
               <summary className="cursor-pointer font-semibold">
-                À qui s’adresse la formation SST ?
+                À qui s'adresse la formation SST ?
               </summary>
               <p className="mt-3 text-slate-700">
-                La formation SST s’adresse aux salariés, agents, techniciens et
+                La formation SST s'adresse aux salariés, agents, techniciens et
                 personnels d’entreprise souhaitant apprendre les gestes de
                 premiers secours et contribuer à la prévention des risques
                 professionnels.
@@ -320,20 +320,20 @@ export default function FormationSST() {
   </div>
 </section>
         <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
-          <h2 className="text-2xl font-bold">Besoin d’un devis rapide ?</h2>
+          <h2 className="text-2xl font-bold">Besoin d'un devis rapide ?</h2>
 
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Indiquez votre besoin, le nombre de participants, votre localisation
-            et le délai souhaité. PREVENSIA FORMATION vous adresse une proposition
-            adaptée à votre demande.
+            Indiquez votre besoin, le nombre de participants, vos
+            contraintes de site et nous revenons vers vous avec une proposition
+            adaptée (initial ou MAC, intra-entreprise, sessions sur site).
           </p>
 
           <div className="mt-6">
             <a
-              href="/demande-devis"
-              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+              href="/demande-devis?type=sst"
+              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
             >
-              Demander un devis
+              Demander un devis SST
             </a>
           </div>
         </section>

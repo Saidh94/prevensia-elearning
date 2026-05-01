@@ -85,14 +85,14 @@ const inrsVideoResources = [
   {
     title: "INRS - Les bases de l'habilitation electrique",
     description:
-      "Une ressource officielle utile pour comprendre le role de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
+      "Une ressource officielle utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-132",
-    badge: "Video INRS",
+    badge: "Vidéo INRS",
   },
   {
     title: "INRS - Comment choisir les habilitations electriques ?",
     description:
-      "Webinaire officiel pour recaler les symboles, les roles et le choix du bon parcours selon les missions reelles.",
+      "Webinaire officiel pour recaler les symboles, les rôles et le choix du bon parcours selon les missions réelles.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-184",
     badge: "Webinaire INRS",
   },
@@ -422,7 +422,7 @@ export default function Home() {
           <aside
             id="mobile-navigation"
             className="fixed inset-y-0 right-0 z-50 w-[min(92vw,360px)] border-l border-slate-200 bg-white p-6 shadow-2xl lg:hidden"
-            role="dialog"
+            rôle="dialog"
             aria-modal="true"
             aria-label="Navigation mobile"
           >
@@ -838,7 +838,7 @@ export default function Home() {
                 <h3 className="mt-5 text-xl font-bold">Souplesse de format</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   E-learning encadré pour H0B0/H0V et BS/BE Manœuvre. Présentiel et
-                  classe virtuelle pour les habilitations B1, B2, BR, BC. Intra-entreprise
+                  classes virtuelle pour les habilitations B1, B2, BR, BC. Intra-entreprise
                   pour les groupes. Vous choisissez ce qui colle à votre organisation.
                 </p>
               </div>
@@ -1020,13 +1020,13 @@ export default function Home() {
                 Ressources INRS
               </p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Deux videos utiles pour cadrer le risque electrique
+                Deux vidéos utiles pour cadrer le risque electrique
               </h2>
               <p className="mt-4 text-slate-600">
                 PREVENSIA s'appuie sur ses propres parcours, mais recommande
                 aussi des ressources officielles INRS pour consolider les
                 reperes reglementaires, le choix des symboles et la logique de
-                prevention.
+                prévention.
               </p>
             </div>
 
@@ -1288,16 +1288,17 @@ export default function Home() {
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
                     Prise en charge OPCO possible
+                 
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
-                    Attestations et documents conformes
+                    Attestations et documents de conformité
                   </li>
                 </ul>
-                <div className="mt-auto pt-6">
+                <div className="mt-6">
                   <Link
                     href="/demande-devis"
-                    className="inline-flex rounded-2xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
+                    className="inline-flex rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-800"
                   >
                     Demander un devis
                   </Link>
@@ -1306,44 +1307,43 @@ export default function Home() {
 
               <div className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-                  Particuliers &amp; apprenants
+                  Apprenants
                 </p>
                 <h3 className="mt-3 text-xl font-bold text-slate-900">
                   E-learning et espace apprenant
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Accédez à vos modules, quiz, résultats et attestations dans un
-                  espace dédié.
+                  Accédez à vos modules, quiz, résultats et attestations dans
+                  un espace dédié, à votre rythme.
                 </p>
                 <ul className="mt-4 space-y-1.5 text-sm text-slate-700">
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
-                    Parcours 100&nbsp;% en ligne, à votre rythme
+                    Parcours 100&nbsp;% en ligne
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
-                    Quiz, résultats et attestation intégrés
+                    Quiz, corrigés et attestation intégrés
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-0.5 text-red-700">✓</span>
                     Conforme NF&nbsp;C&nbsp;18-510
                   </li>
                 </ul>
-                <div className="mt-auto pt-6">
+                <div className="mt-6">
                   <Link
                     href="/elearning"
-                    className="inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                    className="inline-flex rounded-2xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
                   >
-                    Accéder à l&apos;espace e-learning
+                    Accéder à l&apos;espace
                   </Link>
                 </div>
               </div>
 
               <div
                 id="contact"
-                className="relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"
+                className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm"
               >
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-red-700 via-amber-400 to-slate-900" />
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                   Contact
                 </p>
@@ -1351,133 +1351,38 @@ export default function Home() {
                   Échangeons sur votre besoin
                 </h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  PREVENSIA FORMATION accompagne les particuliers et les
-                  professionnels sur toute la France selon la prestation.
+                  PREVENSIA FORMATION accompagne particuliers et professionnels
+                  partout en France selon la prestation.
                 </p>
-                <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Orientation rapide
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Habilitation electrique, SSI, incendie, SST, e-learning,
-                    presentiel, intra-entreprise et accompagnement employeur.
-                  </p>
-                </div>
-                <div className="mt-4 space-y-2 text-sm text-slate-800">
-                  <p className="font-medium">
-                    contact@prevensia-formation.fr
-                  </p>
+                <div className="mt-4 space-y-1.5 text-sm text-slate-800">
+                  <p className="font-medium">contact@prevensia-formation.fr</p>
                   <p className="font-medium">01 89 62 94 92</p>
                 </div>
-                <div className="mt-auto pt-6">
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href="tel:+33189629492"
-                      className="inline-flex rounded-2xl bg-red-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
-                    >
-                      Appeler
-                    </a>
-                    <a
-                      href="https://wa.me/33780992417?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20formations"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex rounded-2xl border border-green-300 px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-50"
-                    >
-                      WhatsApp
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex rounded-2xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                    >
-                      LinkedIn
-                    </a>
-                  </div>
+                <div className="mt-auto pt-6 flex flex-wrap gap-3">
+                  <a
+                    href="tel:+33189629492"
+                    className="inline-flex rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-800"
+                  >
+                    Appeler
+                  </a>
+                  <a
+                    href="https://wa.me/33780992417?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20formations"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-2xl border border-green-300 px-4 py-2.5 text-sm font-semibold text-green-700 transition hover:bg-green-50"
+                  >
+                    WhatsApp
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-slate-900 py-16 text-white">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/installation-spk.jpg"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover opacity-10"
-            />
-          </div>
-
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-slate-950/95" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-300">
-                Pourquoi PREVENSIA FORMATION
-              </p>
-              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Une approche plus technique, plus terrain et plus exploitable
-              </h2>
-              <p className="mt-4 leading-8 text-slate-300">
-                Nos formations sont conçues pour répondre aux exigences réelles
-                des entreprises, des exploitants et des environnements
-                techniques : conformité, compréhension des installations,
-                prévention et mise en pratique.
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold">Conformité réglementaire</h3>
-                <p className="mt-2 text-sm text-slate-300">
-                  Programmes construits selon les référentiels en vigueur et
-                  adaptés aux obligations de l’employeur.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold">Approche terrain</h3>
-                <p className="mt-2 text-sm text-slate-300">
-                  Des contenus pensés pour l’exploitation réelle, la
-                  maintenance, la prévention et les situations concrètes.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold">Adaptation au site</h3>
-                <p className="mt-2 text-sm text-slate-300">
-                  Tertiaire, logistique, industriel, technique ou multi-sites :
-                  la formation s’adapte à votre contexte.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold">Lisibilité commerciale</h3>
-                <p className="mt-2 text-sm text-slate-300">
-                  Tarifs, formats, publics, durées et accès sont clairement
-                  présentés pour faciliter votre décision.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LocationCoverageSection />
       </main>
 
       <FloatingContactButtons />
-
-      {showScrollTopButton ? (
-        <button
-          type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-6 z-40 rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 shadow-xl transition hover:-translate-y-0.5 hover:text-red-700"
-          aria-label="Revenir en haut de la page"
-        >
-          ↑
-        </button>
-      ) : null}
     </div>
   );
 }

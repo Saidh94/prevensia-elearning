@@ -211,9 +211,13 @@ async function readFirstExistingAsset(relativePaths: string[]) {
   );
 
   // Stratégie 1 : depuis la racine du projet via process.cwd().
+  // Le commentaire turbopackIgnore évite que le bundler Turbopack ne trace
+  // tout le projet à cause de ce path.join dynamique.
   for (const rel of projectRelativePaths) {
     try {
-      return await fs.readFile(path.join(process.cwd(), rel));
+      return await fs.readFile(
+        path.join(/*turbopackIgnore: true*/ process.cwd(), "public", rel.replace(/^public\//, ""))
+      );
     } catch {
       // continue
     }
@@ -231,7 +235,7 @@ async function readFirstExistingAsset(relativePaths: string[]) {
   // Stratégie 3 : chemin direct (au cas où).
   for (const rel of projectRelativePaths) {
     try {
-      return await fs.readFile(rel);
+      return await fs.readFile(/*turbopackIgnore: true*/ rel);
     } catch {
       // continue
     }

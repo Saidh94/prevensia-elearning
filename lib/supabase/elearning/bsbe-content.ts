@@ -1,4 +1,4 @@
-﻿import type { ModuleContent } from "./module-types";
+import type { ModuleContent } from "./module-types";
 
 const VIDEO = {
   bsbe: {

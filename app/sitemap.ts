@@ -3,16 +3,6 @@ import type { MetadataRoute } from "next";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr";
 
-/**
- * Sitemap.xml — généré dynamiquement par Next.js sur /sitemap.xml.
- *
- * Règles de priorité :
- *  - Homepage : 1.0
- *  - Pages formation (vitrines commerciales) : 0.9
- *  - Pages d'action (devis, planning, e-learning catalogue) : 0.8
- *  - Pages transactionnelles (inscription, réservation) : 0.7
- *  - Pages techniques (admin, connexion) : exclues du sitemap public
- */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -71,7 +61,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    // Volontairement exclues : /connexion, /admin/*, /dashboard,
-    // /modules/*, /paiement/*, /api/* (transactionnel ou privé).
   ];
 }

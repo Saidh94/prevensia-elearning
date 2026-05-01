@@ -1,49 +1,49 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
-  title: "Formation securite incendie en entreprise | PREVENSIA FORMATION",
+  title: "Formation sécurité incendie en entreprise | PREVENSIA FORMATION",
   description:
-    "Formation securite incendie en entreprise : manipulation des extincteurs, guide-file / serre-file et equipier de premiere intervention. Sessions adaptees aux besoins des entreprises avec PREVENSIA FORMATION.",
+    "Formation sécurité incendie en entreprise : manipulation des extincteurs, guide-file / serre-file et equipier de première intervention. Sessions adaptées aux besoins des entreprises avec PREVENSIA FORMATION.",
 };
 
 const programmes = [
   {
     title: "Manipulation des extincteurs",
     description:
-      "Formation pratique a l'utilisation des extincteurs, aux classes de feu et aux premieres actions a mener en cas de depart d'incendie.",
+      "Formation pratique a l'utilisation des extincteurs, aux classes de feu et aux premières actions a mener en cas de départ d'incendie.",
   },
   {
     title: "Guide-file / Serre-file",
     description:
-      "Formation dediee a l'organisation de l'evacuation, au role des guides-files et serre-files, et a la mise en securite des occupants.",
+      "Formation dédiée a l'organisation de l'évacuation, au rôle des guides-files et serre-files, et a la mise en sécurité des occupants.",
   },
   {
-    title: "Equipier de Premiere Intervention (EPI)",
+    title: "Equipier de Première Intervention (EPI)",
     description:
-      "Formation axee sur l'alerte, l'intervention de premiere urgence, l'emploi des moyens de premiere intervention et les bons reflexes avant l'arrivee des secours.",
+      "Formation axée sur l'alerte, l'intervention de première urgence, l'emploi des moyens de première intervention et les bons réflexes avant l'arrivee des secours.",
   },
 ];
 
 const atouts = [
-  "Formations adaptees au site, a l'effectif et aux risques reels de l'entreprise",
-  "Approche terrain axee sur l'alerte, la reaction, l'evacuation et l'emploi des moyens de premiere intervention",
+  "Formations adaptées au site, a l'effectif et aux risques réels de l'entreprise",
+  "Approche terrain axée sur l'alerte, la reaction, l'évacuation et l'emploi des moyens de première intervention",
   "Possibilite d'organisation sur site pour coller aux consignes et aux installations existantes",
   "Demande de devis rapide pour les besoins ponctuels, multisites ou urgents",
 ];
 
 const inrsIncendieResources = [
   {
-    title: "INRS - Selection videos risque incendie",
+    title: "INRS - Sélection vidéos risque incendie",
     description:
-      "Recherche officielle sur la chaine INRS France pour completer les notions de depart de feu, prevention, alerte et premiers reflexes.",
+      "Recherche officielle sur la chaîne INRS France pour compléter les notions de départ de feu, prévention, alerte et premiers réflexes.",
     href: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
     badge: "INRS France",
   },
   {
-    title: "INRS - Selection videos evacuation incendie",
+    title: "INRS - Sélection vidéos évacuation incendie",
     description:
-      "Recherche officielle utile pour enrichir les parcours guide-file, serre-file, EPI et l'organisation de l'evacuation.",
-    href: "https://www.youtube.com/@INRSFrance/search?query=evacuation%20incendie",
+      "Recherche officielle utile pour enrichir les parcours guide-file, serre-file, EPI et l'organisation de l'évacuation.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=évacuation%20incendie",
     badge: "INRS France",
   },
 ];
@@ -68,14 +68,14 @@ export default function FormationSecuriteIncendie() {
           </p>
 
           <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Formation securite incendie
+            Formation sécurité incendie
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            PREVENSIA FORMATION propose des formations en securite incendie pour
-            les entreprises souhaitant preparer leurs equipes a reagir
-            efficacement face a un depart de feu, a organiser l'evacuation et a
-            utiliser les moyens de premiere intervention.
+            PREVENSIA FORMATION propose des formations en sécurité incendie pour
+            les entreprises souhaitant préparer leurs équipes a réagir
+            efficacement face a un départ de feu, a organiser l'évacuation et a
+            utiliser les moyens de première intervention.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -97,36 +97,36 @@ export default function FormationSecuriteIncendie() {
 
         <section className="mt-10 grid gap-6 md:grid-cols-3">
           <InfoCard
-            label="Modalites"
-            title="Presentiel"
-            body="Formations organisees directement dans l'entreprise ou sur un site adapte aux exercices pratiques."
+            label="Modalités"
+            title="Présentiel"
+            body="Formations organisées directement dans l'entreprise ou sur un site adapté aux exercices pratiques."
           />
           <InfoCard
             label="Public"
-            title="Salaries et entreprises"
-            body="Sessions destinees aux salaries, encadrants, agents et personnels amenes a appliquer les consignes incendie."
+            title="Salariés et entreprises"
+            body="Sessions destinées aux salariés, encadrants, agents et personnels amenes a appliquer les consignes incendie."
           />
           <InfoCard
             label="Objectif"
             title="Reagir et evacuer"
-            body="Former les equipes a reagir face a un incendie et a mettre en oeuvre les premieres actions de securite."
+            body="Former les équipes a réagir face a un incendie et a mettre en œuvre les premières actions de sécurité."
           />
         </section>
 
         <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <h2 className="text-2xl font-bold">
-            Pourquoi former vos equipes a la securite incendie ?
+            Pourquoi former vos équipes a la sécurité incendie ?
           </h2>
 
           <p className="mt-5 leading-8 text-slate-700">
-            La formation securite incendie permet aux salaries de comprendre les
-            risques, de connaitre les consignes de securite, d'utiliser les
-            extincteurs si necessaire et de participer a une evacuation rapide
-            et securisee.
+            La formation sécurité incendie permet aux salariés de comprendre les
+            risques, de connaitre les consignes de sécurité, d'utiliser les
+            extincteurs si nécessaire et de participer a une évacuation rapide
+            et sécurisée.
           </p>
 
           <p className="mt-4 leading-8 text-slate-700">
-            Elle constitue un levier essentiel de prevention pour les
+            Elle constitue un levier essentiel de prévention pour les
             entreprises souhaitant renforcer la protection des personnes, des
             locaux et des activites.
           </p>
@@ -136,7 +136,7 @@ export default function FormationSecuriteIncendie() {
           id="programmes"
           className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10"
         >
-          <h2 className="text-2xl font-bold">Programmes proposes</h2>
+          <h2 className="text-2xl font-bold">Programmes proposés</h2>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {programmes.map((programme) => (
@@ -156,36 +156,36 @@ export default function FormationSecuriteIncendie() {
         <section className="mt-10 grid gap-6 md:grid-cols-2">
           <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold">
-              Une formation concrete et operationnelle
+              Une formation concrète et opérationnelle
             </h2>
 
             <p className="mt-5 leading-8 text-slate-700">
-              Les formations securite incendie sont concues pour etre
-              directement applicables dans l'entreprise. Elles integrent des
-              rappels reglementaires, des consignes adaptees au site et, selon
+              Les formations sécurité incendie sont conçues pour être
+              directement applicables dans l'entreprise. Elles intègrent des
+              rappels réglementaires, des consignes adaptées au site et, selon
               les besoins, des exercices pratiques.
             </p>
 
             <p className="mt-4 leading-8 text-slate-700">
-              Cette approche permet aux stagiaires d'acquerir des reflexes
-              simples, utiles et immediatement mobilisables.
+              Cette approche permet aux stagiaires d'acquérir des réflexes
+              simples, utiles et immédiatement mobilisables.
             </p>
           </div>
 
           <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold">
-              Une reponse adaptee aux besoins de l'entreprise
+              Une reponse adaptée aux besoins de l'entreprise
             </h2>
 
             <p className="mt-5 leading-8 text-slate-700">
-              PREVENSIA FORMATION adapte les sessions au contexte de
+              PREVENSIA FORMATION adapté les sessions au contexte de
               l'etablissement, au type de public, a l'effectif concerne et aux
-              objectifs de l'employeur en matiere de prevention incendie.
+              objectifs de l'employeur en matiere de prévention incendie.
             </p>
 
             <p className="mt-4 leading-8 text-slate-700">
-              Les formations peuvent etre organisees sur site afin de renforcer
-              l'efficacite pedagogique et la coherence avec les installations
+              Les formations peuvent être organisées sur site afin de renforcer
+              l'efficacite pédagogique et la coherence avec les installations
               existantes.
             </p>
           </div>
@@ -213,12 +213,12 @@ export default function FormationSecuriteIncendie() {
             Ressources INRS
           </p>
           <h2 className="mt-3 text-2xl font-bold">
-            Videos officielles sur le risque incendie et l'evacuation
+            Vidéos officielles sur le risque incendie et l'évacuation
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
             PREVENSIA recommande aussi des ressources officielles INRS pour
-            completer la sensibilisation au risque incendie, aux premiers
-            reflexes et a l'organisation de l'evacuation.
+            compléter la sensibilisation au risque incendie, aux premiers
+            réflexes et a l'organisation de l'évacuation.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -240,7 +240,7 @@ export default function FormationSecuriteIncendie() {
                   rel="noreferrer"
                   className="mt-6 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
-                  Voir la selection INRS
+                  Voir la sélection INRS
                 </a>
               </article>
             ))}
@@ -249,35 +249,35 @@ export default function FormationSecuriteIncendie() {
 
         <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <h2 className="text-2xl font-bold">
-            Questions frequentes sur la formation securite incendie
+            Questions frequentes sur la formation sécurité incendie
           </h2>
 
           <div className="mt-6">
             <FaqItem
-              question="A qui s'adresse la formation securite incendie ?"
-              answer="Elle s'adresse aux salaries, exploitants, encadrants et equipes d'entreprise souhaitant renforcer la prevention incendie et la reaction en cas de depart de feu."
+              question="A qui s'adresse la formation sécurité incendie ?"
+              answer="Elle s'adresse aux salariés, exploitants, encadrants et équipes d'entreprise souhaitant renforcer la prévention incendie et la reaction en cas de départ de feu."
             />
             <FaqItem
-              question="Quels themes peuvent etre abordes ?"
-              answer="Les formations peuvent porter sur la manipulation des extincteurs, le role des guide-file / serre-file, l'emploi des moyens de premiere intervention et plus largement les consignes incendie en entreprise."
+              question="Quels themes peuvent être abordes ?"
+              answer="Les formations peuvent porter sur la manipulation des extincteurs, le rôle des guide-file / serre-file, l'emploi des moyens de première intervention et plus largement les consignes incendie en entreprise."
             />
             <FaqItem
               question="Peut-on organiser la formation directement en entreprise ?"
-              answer="Oui, PREVENSIA FORMATION peut organiser des sessions sur site afin d'adapter les exercices, consignes et mises en situation au contexte reel de l'etablissement."
+              answer="Oui, PREVENSIA FORMATION peut organiser des sessions sur site afin d'adapter les exercices, consignes et mises en situation au contexte réel de l'etablissement."
             />
           </div>
         </section>
 
         <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <h2 className="text-2xl font-bold">
-            Nos autres formations en securite et prevention
+            Nos autres formations en sécurité et prévention
           </h2>
 
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
             PREVENSIA FORMATION propose egalement des formations en
-            habilitation electrique, exploitation du SSI, formation SST et
+            habilitation électrique, exploitation du SSI, formation SST et
             exploitation des installations sprinkler. Decouvrez l'ensemble de
-            notre catalogue pour renforcer la securite de vos equipes.
+            notre catalogue pour renforcer la sécurité de vos équipes.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-4">
@@ -285,7 +285,7 @@ export default function FormationSecuriteIncendie() {
               href="/formation-habilitation-electrique"
               className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600"
             >
-              Habilitation electrique
+              Habilitation électrique
             </a>
 
             <a
@@ -308,6 +308,74 @@ export default function FormationSecuriteIncendie() {
             >
               Exploitation sprinkler
             </a>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+            Questions fréquentes
+          </p>
+          <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
+            Sur la formation sécurité incendie
+          </h2>
+
+          <div className="mt-8 grid gap-4">
+            <details className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 open:shadow-md">
+              <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                Mon entreprise est-elle obligée de former à la sécurité
+                incendie ?
+                <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+              </summary>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Oui. L’article R.4227-39 du Code du travail impose un exercice
+                d’évacuation au moins tous les six mois. Plus largement, la
+                formation à la manipulation des extincteurs et au rôle de
+                guide-file / serre-file est attendue dans le cadre de
+                l’évaluation des risques (DUERP).
+              </p>
+            </details>
+
+            <details className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 open:shadow-md">
+              <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                Quelle est la différence entre guide-file, serre-file et EPI ?
+                <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+              </summary>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Le guide-file ouvre la marche et conduit les occupants vers la
+                sortie. Le serre-file ferme la marche, vérifie qu’aucun
+                occupant n’est resté dans les locaux et referme les portes
+                coupe-feu. L’équipier de première intervention (EPI) peut
+                tenter d’éteindre un début d’incendie avec les moyens
+                disponibles, dans un cadre maîtrisé.
+              </p>
+            </details>
+
+            <details className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 open:shadow-md">
+              <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                Combien de salariés faut-il former ?
+                <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+              </summary>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                La règle pratique : un guide-file et un serre-file par étage
+                et par zone, avec une rotation pour couvrir absences et
+                congés. Pour la manipulation des extincteurs, on vise au
+                minimum 10 % des effectifs, à recycler tous les 2 à 3 ans.
+              </p>
+            </details>
+
+            <details className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 open:shadow-md">
+              <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                Vos sessions sont-elles adaptées à notre site ?
+                <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+              </summary>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                Oui. Toutes nos formations incendie peuvent être organisées
+                directement en intra-entreprise, avec adaptation aux
+                consignes du site, à l’implantation des moyens de première
+                intervention et aux risques spécifiques de l’activité
+                (logistique, industrie, tertiaire, ICPE).
+              </p>
+            </details>
           </div>
         </section>
       </div>
@@ -335,11 +403,22 @@ function InfoCard({
   );
 }
 
-function FaqItem({ question, answer }: { question: string; answer: string }) {
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
   return (
-    <details className="mb-4 rounded-xl border border-slate-200 p-4">
-      <summary className="cursor-pointer font-semibold">{question}</summary>
-      <p className="mt-3 text-slate-700">{answer}</p>
+    <details className="group mb-3 rounded-2xl border border-slate-200 bg-slate-50 p-5 open:shadow-md">
+      <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+        {question}
+        <span className="float-right text-red-700 group-open:rotate-180 transition">
+          ▼
+        </span>
+      </summary>
+      <p className="mt-3 text-sm leading-7 text-slate-600">{answer}</p>
     </details>
   );
 }
