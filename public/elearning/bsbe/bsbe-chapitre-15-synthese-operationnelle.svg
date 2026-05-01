@@ -1,0 +1,98 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="42" fill="#f8fafc"/>
+  <rect x="60" y="55" width="1080" height="610" rx="34" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+
+  <rect x="95" y="90" width="1010" height="120" rx="24" fill="#0f172a"/>
+  <text x="135" y="145" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#ffffff">
+    Synthèse opérationnelle BS / BE Manœuvre
+  </text>
+  <text x="135" y="180" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#e5e7eb">
+    Le réflexe sur le terrain : observer, préparer, exécuter, tracer.
+  </text>
+
+  <!-- Étape 1 - Observer -->
+  <g>
+    <rect x="100" y="250" width="220" height="170" rx="20" fill="#ffffff" stroke="#1d4ed8" stroke-width="3"/>
+    <rect x="100" y="250" width="220" height="50" rx="20" fill="#1d4ed8"/>
+    <text x="210" y="285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">
+      1. Observer
+    </text>
+    <text x="120" y="330" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#1e3a8a">
+      <tspan x="120" dy="0">• Environnement</tspan>
+      <tspan x="120" dy="22">• État du matériel</tspan>
+      <tspan x="120" dy="22">• Présence de tiers</tspan>
+      <tspan x="120" dy="22">• Repérer les organes</tspan>
+    </text>
+  </g>
+
+  <!-- Flèche 1 -->
+  <path d="M 325 335 L 365 335 L 360 325 M 365 335 L 360 345" stroke="#94a3b8" stroke-width="3" fill="none"/>
+
+  <!-- Étape 2 - Préparer -->
+  <g>
+    <rect x="370" y="250" width="220" height="170" rx="20" fill="#ffffff" stroke="#b45309" stroke-width="3"/>
+    <rect x="370" y="250" width="220" height="50" rx="20" fill="#b45309"/>
+    <text x="480" y="285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">
+      2. Préparer
+    </text>
+    <text x="390" y="330" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#78350f">
+      <tspan x="390" dy="0">• EPI contrôlés</tspan>
+      <tspan x="390" dy="22">• VAT testé</tspan>
+      <tspan x="390" dy="22">• Instruction claire</tspan>
+      <tspan x="390" dy="22">• Autorisation tracée</tspan>
+    </text>
+  </g>
+
+  <!-- Flèche 2 -->
+  <path d="M 595 335 L 635 335 L 630 325 M 635 335 L 630 345" stroke="#94a3b8" stroke-width="3" fill="none"/>
+
+  <!-- Étape 3 - Exécuter -->
+  <g>
+    <rect x="640" y="250" width="220" height="170" rx="20" fill="#ffffff" stroke="#15803d" stroke-width="3"/>
+    <rect x="640" y="250" width="220" height="50" rx="20" fill="#15803d"/>
+    <text x="750" y="285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">
+      3. Exécuter
+    </text>
+    <text x="660" y="330" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#14532d">
+      <tspan x="660" dy="0">• Geste maîtrisé</tspan>
+      <tspan x="660" dy="22">• Hors tension (BS)</tspan>
+      <tspan x="660" dy="22">• Organe identifié (BE)</tspan>
+      <tspan x="660" dy="22">• Contrôler le résultat</tspan>
+    </text>
+  </g>
+
+  <!-- Flèche 3 -->
+  <path d="M 865 335 L 905 335 L 900 325 M 905 335 L 900 345" stroke="#94a3b8" stroke-width="3" fill="none"/>
+
+  <!-- Étape 4 - Tracer -->
+  <g>
+    <rect x="910" y="250" width="180" height="170" rx="20" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+    <rect x="910" y="250" width="180" height="50" rx="20" fill="#7c3aed"/>
+    <text x="1000" y="285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">
+      4. Tracer
+    </text>
+    <text x="930" y="330" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#5b21b6">
+      <tspan x="930" dy="0">• Compte rendu</tspan>
+      <tspan x="930" dy="22">• Registre / cahier</tspan>
+      <tspan x="930" dy="22">• Anomalie : alerter</tspan>
+      <tspan x="930" dy="22">• Escalade BR / BC</tspan>
+    </text>
+  </g>
+
+  <!-- Bandeau STOP / DOUTE -->
+  <rect x="100" y="460" width="990" height="110" rx="22" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+  <text x="140" y="500" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#b91c1c">
+    Au moindre doute : STOP
+  </text>
+  <text x="140" y="535" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#7f1d1d">
+    Une manœuvre qui résiste, un voyant absent, un comportement anormal : on s’arrête,
+  </text>
+  <text x="140" y="558" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#7f1d1d">
+    on signale au chargé d’exploitation, on fait monter le niveau d’habilitation requis.
+  </text>
+
+  <!-- Footer -->
+  <text x="600" y="635" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-style="italic" fill="#475569">
+    Conforme NF C 18-510 — Code du travail R.4544-9 / R.4544-10
+  </text>
+</svg>

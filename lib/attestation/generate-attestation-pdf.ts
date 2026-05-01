@@ -7,6 +7,7 @@ import {
   rgb,
 } from "pdf-lib";
 import fs from "fs/promises";
+import path from "path";
 
 export type AttestationPdfInput = {
   userId: string;
@@ -185,19 +186,61 @@ function drawLine(
   });
 }
 
+/**
+ * Charge le premier asset existant, en essayant plusieurs stratégies
+ * de résolution pour rester robuste aux modes dev / build / Vercel.
+ *
+ * Bug corrigé : la version précédente utilisait uniquement
+ * `new URL(relativePath, import.meta.url)`. En build webpack Next.js,
+ * `import.meta.url` peut pointer vers `.next/server/...` au lieu du
+ * fichier source, ce qui casse la résolution relative et fait disparaître
+ * silencieusement le logo de l'attestation PDF.
+ *
+ * On essaie maintenant trois stratégies dans l'ordre :
+ *   1. Chemin résolu depuis `process.cwd()` (= racine du projet en dev,
+ *      en build, sur Vercel et la plupart des hébergeurs Node).
+ *   2. Chemin résolu via `import.meta.url` (cas pur ESM Node).
+ *   3. Chemin tel quel (cas rare où l'appelant a déjà passé un chemin absolu).
+ */
 async function readFirstExistingAsset(relativePaths: string[]) {
-  const candidates = relativePaths.map(
-    (relativePath) => new URL(relativePath, import.meta.url)
+  // Normalise : on retire les "../" en tête pour avoir un chemin
+  // relatif à la racine du projet (les chemins d'origine étaient
+  // relatifs au fichier lib/attestation/generate-attestation-pdf.ts).
+  const projectRelativePaths = relativePaths.map((p) =>
+    p.replace(/^(\.\.\/)+/, "")
   );
 
-  for (const filePath of candidates) {
+  // Stratégie 1 : depuis la racine du projet via process.cwd().
+  for (const rel of projectRelativePaths) {
     try {
-      return await fs.readFile(filePath);
+      return await fs.readFile(path.join(process.cwd(), rel));
     } catch {
       // continue
     }
   }
 
+  // Stratégie 2 : résolution ESM via import.meta.url (compat ancienne).
+  for (const rel of relativePaths) {
+    try {
+      return await fs.readFile(new URL(rel, import.meta.url));
+    } catch {
+      // continue
+    }
+  }
+
+  // Stratégie 3 : chemin direct (au cas où).
+  for (const rel of projectRelativePaths) {
+    try {
+      return await fs.readFile(rel);
+    } catch {
+      // continue
+    }
+  }
+
+  console.warn(
+    "[attestation] Aucun asset trouvé. Chemins testés :",
+    projectRelativePaths
+  );
   return null;
 }
 

@@ -1,3 +1,5 @@
+import CourseJsonLd from "@/components/seo/CourseJsonLd";
+
 export const metadata = {
   title: "Formation exploitation SSI | PREVENSIA FORMATION",
   description:
@@ -7,6 +9,16 @@ export const metadata = {
 export default function FormationSSI() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <CourseJsonLd
+        name="Formation exploitation du SSI"
+        description="Formation à l'exploitation du Système de Sécurité Incendie : normes NF S 61, cadres ERP, IGH, Code du Travail, ICPE. Pour exploitants et responsables techniques."
+        courseCode="SSI"
+        url="/formation-ssi"
+        timeRequired="P1D"
+        educationalLevel="Intermediate"
+        audience="Exploitants, responsables techniques, équipes maintenance"
+        educationalCredentialAwarded="Attestation de formation Prevensia"
+      />
       <div className="mx-auto max-w-5xl">
         <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">

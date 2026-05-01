@@ -38,7 +38,7 @@ const MOJIBAKE_REPLACEMENTS: Array<[string, string]> = [
   ["\u00C2\u00A0", " "],
 ];
 
-const MOJIBAKE_SUSPICIOUS = /[ÃÂÅâ]/g;
+const MOJIBAKE_SUSPICIOUS = /Ã[-¿]|Â[ -¿°«»§©®¶]|â€[-¿–—‘’“”€]|Å[«»"“”Œœ]/g;
 
 const FRENCH_REPLACEMENTS: Array<[RegExp, string]> = [
   [/\badequation\b/gi, "ad\u00E9quation"],

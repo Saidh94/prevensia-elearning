@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { electricalCommercialOffers } from "@/lib/electrical-offers";
+import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
   title: "Formation habilitation electrique | PREVENSIA FORMATION",
@@ -88,6 +89,16 @@ const offerSections = [
 export default function FormationHabilitationElectriquePage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
+      <CourseJsonLd
+        name="Formation habilitation électrique (H0B0, BS, B1, B2, BR, BC)"
+        description="Formations habilitation électrique conformes NF C 18-510 : H0B0/H0V, BS / BE Manœuvre, B1/B1V, B2/B2V, BR, BC. E-learning, classe virtuelle et présentiel."
+        courseCode="HABILITATION-ELEC"
+        url="/formation-habilitation-electrique"
+        timeRequired="P1D"
+        educationalLevel="Beginner"
+        audience="Particuliers, salariés, entreprises – électriciens et non-électriciens"
+        educationalCredentialAwarded="Attestation de formation Prevensia (l'employeur délivre l'habilitation)"
+      />
       <section className="relative overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0">
           <Image

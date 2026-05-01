@@ -1,3 +1,5 @@
+import CourseJsonLd from "@/components/seo/CourseJsonLd";
+
 export const metadata = {
   title: "Formation exploitation sprinkler et référentiels techniques | PREVENSIA FORMATION",
   description:
@@ -26,29 +28,39 @@ const programme = [
 const tarifs = [
   {
     format: "Accès e-learning inclus",
-    price: "Inclus avec la formation encadrée",
-    detail: "Support de préparation et de révision pour les apprenants inscrits à la formation sprinkler.",
+    price: "Inclus avec la formation 1 ou 2 jours",
+    detail: "Support de préparation et de révision pour les apprenants inscrits aux formations encadrées 1 ou 2 jours. Non vendu seul.",
   },
   {
-    format: "Classe virtuelle ou présentiel - 1 jour",
-    price: "390 à 590 € HT / apprenant",
-    detail: "Formation exploitation avec cas pratiques, lecture de schéma, anomalies courantes et conduite à tenir.",
+    format: "Présentiel - 1 jour",
+    price: "590 à 790 € HT / apprenant",
+    detail: "Formation exploitation avec cas pratiques, lecture de schéma, anomalies courantes et conduite à tenir. Accès e-learning inclus en préparation et révision.",
   },
   {
-    format: "Présentiel technique - 2 jours",
-    price: "790 à 1 090 € HT / apprenant",
-    detail: "Parcours renforcé pour responsables techniques, maintenance, exploitation, sites industriels ou logistiques.",
+    format: "Présentiel renforcé - 2 jours",
+    price: "1 290 à 1 490 € HT / apprenant",
+    detail: "Parcours technique pour responsables techniques, maintenance, exploitation, sites industriels et logistiques. Inclut une visite encadrée d'une installation sprinkler avec les apprenants. Conforme APSAD R1, EN 12845, NFPA 13. Accès e-learning inclus.",
   },
   {
     format: "Intra entreprise",
-    price: "À partir de 1 400 € HT / jour",
-    detail: "Tarif à ajuster selon le site, le référentiel attendu, les documents fournis et le niveau technique demandé.",
+    price: "À partir de 1 800 € HT / jour",
+    detail: "Tarif à ajuster selon le site, le référentiel attendu, les documents fournis et le niveau technique demandé. Adapté aux entrepôts et plateformes logistiques.",
   },
 ];
 
 export default function FormationSprinkler() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <CourseJsonLd
+        name="Formation exploitation sprinkler"
+        description="Formation sprinkler pour exploitants et responsables techniques : fonctionnement, exploitation, surveillance et référentiels EN 12845, APSAD R1, NFPA 13."
+        courseCode="SPRINKLER"
+        url="/formation-sprinkler"
+        timeRequired="P1D"
+        educationalLevel="Intermediate"
+        audience="Exploitants, responsables techniques, maintenance, sécurité"
+        educationalCredentialAwarded="Attestation de formation Prevensia"
+      />
       <div className="mx-auto max-w-5xl">
         <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
@@ -62,9 +74,11 @@ export default function FormationSprinkler() {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             PREVENSIA FORMATION accompagne les exploitants, responsables techniques,
             responsables sécurité et gestionnaires de sites équipés d'installations
-            sprinkler. La formation est encadrée en présentiel ou classe virtuelle ;
-            l'accès e-learning vient en complément pour préparer et réviser les
-            notions techniques.
+            sprinkler. La formation est encadrée en présentiel sur 1 ou 2 jours.
+            La version 2 jours renforcée inclut une visite encadrée d'une
+            installation sprinkler avec les apprenants. L'accès e-learning est
+            inclus en support de préparation et de révision pour les apprenants
+            inscrits.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -89,10 +103,11 @@ export default function FormationSprinkler() {
             <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
               Modalités
             </p>
-            <p className="mt-3 text-lg font-semibold">E-learning, classe virtuelle ou présentiel</p>
+            <p className="mt-3 text-lg font-semibold">Présentiel 1 ou 2 jours, intra-entreprise</p>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Format adapté au niveau attendu : sensibilisation exploitation, référent technique
-              ou accompagnement sur site, avec support e-learning inclus.
+              ou accompagnement sur site. La 2 jours inclut une visite installation sprinkler.
+              Support e-learning inclus pour les apprenants inscrits.
             </p>
           </div>
 

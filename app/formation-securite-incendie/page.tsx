@@ -1,3 +1,5 @@
+import CourseJsonLd from "@/components/seo/CourseJsonLd";
+
 export const metadata = {
   title: "Formation securite incendie en entreprise | PREVENSIA FORMATION",
   description:
@@ -49,6 +51,16 @@ const inrsIncendieResources = [
 export default function FormationSecuriteIncendie() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <CourseJsonLd
+        name="Formation sécurité incendie en entreprise"
+        description="Formation sécurité incendie : manipulation extincteurs, guide-file, serre-file, équipier de première intervention. Sessions adaptées aux entreprises."
+        courseCode="INCENDIE"
+        url="/formation-securite-incendie"
+        timeRequired="PT4H"
+        educationalLevel="Beginner"
+        audience="Salariés, encadrants, équipiers de première intervention"
+        educationalCredentialAwarded="Attestation de formation Prevensia"
+      />
       <div className="mx-auto max-w-5xl">
         <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">

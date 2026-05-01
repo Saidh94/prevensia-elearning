@@ -609,28 +609,49 @@ export default function Home() {
 
   <div className="relative mx-auto max-w-7xl px-4 pt-16 text-center sm:px-6 lg:px-8">
     <p className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100 backdrop-blur">
-      Organisme de formation certifié
+      Organisme de formation Qualiopi
     </p>
 
-    <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.35rem]">
-      Formations sécurité incendie, habilitations électriques, SSI et SST
-      <span className="block text-red-400">
-        {" "}pour les entreprises et les professionnels intervenant en environnement technique
+    <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
+      La sécurité, c’est une compétence qui se forme.
+      <span className="mt-2 block text-red-400">
+        Habilitation électrique, incendie, SSI, sprinkler, SST.
       </span>
     </h1>
 
     <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-200">
-      PREVENSIA FORMATION accompagne les entreprises dans la prévention des risques
-      professionnels, notamment incendie, risque électrique, santé et sécurité au travail,
-      à travers des formations conçues pour la conformité réglementaire, la prévention et
-      l’efficacité opérationnelle.
+      Formations conformes au Code du travail et à la NF&nbsp;C&nbsp;18-510, en
+      présentiel, e-learning ou intra-entreprise. Pour les employeurs qui doivent
+      délivrer l’habilitation, et les apprenants qui doivent l’obtenir.
     </p>
 
-    <p className="mx-auto mt-3 max-w-3xl text-sm leading-7 text-slate-300">
-      Nos formations s’adressent aux employeurs, exploitants, équipes terrain et
-      intervenants techniques souhaitant sécuriser leurs activités et renforcer les
-      compétences de leurs collaborateurs.
-    </p>
+    {/* Preuve sociale au-dessus du pli */}
+    <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 text-center md:grid-cols-4">
+      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
+        <p className="text-2xl font-bold text-white sm:text-3xl">Qualiopi</p>
+        <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
+          Certifié actions de formation
+        </p>
+      </div>
+      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
+        <p className="text-2xl font-bold text-red-400 sm:text-3xl">NF&nbsp;C&nbsp;18-510</p>
+        <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
+          Référentiel respecté
+        </p>
+      </div>
+      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
+        <p className="text-2xl font-bold text-white sm:text-3xl">10+</p>
+        <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
+          Parcours e-learning
+        </p>
+      </div>
+      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
+        <p className="text-2xl font-bold text-white sm:text-3xl">France</p>
+        <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
+          Inter et intra-entreprise
+        </p>
+      </div>
+    </div>
   </div>
 
   <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8">
@@ -777,6 +798,142 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3 piliers Prevensia — différenciation et conversion */}
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Trois engagements concrets
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Pourquoi les employeurs et les apprenants nous choisissent
+              </h2>
+              <p className="mt-4 text-slate-600">
+                Une logique simple : la formation prépare, l’employeur délivre l’habilitation,
+                et nous facilitons toute la chaîne de bout en bout.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              <div className="flex flex-col rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
+                  1
+                </div>
+                <h3 className="mt-5 text-xl font-bold">Conformité réglementaire</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Formations alignées sur le Code du travail (R.4544-9, R.4544-10), la
+                  NF C 18-510, les référentiels INRS, EN 12845, APSAD R1, NF S 61.
+                  Vous tenez vos obligations sans approximation.
+                </p>
+              </div>
+
+              <div className="flex flex-col rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
+                  2
+                </div>
+                <h3 className="mt-5 text-xl font-bold">Souplesse de format</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  E-learning encadré pour H0B0/H0V et BS/BE Manœuvre. Présentiel et
+                  classe virtuelle pour les habilitations B1, B2, BR, BC. Intra-entreprise
+                  pour les groupes. Vous choisissez ce qui colle à votre organisation.
+                </p>
+              </div>
+
+              <div className="flex flex-col rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
+                  3
+                </div>
+                <h3 className="mt-5 text-xl font-bold">Traçabilité et attestations</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Plateforme apprenant, suivi des progressions, quiz avec corrigés
+                  explicatifs, attestations PDF prêtes à archiver. Pour l’employeur,
+                  un accès dédié pour piloter ses inscrits.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ rapide — accélère la conversion et capture les longues traînes SEO */}
+        <section className="bg-slate-50 py-16">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                Questions fréquentes
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Les réponses qu’on nous pose souvent
+              </h2>
+            </div>
+
+            <div className="mt-10 grid gap-4">
+              <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
+                <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                  La formation me délivre-t-elle l’habilitation électrique ?
+                  <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Non. La formation Prevensia vous prépare et atteste de vos acquis
+                  théoriques. Le titre d’habilitation est délivré par votre employeur
+                  selon votre poste, vos tâches réelles et votre aptitude médicale,
+                  conformément au Code du travail (R.4544-10) et à la NF C 18-510.
+                </p>
+              </details>
+
+              <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
+                <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                  En combien de temps puis-je commencer ?
+                  <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Pour les parcours e-learning H0B0/H0V et BS/BE Manœuvre, l’accès est
+                  ouvert immédiatement après inscription et paiement. Pour les
+                  formations encadrées (B1, B2, BR, BC, SST, incendie, sprinkler),
+                  consultez le planning ou demandez un devis : nous proposons
+                  généralement une session sous 2 à 4 semaines.
+                </p>
+              </details>
+
+              <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
+                <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                  Est-ce finançable par l’OPCO ou Pôle emploi ?
+                  <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Prevensia étant certifié Qualiopi, nos formations sont éligibles aux
+                  dispositifs de financement par OPCO et France Travail. Nous fournissons
+                  les documents justificatifs nécessaires sur demande lors du devis.
+                </p>
+              </details>
+
+              <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
+                <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                  Quelle est la durée de validité d’une habilitation ?
+                  <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  La NF C 18-510 recommande un recyclage tous les 3 ans pour le maintien
+                  des compétences. L’employeur reste libre de demander un recyclage plus
+                  fréquent si l’environnement de travail le justifie.
+                </p>
+              </details>
+
+              <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
+                <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
+                  Pouvez-vous intervenir directement sur notre site ?
+                  <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  Oui. Toutes nos formations encadrées peuvent être organisées en
+                  intra-entreprise sur votre site, partout en France. Le devis intègre
+                  les frais de déplacement et l’adaptation du contenu à vos installations
+                  réelles.
+                </p>
+              </details>
             </div>
           </div>
         </section>

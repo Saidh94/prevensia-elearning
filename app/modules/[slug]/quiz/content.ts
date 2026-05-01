@@ -1911,6 +1911,189 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le permis de feu sert à préparer, autoriser et contrôler les travaux par points chauds avant, pendant et après l’intervention. Il ne remplace pas les autres consignes du site.",
       timeLimit: 75,
     },
+      {
+      question: "Lors d'un incendie, quelle est la première cause de décès en milieu professionnel ?",
+      choices: [
+        "Les flammes",
+        "Les fumées et gaz toxiques",
+        "L'effondrement de la structure",
+        "Le rayonnement thermique",
+      ],
+      answer: [1],
+      explanation:
+        "Selon l'INRS (ED 6336), les fumées et gaz (notamment le monoxyde de carbone CO, inodore) sont la première cause de décès lors des incendies en milieu professionnel.",
+    },
+    {
+      question: "Quelle est la concentration normale d'oxygène dans l'air, repère utile pour comprendre l'asphyxie en cas d'incendie ?",
+      choices: [
+        "10 %",
+        "15 %",
+        "21 %",
+        "30 %",
+      ],
+      answer: [2],
+      explanation:
+        "L'air contient environ 21 % d'oxygène. Lors d'un incendie, cette concentration diminue rapidement, ce qui contribue à l'asphyxie.",
+    },
+    {
+      question: "Parmi ces 4 modes, lesquels participent à la propagation d'un incendie ?",
+      choices: [
+        "Conduction",
+        "Convection",
+        "Rayonnement",
+        "Déplacement de substances en combustion",
+      ],
+      answer: [0,1,2,3],
+      multiple: true,
+      explanation:
+        "L'INRS (ED 6336) recense ces 4 modes : conduction (dans un même matériau), convection (gaz chauds), rayonnement (infrarouges) et déplacement de matières incandescentes.",
+    },
+    {
+      question: "Dans environ quelle proportion de sinistres incendie l'entreprise disparaît-elle, selon l'INRS ?",
+      choices: [
+        "10 %",
+        "30 %",
+        "50 %",
+        "70 %",
+      ],
+      answer: [3],
+      explanation:
+        "L'INRS (ED 6336) rappelle que dans près de 70 % des sinistres incendie, l'entreprise disparaît et le personnel se retrouve au chômage.",
+    },
+    {
+      question: "Pour les travaux par points chauds (soudure, meulage, chalumeau...), quel document est obligatoire ?",
+      choices: [
+        "Un permis de feu",
+        "Une attestation de présence",
+        "Un bon de livraison",
+        "Aucun document si le travail est court",
+      ],
+      answer: [0],
+      explanation:
+        "Le permis de feu (INRS ED 6030) est le document de référence pour encadrer les travaux par points chauds, qui sont une cause majeure d'incendie en entreprise.",
+    },
+    {
+      question: "Le permis de feu doit être délivré par :",
+      choices: [
+        "Le salarié exécutant",
+        "Le chef d'entreprise ou son représentant désigné, en concertation avec l'entreprise utilisatrice",
+        "Le sous-traitant seul",
+        "Le responsable RH",
+      ],
+      answer: [1],
+      explanation:
+        "Le permis de feu est délivré par le chef d'entreprise ou son représentant, en concertation avec l'entreprise extérieure intervenante (INRS ED 6030).",
+    },
+    {
+      question: "À quelle classe de feu correspondent les feux de matériaux solides (bois, papier, tissu) ?",
+      choices: [
+        "Classe A",
+        "Classe B",
+        "Classe C",
+        "Classe D",
+      ],
+      answer: [0],
+      explanation:
+        "Classe A = feux secs (bois, papier, tissu). Classe B = liquides inflammables. Classe C = gaz. Classe D = métaux. F = huiles et graisses de cuisson.",
+    },
+    {
+      question: "Quelle classe de feu concerne les liquides inflammables comme l'essence ou les solvants ?",
+      choices: [
+        "Classe A",
+        "Classe B",
+        "Classe C",
+        "Classe F",
+      ],
+      answer: [1],
+      explanation:
+        "La classe B regroupe les liquides et solides liquéfiables : essence, solvants, peintures, alcools.",
+    },
+    {
+      question: "Sur une installation électrique sous tension, quels extincteurs sont adaptés ?",
+      choices: [
+        "Eau pulvérisée sans additif",
+        "CO2 (dioxyde de carbone)",
+        "Poudre ABC",
+        "Eau seule en jet droit",
+      ],
+      answer: [1,2],
+      multiple: true,
+      explanation:
+        "Le CO2 et la poudre sont adaptés aux feux d'origine électrique. L'eau en jet est interdite sur une installation sous tension (risque d'électrocution).",
+    },
+    {
+      question: "Le rôle du guide-file lors d'une évacuation est :",
+      choices: [
+        "De rester au point de rassemblement pour compter",
+        "D'ouvrir la marche et de conduire les occupants vers la sortie de secours désignée",
+        "De fermer les portes coupe-feu en partant",
+        "De prévenir les pompiers depuis l'extérieur",
+      ],
+      answer: [1],
+      explanation:
+        "Le guide-file ouvre la marche et conduit les occupants vers la sortie. Le serre-file ferme la marche et vérifie que personne ne reste.",
+    },
+    {
+      question: "Le rôle du serre-file lors d'une évacuation est :",
+      choices: [
+        "D'ouvrir la marche",
+        "De fermer la marche, vérifier que personne ne reste, fermer les portes derrière lui",
+        "D'appeler les pompiers",
+        "De manipuler les extincteurs",
+      ],
+      answer: [1],
+      explanation:
+        "Le serre-file ferme l'évacuation, vérifie qu'aucun occupant n'est resté dans les locaux et referme les portes coupe-feu pour limiter la propagation.",
+    },
+    {
+      question: "L'évaluation du risque incendie doit être intégrée dans quel document obligatoire de l'entreprise ?",
+      choices: [
+        "Le règlement intérieur",
+        "Le document unique d'évaluation des risques professionnels (DUERP)",
+        "Le contrat de travail",
+        "Le plan comptable",
+      ],
+      answer: [1],
+      explanation:
+        "L'évaluation du risque incendie fait partie intégrante du DUERP (INRS ED 970), document obligatoire mis à jour au moins une fois par an.",
+    },
+    {
+      question: "Parmi ces actions, lesquelles font partie de la prévention « agir sur les sources d'inflammation » ?",
+      choices: [
+        "Procédure de permis de feu pour les travaux par points chauds",
+        "Conformité des installations électriques à la NF C 15-100",
+        "Stockage massif de combustibles",
+        "Thermographie infrarouge des armoires électriques",
+      ],
+      answer: [0,1,3],
+      multiple: true,
+      explanation:
+        "Permis de feu, conformité électrique et contrôle thermique sont des actions de prévention. Le stockage massif de combustibles aggrave le risque, il ne le réduit pas.",
+    },
+    {
+      question: "L'exercice d'évacuation doit être organisé au minimum :",
+      choices: [
+        "Une fois tous les 5 ans",
+        "Une fois par an",
+        "Tous les six mois (Code du travail R.4227-39)",
+        "Uniquement à l'embauche",
+      ],
+      answer: [2],
+      explanation:
+        "Le Code du travail (R.4227-39) impose un exercice d'évacuation au moins tous les six mois, en condition réelle.",
+    },
+    {
+      question: "Le triangle du feu est composé de :",
+      choices: [
+        "Combustible, comburant, source d'inflammation",
+        "Eau, mousse, poudre",
+        "Détecteur, alarme, sirène",
+        "Évacuation, alerte, secours",
+      ],
+      answer: [0],
+      explanation:
+        "Le triangle du feu (INRS ED 6336) : combustible (matière qui brûle) + comburant (oxygène) + source d'inflammation. Supprimer un sommet supprime le feu.",
+    },
   ],
   "ssi-exploitation": [
     {
@@ -2094,6 +2277,176 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le SSI est un maillon d'un dispositif réglementaire et organisationnel plus large, qui dépend du bâtiment et de son usage.",
       timeLimit: 70,
     },
+      {
+      question: "Le sigle SSI signifie :",
+      choices: [
+        "Système de Sécurité Intérieure",
+        "Système de Sécurité Incendie",
+        "Service de Surveillance Industrielle",
+        "Sécurité Sanitaire et Incendie",
+      ],
+      answer: [1],
+      explanation:
+        "Le SSI est l'ensemble des matériels qui détectent un incendie et mettent en œuvre la mise en sécurité d'un bâtiment (NF S 61-931 et suivantes).",
+    },
+    {
+      question: "Les normes SSI françaises principales appartiennent à la série :",
+      choices: [
+        "NF EN 12845",
+        "NF S 61",
+        "NF C 15-100",
+        "NF P 92",
+      ],
+      answer: [1],
+      explanation:
+        "La série NF S 61 (notamment NF S 61-931, 932, 933, 934, 935, 936, 970) régit les SSI : conception, exploitation, maintenance.",
+    },
+    {
+      question: "Le SSI est composé en deux sous-ensembles principaux :",
+      choices: [
+        "SDI et SMSI",
+        "ECS et CMSI",
+        "BAES et DAS",
+        "SDI uniquement",
+      ],
+      answer: [0,1],
+      multiple: true,
+      explanation:
+        "SDI (Système de Détection Incendie) avec son ECS (Équipement de Contrôle et de Signalisation) + SMSI (Système de Mise en Sécurité Incendie) avec son CMSI (Centralisateur de Mise en Sécurité Incendie).",
+    },
+    {
+      question: "Combien de catégories de SSI existent (NF S 61-931) ?",
+      choices: [
+        "2 (catégorie A et B)",
+        "3 (A, B, C)",
+        "5 (A, B, C, D, E)",
+        "Aucune catégorisation",
+      ],
+      answer: [2],
+      explanation:
+        "Les SSI sont classés en 5 catégories (A, B, C, D, E) selon le niveau de sécurité requis. La catégorie A est la plus exigeante.",
+    },
+    {
+      question: "La catégorie A de SSI exige notamment :",
+      choices: [
+        "Une détection automatique généralisée + ECS + UGA + DAS + désenfumage",
+        "Uniquement des extincteurs",
+        "Aucun détecteur",
+        "Une simple alarme sonore",
+      ],
+      answer: [0],
+      explanation:
+        "La catégorie A est la plus complète : détection automatique, équipement de contrôle, unité de gestion d'alarme, dispositifs actionnés de sécurité (DAS), désenfumage.",
+    },
+    {
+      question: "L'UGA est :",
+      choices: [
+        "Une Unité de Gestion d'Alarme",
+        "Une Unité Générale d'Alimentation",
+        "Un Utilitaire Graphique d'Alerte",
+        "Une Unité de Gardiennage Automatisé",
+      ],
+      answer: [0],
+      explanation:
+        "L'UGA gère le déclenchement de l'alarme générale, intégrée au CMSI. Elle peut comporter une temporisation pour la levée de doute.",
+    },
+    {
+      question: "Un DAS (Dispositif Actionné de Sécurité) est :",
+      choices: [
+        "Un détecteur de fumée",
+        "Un équipement asservi par le SSI (porte coupe-feu, clapet, désenfumage, etc.)",
+        "Une alarme sonore",
+        "Un déclencheur manuel",
+      ],
+      answer: [1],
+      explanation:
+        "Un DAS est un équipement asservi (porte coupe-feu auto-fermante, clapet de désenfumage, exutoire, volet, ascenseur) qui exécute une fonction de mise en sécurité.",
+    },
+    {
+      question: "Un déclencheur manuel (DM) sert à :",
+      choices: [
+        "Tester l'alarme tous les jours",
+        "Déclencher manuellement le processus d'alarme et de mise en sécurité",
+        "Couper le courant général",
+        "Appeler les pompiers",
+      ],
+      answer: [1],
+      explanation:
+        "Le DM (souvent boîtier rouge à briser) permet à un occupant de déclencher l'alarme manuellement quand il constate un début d'incendie.",
+    },
+    {
+      question: "L'alarme restreinte est :",
+      choices: [
+        "Une alarme audible uniquement par le personnel de surveillance, pour permettre une levée de doute",
+        "Une alarme non audible par les pompiers",
+        "Une alarme désactivée la nuit",
+        "Une alarme sans son",
+      ],
+      answer: [0],
+      explanation:
+        "L'alarme restreinte (ou de niveau 1) est destinée au personnel formé, pour vérifier la réalité de l'incendie avant de déclencher l'alarme générale.",
+    },
+    {
+      question: "L'alarme générale doit être audible :",
+      choices: [
+        "Uniquement aux étages concernés",
+        "En tout point du bâtiment",
+        "Dans les bureaux uniquement",
+        "Uniquement la nuit",
+      ],
+      answer: [1],
+      explanation:
+        "L'alarme générale doit être audible en tout point accessible aux occupants, et adaptée aux types de handicap présents (signaux visuels pour les sourds par ex.).",
+    },
+    {
+      question: "Un BAES est :",
+      choices: [
+        "Un Bloc Autonome d'Éclairage de Sécurité",
+        "Un Bouton d'Alarme Électronique de Site",
+        "Un Bordereau d'Activité Évacuation Secours",
+        "Un Boîtier Anti-Effraction Sécurité",
+      ],
+      answer: [0],
+      explanation:
+        "Le BAES éclaire l'évacuation en cas de coupure du courant. Il fait partie de l'éclairage de sécurité, distinct du SSI mais lié à l'évacuation.",
+    },
+    {
+      question: "Le registre d'exploitation du SSI doit consigner :",
+      choices: [
+        "Les essais périodiques",
+        "Les anomalies et défauts",
+        "Les opérations de maintenance",
+        "Le nom et l'adresse personnelle des occupants",
+      ],
+      answer: [0,1,2],
+      multiple: true,
+      explanation:
+        "Le registre trace les essais, anomalies, défauts, dérangements et opérations de maintenance. Il n'a pas vocation à recenser des données personnelles.",
+    },
+    {
+      question: "La maintenance préventive d'un SSI doit être effectuée :",
+      choices: [
+        "Tous les 5 ans",
+        "Tous les ans (au minimum) par une entreprise qualifiée",
+        "Uniquement après un sinistre",
+        "Jamais",
+      ],
+      answer: [1],
+      explanation:
+        "La NF S 61-933 et le Code du travail imposent au moins une maintenance annuelle par un mainteneur qualifié, avec contrat d'entretien recommandé.",
+    },
+    {
+      question: "Face à une alarme incendie en condition réelle, l'exploitant doit :",
+      choices: [
+        "Désactiver l'alarme pour vérifier",
+        "Déclencher l'évacuation, alerter les secours et appliquer la consigne incendie",
+        "Attendre le mainteneur",
+        "Relancer le système",
+      ],
+      answer: [1],
+      explanation:
+        "Face à une alarme réelle, l'évacuation est lancée, les secours alertés et la consigne du site appliquée. La désactivation n'intervient qu'après vérification du danger.",
+    },
   ],
   sprinkler: [
     {
@@ -2269,6 +2622,188 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       imageAlt:
         "Vue d'une installation sprinkler en environnement industriel ou logistique",
     },
+      {
+      question: "Une installation sprinkler est conçue pour :",
+      choices: [
+        "Détecter un incendie sans agir",
+        "Détecter et éteindre / contenir automatiquement un incendie",
+        "Évacuer les fumées",
+        "Couper le courant",
+      ],
+      answer: [1],
+      explanation:
+        "Le sprinkler détecte (par bulbe ou ampoule thermosensible) puis éteint ou contient l'incendie en arrosant la zone concernée.",
+    },
+    {
+      question: "Le déclenchement d'une tête sprinkler classique se fait par :",
+      choices: [
+        "Un signal électrique du SSI",
+        "La rupture thermique d'un bulbe ou d'une ampoule à liquide",
+        "L'action manuelle d'un occupant",
+        "Une commande à distance",
+      ],
+      answer: [1],
+      explanation:
+        "La tête sprinkler à bulbe libère l'eau quand la chaleur atteint la température de tarage du bulbe (généralement 68 °C ou 79 °C).",
+    },
+    {
+      question: "Les principaux référentiels techniques pour le sprinkler sont :",
+      choices: [
+        "EN 12845",
+        "APSAD R1",
+        "NFPA 13",
+        "NF C 18-510",
+      ],
+      answer: [0,1,2],
+      multiple: true,
+      explanation:
+        "EN 12845 (norme européenne), APSAD R1 (référentiel assureur français), NFPA 13 (USA, exigeant en logistique), FM Global (assureur). NF C 18-510 concerne l'habilitation électrique, pas le sprinkler.",
+    },
+    {
+      question: "Une tête sprinkler à bulbe ROUGE est tarée à environ :",
+      choices: [
+        "57 °C",
+        "68 °C",
+        "79 °C",
+        "141 °C",
+      ],
+      answer: [1],
+      explanation:
+        "Le code couleur des bulbes : orange = 57 °C, rouge = 68 °C, jaune = 79 °C, vert = 93 °C, bleu = 141 °C, mauve = 182 °C, noir = 204+ °C.",
+    },
+    {
+      question: "Le poste de contrôle d'une installation sprinkler comporte typiquement :",
+      choices: [
+        "Une vanne principale, un clapet d'alarme, un manomètre amont/aval, un test",
+        "Un détecteur de fumée",
+        "Un déclencheur manuel d'alarme",
+        "Un BAES",
+      ],
+      answer: [0],
+      explanation:
+        "Le poste de contrôle : vanne d'isolement, clapet anti-retour avec gong hydraulique d'alarme, manomètres pression amont et aval, dispositif de test.",
+    },
+    {
+      question: "Une vanne sprinkler trouvée fermée alors qu'elle devrait être ouverte représente :",
+      choices: [
+        "Une situation normale",
+        "Une indisponibilité grave de l'installation, à signaler immédiatement",
+        "Une économie d'eau",
+        "Une opération de maintenance",
+      ],
+      answer: [1],
+      explanation:
+        "Une vanne fermée à tort rend l'installation inopérante. C'est l'une des causes les plus fréquentes de défaillance, à signaler et corriger sans délai.",
+    },
+    {
+      question: "Un essai hebdomadaire (essai du gong d'alarme) doit être consigné dans :",
+      choices: [
+        "Le registre d'exploitation de l'installation sprinkler",
+        "Le contrat de travail",
+        "Le DUERP",
+        "Aucun document",
+      ],
+      answer: [0],
+      explanation:
+        "Le registre d'exploitation trace tous les essais (hebdomadaires, mensuels, annuels), anomalies et opérations de maintenance, conformément à l'EN 12845 et l'APSAD R1.",
+    },
+    {
+      question: "L'APSAD R1 est :",
+      choices: [
+        "Une norme européenne",
+        "Un référentiel d'installation et de vérification émis par les assureurs français (CNPP)",
+        "Une norme américaine",
+        "Une recommandation FM Global",
+      ],
+      answer: [1],
+      explanation:
+        "L'APSAD R1 (Centre National de Prévention et de Protection / CNPP) est le référentiel d'installation, vérification et maintenance des installations sprinkler en France, reconnu par les assureurs.",
+    },
+    {
+      question: "Le risque le plus fréquent d'indisponibilité d'une installation sprinkler vient de :",
+      choices: [
+        "Vannes fermées par erreur, têtes masquées par du stockage, source d'eau indisponible",
+        "L'âge des canalisations",
+        "La couleur des têtes",
+        "La hauteur du bâtiment",
+      ],
+      answer: [0],
+      explanation:
+        "Vannes fermées, stockage qui masque les têtes, source d'eau coupée : c'est ce que les exploitants doivent surveiller en priorité.",
+    },
+    {
+      question: "L'eau d'une installation sprinkler peut-elle être utilisée à d'autres fins (lavage, arrosage) ?",
+      choices: [
+        "Oui, librement",
+        "Non, le réseau et la source d'eau sont dédiés à la protection incendie",
+        "Oui, après accord verbal",
+        "Oui, uniquement la nuit",
+      ],
+      answer: [1],
+      explanation:
+        "Le réseau et la source d'eau sprinkler sont dédiés. Tout détournement compromet la disponibilité en cas d'incendie et est interdit par les référentiels.",
+    },
+    {
+      question: "Une installation sprinkler de type « sous eau » signifie :",
+      choices: [
+        "Le réseau aval est constamment rempli d'eau sous pression",
+        "Le réseau est rempli d'air comprimé",
+        "Le réseau est vide",
+        "Le réseau est rempli de mousse",
+      ],
+      answer: [0],
+      explanation:
+        "Le système sous eau (« wet pipe ») est rempli d'eau sous pression en aval du clapet, prêt à arroser dès qu'une tête s'ouvre. C'est le plus courant.",
+    },
+    {
+      question: "Un système « sous air » (dry pipe) est utilisé :",
+      choices: [
+        "Dans les locaux climatisés",
+        "Dans les locaux exposés au gel ou aux fortes chaleurs où l'eau ne peut pas rester en permanence",
+        "Pour les feux d'origine électrique",
+        "Pour les liquides inflammables",
+      ],
+      answer: [1],
+      explanation:
+        "Le système sous air remplace l'eau par de l'air comprimé en aval du clapet, pour éviter le gel des canalisations dans les zones non chauffées.",
+    },
+    {
+      question: "Une modification du stockage (hauteur, type de produit) peut nécessiter :",
+      choices: [
+        "Aucune action",
+        "Une réévaluation de l'installation sprinkler par un bureau d'études et un avis assureur",
+        "Un simple essai d'alarme",
+        "Un changement de couleur de bulbe",
+      ],
+      answer: [1],
+      explanation:
+        "Toute modification significative (hauteur, densité combustible, géométrie) peut sortir l'installation de son périmètre de conception. Un avis bureau d'études et assureur est nécessaire.",
+    },
+    {
+      question: "Un travail par points chauds dans une zone protégée par sprinkler nécessite :",
+      choices: [
+        "Un permis de feu et l'application des consignes de neutralisation/réarmement de l'installation",
+        "Aucune précaution",
+        "L'arrêt définitif de l'installation",
+        "Une simple information orale",
+      ],
+      answer: [0],
+      explanation:
+        "Permis de feu obligatoire (INRS ED 6030), avec procédure de neutralisation locale temporaire et réarmement immédiat à la fin des travaux, sous suivi de l'exploitant.",
+    },
+    {
+      question: "Le rôle du chargé d'exploitation sprinkler inclut :",
+      choices: [
+        "Effectuer les essais périodiques selon le référentiel",
+        "Tenir le registre d'exploitation",
+        "Coordonner avec le mainteneur et l'assureur",
+        "Modifier seul les têtes",
+      ],
+      answer: [0,1,2],
+      multiple: true,
+      explanation:
+        "Essais périodiques, registre, coordination avec mainteneur et assureur, signalement des anomalies. Les modifications techniques relèvent de l'installateur ou du mainteneur qualifié.",
+    },
   ],
   "extinction-automatique-gaz": [
     {
@@ -2398,6 +2933,176 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "Le volume protege fait partie du systeme a gaz. Toute modification du local peut degrader la performance et la securite des personnes.",
       timeLimit: 75,
+    },
+      {
+      question: "Une installation d'extinction automatique à gaz est principalement utilisée dans :",
+      choices: [
+        "Les chambres à coucher domestiques",
+        "Les locaux à risque spécifique (informatique, archives, transformateurs, salles techniques)",
+        "Les couloirs d'évacuation",
+        "Les sanitaires",
+      ],
+      answer: [1],
+      explanation:
+        "Les systèmes à gaz protègent des locaux à risque spécifique où l'eau (sprinkler) n'est pas adaptée : data centers, archives, salles techniques, transformateurs.",
+    },
+    {
+      question: "Les principaux gaz utilisés en extinction automatique sont :",
+      choices: [
+        "CO2, gaz inertes (azote, argon, mélanges IG)",
+        "Halocarbonés (FK-5-1-12, HFC)",
+        "Eau pulvérisée",
+        "Mousse à haut foisonnement",
+      ],
+      answer: [0,1],
+      multiple: true,
+      explanation:
+        "Deux familles : gaz inertes (réduisent l'oxygène) et halocarbonés (action chimique). Eau et mousse sont des moyens différents.",
+    },
+    {
+      question: "Un gaz inerte éteint le feu en :",
+      choices: [
+        "Refroidissant intensément",
+        "Diminuant la concentration d'oxygène en dessous du seuil de combustion",
+        "Étouffant chimiquement la flamme",
+        "Émettant de la vapeur d'eau",
+      ],
+      answer: [1],
+      explanation:
+        "Les gaz inertes (N2, Ar, mélanges IG-541, IG-55, IG-100) abaissent l'oxygène à environ 12-13 %, sous le seuil de combustion mais encore vivable brièvement.",
+    },
+    {
+      question: "Le CO2 utilisé en extinction automatique présente le risque suivant pour les personnes :",
+      choices: [
+        "Aucun risque",
+        "Asphyxie par déplacement de l'oxygène, à concentration létale",
+        "Brûlures cutanées",
+        "Allergies respiratoires",
+      ],
+      answer: [1],
+      explanation:
+        "Les concentrations d'extinction au CO2 (souvent ≥ 34 %) sont mortelles. L'évacuation préalable est obligatoire et le local n'est rendu accessible qu'après ventilation.",
+    },
+    {
+      question: "L'évacuation des occupants avant déclenchement d'un système gaz se fait via :",
+      choices: [
+        "Une alarme dédiée et une temporisation entre la pré-alarme et l'inondation gazeuse",
+        "Aucune procédure particulière",
+        "Une simple notification e-mail",
+        "Le système n'attend pas",
+      ],
+      answer: [0],
+      explanation:
+        "Une pré-alarme (évacuation) précède l'émission du gaz. La temporisation laisse le temps à l'évacuation. Des dispositifs d'arrêt d'urgence et de blocage existent.",
+    },
+    {
+      question: "Les principaux référentiels d'extinction automatique à gaz sont :",
+      choices: [
+        "NF EN 15004 et NF EN 12094",
+        "ISO 14520",
+        "APSAD R13",
+        "NF C 15-100",
+      ],
+      answer: [0,1,2],
+      multiple: true,
+      explanation:
+        "EN 15004 (systèmes), EN 12094 (composants), ISO 14520 (international), APSAD R13 (référentiel assureur français). NF C 15-100 concerne l'électricité.",
+    },
+    {
+      question: "Le terme « décharge totale » signifie :",
+      choices: [
+        "Le gaz est libéré progressivement dans le local",
+        "La quantité totale d'agent extincteur est libérée en un temps court (généralement ≤ 60 s pour halocarbonés, ≤ 120 s pour inertes)",
+        "Le système est déchargé manuellement",
+        "La décharge dure plusieurs heures",
+      ],
+      answer: [1],
+      explanation:
+        "La décharge totale (« total flooding ») noie le local en quelques dizaines de secondes pour atteindre la concentration d'extinction.",
+    },
+    {
+      question: "Pour qu'un système gaz soit efficace, le local protégé doit être :",
+      choices: [
+        "Ouvert sur l'extérieur",
+        "Étanche à un degré suffisant pour maintenir la concentration de gaz pendant la durée de tenue (« hold time »)",
+        "Climatisé en permanence",
+        "Sans cloisons",
+      ],
+      answer: [1],
+      explanation:
+        "Sans étanchéité suffisante, le gaz fuit et la concentration tombe sous le seuil d'extinction. Un test d'étanchéité (« door fan test ») est généralement exigé.",
+    },
+    {
+      question: "Un door fan test sert à :",
+      choices: [
+        "Vérifier le bon fonctionnement de la porte",
+        "Mesurer l'étanchéité du local et calculer la durée de tenue de la concentration de gaz",
+        "Tester les détecteurs",
+        "Mesurer le bruit",
+      ],
+      answer: [1],
+      explanation:
+        "Le door fan test (essai au ventilateur de porte) mesure les fuites et permet de prédire la « hold time » : durée pendant laquelle la concentration de gaz reste suffisante.",
+    },
+    {
+      question: "Le déclenchement automatique d'un système gaz nécessite généralement :",
+      choices: [
+        "Un seul détecteur",
+        "Une double détection (deux détecteurs en coïncidence) pour limiter les fausses décharges",
+        "Aucune détection",
+        "Une alarme manuelle uniquement",
+      ],
+      answer: [1],
+      explanation:
+        "La double détection en coïncidence (deux détecteurs distincts confirment l'incendie) évite les déclenchements intempestifs, coûteux et potentiellement dangereux.",
+    },
+    {
+      question: "Une commande manuelle d'urgence (CMU) sur un système gaz permet :",
+      choices: [
+        "De désactiver définitivement le système",
+        "De déclencher manuellement l'extinction si nécessaire",
+        "D'éteindre les lumières",
+        "De couper l'alarme",
+      ],
+      answer: [1],
+      explanation:
+        "La CMU permet à un opérateur formé de déclencher l'extinction quand il constate visuellement le sinistre. Elle est protégée pour éviter le déclenchement accidentel.",
+    },
+    {
+      question: "Une commande d'arrêt d'urgence (CAU) permet :",
+      choices: [
+        "De couper le courant",
+        "D'inhiber le déclenchement automatique pendant la temporisation, par exemple si on est encore présent dans le local",
+        "De supprimer l'alarme",
+        "De fermer la porte",
+      ],
+      answer: [1],
+      explanation:
+        "La CAU bloque l'émission du gaz tant qu'elle est tenue, pour permettre l'évacuation d'un occupant retardé sans risquer l'asphyxie.",
+    },
+    {
+      question: "Après une décharge gaz, l'accès au local protégé :",
+      choices: [
+        "Est immédiatement libre",
+        "Doit être interdit jusqu'à ventilation suffisante et vérification de la qualité de l'atmosphère",
+        "Est libre si on retient sa respiration",
+        "Ne demande pas de précaution",
+      ],
+      answer: [1],
+      explanation:
+        "Après décharge, le local reste à concentration potentiellement asphyxiante. Ventilation forcée et mesure de l'oxygène sont requises avant réintégration.",
+    },
+    {
+      question: "Le maintien en condition opérationnelle (maintenance) d'un système gaz exige :",
+      choices: [
+        "Aucune intervention",
+        "Vérifications périodiques (mensuelles/trimestrielles/annuelles), épreuves des bouteilles tous les 10 ans, mainteneur qualifié",
+        "Une vérification tous les 50 ans",
+        "Uniquement après incident",
+      ],
+      answer: [1],
+      explanation:
+        "Vérifications visuelles régulières, contrôles instrumentés, ré-épreuves des bouteilles selon la réglementation des équipements sous pression, par un mainteneur qualifié.",
     },
   ],
   sst: [
@@ -2539,6 +3244,198 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "Une transmission factuelle et utile permet une prise en charge plus rapide et plus juste.",
       timeLimit: 65,
+    },
+      {
+      question: "L'acronyme SST signifie :",
+      choices: [
+        "Système de Sécurité au Travail",
+        "Sauveteur Secouriste du Travail",
+        "Service Sécurité Technique",
+        "Salarié Spécialisé Travail",
+      ],
+      answer: [1],
+      explanation:
+        "Le SST est un Sauveteur Secouriste du Travail formé selon le programme INRS pour porter secours à toute victime sur le lieu de travail.",
+    },
+    {
+      question: "L'acronyme PAS du SST signifie :",
+      choices: [
+        "Protéger, Alerter, Secourir",
+        "Prévenir, Avertir, Soigner",
+        "Préparer, Agir, Stopper",
+        "Pratiquer, Apprendre, Surveiller",
+      ],
+      answer: [0],
+      explanation:
+        "Le réflexe SST suit la chaîne : Protéger (la zone et la victime), Examiner, Alerter (les secours), Secourir.",
+    },
+    {
+      question: "La première étape de l'action du SST face à un accident est :",
+      choices: [
+        "Examiner la victime",
+        "Protéger la zone et la victime du suraccident",
+        "Alerter le 18",
+        "Pratiquer la RCP",
+      ],
+      answer: [1],
+      explanation:
+        "Protéger est toujours la première étape : supprimer le danger persistant pour éviter le suraccident, sans s'exposer soi-même.",
+    },
+    {
+      question: "Le numéro d'appel du SAMU en France est :",
+      choices: [
+        "15",
+        "17",
+        "18",
+        "112",
+      ],
+      answer: [0],
+      explanation:
+        "Le 15 = SAMU (médical). Le 18 = pompiers (incendie, secours). Le 17 = police. Le 112 = numéro européen unique d'urgence.",
+    },
+    {
+      question: "Le numéro d'appel des pompiers en France est :",
+      choices: [
+        "15",
+        "17",
+        "18",
+        "114",
+      ],
+      answer: [2],
+      explanation:
+        "Le 18 = pompiers. Le 112 (européen) renvoie vers le service le plus pertinent. Le 114 est le numéro accessible aux personnes sourdes ou malentendantes.",
+    },
+    {
+      question: "Pour vérifier la conscience d'une victime, le SST doit :",
+      choices: [
+        "La secouer fortement",
+        "Lui poser une question simple et lui prendre la main en lui demandant de la serrer",
+        "Vérifier le pouls carotidien d'abord",
+        "Pratiquer immédiatement la RCP",
+      ],
+      answer: [1],
+      explanation:
+        "Le contrôle de la conscience se fait par une question simple et une consigne motrice. On ne secoue jamais (risque cervical).",
+    },
+    {
+      question: "Une victime inconsciente qui respire doit être placée :",
+      choices: [
+        "En décubitus dorsal (sur le dos)",
+        "Assise contre un mur",
+        "En position latérale de sécurité (PLS)",
+        "Debout maintenue par un témoin",
+      ],
+      answer: [2],
+      explanation:
+        "La PLS maintient les voies aériennes libres et évite l'inhalation en cas de vomissement, le temps de l'arrivée des secours.",
+    },
+    {
+      question: "Pour un adulte en arrêt cardiaque, le rythme de compressions thoraciques de la RCP est :",
+      choices: [
+        "50 à 60 par minute",
+        "100 à 120 par minute",
+        "150 à 180 par minute",
+        "200 par minute",
+      ],
+      answer: [1],
+      explanation:
+        "Le rythme officiel INRS et ERC : 100 à 120 compressions par minute, à environ 5-6 cm de profondeur, sur la moitié inférieure du sternum.",
+    },
+    {
+      question: "Le ratio compressions/insufflations en RCP adulte (par un secouriste formé) est :",
+      choices: [
+        "15 / 2",
+        "30 / 2",
+        "5 / 1",
+        "100 / 0",
+      ],
+      answer: [1],
+      explanation:
+        "Le ratio standard est 30 compressions pour 2 insufflations. Sans formation, on peut faire la RCP avec compressions seules.",
+    },
+    {
+      question: "Le DAE est :",
+      choices: [
+        "Un Dispositif d'Alerte Electronique",
+        "Un Défibrillateur Automatisé Externe",
+        "Un Détecteur Automatique d'Évacuation",
+        "Un Document d'Aide à l'Examen",
+      ],
+      answer: [1],
+      explanation:
+        "Le DAE délivre un choc électrique pour rétablir un rythme cardiaque normal. Il est utilisable par toute personne formée ou non, en suivant les consignes vocales de l'appareil.",
+    },
+    {
+      question: "Face à un saignement abondant, le SST doit en priorité :",
+      choices: [
+        "Faire boire la victime",
+        "Comprimer directement la plaie avec un tissu propre",
+        "Désinfecter la plaie",
+        "Élever le membre",
+      ],
+      answer: [1],
+      explanation:
+        "La compression directe de la plaie est le geste de référence pour stopper l'hémorragie, suivie d'un appel aux secours.",
+    },
+    {
+      question: "Face à une brûlure superficielle, la conduite à tenir est :",
+      choices: [
+        "Percer les cloques",
+        "Refroidir à l'eau tempérée (15-25 °C) pendant 10 à 20 minutes",
+        "Appliquer du beurre",
+        "Appliquer une glace directement",
+      ],
+      answer: [1],
+      explanation:
+        "Le refroidissement à l'eau tempérée pendant 10-20 minutes (règle des 5 × 15 : 15 cm, 15 °C, 15 min) est le geste de référence selon l'INRS.",
+    },
+    {
+      question: "Face à une victime ayant ingéré un produit chimique, le SST doit :",
+      choices: [
+        "La faire vomir",
+        "Lui donner du lait",
+        "Ne rien faire boire ou manger et alerter le 15 ou le centre antipoison",
+        "Lui donner du charbon actif",
+      ],
+      answer: [2],
+      explanation:
+        "Faire vomir aggrave les lésions caustiques. La règle est : ne rien faire boire/manger, ne pas faire vomir, alerter le 15 ou le centre antipoison.",
+    },
+    {
+      question: "Face à une victime électrisée encore en contact avec l'installation, le SST doit d'abord :",
+      choices: [
+        "Toucher la victime pour la dégager",
+        "Couper le courant ou écarter la victime avec un objet sec et isolant",
+        "Appliquer la RCP immédiatement",
+        "Faire boire de l'eau",
+      ],
+      answer: [1],
+      explanation:
+        "Toucher la victime sous tension expose le sauveteur. Il faut d'abord couper le courant ou utiliser un objet sec et isolant pour rompre le contact.",
+    },
+    {
+      question: "La durée d'une formation SST initiale INRS est :",
+      choices: [
+        "7 heures",
+        "14 heures (2 jours)",
+        "21 heures",
+        "35 heures",
+      ],
+      answer: [1],
+      explanation:
+        "La formation SST initiale INRS dure 14 heures (2 jours), suivie d'un MAC (Maintien et Actualisation des Compétences) de 7 heures tous les 24 mois.",
+    },
+    {
+      question: "Le SST a aussi un rôle de :",
+      choices: [
+        "Médecin du travail",
+        "Acteur de la prévention dans son entreprise",
+        "Pompier remplaçant",
+        "Manager hiérarchique",
+      ],
+      answer: [1],
+      explanation:
+        "Au-delà des gestes de secours, le SST contribue à la prévention en repérant les situations dangereuses et en alertant l'encadrement.",
     },
   ],
 };

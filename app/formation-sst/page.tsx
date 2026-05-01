@@ -1,3 +1,5 @@
+import CourseJsonLd from "@/components/seo/CourseJsonLd";
+
 export const metadata = {
   title: "Formation SST et MAC SST | PREVENSIA FORMATION",
   description:
@@ -26,6 +28,16 @@ const inrsSstResources = [
 export default function FormationSST() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <CourseJsonLd
+        name="Formation SST – Sauveteur Secouriste du Travail"
+        description="Formation SST initiale (14 h) et MAC SST (7 h) selon le programme INRS, en présentiel pour entreprises et professionnels."
+        courseCode="SST"
+        url="/formation-sst"
+        timeRequired="PT14H"
+        educationalLevel="Beginner"
+        audience="Salariés, encadrants, agents de prévention"
+        educationalCredentialAwarded="Certificat SST INRS"
+      />
       <div className="mx-auto max-w-5xl">
         <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">

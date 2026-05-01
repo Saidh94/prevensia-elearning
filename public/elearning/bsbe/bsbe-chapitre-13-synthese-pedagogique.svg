@@ -1,0 +1,77 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="42" fill="#f8fafc"/>
+  <rect x="60" y="55" width="1080" height="610" rx="34" fill="#ffffff" stroke="#dbe4ef" stroke-width="2"/>
+
+  <rect x="95" y="90" width="1010" height="145" rx="24" fill="#0f172a"/>
+  <text x="135" y="145" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#ffffff">
+    Synthèse pédagogique BS / BE Manœuvre
+  </text>
+  <text x="135" y="195" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#e5e7eb">
+    Quatre piliers à retenir avant l’évaluation finale.
+  </text>
+
+  <!-- Pilier 1 -->
+  <rect x="110" y="280" width="240" height="200" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+  <circle cx="160" cy="320" r="22" fill="#1d4ed8"/>
+  <text x="160" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">1</text>
+  <text x="200" y="330" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1d4ed8">
+    Connaître
+  </text>
+  <text x="130" y="370" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1e3a8a">
+    <tspan x="130" dy="0">Symboles, périmètres,</tspan>
+    <tspan x="130" dy="22">tensions et zones.</tspan>
+    <tspan x="130" dy="22">Le titre d’habilitation</tspan>
+    <tspan x="130" dy="22">précise tâches et zones.</tspan>
+  </text>
+
+  <!-- Pilier 2 -->
+  <rect x="370" y="280" width="240" height="200" rx="22" fill="#fef3c7" stroke="#fbbf24" stroke-width="3"/>
+  <circle cx="420" cy="320" r="22" fill="#b45309"/>
+  <text x="420" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">2</text>
+  <text x="460" y="330" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#b45309">
+    Préparer
+  </text>
+  <text x="390" y="370" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#78350f">
+    <tspan x="390" dy="0">Analyse de la tâche,</tspan>
+    <tspan x="390" dy="22">instruction de travail,</tspan>
+    <tspan x="390" dy="22">contrôle des EPI</tspan>
+    <tspan x="390" dy="22">et de l’outillage isolé.</tspan>
+  </text>
+
+  <!-- Pilier 3 -->
+  <rect x="630" y="280" width="240" height="200" rx="22" fill="#dcfce7" stroke="#4ade80" stroke-width="3"/>
+  <circle cx="680" cy="320" r="22" fill="#15803d"/>
+  <text x="680" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">3</text>
+  <text x="720" y="330" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#15803d">
+    Exécuter
+  </text>
+  <text x="650" y="370" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#14532d">
+    <tspan x="650" dy="0">VAT pour BS, manœuvre</tspan>
+    <tspan x="650" dy="22">sur organe identifié pour</tspan>
+    <tspan x="650" dy="22">BE. Contrôler le résultat</tspan>
+    <tspan x="650" dy="22">et tracer.</tspan>
+  </text>
+
+  <!-- Pilier 4 -->
+  <rect x="890" y="280" width="200" height="200" rx="22" fill="#fee2e2" stroke="#f87171" stroke-width="3"/>
+  <circle cx="935" cy="320" r="22" fill="#b91c1c"/>
+  <text x="935" y="328" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#ffffff">4</text>
+  <text x="975" y="330" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#b91c1c">
+    Alerter
+  </text>
+  <text x="910" y="370" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#7f1d1d">
+    <tspan x="910" dy="0">Anomalie : arrêt,</tspan>
+    <tspan x="910" dy="22">sécurisation, alerte.</tspan>
+    <tspan x="910" dy="22">Escalade vers BR ou BC</tspan>
+    <tspan x="910" dy="22">si nécessaire.</tspan>
+  </text>
+
+  <!-- Bandeau bas -->
+  <rect x="110" y="520" width="980" height="115" rx="22" fill="#0f172a"/>
+  <text x="135" y="565" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#fbbf24">
+    À retenir
+  </text>
+  <text x="135" y="600" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#e5e7eb">
+    La formation prépare. L’employeur délivre l’habilitation selon le poste réel et les tâches confiées.
+  </text>
+</svg>
