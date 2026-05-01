@@ -422,7 +422,7 @@ export default function Home() {
           <aside
             id="mobile-navigation"
             className="fixed inset-y-0 right-0 z-50 w-[min(92vw,360px)] border-l border-slate-200 bg-white p-6 shadow-2xl lg:hidden"
-            rôle="dialog"
+            role="dialog"
             aria-modal="true"
             aria-label="Navigation mobile"
           >
