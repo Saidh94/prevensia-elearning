@@ -80,10 +80,11 @@ const paymentRules: PaymentRule[] = [
     anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
-    envKey: "STRIPE_PRICE_B1B2BRBC_RECYCLAGE_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Recyclage B1 / B1V / B2 / B2V / BR / BC",
     allKeywords: ["recyclage", "b1", "b2", "br", "bc"],
+    reason:
+      "Les parcours B1, B2, BR, BC et BE sont vendus avec une sequence encadree/presentielle. L'acces e-learning est inclus pour les apprenants inscrits.",
   },
   {
     envKey: "STRIPE_PRICE_H0B0_ELEARNING_CENTS",
@@ -98,52 +99,60 @@ const paymentRules: PaymentRule[] = [
     anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
-    envKey: "STRIPE_PRICE_B1B2BRBC_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "B1 / B1V / B2 / B2V / BR / BC - parcours mixte",
     allKeywords: ["b1", "b2", "br", "bc"],
+    reason:
+      "Ce parcours n'est pas vendu comme e-learning seul : l'acces aux cours et quiz accompagne la formation presentielle ou classe virtuelle.",
   },
   {
-    envKey: "STRIPE_PRICE_INCENDIE_EXTINCTEURS_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Manipulation des extincteurs",
     anyKeywords: ["extincteur", "extincteurs"],
+    reason:
+      "Le support e-learning est inclus avec la formation incendie encadree. La tarification depend du format, de l'effectif et du site.",
   },
   {
-    envKey: "STRIPE_PRICE_INCENDIE_GUIDE_FILE_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Guide-file / Serre-file",
     anyKeywords: ["guide-file", "guide file", "serre-file", "serre file"],
+    reason:
+      "Le support e-learning est inclus avec la formation evacuation encadree. La tarification depend du format, de l'effectif et du site.",
   },
   {
-    envKey: "STRIPE_PRICE_INCENDIE_EVACUATION_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Evacuation incendie",
     anyKeywords: ["evacuation"],
+    reason:
+      "Le support e-learning est inclus avec la formation evacuation encadree. La tarification depend du format, de l'effectif et du site.",
   },
   {
-    envKey: "STRIPE_PRICE_INCENDIE_EPI_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Equipier de premiere intervention",
     anyKeywords: ["epi", "equipier de premiere intervention"],
+    reason:
+      "Le support e-learning est inclus avec la formation EPI encadree. La tarification depend du format, de l'effectif et du site.",
   },
   {
-    envKey: "STRIPE_PRICE_INCENDIE_DUO_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Duo incendie et evacuation",
     anyKeywords: ["duo incendie", "incendie & evacuation", "incendie evacuation"],
+    reason:
+      "Le support e-learning est inclus avec la formation incendie/evacuation encadree. La tarification depend du format, de l'effectif et du site.",
   },
   {
-    envKey: "STRIPE_PRICE_SSI_EXPLOITATION_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Exploitation du SSI",
     allKeywords: ["ssi", "exploitation"],
+    reason:
+      "Le support e-learning SSI est inclus avec la formation encadree. La tarification depend du site, du systeme installe et du niveau attendu.",
   },
   {
-    envKey: "STRIPE_PRICE_SPRINKLER_EXPLOITATION_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Exploitation sprinkler",
     allKeywords: ["sprinkler", "exploitation"],
+    reason:
+      "Le support e-learning sprinkler est inclus avec la formation encadree. La tarification depend du site, du referentiel et du niveau technique.",
   },
   {
     kind: "quote",
@@ -187,17 +196,19 @@ const paymentRules: PaymentRule[] = [
       "Cette formation incendie est generalement dimensionnee selon l'effectif, le site et les exercices pratiques attendus.",
   },
   {
-    envKey: "STRIPE_PRICE_SST_MAC_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "MAC SST",
     allKeywords: ["mac"],
     anyKeywords: ["sst", "secouriste"],
+    reason:
+      "Le support e-learning SST est inclus avec la formation encadree. La pratique reste indispensable pour la validation des competences.",
   },
   {
-    envKey: "STRIPE_PRICE_SST_INITIAL_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Formation SST initiale",
     anyKeywords: ["sst", "secouriste"],
+    reason:
+      "Le support e-learning SST est inclus avec la formation encadree. La pratique reste indispensable pour la validation des competences.",
   },
 ];
 

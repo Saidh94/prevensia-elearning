@@ -12,8 +12,8 @@ const pointsForts = [
   "Offres separees par symbole et par role vise",
   "Logique alignee sur la NF C 18-510 et le Code du travail",
   "La formation prepare, l'employeur delivre l'habilitation",
-  "Achat direct uniquement sur les parcours deja branches",
-  "Devis pour les parcours a calibrer selon les missions reelles",
+  "Achat direct uniquement pour H0B0 / H0V et BS / BE Manoeuvre encadres",
+  "B1, B2, BR, BC et BE : e-learning inclus avec la formation encadree",
   "Progression pedagogique claire avec quiz, visio ou presentiel",
 ];
 
@@ -21,14 +21,14 @@ const formats = [
   {
     title: "E-learning encadre",
     description:
-      "Format pense pour la theorie, la progression apprenant, les quiz et la validation intermediaire. Selon le niveau vise, il est complete par un entretien de validation, une visio accompagnee ou une journee presentielle.",
+      "Format disponible en achat direct pour H0B0 / H0V et BS / BE Manoeuvre, avec entretien, visio ou classe virtuelle selon le parcours. Pour les autres symboles, l'e-learning accompagne la formation encadree.",
     ctaLabel: "Acceder a l'espace apprenant",
     href: "/elearning",
   },
   {
     title: "Presentiel ou visio selon le symbole",
     description:
-      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manoeuvre ajoute une classe virtuelle ou une session entreprise. Les symboles B1, B2, BR et BC demandent une sequence presentielle et une evaluation plus ciblee.",
+      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manoeuvre ajoute une classe virtuelle ou une session entreprise. Les symboles B1, B2, BR, BC et BE demandent une sequence encadree, avec acces e-learning inclus pour preparer et reviser.",
     ctaLabel: "Voir le planning presentiel",
     href: "/planning",
   },
@@ -53,7 +53,7 @@ const engagementCards = [
   },
   {
     title: "Acces e-learning",
-    text: "L'espace e-learning accueille les parcours payants, les modules, les quiz et le suivi apprenant.",
+    text: "L'espace e-learning accueille les parcours H0B0 / BS-BE payants et les supports inclus pour les apprenants inscrits aux formations encadrees.",
     href: "/elearning",
     label: "Espace apprenant",
     style:
@@ -108,16 +108,16 @@ export default function FormationHabilitationElectriquePage() {
 
           <div className="mt-6 max-w-5xl">
             <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Formation habilitation electrique
+              Formation habilitation electrique avec e-learning inclus
             </h1>
 
             <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-200">
               PREVENSIA FORMATION propose une offre en habilitation electrique
               pensee pour les particuliers, les salaries et les entreprises,
-              avec des offres distinguees selon le symbole recherche, le role
-              confie et le niveau reel d&apos;intervention : H0B0 / H0V, BS / BE
-              Manoeuvre, B1 / B1V, B2 / B2V, BR, BC ou parcours BT
-              multi-symboles.
+              avec deux formats clairement distingues : les parcours H0B0 / H0V
+              et BS / BE Manoeuvre accessibles en e-learning encadre, puis les
+              parcours B1 / B1V, B2 / B2V, BR, BC et BE vendus avec une sequence
+              encadree et un acces e-learning inclus.
             </p>
 
             <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-300">
@@ -182,10 +182,9 @@ export default function FormationHabilitationElectriquePage() {
             <p className="mt-4 text-lg leading-8 text-slate-600">
               L&apos;objectif n&apos;est pas de reduire une habilitation a un simple
               module en ligne ni de vendre un symbole trop large par commodite.
-              Nous privilegions des parcours credibles, structures et coherents
-              avec la NF C 18-510, avec une vraie articulation entre theorie,
-              quiz, sequence encadree, evaluation pratique et titre
-              d&apos;habilitation remis par l&apos;employeur.
+              L&apos;e-learning sert de socle de preparation et de revision ; la
+              sequence encadree, les mises en situation et l&apos;evaluation pratique
+              restent indispensables pour les symboles electriciens.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -210,10 +209,10 @@ export default function FormationHabilitationElectriquePage() {
             </h2>
 
             <p className="mt-4 text-sm leading-7 text-slate-300">
-              Vous avez deja identifie un parcours ouvert a l&apos;achat direct ?
-              Passez a l&apos;inscription. Vous cherchez un symbole cible, un
-              recyclage, un format entreprise ou un parcours sur mesure ? Faites
-              une demande de devis.
+              Vous avez deja identifie un parcours H0B0 / H0V ou BS / BE Manoeuvre
+              ouvert a l&apos;achat direct ? Passez a l&apos;inscription. Pour B1, B2, BR,
+              BC, BE, recyclage ou format entreprise, l&apos;acces e-learning est inclus
+              dans l&apos;offre encadree : faites une demande de devis.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">

@@ -60,8 +60,8 @@ const formations = [
     category: "Habilitation electrique",
     title: "Habilitation electrique B1 / B1V",
     duration: "E-learning : 5 h 30 a 7 h + pratique",
-    mode: "E-learning + validation pratique",
-    price: "499 EUR HT",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation presentielle",
     level: "Avance",
     audience:
       "Electriciens executants amenes a realiser des travaux electriques en basse tension sous direction.",
@@ -79,15 +79,15 @@ const formations = [
       "Execution sous direction et conduite a tenir en cas d'anomalie",
     ],
     note:
-      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+      "Support e-learning inclus pour les apprenants inscrits au presentiel. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "b2-b2v",
     category: "Habilitation electrique",
     title: "Habilitation electrique B2 / B2V",
     duration: "E-learning : 6 h a 7 h 30 + pratique",
-    mode: "E-learning + validation pratique",
-    price: "549 EUR HT",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation presentielle",
     level: "Avance",
     audience:
       "Charges de travaux, chefs d'equipe et responsables amenes a preparer et diriger des travaux electriques en basse tension.",
@@ -105,15 +105,15 @@ const formations = [
       "Ecarts, urgences et compte rendu de fin d'operation",
     ],
     note:
-      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+      "Support e-learning inclus pour les apprenants inscrits au presentiel. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "br",
     category: "Habilitation electrique",
     title: "Habilitation electrique BR",
     duration: "E-learning : 6 h a 7 h 30 + pratique",
-    mode: "E-learning + validation pratique",
-    price: "549 EUR HT",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation presentielle",
     level: "Avance",
     audience:
       "Techniciens de maintenance et personnels amenes a conduire des interventions generales en basse tension.",
@@ -131,15 +131,15 @@ const formations = [
       "Anomalies, urgences et retour d'experience",
     ],
     note:
-      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+      "Support e-learning inclus pour les apprenants inscrits au presentiel. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "bc",
     category: "Habilitation electrique",
     title: "Habilitation electrique BC",
     duration: "E-learning : 5 h 30 a 7 h + pratique",
-    mode: "E-learning + validation pratique",
-    price: "529 EUR HT",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation presentielle",
     level: "Avance",
     audience:
       "Responsables techniques et personnels amenes a assurer la consignation et la deconsignation en basse tension.",
@@ -157,15 +157,15 @@ const formations = [
       "Ecarts, doute et retour a la normale",
     ],
     note:
-      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+      "Support e-learning inclus pour les apprenants inscrits au presentiel. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "be-verification-mesurage",
     category: "Habilitation electrique",
     title: "Habilitation electrique BE Verification / BE Mesurage",
     duration: "E-learning : 5 h 30 a 7 h + pratique",
-    mode: "E-learning + validation pratique",
-    price: "529 EUR HT",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation presentielle",
     level: "Avance",
     audience:
       "Techniciens amenes a realiser des verifications, mesurages et controles en basse tension.",
@@ -183,15 +183,15 @@ const formations = [
       "Anomalies, resultat incoherent et compte rendu",
     ],
     note:
-      "Parcours e-learning cible, a completer par une sequence pratique adaptee au poste reel.",
+      "Support e-learning inclus pour les apprenants inscrits au presentiel. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "bt-multi-symboles",
     category: "Habilitation electrique",
     title: "Parcours BT multi-symboles B1 / B1V / B2 / B2V / BR / BC / BE",
     duration: "E-learning : 7 h a 10 h + presentiel : 1 jour",
-    mode: "E-learning + journee presentielle",
-    price: "649 EUR HT",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation presentielle",
     level: "Avance",
     audience:
       "Personnel electricien amene a couvrir plusieurs roles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
@@ -210,14 +210,15 @@ const formations = [
       "Analyse des risques, conduite a tenir et cas pratiques",
     ],
     note:
-      "Socle theorique premium pour dispositifs multi-symboles, a completer par une validation pratique adaptee a chaque role vise.",
+      "Socle theorique premium inclus dans l'offre presentielle multi-symboles. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "incendie",
     category: "Prevention incendie",
     title: "Securite incendie, alerte et evacuation",
     duration: "Duree indicative : 4 a 7 heures",
-    mode: "E-learning",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation encadree",
     level: "Debutant a intermediaire",
     audience:
       "Tout personnel amene a evoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
@@ -236,14 +237,15 @@ const formations = [
       "Prevention incendie au quotidien",
     ],
     note:
-      "Formation theorique de sensibilisation. Les consignes du site, exercices et mises en situation restent indispensables.",
+      "Support e-learning inclus avec la formation securite incendie encadree. Les consignes du site, exercices et mises en situation restent indispensables.",
   },
   {
     slug: "ssi-exploitation",
     category: "SSI",
     title: "Exploitation des SSI - fondamentaux",
     duration: "Duree indicative : 5 a 8 heures",
-    mode: "E-learning",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation encadree",
     level: "Intermediaire",
     audience:
       "Exploitants, responsables de site, personnel technique ou utilisateurs amenes a interagir avec un systeme de securite incendie.",
@@ -262,14 +264,15 @@ const formations = [
       "Cas pratiques d'anomalies d'exploitation",
     ],
     note:
-      "Ce module ne remplace pas une coordination SSI, une etude de conception ou une maintenance specialisee.",
+      "Support e-learning inclus avec la formation SSI encadree. Il ne remplace pas une coordination SSI, une etude de conception ou une maintenance specialisee.",
   },
   {
     slug: "sprinkler",
     category: "Protection incendie",
     title: "Exploitation sprinkler - fondamentaux techniques",
     duration: "Duree indicative : 5 a 8 heures",
-    mode: "E-learning",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation encadree",
     level: "Intermediaire",
     audience:
       "Personnel d'exploitation, maintenance, encadrement technique ou responsables de site.",
@@ -289,14 +292,15 @@ const formations = [
       "Essais, surveillance et gestion des indisponibilites",
     ],
     note:
-      "Module d'exploitation et de sensibilisation technique. Il ne remplace pas une etude sprinkler ni un audit de conformite.",
+      "Support e-learning inclus avec la formation sprinkler encadree. Il ne remplace pas une etude sprinkler ni un audit de conformite.",
   },
   {
     slug: "extinction-automatique-gaz",
     category: "Protection incendie",
     title: "Extinction automatique a gaz - exploitation et referentiels",
     duration: "Duree indicative : 4 a 6 heures",
-    mode: "E-learning",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation encadree",
     level: "Intermediaire",
     audience:
       "Personnel d'exploitation, maintenance, encadrement technique ou responsables de locaux proteges par extinction automatique a gaz.",
@@ -314,14 +318,15 @@ const formations = [
       "Reperes APSAD R13 et NF EN 15004-1",
     ],
     note:
-      "Module d'exploitation et de sensibilisation technique. Il ne remplace pas une etude de conception ni une maintenance specialisee.",
+      "Support e-learning inclus avec la formation extinction gaz encadree. Il ne remplace pas une etude de conception ni une maintenance specialisee.",
   },
   {
     slug: "sst",
     category: "Secours au travail",
     title: "SST - Sauveteur Secouriste du Travail",
     duration: "Duree indicative : 7 a 14 heures selon parcours",
-    mode: "E-learning",
+    mode: "Support e-learning inclus + presentiel",
+    price: "Inclus avec la formation encadree",
     level: "Debutant a intermediaire",
     audience:
       "Salaries amenes a participer a la prevention des risques et a la prise en charge initiale d'une victime.",
@@ -340,7 +345,7 @@ const formations = [
       "Prevention et role du salarie dans l'entreprise",
     ],
     note:
-      "La pratique reste indispensable pour maitriser les gestes et valider reellement la competence SST.",
+      "Support e-learning inclus avec la formation SST encadree. La pratique reste indispensable pour maitriser les gestes et valider reellement la competence SST.",
   },
 ];
 
@@ -396,23 +401,21 @@ export default function ElearningPage() {
             </p>
 
             <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
-              Formations e-learning en prevention, securite incendie et habilitations
+              E-learning PREVENSIA : support inclus et parcours habilitation encadres
             </h1>
 
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              Developpez les connaissances theoriques essentielles en habilitation
-              electrique, securite incendie, SSI, sprinkler et SST grace a des
-              parcours en ligne structures, pedagogiques et orientes terrain.
+              Les modules en ligne PREVENSIA renforcent les connaissances avant
+              les formations encadrees : habilitation electrique, securite incendie,
+              SSI, sprinkler et SST.
             </p>
 
             <p className="mt-4 text-base leading-7 text-slate-400">
-              Nos modules ont vocation a accompagner l&apos;acquisition des
-              connaissances, des bons reflexes et des reperes techniques ou
-              reglementaires. Chez PREVENSIA, la promesse est claire : le site
-              commercial distingue des offres par symbole ou par role, tandis
-              que l&apos;espace e-learning s&apos;appuie aujourd&apos;hui sur des socles
-              pedagogiques adaptes aux parcours H0 B0 H0V, BS / BE Manoeuvre,
-              BF / HF et BT electricien.
+              H0B0 / H0V et BS / BE Manoeuvre sont les parcours pouvant etre
+              achetes en format e-learning encadre avec entretien, visio ou classe
+              virtuelle. Les autres modules sont des supports premium inclus avec
+              les formations presentielle ou classe virtuelle, accessibles aux
+              apprenants inscrits pour preparer, reviser et consolider les acquis.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -445,21 +448,21 @@ export default function ElearningPage() {
         <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="text-2xl font-bold text-slate-900">
-              Une approche e-learning pensee pour la prevention et l&apos;exploitation
+              Un avantage inclus pour les apprenants inscrits
             </h2>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Les parcours proposes sur PREVENSIA FORMATION visent a transmettre
-              les fondamentaux indispensables a la comprehension des risques, aux
-              limites des operations autorisees et a l&apos;adoption des bons reflexes
-              dans l&apos;environnement professionnel.
+              L&apos;espace e-learning n&apos;a pas vocation a remplacer les sequences
+              encadrees. Il sert a preparer les apprenants, harmoniser les bases,
+              renforcer les quiz et conserver un acces de revision aux contenus
+              techniques.
             </p>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Le catalogue s&apos;adresse aussi bien aux besoins en habilitation
-              electrique qu&apos;aux besoins de sensibilisation a la securite
-              incendie, a l&apos;exploitation d&apos;un SSI, a l&apos;exploitation sprinkler ou
-              aux bases SST.
+              Pour les parcours B1, B2, BR, BC, BE, incendie, SSI, sprinkler et
+              SST, l&apos;acces aux cours est donc un complement inclus dans l&apos;offre
+              formation. Le client comprend qu&apos;il achete une formation encadree,
+              enrichie par un support digital consultable en amont et en revision.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -500,9 +503,9 @@ export default function ElearningPage() {
             Nos modules disponibles
           </h2>
           <p className="mt-4 leading-7 text-slate-600">
-            Des parcours progressifs, penses pour la prevention, la securite et
-            l&apos;exploitation, avec une logique claire entre sensibilisation,
-            acquisition theorique, quiz et validation du parcours.
+            Les parcours H0B0 / H0V et BS / BE Manoeuvre peuvent etre suivis en
+            e-learning encadre. Les autres modules sont inclus avec la formation
+            encadree correspondante pour preparer et consolider les acquis.
           </p>
         </div>
 

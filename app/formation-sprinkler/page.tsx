@@ -25,9 +25,9 @@ const programme = [
 
 const tarifs = [
   {
-    format: "E-learning exploitation",
-    price: "200 à 290 € HT / apprenant",
-    detail: "Approche socle pour comprendre le principe sprinkler, les points de vigilance et le vocabulaire technique.",
+    format: "Accès e-learning inclus",
+    price: "Inclus avec la formation encadrée",
+    detail: "Support de préparation et de révision pour les apprenants inscrits à la formation sprinkler.",
   },
   {
     format: "Classe virtuelle ou présentiel - 1 jour",
@@ -62,9 +62,9 @@ export default function FormationSprinkler() {
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             PREVENSIA FORMATION accompagne les exploitants, responsables techniques,
             responsables sécurité et gestionnaires de sites équipés d'installations
-            sprinkler. L'objectif est de comprendre le fonctionnement réel du système,
-            les contrôles indispensables et les erreurs d'exploitation qui peuvent
-            dégrader la protection incendie.
+            sprinkler. La formation est encadrée en présentiel ou classe virtuelle ;
+            l'accès e-learning vient en complément pour préparer et réviser les
+            notions techniques.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -92,7 +92,7 @@ export default function FormationSprinkler() {
             <p className="mt-3 text-lg font-semibold">E-learning, classe virtuelle ou présentiel</p>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Format adapté au niveau attendu : sensibilisation exploitation, référent technique
-              ou accompagnement sur site.
+              ou accompagnement sur site, avec support e-learning inclus.
             </p>
           </div>
 
@@ -160,8 +160,8 @@ export default function FormationSprinkler() {
           <h2 className="text-2xl font-bold">Tarifs indicatifs</h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
             Les tarifs dépendent du format, de la profondeur technique et du besoin de lecture
-            site. Pour un parcours sprinkler sérieux, il est préférable de valoriser l'expertise
-            plutôt que de le positionner comme une simple sensibilisation incendie.
+            site. L'e-learning est présenté comme un support inclus pour les apprenants,
+            pas comme une formation sprinkler autonome vendue seule.
           </p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
