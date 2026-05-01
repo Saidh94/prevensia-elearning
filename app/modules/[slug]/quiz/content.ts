@@ -976,7 +976,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Pourquoi un quiz BS / BE doit-il proposer des cas de terrain et pas seulement des définitions ?",
+        "Pourquoi un titulaire BS / BE Manœuvre doit-il s'entraîner sur des cas de terrain, et pas seulement mémoriser des définitions ?",
       choices: [
         "Pour vérifier la capacité à distinguer ce qui est autorisé de ce qui doit être refusé",
         "Pour remplacer l’évaluation pratique de l’employeur",
@@ -985,7 +985,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0],
       explanation:
-        "Un quiz sérieux doit vérifier la capacité à prendre la bonne décision face à des situations concrètes, tout en rappelant que l’employeur reste seul décisionnaire de l’habilitation.",
+        "Sur le terrain, la sécurité repose sur la capacité à prendre la bonne décision face à une situation concrète, tout en rappelant que l’employeur reste seul décisionnaire de l’habilitation.",
       timeLimit: 45,
     },
     {
@@ -2592,9 +2592,169 @@ const commonBtPredicates = [
     ]),
 ];
 
+const b1b1vDedicatedQuiz: QuizQuestion[] = [
+  {
+    question:
+      "Un exécutant B1V constate qu'une protection collective a été déplacée et qu'une pièce nue sous tension devient accessible à proximité de sa zone. Que doit-il faire ?",
+    choices: [
+      "Continuer si le geste technique reste simple",
+      "Arrêter l'action et alerter le chargé de travaux",
+      "Reposer lui-même une protection sans consigne",
+      "Modifier le balisage pour gagner du temps",
+    ],
+    answer: [1],
+    explanation:
+      "Le B1V exécute dans le cadre donné. Si le voisinage ou la protection collective change, il stoppe et alerte le B2.",
+    timeLimit: 55,
+  },
+  {
+    question:
+      "Quelles limites caractérisent le rôle d'un B1 ou B1V ?",
+    choices: [
+      "Il exécute des travaux selon des instructions définies",
+      "Il choisit seul la méthode générale de travail",
+      "Il signale tout écart, doute ou évolution de la zone",
+      "Il remplace le chargé de travaux en son absence",
+    ],
+    answer: [0, 2],
+    multiple: true,
+    explanation:
+      "Le B1/B1V est exécutant électricien. Il applique les consignes et remonte les écarts, sans prendre le rôle de chargé de travaux.",
+    timeLimit: 65,
+  },
+];
+
+const b2b2vDedicatedQuiz: QuizQuestion[] = [
+  {
+    question:
+      "Avant de faire intervenir une équipe, quels éléments le chargé de travaux B2/B2V doit-il clarifier au briefing ?",
+    choices: [
+      "Le circuit concerné, la zone et les limites de voisinage",
+      "Les rôles de chaque intervenant et les points d'arrêt",
+      "Les conditions qui imposent l'arrêt immédiat du travail",
+      "Uniquement l'heure prévue de fin d'intervention",
+    ],
+    answer: [0, 1, 2],
+    multiple: true,
+    explanation:
+      "Le B2/B2V organise et dirige: zone, rôles, limites, protections, points d'arrêt et conduite à tenir doivent être explicites.",
+    timeLimit: 75,
+  },
+  {
+    question:
+      "Pendant les travaux, un intervenant signale une incohérence entre le repérage du schéma et le départ réel. Quel est le bon réflexe B2 ?",
+    choices: [
+      "Poursuivre si l'équipe est expérimentée",
+      "Suspendre l'opération et lever l'ambiguïté avant reprise",
+      "Demander au B1 de tester rapidement le départ",
+      "Changer de méthode sans mise à jour des consignes",
+    ],
+    answer: [1],
+    explanation:
+      "Une incohérence documentaire remet en cause le cadre de sécurité. Le B2 arrête, clarifie et rebriefe avant toute reprise.",
+    timeLimit: 60,
+  },
+];
+
+const brDedicatedQuiz: QuizQuestion[] = [
+  {
+    question:
+      "Lors d'une intervention BR, le diagnostic montre que la panne concerne plusieurs départs et nécessite une modification de câblage. Quelle décision est attendue ?",
+    choices: [
+      "Poursuivre comme dépannage BR si le client insiste",
+      "Requalifier l'opération et arrêter le BR si le cadre est dépassé",
+      "Modifier le câblage puis informer après coup",
+      "Faire une remise sous tension d'essai sans analyse complémentaire",
+    ],
+    answer: [1],
+    explanation:
+      "Le BR intervient dans un cadre défini. Une dérive vers des travaux, une modification ou une opération complexe impose une requalification.",
+    timeLimit: 60,
+  },
+  {
+    question:
+      "Avant une remise en service après intervention BR, quels contrôles sont cohérents avec une pratique sûre ?",
+    choices: [
+      "La cause de la panne est comprise ou maîtrisée",
+      "Le matériel remplacé ou remis en état est compatible",
+      "Les protections et capots nécessaires sont remis en place",
+      "La remise en service se fait même si une odeur de chaud persiste",
+    ],
+    answer: [0, 1, 2],
+    multiple: true,
+    explanation:
+      "La remise en service BR doit être contrôlée: cause, matériel, protections, environnement et absence d'anomalie persistante.",
+    timeLimit: 75,
+  },
+];
+
+const bcDedicatedQuiz: QuizQuestion[] = [
+  {
+    question:
+      "Quelle séquence décrit le mieux une consignation électrique basse tension fiable ?",
+    choices: [
+      "Séparation, condamnation, identification, VAT, puis MALT/CC si nécessaire",
+      "Observation rapide, appel téléphonique, remise d'une clé",
+      "Coupure supposée, intervention immédiate, vérification après travaux",
+      "VAT seule, sans condamnation ni identification",
+    ],
+    answer: [0],
+    explanation:
+      "La consignation supprime les illusions de sécurité par une chaîne complète: séparation, condamnation, identification, VAT et MALT/CC selon le cas.",
+    timeLimit: 65,
+  },
+  {
+    question:
+      "Deux départs proches ont un repérage ancien et partiellement effacé. Que doit faire le BC ?",
+    choices: [
+      "Consigner celui qui paraît le plus probable",
+      "Suspendre et faire clarifier l'identification avant de poursuivre",
+      "Laisser le chargé de travaux choisir au hasard contrôlé",
+      "Remplacer l'identification par une habitude d'exploitation",
+    ],
+    answer: [1],
+    explanation:
+      "Sans identification fiable, la consignation n'est pas fiable. Le BC stoppe et clarifie avant de valider l'état de sécurité.",
+    timeLimit: 60,
+  },
+];
+
+const beVerificationMesurageDedicatedQuiz: QuizQuestion[] = [
+  {
+    question:
+      "Avant une opération BE Vérification ou BE Mesurage, quels points doivent être vérifiés ?",
+    choices: [
+      "La catégorie et l'état de l'instrument de mesure",
+      "Le bon point de mesure et l'environnement électrique",
+      "L'état des cordons, pointes de touche et EPI nécessaires",
+      "La possibilité de réparer immédiatement si la mesure est anormale",
+    ],
+    answer: [0, 1, 2],
+    multiple: true,
+    explanation:
+      "Le BE vérifie ou mesure dans un cadre défini. L'instrument, les cordons, la zone, les points de mesure et les protections doivent être maîtrisés.",
+    timeLimit: 75,
+  },
+  {
+    question:
+      "Une mesure révèle une anomalie sur une installation. Que signifie cette information pour un titulaire BE Mesurage ?",
+    choices: [
+      "Il peut dépanner immédiatement sans autre habilitation",
+      "Il doit transmettre le résultat et respecter les limites de son opération",
+      "Il peut modifier le câblage si la cause semble évidente",
+      "Il doit ignorer l'anomalie si la valeur affichée est stable",
+    ],
+    answer: [1],
+    explanation:
+      "Le mesurage produit une information technique. Il ne transforme pas automatiquement l'opérateur en BR, B1/B2 ou BC.",
+    timeLimit: 55,
+  },
+];
+
 quizContent["bt-multi-symboles"] = baseBtMultiSymbolesQuiz;
 
 quizContent["b1-b1v"] = [
+  ...b1b1vDedicatedQuiz,
   ...pickQuizQuestions(commonBtPredicates, 8),
   ...pickQuizQuestions(
     [
@@ -2612,6 +2772,7 @@ quizContent["b1-b1v"] = [
 ];
 
 quizContent["b2-b2v"] = [
+  ...b2b2vDedicatedQuiz,
   ...pickQuizQuestions(commonBtPredicates, 8),
   ...pickQuizQuestions(
     [
@@ -2630,6 +2791,7 @@ quizContent["b2-b2v"] = [
 ];
 
 quizContent.br = [
+  ...brDedicatedQuiz,
   ...pickQuizQuestions(commonBtPredicates, 8),
   ...pickQuizQuestions(
     [
@@ -2648,6 +2810,7 @@ quizContent.br = [
 ];
 
 quizContent.bc = [
+  ...bcDedicatedQuiz,
   ...pickQuizQuestions(commonBtPredicates, 6),
   ...pickQuizQuestions(
     [
@@ -2667,6 +2830,7 @@ quizContent.bc = [
 ];
 
 quizContent["be-verification-mesurage"] = [
+  ...beVerificationMesurageDedicatedQuiz,
   ...pickQuizQuestions(commonBtPredicates, 6),
   ...pickQuizQuestions(
     [

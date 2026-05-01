@@ -4,19 +4,19 @@ export const b1b2brbcModuleContent: ModuleContent = {
   title: "B1 / B1V / B2 / B2V / BR / BC - Travaux, interventions et consignation en basse tension",
   shortTitle: "B1 / B1V / B2 / B2V / BR / BC",
   subtitle:
-    "Parcours e-learning de preparation theorique destine aux electriciens et personnels techniques appeles a executer, encadrer, consigner ou intervenir en basse tension dans un cadre professionnel formalise, complete par une journee presentielle de validation et d'application.",
-  duration: "8 h 00 a 11 h 00 de theorie guidee",
-  deliveryFormat: "E-learning guide + quiz + journee presentielle d'application",
-  level: "Avance",
+    "Parcours e-learning de préparation théorique destiné aux électriciens et personnels techniques appelés à exécuter, encadrer, consigner ou intervenir en basse tension dans un cadre professionnel formalisé, complété par une journée présentielle de validation et d'application.",
+  duration: "8 h 00 à 11 h 00 de théorie guidée",
+  deliveryFormat: "E-learning guidé + quiz + journée présentielle d'application",
+  level: "Avancé",
   objective:
-    "Comprendre les symboles B1, B1V, B2, B2V, BR et BC, distinguer les roles et responsabilites, preparer une operation en securite, maitriser les principes de consignation, d'intervention et de travaux en basse tension, identifier les ecarts critiques et adopter les bons reflexes face aux anomalies ou a l'urgence.",
+    "Comprendre les symboles B1, B1V, B2, B2V, BR et BC, distinguer les rôles et responsabilités, préparer une opération en sécurité, maîtriser les principes de consignation, d'intervention et de travaux en basse tension, identifier les écarts critiques et adopter les bons réflexes face aux anomalies ou à l'urgence.",
   audience:
-    "Electriciens, techniciens de maintenance, responsables techniques et personnels amenes a executer des travaux, conduire une intervention generale, preparer une consignation ou assurer un role d'encadrement electrique en basse tension.",
+    "Électriciens, techniciens de maintenance, responsables techniques et personnels amenés à exécuter des travaux, conduire une intervention générale, préparer une consignation ou assurer un rôle d'encadrement électrique en basse tension.",
   certificationNote:
-    "Ce parcours constitue la base theorique. La delivrance de l'habilitation releve de l'employeur apres evaluation des acquis, verification de l'adequation entre les taches reelles et le niveau retenu, ainsi qu'apres mise en situation pratique adaptee et sequence presentielle d'application.",
-  heroBadge: "Habilitation electrique",
+    "Ce parcours constitue la base théorique. La délivrance de l'habilitation relève de l'employeur après évaluation des acquis, vérification de l'adéquation entre les tâches réelles et le niveau retenu, ainsi qu'après mise en situation pratique adaptée et séquence présentielle d'application.",
+  heroBadge: "Habilitation électrique",
   finalMessage:
-    "Le parcours B1 / B1V / B2 / B2V / BR / BC doit conduire a une logique de securite exigeante : preparation, verification, respect du role attribue, rigueur documentaire et refus de toute improvisation sur une installation electrique.",
+    "À l'issue du parcours B1 / B1V / B2 / B2V / BR / BC, l'apprenant doit retenir une logique de sécurité exigeante : préparation, vérification, respect du rôle attribué, rigueur documentaire et refus de toute improvisation sur une installation électrique.",
   quizCtaLabel: "Passer au quiz B1 / B1V / B2 / B2V / BR / BC",
   sections: [
     {
@@ -24,7 +24,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "1. Cadre des habilitations B1, B1V, B2, B2V, BR et BC",
       estimatedMinutes: 25,
       intro:
-        "La NF C 18-510 ne presente pas les symboles B1, B1V, B2, B2V, BR et BC comme de simples etiquettes. Elle les rattache a des fonctions precises, a une chaine de decision claire et a une habilitation employeur qui doit correspondre exactement aux operations confiees.",
+        "La NF C 18-510 ne présente pas les symboles B1, B1V, B2, B2V, BR et BC comme de simples étiquettes. Elle les rattache à des fonctions précises, à une chaîne de décision claire et à une habilitation employeur qui doit correspondre exactement aux opérations confiées.",
       content: [
         "Le B1 designe l'executant electricien en basse tension. Le B1V designe cet executant lorsqu'il agit dans un environnement de voisinage renforcant les exigences de securite. Le B2 designe le charge de travaux, c'est-a-dire la personne qui prepare, organise et dirige effectivement les travaux electriques confies a son equipe. Le B2V designe ce charge de travaux lorsqu'il intervient en voisinage dans les conditions prevues par l'organisation et la norme.",
         "Le BR designe le charge d'intervention en basse tension pour les interventions generales autorisees. Il se situe dans un cadre specifique d'entretien, de depannage, de mesure, d'essai limite ou de remise en etat. Le BC est le charge de consignation: il effectue ou fait effectuer les operations de separation, condamnation, identification, verification d'absence de tension et, lorsque cela est requis, mise a la terre et en court-circuit.",
@@ -38,7 +38,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       deepDive: [
         "L'introduction de la norme insiste sur l'unicite, la coherence et la maitrise de l'information. Dans la pratique, cela veut dire qu'une operation electrique ne doit jamais reposer sur des consignes floues, des transmissions orales contradictoires ou des suppositions de terrain.",
         "Le vrai professionnalisme ne consiste pas a 'se debrouiller'. Il consiste a tenir son role, a connaitre sa limite et a exiger une requalification des que la situation ne correspond plus au cadre prevu.",
-        "Une formation de qualite doit permettre a chaque technicien de se positionner correctement dans l'organisation de securite, pas seulement de reciter des definitions.",
+        "Chaque technicien doit savoir se positionner correctement dans l'organisation de sécurité, pas seulement réciter des définitions.",
       ],
       keyPoints: [
         "B1 / B1V = executant electricien en BT, avec ou sans voisinage selon l'attribut.",
@@ -59,7 +59,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       resourceVideos: [
         {
-          title: "Webinaire INRS - Comment choisir les habilitations electriques ?",
+          title: "Webinaire INRS - Comment choisir les habilitations électriques ?",
           description:
             "Support officiel tres utile pour verifier les frontieres entre B1, B2, BR, BC et la logique de choix du symbole.",
           url: "https://www.inrs.fr/media.html?refINRS=Anim-184",
@@ -71,16 +71,16 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Exemple : un technicien assure habituellement du depannage en BR. On lui demande soudain d'organiser un chantier avec plusieurs operateurs et une mise hors tension preparee. La mission ne releve plus du meme cadre et doit etre requalifiee avant toute action.",
       visual: {
         title: "Quatre fonctions, quatre responsabilites",
-        subtitle: "Executer, diriger, intervenir, consigner: la norme fixe une frontiere nette entre ces roles.",
-        items: ["B1 / B1V executant", "B2 / B2V charge de travaux", "BR intervention generale", "BC consignation"],
+        subtitle: "Exécuter, diriger, intervenir, consigner : la norme fixe une frontière nette entre ces rôles.",
+        items: ["B1 / B1V exécutant", "B2 / B2V chargé de travaux", "BR intervention générale", "BC consignation"],
         tone: "blue",
         imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-roles.svg",
-        imageAlt: "Illustration des roles B1 B1V B2 B2V BR BC et de leurs responsabilites distinctes",
+        imageAlt: "Illustration des rôles B1 B1V B2 B2V BR BC et de leurs responsabilités distinctes",
       },
     },
     {
       id: "roles-responsabilites",
-      title: "2. Roles, responsabilites et chaine de decision",
+      title: "2. Rôles, responsabilités et chaîne de décision",
       estimatedMinutes: 25,
       intro:
         "Le risque electrique ne se maitrise pas seulement par le geste technique. Il se maitrise d'abord par une organisation claire, des documents fiables et une chaine de responsabilite que chacun comprend sans ambiguite.",
@@ -91,7 +91,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Cette chaine s'appuie sur des documents et des informations claires: instructions, analyses de risque, autorisations, attestations, certificats, reperages, procedures de suivi et de controle. La norme insiste sur ce point car une operation mal informee produit des erreurs d'identification, des glissements de mission et des illusions de securite.",
         "Dans les parcours les plus serieux, cette partie ne se limite pas a des definitions. Elle montre comment s'articulent concretement le titre d'habilitation, l'autorisation de travail, le balisage, la consignation, le briefing d'equipe, le compte rendu de fin d'intervention et la remise en service.",
         "L'apprenant doit aussi savoir qu'une information fiable est unique, coherente et maitrisee. Si le schema, l'etiquetage, le dossier d'intervention ou l'instruction du jour se contredisent, la bonne reaction n'est pas d'interpreter au plus vite: c'est de suspendre et de faire clarifier.",
-        "Un bon cours ne dit pas seulement 'faites attention'. Il montre comment une mission se prepare, comment elle se transmet et comment on sait qui a la main a chaque etape.",
+        "Une mission electrique sure se prepare avec une information exploitable: qui intervient, sur quel materiel, dans quelle zone, avec quelle autorisation, quelles protections, quels points d'arret et quelles conditions de reprise.",
         "La requalification de l'operation fait partie de cette maturite. Si un depannage simple revele finalement des travaux a organiser, ou si un chantier prepare se heurte a un voisinage non maitrise, l'operation n'est pas poursuivie par habitude: elle est stoppee puis redefinie.",
       ],
       deepDive: [
@@ -146,7 +146,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Une lecture professionnelle des symboles implique enfin de rapprocher le titre, la mission, le materiel, l'environnement et la procedure. Si l'un de ces elements ne colle plus, le bon reflexe n'est pas d'interpreter au large. C'est de s'arreter et de requalifier.",
       ],
       deepDive: [
-        "Les meilleurs supports rendent les symboles tres lisibles, mais ils restent souvent trop courts sur la consequence operationnelle de chaque caractere. Il faut faire le lien entre le code, le geste et la limite.",
+        "Chaque caractere du symbole a une consequence operationnelle. La lettre, le chiffre et l'attribut indiquent le domaine, la fonction tenue, la presence eventuelle de voisinage et les limites a ne pas franchir.",
         "Le voisinage n'est pas un accessoire de vocabulaire. C'est une vraie decision de prevention qui modifie la scene de travail, les moyens de protection et l'autorisation de poursuivre.",
       ],
       keyPoints: [
@@ -180,7 +180,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "domaines-zones-pnst",
-      title: "4. Domaines de tension, voisinage et pieces nues sous tension",
+      title: "4. Domaines de tension, voisinage et pièces nues sous tension",
       estimatedMinutes: 25,
       intro:
         "Les habilitations B1, B1V, B2, B2V, BR et BC s'exercent dans un environnement ou la notion de voisinage, de PNST et de distances de securite change concretement la facon de preparer et d'executer une operation.",
@@ -194,7 +194,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Les chapitres les plus solides insistent aussi sur l'IP2X, le maintien des capotages, la lecture du voisinage et la capacite a requalifier l'operation si un depart voisin ou un bornier accessible change la scene de risque.",
       ],
       deepDive: [
-        "Dans les parcours trop superficiels, le voisinage est souvent reduit a une definition. Sur le terrain, c'est pourtant un point cle de decision: peut-on encore agir, et sous quel cadre de securite ?",
+        "Le voisinage n'est pas une simple definition. Sur le terrain, il conditionne la decision de poursuivre, de renforcer les protections, de modifier le balisage ou d'arreter l'operation tant que la zone n'est pas maitrisee.",
         "Le professionnalisme consiste a faire evoluer l'organisation des protections avant que le danger ne se transforme en exposition reelle de l'equipe.",
       ],
       keyPoints: [
@@ -225,7 +225,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "preparation-travaux",
-      title: "5. Preparation des travaux electriques",
+      title: "5. Préparation des travaux électriques",
       estimatedMinutes: 25,
       intro:
         "La preparation d'une operation electrique est une phase critique. Elle conditionne la securite de l'execution bien avant le premier geste technique.",
@@ -269,7 +269,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "consignation",
-      title: "6. Consignation et verification d'absence de tension",
+      title: "6. Consignation et vérification d'absence de tension",
       estimatedMinutes: 30,
       intro:
         "La consignation est un processus de securite, pas une simple formalite. Elle doit etre rigoureuse, verifiable et comprise par tous les acteurs.",
@@ -277,7 +277,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "La consignation repose sur une succession d'etapes : separation, condamnation, identification, verification d'absence de tension puis, si necessaire selon le domaine et l'organisation, mise a la terre et en court-circuit.",
         "Le charge de consignation BC garantit la fiabilite du processus. Il doit s'assurer que le circuit concerne est bien celui qui est separe, identifie et rendu indisponible a toute remise sous tension intempestive.",
         "La verification d'absence de tension n'est jamais presumee. Elle doit etre faite avec un materiel adapte, selon une methode connue et sur le bon point de l'installation.",
-        "Une vraie formation BC doit aussi insister sur les ecueils classiques: plusieurs departs semblables dans une meme armoire, reperage incomplet, condamnation mal visible, essai de remise en service concurrent ou confiance excessive dans un simple voyant d'etat. C'est souvent la que l'illusion de securite s'installe.",
+        "Les ecueils classiques du BC sont concrets: plusieurs departs semblables dans une meme armoire, reperage incomplet, condamnation mal visible, essai de remise en service concurrent ou confiance excessive dans un simple voyant d'etat. C'est souvent la que l'illusion de securite s'installe.",
         "La VAT n'est pas une formalite annexe. C'est le point de bascule entre une coupure supposee et un etat electrique verifie. Le professionnel fiable sait expliquer sa methode, son materiel et ses points de controle.",
         "La methode de verification doit inclure le controle du bon fonctionnement du dispositif avant et apres la VAT, l'identification certaine du point de mesure et la coherence avec le dossier de consignation. Se fier a un voyant, a une habitude ou a une indication orale expose directement l'equipe.",
         "L'apprenant doit aussi comprendre la difference entre la simple mise hors tension, la mise en securite electrique et la consignation complete. Ce vocabulaire n'est pas decoratif: il conditionne le niveau de fiabilite attendu avant le debut des travaux ou de l'intervention.",
@@ -335,7 +335,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Pendant les travaux, toute evolution non prevue, tout doute technique, toute anomalie ou tout ecart de procedure impose un arret ou une requalification de l'operation.",
         "Le B1 ou le B1V ne decide pas seul d'une adaptation de methode, d'une depose supplementaire, d'un essai non prevu ou d'une action sur un depart voisin. Son role consiste a executer dans le cadre fixe, a reformuler si besoin et a signaler sans delai tout ecart.",
         "Le B2 ou le B2V doit garder la maitrise du chantier jusqu'a la fin des travaux: briefing initial, surveillance de zone, verification des conditions de securite, coordination avec les autres intervenants et validation de la reprise ou de l'arret.",
-        "Une formation solide doit faire sentir la difference entre une equipe qui agit vite et une equipe qui agit juste. Le B2 prepare, brief, surveille et arbitre. Le B1 execute, reformule si besoin et remonte immediatement tout ecart. Cette discipline collective est au coeur de la prevention.",
+        "Une équipe fiable ne cherche pas seulement à agir vite : elle agit juste. Le B2 prépare, brief, surveille et arbitre. Le B1 exécute, reformule si besoin et remonte immédiatement tout écart. Cette discipline collective est au cœur de la prévention.",
       ],
       deepDive: [
         "Une equipe efficace n'est pas une equipe rapide, mais une equipe qui partage la meme lecture du risque et du perimetre de travail. Le brief de debut et la surveillance active ont une vraie valeur preventive.",
@@ -361,7 +361,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "interventions-br",
-      title: "8. Interventions generales avec BR",
+      title: "8. Interventions générales avec BR",
       estimatedMinutes: 30,
       intro:
         "Le BR intervient en basse tension dans un cadre defini qui peut couvrir l'entretien, le depannage, les essais limites ou certaines remises en etat. Ce cadre ne doit jamais etre banalise.",
@@ -406,7 +406,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "mesurages-essais-connexions",
-      title: "9. Mesurages, essais, connexions / deconnexions et limites d'intervention",
+      title: "9. Mesurages, essais, connexions / déconnexions et limites d'intervention",
       estimatedMinutes: 25,
       intro:
         "Les habilitations B1, B1V, B2, B2V, BR et BC ne donnent pas toutes les memes possibilites de mesurer, tester, connecter, deconnecter ou remettre en service. Ce chapitre sert a fixer une lecture plus serieuse des limites d'action.",
@@ -415,13 +415,13 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Les connexions et deconnexions en basse tension peuvent relever de cadres differents selon qu'il s'agit de travaux, d'interventions generales BR ou d'operations particulieres formellement preparees. Elles ne doivent jamais etre improvisees au motif qu'un circuit parait simple.",
         "La remise en service est une phase sensible: elle suppose la verification de la fin d'operation, le retrait des moyens temporaires, la coherence des condamnations, l'information des acteurs et la certitude qu'aucune personne n'est encore exposee.",
         "Le point cle de securite est de ne jamais confondre un geste techniquement possible avec un geste autorise dans le cadre de l'habilitation detenue.",
-        "Les contenus les plus utiles du secteur insistent sur les transitions dangereuses: mesure rapide pour voir, essai lance sans coordination, reconnexion anticipee, remise sous energie d'un sous-ensemble encore en cours de verification. C'est souvent dans ces moments-la que le niveau d'exigence doit augmenter.",
+        "Les transitions dangereuses doivent être maîtrisées : mesure rapide pour voir, essai lancé sans coordination, reconnexion anticipée, remise sous énergie d'un sous-ensemble encore en cours de vérification. C'est souvent dans ces moments-là que le niveau d'exigence doit augmenter.",
         "La remise sous energie ne se decide jamais par automatisme. Elle suppose que la fin d'intervention soit confirmee, que les personnes soient hors zone, que les balisages provisoires aient ete traites selon la procedure et que la coordination entre charge de travaux, intervenant BR, BC et exploitant soit claire.",
         "Dans un parcours conforme a la norme, cette phase est traitee comme un chapitre a part entiere car c'est souvent a ce moment que surviennent les erreurs de communication, les remises en service trop rapides et les expositions residuelles.",
       ],
       deepDive: [
         "Sur le terrain, beaucoup d'ecarts naissent a ce moment-la: mesure faite 'rapidement', reconnexion pour essayer, remise en service anticipee ou essai lance sans coordination. Ce sont justement ces moments qui exigent le plus de rigueur.",
-        "Une formation avancee doit faire comprendre que le risque n'est pas seulement dans l'action initiale, mais aussi dans les transitions: verifier, tester, reconnecter, remettre sous energie.",
+        "Le risque n'est pas seulement dans l'action initiale, mais aussi dans les transitions : vérifier, tester, reconnecter, remettre sous énergie.",
       ],
       keyPoints: [
         "Mesurer et essayer supposent un cadre precis.",
@@ -481,7 +481,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : avant intervention, l'operateur constate qu'un capot est manquant et que la zone est humide. L'action est reportee jusqu'au retour a des conditions compatibles.",
-      chapterImagePath: "/elearning/h0b0/epi-epc.png",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/epi-intervention.jpg",
       chapterImageAlt:
         "Illustration des equipements de protection collective et individuelle en environnement electrique",
       visual: {
@@ -494,18 +494,22 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "anomalies-urgence",
-      title: "11. Anomalies, ecarts et situations d'urgence",
+      title: "11. Anomalies, écarts et situations d'urgence",
       estimatedMinutes: 20,
       intro:
         "La bonne reaction face a l'anomalie ne consiste pas a finir coute que coute, mais a proteger, stopper, alerter et reprendre seulement si le cadre est remaitrise.",
       content: [
-        "Une odeur anormale, un echauffement, un bruit suspect, un capot manquant, un repere incoherent, un declenchement repete ou un doute sur la consignation sont des signaux d'arret immediat.",
-        "En cas d'accident electrique, la suppression du danger prime toujours. On ne devient pas une seconde victime pour porter secours.",
-        "L'urgence n'etend jamais le champ de l'habilitation. Elle impose au contraire une discipline accrue et le respect strict des gestes autorises.",
+        "Une odeur anormale, un échauffement, un bruit suspect, un capot manquant, un repère incohérent, un déclenchement répété ou un doute sur la consignation sont des signaux d'arrêt immédiat. Dans ces situations, l'objectif n'est pas de terminer plus vite, mais de revenir à un état maîtrisé.",
+        "Un écart peut concerner le matériel, le document, le balisage, l'environnement ou le comportement d'un intervenant. Un bornier accessible, un départ non identifié, une protection retirée, une zone humide ou un appareil de mesure douteux modifient le niveau de risque et imposent une décision de sécurité.",
+        "Le chargé de travaux B2 doit suspendre l'opération si les conditions prévues ne sont plus réunies. L'exécutant B1 doit signaler immédiatement l'écart. Le BR doit requalifier l'intervention si le dépannage devient une modification ou un travail organisé. Le BC doit refuser toute consignation incertaine.",
+        "En cas d'accident électrique, la suppression du danger prime toujours. On ne touche pas une victime électrisée tant que l'installation n'est pas mise en sécurité ou que le danger n'est pas supprimé. L'alerte doit être rapide, précise et conforme aux consignes du site.",
+        "L'urgence d'exploitation n'étend jamais le champ de l'habilitation. Elle impose au contraire une discipline accrue : arrêter, protéger, alerter, empêcher le suraccident, puis ne reprendre qu'après clarification du cadre technique et documentaire.",
+        "Le départ de feu d'origine électrique doit être traité avec la même logique : alerter, couper l'énergie si cela est prévu et possible sans danger, respecter les consignes incendie du site et ne jamais utiliser un moyen d'extinction inadapté ou agir au-delà de son rôle.",
       ],
       deepDive: [
-        "Les organisations qui banalisaient les petits ecarts finissent souvent par accepter des risques majeurs. Le reflexe professionnel consiste a identifier tres vite le moment ou l'operation sort du cadre acceptable.",
-        "Une bonne gestion d'urgence repose sur une sequence stable : stop, securiser, alerter, secourir sans suraccident, puis tracer.",
+        "Les organisations qui banalisent les petits écarts finissent souvent par accepter des risques majeurs. Le réflexe professionnel consiste à identifier très vite le moment où l'opération sort du cadre acceptable.",
+        "Une bonne gestion d'urgence repose sur une séquence stable : stopper, sécuriser, alerter, secourir sans suraccident, puis tracer. Cette séquence vaut pour les travaux, les interventions BR, les consignations et les remises en service.",
+        "La traçabilité de l'anomalie protège l'équipe suivante. Un écart non écrit peut réapparaître au changement de poste, à la relève, lors d'une intervention d'une autre entreprise ou au moment de la remise sous tension.",
       ],
       keyPoints: [
         "Anomalie visible = arret.",
@@ -522,7 +526,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : apres consignation, un voyant reste allume sur un sous-ensemble. L'equipe s'arrete immediatement et fait verifier l'etat reel de l'installation avant toute poursuite.",
-      chapterImagePath: "/elearning/h0b0/conduite-tenir.png",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/danger-armoires-électriques.jpg",
       chapterImageAlt:
         "Conduite a tenir en cas d'anomalie, de doute electrique ou d'urgence sur une installation basse tension",
       visual: {
@@ -535,17 +539,21 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "retour-experience",
-      title: "12. Retour d'experience, compte rendu et maintien des competences",
+      title: "12. Retour d'expérience, compte rendu et maintien des compétences",
       estimatedMinutes: 20,
       intro:
         "Une organisation mature ne s'arrete pas a l'execution technique. Elle apprend aussi des ecarts, des quasi-accidents, des difficultes de reperage et des problemes de coordination pour fiabiliser les operations suivantes.",
       content: [
-        "Le compte rendu de fin d'operation permet de signaler les anomalies constatees, les ecarts documentaires, les protections manquantes, les materiels degrades et les points a corriger avant une future intervention.",
-        "Le retour d'experience permet de faire progresser les procedures, le reperage et les consignes de chantier. Il participe directement a la prevention du risque electrique.",
-        "Le maintien des competences ne se limite pas a memoriser une definition. Il implique de conserver une discipline de preparation, de verification et d'arret, y compris longtemps apres la formation initiale.",
+        "Le compte rendu de fin d'opération permet de signaler les anomalies constatées, les écarts documentaires, les protections manquantes, les matériels dégradés et les points à corriger avant une future intervention. Il doit être factuel : matériel concerné, repère, circonstance, décision prise et action restante.",
+        "Le retour d'expérience permet de faire progresser les procédures, le repérage et les consignes de chantier. Il participe directement à la prévention du risque électrique, car beaucoup d'accidents naissent d'un écart déjà observé mais jamais traité durablement.",
+        "Le maintien des compétences ne se limite pas à mémoriser une définition. Il implique de conserver une discipline de préparation, de vérification et d'arrêt, y compris longtemps après la formation initiale. Les automatismes utiles doivent rester vivants : lecture du titre, analyse de la zone, vérification des documents, contrôle des moyens.",
+        "Pour B1/B1V, le retour d'expérience consiste notamment à signaler les difficultés d'exécution, les accès dangereux, les consignes ambiguës et les protections déplacées. Pour B2/B2V, il porte aussi sur l'organisation de l'équipe, le briefing, les interfaces et les conditions de reprise.",
+        "Pour BR, le compte rendu doit préciser le diagnostic, les limites rencontrées, les opérations effectuées et les contrôles avant remise en service. Pour BC, il doit permettre de comprendre comment la consignation a été réalisée, transmise, maintenue puis levée.",
+        "Une compétence électrique fiable se voit dans la capacité à faire remonter un doute avant qu'il ne devienne un incident. Le professionnel ne cache pas une difficulté de repérage ou une incertitude documentaire : il la transforme en action de prévention.",
       ],
       deepDive: [
-        "Les organisations qui capitalisent sur les retours terrain reduisent les ambiguities de role, les erreurs de reperage et les remises en service hasardeuses. C'est un levier de securite aussi important que la technique pure.",
+        "Les organisations qui capitalisent sur les retours terrain réduisent les ambiguïtés de rôle, les erreurs de repérage et les remises en service hasardeuses. C'est un levier de sécurité aussi important que la technique pure.",
+        "Le maintien des compétences doit rester cohérent avec les missions réelles. Si le poste change, si de nouveaux équipements apparaissent, si le niveau de voisinage évolue ou si les interventions deviennent plus complexes, le besoin de formation, d'accompagnement ou de requalification doit être réexaminé.",
       ],
       keyPoints: [
         "Tracer les ecarts pour corriger durablement.",
@@ -576,19 +584,22 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "synthese",
-      title: "13. Synthese operationnelle",
+      title: "13. Synthèse opérationnelle",
       estimatedMinutes: 20,
       intro:
         "La maitrise des habilitations B1, B1V, B2, B2V, BR et BC repose sur la clarte des roles, la preparation methodique et la rigueur face au risque electrique.",
       content: [
-        "Le B1 execute, le B2 dirige les travaux, le BR intervient dans son cadre autorise et le BC structure la consignation. Chaque role doit rester lisible a tout moment.",
-        "Le coeur de la securite reste identique : identifier, preparer, delimiter, verifier, agir dans son perimetre, puis stopper et alerter a la moindre derive.",
-        "Une operation electrique sure n'est jamais basee sur l'habitude seule. Elle repose sur la methode, le respect des symboles d'habilitation, la qualite documentaire et l'organisation.",
-        "Le doute, l'anomalie, la complexite non prevue ou l'urgence d'exploitation imposent une requalification de l'action. La bonne decision peut etre de ne pas poursuivre.",
+        "Le B1 exécute, le B2 dirige les travaux, le BR intervient dans son cadre autorisé et le BC structure la consignation. Chaque rôle doit rester lisible à tout moment, surtout lorsque plusieurs intervenants travaillent dans un même local, sur des départs proches ou dans une installation partiellement maintenue en service.",
+        "Le cœur de la sécurité reste identique : identifier l'ouvrage, préparer l'opération, délimiter la zone, vérifier l'état électrique, agir dans son périmètre, puis stopper et alerter à la moindre dérive. Ce raisonnement vaut autant pour une opération simple que pour un chantier structuré.",
+        "Une opération électrique sûre n'est jamais basée sur l'habitude seule. Elle repose sur la méthode, le respect des symboles d'habilitation, la qualité documentaire, la cohérence du repérage, la fiabilité des protections et l'organisation des responsabilités.",
+        "Le doute, l'anomalie, la complexité non prévue ou l'urgence d'exploitation imposent une requalification de l'action. La bonne décision peut être de ne pas poursuivre, même si l'arrêt génère une contrainte de production.",
+        "Pour B1/B1V, la priorité est de rester dans la tâche confiée et de signaler tout écart. Pour B2/B2V, elle est d'organiser, de briefer, de surveiller les interfaces et de garantir que l'équipe travaille dans le cadre prévu. Pour BR, elle est de ne pas transformer une intervention en travaux. Pour BC, elle est de garantir une consignation fiable, compréhensible et traçable.",
+        "Le parcours doit laisser un réflexe simple : aucune intervention électrique ne se poursuit sur une hypothèse. Si l'état réel n'est pas confirmé, si le document ne correspond pas au terrain, si le voisinage n'est pas maîtrisé ou si le rôle n'est pas clair, l'opération s'arrête.",
       ],
       deepDive: [
-        "La competence finale n'est pas seulement de connaitre une definition. Elle consiste a garder une lecture securite du travail electrique, a savoir ce qui est permis, ce qui ne l'est pas et a quel moment changer de cadre.",
-        "Le professionnel fiable est celui qui sait executer correctement, mais aussi preparer, coordonner, interrompre et faire remonter les ecarts sans banaliser le risque.",
+        "La compétence finale n'est pas seulement de connaître une définition. Elle consiste à garder une lecture sécurité du travail électrique, à savoir ce qui est permis, ce qui ne l'est pas et à quel moment changer de cadre.",
+        "Le professionnel fiable est celui qui sait exécuter correctement, mais aussi préparer, coordonner, interrompre et faire remonter les écarts sans banaliser le risque.",
+        "Dans l'esprit de la NF C 18-510, l'habilitation n'est pas une autorisation générale. Elle reste attachée à une mission, un environnement, des limites d'approche, des moyens adaptés et une organisation formalisée.",
       ],
       keyPoints: [
         "Un role clair, une operation claire.",
@@ -603,7 +614,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un chantier electrique prepare glisse vers une modification de schema non prevue. Le bon choix est de suspendre et de redocumenter l'operation avant reprise.",
-      chapterImagePath: "/elearning/h0b0/reflexes-h0b0.png",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
       chapterImageAlt:
         "Schema de synthese des reflexes a conserver pour preparer, executer ou interrompre une operation electrique en basse tension",
       visual: {
@@ -624,7 +635,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Les dossiers techniques, reperages, schemas, plans de prevention, permis ou autorisations d'acces permettent de confirmer le perimetre reel d'une operation electrique.",
         "Le charge de travaux, l'intervenant BR ou le charge de consignation doivent savoir quels documents verifier avant d'agir, lesquels mettre a jour et quels interlocuteurs alerter si une incoherence apparait.",
         "Sur un chantier ou dans un site en exploitation, la coordination avec les autres entreprises, l'encadrement local et les exploitants techniques est un point de securite a part entiere.",
-        "Le contenu doit aussi faire comprendre qu'une operation techniquement juste peut devenir dangereuse si un autre intervenant remet une zone sous energie, retire un balisage, modifie un acces ou travaille sur un depart voisin sans coordination. La prevention electrique est aussi une prevention d'interface.",
+        "Une operation techniquement juste peut devenir dangereuse si un autre intervenant remet une zone sous energie, retire un balisage, modifie un acces ou travaille sur un depart voisin sans coordination. La prevention electrique est aussi une prevention d'interface.",
         "Selon les situations, l'apprenant doit savoir reconnaitre le role des autorisations de travail, attestations de consignation, avis de fin de travail, plans de prevention, permis feu ou consignes locales d'exploitation. Ces documents ne remplacent pas la competence, mais ils structurent la securite collective.",
         "La tracabilite de fin d'operation est tout aussi importante: fin de travaux, levee de condamnation, restitution a l'exploitant, information de l'equipe et compte rendu des ecarts. Une operation correctement executee mais mal cloree peut preparer l'accident suivant.",
       ],

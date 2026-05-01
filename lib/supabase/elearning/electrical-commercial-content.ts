@@ -153,10 +153,10 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("roles-responsabilites", {
         chapterImagePath: IMG.b1b2Roles,
         intro:
-          "Le parcours multi-symboles ne cree pas un technicien universel. Il apprend a distinguer les roles B1, B1V, B2, B2V, BR, BC et BE pour ne jamais glisser d'une mission a l'autre sans requalification.",
+          "Un titulaire multi-symboles ne devient pas un technicien universel. Il doit distinguer les roles B1, B1V, B2, B2V, BR, BC et BE pour ne jamais glisser d'une mission a l'autre sans requalification.",
         content: [
           "Un meme professionnel peut etre executeur, charge de travaux, intervenant general, charge de consignation ou operateur de verification selon la mission confiee. La securite depend donc de la clarte du role reel tenu a chaque etape.",
-          "Le parcours multi-symboles apprend a reconnaitre ces frontieres: executer sans improviser, diriger sans banaliser, intervenir sans deriver, consigner sans ambiguite et controler sans se transformer en depanneur.",
+          "Ces frontieres doivent rester visibles sur le terrain: executer sans improviser, diriger sans banaliser, intervenir sans deriver, consigner sans ambiguite et controler sans se transformer en depanneur.",
           "La valeur du multi-symboles n'est pas de tout melanger. Elle est de savoir quel cadre s'applique, avec quelles limites, pour quelle operation et sous quelle responsabilite.",
         ],
         keyPoints: [
@@ -202,7 +202,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("outils-protections", {
         chapterImagePath: IMG.epiTerrain,
         intro:
-          "Dans un parcours multi-symboles, les protections se lisent d'abord au regard du role tenu. Les moyens utiles a un executant ne couvrent pas automatiquement ceux du charge de travaux, du BR ou du BC.",
+          "Les protections se lisent d'abord au regard du role tenu. Les moyens utiles a un executant ne couvrent pas automatiquement ceux du charge de travaux, du BR ou du BC.",
         content: [
           "Le professionnel verifie les protections collectives de la zone, puis les EPI et l'outillage associes a la mission du moment. Il ne transpose pas automatiquement un equipement d'un role a un autre.",
           "Cette logique evite deux erreurs classiques: croire qu'un EPI autorise tout, ou penser qu'un outillage disponible suffit a changer de mission.",
@@ -218,7 +218,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.armoireDanger,
         resourceVideos: [VIDEO.chocElectrique],
         intro:
-          "Dans un parcours multi-symboles, une anomalie revele souvent une erreur de lecture du role, du circuit ou du cadre. Le bon reflexe est d'arreter et de relire la situation avant toute reprise.",
+          "Une anomalie revele souvent une erreur de lecture du role, du circuit ou du cadre. Le bon reflexe est d'arreter et de relire la situation avant toute reprise.",
         content: [
           "Une odeur, un echauffement, un arc, une incoherence documentaire ou un doute sur la consignation imposent de stopper l'action et d'identifier quel cadre est encore applicable.",
           "L'urgence ne transforme pas un executant en BR, un BR en BC ou un B2 en depanneur sans preparation. Elle impose au contraire plus de discipline.",
@@ -236,7 +236,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("documents-coordination", {
         chapterImagePath: IMG.document,
         content: [
-          "Dans un parcours multi-symboles, les documents servent a faire tenir ensemble plusieurs roles sans confusion. Consignes, reperage, analyse de risque, point d'arret, compte rendu et restitution doivent raconter la meme operation.",
+          "Les documents servent a faire tenir ensemble plusieurs roles sans confusion. Consignes, reperage, analyse de risque, point d'arret, compte rendu et restitution doivent raconter la meme operation.",
           "Un technicien peut tenir des symboles differents selon les taches confiees, mais il ne change pas de role au milieu du chantier sans requalification. La documentation doit donc dire clairement qui execute, qui dirige, qui intervient, qui consigne et qui controle.",
           "La coordination consiste a faire circuler une information exploitable du debut a la fin: bon circuit, bonne zone, bon role, bonne restitution. Toute contradiction documentaire bloque la reprise.",
         ],
@@ -268,7 +268,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         content: [
           "L'executant B1 intervient sur des travaux electriques en basse tension dans un cadre prepare. Il ne choisit pas seul le circuit, la methode, la zone ou le niveau de protection. Il applique ce qui a ete defini et s'assure de l'avoir compris avant de commencer.",
           "Le B1V ajoute la contrainte du voisinage renforce. Il doit donc connaitre la limite physique de sa zone, les parties nues sous tension presentes a proximite et les conditions qui rendent l'approche interdite.",
-          "Une bonne formation B1/B1V doit apprendre a tenir son role sans glissement: executer, signaler, s'arreter, faire clarifier. Si la situation change, si le dossier ne correspond plus ou si une piece voisine devient exposante, l'executant n'improvise pas: il stoppe et alerte.",
+          "L'executant B1/B1V tient son role sans glissement: il execute, signale, s'arrete et fait clarifier. Si la situation change, si le dossier ne correspond plus ou si une piece voisine devient exposante, il n'improvise pas: il stoppe et alerte.",
           "Le charge de travaux B2 prepare, balise, brief l'equipe et garde la maitrise d'ensemble. Le B1 ne prend pas la main sur l'organisation. Cette distinction protege autant la personne que le chantier.",
         ],
         keyPoints: [
@@ -687,7 +687,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         content: [
           "Le BC enchaine les etapes de consignation sans raccourci: separation, condamnation, identification, verification d'absence de tension et, selon le cas, mise a la terre et en court-circuit. Chacune de ces etapes sert a enlever une source d'illusion de securite.",
           "La valeur du BC ne se mesure pas a la vitesse mais a la fiabilite du resultat. Un cadenas visible, un reperage sans ambiguite, une attestation exploitable et une VAT methodee sont plus importants qu'une execution rapide.",
-          "Le chapitre doit aussi montrer que la consignation n'est pas seulement une operation technique. C'est une chaine de responsabilite entre charge de consignation, charge de travaux, exploitant et equipe, avec restitution claire a la fin.",
+          "La consignation n'est pas seulement une operation technique. C'est une chaine de responsabilite entre charge de consignation, charge de travaux, exploitant et equipe, avec restitution claire a la fin.",
         ],
         keyPoints: [
           "Separer, condamner, identifier, verifier.",
