@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { redirect } from "next/navigation";
+import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { createClient } from "@/lib/supabase/server";
 
 function formatDate(value: string | null) {
@@ -113,7 +113,9 @@ type EmployerActionMeta = {
   note: string;
 };
 
-function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | "formationTitle">): EmployerActionMeta {
+function getEnrollmentActionMeta(
+  row: Pick<EnrollmentViewRow, "formationSlug" | "formationTitle">
+): EmployerActionMeta {
   const searchableText = `${normalizeText(row.formationSlug)} ${normalizeText(
     row.formationTitle
   )}`;
@@ -133,7 +135,9 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
   if (
     searchableText.includes("bs") ||
     searchableText.includes("be manoeuvre") ||
-    searchableText.includes("manoeuvre")
+    searchableText.includes("be manœuvre") ||
+    searchableText.includes("manoeuvre") ||
+    searchableText.includes("manœuvre")
   ) {
     return {
       familyLabel: isRecyclage ? "BS / BE recyclage" : "BS / BE Manœuvre",
@@ -240,7 +244,8 @@ export default async function EmployeurDashboardPage() {
             Entreprise introuvable
           </h1>
           <p className="mt-4 text-sm text-slate-600">
-            Employer ID : <span className="font-mono">{employerUser.employer_id}</span>
+            Employer ID :{" "}
+            <span className="font-mono">{employerUser.employer_id}</span>
           </p>
           {employerError ? (
             <pre className="mt-4 overflow-x-auto rounded-xl bg-slate-50 p-4 text-xs text-slate-700">
@@ -254,9 +259,7 @@ export default async function EmployeurDashboardPage() {
 
   const { data: enrollments, error: enrollmentsError } = await supabase
     .from("enrollments")
-    .select(
-      "id, user_id, formation_id, status, access_start, access_end, payment_status"
-    )
+    .select("id, user_id, formation_id, status, access_start, access_end, payment_status")
     .eq("employer_id", employer.id)
     .order("access_start", { ascending: false })
     .returns<EnrollmentRow[]>();
@@ -280,7 +283,9 @@ export default async function EmployeurDashboardPage() {
   }
 
   const userIds = [...new Set((enrollments ?? []).map((item) => item.user_id))];
-  const formationIds = [...new Set((enrollments ?? []).map((item) => item.formation_id))];
+  const formationIds = [
+    ...new Set((enrollments ?? []).map((item) => item.formation_id)),
+  ];
 
   const { data: profiles } = userIds.length
     ? await supabase
@@ -331,7 +336,9 @@ export default async function EmployeurDashboardPage() {
 
   const totalEnrollments = enrollmentRows.length;
   const employeeCount = new Set(enrollmentRows.map((item) => item.userId)).size;
-  const formationCount = new Set(enrollmentRows.map((item) => item.formationTitle)).size;
+  const formationCount = new Set(
+    enrollmentRows.map((item) => item.formationTitle)
+  ).size;
   const completedCount = enrollmentRows.filter((item) => item.isCompleted).length;
   const inProgressCount = enrollmentRows.filter(
     (item) =>
@@ -344,12 +351,15 @@ export default async function EmployeurDashboardPage() {
   ).length;
   const unpaidCount = enrollmentRows.filter((item) => !item.isPaid).length;
 
-  const employeeRowsMap = enrollmentRows.reduce<Map<string, EnrollmentViewRow[]>>((acc, row) => {
-    const existing = acc.get(row.userId) ?? [];
-    existing.push(row);
-    acc.set(row.userId, existing);
-    return acc;
-  }, new Map());
+  const employeeRowsMap = enrollmentRows.reduce<Map<string, EnrollmentViewRow[]>>(
+    (acc, row) => {
+      const existing = acc.get(row.userId) ?? [];
+      existing.push(row);
+      acc.set(row.userId, existing);
+      return acc;
+    },
+    new Map()
+  );
 
   const employeeSummaries = Array.from(
     employeeRowsMap.entries(),
@@ -373,8 +383,9 @@ export default async function EmployeurDashboardPage() {
         email: firstRow?.email || "-",
         formationCount: rows.length,
         completedCount: rows.filter((row) => row.isCompleted).length,
-        pendingInterviewCount: rows.filter((row) => row.status === "pending_interview")
-          .length,
+        pendingInterviewCount: rows.filter(
+          (row) => row.status === "pending_interview"
+        ).length,
         unpaidCount: rows.filter((row) => !row.isPaid).length,
         latestAccessEnd,
         priorityRow,
@@ -404,10 +415,10 @@ export default async function EmployeurDashboardPage() {
             délivrées à l’issue de chaque parcours.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
-            Vous voyez ici la situation de chacun de vos salariés inscrits.
-            La prise de rendez-vous finale (entretien de validation, classe
-            virtuelle ou journée terrain) reste à l’initiative du salarié,
-            conformément aux exigences de la NF C 18-510.
+            Vous voyez ici la situation de chacun de vos salariés inscrits. La
+            prise de rendez-vous finale reste à l’initiative du salarié :
+            entretien de validation, classe virtuelle ou journée terrain selon
+            le parcours.
           </p>
           <p className="mt-4 text-sm leading-6 text-slate-300">
             Gestionnaire : {employer.contact_name || "Non renseigné"} ·{" "}
@@ -423,7 +434,9 @@ export default async function EmployeurDashboardPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
                 Catalogue PREVENSIA
               </p>
-              <p className="mt-3 text-lg font-semibold">Voir le détail des parcours</p>
+              <p className="mt-3 text-lg font-semibold">
+                Voir le détail des parcours
+              </p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
                 H0B0 / H0V avec entretien, BS / BE Manœuvre en classe
                 virtuelle, B1 à BC en mixte e-learning + présentiel.
@@ -437,11 +450,12 @@ export default async function EmployeurDashboardPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
                 Planning groupe
               </p>
-              <p className="mt-3 text-lg font-semibold">Voir les sessions ouvertes</p>
+              <p className="mt-3 text-lg font-semibold">
+                Voir les sessions ouvertes
+              </p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
                 Consultez les classes virtuelles, entretiens et journées
-                présentielles ouverts. Le salarié choisit lui-même son créneau
-                parmi les options disponibles.
+                présentielles ouverts.
               </p>
             </Link>
 
@@ -452,11 +466,12 @@ export default async function EmployeurDashboardPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
                 Sur mesure
               </p>
-              <p className="mt-3 text-lg font-semibold">Demander un devis groupe</p>
+              <p className="mt-3 text-lg font-semibold">
+                Demander un devis groupe
+              </p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
                 Pour une session intra-entreprise, une cohorte de salariés ou
-                un besoin spécifique à votre site, sollicitez un devis adapté
-                à votre organisation.
+                un besoin spécifique à votre site.
               </p>
             </Link>
           </div>
@@ -467,7 +482,9 @@ export default async function EmployeurDashboardPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
               Salariés suivis
             </p>
-            <p className="mt-3 text-3xl font-bold text-slate-900">{employeeCount}</p>
+            <p className="mt-3 text-3xl font-bold text-slate-900">
+              {employeeCount}
+            </p>
             <p className="mt-2 text-sm text-slate-600">
               {totalEnrollments} inscription{totalEnrollments > 1 ? "s" : ""}
             </p>
@@ -477,7 +494,9 @@ export default async function EmployeurDashboardPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
               Formations attribuées
             </p>
-            <p className="mt-3 text-3xl font-bold text-slate-900">{formationCount}</p>
+            <p className="mt-3 text-3xl font-bold text-slate-900">
+              {formationCount}
+            </p>
             <p className="mt-2 text-sm text-slate-600">
               {inProgressCount} parcours en cours
             </p>
@@ -491,7 +510,8 @@ export default async function EmployeurDashboardPage() {
               {pendingInterviewCount}
             </p>
             <p className="mt-2 text-sm text-amber-900">
-              validation{pendingInterviewCount > 1 ? "s" : ""} formateur en attente
+              validation{pendingInterviewCount > 1 ? "s" : ""} formateur en
+              attente
             </p>
           </div>
 
@@ -518,8 +538,7 @@ export default async function EmployeurDashboardPage() {
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
               Parcours théorique en ligne, quiz d’évaluation, puis entretien
-              individuel avec un formateur pour valider les acquis avant
-              délivrance de l’habilitation par l’employeur.
+              individuel avec un formateur pour valider les acquis.
             </p>
           </article>
 
@@ -531,10 +550,8 @@ export default async function EmployeurDashboardPage() {
               E-learning + classe virtuelle
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Parcours mixte pour les interventions élémentaires et les
-              manœuvres simples : modules en ligne, classe virtuelle animée
-              par un formateur, session entreprise possible et visio de
-              recyclage.
+              Modules en ligne, classe virtuelle animée par un formateur,
+              session entreprise possible et visio de recyclage.
             </p>
           </article>
 
@@ -546,10 +563,8 @@ export default async function EmployeurDashboardPage() {
               E-learning + journée présentielle
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Parcours technique pour personnel électricien : préparation
-              théorique en e-learning, quiz d’évaluation, puis mise en
-              situation pratique encadrée en présentiel par un formateur
-              habilité.
+              Préparation théorique en e-learning puis mise en situation
+              pratique encadrée en présentiel.
             </p>
           </article>
         </section>
@@ -566,7 +581,9 @@ export default async function EmployeurDashboardPage() {
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {pendingInterviewCount === 0
                   ? "Aucune validation formateur en attente."
-                  : `${pendingInterviewCount} inscription${pendingInterviewCount > 1 ? "s" : ""} en attente d’entretien de validation.`}
+                  : `${pendingInterviewCount} inscription${
+                      pendingInterviewCount > 1 ? "s" : ""
+                    } en attente d’entretien de validation.`}
               </p>
               <Link
                 href="/reservation-formation?audience=group"
@@ -581,12 +598,14 @@ export default async function EmployeurDashboardPage() {
                 Priorité administrative
               </p>
               <h2 className="mt-2 text-xl font-bold text-slate-900">
-                Dossiers a regulariser
+                Dossiers à régulariser
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {unpaidCount === 0
-                  ? "Tous les dossiers apparaissent comme règles."
-                  : `${unpaidCount} inscription${unpaidCount > 1 ? "s" : ""} n'ont pas encore le statut payé.`}
+                  ? "Tous les dossiers apparaissent comme réglés."
+                  : `${unpaidCount} inscription${
+                      unpaidCount > 1 ? "s" : ""
+                    } n'ont pas encore le statut payé.`}
               </p>
               <Link
                 href="/demande-devis?type=habilitation"
@@ -602,13 +621,14 @@ export default async function EmployeurDashboardPage() {
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-2xl font-bold text-slate-900">Vue salariés</h2>
             <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
-              {employeeSummaries.length} fiche{employeeSummaries.length > 1 ? "s" : ""}
+              {employeeSummaries.length} fiche
+              {employeeSummaries.length > 1 ? "s" : ""}
             </span>
           </div>
 
           {employeeSummaries.length === 0 ? (
             <p className="mt-6 text-sm text-slate-500">
-              Aucun salarié rattache a cet employeur pour le moment.
+              Aucun salarié rattaché à cet employeur pour le moment.
             </p>
           ) : (
             <div className="mt-6 grid gap-4 lg:grid-cols-2">
@@ -627,7 +647,9 @@ export default async function EmployeurDashboardPage() {
                         <h3 className="text-lg font-semibold text-slate-900">
                           {employee.fullName}
                         </h3>
-                        <p className="mt-1 text-sm text-slate-600">{employee.email}</p>
+                        <p className="mt-1 text-sm text-slate-600">
+                          {employee.email}
+                        </p>
                       </div>
                       <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700">
                         {employee.formationCount} formation
@@ -683,7 +705,8 @@ export default async function EmployeurDashboardPage() {
                           {priorityAction.note}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-3">
-                          {priorityAction.planningHref && priorityAction.planningLabel ? (
+                          {priorityAction.planningHref &&
+                          priorityAction.planningLabel ? (
                             <Link
                               href={priorityAction.planningHref}
                               className="inline-flex items-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
@@ -691,12 +714,14 @@ export default async function EmployeurDashboardPage() {
                               {priorityAction.planningLabel}
                             </Link>
                           ) : null}
+
                           <Link
                             href={priorityAction.offerHref}
                             className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                           >
                             {priorityAction.offerLabel}
                           </Link>
+
                           <a
                             href={`#enrollment-${employee.priorityRow.id}`}
                             className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
@@ -716,7 +741,7 @@ export default async function EmployeurDashboardPage() {
         <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-2xl font-bold text-slate-900">
-              Detail des inscriptions
+              Détail des inscriptions
             </h2>
             <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
               {totalEnrollments} inscription{totalEnrollments > 1 ? "s" : ""}
@@ -731,12 +756,13 @@ export default async function EmployeurDashboardPage() {
                   <th className="px-4 py-2">Email</th>
                   <th className="px-4 py-2">Formation</th>
                   <th className="px-4 py-2">Statut</th>
-                  <th className="px-4 py-2">Debut accès</th>
+                  <th className="px-4 py-2">Début accès</th>
                   <th className="px-4 py-2">Fin accès</th>
                   <th className="px-4 py-2">Paiement</th>
                   <th className="px-4 py-2">Actions</th>
                 </tr>
               </thead>
+
               <tbody>
                 {enrollmentRows.map((item) => {
                   const actionMeta = getEnrollmentActionMeta(item);
@@ -750,9 +776,13 @@ export default async function EmployeurDashboardPage() {
                       <td className="px-4 py-4 font-semibold text-slate-900">
                         {item.fullName}
                       </td>
+
                       <td className="px-4 py-4">{item.email}</td>
+
                       <td className="px-4 py-4">
-                        <p className="font-semibold text-slate-900">{item.formationTitle}</p>
+                        <p className="font-semibold text-slate-900">
+                          {item.formationTitle}
+                        </p>
                         <p className="mt-1 text-xs uppercase tracking-[0.14em] text-slate-500">
                           {actionMeta.familyLabel}
                         </p>
@@ -760,6 +790,7 @@ export default async function EmployeurDashboardPage() {
                           {actionMeta.note}
                         </p>
                       </td>
+
                       <td className="px-4 py-4">
                         <span
                           className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusClasses(
@@ -769,8 +800,15 @@ export default async function EmployeurDashboardPage() {
                           {getStatusLabel(item.status)}
                         </span>
                       </td>
-                      <td className="px-4 py-4">{formatDate(item.accessStart)}</td>
-                      <td className="px-4 py-4">{formatDate(item.accessEnd)}</td>
+
+                      <td className="px-4 py-4">
+                        {formatDate(item.accessStart)}
+                      </td>
+
+                      <td className="px-4 py-4">
+                        {formatDate(item.accessEnd)}
+                      </td>
+
                       <td className="px-4 py-4">
                         <span
                           className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getPaymentClasses(
@@ -780,9 +818,12 @@ export default async function EmployeurDashboardPage() {
                           {getPaymentLabel(item.paymentStatus)}
                         </span>
                       </td>
+
                       <td className="px-4 py-4">
                         <div className="flex min-w-[220px] flex-col gap-2">
-                          {actionMeta.planningHref && actionMeta.planningLabel && !item.isCompleted ? (
+                          {actionMeta.planningHref &&
+                          actionMeta.planningLabel &&
+                          !item.isCompleted ? (
                             <Link
                               href={actionMeta.planningHref}
                               className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-slate-800"
@@ -800,7 +841,11 @@ export default async function EmployeurDashboardPage() {
 
                           {!item.isPaid && item.paymentOption.kind === "direct" ? (
                             <form action="/api/payments/checkout" method="POST">
-                              <input type="hidden" name="enrollmentId" value={item.id} />
+                              <input
+                                type="hidden"
+                                name="enrollmentId"
+                                value={item.id}
+                              />
                               <input
                                 type="hidden"
                                 name="returnPath"
@@ -829,7 +874,11 @@ export default async function EmployeurDashboardPage() {
 
                           {item.isCompleted ? (
                             <form action="/api/attestation" method="POST">
-                              <input type="hidden" name="enrollmentId" value={item.id} />
+                              <input
+                                type="hidden"
+                                name="enrollmentId"
+                                value={item.id}
+                              />
                               <button
                                 type="submit"
                                 className="w-full rounded-lg bg-emerald-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-emerald-700"
@@ -841,21 +890,21 @@ export default async function EmployeurDashboardPage() {
                             <button
                               type="button"
                               disabled
-                              className="cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
-                              title="Attestation disponible uniquement apres validations complète"
-                                         >
-                                Attestation
-                              </button>
+                              className="w-full cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
+                              title="Attestation disponible uniquement après validation complète"
+                            >
+                              Attestation
+                            </button>
                           )}
                         </div>
                       </td>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </main>
   );
