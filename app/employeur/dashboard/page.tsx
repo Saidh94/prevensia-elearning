@@ -843,4 +843,20 @@ export default async function EmployeurDashboardPage() {
                               disabled
                               className="cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
                               title="Attestation disponible uniquement apres validations complète"
-           
+                                         >
+                                Attestation
+                              </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+      </div>
+    </main>
+  );
+}
