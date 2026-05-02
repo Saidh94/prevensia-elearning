@@ -469,6 +469,16 @@ export const modulesContent: Record<string, ModuleContent> = {
       practicalCase:
         "Exemple : un salarié saisit une rallonge endommagée avec les mains humides. Même en basse tension, l’humidité peut conduire à un courant suffisant pour provoquer un non-lâcher, une chute ou un arrêt respiratoire."
       ,
+      resourceVideos: [
+        {
+          title: "INRS - Choc électrique, effets du courant sur le corps",
+          description:
+            "Vidéo pédagogique INRS sur les effets du courant électrique, l'intensité et la durée d'exposition.",
+          url: "https://youtu.be/wyJbFJOdGGo",
+          provider: "INRS",
+          ctaLabel: "Voir la vidéo INRS",
+        },
+      ],
       visual: {
   title: "Relation intensité / dommages",
   subtitle: "Plus l’intensité, la durée et le trajet sont défavorables, plus la gravité augmente.",
@@ -645,54 +655,52 @@ export const modulesContent: Record<string, ModuleContent> = {
 }
     },
    {
-  id: "chapter-13",
-  title: "Chapitre 13 - Synthèse pédagogique BS / BE Manoeuvre",
+  id: "epi-epc",
+  title: "13. Équipements de protection collective et individuelle",
   intro:
-    "Ce chapitre permet de consolider les acquis avant les situations d'application : identifier le cadre autorisé, vérifier les conditions réelles, reconnaître les limites et savoir stopper en cas de doute.",
+    "La protection contre le risque électrique repose d'abord sur des protections collectives. Les EPI viennent en complément, jamais en remplacement.",
   content: [
-    "Un titulaire BS ou BE Manoeuvre agit uniquement dans un cadre clairement défini : matériel identifié, procédure connue, environnement compatible et limites d'intervention respectées.",
-    "La compétence attendue ne consiste pas seulement à connaître les gestes autorisés. Elle consiste aussi à reconnaître les situations où le cadre BS ou BE Manoeuvre n'est plus suffisant.",
-    "Le BS couvre les interventions élémentaires en basse tension, comme certains remplacements simples ou raccordements élémentaires, lorsque le circuit, le matériel et la procédure sont clairement identifiés.",
-    "Le BE Manoeuvre couvre les manoeuvres d'exploitation sur des organes prévus à cet effet : ouverture, fermeture, réarmement ou basculement, sans recherche de panne ni modification de l'installation.",
-    "Dès qu'un doute apparaît sur le repérage, l'état du matériel, la procédure, le voisinage, la présence d'une anomalie ou la nature réelle de l'opération, l'action doit être suspendue.",
-    "Savoir dire non, demander une clarification ou transmettre à une personne compétente fait partie intégrante de la prévention du risque électrique.",
+    "Les protections collectives (EPC) sont prioritaires : enveloppes fermées (armoires, coffrets), capotages, isolation des pièces actives, balisage, signalisation, distances de sécurité matérialisées et locaux réservés.",
+    "Pour le titulaire H0B0, l'EPC le plus important est le maintien en l'état des protections déjà installées : ne jamais retirer un capot, ne jamais forcer un balisage, ne jamais désactiver une signalisation.",
+    "Les équipements de protection individuelle (EPI) électriques classiques en environnement BT sont les chaussures de sécurité diélectriques, les vêtements de travail couvrants, et selon les sites un casque de chantier. Le titulaire H0B0 ne porte généralement pas de gants isolants ni d'écran facial anti-arc, qui relèvent des opérations électriques.",
+    "L'EPI ne dispense jamais du respect des règles d'environnement : un EPI ne change pas le périmètre de l'habilitation et ne donne aucune autorisation supplémentaire d'intervention.",
+    "Avant chaque mission, le titulaire H0B0 vérifie visuellement son équipement : intégrité des chaussures, propreté des vêtements, état du casque si requis. Tout EPI dégradé ou périmé est mis hors service et signalé.",
   ],
   deepDive: [
-    "Le risque principal dans la pratique n'est pas toujours le geste initial. Il apparaît souvent lorsque l'opération commence simplement puis dérive vers une recherche de panne, une adaptation de câblage ou une manoeuvre répétée.",
-    "La bonne décision professionnelle consiste à rester dans son périmètre d'habilitation. Si la situation change, le cadre d'intervention doit être réévalué avant toute poursuite.",
-    "Cette synthèse prépare l'apprenant à l'évaluation finale en reliant les notions de formation, d'autorisation employeur, de procédure, de contrôle de l'environnement et d'arrêt en cas d'écart.",
+    "L'INRS rappelle que la hiérarchie des mesures de prévention place toujours les protections collectives au-dessus des protections individuelles. La supprimer ou la contourner annule la chaîne de prévention.",
+    "Pour les opérations d'ordre non électrique, les EPI électriques (gants isolants classés, écran facial) ne sont pas systématiquement requis car le titulaire H0B0 ne touche pas aux pièces actives. C'est l'environnement qui est sécurisé, pas l'opérateur qui se protège du contact.",
   ],
   keyPoints: [
-    "Identifier le matériel concerné.",
-    "Vérifier la procédure et l'environnement.",
-    "Agir uniquement si le cadre est clair et autorisé.",
-    "Stopper en cas de doute ou d'anomalie.",
-    "Transmettre à une personne compétente si la situation sort du cadre BS / BE Manoeuvre.",
+    "Les EPC priment toujours sur les EPI.",
+    "Ne jamais retirer un capot, balisage ou signalisation existant.",
+    "Chaussures diélectriques + vêtements couvrants pour H0B0 en BT.",
+    "Un EPI ne donne aucune autorisation supplémentaire d'intervention.",
+  ],
+  forbiddenPoints: [
+    "Compter sur l'EPI pour intervenir hors de son périmètre.",
+    "Retirer ou contourner un capot, une signalisation ou un balisage.",
+    "Continuer à utiliser un EPI dégradé ou périmé.",
   ],
   legalRefs: [
-    "Code du travail - adéquation entre poste, compétences et risques.",
-    "NF C 18-510 - cadre des interventions élémentaires et des manoeuvres d'exploitation.",
-    "INRS - maintien des réflexes de prévention et respect des limites d'habilitation.",
+    "Code du travail R.4323-91 et suivants : règles relatives aux EPI.",
+    "NF C 18-510 : protections collectives et individuelles dans l'environnement électrique.",
+    "INRS : hiérarchie des mesures de prévention (EPC avant EPI).",
   ],
   practicalCase:
-    "Exemple : un opérateur sait techniquement réarmer un départ, mais la zone est encombrée et le repère local est douteux. La bonne compétence consiste à ne pas agir tant que le cadre n'est pas redevenu clair.",
-  chapterImagePath: "/elearning/bsbe/bsbe-chapitre-13-synthese-pedagogique.svg",
-  chapterImageAlt:
-    "Synthèse pédagogique BS et BE Manoeuvre : identifier, vérifier, agir si autorisé et stopper en cas de doute",
+    "Exemple : un agent logistique entre dans un local technique pour reprendre une palette. L'armoire électrique du local est fermée et signalée. La protection collective (capots fermés, balisage) suffit pour évoluer en sécurité, à condition de ne pas la modifier.",
   visual: {
-    title: "Synthèse pédagogique BS / BE Manoeuvre",
-    subtitle:
-      "Consolider la méthode, reconnaître ses limites et adopter la bonne décision.",
+    title: "EPC d'abord, EPI ensuite",
+    subtitle: "Le titulaire H0B0 ne touche pas l'installation : c'est l'environnement qui doit le protéger.",
     items: [
-      "Identifier avant d'agir",
-      "Vérifier le cadre réel",
-      "Refuser l'improvisation",
-      "Transmettre en cas de doute",
+      "Capots et armoires fermés",
+      "Signalisation et balisage maintenus",
+      "Chaussures diélectriques",
+      "Vêtements couvrants",
+      "Casque si requis sur site",
     ],
-    tone: "amber",
-    imagePath: "/elearning/bsbe/bsbe-chapitre-13-synthese-pedagogique.svg",
-    imageAlt:
-      "Illustration de synthèse pédagogique BS et BE Manoeuvre",
+    tone: "blue",
+    imagePath: "/elearning/h0b0/epi-epc.png",
+    imageAlt: "Illustration des protections collectives et individuelles en environnement H0B0",
   },
 },
     {
@@ -745,56 +753,73 @@ export const modulesContent: Record<string, ModuleContent> = {
 }
     },
  {
-  id: "bsbe-chapitre-15",
-  title: "Chapitre 15 - Synthèse finale BS / BE Manoeuvre",
-  estimatedMinutes: 20,
+  id: "conduct-accident",
+  title: "15. Conduite à tenir en cas d'accident électrique",
   intro:
-    "Ce dernier chapitre consolide les réflexes opérationnels attendus avant l’évaluation finale. L’objectif est de vérifier que l’apprenant sait rester dans le cadre BS / BE Manoeuvre, reconnaître les limites de son intervention et stopper en cas de doute.",
+    "Face à un accident électrique, la priorité est de protéger sans devenir une seconde victime. Le titulaire H0B0 ne se substitue pas aux secours : il sécurise, alerte et applique les gestes formés.",
   content: [
-    "Le titulaire BS ou BE Manoeuvre agit uniquement dans un cadre défini, sur un matériel identifié, avec une procédure connue et dans un environnement compatible avec l’opération demandée.",
-    "Le BS concerne les interventions élémentaires en basse tension, comme certains remplacements simples ou raccordements élémentaires, lorsque les conditions prévues sont réunies.",
-    "Le BE Manoeuvre concerne les manoeuvres d’exploitation sur des organes clairement identifiés, comme l’ouverture, la fermeture, le réarmement ou le basculement d’un équipement prévu pour cela.",
-    "Aucun de ces symboles ne permet de faire du dépannage libre, de rechercher une panne, de modifier un câblage, d’ouvrir une enveloppe pour investiguer ou de contourner une protection.",
-    "La compétence attendue n’est pas seulement de connaître les gestes autorisés. Elle consiste surtout à reconnaître les situations où le cadre n’est plus suffisant.",
-    "En présence d’un repérage douteux, d’une anomalie visible, d’une odeur de chaud, d’un déclenchement répété, d’un capot manquant, d’une documentation incohérente ou d’un environnement dégradé, l’action doit être suspendue.",
-    "La bonne méthode reste constante : identifier le matériel concerné, vérifier la procédure et l’environnement, agir uniquement si le cadre est clair, puis stopper et transmettre en cas de doute.",
+    "Face à une victime en contact avec une source électrique, la priorité absolue est de supprimer le contact avant toute intervention. Un sauveteur qui touche directement la victime devient lui-même victime.",
+    "La suppression du contact se fait par coupure de l'alimentation au plus près (arrêt d'urgence, disjoncteur, sectionneur identifié) ou, à défaut, en écartant la victime à l'aide d'un objet sec et isolant (manche en bois, vêtement sec) en se tenant sur un support sec.",
+    "Une fois la victime hors du circuit, on alerte les secours : 18 (pompiers) ou 112 (numéro européen). On transmet le lieu précis, la nature de l'accident, l'état apparent de la victime et la persistance éventuelle d'un risque électrique.",
+    "Les gestes de premiers secours (vérification conscience, position latérale de sécurité, RCP) ne s'improvisent pas. Le titulaire H0B0 non formé SST se limite à la sécurisation et à l'alerte. Une formation SST distincte est nécessaire pour aller au-delà.",
+    "En cas de feu d'origine électrique, on n'utilise pas d'eau sur une installation sous tension. Les moyens adaptés sont l'extincteur CO2 ou poudre, et uniquement si la situation le permet (feu naissant, voie de repli conservée). Sinon : évacuation et alerte.",
+    "Toute brûlure électrique, même apparemment mineure, doit faire l'objet d'un examen médical : les lésions internes (organes traversés par le courant) ne sont pas visibles à l'œil nu.",
   ],
   deepDive: [
-    "Le professionnalisme en BS / BE Manoeuvre ne consiste pas à aller le plus loin possible, mais à savoir s’arrêter au bon moment.",
-    "Un remplacement simple peut basculer vers une recherche de panne. Une manoeuvre peut devenir un dépannage improvisé. Un réarmement peut masquer une anomalie persistante. Ces glissements doivent être identifiés immédiatement.",
-    "La synthèse finale doit donc fixer une règle simple : si le geste, le matériel, la procédure ou l’environnement ne sont plus clairement maîtrisés, l’opération sort du cadre prévu.",
+    "L'INRS rappelle que dans les accidents d'origine électrique, le délai entre l'accident et l'arrivée des secours est souvent décisif. Une alerte rapide et précise sauve plus que des gestes improvisés.",
+    "La règle dite des « 5 P » utile au sauveteur : Protéger (la zone, la victime, soi-même), Prévenir (alerter les secours), Préserver (ne pas aggraver l'état), Préparer (faciliter l'arrivée des secours), Patienter (rester avec la victime jusqu'à la prise en charge).",
   ],
   keyPoints: [
-    "Identifier le matériel concerné.",
-    "Vérifier la procédure, le repérage et l’environnement.",
-    "Agir uniquement si le cadre est clair et autorisé.",
-    "Stopper immédiatement en cas de doute ou d’anomalie.",
-    "Transmettre l’information à l’encadrement ou à une personne compétente.",
+    "Supprimer d'abord le contact, ne JAMAIS toucher une victime sous tension.",
+    "Couper l'alimentation par un organe identifié si accessible sans risque.",
+    "Alerter les secours : 18 ou 112.",
+    "Premiers secours = formation SST, ne pas improviser sans formation.",
+    "Feu électrique sous tension : CO2 ou poudre, jamais d'eau.",
+  ],
+  forbiddenPoints: [
+    "Toucher la victime tant que la tension n'est pas coupée.",
+    "Utiliser de l'eau sur une installation sous tension.",
+    "Improviser des gestes de RCP sans formation SST.",
+    "Considérer une brûlure électrique comme bénigne.",
   ],
   legalRefs: [
-    "Code du travail - articles R.4544-9 et R.4544-10 relatifs à la formation, à l’habilitation et à l’organisation des opérations.",
-    "NF C 18-510 - cadre des interventions élémentaires BS et des manoeuvres d’exploitation BE Manoeuvre.",
-    "INRS - prévention du risque électrique, limites d’intervention et maintien des compétences.",
+    "Code du travail - obligation de moyens de secours et de formation à la sécurité.",
+    "INRS - conduite à tenir en cas d'accident d'origine électrique, formation SST.",
+    "NF C 18-510 - prévention du risque électrique et conduite face à une situation dégradée.",
   ],
   practicalCase:
-    "Exemple : un opérateur sait techniquement réarmer un départ, mais la zone est encombrée et le repérage local est douteux. La bonne compétence consiste à ne pas agir tant que le cadre n’est pas redevenu clair.",
-  chapterImagePath: "/elearning/bsbe/bsbe-chapitre-15-synthese-operationnelle.svg",
-  chapterImageAlt:
-    "Synthèse finale BS et BE Manoeuvre : identifier, vérifier, agir uniquement si autorisé, stopper en cas de doute",
+    "Exemple : un opérateur trouve un collègue en contact avec une rallonge dégradée. Il identifie l'arrêt d'urgence du local, coupe l'alimentation, dégage le collègue avec un manche en bois sec, alerte le 18 en transmettant lieu, état et risques persistants. Il reste près de la victime jusqu'à l'arrivée des secours.",
+  resourceVideos: [
+    {
+      title: "INRS - SST et secourisme au travail",
+      description:
+        "Vidéo INRS sur la logique protéger / examiner / alerter / secourir et la place du SST en entreprise.",
+      url: "https://www.inrs.fr/media.html?refINRS=Anim-049",
+      provider: "INRS",
+      ctaLabel: "Voir la vidéo INRS",
+    },
+    {
+      title: "INRS - Consignation électrique",
+      description:
+        "Vidéo INRS sur la séquence de mise hors tension. Utile pour comprendre comment couper l'alimentation en sécurité.",
+      url: "https://youtu.be/cCqbrFDNrxA",
+      provider: "INRS",
+      ctaLabel: "Voir la vidéo INRS",
+    },
+  ],
   visual: {
-    title: "Synthèse finale BS / BE Manoeuvre",
-    subtitle:
-      "Identifier, vérifier, agir uniquement si autorisé, stopper en cas de doute.",
+    title: "Réagir face à un accident électrique",
+    subtitle: "Protéger, alerter, ne pas improviser au-delà de sa formation.",
     items: [
-      "Matériel identifié",
-      "Procédure claire",
-      "Environnement conforme",
-      "Arrêt si doute",
+      "Couper l'alimentation",
+      "Dégager avec objet isolant sec",
+      "Alerter 18 ou 112",
+      "Transmettre lieu, état, risques",
+      "Patienter avec la victime",
     ],
-    tone: "green",
-    imagePath: "/elearning/bsbe/bsbe-chapitre-15-synthese-operationnelle.svg",
-    imageAlt:
-      "Illustration de synthèse finale des réflexes BS et BE Manoeuvre",
+    tone: "red",
+    imagePath: "/elearning/h0b0/conduite-tenir.png",
+    imageAlt: "Illustration de la conduite à tenir face à un accident électrique",
   },
 },
     {

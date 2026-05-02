@@ -583,51 +583,8 @@ export const b1b2brbcModuleContent: ModuleContent = {
       },
     },
     {
-      id: "synthese",
-      title: "13. Synthèse opérationnelle",
-      estimatedMinutes: 20,
-      intro:
-        "La maitrise des habilitations B1, B1V, B2, B2V, BR et BC repose sur la clarte des roles, la preparation methodique et la rigueur face au risque electrique.",
-      content: [
-        "Le B1 exécute, le B2 dirige les travaux, le BR intervient dans son cadre autorisé et le BC structure la consignation. Chaque rôle doit rester lisible à tout moment, surtout lorsque plusieurs intervenants travaillent dans un même local, sur des départs proches ou dans une installation partiellement maintenue en service.",
-        "Le cœur de la sécurité reste identique : identifier l'ouvrage, préparer l'opération, délimiter la zone, vérifier l'état électrique, agir dans son périmètre, puis stopper et alerter à la moindre dérive. Ce raisonnement vaut autant pour une opération simple que pour un chantier structuré.",
-        "Une opération électrique sûre n'est jamais basée sur l'habitude seule. Elle repose sur la méthode, le respect des symboles d'habilitation, la qualité documentaire, la cohérence du repérage, la fiabilité des protections et l'organisation des responsabilités.",
-        "Le doute, l'anomalie, la complexité non prévue ou l'urgence d'exploitation imposent une requalification de l'action. La bonne décision peut être de ne pas poursuivre, même si l'arrêt génère une contrainte de production.",
-        "Pour B1/B1V, la priorité est de rester dans la tâche confiée et de signaler tout écart. Pour B2/B2V, elle est d'organiser, de briefer, de surveiller les interfaces et de garantir que l'équipe travaille dans le cadre prévu. Pour BR, elle est de ne pas transformer une intervention en travaux. Pour BC, elle est de garantir une consignation fiable, compréhensible et traçable.",
-        "Le parcours doit laisser un réflexe simple : aucune intervention électrique ne se poursuit sur une hypothèse. Si l'état réel n'est pas confirmé, si le document ne correspond pas au terrain, si le voisinage n'est pas maîtrisé ou si le rôle n'est pas clair, l'opération s'arrête.",
-      ],
-      deepDive: [
-        "La compétence finale n'est pas seulement de connaître une définition. Elle consiste à garder une lecture sécurité du travail électrique, à savoir ce qui est permis, ce qui ne l'est pas et à quel moment changer de cadre.",
-        "Le professionnel fiable est celui qui sait exécuter correctement, mais aussi préparer, coordonner, interrompre et faire remonter les écarts sans banaliser le risque.",
-        "Dans l'esprit de la NF C 18-510, l'habilitation n'est pas une autorisation générale. Elle reste attachée à une mission, un environnement, des limites d'approche, des moyens adaptés et une organisation formalisée.",
-      ],
-      keyPoints: [
-        "Un role clair, une operation claire.",
-        "La consignation et la preparation sont centrales.",
-        "La securite prime toujours sur la production.",
-        "Le doute impose l'arret et la verification.",
-      ],
-      legalRefs: [
-        "Code du travail - prevention du risque electrique.",
-        "NF C 18-510 - execution, intervention, travaux et consignation en basse tension.",
-        "INRS - maintien des reflexes de securite electrique.",
-      ],
-      practicalCase:
-        "Exemple : un chantier electrique prepare glisse vers une modification de schema non prevue. Le bon choix est de suspendre et de redocumenter l'operation avant reprise.",
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
-      chapterImageAlt:
-        "Schema de synthese des reflexes a conserver pour preparer, executer ou interrompre une operation electrique en basse tension",
-      visual: {
-        title: "Les 4 reflexes a retenir",
-        subtitle: "Identifier, preparer, respecter son role, arreter si doute.",
-        items: ["Identifier", "Preparer", "Respecter son role", "Arreter si doute"],
-        tone: "blue",
-        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
-      },
-    },
-    {
       id: "documents-coordination",
-      title: "14. Documents, autorisations et coordination de chantier",
+      title: "13. Documents, autorisations et coordination de chantier",
       estimatedMinutes: 25,
       intro:
         "Les habilitations B1, B1V, B2, B2V, BR et BC prennent toute leur valeur dans une organisation documentee. Le travail electrique se securise aussi par les autorisations, plans, permis et consignes de chantier.",
@@ -675,5 +632,49 @@ export const b1b2brbcModuleContent: ModuleContent = {
         imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-coordination.svg",
       },
     },
+    {
+      id: "synthese",
+      title: "14. Synthèse opérationnelle",
+      estimatedMinutes: 20,
+      intro:
+        "La maitrise des habilitations B1, B1V, B2, B2V, BR et BC repose sur la clarte des roles, la preparation methodique et la rigueur face au risque electrique.",
+      content: [
+        "Le B1 exécute, le B2 dirige les travaux, le BR intervient dans son cadre autorisé et le BC structure la consignation. Chaque rôle doit rester lisible à tout moment, surtout lorsque plusieurs intervenants travaillent dans un même local, sur des départs proches ou dans une installation partiellement maintenue en service.",
+        "Le cœur de la sécurité reste identique : identifier l'ouvrage, préparer l'opération, délimiter la zone, vérifier l'état électrique, agir dans son périmètre, puis stopper et alerter à la moindre dérive. Ce raisonnement vaut autant pour une opération simple que pour un chantier structuré.",
+        "Une opération électrique sûre n'est jamais basée sur l'habitude seule. Elle repose sur la méthode, le respect des symboles d'habilitation, la qualité documentaire, la cohérence du repérage, la fiabilité des protections et l'organisation des responsabilités.",
+        "Le doute, l'anomalie, la complexité non prévue ou l'urgence d'exploitation imposent une requalification de l'action. La bonne décision peut être de ne pas poursuivre, même si l'arrêt génère une contrainte de production.",
+        "Pour B1/B1V, la priorité est de rester dans la tâche confiée et de signaler tout écart. Pour B2/B2V, elle est d'organiser, de briefer, de surveiller les interfaces et de garantir que l'équipe travaille dans le cadre prévu. Pour BR, elle est de ne pas transformer une intervention en travaux. Pour BC, elle est de garantir une consignation fiable, compréhensible et traçable.",
+        "Le parcours doit laisser un réflexe simple : aucune intervention électrique ne se poursuit sur une hypothèse. Si l'état réel n'est pas confirmé, si le document ne correspond pas au terrain, si le voisinage n'est pas maîtrisé ou si le rôle n'est pas clair, l'opération s'arrête.",
+      ],
+      deepDive: [
+        "La compétence finale n'est pas seulement de connaître une définition. Elle consiste à garder une lecture sécurité du travail électrique, à savoir ce qui est permis, ce qui ne l'est pas et à quel moment changer de cadre.",
+        "Le professionnel fiable est celui qui sait exécuter correctement, mais aussi préparer, coordonner, interrompre et faire remonter les écarts sans banaliser le risque.",
+        "Dans l'esprit de la NF C 18-510, l'habilitation n'est pas une autorisation générale. Elle reste attachée à une mission, un environnement, des limites d'approche, des moyens adaptés et une organisation formalisée.",
+      ],
+      keyPoints: [
+        "Un role clair, une operation claire.",
+        "La consignation et la preparation sont centrales.",
+        "La securite prime toujours sur la production.",
+        "Le doute impose l'arret et la verification.",
+      ],
+      legalRefs: [
+        "Code du travail - prevention du risque electrique.",
+        "NF C 18-510 - execution, intervention, travaux et consignation en basse tension.",
+        "INRS - maintien des reflexes de securite electrique.",
+      ],
+      practicalCase:
+        "Exemple : un chantier electrique prepare glisse vers une modification de schema non prevue. Le bon choix est de suspendre et de redocumenter l'operation avant reprise.",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
+      chapterImageAlt:
+        "Schema de synthese des reflexes a conserver pour preparer, executer ou interrompre une operation electrique en basse tension",
+      visual: {
+        title: "Les 4 reflexes a retenir",
+        subtitle: "Identifier, preparer, respecter son role, arreter si doute.",
+        items: ["Identifier", "Preparer", "Respecter son role", "Arreter si doute"],
+        tone: "blue",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
+      },
+    },
   ],
 };
+                                                                                                                                                                                                                                                                                                                                                           
