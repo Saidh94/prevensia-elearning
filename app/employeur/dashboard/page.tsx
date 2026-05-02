@@ -12,13 +12,13 @@ function formatDate(value: string | null) {
 function getStatusLabel(status: string | null) {
   switch (status) {
     case "completed":
-      return "Terminee";
+      return "Terminée";
     case "pending_interview":
-      return "Entretien a planifier";
+      return "Entretien à planifier";
     case "in_progress":
       return "En cours";
     case "not_started":
-      return "Non demarree";
+      return "Non démarrée";
     default:
       return status || "-";
   }
@@ -40,7 +40,7 @@ function getStatusClasses(status: string | null) {
 }
 
 function getPaymentLabel(paymentStatus: string | null) {
-  return paymentStatus === "paid" ? "Paye" : "En attente";
+  return paymentStatus === "paid" ? "Payé" : "En attente";
 }
 
 function getPaymentClasses(paymentStatus: string | null) {
@@ -126,7 +126,7 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
       offerLabel: "Voir l'offre H0B0",
       planningHref: "/reservation-formation?category=h0b0_validation&format=virtual",
       planningLabel: "Voir l'entretien 30 min",
-      note: "Parcours e-learning suivi d'un entretien individuel de validations. Le salarié reste maitre de la reservation finale.",
+      note: "Parcours e-learning suivi d'un entretien individuel de validation. Le salarié reste maître de la réservation finale.",
     };
   }
 
@@ -136,7 +136,7 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
     searchableText.includes("manoeuvre")
   ) {
     return {
-      familyLabel: isRecyclage ? "BS / BE recyclage" : "BS / BE Manoeuvre",
+      familyLabel: isRecyclage ? "BS / BE recyclage" : "BS / BE Manœuvre",
       offerHref: "/formation-habilitation-electrique",
       offerLabel: "Voir l'offre BS / BE",
       planningHref: isRecyclage
@@ -146,7 +146,7 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
         ? "Voir la visio de recyclage"
         : "Voir les classes virtuelles",
       note: isRecyclage
-        ? "Recyclage e-learning + visio accompagnee avec formateur. Le salarié réservé lui-meme son creneau."
+        ? "Recyclage e-learning + visio accompagnée avec formateur. Le salarié réserve lui-même son créneau."
         : "Initial e-learning + classe virtuelle ou session entreprise. L'employeur visualise le format, le salarié choisit son rendez-vous.",
     };
   }
@@ -160,14 +160,14 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
     return {
       familyLabel: isRecyclage ? "B1 / B2 / BR / BC recyclage" : "B1 / B2 / BR / BC",
       offerHref: "/formation-habilitation-electrique",
-      offerLabel: "Voir l'offre electricien",
+      offerLabel: "Voir l'offre électricien",
       planningHref: isRecyclage
         ? "/reservation-formation?category=b1b2brbc_recyclage&audience=group"
         : "/reservation-formation?category=b1b2brbc_initial&audience=group",
       planningLabel: isRecyclage
         ? "Voir le recyclage mixte"
         : "Voir la journée présentielle",
-      note: "Parcours premium avec theorie e-learning puis mise en situation présentielle. Le salarié garde la main sur sa reservation.",
+      note: "Parcours technique avec théorie e-learning puis mise en situation présentielle. Le salarié garde la main sur sa réservation.",
     };
   }
 
@@ -176,8 +176,8 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
     offerHref: "/elearning",
     offerLabel: "Voir le catalogue e-learning",
     planningHref: "/demande-devis",
-    planningLabel: "Voir l'organisation proposee",
-    note: "Pilotage entreprise, accès apprenants et organisation a la demande.",
+    planningLabel: "Voir l'organisation proposée",
+    note: "Pilotage entreprise, accès apprenants et organisation à la demande.",
   };
 }
 
@@ -209,7 +209,7 @@ export default async function EmployeurDashboardPage() {
             Erreur de lecture du compte employeur
           </h1>
           <p className="mt-4 text-sm text-slate-600">
-            Utilisateur connecte : {user.id}
+            Utilisateur connecté : {user.id}
           </p>
           <pre className="mt-4 overflow-x-auto rounded-xl bg-slate-50 p-4 text-xs text-slate-700">
             {JSON.stringify(employerUserError, null, 2)}
@@ -306,7 +306,7 @@ export default async function EmployeurDashboardPage() {
     const formation = formationsMap.get(item.formation_id);
     const fullName =
       [profile?.first_name, profile?.last_name].filter(Boolean).join(" ") ||
-      "Non renseigne";
+      "Non renseigné";
     const paymentOption = getEnrollmentPaymentOption({
       formationSlug: formation?.slug,
       formationTitle: formation?.title,
@@ -369,7 +369,7 @@ export default async function EmployeurDashboardPage() {
 
       return {
         key: userId,
-        fullName: firstRow?.fullName || "Non renseigne",
+        fullName: firstRow?.fullName || "Non renseigné",
         email: firstRow?.email || "-",
         formationCount: rows.length,
         completedCount: rows.filter((row) => row.isCompleted).length,
@@ -399,18 +399,19 @@ export default async function EmployeurDashboardPage() {
           </p>
           <h1 className="mt-3 text-3xl font-bold">{employer.company_name}</h1>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-200">
-            Pilotez ici les accès e-learning, les validations blended PREVENSIA,
-            les rendez-vous formateur, les paiements et les attestations de vos
-            salariés.
+            Pilotez les accès e-learning de vos salariés, les validations
+            réalisées par nos formateurs, les paiements et les attestations
+            délivrées à l’issue de chaque parcours.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
-            Le dashboard employeur donne une vision claire des formats et des
-            disponibilités, mais la prise de rendez-vous finale reste réservée
-            au salarié.
+            Vous voyez ici la situation de chacun de vos salariés inscrits.
+            La prise de rendez-vous finale (entretien de validation, classe
+            virtuelle ou journée terrain) reste à l’initiative du salarié,
+            conformément aux exigences de la NF C 18-510.
           </p>
           <p className="mt-4 text-sm leading-6 text-slate-300">
-            Gestionnaire : {employer.contact_name || "Non renseigne"} |{" "}
-            {employer.manager_email || "Email non renseigne"} | Rôle :{" "}
+            Gestionnaire : {employer.contact_name || "Non renseigné"} ·{" "}
+            {employer.manager_email || "Email non renseigné"} · Rôle :{" "}
             {employerUser.role || "employeur"}
           </p>
 
@@ -420,12 +421,12 @@ export default async function EmployeurDashboardPage() {
               className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
-                Offre PREVENSIA
+                Catalogue PREVENSIA
               </p>
-              <p className="mt-3 text-lg font-semibold">Voir la promesse blended</p>
+              <p className="mt-3 text-lg font-semibold">Voir le détail des parcours</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                H0B0 avec entretien, BS / BE en classe virtuelle, B1 a BC en
-                parcours mixte e-learning + présentiel.
+                H0B0 / H0V avec entretien, BS / BE Manœuvre en classe
+                virtuelle, B1 à BC en mixte e-learning + présentiel.
               </p>
             </Link>
 
@@ -436,10 +437,11 @@ export default async function EmployeurDashboardPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
                 Planning groupe
               </p>
-              <p className="mt-3 text-lg font-semibold">Suivre les formats de validations</p>
+              <p className="mt-3 text-lg font-semibold">Voir les sessions ouvertes</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                Visualisez les classes virtuelles, entretiens et journées
-                terrain déjà ouverts, sans reserver a la place du salarié.
+                Consultez les classes virtuelles, entretiens et journées
+                présentielles ouverts. Le salarié choisit lui-même son créneau
+                parmi les options disponibles.
               </p>
             </Link>
 
@@ -450,10 +452,11 @@ export default async function EmployeurDashboardPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
                 Sur mesure
               </p>
-              <p className="mt-3 text-lg font-semibold">Commander une organisation</p>
+              <p className="mt-3 text-lg font-semibold">Demander un devis groupe</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                Lancez une demande de devis pour une session entreprise, une
-                cohorte salariée ou un besoin spécifique.
+                Pour une session intra-entreprise, une cohorte de salariés ou
+                un besoin spécifique à votre site, sollicitez un devis adapté
+                à votre organisation.
               </p>
             </Link>
           </div>
@@ -476,19 +479,19 @@ export default async function EmployeurDashboardPage() {
             </p>
             <p className="mt-3 text-3xl font-bold text-slate-900">{formationCount}</p>
             <p className="mt-2 text-sm text-slate-600">
-              {inProgressCount} parcours actifs a suivre
+              {inProgressCount} parcours en cours
             </p>
           </div>
 
           <div className="rounded-[1.75rem] border border-amber-200 bg-amber-50 p-6 shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-800">
-              Entretiens a planifier
+              Entretiens à planifier
             </p>
             <p className="mt-3 text-3xl font-bold text-slate-900">
               {pendingInterviewCount}
             </p>
             <p className="mt-2 text-sm text-amber-900">
-              validations formateur en attente
+              validation{pendingInterviewCount > 1 ? "s" : ""} formateur en attente
             </p>
           </div>
 
@@ -514,21 +517,24 @@ export default async function EmployeurDashboardPage() {
               E-learning + entretien 30 min
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Parcours theorique en ligne, quiz puis entretien individuel avec
-              formateur pour la validations finale.
+              Parcours théorique en ligne, quiz d’évaluation, puis entretien
+              individuel avec un formateur pour valider les acquis avant
+              délivrance de l’habilitation par l’employeur.
             </p>
           </article>
 
           <article className="rounded-[1.75rem] border border-blue-200 bg-white p-6 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-              BS / BE Manoeuvre
+              BS / BE Manœuvre
             </p>
             <h2 className="mt-2 text-xl font-bold text-slate-900">
               E-learning + classe virtuelle
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Offre blended pour particuliers, salariés seuls ou groupes, avec
-              classe virtuelle, session entreprise ou visio de recyclage.
+              Parcours mixte pour les interventions élémentaires et les
+              manœuvres simples : modules en ligne, classe virtuelle animée
+              par un formateur, session entreprise possible et visio de
+              recyclage.
             </p>
           </article>
 
@@ -540,8 +546,10 @@ export default async function EmployeurDashboardPage() {
               E-learning + journée présentielle
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Parcours premium pour personnel electricien avec theorie dense,
-              quiz de validations puis mise en situation terrain encadree.
+              Parcours technique pour personnel électricien : préparation
+              théorique en e-learning, quiz d’évaluation, puis mise en
+              situation pratique encadrée en présentiel par un formateur
+              habilité.
             </p>
           </article>
         </section>
@@ -550,27 +558,27 @@ export default async function EmployeurDashboardPage() {
           <section className="mt-6 grid gap-4 lg:grid-cols-2">
             <article className="rounded-[1.75rem] border border-amber-200 bg-white p-6 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-700">
-                Priorite pedagogique
+                Priorité pédagogique
               </p>
               <h2 className="mt-2 text-xl font-bold text-slate-900">
-                Validations a organiser
+                Validations à organiser
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {pendingInterviewCount === 0
-                  ? "Aucune validations formateur en attente."
-                  : `${pendingInterviewCount} inscription${pendingInterviewCount > 1 ? "s" : ""} sont en statut entretien a planifier.`}
+                  ? "Aucune validation formateur en attente."
+                  : `${pendingInterviewCount} inscription${pendingInterviewCount > 1 ? "s" : ""} en attente d’entretien de validation.`}
               </p>
               <Link
                 href="/reservation-formation?audience=group"
                 className="mt-5 inline-flex items-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                Voir le planning blended
+                Voir le planning des sessions
               </Link>
             </article>
 
             <article className="rounded-[1.75rem] border border-violet-200 bg-white p-6 shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-violet-700">
-                Priorite administrative
+                Priorité administrative
               </p>
               <h2 className="mt-2 text-xl font-bold text-slate-900">
                 Dossiers a regulariser
@@ -630,7 +638,7 @@ export default async function EmployeurDashboardPage() {
                     <div className="mt-4 grid gap-3 sm:grid-cols-3">
                       <div className="rounded-2xl bg-white p-4">
                         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Terminees
+                          Terminées
                         </p>
                         <p className="mt-2 text-xl font-bold text-slate-900">
                           {employee.completedCount}
@@ -648,7 +656,7 @@ export default async function EmployeurDashboardPage() {
 
                       <div className="rounded-2xl bg-white p-4">
                         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Impayes
+                          Impayés
                         </p>
                         <p className="mt-2 text-xl font-bold text-slate-900">
                           {employee.unpaidCount}
@@ -657,7 +665,7 @@ export default async function EmployeurDashboardPage() {
                     </div>
 
                     <p className="mt-4 text-sm text-slate-600">
-                      Fin d'accès la plus recente :{" "}
+                      Fin d'accès la plus récente :{" "}
                       <span className="font-semibold text-slate-900">
                         {formatDate(employee.latestAccessEnd)}
                       </span>
@@ -835,26 +843,4 @@ export default async function EmployeurDashboardPage() {
                               disabled
                               className="cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
                               title="Attestation disponible uniquement apres validations complète"
-                            >
-                              Parcours en cours
-                            </button>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {enrollmentRows.length === 0 && (
-            <p className="mt-6 text-sm text-slate-500">
-              Aucune inscription rattachee a cet employeur pour le moment.
-            </p>
-          )}
-        </section>
-      </div>
-    </main>
-  );
-}
+           
