@@ -55,7 +55,7 @@ function normalizeText(value: string | null | undefined) {
 
 type EmployerUserRow = {
   employer_id: string;
-  role: string;
+  rôle: string;
 };
 
 type EmployerRow = {
@@ -126,7 +126,7 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
       offerLabel: "Voir l'offre H0B0",
       planningHref: "/reservation-formation?category=h0b0_validation&format=virtual",
       planningLabel: "Voir l'entretien 30 min",
-      note: "Parcours e-learning suivi d'un entretien individuel de validation. Le salarie reste maitre de la reservation finale.",
+      note: "Parcours e-learning suivi d'un entretien individuel de validations. Le salarié reste maitre de la reservation finale.",
     };
   }
 
@@ -146,8 +146,8 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
         ? "Voir la visio de recyclage"
         : "Voir les classes virtuelles",
       note: isRecyclage
-        ? "Recyclage e-learning + visio accompagnee avec formateur. Le salarie reserve lui-meme son creneau."
-        : "Initial e-learning + classe virtuelle ou session entreprise. L'employeur visualise le format, le salarie choisit son rendez-vous.",
+        ? "Recyclage e-learning + visio accompagnee avec formateur. Le salarié réservé lui-meme son creneau."
+        : "Initial e-learning + classe virtuelle ou session entreprise. L'employeur visualise le format, le salarié choisit son rendez-vous.",
     };
   }
 
@@ -166,8 +166,8 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
         : "/reservation-formation?category=b1b2brbc_initial&audience=group",
       planningLabel: isRecyclage
         ? "Voir le recyclage mixte"
-        : "Voir la journee presentielle",
-      note: "Parcours premium avec theorie e-learning puis mise en situation presentielle. Le salarie garde la main sur sa reservation.",
+        : "Voir la journée présentielle",
+      note: "Parcours premium avec theorie e-learning puis mise en situation présentielle. Le salarié garde la main sur sa reservation.",
     };
   }
 
@@ -177,7 +177,7 @@ function getEnrollmentActionMeta(row: Pick<EnrollmentViewRow, "formationSlug" | 
     offerLabel: "Voir le catalogue e-learning",
     planningHref: "/demande-devis",
     planningLabel: "Voir l'organisation proposee",
-    note: "Pilotage entreprise, acces apprenants et organisation a la demande.",
+    note: "Pilotage entreprise, accès apprenants et organisation a la demande.",
   };
 }
 
@@ -194,7 +194,7 @@ export default async function EmployeurDashboardPage() {
 
   const { data: employerUser, error: employerUserError } = await supabase
     .from("employer_users")
-    .select("employer_id, role")
+    .select("employer_id, rôle")
     .eq("user_id", user.id)
     .maybeSingle<EmployerUserRow>();
 
@@ -399,19 +399,19 @@ export default async function EmployeurDashboardPage() {
           </p>
           <h1 className="mt-3 text-3xl font-bold">{employer.company_name}</h1>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-200">
-            Pilotez ici les acces e-learning, les validations blended PREVENSIA,
+            Pilotez ici les accès e-learning, les validations blended PREVENSIA,
             les rendez-vous formateur, les paiements et les attestations de vos
-            salaries.
+            salariés.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
             Le dashboard employeur donne une vision claire des formats et des
-            disponibilites, mais la prise de rendez-vous finale reste reservee
-            au salarie.
+            disponibilités, mais la prise de rendez-vous finale reste réservée
+            au salarié.
           </p>
           <p className="mt-4 text-sm leading-6 text-slate-300">
             Gestionnaire : {employer.contact_name || "Non renseigne"} |{" "}
-            {employer.manager_email || "Email non renseigne"} | Role :{" "}
-            {employerUser.role || "employeur"}
+            {employer.manager_email || "Email non renseigne"} | Rôle :{" "}
+            {employerUser.rôle || "employeur"}
           </p>
 
           <div className="mt-8 grid gap-3 md:grid-cols-3">
@@ -425,7 +425,7 @@ export default async function EmployeurDashboardPage() {
               <p className="mt-3 text-lg font-semibold">Voir la promesse blended</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
                 H0B0 avec entretien, BS / BE en classe virtuelle, B1 a BC en
-                parcours mixte e-learning + presentiel.
+                parcours mixte e-learning + présentiel.
               </p>
             </Link>
 
@@ -436,10 +436,10 @@ export default async function EmployeurDashboardPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
                 Planning groupe
               </p>
-              <p className="mt-3 text-lg font-semibold">Suivre les formats de validation</p>
+              <p className="mt-3 text-lg font-semibold">Suivre les formats de validations</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
-                Visualisez les classes virtuelles, entretiens et journees
-                terrain deja ouverts, sans reserver a la place du salarie.
+                Visualisez les classes virtuelles, entretiens et journées
+                terrain déjà ouverts, sans reserver a la place du salarié.
               </p>
             </Link>
 
@@ -453,7 +453,7 @@ export default async function EmployeurDashboardPage() {
               <p className="mt-3 text-lg font-semibold">Commander une organisation</p>
               <p className="mt-2 text-sm leading-6 text-slate-300">
                 Lancez une demande de devis pour une session entreprise, une
-                cohorte salariee ou un besoin specifique.
+                cohorte salariée ou un besoin spécifique.
               </p>
             </Link>
           </div>
@@ -462,7 +462,7 @@ export default async function EmployeurDashboardPage() {
         <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-              Salaries suivis
+              Salariés suivis
             </p>
             <p className="mt-3 text-3xl font-bold text-slate-900">{employeeCount}</p>
             <p className="mt-2 text-sm text-slate-600">
@@ -472,7 +472,7 @@ export default async function EmployeurDashboardPage() {
 
           <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-              Formations attribuees
+              Formations attribuées
             </p>
             <p className="mt-3 text-3xl font-bold text-slate-900">{formationCount}</p>
             <p className="mt-2 text-sm text-slate-600">
@@ -500,7 +500,7 @@ export default async function EmployeurDashboardPage() {
               {unpaidCount} / {completedCount}
             </p>
             <p className="mt-2 text-sm text-violet-900">
-              impayes / parcours termines
+              impayés / parcours terminés
             </p>
           </div>
         </section>
@@ -515,7 +515,7 @@ export default async function EmployeurDashboardPage() {
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
               Parcours theorique en ligne, quiz puis entretien individuel avec
-              formateur pour la validation finale.
+              formateur pour la validations finale.
             </p>
           </article>
 
@@ -527,7 +527,7 @@ export default async function EmployeurDashboardPage() {
               E-learning + classe virtuelle
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Offre blended pour particuliers, salaries seuls ou groupes, avec
+              Offre blended pour particuliers, salariés seuls ou groupes, avec
               classe virtuelle, session entreprise ou visio de recyclage.
             </p>
           </article>
@@ -537,11 +537,11 @@ export default async function EmployeurDashboardPage() {
               B1 / B2 / BR / BC
             </p>
             <h2 className="mt-2 text-xl font-bold text-slate-900">
-              E-learning + journee presentielle
+              E-learning + journée présentielle
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
               Parcours premium pour personnel electricien avec theorie dense,
-              quiz de validation puis mise en situation terrain encadree.
+              quiz de validations puis mise en situation terrain encadree.
             </p>
           </article>
         </section>
@@ -557,7 +557,7 @@ export default async function EmployeurDashboardPage() {
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {pendingInterviewCount === 0
-                  ? "Aucune validation formateur en attente."
+                  ? "Aucune validations formateur en attente."
                   : `${pendingInterviewCount} inscription${pendingInterviewCount > 1 ? "s" : ""} sont en statut entretien a planifier.`}
               </p>
               <Link
@@ -577,8 +577,8 @@ export default async function EmployeurDashboardPage() {
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {unpaidCount === 0
-                  ? "Tous les dossiers apparaissent comme regles."
-                  : `${unpaidCount} inscription${unpaidCount > 1 ? "s" : ""} n'ont pas encore le statut paye.`}
+                  ? "Tous les dossiers apparaissent comme règles."
+                  : `${unpaidCount} inscription${unpaidCount > 1 ? "s" : ""} n'ont pas encore le statut payé.`}
               </p>
               <Link
                 href="/demande-devis?type=habilitation"
@@ -592,7 +592,7 @@ export default async function EmployeurDashboardPage() {
 
         <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-bold text-slate-900">Vue salaries</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Vue salariés</h2>
             <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
               {employeeSummaries.length} fiche{employeeSummaries.length > 1 ? "s" : ""}
             </span>
@@ -600,7 +600,7 @@ export default async function EmployeurDashboardPage() {
 
           {employeeSummaries.length === 0 ? (
             <p className="mt-6 text-sm text-slate-500">
-              Aucun salarie rattache a cet employeur pour le moment.
+              Aucun salarié rattache a cet employeur pour le moment.
             </p>
           ) : (
             <div className="mt-6 grid gap-4 lg:grid-cols-2">
@@ -657,7 +657,7 @@ export default async function EmployeurDashboardPage() {
                     </div>
 
                     <p className="mt-4 text-sm text-slate-600">
-                      Fin d'acces la plus recente :{" "}
+                      Fin d'accès la plus recente :{" "}
                       <span className="font-semibold text-slate-900">
                         {formatDate(employee.latestAccessEnd)}
                       </span>
@@ -719,12 +719,12 @@ export default async function EmployeurDashboardPage() {
             <table className="min-w-full border-separate border-spacing-y-3">
               <thead>
                 <tr className="text-left text-sm text-slate-500">
-                  <th className="px-4 py-2">Salarie</th>
+                  <th className="px-4 py-2">Salarié</th>
                   <th className="px-4 py-2">Email</th>
                   <th className="px-4 py-2">Formation</th>
                   <th className="px-4 py-2">Statut</th>
-                  <th className="px-4 py-2">Debut acces</th>
-                  <th className="px-4 py-2">Fin acces</th>
+                  <th className="px-4 py-2">Debut accès</th>
+                  <th className="px-4 py-2">Fin accès</th>
                   <th className="px-4 py-2">Paiement</th>
                   <th className="px-4 py-2">Actions</th>
                 </tr>
@@ -834,7 +834,7 @@ export default async function EmployeurDashboardPage() {
                               type="button"
                               disabled
                               className="cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
-                              title="Attestation disponible uniquement apres validation complete"
+                              title="Attestation disponible uniquement apres validations complète"
                             >
                               Parcours en cours
                             </button>
