@@ -55,7 +55,7 @@ function normalizeText(value: string | null | undefined) {
 
 type EmployerUserRow = {
   employer_id: string;
-  rôle: string;
+  role: string;
 };
 
 type EmployerRow = {
@@ -194,7 +194,7 @@ export default async function EmployeurDashboardPage() {
 
   const { data: employerUser, error: employerUserError } = await supabase
     .from("employer_users")
-    .select("employer_id, rôle")
+    .select("employer_id, role")
     .eq("user_id", user.id)
     .maybeSingle<EmployerUserRow>();
 
@@ -411,7 +411,7 @@ export default async function EmployeurDashboardPage() {
           <p className="mt-4 text-sm leading-6 text-slate-300">
             Gestionnaire : {employer.contact_name || "Non renseigne"} |{" "}
             {employer.manager_email || "Email non renseigne"} | Rôle :{" "}
-            {employerUser.rôle || "employeur"}
+            {employerUser.role || "employeur"}
           </p>
 
           <div className="mt-8 grid gap-3 md:grid-cols-3">
