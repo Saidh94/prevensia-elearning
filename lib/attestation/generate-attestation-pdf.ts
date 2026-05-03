@@ -86,24 +86,36 @@ function wrapText(
   font: PDFFont,
   fontSize: number
 ): string[] {
-  const words = text.split(/\s+/).filter(Boolean);
-  const lines: string[] = [];
-  let currentLine = "";
+  // Split on forced line breaks first, then word-wrap each segment
+  const segments = text.split("\n");
+  const result: string[] = [];
 
-  for (const word of words) {
-    const testLine = currentLine ? `${currentLine} ${word}` : word;
-    const width = font.widthOfTextAtSize(testLine, fontSize);
+  for (const segment of segments) {
+    const words = segment.split(/\s+/).filter(Boolean);
 
-    if (width <= maxWidth) {
-      currentLine = testLine;
-    } else {
-      if (currentLine) lines.push(currentLine);
-      currentLine = word;
+    if (words.length === 0) {
+      result.push("");
+      continue;
     }
+
+    let currentLine = "";
+
+    for (const word of words) {
+      const testLine = currentLine ? `${currentLine} ${word}` : word;
+      const width = font.widthOfTextAtSize(testLine, fontSize);
+
+      if (width <= maxWidth) {
+        currentLine = testLine;
+      } else {
+        if (currentLine) result.push(currentLine);
+        currentLine = word;
+      }
+    }
+
+    if (currentLine) result.push(currentLine);
   }
 
-  if (currentLine) lines.push(currentLine);
-  return lines;
+  return result;
 }
 
 function drawCell(
@@ -738,16 +750,26 @@ function drawFirstPage(params: {
     y -= rowHeight;
   }
 
-  y -= 8;
+  // Signature section pinned to fixed position at page bottom
+  // ─── fixed anchors (from page bottom, above footer text at y=10–22) ───
+  const signLeft = 160;
+  const signCenter = 248;
+  const signRight = contentWidth - signLeft - signCenter;
 
+  const sigContentY = 36;            // bottom of content row (58pt tall)
+  const sigHeaderY  = sigContentY + 58;   // = 94  — bottom of header row
+  const discBottomY = sigHeaderY + 18 + 10; // = 122 — bottom of disclaimer box
+  const discHeight  = 54;
+
+  // Disclaimer anchored just above signatures
   drawCell(
     page,
     "Ce document est une trame pré-remplie préparée à l'issue de la validation théorique du parcours le " +
       `${validationDate}. Les informations suggérées ci-dessus ne valent pas habilitation. Les symboles retenus, les limites d'intervention, le domaine de tension, les dates, l'affectation et les signatures doivent être déterminés, validés et formalisés exclusivement par l'employeur conformément au Code du travail, à l'analyse de risque du poste et à la NF C 18-510.`,
     margin,
-    y - 54,
+    discBottomY,
     contentWidth,
-    54,
+    discHeight,
     {
       font: fontRegular,
       size: 7.1,
@@ -758,27 +780,22 @@ function drawFirstPage(params: {
     }
   );
 
-  y -= 68;
-
-  const signLeft = 160;
-  const signCenter = 248;
-  const signRight = contentWidth - signLeft - signCenter;
-
-  drawCell(page, "Signature du titulaire", margin, y - 58, signLeft, 18, {
+  // Signature header row
+  drawCell(page, "Signature du titulaire", margin, sigHeaderY, signLeft, 18, {
     font: fontBold,
     size: 8.4,
     borderColor: colors.line,
     fillColor: colors.softGrey,
     verticalAlign: "middle",
   });
-  drawCell(page, "L'employeur", margin + signLeft, y - 58, signCenter, 18, {
+  drawCell(page, "L'employeur", margin + signLeft, sigHeaderY, signCenter, 18, {
     font: fontBold,
     size: 8.4,
     borderColor: colors.line,
     fillColor: colors.softGrey,
     verticalAlign: "middle",
   });
-  drawCell(page, "Signature", margin + signLeft + signCenter, y - 58, signRight, 18, {
+  drawCell(page, "Signature", margin + signLeft + signCenter, sigHeaderY, signRight, 18, {
     font: fontBold,
     size: 8.4,
     borderColor: colors.line,
@@ -786,38 +803,39 @@ function drawFirstPage(params: {
     verticalAlign: "middle",
   });
 
-  drawCell(page, learnerFullName, margin, y - 116, signLeft, 58, {
+  // Signature content row
+  drawCell(page, learnerFullName, margin, sigContentY, signLeft, 58, {
     font: fontBold,
     size: 10.8,
     borderColor: colors.line,
     align: "center",
     verticalAlign: "middle",
   });
-  drawCell(page, "Nom / Prenom :", margin + signLeft, y - 88, 76, 30, {
+  drawCell(page, "Raison sociale :", margin + signLeft, sigContentY + 28, 76, 30, {
     font: fontRegular,
     size: 8.1,
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, employerName, margin + signLeft + 76, y - 88, signCenter - 76, 30, {
+  drawCell(page, employerName, margin + signLeft + 76, sigContentY + 28, signCenter - 76, 30, {
     font: fontBold,
     size: 9.1,
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "Fonction :", margin + signLeft, y - 116, 76, 28, {
+  drawCell(page, "Fonction :", margin + signLeft, sigContentY, 76, 28, {
     font: fontRegular,
     size: 8.1,
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "À compléter", margin + signLeft + 76, y - 116, signCenter - 76, 28, {
+  drawCell(page, "À compléter", margin + signLeft + 76, sigContentY, signCenter - 76, 28, {
     font: fontBold,
     size: 9.1,
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "", margin + signLeft + signCenter, y - 116, signRight, 58, {
+  drawCell(page, "", margin + signLeft + signCenter, sigContentY, signRight, 58, {
     font: fontRegular,
     size: 8,
     borderColor: colors.line,
@@ -825,9 +843,9 @@ function drawFirstPage(params: {
   drawLine(
     page,
     margin + signLeft + signCenter + 12,
-    y - 102,
+    sigContentY + 16,
     margin + signLeft + signCenter + signRight - 12,
-    y - 102,
+    sigContentY + 16,
     colors.line
   );
 
@@ -960,7 +978,7 @@ function drawSuccessPage(params: {
     }
   );
 
-  const title = "VALIDATION THEORIQUE DU PARCOURS";
+  const title = "VALIDATION THÉORIQUE DU PARCOURS";
   page.drawText(title, {
     x: (pageWidth - fontBold.widthOfTextAtSize(title, 22)) / 2,
     y: pageHeight - 168,
@@ -1115,7 +1133,7 @@ function drawSuccessPage(params: {
     }
   }
 
-  drawCell(page, "Reference dossier", pageWidth - margin - 180, 86, 180, 18, {
+  drawCell(page, "Référence dossier", pageWidth - margin - 180, 86, 180, 18, {
     font: fontBold,
     size: 8.3,
     borderColor: colors.line,

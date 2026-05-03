@@ -14,163 +14,163 @@ export const quizContent: Record<string, QuizQuestion[]> = {
   b1b2brbc: [
     {
       question:
-        "Qui delivre formellement l'habilitation B1, B2, BR ou BC apres verification de la formation, du poste et des risques ?",
+        "Qui délivre formellement l'habilitation B1, B2, BR ou BC après vérification de la formation, du poste et des risques ?",
       choices: [
         "Le formateur",
         "L'employeur",
-        "Le fabricant du materiel",
-        "Le chef d'equipe seul",
+        "Le fabricant du matériel",
+        "Le chef d'équipe seul",
       ],
       answer: [1],
       explanation:
-        "La formation prepare a l'habilitation, mais c'est l'employeur qui la delivre.",
+        "La formation prépare à l'habilitation, mais c'est l'employeur qui la délivre.",
       timeLimit: 40,
     },
     {
-      question: "Le symbole B1 correspond principalement a :",
+      question: "Le symbole B1 correspond principalement à :",
       choices: [
-        "Un executant electricien en basse tension",
-        "Un charge de consignation",
+        "Un exécutant électricien en basse tension",
+        "Un chargé de consignation",
         "Un intervenant BR",
-        "Un personnel non electricien",
+        "Un personnel non électricien",
       ],
       answer: [0],
       explanation:
-        "Le B1 designe l'executant electricien travaillant dans un cadre prepare et encadre.",
+        "Le B1 désigne l'exécutant électricien travaillant dans un cadre préparé et encadré.",
       timeLimit: 40,
     },
     {
-      question: "Le charge de travaux en basse tension est generalement titulaire du symbole :",
+      question: "Le chargé de travaux en basse tension est généralement titulaire du symbole :",
       choices: ["B1", "B2", "BR", "BC"],
       answer: [1],
       explanation:
-        "Le B2 prepare, dirige et surveille l'execution des travaux electriques.",
+        "Le B2 prépare, dirige et surveille l'exécution des travaux électriques.",
       timeLimit: 35,
     },
     {
       question: "Le symbole BR couvre surtout :",
       choices: [
-        "Les travaux de chantier encadres par une equipe complete",
-        "Les interventions generales en basse tension dans un cadre defini",
+        "Les travaux de chantier encadrés par une équipe complète",
+        "Les interventions générales en basse tension dans un cadre défini",
         "La consignation uniquement",
-        "Les operations d'ordre non electrique",
+        "Les opérations d'ordre non électrique",
       ],
       answer: [1],
       explanation:
-        "Le BR concerne les interventions generales comme l'entretien, le depannage ou certaines remises en etat autorisees.",
+        "Le BR concerne les interventions générales comme l'entretien, le dépannage ou certaines remises en état autorisées.",
       timeLimit: 45,
       contextLabel:
-        "Le tableau des symboles permet de distinguer clairement BR, BC, B1 et B2 sans melanger les fonctions.",
+        "Le tableau des symboles permet de distinguer clairement BR, BC, B1 et B2 sans mélanger les fonctions.",
       imagePath: "/elearning/references/symboles-autres-travaux-electriques.jpg",
       imageAlt:
-        "Tableau des symboles d'habilitation utilises pour les autres operations d'ordre electrique",
+        "Tableau des symboles d'habilitation utilisés pour les autres opérations d'ordre électrique",
     },
     {
-      question: "Le charge de consignation est designe par le symbole :",
+      question: "Le chargé de consignation est désigné par le symbole :",
       choices: ["B1V", "BR", "BC", "B2V"],
       answer: [2],
       explanation:
-        "Le BC garantit le processus de consignation et de mise en securite de l'installation.",
+        "Le BC garantit le processus de consignation et de mise en sécurité de l'installation.",
       timeLimit: 35,
       contextLabel:
-        "Le tableau des symboles aide a distinguer le role de consignation des roles d'execution, de travaux et d'intervention.",
+        "Le tableau des symboles aide à distinguer le rôle de consignation des rôles d'exécution, de travaux et d'intervention.",
       imagePath: "/elearning/references/symboles-autres-travaux-electriques.jpg",
       imageAlt:
-        "Tableau des symboles d'habilitation utilises pour les autres operations d'ordre electrique",
+        "Tableau des symboles d'habilitation utilisés pour les autres opérations d'ordre électrique",
     },
     {
       question:
-        "Parmi les etapes suivantes, lesquelles appartiennent a une logique de consignation ?",
+        "Parmi les étapes suivantes, lesquelles appartiennent à une logique de consignation ?",
       choices: [
-        "Separation",
+        "Séparation",
         "Condamnation",
         "Identification",
-        "Verification d'absence de tension",
+        "Vérification d'absence de tension",
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "La consignation repose sur une chaine d'etapes inseparables pour garantir la mise en securite.",
+        "La consignation repose sur une chaîne d'étapes inséparables pour garantir la mise en sécurité.",
       timeLimit: 70,
       contextLabel:
-        "Le visuel rappelle que la consignation fiable ne se reduit jamais a une simple coupure apparente.",
+        "Le visuel rappelle que la consignation fiable ne se réduit jamais à une simple coupure apparente.",
       imagePath: "/elearning/references/consignation-vat.jpg",
       imageAlt:
-        "Illustration de consignation avec condamnation, balisage et verification d'absence de tension",
+        "Illustration de consignation avec condamnation, balisage et vérification d'absence de tension",
     },
     {
       question:
-        "La verification d'absence de tension peut-elle etre presumee si le disjoncteur a ete coupe ?",
+        "La vérification d'absence de tension peut-elle être présumée si le disjoncteur a été coupé ?",
       choices: [
-        "Oui, si l'installation est recente",
-        "Oui, si le repere parait coherent",
-        "Non, elle doit etre reelle et methodique",
-        "Oui, en presence d'un B2",
+        "Oui, si l'installation est récente",
+        "Oui, si le repère paraît cohérent",
+        "Non, elle doit être réelle et méthodique",
+        "Oui, en présence d'un B2",
       ],
       answer: [2],
       explanation:
-        "La VAT ne se suppose jamais. Elle doit etre effectuee selon une methode fiable et au bon point de l'installation.",
+        "La VAT ne se suppose jamais. Elle doit être effectuée selon une méthode fiable et au bon point de l'installation.",
       timeLimit: 40,
       contextLabel:
-        "Le visuel rappelle qu'un organe ouvert ne suffit jamais : l'etat electrique doit etre verifie methodiquement.",
+        "Le visuel rappelle qu'un organe ouvert ne suffit jamais : l'état électrique doit être vérifié méthodiquement.",
       imagePath: "/elearning/references/consignation-vat.jpg",
       imageAlt:
-        "Illustration de verification d'absence de tension sur une installation consignee",
+        "Illustration de vérification d'absence de tension sur une installation consignée",
     },
     {
       question:
-        "Quel role correspond le mieux a la preparation et a la direction d'un travail electrique en basse tension ?",
+        "Quel rôle correspond le mieux à la préparation et à la direction d'un travail électrique en basse tension ?",
       choices: [
-        "Executant B1",
-        "Charge de travaux B2",
+        "Exécutant B1",
+        "Chargé de travaux B2",
         "Intervenant BR",
         "Observateur H0B0",
       ],
       answer: [1],
       explanation:
-        "Le B2 organise et pilote la securite du travail confie a l'equipe.",
+        "Le B2 organise et pilote la sécurité du travail confié à l'équipe.",
       timeLimit: 45,
     },
     {
       question:
-        "Parmi ces situations, laquelle impose de stopper immediatement l'operation ?",
+        "Parmi ces situations, laquelle impose de stopper immédiatement l'opération ?",
       choices: [
-        "Un repere materiel incoherent avec le dossier",
-        "Une odeur anormale ou un echauffement",
+        "Un repère matériel incohérent avec le dossier",
+        "Une odeur anormale ou un échauffement",
         "Un doute sur la consignation",
-        "Toutes ces reponses",
+        "Toutes ces réponses",
       ],
       answer: [3],
       explanation:
-        "Tout doute serieux sur l'etat electrique, l'identification ou l'integrite du materiel impose l'arret.",
+        "Tout doute sérieux sur l'état électrique, l'identification ou l'intégrité du matériel impose l'arrêt.",
       timeLimit: 35,
     },
     {
       question:
-        "Que faut-il faire si une intervention BR devient plus complexe que prevu et ressemble a des travaux structures ?",
+        "Que faut-il faire si une intervention BR devient plus complexe que prévu et ressemble à des travaux structurés ?",
       choices: [
         "Continuer pour gagner du temps",
-        "Requalifier l'operation avant de poursuivre",
-        "Demander a un collegue de surveiller et continuer",
-        "Ignorer la difference si la basse tension est conservee",
+        "Requalifier l'opération avant de poursuivre",
+        "Demander à un collègue de surveiller et continuer",
+        "Ignorer la différence si la basse tension est conservée",
       ],
       answer: [1],
       explanation:
-        "Une intervention ne doit pas glisser vers des travaux sans clarification du cadre et des roles.",
+        "Une intervention ne doit pas glisser vers des travaux sans clarification du cadre et des rôles.",
       timeLimit: 45,
     },
     {
       question:
         "Quelle affirmation sur les EPI et EPC est correcte ?",
       choices: [
-        "Les EPI autorisent une operation interdite si l'on reste prudent",
-        "Les EPC sont a privilegier et les EPI viennent en complement",
-        "Le choix depend seulement de l'habitude de l'operateur",
-        "Les EPI remplacent la preparation",
+        "Les EPI autorisent une opération interdite si l'on reste prudent",
+        "Les EPC sont à privilégier et les EPI viennent en complément",
+        "Le choix dépend seulement de l'habitude de l'opérateur",
+        "Les EPI remplacent la préparation",
       ],
       answer: [1],
       explanation:
-        "Les protections collectives priment. Les EPI ne changent jamais les limites d'habilitation ni la necessite de preparer l'operation.",
+        "Les protections collectives priment. Les EPI ne changent jamais les limites d'habilitation ni la nécessité de préparer l'opération.",
       timeLimit: 45,
     },
     {
@@ -178,315 +178,315 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Lequel de ces raisonnements est le plus professionnel dans un parcours B1 / B2 / BR / BC ?",
       choices: [
         "Improviser une solution si l'on pense avoir compris la panne",
-        "Identifier, preparer, agir dans son role et s'arreter au moindre doute",
-        "Toujours reenclencher une premiere fois pour voir",
-        "Considerer que l'urgence d'exploitation justifie l'ecart",
+        "Identifier, préparer, agir dans son rôle et s'arrêter au moindre doute",
+        "Toujours réenclencher une première fois pour voir",
+        "Considérer que l'urgence d'exploitation justifie l'écart",
       ],
       answer: [1],
       explanation:
-        "La securite repose sur la methode, la clarte des roles et l'arret en cas d'incertitude.",
+        "La sécurité repose sur la méthode, la clarté des rôles et l'arrêt en cas d'incertitude.",
       timeLimit: 45,
     },
     {
       question:
-        "Parmi ces propositions, lesquelles traduisent de bons reflexes en basse tension ?",
+        "Parmi ces propositions, lesquelles traduisent de bons réflexes en basse tension ?",
       choices: [
-        "Verifier l'identification du materiel",
-        "Clarifier les roles dans l'equipe",
-        "S'assurer que l'environnement est compatible avec l'operation",
-        "S'appuyer uniquement sur l'experience sans documentation",
+        "Vérifier l'identification du matériel",
+        "Clarifier les rôles dans l'équipe",
+        "S'assurer que l'environnement est compatible avec l'opération",
+        "S'appuyer uniquement sur l'expérience sans documentation",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "L'experience ne remplace ni l'identification, ni l'organisation, ni le support documentaire.",
+        "L'expérience ne remplace ni l'identification, ni l'organisation, ni le support documentaire.",
       timeLimit: 65,
     },
     {
       question:
-        "En cas d'accident electrique, quel principe reste prioritaire ?",
+        "En cas d'accident électrique, quel principe reste prioritaire ?",
       choices: [
-        "Toucher vite la victime pour l'eloigner",
+        "Toucher vite la victime pour l'éloigner",
         "Supprimer ou faire supprimer le danger avant de porter secours",
         "Ouvrir le coffret pour comprendre la cause",
-        "Terminer la consignation puis prevenir",
+        "Terminer la consignation puis prévenir",
       ],
       answer: [1],
       explanation:
-        "Le premier objectif est d'eviter le suraccident en supprimant le danger electrique.",
+        "Le premier objectif est d'éviter le suraccident en supprimant le danger électrique.",
       timeLimit: 40,
     },
     {
       question:
-        "Avant de lancer un travail B2 avec plusieurs intervenants, quel point doit etre clarifie en priorite ?",
+        "Avant de lancer un travail B2 avec plusieurs intervenants, quel point doit être clarifié en priorité ?",
       choices: [
-        "Le role de chacun, la zone de travail et les conditions d'arret",
-        "Le numero de telephone personnel de tous les intervenants",
-        "Le choix libre des outils par chaque operateur",
-        "Le fait de terminer avant l'horaire prevu",
+        "Le rôle de chacun, la zone de travail et les conditions d'arrêt",
+        "Le numéro de téléphone personnel de tous les intervenants",
+        "Le choix libre des outils par chaque opérateur",
+        "Le fait de terminer avant l'horaire prévu",
       ],
       answer: [0],
       explanation:
-        "Le B2 doit d'abord clarifier les roles, le perimetre de travail, les protections et les conditions de suspension.",
+        "Le B2 doit d'abord clarifier les rôles, le périmètre de travail, les protections et les conditions de suspension.",
       timeLimit: 45,
     },
     {
       question:
         "Quelles situations imposent une relecture documentaire avant toute poursuite ?",
       choices: [
-        "Un schema qui ne correspond pas au reperage local",
-        "Une modification ancienne non tracee",
+        "Un schéma qui ne correspond pas au repérage local",
+        "Une modification ancienne non tracée",
         "Une interface chantier avec un autre intervenant",
-        "Un local bien eclaire sans autre anomalie",
+        "Un local bien éclairé sans autre anomalie",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "La documentation, le reperage et la coordination doivent etre confirmees avant toute reprise d'action.",
+        "La documentation, le repérage et la coordination doivent être confirmées avant toute reprise d'action.",
       timeLimit: 70,
     },
     {
       question:
         "Lequel de ces cas reste normalement dans le cadre BR ?",
       choices: [
-        "Une extension complete d'armoire avec ajout de nouveaux circuits",
-        "Une intervention generale de depannage identifiee et methodique dans le cadre prevu",
-        "Des travaux de chantier avec plusieurs corps d'etat",
-        "Une consignation generale de site sans designation BC",
+        "Une extension complète d'armoire avec ajout de nouveaux circuits",
+        "Une intervention générale de dépannage identifiée et méthodique dans le cadre prévu",
+        "Des travaux de chantier avec plusieurs corps d'état",
+        "Une consignation générale de site sans désignation BC",
       ],
       answer: [1],
       explanation:
-        "Le BR couvre les interventions generales en basse tension dans un cadre defini, pas les travaux structures ni la consignation generale.",
+        "Le BR couvre les interventions générales en basse tension dans un cadre défini, pas les travaux structurés ni la consignation générale.",
       timeLimit: 45,
     },
     {
       question:
-        "Pourquoi la coordination de chantier est-elle un sujet de securite electrique a part entiere ?",
+        "Pourquoi la coordination de chantier est-elle un sujet de sécurité électrique à part entière ?",
       choices: [
-        "Parce qu'une remise en service voisine ou une interface mal signee peut remettre en cause le cadre de securite",
+        "Parce qu'une remise en service voisine ou une interface mal signée peut remettre en cause le cadre de sécurité",
         "Parce qu'elle remplace la consignation",
-        "Parce qu'elle n'a d'utilite que pour la paperasse",
-        "Parce qu'elle dispense de verifier l'identification du materiel",
+        "Parce qu'elle n'a d'utilité que pour la paperasse",
+        "Parce qu'elle dispense de vérifier l'identification du matériel",
       ],
       answer: [0],
       explanation:
-        "Une coordination insuffisante peut exposer l'equipe a une reprise d'energie, a une erreur de zone ou a une mauvaise comprehension de l'etat reel de l'installation.",
+        "Une coordination insuffisante peut exposer l'équipe à une reprise d'énergie, à une erreur de zone ou à une mauvaise compréhension de l'état réel de l'installation.",
       timeLimit: 45,
     },
     {
       question:
-        "Dans une logique B1 / B2 / BR / BC, quel element transforme souvent un chantier techniquement simple en situation a risque eleve ?",
+        "Dans une logique B1 / B2 / BR / BC, quel élément transforme souvent un chantier techniquement simple en situation à risque élevé ?",
       choices: [
-        "Une interface mal coordonnee avec un autre intervenant ou une remise en energie voisine",
+        "Une interface mal coordonnée avec un autre intervenant ou une remise en énergie voisine",
         "Le fait de disposer d'un outillage neuf",
-        "L'existence d'un planning detaille",
-        "La presence d'un seul circuit terminal clairement identifie",
+        "L'existence d'un planning détaillé",
+        "La présence d'un seul circuit terminal clairement identifié",
       ],
       answer: [0],
       explanation:
-        "Une interface chantier ou exploitation mal coordonnee peut remettre en cause la zone de securite, la consignation ou l'etat reel de l'installation.",
+        "Une interface chantier ou exploitation mal coordonnée peut remettre en cause la zone de sécurité, la consignation ou l'état réel de l'installation.",
       timeLimit: 45,
     },
     {
       question:
-        "Quelles affirmations sont justes a propos du voisinage et des pieces nues sous tension ?",
+        "Quelles affirmations sont justes à propos du voisinage et des pièces nues sous tension ?",
       choices: [
         "Le danger peut exister avant le contact direct",
-        "Un capot manquant peut changer le cadre de l'operation",
+        "Un capot manquant peut changer le cadre de l'opération",
         "Le voisinage se traite uniquement en haute tension",
-        "La preparation doit integrer la presence de PNST",
+        "La préparation doit intégrer la présence de PNST",
       ],
       answer: [0, 1, 3],
       multiple: true,
       explanation:
-        "Le voisinage et la presence de PNST modifient concretement la facon de preparer et de proteger l'operation, y compris en basse tension.",
+        "Le voisinage et la présence de PNST modifient concrètement la façon de préparer et de protéger l'opération, y compris en basse tension.",
       timeLimit: 70,
       contextLabel:
-        "Le schema de zones aide a comprendre que le danger commence avant le contact et change le cadre de l'operation.",
+        "Le schéma de zones aide à comprendre que le danger commence avant le contact et change le cadre de l'opération.",
       imagePath: "/elearning/references/zones-conducteur-nu-bt.jpg",
       imageAlt:
-        "Schema des zones autour d'un conducteur nu et des limites de voisinage en basse tension",
+        "Schéma des zones autour d'un conducteur nu et des limites de voisinage en basse tension",
     },
     {
       question:
-        "Pour un charge de consignation BC, quelle erreur est particulierement critique ?",
+        "Pour un chargé de consignation BC, quelle erreur est particulièrement critique ?",
       choices: [
-        "Omettre l'identification precise du circuit concerne",
-        "Demander un compte rendu ecrit de fin d'operation",
-        "Refuser une remise en service prematuree",
-        "Exiger une verification avant poursuite",
+        "Omettre l'identification précise du circuit concerné",
+        "Demander un compte rendu écrit de fin d'opération",
+        "Refuser une remise en service prématurée",
+        "Exiger une vérification avant poursuite",
       ],
       answer: [0],
       explanation:
-        "Une consignation mal identifiee cree une illusion de securite et expose directement l'equipe a un risque majeur.",
+        "Une consignation mal identifiée crée une illusion de sécurité et expose directement l'équipe à un risque majeur.",
       timeLimit: 45,
     },
     {
       question:
-        "Quelles situations doivent conduire a suspendre une remise en service ?",
+        "Quelles situations doivent conduire à suspendre une remise en service ?",
       choices: [
         "Un doute sur le retrait des moyens temporaires",
-        "Une presence possible d'un intervenant dans la zone",
-        "Un compte rendu de fin d'operation non boucle",
+        "Une présence possible d'un intervenant dans la zone",
+        "Un compte rendu de fin d'opération non bouclé",
         "Une envie de gagner du temps sur le planning",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "La remise en energie ne peut se faire qu'apres verification complete de la fin d'operation et de l'absence d'exposition residuelle.",
+        "La remise en énergie ne peut se faire qu'après vérification complète de la fin d'opération et de l'absence d'exposition résiduelle.",
       timeLimit: 75,
     },
     {
       question:
         "Dans quel cas un BR doit-il clairement requalifier son intervention ?",
       choices: [
-        "Lorsqu'il doit modifier la structure du cablage ou traiter une situation non documentee",
-        "Lorsqu'il suit une methode de depannage identifiee dans son cadre habituel",
-        "Lorsqu'il verifie d'abord le contexte avant d'agir",
-        "Lorsqu'il suspend son action a cause d'une anomalie visible",
+        "Lorsqu'il doit modifier la structure du câblage ou traiter une situation non documentée",
+        "Lorsqu'il suit une méthode de dépannage identifiée dans son cadre habituel",
+        "Lorsqu'il vérifie d'abord le contexte avant d'agir",
+        "Lorsqu'il suspend son action à cause d'une anomalie visible",
       ],
       answer: [0],
       explanation:
-        "Dès qu'une intervention generale glisse vers des travaux structures, une modification de schema ou un depannage non maitrise, elle doit etre requalifiee.",
+        "Dès qu'une intervention générale glisse vers des travaux structurés, une modification de schéma ou un dépannage non maîtrisé, elle doit être requalifiée.",
       timeLimit: 45,
     },
     {
       question:
-        "Parmi ces propositions, lesquelles traduisent une preparation solide d'un travail B2 ?",
+        "Parmi ces propositions, lesquelles traduisent une préparation solide d'un travail B2 ?",
       choices: [
-        "Clarifier les roles et conditions d'arret",
-        "Verifier l'environnement et les interfaces chantier",
-        "S'assurer de la coherence documentaire",
-        "Compter sur l'experience des intervenants pour combler les manques",
+        "Clarifier les rôles et conditions d'arrêt",
+        "Vérifier l'environnement et les interfaces chantier",
+        "S'assurer de la cohérence documentaire",
+        "Compter sur l'expérience des intervenants pour combler les manques",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "Une preparation serieuse repose sur la clarte des roles, la coherence documentaire et la maitrise de l'environnement, pas sur l'habitude seule.",
+        "Une préparation sérieuse repose sur la clarté des rôles, la cohérence documentaire et la maîtrise de l'environnement, pas sur l'habitude seule.",
       timeLimit: 75,
     },
     {
       question:
-        "Que traduit le mieux un comportement professionnel apres une operation difficile mais sans accident ?",
+        "Que traduit le mieux un comportement professionnel après une opération difficile mais sans accident ?",
       choices: [
-        "Ne rien signaler puisque personne ne s'est blesse",
-        "Tracer les ecarts et faire corriger les points de fragilite pour la suite",
-        "Laisser l'equipe suivante gerer si le probleme revient",
-        "Conserver l'information uniquement a l'oral",
+        "Ne rien signaler puisque personne ne s'est blessé",
+        "Tracer les écarts et faire corriger les points de fragilité pour la suite",
+        "Laisser l'équipe suivante gérer si le problème revient",
+        "Conserver l'information uniquement à l'oral",
       ],
       answer: [1],
       explanation:
-        "Le retour d'experience et la trace ecrite permettent de corriger durablement les causes d'ecarts avant qu'elles ne deviennent accidentogenes.",
+        "Le retour d'expérience et la trace écrite permettent de corriger durablement les causes d'écarts avant qu'elles ne deviennent accidentogènes.",
       timeLimit: 40,
     },
     {
       question:
-        "En vous aidant du schema de consignation, quelle etape reste indispensable avant d'autoriser une equipe a travailler hors tension ?",
+        "En vous aidant du schéma de consignation, quelle étape reste indispensable avant d'autoriser une équipe à travailler hors tension ?",
       choices: [
-        "Une verification d'absence de tension reelle et methodique",
-        "Un simple voyant eteint sur la facade",
-        "La memoire du dernier intervenant",
+        "Une vérification d'absence de tension réelle et méthodique",
+        "Un simple voyant éteint sur la façade",
+        "La mémoire du dernier intervenant",
         "Le fait que le disjoncteur paraisse en position ouverte",
       ],
       answer: [0],
       explanation:
-        "La chaine de consignation ne vaut vraiment que si l'absence de tension est verifiee au bon point, avec la bonne methode.",
+        "La chaîne de consignation ne vaut vraiment que si l'absence de tension est vérifiée au bon point, avec la bonne méthode.",
       timeLimit: 50,
       contextLabel:
-        "Le schema rappelle qu'une installation ne doit jamais etre consideree comme sure sur une simple impression de coupure.",
+        "Le schéma rappelle qu'une installation ne doit jamais être considérée comme sûre sur une simple impression de coupure.",
       imagePath:
         "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-consignation.svg",
       imageAlt:
-        "Schema de consignation en basse tension avec separation, condamnation, identification et verification d'absence de tension",
+        "Schéma de consignation en basse tension avec séparation, condamnation, identification et vérification d'absence de tension",
     },
     {
       question:
-        "Dans une scene de coordination comme celle illustree, quel signal impose de suspendre l'operation avant toute poursuite ?",
+        "Dans une scène de coordination comme celle illustrée, quel signal impose de suspendre l'opération avant toute poursuite ?",
       choices: [
-        "Une interface mal clarifiee avec un autre intervenant ou une remise en energie voisine possible",
-        "Le fait que l'equipe ait deja travaille ensemble",
-        "La presence d'un planning affiche dans le local",
-        "Un outillage recent et complet",
+        "Une interface mal clarifiée avec un autre intervenant ou une remise en énergie voisine possible",
+        "Le fait que l'équipe ait déjà travaillé ensemble",
+        "La présence d'un planning affiché dans le local",
+        "Un outillage récent et complet",
       ],
       answer: [0],
       explanation:
-        "Une interface chantier ou exploitation mal maitrisee peut remettre en cause la zone de securite et l'etat reel de l'installation.",
+        "Une interface chantier ou exploitation mal maîtrisée peut remettre en cause la zone de sécurité et l'état réel de l'installation.",
       timeLimit: 50,
       contextLabel:
-        "Le risque ne vient pas seulement du geste electrique, mais aussi de la coordination entre les acteurs et des remises en energie voisines.",
+        "Le risque ne vient pas seulement du geste électrique, mais aussi de la coordination entre les acteurs et des remises en énergie voisines.",
       imagePath:
         "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-coordination.svg",
       imageAlt:
-        "Illustration de coordination de chantier et d'interface de securite en environnement electrique",
+        "Illustration de coordination de chantier et d'interface de sécurité en environnement électrique",
     },
     {
       question:
-        "Avant une remise en energie, quels controles restent indispensables ?",
+        "Avant une remise en énergie, quels contrôles restent indispensables ?",
       choices: [
-        "Verifier le retrait des moyens temporaires et la fin reelle de l'operation",
-        "S'assurer qu'aucune personne n'est encore exposee",
-        "Clore le compte rendu de fin d'operation",
-        "Relancer sans verification si la production attend",
+        "Vérifier le retrait des moyens temporaires et la fin réelle de l'opération",
+        "S'assurer qu'aucune personne n'est encore exposée",
+        "Clore le compte rendu de fin d'opération",
+        "Relancer sans vérification si la production attend",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "La remise en service est une phase sensible qui suppose une verification complete de la fin d'operation et de l'absence d'exposition residuelle.",
+        "La remise en service est une phase sensible qui suppose une vérification complète de la fin d'opération et de l'absence d'exposition résiduelle.",
       timeLimit: 80,
       contextLabel:
-        "La remise en service n'est jamais un simple geste de fin de chantier. Elle doit etre preparee et confirmee.",
+        "La remise en service n'est jamais un simple geste de fin de chantier. Elle doit être préparée et confirmée.",
       imagePath:
         "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-remise-energie.svg",
       imageAlt:
-        "Illustration de la phase de remise en energie et des controles de fin d'operation",
+        "Illustration de la phase de remise en énergie et des contrôles de fin d'opération",
     },
     {
       question:
-        "A la lecture du schema des roles, quelle affirmation est correcte ?",
+        "À la lecture du schéma des rôles, quelle affirmation est correcte ?",
       choices: [
-        "Le B2 et le BC sont interchangeables si l'equipe est experimentee",
-        "Le B1 execute, le B2 dirige, le BR intervient dans son cadre, le BC consigne",
+        "Le B2 et le BC sont interchangeables si l'équipe est expérimentée",
+        "Le B1 exécute, le B2 dirige, le BR intervient dans son cadre, le BC consigne",
         "Le BR peut toujours remplacer un B2 sur un chantier de travaux",
-        "Le BC n'a besoin ni d'identification ni de tracabilite",
+        "Le BC n'a besoin ni d'identification ni de traçabilité",
       ],
       answer: [1],
       explanation:
-        "Chaque symbole repond a une fonction propre. La norme borne les roles pour eviter les glissements de mission.",
+        "Chaque symbole répond à une fonction propre. La norme borne les rôles pour éviter les glissements de mission.",
       timeLimit: 50,
       contextLabel:
-        "Une habilitation ne vaut pas pour toutes les fonctions. La clarte des roles fait partie de la prevention.",
+        "Une habilitation ne vaut pas pour toutes les fonctions. La clarté des rôles fait partie de la prévention.",
       imagePath:
         "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-roles.svg",
       imageAlt:
-        "Illustration des roles B1 B2 BR BC en basse tension",
+        "Illustration des rôles B1 B2 BR BC en basse tension",
     },
     {
       question:
-        "Dans quel cas un capot manquant ou un bornier accessible doit-il faire requalifier l'operation ?",
+        "Dans quel cas un capot manquant ou un bornier accessible doit-il faire requalifier l'opération ?",
       choices: [
-        "Lorsqu'il cree une presence de piece nue sous tension ou un voisinage non maitrise",
+        "Lorsqu'il crée une présence de pièce nue sous tension ou un voisinage non maîtrisé",
         "Uniquement si l'installation est en haute tension",
-        "Jamais, si l'equipe porte des gants",
+        "Jamais, si l'équipe porte des gants",
         "Seulement si l'intervention dure plus de 30 minutes",
       ],
       answer: [0],
       explanation:
-        "La presence de PNST ou d'un voisinage non maitrise change concretement la scene de risque et peut sortir l'operation de son cadre initial.",
+        "La présence de PNST ou d'un voisinage non maîtrisé change concrètement la scène de risque et peut sortir l'opération de son cadre initial.",
       timeLimit: 45,
     },
     {
       question:
-        "Parmi ces affirmations, lesquelles traduisent une culture BC serieuse ?",
+        "Parmi ces affirmations, lesquelles traduisent une culture BC sérieuse ?",
       choices: [
-        "Identifier sans ambiguite le circuit concerne",
-        "Tracer les etapes de mise en securite",
-        "Verifier l'absence de tension au bon point",
-        "Supposer que l'etiquetage suffit sans confirmation terrain",
+        "Identifier sans ambiguïté le circuit concerné",
+        "Tracer les étapes de mise en sécurité",
+        "Vérifier l'absence de tension au bon point",
+        "Supposer que l'étiquetage suffit sans confirmation terrain",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "La consignation fiable repose sur l'identification, la tracabilite et la verification reelle, pas sur une confiance aveugle dans le reperage seul.",
+        "La consignation fiable repose sur l'identification, la traçabilité et la vérification réelle, pas sur une confiance aveugle dans le repérage seul.",
       timeLimit: 75,
     },
   ],
@@ -572,16 +572,16 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Quel repère est souvent utilisé pour cadrer pédagogiquement certaines opérations BS sur du matériel simple en courant alternatif ?",
+        "Le symbole BS autorise-t-il des interventions élémentaires sur n’importe quel matériel basse tension, sans restriction de procédure ni d’identification préalable ?",
       choices: [
-        "400 V et 32 A",
-        "1 000 V et 125 A",
-        "20 000 V sans limite d’intensité",
-        "Aucune limite technique n’existe",
+        "Oui, tout matériel basse tension est accessible au BS sans condition",
+        "Non, le BS reste limité à un périmètre précis : matériel identifié, procédure établie, hors tension",
+        "Oui, à condition que le matériel soit neuf",
+        "Oui, si un collègue habilité B1 est présent",
       ],
-      answer: [0],
+      answer: [1],
       explanation:
-        "Le repère 400 V / 32 A aide à situer le niveau d’intervention élémentaire, sans remplacer l’analyse du matériel réel ni la procédure de l’entreprise.",
+        "Le BS ne donne pas un accès général à tout matériel BT. Il est conditionné à un matériel précisément identifié, une procédure définie par l’entreprise et une intervention hors tension. Toute dérive vers du diagnostic ou du câblage sort du cadre BS.",
       timeLimit: 45,
     },
     {
@@ -1066,10 +1066,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le premier caractère précise le domaine de tension concerné.",
       timeLimit: 35,
       contextLabel:
-        "Le tableau des symboles aide a distinguer clairement les operations d'ordre non electrique selon la zone et le voisinage.",
+        "Le tableau des symboles aide à distinguer clairement les opérations d'ordre non électrique selon la zone et le voisinage.",
       imagePath: "/elearning/references/symboles-travaux-non-electriques.jpg",
       imageAlt:
-        "Tableau des symboles d'habilitation utilises pour les travaux d'ordre non electrique",
+        "Tableau des symboles d'habilitation utilisés pour les travaux d'ordre non électrique",
     },
     {
       question: "Dans un symbole d’habilitation, la lettre B correspond à :",
@@ -1136,10 +1136,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "H0V ajoute la notion d’opération d’ordre non électrique au voisinage.",
       timeLimit: 45,
       contextLabel:
-        "Le schema des locaux et emplacements d'acces permet de visualiser comment le voisinage change le cadre d'autorisation.",
+        "Le schéma des locaux et emplacements d'accès permet de visualiser comment le voisinage change le cadre d'autorisation.",
       imagePath: "/elearning/references/distances-locaux-acces.jpg",
       imageAlt:
-        "Schema des distances limites et des zones definies dans les locaux et emplacements d'acces",
+        "Schéma des distances limites et des zones définies dans les locaux et emplacements d'accès",
     },
     {
       question:
@@ -1158,7 +1158,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le voisinage renforce les exigences d'organisation, de distance, de balisage et de surveillance sans donner de droit d'action sur l'installation.",
       imagePath: "/elearning/references/distances-locaux-acces.jpg",
       imageAlt:
-        "Schema des zones et distances a respecter dans un local ou emplacement d'acces electrique",
+        "Schéma des zones et distances à respecter dans un local ou emplacement d'accès électrique",
     },
     {
       question:
@@ -1175,10 +1175,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "En H0V, l’organisation du chantier doit empêcher tout franchissement dangereux des limites de voisinage.",
       timeLimit: 80,
       contextLabel:
-        "Le schema de zones permet de relier les notions de voisinage renforce, de balisage et de surveillance a une scene concrete de chantier.",
+        "Le schéma de zones permet de relier les notions de voisinage renforcé, de balisage et de surveillance à une scène concrète de chantier.",
       imagePath: "/elearning/references/distances-locaux-acces.jpg",
       imageAlt:
-        "Schema des distances limites et zones definies dans les locaux et emplacements d'acces",
+        "Schéma des distances limites et zones définies dans les locaux et emplacements d'accès",
     },
     {
       question:
@@ -1194,10 +1194,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "L’autorisation de travail matérialise le cadre d’accès, la zone et les conditions de sécurité retenues.",
       timeLimit: 45,
       contextLabel:
-        "Le support documentaire reste un repere de securite concret pour cadrer l'acces, la zone et les limites du chantier.",
+        "Le support documentaire reste un repère de sécurité concret pour cadrer l'accès, la zone et les limites du chantier.",
       imagePath: "/elearning/references/document-chantier.jpg",
       imageAlt:
-        "Exemple d'autorisation ou de document de chantier utilise pour formaliser l'acces a une zone de travail",
+        "Exemple d'autorisation ou de document de chantier utilisé pour formaliser l'accès à une zone de travail",
     },
     {
       question:

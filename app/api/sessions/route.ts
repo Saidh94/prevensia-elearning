@@ -7,8 +7,9 @@ type SessionRow = {
   format?: string | null;
 };
 
-type RegistrationRow = {
+type RegistrationCountRow = {
   session_id: string | null;
+  registered_count: number;
 };
 
 function getMaxPlaces(session: SessionRow): number {
@@ -71,8 +72,11 @@ export async function GET() {
       `${supabaseUrl}/rest/v1/sessions` +
       `?select=id,title,date_start,format&order=date_start.asc`;
 
-    const registrationsUrl =
-      `${supabaseUrl}/rest/v1/registrations` + `?select=session_id`;
+    // Utilise la vue session_registration_counts (données agrégées uniquement,
+    // pas d'accès aux données personnelles des inscrits)
+    const countsUrl =
+      `${supabaseUrl}/rest/v1/session_registration_counts` +
+      `?select=session_id,registered_count`;
 
     const headers: HeadersInit = {
       apikey: supabaseAnonKey,
@@ -80,15 +84,9 @@ export async function GET() {
       "Content-Type": "application/json",
     };
 
-    const [sessionsRes, registrationsRes] = await Promise.all([
-      fetch(sessionsUrl, {
-        headers,
-        cache: "no-store",
-      }),
-      fetch(registrationsUrl, {
-        headers,
-        cache: "no-store",
-      }),
+    const [sessionsRes, countsRes] = await Promise.all([
+      fetch(sessionsUrl, { headers, cache: "no-store" }),
+      fetch(countsUrl,   { headers, cache: "no-store" }),
     ]);
 
     if (!sessionsRes.ok) {
@@ -103,33 +101,31 @@ export async function GET() {
     }
 
     const sessions = sessionsJson as SessionRow[];
-    let registrations: RegistrationRow[] = [];
+    let counts: RegistrationCountRow[] = [];
 
-    if (!registrationsRes.ok) {
-      const errorText = await registrationsRes.text();
+    if (!countsRes.ok) {
+      const errorText = await countsRes.text();
       console.warn(
         "[api/sessions] Comptage des inscriptions indisponible, retour sans occupation :",
         errorText
       );
     } else {
-      const registrationsJson: unknown = await registrationsRes.json();
+      const countsJson: unknown = await countsRes.json();
 
-      if (Array.isArray(registrationsJson)) {
-        registrations = registrationsJson as RegistrationRow[];
+      if (Array.isArray(countsJson)) {
+        counts = countsJson as RegistrationCountRow[];
       } else {
         console.warn(
-          "[api/sessions] Réponse registrations invalide, comptage ignoré."
+          "[api/sessions] Réponse comptage invalide, ignoré."
         );
       }
     }
 
-    const countBySession = registrations.reduce<Record<string, number>>(
-      (acc, registration) => {
-        const sessionId = registration.session_id?.trim();
-
+    const countBySession = counts.reduce<Record<string, number>>(
+      (acc, row) => {
+        const sessionId = row.session_id?.trim();
         if (!sessionId) return acc;
-
-        acc[sessionId] = (acc[sessionId] ?? 0) + 1;
+        acc[sessionId] = Number(row.registered_count) || 0;
         return acc;
       },
       {}
