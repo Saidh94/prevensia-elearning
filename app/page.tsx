@@ -1375,4 +1375,22 @@ export default function Home() {
                     WhatsApp
                   </a>
                   <a
-                    href="https://www.linkedin.com/in
+                    href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex rounded-2xl border border-blue-300 px-4 py-2.5 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <FloatingContactButtons />
+    </div>
+  );
+}
