@@ -26,7 +26,7 @@ type EnrollmentRecord = {
 };
 
 type PdfPayload = {
-  enrollmentId: string;
+  enrollmentId?: string;
   formation: string;
   date: string;
   score?: string;
@@ -329,7 +329,7 @@ export default function AttestationPage() {
         </p>
 
         <form ref={formRef} action="/api/attestation" method="POST" className="hidden">
-          <input type="hidden" name="enrollmentId" value={payload.enrollmentId} />
+          {payload.enrollmentId ? <input type="hidden" name="enrollmentId" value={payload.enrollmentId} /> : null}
           <input type="hidden" name="formation" value={payload.formation} />
           <input type="hidden" name="date" value={payload.date} />
           {payload.score ? <input type="hidden" name="score" value={payload.score} /> : null}

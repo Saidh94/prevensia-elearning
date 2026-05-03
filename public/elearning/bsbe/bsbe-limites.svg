@@ -3,10 +3,10 @@
   <rect x="52" y="52" width="1096" height="656" rx="28" fill="white" stroke="#FECACA" stroke-width="2"/>
 
   <text x="92" y="122" fill="#B91C1C" font-family="Arial, sans-serif" font-size="38" font-weight="700">
-    Savoir s'arreter avant la derive
+    Savoir s’arrêter avant la dérive
   </text>
   <text x="92" y="164" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">
-    BS et BE Manoeuvre restent strictement limites : la complexite impose l'arret et la requalification.
+    BS et BE Manœuvre restent strictement limités : la complexité impose l’arrêt et la requalification.
   </text>
 
   <rect x="92" y="236" width="470" height="180" rx="24" fill="#FEE2E2" stroke="#EF4444"/>
@@ -14,19 +14,19 @@
   <rect x="92" y="450" width="470" height="180" rx="24" fill="#FEE2E2" stroke="#EF4444"/>
   <rect x="638" y="450" width="470" height="180" rx="24" fill="#FEE2E2" stroke="#EF4444"/>
 
-  <text x="126" y="298" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Panne non identifiee</text>
-  <text x="126" y="340" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">Le geste simple devient depannage :</text>
+  <text x="126" y="298" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Panne non identifiée</text>
+  <text x="126" y="340" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">Le geste simple devient dépannage :</text>
   <text x="126" y="370" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">on stoppe et on transmet.</text>
 
-  <text x="672" y="298" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Schema incertain</text>
-  <text x="672" y="340" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">Repere douteux, doc incoherente :</text>
+  <text x="672" y="298" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Schéma incertain</text>
+  <text x="672" y="340" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">Repère douteux, doc incohérente :</text>
   <text x="672" y="370" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">aucune action sans clarification.</text>
 
-  <text x="126" y="512" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Voisinage degrade</text>
-  <text x="126" y="554" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">Capot manquant, zone non maitrisee :</text>
+  <text x="126" y="512" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Voisinage dégradé</text>
+  <text x="126" y="554" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">Capot manquant, zone non maîtrisée :</text>
   <text x="126" y="584" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">le cadre BS / BE n'est plus suffisant.</text>
 
   <text x="672" y="512" fill="#991B1B" font-family="Arial, sans-serif" font-size="28" font-weight="700">Requalification</text>
   <text x="672" y="554" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">La bonne competence consiste aussi</text>
-  <text x="672" y="584" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">a dire non et a changer de cadre.</text>
+  <text x="672" y="584" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20">à dire non et à changer de cadre.</text>
 </svg>
