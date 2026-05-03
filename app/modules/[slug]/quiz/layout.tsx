@@ -87,6 +87,50 @@ export default async function QuizLayout({
     redirect(`/connexion?redirectTo=/modules/${slug}/quiz`);
   }
 
+  // Bypass admin : un admin peut accéder à tous les quiz sans enrollment
+  const { data: profileData } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (profileData?.role === "admin") {
+    return (
+      <main className="min-h-screen bg-slate-100">
+        <header className="sticky top-0 z-40 border-b border-fuchsia-700 bg-fuchsia-900 text-white">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3">
+              <Link
+                href={`/modules/${slug}`}
+                className="inline-flex items-center rounded-lg bg-white/10 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/20"
+              >
+                ← Retour au module
+              </Link>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+                  Prévisualisation admin
+                </p>
+                <p className="text-sm font-bold text-white">
+                  Quiz — accès libre
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center rounded-lg border border-white/20 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Dashboard
+              </Link>
+              <LogoutButton />
+            </div>
+          </div>
+        </header>
+        {children}
+      </main>
+    );
+  }
+
   const { data, error } = await supabase
     .from("enrollments")
     .select(`
