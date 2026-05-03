@@ -269,7 +269,7 @@ export default function Home() {
               alt="Logo Prevensia Formation — Prévenir · Former · Protéger"
               width={420}
               height={109}
-              className="h-auto w-[220px] sm:w-[300px]"
+              className="h-auto w-[150px] sm:w-[220px] lg:w-[280px]"
               priority
             />
           </div>
@@ -405,7 +405,8 @@ export default function Home() {
               href="/demande-devis"
               className="rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
             >
-              Obtenir un devis
+              <span className="sm:hidden">Devis</span>
+              <span className="hidden sm:inline">Obtenir un devis</span>
             </Link>
           </div>
         </div>
