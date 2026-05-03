@@ -1379,7 +1379,6 @@ export default function Home() {
           </div>
         </section>
 
-        <LocationCoverageSection />
       </main>
 
       <FloatingContactButtons />
