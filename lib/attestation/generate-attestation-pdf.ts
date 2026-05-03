@@ -7,6 +7,7 @@ import {
   rgb,
 } from "pdf-lib";
 import fs from "fs/promises";
+import path from "path";
 
 export type AttestationPdfInput = {
   userId: string;
@@ -198,11 +199,11 @@ function drawLine(
 }
 
 async function readFirstExistingAsset(relativePaths: string[]) {
-  const candidates = relativePaths.map(
-    (relativePath) => new URL(relativePath, import.meta.url)
-  );
-
-  for (const filePath of candidates) {
+  // process.cwd() = racine du projet Next.js, fiable en dev ET en production
+  // contrairement à import.meta.url qui pointe vers le fichier compilé dans .next/
+  for (const relativePath of relativePaths) {
+    // Les chemins sont passés sous forme "public/images/..." (sans les "../..")
+    const filePath = path.join(process.cwd(), relativePath);
     try {
       return await fs.readFile(filePath);
     } catch {
@@ -215,16 +216,16 @@ async function readFirstExistingAsset(relativePaths: string[]) {
 
 async function loadLogoBuffer() {
   return readFirstExistingAsset([
-    "../../public/images/logo-prevensia.png",
-    "../../public/images/logo-prevensia-formation.jpg",
-    "../../public/images/logo-prevensia.jpg",
+    "public/images/logo-prevensia.png",
+    "public/images/logo-prevensia-formation.jpg",
+    "public/images/logo-prevensia.jpg",
   ]);
 }
 
 async function loadSignatureBuffer() {
   return readFirstExistingAsset([
-    "../../public/images/signature-prevensia.png",
-    "../../public/images/signature-prevensia.jpg",
+    "public/images/signature-prevensia.png",
+    "public/images/signature-prevensia.jpg",
   ]);
 }
 
