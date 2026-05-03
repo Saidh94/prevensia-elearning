@@ -408,13 +408,29 @@ export async function POST(request: Request) {
       enrollment = inferredEnrollment;
 
       if (!enrollment) {
-        return NextResponse.json(
-          {
-            error:
-              "Aucune attestation terminée n'a été trouvée pour ce compte.",
-          },
-          { status: 404 }
-        );
+        // Admins can generate a preview attestation even without an enrollment record
+        if (actorRights.isAdmin) {
+          enrollment = {
+            id: "admin-preview",
+            user_id: user.id,
+            formation_id: null,
+            employer_id: null,
+            ordered_by_employer: false,
+            company_name: null,
+            manager_email: null,
+            status: "completed",
+            validated_at: new Date().toISOString(),
+            access_end: null,
+          };
+        } else {
+          return NextResponse.json(
+            {
+              error:
+                "Aucune attestation terminée n'a été trouvée pour ce compte.",
+            },
+            { status: 404 }
+          );
+        }
       }
     }
 

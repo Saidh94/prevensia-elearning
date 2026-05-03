@@ -106,6 +106,15 @@ export default function AttestationPage() {
           return;
         }
 
+        // Check if user is admin — admins bypass enrollment requirement
+        const { data: profileData } = await supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", user.id)
+          .single();
+
+        const isAdmin = profileData?.role === "admin";
+
         const { data, error } = await supabase
           .from("enrollments")
           .select(
@@ -133,13 +142,18 @@ export default function AttestationPage() {
           return formation?.slug?.toLowerCase() === slug;
         });
 
-        if (!matchedEnrollment) {
+        // Admins can access the attestation even without an enrollment record
+        if (!matchedEnrollment && !isAdmin) {
           setAccessError("Aucune inscription trouvee pour cette formation.");
           return;
         }
 
-        const matchedFormation = normalizeFormation(matchedEnrollment.formation);
-        const normalizedEnrollmentStatus = normalizeStatus(matchedEnrollment.status);
+        const matchedFormation = matchedEnrollment
+          ? normalizeFormation(matchedEnrollment.formation)
+          : null;
+        const normalizedEnrollmentStatus = matchedEnrollment
+          ? normalizeStatus(matchedEnrollment.status)
+          : "completed"; // admins are treated as completed
 
         setEnrollmentStatus(normalizedEnrollmentStatus);
 
@@ -159,7 +173,7 @@ export default function AttestationPage() {
             : undefined;
 
         setPayload({
-          enrollmentId: matchedEnrollment.id,
+          enrollmentId: matchedEnrollment?.id ?? undefined,
           formation:
             matchedFormation?.title ||
             (slug === "h0b0"
