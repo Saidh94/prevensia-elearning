@@ -72,7 +72,7 @@ const REG_REFERENCES = {
   },
   inrs: {
     label:
-      "INRS — habilitation électrique, prévention du risque électrique, formation préalable et maintien des compétences",
+      "habilitation électrique, prévention du risque électrique, formation préalable et maintien des compétences",
   },
 };
 

@@ -85,7 +85,7 @@ const inrsVideoResources = [
   {
     title: "INRS - Les bases de l'habilitation electrique",
     description:
-      "Une ressource officielle utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
+      "Une ressource utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-132",
     badge: "Vidéo INRS",
   },
@@ -1375,22 +1375,4 @@ export default function Home() {
                     WhatsApp
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-2xl border border-blue-300 px-4 py-2.5 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
-                  >
-                    LinkedIn
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      <FloatingContactButtons />
-    </div>
-  );
-}
+                    href="https://www.linkedin.com/in

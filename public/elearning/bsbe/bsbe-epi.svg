@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#EFF6FF"/>
+  <rect x="70" y="70" width="1060" height="580" rx="28" fill="white" stroke="#93C5FD" stroke-width="3"/>
+
+  <!-- Title -->
+  <text x="110" y="128" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#1E3A8A">EPI contre le risque &#233;lectrique</text>
+  <text x="110" y="165" font-family="Arial, sans-serif" font-size="21" fill="#1D4ED8">Port obligatoire selon le domaine de tension et le type d&#39;op&#233;ration.</text>
+
+  <!-- === LEFT: 4 EPI cards === -->
+
+  <!-- Card 1: Casque -->
+  <rect x="100" y="188" width="448" height="76" rx="18" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+  <rect x="114" y="200" width="54" height="52" rx="12" fill="#1E3A8A"/>
+  <!-- Hard hat shape -->
+  <ellipse cx="141" cy="218" rx="18" ry="11" fill="white"/>
+  <rect x="127" y="218" width="28" height="8" rx="3" fill="white"/>
+  <text x="184" y="218" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1E3A8A">Casque isolant + &#233;cran facial</text>
+  <text x="184" y="246" font-family="Arial, sans-serif" font-size="17" fill="#1D4ED8">Protection contre l&#39;arc &#233;lectrique et les projections</text>
+
+  <!-- Card 2: Gants -->
+  <rect x="100" y="276" width="448" height="76" rx="18" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+  <rect x="114" y="288" width="54" height="52" rx="12" fill="#1E3A8A"/>
+  <!-- Glove shape simplified -->
+  <rect x="126" y="300" width="7" height="24" rx="3" fill="white"/>
+  <rect x="135" y="297" width="7" height="27" rx="3" fill="white"/>
+  <rect x="144" y="298" width="7" height="26" rx="3" fill="white"/>
+  <rect x="153" y="300" width="7" height="24" rx="3" fill="white"/>
+  <rect x="123" y="320" width="40" height="12" rx="6" fill="white"/>
+  <text x="184" y="306" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1E3A8A">Gants isolants (classes 00 &#224; 4)</text>
+  <text x="184" y="334" font-family="Arial, sans-serif" font-size="17" fill="#1D4ED8">Choix selon le domaine de tension — norme EN 60903</text>
+
+  <!-- Card 3: Chaussures -->
+  <rect x="100" y="364" width="448" height="76" rx="18" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+  <rect x="114" y="376" width="54" height="52" rx="12" fill="#1E3A8A"/>
+  <!-- Boot shape -->
+  <rect x="128" y="383" width="10" height="28" rx="4" fill="white"/>
+  <path d="M128 407 Q128 418 148 418 L160 418 L160 413 L138 413 Q134 413 134 407 Z" fill="white"/>
+  <text x="184" y="394" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1E3A8A">Chaussures ou bottes isolantes</text>
+  <text x="184" y="422" font-family="Arial, sans-serif" font-size="17" fill="#1D4ED8">Semelle isolante — norme EN ISO 20347</text>
+
+  <!-- Card 4: Combinaison anti-arc -->
+  <rect x="100" y="452" width="448" height="76" rx="18" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+  <rect x="114" y="464" width="54" height="52" rx="12" fill="#1E3A8A"/>
+  <!-- Person silhouette with suit -->
+  <circle cx="141" cy="474" r="7" fill="white"/>
+  <rect x="130" y="484" width="22" height="20" rx="4" fill="white"/>
+  <rect x="130" y="504" width="9" height="9" rx="2" fill="white"/>
+  <rect x="143" y="504" width="9" height="9" rx="2" fill="white"/>
+  <text x="184" y="482" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1E3A8A">Combinaison anti-arc</text>
+  <text x="184" y="510" font-family="Arial, sans-serif" font-size="17" fill="#1D4ED8">Protection thermique contre l&#39;&#233;nergie d&#39;arc &#233;lectrique</text>
+
+  <!-- === RIGHT: Classes de gants table === -->
+  <text x="578" y="204" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1E3A8A">Classes des gants isolants (EN 60903)</text>
+
+  <!-- Table header -->
+  <rect x="578" y="212" width="472" height="40" rx="10" fill="#1E3A8A"/>
+  <text x="632" y="237" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="white">Classe</text>
+  <text x="758" y="237" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="white">Tension max</text>
+  <text x="955" y="237" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="white">Domaine</text>
+
+  <!-- Row 00 -->
+  <rect x="578" y="252" width="472" height="40" fill="#EFF6FF"/>
+  <text x="632" y="277" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1E3A8A">00</text>
+  <text x="758" y="277" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">500 V</text>
+  <text x="955" y="277" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">TBT</text>
+
+  <!-- Row 0 -->
+  <rect x="578" y="292" width="472" height="40" fill="white"/>
+  <text x="632" y="317" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1E3A8A">0</text>
+  <text x="758" y="317" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">1 000 V</text>
+  <text x="955" y="317" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">BT</text>
+
+  <!-- Row 1 -->
+  <rect x="578" y="332" width="472" height="40" fill="#EFF6FF"/>
+  <text x="632" y="357" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1E3A8A">1</text>
+  <text x="758" y="357" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">7 500 V</text>
+  <text x="955" y="357" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">HTA inf&#233;rieure</text>
+
+  <!-- Row 2 -->
+  <rect x="578" y="372" width="472" height="40" fill="white"/>
+  <text x="632" y="397" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1E3A8A">2</text>
+  <text x="758" y="397" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">17 000 V</text>
+  <text x="955" y="397" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">HTA</text>
+
+  <!-- Row 3 -->
+  <rect x="578" y="412" width="472" height="40" fill="#EFF6FF"/>
+  <text x="632" y="437" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1E3A8A">3</text>
+  <text x="758" y="437" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">26 500 V</text>
+  <text x="955" y="437" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">HTA</text>
+
+  <!-- Row 4 -->
+  <rect x="578" y="452" width="472" height="40" fill="white"/>
+  <text x="632" y="477" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1E3A8A">4</text>
+  <text x="758" y="477" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">36 000 V</text>
+  <text x="955" y="477" font-family="Arial, sans-serif" font-size="17" fill="#1E40AF">HTB</text>
+
+  <!-- Table border (drawn last, on top of row fills) -->
+  <rect x="578" y="212" width="472" height="280" rx="10" fill="none" stroke="#93C5FD" stroke-width="2"/>
+
+  <!-- Column separators -->
+  <line x1="733" y1="252" x2="733" y2="492" stroke="#BFDBFE" stroke-width="1.5"/>
+  <line x1="930" y1="252" x2="930" y2="492" stroke="#BFDBFE" stroke-width="1.5"/>
+  <!-- Row separators -->
+  <line x1="578" y1="292" x2="1050" y2="292" stroke="#BFDBFE" stroke-width="1"/>
+  <line x1="578" y1="332" x2="1050" y2="332" stroke="#BFDBFE" stroke-width="1"/>
+  <line x1="578" y1="372" x2="1050" y2="372" stroke="#BFDBFE" stroke-width="1"/>
+  <line x1="578" y1="412" x2="1050" y2="412" stroke="#BFDBFE" stroke-width="1"/>
+  <line x1="578" y1="452" x2="1050" y2="452" stroke="#BFDBFE" stroke-width="1"/>
+
+  <!-- Note under table -->
+  <rect x="578" y="502" width="472" height="44" rx="10" fill="#FEF9C3" stroke="#FDE047" stroke-width="1.5"/>
+  <text x="814" y="521" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#713F12">Inspection visuelle avant chaque usage</text>
+  <text x="814" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#92400E">Contr&#244;le p&#233;riodique — d&#233;lai max. 6 mois entre tests</text>
+
+  <!-- Bottom dark bar -->
+  <rect x="100" y="552" width="980" height="60" rx="16" fill="#1E3A8A"/>
+  <text x="590" y="579" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="white">R&#232;gle : choisir l&#39;EPI adapt&#233; au domaine de tension</text>
+  <text x="590" y="601" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#BFDBFE">Un EPI endomag&#233; ou non conforme doit &#234;tre retir&#233; imm&#233;diatement du service.</text>
+</svg>

@@ -997,6 +997,172 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       imageAlt:
         "Réflexes opérationnels BS et BE Manœuvre",
     },
+
+    // === EPI ÉLECTRIQUES ===
+    {
+      question:
+        "Un technicien doit intervenir en voisinage d'une installation basse tension (230 V). Quelle classe de gants isolants doit-il porter au minimum ?",
+      choices: [
+        "Classe 00 (500 V max)",
+        "Classe 0 (1 000 V max)",
+        "Classe 2 (17 000 V max)",
+        "Classe 4 (36 000 V max)",
+      ],
+      answer: [1],
+      explanation:
+        "La classe 0 supporte jusqu'à 1 000 V et couvre largement le domaine BT (230/400 V). La classe 00 est limitée à 500 V et ne couvre pas toute la BT. Les classes supérieures sont réservées aux domaines HTA et HTB.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-epi.svg",
+      imageAlt: "Tableau des classes de gants isolants (EN 60903)",
+    },
+    {
+      question:
+        "Parmi les EPI électriques suivants, lequel protège spécifiquement contre l'énergie thermique dégagée lors d'un arc électrique ?",
+      choices: [
+        "Les gants isolants classe 0",
+        "Le casque isolant seul",
+        "La combinaison anti-arc",
+        "Les chaussures isolantes",
+      ],
+      answer: [2],
+      explanation:
+        "La combinaison anti-arc est conçue pour absorber et dissiper l'énergie thermique produite lors d'un arc électrique. Les autres EPI (gants, casque, chaussures) offrent une isolation électrique mais pas une protection thermique contre l'arc.",
+      timeLimit: 40,
+      imagePath: "/elearning/bsbe/bsbe-epi.svg",
+      imageAlt: "EPI contre le risque électrique",
+    },
+    {
+      question:
+        "Un intervenant doit travailler en voisinage d'une installation HTA à 15 000 V. Quelle classe de gants isolants est requise au minimum ?",
+      choices: [
+        "Classe 0 (1 000 V max)",
+        "Classe 1 (7 500 V max)",
+        "Classe 2 (17 000 V max)",
+        "Classe 3 (26 500 V max)",
+      ],
+      answer: [2],
+      explanation:
+        "Pour une tension de 15 000 V (HTA), la classe 2 est requise au minimum car elle supporte jusqu'à 17 000 V. La classe 1 (7 500 V max) serait insuffisante pour ce niveau de tension.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-epi.svg",
+      imageAlt: "Classes des gants isolants selon le domaine de tension",
+    },
+    {
+      question:
+        "Quelle vérification doit être effectuée sur les gants isolants avant chaque utilisation ?",
+      choices: [
+        "Vérifier la date de fabrication uniquement",
+        "Effectuer une inspection visuelle et un gonflage pour détecter tout défaut",
+        "Les peser pour contrôler leur masse",
+        "Aucune vérification préalable n'est nécessaire si le délai de 6 mois n'est pas dépassé",
+      ],
+      answer: [1],
+      explanation:
+        "Avant chaque usage, les gants isolants doivent faire l'objet d'une inspection visuelle (absence de perforation, coupure, détérioration) et d'un gonflage (enrouler le gant et observer s'il reste gonflé). Un gant endommagé doit être retiré immédiatement du service.",
+      timeLimit: 50,
+      imagePath: "/elearning/bsbe/bsbe-epi.svg",
+      imageAlt: "Vérification des EPI électriques avant usage",
+    },
+
+    // === CLASSES DES MATÉRIELS ===
+    {
+      question:
+        "Un appareil électrique porte un symbole représentant un carré inscrit dans un autre carré (□□). À quelle classe appartient-il ?",
+      choices: [
+        "Classe I (isolation + mise à la terre)",
+        "Classe II (double isolation)",
+        "Classe III (TBTS)",
+        "Classe 0 (isolation simple)",
+      ],
+      answer: [1],
+      explanation:
+        "Le symbole du carré dans le carré (□□) identifie les matériels de classe II, qui possèdent une double isolation ou une isolation renforcée. Ces appareils ne nécessitent pas de mise à la terre.",
+      timeLimit: 40,
+      imagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+      imageAlt: "Classes des matériels électriques — symbole classe II",
+    },
+    {
+      question:
+        "Quelle classe de matériel électrique est interdite en milieu professionnel en France ?",
+      choices: [
+        "Classe I",
+        "Classe II",
+        "Classe III",
+        "Classe 0",
+      ],
+      answer: [3],
+      explanation:
+        "Les matériels de classe 0 ne possèdent qu'une isolation principale sans protection supplémentaire (ni mise à la terre, ni double isolation). Leur utilisation est interdite en milieu professionnel en France car ils offrent un niveau de sécurité insuffisant en cas de défaut d'isolement.",
+      timeLimit: 40,
+      imagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+      imageAlt: "Classe 0 — matériel interdit en milieu professionnel",
+    },
+    {
+      question:
+        "Un matériel de classe I est raccordé à une prise 3 broches. Quel élément de protection agit en cas de défaut d'isolement vers la masse ?",
+      choices: [
+        "Le fusible de l'appareil",
+        "Le disjoncteur magnétothermique de la ligne",
+        "Le disjoncteur différentiel relié à la prise de terre",
+        "L'isolation principale du câble",
+      ],
+      answer: [2],
+      explanation:
+        "En classe I, la mise à la terre crée un chemin de retour du courant de défaut. Ce courant de fuite est détecté par le disjoncteur différentiel (ou interrupteur différentiel), qui coupe le circuit en quelques millisecondes, avant qu'une électrisation ne soit dangereuse.",
+      timeLimit: 50,
+      imagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+      imageAlt: "Classe I — protection par mise à la terre et différentiel",
+    },
+
+    // === CODES IP ===
+    {
+      question:
+        "Dans l'indice de protection IP 34C, que signifie le premier chiffre 3 ?",
+      choices: [
+        "Protection contre les projections d'eau de toutes directions",
+        "Protection contre les corps solides de diamètre supérieur à 2,5 mm",
+        "Protection contre l'immersion temporaire",
+        "Protection contre les corps solides de diamètre supérieur à 50 mm",
+      ],
+      answer: [1],
+      explanation:
+        "Dans un indice IP, le premier chiffre concerne la protection contre les corps solides. Le chiffre 3 signifie que l'équipement est protégé contre les corps solides de diamètre supérieur à 2,5 mm (outils, fils). Le chiffre relatif à l'eau est le second (ici 4).",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-ip.svg",
+      imageAlt: "Structure de l'indice de protection IP",
+    },
+    {
+      question:
+        "Dans l'indice IP 34C, que signifie la lettre C ?",
+      choices: [
+        "Protection contre les projections d'eau côté",
+        "Résistance au courant continu",
+        "Protection des personnes contre l'accès aux parties dangereuses avec un outil de diamètre ≥ 2,5 mm",
+        "Certification CENELEC",
+      ],
+      answer: [2],
+      explanation:
+        "La lettre additionnelle d'un indice IP précise la protection des personnes contre l'accès aux parties dangereuses. La lettre C correspond à un outil de diamètre supérieur à 2,5 mm (exemple : tournevis). Les lettres A, B, C, D correspondent respectivement à : main (50 mm), doigt (12,5 mm), outil (2,5 mm), fil (1 mm).",
+      timeLimit: 50,
+      imagePath: "/elearning/bsbe/bsbe-ip.svg",
+      imageAlt: "Lettre additionnelle de l'indice IP",
+    },
+    {
+      question:
+        "Quel indice IP minimum est requis pour une armoire électrique installée en extérieur et exposée à des projections d'eau de toutes directions ?",
+      choices: [
+        "IP 20",
+        "IP 33",
+        "IP 44",
+        "IP 68",
+      ],
+      answer: [2],
+      explanation:
+        "Le second chiffre 4 signifie 'protection contre les projections d'eau de toutes directions'. Le premier chiffre 4 garantit la protection contre les corps solides ≥ 1 mm. L'IP 44 est le minimum standard pour une armoire en extérieur exposée aux intempéries. L'IP 33 ne couvre que les aspersions jusqu'à 60°.",
+      timeLimit: 50,
+      imagePath: "/elearning/bsbe/bsbe-ip.svg",
+      imageAlt: "Indice IP requis selon les conditions d'installation",
+    },
   ],
   h0b0: [
     {
@@ -1672,6 +1838,58 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "L’improvisation est incompatible avec la prévention du risque électrique.",
       timeLimit: 90,
     },
+
+    // === CLASSES MATÉRIELS (H0B0) ===
+    {
+      question:
+        "Vous observez un appareil électrique portable portant le symbole d’un carré dans un carré (□□). Que cela signifie-t-il pour votre sécurité ?",
+      choices: [
+        "L’appareil est de classe I et doit impérativement être branché sur une prise avec terre",
+        "L’appareil est de classe II (double isolation) et ne nécessite pas de mise à la terre",
+        "L’appareil est interdit à l’utilisation en milieu professionnel",
+        "L’appareil est alimenté en très basse tension (TBTS)",
+      ],
+      answer: [1],
+      explanation:
+        "Le symbole du double carré (□□) identifie les matériels de classe II, dotés d’une double isolation ou d’une isolation renforcée. Ces appareils n’ont pas besoin de mise à la terre car leur conception évite tout contact dangereux avec des parties conductrices en cas de défaut.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+      imageAlt: "Classes des matériels électriques — symbole classe II",
+    },
+    {
+      question:
+        "En milieu professionnel, un matériel électrique de classe 0 est-il autorisé à l’utilisation ?",
+      choices: [
+        "Oui, s’il est correctement branché",
+        "Oui, uniquement en milieu sec",
+        "Non, il est interdit en milieu professionnel en France",
+        "Oui, s’il est surveillé en permanence",
+      ],
+      answer: [2],
+      explanation:
+        "Les matériels de classe 0 ne possèdent qu’une isolation principale. En cas de défaut d’isolement, l’utilisateur peut être électrisé sans protection. Leur usage est interdit en milieu professionnel en France. La réglementation impose au minimum la classe I (avec mise à la terre) ou la classe II (double isolation).",
+      timeLimit: 40,
+      imagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+      imageAlt: "Classe 0 — matériel interdit en milieu professionnel",
+    },
+
+    // === CODES IP (H0B0) ===
+    {
+      question:
+        "Vous devez choisir une armoire électrique pour une installation en extérieur, exposée à la pluie et aux projections d’eau. Quel est l’indice IP minimum requis pour le second chiffre ?",
+      choices: [
+        "Second chiffre 1 (gouttes d’eau verticales)",
+        "Second chiffre 3 (aspersion jusqu’à 60°)",
+        "Second chiffre 4 (projections de toutes directions)",
+        "Second chiffre 0 (aucune protection)",
+      ],
+      answer: [2],
+      explanation:
+        "En extérieur exposé aux intempéries, le second chiffre de l’indice IP doit être au minimum 4, garantissant la protection contre les projections d’eau de toutes directions. Un second chiffre de 3 (aspersion 60°) ne suffit pas pour une installation pleinement exposée à la pluie.",
+      timeLimit: 45,
+      imagePath: "/elearning/bsbe/bsbe-ip.svg",
+      imageAlt: "Indice IP — 2e chiffre et protection contre les liquides",
+    },
   ],
   "securite-incendie": [
     {
@@ -1801,7 +2019,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le RIA est un moyen interne de première intervention. Il doit être disponible, signalé, bien implanté et utilisé dans un cadre cohérent avec les consignes du site.",
       timeLimit: 75,
       contextLabel:
-        "L’INRS rappelle que les RIA permettent une action puissante et efficace lorsque l’emploi de l’eau n’est pas interdit.",
+        "Les RIA permettent une action puissante et efficace lorsque l’emploi de l’eau n’est pas interdit.",
       imagePath: "/images/extincteur-ria-extincteur-mobile.jpg",
       imageAlt:
         "Extincteur et robinet d'incendie armé en entreprise à proximité d'une zone technique",
@@ -1821,7 +2039,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "L’usage au voisinage d’une origine électrique impose un appareil adapté et une vigilance forte sur les effets du ruissellement et l’exposition de l’intervenant.",
       timeLimit: 70,
       contextLabel:
-        "Les repères INRS sur les extincteurs distinguent bien l’agent extincteur, les classes de feu et les limites d’emploi près d’une origine électrique.",
+        "La réglementation distingue bien l’agent extincteur, les classes de feu et les limites d’emploi près d’une origine électrique.",
       imagePath:
         "/images/distance-de-securite-extincteur-a-eau-pulverisee.webp",
       imageAlt:
@@ -1912,7 +2130,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1],
       explanation:
-        "Selon l'INRS (ED 6336), les fumées et gaz (notamment le monoxyde de carbone CO, inodore) sont la première cause de décès lors des incendies en milieu professionnel.",
+        "Les fumées et gaz (notamment le monoxyde de carbone CO, inodore) sont la première cause de décès lors des incendies en milieu professionnel.",
     },
     {
       question: "Quelle est la concentration normale d'oxygène dans l'air, repère utile pour comprendre l'asphyxie en cas d'incendie ?",
@@ -1937,10 +2155,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0,1,2,3],
       multiple: true,
       explanation:
-        "L'INRS (ED 6336) recense ces 4 modes : conduction (dans un même matériau), convection (gaz chauds), rayonnement (infrarouges) et déplacement de matières incandescentes.",
+        "Ces 4 modes de propagation sont : conduction (dans un même matériau), convection (gaz chauds), rayonnement (infrarouges) et déplacement de matières incandescentes.",
     },
     {
-      question: "Dans environ quelle proportion de sinistres incendie l'entreprise disparaît-elle, selon l'INRS ?",
+      question: "Dans environ quelle proportion de sinistres incendie l'entreprise disparaît-elle ?",
       choices: [
         "10 %",
         "30 %",
@@ -1949,7 +2167,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [3],
       explanation:
-        "L'INRS (ED 6336) rappelle que dans près de 70 % des sinistres incendie, l'entreprise disparaît et le personnel se retrouve au chômage.",
+        "Dans près de 70 % des sinistres incendie, l'entreprise disparaît et le personnel se retrouve au chômage.",
     },
     {
       question: "Pour les travaux par points chauds (soudure, meulage, chalumeau...), quel document est obligatoire ?",
@@ -1961,7 +2179,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0],
       explanation:
-        "Le permis de feu (INRS ED 6030) est le document de référence pour encadrer les travaux par points chauds, qui sont une cause majeure d'incendie en entreprise.",
+        "Le permis de feu est le document de référence pour encadrer les travaux par points chauds, qui sont une cause majeure d'incendie en entreprise.",
     },
     {
       question: "Le permis de feu doit être délivré par :",
@@ -1973,7 +2191,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1],
       explanation:
-        "Le permis de feu est délivré par le chef d'entreprise ou son représentant, en concertation avec l'entreprise extérieure intervenante (INRS ED 6030).",
+        "Le permis de feu est délivré par le chef d'entreprise ou son représentant, en concertation avec l'entreprise extérieure intervenante.",
     },
     {
       question: "À quelle classe de feu correspondent les feux de matériaux solides (bois, papier, tissu) ?",
@@ -2046,7 +2264,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1],
       explanation:
-        "L'évaluation du risque incendie fait partie intégrante du DUERP (INRS ED 970), document obligatoire mis à jour au moins une fois par an.",
+        "L'évaluation du risque incendie fait partie intégrante du DUERP, document obligatoire mis à jour au moins une fois par an.",
     },
     {
       question: "Parmi ces actions, lesquelles font partie de la prévention « agir sur les sources d'inflammation » ?",
@@ -2083,7 +2301,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0],
       explanation:
-        "Le triangle du feu (INRS ED 6336) : combustible (matière qui brûle) + comburant (oxygène) + source d'inflammation. Supprimer un sommet supprime le feu.",
+        "Le triangle du feu : combustible (matière qui brûle) + comburant (oxygène) + source d'inflammation. Supprimer un sommet supprime le feu.",
     },
   ],
   "ssi-exploitation": [
@@ -2780,7 +2998,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0],
       explanation:
-        "Permis de feu obligatoire (INRS ED 6030), avec procédure de neutralisation locale temporaire et réarmement immédiat à la fin des travaux, sous suivi de l'exploitant.",
+        "Permis de feu obligatoire, avec procédure de neutralisation locale temporaire et réarmement immédiat à la fin des travaux, sous suivi de l'exploitant.",
     },
     {
       question: "Le rôle du chargé d'exploitation sprinkler inclut :",
@@ -2868,13 +3086,13 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       choices: [
         "APSAD R13",
         "NF EN 15004-1",
-        "INRS ND 2191",
+        "EN 12094-1",
         "APSAD R1",
       ],
-      answer: [0, 1, 2],
+      answer: [0, 1],
       multiple: true,
       explanation:
-        "APSAD R13, NF EN 15004-1 et les reperes INRS aident a comprendre l'exploitation et la maintenance de ces systemes.",
+        "APSAD R13 et NF EN 15004-1 sont les références normatives pour l'exploitation et la maintenance de ces systèmes.",
       timeLimit: 70,
     },
     {
@@ -3246,7 +3464,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1],
       explanation:
-        "Le SST est un Sauveteur Secouriste du Travail formé selon le programme INRS pour porter secours à toute victime sur le lieu de travail.",
+        "Le SST est un Sauveteur Secouriste du Travail formé pour porter secours à toute victime sur le lieu de travail.",
     },
     {
       question: "L'acronyme PAS du SST signifie :",
@@ -3330,7 +3548,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1],
       explanation:
-        "Le rythme officiel INRS et ERC : 100 à 120 compressions par minute, à environ 5-6 cm de profondeur, sur la moitié inférieure du sternum.",
+        "Le rythme recommandé est de 100 à 120 compressions par minute, à environ 5-6 cm de profondeur, sur la moitié inférieure du sternum.",
     },
     {
       question: "Le ratio compressions/insufflations en RCP adulte (par un secouriste formé) est :",
@@ -3374,364 +3592,4 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Percer les cloques",
         "Refroidir à l'eau tempérée (15-25 °C) pendant 10 à 20 minutes",
         "Appliquer du beurre",
-        "Appliquer une glace directement",
-      ],
-      answer: [1],
-      explanation:
-        "Le refroidissement à l'eau tempérée pendant 10-20 minutes (règle des 5 × 15 : 15 cm, 15 °C, 15 min) est le geste de référence selon l'INRS.",
-    },
-    {
-      question: "Face à une victime ayant ingéré un produit chimique, le SST doit :",
-      choices: [
-        "La faire vomir",
-        "Lui donner du lait",
-        "Ne rien faire boire ou manger et alerter le 15 ou le centre antipoison",
-        "Lui donner du charbon actif",
-      ],
-      answer: [2],
-      explanation:
-        "Faire vomir aggrave les lésions caustiques. La règle est : ne rien faire boire/manger, ne pas faire vomir, alerter le 15 ou le centre antipoison.",
-    },
-    {
-      question: "Face à une victime électrisée encore en contact avec l'installation, le SST doit d'abord :",
-      choices: [
-        "Toucher la victime pour la dégager",
-        "Couper le courant ou écarter la victime avec un objet sec et isolant",
-        "Appliquer la RCP immédiatement",
-        "Faire boire de l'eau",
-      ],
-      answer: [1],
-      explanation:
-        "Toucher la victime sous tension expose le sauveteur. Il faut d'abord couper le courant ou utiliser un objet sec et isolant pour rompre le contact.",
-    },
-    {
-      question: "La durée d'une formation SST initiale INRS est :",
-      choices: [
-        "7 heures",
-        "14 heures (2 jours)",
-        "21 heures",
-        "35 heures",
-      ],
-      answer: [1],
-      explanation:
-        "La formation SST initiale INRS dure 14 heures (2 jours), suivie d'un MAC (Maintien et Actualisation des Compétences) de 7 heures tous les 24 mois.",
-    },
-    {
-      question: "Le SST a aussi un rôle de :",
-      choices: [
-        "Médecin du travail",
-        "Acteur de la prévention dans son entreprise",
-        "Pompier remplaçant",
-        "Manager hiérarchique",
-      ],
-      answer: [1],
-      explanation:
-        "Au-delà des gestes de secours, le SST contribue à la prévention en repérant les situations dangereuses et en alertant l'encadrement.",
-    },
-  ],
-};
-
-
-const baseBtMultiSymbolesQuiz = quizContent.b1b2brbc ?? [];
-
-function pickQuizQuestions(
-  predicates: Array<(question: QuizQuestion) => boolean>,
-  limit: number
-): QuizQuestion[] {
-  const picked: QuizQuestion[] = [];
-
-  for (const question of baseBtMultiSymbolesQuiz) {
-    if (predicates.some((predicate) => predicate(question))) {
-      picked.push(question);
-    }
-    if (picked.length >= limit) {
-      break;
-    }
-  }
-
-  return picked;
-}
-
-function includesAny(question: QuizQuestion, patterns: RegExp[]): boolean {
-  const haystack = [
-    question.question,
-    question.explanation ?? "",
-    question.contextLabel ?? "",
-    ...(question.choices ?? []),
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  return patterns.some((pattern) => pattern.test(haystack));
-}
-
-const commonBtPredicates = [
-  (question: QuizQuestion) =>
-    includesAny(question, [
-      /employeur/,
-      /pnst/,
-      /voisinage/,
-      /epi/,
-      /epc/,
-      /accident/,
-      /coordination/,
-      /documents?/,
-      /remise en energie/,
-    ]),
-];
-
-const b1b1vDedicatedQuiz: QuizQuestion[] = [
-  {
-    question:
-      "Un exécutant B1V constate qu'une protection collective a été déplacée et qu'une pièce nue sous tension devient accessible à proximité de sa zone. Que doit-il faire ?",
-    choices: [
-      "Continuer si le geste technique reste simple",
-      "Arrêter l'action et alerter le chargé de travaux",
-      "Reposer lui-même une protection sans consigne",
-      "Modifier le balisage pour gagner du temps",
-    ],
-    answer: [1],
-    explanation:
-      "Le B1V exécute dans le cadre donné. Si le voisinage ou la protection collective change, il stoppe et alerte le B2.",
-    timeLimit: 55,
-  },
-  {
-    question:
-      "Quelles limites caractérisent le rôle d'un B1 ou B1V ?",
-    choices: [
-      "Il exécute des travaux selon des instructions définies",
-      "Il choisit seul la méthode générale de travail",
-      "Il signale tout écart, doute ou évolution de la zone",
-      "Il remplace le chargé de travaux en son absence",
-    ],
-    answer: [0, 2],
-    multiple: true,
-    explanation:
-      "Le B1/B1V est exécutant électricien. Il applique les consignes et remonte les écarts, sans prendre le rôle de chargé de travaux.",
-    timeLimit: 65,
-  },
-];
-
-const b2b2vDedicatedQuiz: QuizQuestion[] = [
-  {
-    question:
-      "Avant de faire intervenir une équipe, quels éléments le chargé de travaux B2/B2V doit-il clarifier au briefing ?",
-    choices: [
-      "Le circuit concerné, la zone et les limites de voisinage",
-      "Les rôles de chaque intervenant et les points d'arrêt",
-      "Les conditions qui imposent l'arrêt immédiat du travail",
-      "Uniquement l'heure prévue de fin d'intervention",
-    ],
-    answer: [0, 1, 2],
-    multiple: true,
-    explanation:
-      "Le B2/B2V organise et dirige: zone, rôles, limites, protections, points d'arrêt et conduite à tenir doivent être explicites.",
-    timeLimit: 75,
-  },
-  {
-    question:
-      "Pendant les travaux, un intervenant signale une incohérence entre le repérage du schéma et le départ réel. Quel est le bon réflexe B2 ?",
-    choices: [
-      "Poursuivre si l'équipe est expérimentée",
-      "Suspendre l'opération et lever l'ambiguïté avant reprise",
-      "Demander au B1 de tester rapidement le départ",
-      "Changer de méthode sans mise à jour des consignes",
-    ],
-    answer: [1],
-    explanation:
-      "Une incohérence documentaire remet en cause le cadre de sécurité. Le B2 arrête, clarifie et rebriefe avant toute reprise.",
-    timeLimit: 60,
-  },
-];
-
-const brDedicatedQuiz: QuizQuestion[] = [
-  {
-    question:
-      "Lors d'une intervention BR, le diagnostic montre que la panne concerne plusieurs départs et nécessite une modification de câblage. Quelle décision est attendue ?",
-    choices: [
-      "Poursuivre comme dépannage BR si le client insiste",
-      "Requalifier l'opération et arrêter le BR si le cadre est dépassé",
-      "Modifier le câblage puis informer après coup",
-      "Faire une remise sous tension d'essai sans analyse complémentaire",
-    ],
-    answer: [1],
-    explanation:
-      "Le BR intervient dans un cadre défini. Une dérive vers des travaux, une modification ou une opération complexe impose une requalification.",
-    timeLimit: 60,
-  },
-  {
-    question:
-      "Avant une remise en service après intervention BR, quels contrôles sont cohérents avec une pratique sûre ?",
-    choices: [
-      "La cause de la panne est comprise ou maîtrisée",
-      "Le matériel remplacé ou remis en état est compatible",
-      "Les protections et capots nécessaires sont remis en place",
-      "La remise en service se fait même si une odeur de chaud persiste",
-    ],
-    answer: [0, 1, 2],
-    multiple: true,
-    explanation:
-      "La remise en service BR doit être contrôlée: cause, matériel, protections, environnement et absence d'anomalie persistante.",
-    timeLimit: 75,
-  },
-];
-
-const bcDedicatedQuiz: QuizQuestion[] = [
-  {
-    question:
-      "Quelle séquence décrit le mieux une consignation électrique basse tension fiable ?",
-    choices: [
-      "Séparation, condamnation, identification, VAT, puis MALT/CC si nécessaire",
-      "Observation rapide, appel téléphonique, remise d'une clé",
-      "Coupure supposée, intervention immédiate, vérification après travaux",
-      "VAT seule, sans condamnation ni identification",
-    ],
-    answer: [0],
-    explanation:
-      "La consignation supprime les illusions de sécurité par une chaîne complète: séparation, condamnation, identification, VAT et MALT/CC selon le cas.",
-    timeLimit: 65,
-  },
-  {
-    question:
-      "Deux départs proches ont un repérage ancien et partiellement effacé. Que doit faire le BC ?",
-    choices: [
-      "Consigner celui qui paraît le plus probable",
-      "Suspendre et faire clarifier l'identification avant de poursuivre",
-      "Laisser le chargé de travaux choisir au hasard contrôlé",
-      "Remplacer l'identification par une habitude d'exploitation",
-    ],
-    answer: [1],
-    explanation:
-      "Sans identification fiable, la consignation n'est pas fiable. Le BC stoppe et clarifie avant de valider l'état de sécurité.",
-    timeLimit: 60,
-  },
-];
-
-const beVerificationMesurageDedicatedQuiz: QuizQuestion[] = [
-  {
-    question:
-      "Avant une opération BE Vérification ou BE Mesurage, quels points doivent être vérifiés ?",
-    choices: [
-      "La catégorie et l'état de l'instrument de mesure",
-      "Le bon point de mesure et l'environnement électrique",
-      "L'état des cordons, pointes de touche et EPI nécessaires",
-      "La possibilité de réparer immédiatement si la mesure est anormale",
-    ],
-    answer: [0, 1, 2],
-    multiple: true,
-    explanation:
-      "Le BE vérifie ou mesure dans un cadre défini. L'instrument, les cordons, la zone, les points de mesure et les protections doivent être maîtrisés.",
-    timeLimit: 75,
-  },
-  {
-    question:
-      "Une mesure révèle une anomalie sur une installation. Que signifie cette information pour un titulaire BE Mesurage ?",
-    choices: [
-      "Il peut dépanner immédiatement sans autre habilitation",
-      "Il doit transmettre le résultat et respecter les limites de son opération",
-      "Il peut modifier le câblage si la cause semble évidente",
-      "Il doit ignorer l'anomalie si la valeur affichée est stable",
-    ],
-    answer: [1],
-    explanation:
-      "Le mesurage produit une information technique. Il ne transforme pas automatiquement l'opérateur en BR, B1/B2 ou BC.",
-    timeLimit: 55,
-  },
-];
-
-quizContent["bt-multi-symboles"] = baseBtMultiSymbolesQuiz;
-
-quizContent["b1-b1v"] = [
-  ...b1b1vDedicatedQuiz,
-  ...pickQuizQuestions(commonBtPredicates, 8),
-  ...pickQuizQuestions(
-    [
-      (question) =>
-        includesAny(question, [
-          /b1\b/,
-          /b1v/,
-          /executant/,
-          /travaux/,
-          /charge de travaux/,
-        ]),
-    ],
-    10
-  ),
-];
-
-quizContent["b2-b2v"] = [
-  ...b2b2vDedicatedQuiz,
-  ...pickQuizQuestions(commonBtPredicates, 8),
-  ...pickQuizQuestions(
-    [
-      (question) =>
-        includesAny(question, [
-          /b2\b/,
-          /b2v/,
-          /charge de travaux/,
-          /chantier/,
-          /equipe/,
-          /briefing/,
-        ]),
-    ],
-    10
-  ),
-];
-
-quizContent.br = [
-  ...brDedicatedQuiz,
-  ...pickQuizQuestions(commonBtPredicates, 8),
-  ...pickQuizQuestions(
-    [
-      (question) =>
-        includesAny(question, [
-          /br\b/,
-          /intervention/,
-          /depannage/,
-          /remise en etat/,
-          /mesurage/,
-          /essai/,
-        ]),
-    ],
-    10
-  ),
-];
-
-quizContent.bc = [
-  ...bcDedicatedQuiz,
-  ...pickQuizQuestions(commonBtPredicates, 6),
-  ...pickQuizQuestions(
-    [
-      (question) =>
-        includesAny(question, [
-          /bc\b/,
-          /consignation/,
-          /absence de tension/,
-          /vat/,
-          /condamnation/,
-          /separation/,
-          /identification/,
-        ]),
-    ],
-    12
-  ),
-];
-
-quizContent["be-verification-mesurage"] = [
-  ...beVerificationMesurageDedicatedQuiz,
-  ...pickQuizQuestions(commonBtPredicates, 6),
-  ...pickQuizQuestions(
-    [
-      (question) =>
-        includesAny(question, [
-          /verification/,
-          /mesurage/,
-          /mesures/,
-          /essais/,
-          /connexion/,
-          /deconnexion/,
-        ]),
-    ],
-    12
-  ),
-];
+        "Appliquer une glace directemen

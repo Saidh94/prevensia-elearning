@@ -390,9 +390,12 @@ function drawFirstPage(params: {
 
   const headerY = pageHeight - 84;
   const headerHeight = 62;
-  const titleWidth = 320;
-  const metaWidth = 132;
-  const logoWidth = contentWidth - titleWidth - metaWidth;
+  // Logo à gauche, titre au centre, référence à droite
+  const logoColWidth = 190;
+  const metaWidth = 145;
+  const titleWidth = contentWidth - logoColWidth - metaWidth;
+
+  // Fond global du header
   page.drawRectangle({
     x: margin,
     y: headerY,
@@ -403,53 +406,50 @@ function drawFirstPage(params: {
     color: colors.softGrey,
   });
 
-  drawLine(
-    page,
-    margin + titleWidth,
-    headerY,
-    margin + titleWidth,
-    headerY + headerHeight,
-    colors.line,
-    1.1
-  );
-  drawLine(
-    page,
-    margin + titleWidth + metaWidth,
-    headerY,
-    margin + titleWidth + metaWidth,
-    headerY + headerHeight,
-    colors.line,
-    1.1
-  );
-
+  // Colonne logo (fond blanc)
   page.drawRectangle({
-    x: margin + titleWidth,
+    x: margin,
+    y: headerY,
+    width: logoColWidth,
+    height: headerHeight,
+    color: colors.page,
+  });
+
+  // Séparateur logo | titre
+  drawLine(page, margin + logoColWidth, headerY, margin + logoColWidth, headerY + headerHeight, colors.line, 1.1);
+
+  // Séparateur titre | référence
+  drawLine(page, margin + logoColWidth + titleWidth, headerY, margin + logoColWidth + titleWidth, headerY + headerHeight, colors.line, 1.1);
+
+  // Colonne référence
+  page.drawRectangle({
+    x: margin + logoColWidth + titleWidth,
     y: headerY,
     width: metaWidth,
     height: headerHeight,
     color: rgb(0.985, 0.988, 0.995),
   });
 
-  page.drawRectangle({
-    x: margin + titleWidth + metaWidth,
-    y: headerY,
-    width: logoWidth,
-    height: headerHeight,
-    color: colors.page,
-  });
-
+  // Titre centré verticalement dans sa colonne
   page.drawText("TITRE D'HABILITATION", {
-    x: margin + 11,
+    x: margin + logoColWidth + 10,
     y: headerY + 37,
-    size: 14,
+    size: 13,
     font: fontBold,
     color: colors.text,
+  });
+  page.drawText("Conforme NF C 18-510", {
+    x: margin + logoColWidth + 10,
+    y: headerY + 18,
+    size: 8,
+    font: fontRegular,
+    color: colors.muted,
   });
 
   drawCell(
     page,
     `Référence : ${attestationId}\nÉdité le : ${issueDate}`,
-    margin + titleWidth,
+    margin + logoColWidth + titleWidth,
     headerY,
     metaWidth,
     headerHeight,
@@ -465,23 +465,18 @@ function drawFirstPage(params: {
     }
   );
 
+  // Logo centré dans la colonne gauche
   if (logoImage) {
     try {
       const dims = logoImage.scale(1);
-      const scale = Math.min(78 / dims.width, 42 / dims.height);
+      const maxW = logoColWidth - 14;
+      const maxH = headerHeight - 14;
+      const scale = Math.min(maxW / dims.width, maxH / dims.height);
       const imageWidth = dims.width * scale;
       const imageHeight = dims.height * scale;
 
-      page.drawRectangle({
-        x: margin + titleWidth + metaWidth + 8,
-        y: headerY + 8,
-        width: logoWidth - 16,
-        height: headerHeight - 16,
-        color: colors.page,
-      });
-
       page.drawImage(logoImage, {
-        x: margin + titleWidth + metaWidth + (logoWidth - imageWidth) / 2,
+        x: margin + (logoColWidth - imageWidth) / 2,
         y: headerY + (headerHeight - imageHeight) / 2,
         width: imageWidth,
         height: imageHeight,
@@ -921,41 +916,43 @@ function drawSuccessPage(params: {
     color: colors.brand,
   });
 
+  // Logo centré horizontalement dans la bande navy, fond blanc arrondi
   if (logoImage) {
     try {
       const dims = logoImage.scale(1);
-      const scale = Math.min(102 / dims.width, 52 / dims.height);
+      const maxLogoW = 200;
+      const maxLogoH = 56;
+      const scale = Math.min(maxLogoW / dims.width, maxLogoH / dims.height);
+      const imageWidth = dims.width * scale;
+      const imageHeight = dims.height * scale;
+      const bandCenterX = margin + (pageWidth - margin * 2) / 2;
+      const bandCenterY = pageHeight - 126 + 45; // centre vertical de la bande (h=90)
 
+      const padX = 14;
+      const padY = 8;
       page.drawRectangle({
-        x: margin + 14,
-        y: pageHeight - 106,
-        width: 108,
-        height: 54,
+        x: bandCenterX - imageWidth / 2 - padX,
+        y: bandCenterY - imageHeight / 2 - padY,
+        width: imageWidth + padX * 2,
+        height: imageHeight + padY * 2,
         color: colors.page,
       });
 
       page.drawImage(logoImage, {
-        x: margin + 18,
-        y: pageHeight - 104,
-        width: dims.width * scale,
-        height: dims.height * scale,
+        x: bandCenterX - imageWidth / 2,
+        y: bandCenterY - imageHeight / 2,
+        width: imageWidth,
+        height: imageHeight,
       });
     } catch {
       // no-op
     }
   }
 
-  page.drawText("PREVENSIA FORMATION", {
-    x: margin + 136,
-    y: pageHeight - 66,
-    size: 17,
-    font: fontBold,
-    color: rgb(1, 1, 1),
-  });
   page.drawText("FICHE DE RÉUSSITE", {
-    x: margin + 136,
-    y: pageHeight - 90,
-    size: 12.5,
+    x: margin + 10,
+    y: pageHeight - 72,
+    size: 10,
     font: fontBold,
     color: rgb(1, 1, 1),
   });

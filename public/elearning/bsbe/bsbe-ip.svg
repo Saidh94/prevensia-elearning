@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="40" fill="#FDF4FF"/>
+  <rect x="70" y="70" width="1060" height="580" rx="28" fill="white" stroke="#E9D5FF" stroke-width="3"/>
+
+  <!-- Title -->
+  <text x="110" y="128" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#4C1D95">Indice de protection IP</text>
+  <text x="110" y="165" font-family="Arial, sans-serif" font-size="21" fill="#6D28D9">Protection contre les corps solides et les liquides &#8212; Norme NF EN 60529.</text>
+
+  <!-- === IP CODE STRUCTURE DIAGRAM === -->
+  <!-- "IP" block -->
+  <rect x="110" y="183" width="88" height="62" rx="14" fill="#4C1D95"/>
+  <text x="154" y="221" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="white">IP</text>
+
+  <!-- Arrow 1 -->
+  <line x1="198" y1="214" x2="242" y2="214" stroke="#6D28D9" stroke-width="3"/>
+  <polygon points="242,207 258,214 242,221" fill="#6D28D9"/>
+
+  <!-- 1st digit box -->
+  <rect x="258" y="183" width="115" height="62" rx="14" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2.5"/>
+  <text x="315" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#4C1D95">X</text>
+  <text x="315" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#5B21B6">Corps solides</text>
+
+  <!-- Arrow 2 -->
+  <line x1="373" y1="214" x2="417" y2="214" stroke="#6D28D9" stroke-width="3"/>
+  <polygon points="417,207 433,214 417,221" fill="#6D28D9"/>
+
+  <!-- 2nd digit box -->
+  <rect x="433" y="183" width="115" height="62" rx="14" fill="#EDE9FE" stroke="#7C3AED" stroke-width="2.5"/>
+  <text x="490" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#4C1D95">Y</text>
+  <text x="490" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#5B21B6">Liquides</text>
+
+  <!-- Arrow 3 (dashed: optional) -->
+  <line x1="548" y1="214" x2="580" y2="214" stroke="#9333EA" stroke-width="2" stroke-dasharray="6,4"/>
+  <polygon points="580,208 594,214 580,220" fill="#9333EA"/>
+
+  <!-- Optional letter box -->
+  <rect x="594" y="183" width="115" height="62" rx="14" fill="#FAF5FF" stroke="#C084FC" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="651" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#9333EA">(L)</text>
+  <text x="651" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#9333EA">Personnes (opt.)</text>
+
+  <!-- Example box -->
+  <rect x="740" y="180" width="350" height="68" rx="18" fill="#7C3AED"/>
+  <text x="760" y="204" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#E9D5FF">EXEMPLE CONCRET</text>
+  <text x="915" y="236" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="white">IP 3 4 C</text>
+
+  <!-- === LEFT TABLE: 1st digit (corps solides) === -->
+  <text x="110" y="280" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#4C1D95">1er chiffre &#8212; Corps solides</text>
+
+  <!-- Table header -->
+  <rect x="110" y="288" width="490" height="36" rx="8" fill="#4C1D95"/>
+  <text x="158" y="311" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white">Chiffre</text>
+  <text x="290" y="311" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white">Protection assur&#233;e</text>
+
+  <!-- Rows chiffre 1 -->
+  <rect x="110" y="324" width="490" height="36" fill="#FAF5FF"/>
+  <text x="158" y="347" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">0</text>
+  <text x="290" y="347" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Aucune protection</text>
+
+  <rect x="110" y="360" width="490" height="36" fill="white"/>
+  <text x="158" y="383" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">1</text>
+  <text x="290" y="383" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Corps solides &#8805; 50 mm (dos de main)</text>
+
+  <rect x="110" y="396" width="490" height="36" fill="#FAF5FF"/>
+  <text x="158" y="419" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">2</text>
+  <text x="290" y="419" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Corps solides &#8805; 12,5 mm (doigt)</text>
+
+  <!-- Row 3 highlighted (used in example) -->
+  <rect x="110" y="432" width="490" height="36" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="158" y="455" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">3 &#9654;</text>
+  <text x="290" y="455" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#5B21B6">Corps solides &#8805; 2,5 mm (outil, fil)</text>
+
+  <rect x="110" y="468" width="490" height="36" fill="white"/>
+  <text x="158" y="491" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">4</text>
+  <text x="290" y="491" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Corps solides &#8805; 1 mm (fil fin)</text>
+
+  <rect x="110" y="504" width="490" height="36" fill="#FAF5FF"/>
+  <text x="158" y="527" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">5</text>
+  <text x="290" y="527" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Poussières (limit&#233; — pas de d&#233;p&#244;t nuisible)</text>
+
+  <rect x="110" y="540" width="490" height="36" fill="white"/>
+  <text x="158" y="563" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">6</text>
+  <text x="290" y="563" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">&#201;tanche aux poussières (total)</text>
+
+  <!-- Table border left -->
+  <rect x="110" y="288" width="490" height="288" rx="8" fill="none" stroke="#D8B4FE" stroke-width="2"/>
+  <line x1="260" y1="324" x2="600" y2="324" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="110" y1="360" x2="600" y2="360" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="110" y1="396" x2="600" y2="396" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="110" y1="432" x2="600" y2="432" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="110" y1="468" x2="600" y2="468" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="110" y1="504" x2="600" y2="504" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="110" y1="540" x2="600" y2="540" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="258" y1="324" x2="258" y2="576" stroke="#E9D5FF" stroke-width="1.5"/>
+
+  <!-- === RIGHT TABLE: 2nd digit (liquides) === -->
+  <text x="620" y="280" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#4C1D95">2e chiffre &#8212; Liquides</text>
+
+  <!-- Table header -->
+  <rect x="620" y="288" width="480" height="36" rx="8" fill="#4C1D95"/>
+  <text x="660" y="311" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white">Chiffre</text>
+  <text x="780" y="311" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white">Protection assur&#233;e</text>
+
+  <!-- Rows chiffre 2 -->
+  <rect x="620" y="324" width="480" height="36" fill="#FAF5FF"/>
+  <text x="660" y="347" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">0</text>
+  <text x="780" y="347" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Aucune protection</text>
+
+  <rect x="620" y="360" width="480" height="36" fill="white"/>
+  <text x="660" y="383" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">1</text>
+  <text x="780" y="383" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Gouttes d&#39;eau verticales</text>
+
+  <rect x="620" y="396" width="480" height="36" fill="#FAF5FF"/>
+  <text x="660" y="419" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">2</text>
+  <text x="780" y="419" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Pluie inclin&#233;e jusqu&#39;&#224; 15&#176;</text>
+
+  <rect x="620" y="432" width="480" height="36" fill="white"/>
+  <text x="660" y="455" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">3</text>
+  <text x="780" y="455" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Aspersion jusqu&#39;&#224; 60&#176; de la verticale</text>
+
+  <!-- Row 4 highlighted (used in example) -->
+  <rect x="620" y="468" width="480" height="36" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <text x="660" y="491" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">4 &#9654;</text>
+  <text x="780" y="491" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#5B21B6">Projections de toutes directions</text>
+
+  <rect x="620" y="504" width="480" height="36" fill="white"/>
+  <text x="660" y="527" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">5</text>
+  <text x="780" y="527" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Jets d&#39;eau puissants (toutes directions)</text>
+
+  <rect x="620" y="540" width="480" height="36" fill="#FAF5FF"/>
+  <text x="660" y="563" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#4C1D95">7</text>
+  <text x="780" y="563" font-family="Arial, sans-serif" font-size="15" fill="#5B21B6">Immersion temporaire (jusqu&#39;&#224; 1 m)</text>
+
+  <!-- Table border right -->
+  <rect x="620" y="288" width="480" height="288" rx="8" fill="none" stroke="#D8B4FE" stroke-width="2"/>
+  <line x1="620" y1="324" x2="1100" y2="324" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="620" y1="360" x2="1100" y2="360" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="620" y1="396" x2="1100" y2="396" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="620" y1="432" x2="1100" y2="432" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="620" y1="468" x2="1100" y2="468" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="620" y1="504" x2="1100" y2="504" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="620" y1="540" x2="1100" y2="540" stroke="#E9D5FF" stroke-width="1"/>
+  <line x1="757" y1="324" x2="757" y2="576" stroke="#E9D5FF" stroke-width="1.5"/>
+
+  <!-- === Lettre additionnelle: personnes note === -->
+  <!-- Bottom dark bar with example explanation -->
+  <rect x="100" y="586" width="980" height="60" rx="16" fill="#4C1D95"/>
+  <text x="590" y="608" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="white">IP 34C : solides &#8805; 2,5 mm &#160;&#8226;&#160; projections toutes directions &#160;&#8226;&#160; outil &#8709; 2,5 mm (lettre C)</text>
+  <text x="590" y="631" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#DDD6FE">La lettre additionnelle (A, B, C, D) pr&#233;cise la protection des personnes contre l&#39;acc&#232;s aux parties dangereuses.</text>
+</svg>
