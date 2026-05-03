@@ -845,7 +845,7 @@ export default function QuizPage() {
                       )}
                       width={1200}
                       height={800}
-                      className="mx-auto max-h-[320px] h-auto w-full object-contain"
+                      className="mx-auto max-h-[440px] h-auto w-full object-contain"
                       unoptimized={currentQuestion.imagePath.toLowerCase().endsWith(".svg")}
                     />
                   </div>

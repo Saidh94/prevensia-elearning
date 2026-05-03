@@ -617,9 +617,6 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "Une manœuvre d’exploitation suppose un organe identifié, une consigne claire et un contexte normal. L’ouverture pour diagnostic sort du cadre.",
       timeLimit: 75,
-      imagePath: "/elearning/bsbe/bsbe-operations.svg",
-      imageAlt:
-        "Illustration de la logique BE Manœuvre : identifier, vérifier, manœuvrer et surveiller",
     },
     {
       question:
@@ -796,9 +793,6 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "IP2X ou IPXXB aident à apprécier si l’enveloppe protège réellement contre l’accès involontaire aux parties dangereuses.",
       timeLimit: 45,
-      imagePath: "/elearning/bsbe/bsbe-risque.svg",
-      imageAlt:
-        "Protection par enveloppe, capotage et indices de protection",
     },
     {
       question:
@@ -856,9 +850,6 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "Un support écrit, cohérent avec le terrain, limite les erreurs de repérage et les glissements de mission.",
       timeLimit: 40,
-      imagePath: "/elearning/bsbe/bsbe-vat.svg",
-      imageAlt:
-        "Documents, repérage et mise en sécurité avant opération BS ou BE Manœuvre",
     },
     {
       question:
