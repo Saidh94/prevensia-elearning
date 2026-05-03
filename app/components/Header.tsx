@@ -56,6 +56,15 @@ export function Header() {
             E-learning
           </Link>
 
+          <a
+            href="/employeur/dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 sm:inline-flex"
+          >
+            Espace employeur ↗
+          </a>
+
           <Link
             href="/demande-devis"
             className="rounded-xl bg-red-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-800"

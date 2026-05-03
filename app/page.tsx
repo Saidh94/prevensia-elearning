@@ -866,7 +866,7 @@ export default function Home() {
                 Questions fréquentes
               </p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Les réponses qu’on nous pose souvent
+                Les questions qu’on nous pose souvent
               </h2>
             </div>
 

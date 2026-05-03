@@ -174,12 +174,12 @@ export default function FloatingContactButtons() {
         </Link>
       </div>
 
-      {/* Bouton retour en haut — visible sur tous les écrans après scroll */}
+      {/* Bouton retour en haut — centré en bas, loin des boutons flottants */}
       {showDesktopPanel && (
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-600 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-50 xl:left-auto xl:translate-x-0 xl:bottom-8 xl:right-6"
+          className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-600 shadow-md transition hover:bg-slate-50"
           aria-label="Retour en haut de page"
         >
           ↑ Haut de page
