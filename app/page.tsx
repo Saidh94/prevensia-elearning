@@ -267,9 +267,9 @@ export default function Home() {
             <Image
               src="/images/logo-prevensia.png"
               alt="Logo Prevensia Formation — Prévenir · Former · Protéger"
-              width={280}
-              height={73}
-              className="h-auto w-[160px] sm:w-[220px]"
+              width={420}
+              height={109}
+              className="h-auto w-[220px] sm:w-[300px]"
               priority
             />
           </div>
