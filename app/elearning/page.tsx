@@ -29,7 +29,7 @@ const formations = [
       "Module theorique de sensibilisation complète par un entretien de validation de 30 minutes.",
   },
   {
-    slug: "bs-be-manœuvre",
+    slug: "bs-be-manoeuvre",
     category: "Habilitation électrique",
     title: "Habilitation électrique BS et BE Manœuvre",
     duration: "E-learning : 5 h a 7 h + séquence encadrée : 45 min a 4 h",
