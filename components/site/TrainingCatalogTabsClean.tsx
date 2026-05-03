@@ -97,7 +97,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Guide-file / Serre-file",
       duration: "0,5 jour",
-      price: "129 EUR HT",
+      price: "150 EUR HT",
       group: "Sur devis",
       participants: "10 max",
       ctaHref: "/formation-securite-incendie",
@@ -106,7 +106,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Equipier de Premiere Intervention (EPI)",
       duration: "1 jour",
-      price: "130 EUR HT",
+      price: "220 EUR HT",
       group: "Sur devis",
       participants: "10 max",
       ctaHref: "/formation-securite-incendie",

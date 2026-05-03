@@ -265,11 +265,11 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex shrink-0 items-center gap-4">
             <Image
-              src="/images/logo-prevensia-formation.jpg"
-              alt="Logo Prevensia Formation"
-              width={200}
-              height={70}
-              className="h-auto w-[130px] sm:w-[190px]"
+              src="/images/logo-prevensia.png"
+              alt="Logo Prevensia Formation — Prévenir · Former · Protéger"
+              width={280}
+              height={73}
+              className="h-auto w-[160px] sm:w-[220px]"
               priority
             />
           </div>
