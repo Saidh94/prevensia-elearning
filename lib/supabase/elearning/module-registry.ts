@@ -52,7 +52,22 @@ const MODULE_ALIASES: Record<string, string[]> = {
 };
 
 function normalizeSlugKey(value: string | null | undefined): string {
-  return (value ?? "").trim().toLowerCase().replace(/[\s_]+/g, "-");
+  return (
+    (value ?? "")
+      .trim()
+      .toLowerCase()
+      // Décompose les ligatures œ/Œ et æ/Æ pour qu'elles matchent les aliases ASCII.
+      // Sans ça, /modules/bs-be-manœuvre renvoyait 404 alors que
+      // /modules/bs-be-manoeuvre était bien enregistré.
+      .replace(/[œŒ]/g, "oe")
+      .replace(/[æÆ]/g, "ae")
+      // Retire les accents (é → e, à → a, ç → c, etc.) en décomposant en NFD
+      // puis en supprimant les marques diacritiques. Couvre les URLs où
+      // l'utilisateur tape ou colle un slug avec accents.
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[\s_]+/g, "-")
+  );
 }
 
 export function resolveModuleSlug(value: string | null | undefined): string | null {

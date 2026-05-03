@@ -216,7 +216,11 @@ async function readFirstExistingAsset(relativePaths: string[]) {
   for (const rel of projectRelativePaths) {
     try {
       return await fs.readFile(
-        path.join(/*turbopackIgnore: true*/ process.cwd(), "public", rel.replace(/^public\//, ""))
+        path.join(
+          /*turbopackIgnore: true*/ process.cwd(),
+          "public",
+          rel.replace(/^public\//, "")
+        )
       );
     } catch {
       // continue
@@ -268,19 +272,19 @@ function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
 
   if (normalized.includes("h0b0")) {
     return {
-      executant: {
+      exécutant: {
         symbol: "B0 / H0 / H0V",
         domain: "BT / HT",
-        scope: "Environnement electrique",
-        notes: "Operations non electriques uniquement",
+        scope: "Environnement électrique",
+        notes: "Opérations non électriques uniquement",
       },
     };
   }
 
   if (
     normalized.includes("bs") ||
-    normalized.includes("be manoeuvre") ||
-    normalized.includes("manoeuvre")
+    normalized.includes("be manœuvre") ||
+    normalized.includes("manœuvre")
   ) {
     return {
       bs: {
@@ -290,10 +294,10 @@ function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
         notes: "Hors tension, sans voisinage, limites NF C 18-510",
       },
       beManoeuvre: {
-        symbol: "BE Manoeuvre",
+        symbol: "BE Manœuvre",
         domain: "BT",
         scope: "Organes de commande identifies",
-        notes: "Manoeuvres uniquement, pas de depannage",
+        notes: "Manœuvres uniquement, pas de depannage",
       },
     };
   }
@@ -342,13 +346,13 @@ function getFormationFrameLabel(formation: string) {
 
   if (
     normalized.includes("bs") &&
-    (normalized.includes("be manoeuvre") || normalized.includes("manoeuvre"))
+    (normalized.includes("be manœuvre") || normalized.includes("manœuvre"))
   ) {
-    return "BS et BE Manoeuvre";
+    return "BS et BE Manœuvre";
   }
 
-  if (normalized.includes("be manoeuvre") || normalized.includes("manoeuvre")) {
-    return "BE Manoeuvre";
+  if (normalized.includes("be manœuvre") || normalized.includes("manœuvre")) {
+    return "BE Manœuvre";
   }
 
   if (normalized.includes("bs")) {
@@ -482,7 +486,7 @@ function drawFirstPage(params: {
 
   drawCell(
     page,
-    `Reference : ${attestationId}\nEdite le : ${issueDate}`,
+    `Référence : ${attestationId}\nEdite le : ${issueDate}`,
     margin + titleWidth,
     headerY,
     metaWidth,
@@ -575,13 +579,13 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "A completer", margin + topCol1, y, topCol2, valueRowHeight, {
+  drawCell(page, "À compléter", margin + topCol1, y, topCol2, valueRowHeight, {
     font: fontBold,
     size: 9.2,
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "A completer", margin + topCol1 + topCol2, y, topCol3, valueRowHeight, {
+  drawCell(page, "À compléter", margin + topCol1 + topCol2, y, topCol3, valueRowHeight, {
     font: fontBold,
     size: 9.2,
     borderColor: colors.line,
@@ -602,7 +606,7 @@ function drawFirstPage(params: {
     borderColor: colors.line,
   });
 
-  page.drawText("Formation theorique de reference", {
+  page.drawText("Formation théorique de reference", {
     x: margin + 8,
     y: y + 12,
     size: 6.9,
@@ -616,7 +620,7 @@ function drawFirstPage(params: {
     font: fontRegular,
     color: colors.muted,
   });
-  page.drawText("Date de validite", {
+  page.drawText("Date de validité", {
     x: margin + topCol1 + topCol2 + 8,
     y: y + 12,
     size: 6.9,
@@ -637,7 +641,7 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "A completer", margin + topCol1 + topCol2, y, topCol3, titleValueRowHeight, {
+  drawCell(page, "À compléter", margin + topCol1 + topCol2, y, topCol3, titleValueRowHeight, {
     font: fontBold,
     size: 9.2,
     borderColor: colors.line,
@@ -687,14 +691,14 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     fillColor: colors.softBlue,
   });
-  drawCell(page, "Ouvrages ou installations concernes", xScope, y - 52, colScope, 28, {
+  drawCell(page, "Ouvrages ou installations concernés", xScope, y - 52, colScope, 28, {
     font: fontRegular,
     size: 6.9,
     align: "center",
     verticalAlign: "middle",
     borderColor: colors.line,
   });
-  drawCell(page, "Indications supplementaires", xNotes, y - 52, colNotes, 28, {
+  drawCell(page, "Indications supplémentaires", xNotes, y - 52, colNotes, 28, {
     font: fontRegular,
     size: 6.9,
     align: "center",
@@ -705,19 +709,19 @@ function drawFirstPage(params: {
   y -= 52;
 
   const rows = [
-    { type: "section", label: "Operations d'ordre non electrique" },
-    { type: "data", key: "executant", label: "Executant" },
-    { type: "data", key: "chargeChantier", label: "Charge de chantier" },
-    { type: "section", label: "Operations d'ordre electrique" },
-    { type: "data", key: "bs", label: "BS - Intervention BT elementaire" },
-    { type: "data", key: "beManoeuvre", label: "BE Manoeuvre" },
-    { type: "data", key: "executantElectricien", label: "Executant electricien" },
-    { type: "data", key: "chargeTravaux", label: "Charge de travaux" },
-    { type: "data", key: "chargeIntervention", label: "Charge d'intervention BT" },
-    { type: "data", key: "chargeConsignation", label: "Charge de consignation" },
-    { type: "data", key: "chargeSpecifique", label: "Charge d'operation specifique" },
-    { type: "data", key: "habiliteSpecial", label: "Habilite special" },
-    { type: "data", key: "documentSupp", label: "Document supplementaire (oui/non)" },
+    { type: "section", label: "Opérations d'ordre non électrique" },
+    { type: "data", key: "exécutant", label: "Exécutant" },
+    { type: "data", key: "chargeChantier", label: "Chargé de chantier" },
+    { type: "section", label: "Opérations d'ordre électrique" },
+    { type: "data", key: "bs", label: "BS - Intervention BT élémentaire" },
+    { type: "data", key: "beManoeuvre", label: "BE Manœuvre" },
+    { type: "data", key: "executantElectricien", label: "Exécutant électricien" },
+    { type: "data", key: "chargeTravaux", label: "Chargé de travaux" },
+    { type: "data", key: "chargeIntervention", label: "Chargé d'intervention BT" },
+    { type: "data", key: "chargeConsignation", label: "Chargé de consignation" },
+    { type: "data", key: "chargeSpecifique", label: "Chargé d'opération spécifique" },
+    { type: "data", key: "habiliteSpecial", label: "Habilité spécial" },
+    { type: "data", key: "documentSupp", label: "Document supplémentaire (oui/non)" },
   ] as const;
 
   for (const row of rows) {
@@ -789,8 +793,8 @@ function drawFirstPage(params: {
 
   drawCell(
     page,
-    "Ce document est une trame pre-remplie preparee a l'issue de la validation theorique du parcours le " +
-      `${validationDate}. Les informations suggerees ci-dessus ne valent pas habilitation. Les symboles retenus, les limites d'intervention, le domaine de tension, les dates, l'affectation et les signatures doivent etre determines, valides et formalises exclusivement par l'employeur conformement au Code du travail, a l'analyse de risque du poste et a la NF C 18-510.`,
+    "Ce document est une trame pre-remplie préparée a l'issue de la validation théorique du parcours le " +
+      `${validationDate}. Les informations suggérées ci-dessus ne valent pas habilitation. Les symboles retenus, les limites d'intervention, le domaine de tension, les dates, l'affectation et les signatures doivent être déterminés, validés et formalisés exclusivement par l'employeur conformément au Code du travail, a l'analyse de risque du poste et a la NF C 18-510.`,
     margin,
     y - 54,
     contentWidth,
@@ -858,7 +862,7 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "A completer", margin + signLeft + 76, y - 116, signCenter - 76, 28, {
+  drawCell(page, "À compléter", margin + signLeft + 76, y - 116, signCenter - 76, 28, {
     font: fontBold,
     size: 9.1,
     borderColor: colors.line,
@@ -885,7 +889,7 @@ function drawFirstPage(params: {
     font: fontBold,
     color: colors.brand,
   });
-  page.drawText(`Reference document : ${attestationId}`, {
+  page.drawText(`Référence document : ${attestationId}`, {
     x: margin,
     y: 10,
     size: 6.6,
@@ -980,7 +984,7 @@ function drawSuccessPage(params: {
     font: fontBold,
     color: rgb(1, 1, 1),
   });
-  page.drawText("FICHE DE REUSSITE", {
+  page.drawText("FICHE DE RÉUSSITE", {
     x: margin + 136,
     y: pageHeight - 90,
     size: 12.5,
@@ -990,7 +994,7 @@ function drawSuccessPage(params: {
 
   drawCell(
     page,
-    `Reference : ${attestationId}\nDate de reussite : ${validationDate}`,
+    `Référence : ${attestationId}\nDate de réussite : ${validationDate}`,
     pageWidth - margin - 144,
     pageHeight - 109,
     110,
@@ -1016,7 +1020,7 @@ function drawSuccessPage(params: {
     color: colors.brand,
   });
 
-  const subtitle = "Document de resultat PREVENSIA a joindre au dossier employeur";
+  const subtitle = "Document de résultat PREVENSIA a joindre au dossier employeur";
   page.drawText(subtitle, {
     x: (pageWidth - fontRegular.widthOfTextAtSize(subtitle, 9.5)) / 2,
     y: pageHeight - 186,
@@ -1062,7 +1066,7 @@ function drawSuccessPage(params: {
   const boxY = pageHeight - 458;
   const boxGap = 12;
   const boxWidth = (pageWidth - margin * 2 - boxGap * 2) / 3;
-  drawCell(page, "Reussite", margin, boxY, boxWidth, 78, {
+  drawCell(page, "Réussite", margin, boxY, boxWidth, 78, {
     font: fontRegular,
     size: 8.2,
     borderColor: colors.line,
@@ -1079,7 +1083,7 @@ function drawSuccessPage(params: {
     verticalAlign: "middle",
   });
 
-  drawCell(page, "Resultat obtenu", margin + boxWidth + boxGap, boxY, boxWidth, 78, {
+  drawCell(page, "Résultat obtenu", margin + boxWidth + boxGap, boxY, boxWidth, 78, {
     font: fontRegular,
     size: 8.2,
     borderColor: colors.line,
@@ -1117,7 +1121,7 @@ function drawSuccessPage(params: {
 
   drawCell(
     page,
-    "Cette fiche atteste la reussite a l'evaluation theorique du parcours. Elle ne remplace pas le titre d'habilitation, ni l'evaluation pratique eventuelle, ni la decision finale de l'employeur. Le titre d'habilitation doit etre etabli separement par l'employeur en fonction des taches confiees, du poste, de l'environnement de travail et de l'analyse des risques.",
+    "Cette fiche atteste la réussite a l'évaluation théorique du parcours. Elle ne remplace pas le titre d'habilitation, ni l'évaluation pratique éventuelle, ni la décision finale de l'employeur. Le titre d'habilitation doit être établi séparément par l'employeur en fonction des tâches confiées, du poste, de l'environnement de travail et de l'analyse des risques.",
     margin,
     168,
     pageWidth - margin * 2,
@@ -1162,7 +1166,7 @@ function drawSuccessPage(params: {
     }
   }
 
-  drawCell(page, "Reference dossier", pageWidth - margin - 180, 86, 180, 18, {
+  drawCell(page, "Référence dossier", pageWidth - margin - 180, 86, 180, 18, {
     font: fontBold,
     size: 8.3,
     borderColor: colors.line,
@@ -1198,9 +1202,9 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
     [employeeFirstName?.trim(), employeeLastName?.trim()]
       .filter(Boolean)
       .join(" ")
-      .trim() || learnerEmail || "A completer";
+      .trim() || learnerEmail || "À compléter";
 
-  const employerName = companyName?.trim() || "A completer";
+  const employerName = companyName?.trim() || "À compléter";
   const validationDate = formatDateFr(date);
   const issueDate = new Date().toLocaleDateString("fr-FR");
   const attestationId = shortAttestationId(userId);
@@ -1229,91 +1233,4 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
   const pageTwo = pdfDoc.addPage([595.28, 841.89]);
 
   const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
-  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-
-  const colors = {
-    page: rgb(1, 1, 1),
-    text: rgb(0.08, 0.08, 0.08),
-    muted: rgb(0.33, 0.33, 0.33),
-    brand: rgb(0.12, 0.27, 0.53),
-    line: rgb(0.18, 0.18, 0.18),
-    softBlue: rgb(0.92, 0.96, 0.99),
-    softGrey: rgb(0.96, 0.96, 0.96),
-    pale: rgb(0.985, 0.985, 0.985),
-  };
-
-  const logoBuffer = await loadLogoBuffer();
-  const signatureBuffer = await loadSignatureBuffer();
-  let logoImage: PDFImage | null = null;
-  let signatureImage: PDFImage | null = null;
-
-  if (logoBuffer) {
-    try {
-      logoImage =
-        logoBuffer[0] === 0x89
-          ? await pdfDoc.embedPng(logoBuffer)
-          : await pdfDoc.embedJpg(logoBuffer);
-    } catch (error) {
-      console.error("Erreur embed logo PDF :", error);
-      logoImage = null;
-    }
-  }
-
-  if (signatureBuffer) {
-    try {
-      signatureImage =
-        signatureBuffer[0] === 0x89
-          ? await pdfDoc.embedPng(signatureBuffer)
-          : await pdfDoc.embedJpg(signatureBuffer);
-    } catch (error) {
-      console.error("Erreur embed signature PDF :", error);
-      signatureImage = null;
-    }
-  }
-
-  drawFirstPage({
-    page: pageOne,
-    fontRegular,
-    fontBold,
-    colors,
-    logoImage,
-    attestationId,
-    issueDate,
-    validationDate,
-    learnerFullName,
-    employerName,
-    formation,
-    suggestedRows,
-  });
-
-  drawSuccessPage({
-    page: pageTwo,
-    fontRegular,
-    fontBold,
-    colors,
-    logoImage,
-    signatureImage,
-    attestationId,
-    validationDate,
-    learnerFullName,
-    employerName,
-    formation,
-    resultText,
-    successText,
-    frameText,
-  });
-
-  const pdfBytes = await pdfDoc.save();
-  const pdfBuffer = Buffer.from(pdfBytes);
-
-  const safeFileName = sanitizeFileName(
-    `dossier-habilitation-${formation}-${learnerFullName || "apprenant"}`
-  );
-
-  return {
-    pdfBuffer,
-    safeFileName,
-    learnerFullName,
-    attestationId,
-  };
-}
+  const fontBold = await pdfDoc.embedFont(StandardFonts
