@@ -606,7 +606,10 @@ export async function POST(request: Request) {
 
     const adminSubject = `Nouvelle inscription - ${formation || "Formation"}`;
 
+    const logoHtml = `<div style="margin-bottom:20px;"><img src="https://prevensia-formation.fr/images/logo-prevensia.png" alt="PREVENSIA FORMATION" width="220" style="display:block;" /></div>`;
+
     const adminHtml = `
+      ${logoHtml}
       <h2>Nouvelle inscription PREVENSIA</h2>
       <p><strong>Nom :</strong> ${escapeHtml(lastName)}</p>
       <p><strong>Prenom :</strong> ${escapeHtml(firstName)}</p>
@@ -663,6 +666,7 @@ export async function POST(request: Request) {
     const userHtml =
       userAccount.accountState === "created"
         ? `
+          ${logoHtml}
           <p>Bonjour ${escapeHtml(firstName)},</p>
           <p>
             Votre inscription a bien ete enregistree pour
@@ -701,6 +705,7 @@ export async function POST(request: Request) {
           <p>Cordialement,<br />PREVENSIA FORMATION</p>
         `
         : `
+          ${logoHtml}
           <p>Bonjour ${escapeHtml(firstName)},</p>
           <p>
             Votre inscription a bien ete enregistree pour

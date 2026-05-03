@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 145" role="img">
+  <title>Prevensia Formation — Prévenir · Former · Protéger</title>
+
+  <!-- Ground symbol -->
+  <line x1="30" y1="116" x2="76" y2="116" stroke="#1B3E6F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="36" y1="123" x2="70" y2="123" stroke="#1B3E6F" stroke-width="2" stroke-linecap="round"/>
+  <line x1="42" y1="130" x2="64" y2="130" stroke="#1B3E6F" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Tronc éclair -->
+  <path d="M53 113 L47 90 L59 83 L53 63" stroke="#1B3E6F" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Branches principales -->
+  <path d="M51 69 L25 46" stroke="#1B3E6F" stroke-width="2.3" stroke-linecap="round" fill="none"/>
+  <path d="M53 63 L53 36" stroke="#1B3E6F" stroke-width="2.3" stroke-linecap="round" fill="none"/>
+  <path d="M55 69 L81 46" stroke="#C02B2B" stroke-width="2.3" stroke-linecap="round" fill="none"/>
+
+  <!-- Sous-branches gauche -->
+  <path d="M25 46 L15 29" stroke="#1B3E6F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M25 46 L31 27" stroke="#1B3E6F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+  <!-- Sous-branches centre -->
+  <path d="M53 36 L44 19" stroke="#1B3E6F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M53 36 L62 19" stroke="#1B3E6F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+  <!-- Sous-branches droite -->
+  <path d="M81 46 L73 29" stroke="#C02B2B" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M81 46 L91 29" stroke="#C02B2B" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+  <!-- Nœuds feuilles -->
+  <circle cx="15" cy="22" r="7.5" fill="#1B3E6F"/>
+  <circle cx="31" cy="20" r="7.5" fill="#1B3E6F"/>
+  <circle cx="44" cy="12" r="7.5" fill="#1B3E6F"/>
+  <circle cx="62" cy="12" r="7.5" fill="#1B3E6F"/>
+  <circle cx="73" cy="22" r="7.5" fill="#C02B2B"/>
+  <circle cx="91" cy="22" r="7.5" fill="#C02B2B"/>
+
+  <!-- Séparateur -->
+  <line x1="112" y1="10" x2="112" y2="132" stroke="#1B3E6F" stroke-width="0.8" opacity="0.18"/>
+
+  <!-- PREVENSIA — police Helvetica-Bold disponible partout + fallback web -->
+  <text x="130" y="77" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1B3E6F" letter-spacing="3">PREVENSIA</text>
+
+  <!-- FORMATION -->
+  <text x="132" y="100" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#C02B2B" letter-spacing="7">FORMATION</text>
+
+  <!-- Tagline -->
+  <text x="133" y="118" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="400" fill="#1B3E6F" letter-spacing="1.2" opacity="0.55">Prévenir · Former · Protéger</text>
+</svg>
