@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatFrenchDisplayText } from "../../../lib/french-display";
 import type { ModuleContent } from "../../../lib/supabase/elearning/module-types";
 import VisualCard from "./VisualCard";
 
@@ -10,7 +11,7 @@ type CoursePageProps = {
 export default function CoursePage({ slug, moduleData }: CoursePageProps) {
   const topCards = [
     { label: "Parcours", value: moduleData.shortTitle },
-    { label: "Duree estimee", value: moduleData.duration ?? "" },
+    { label: "Durée estimée", value: moduleData.duration ?? "" },
     ...(moduleData.deliveryFormat
       ? [{ label: "Format", value: moduleData.deliveryFormat }]
       : []),
@@ -27,11 +28,11 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
             </p>
 
             <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl">
-              {moduleData.title}
+              {formatFrenchDisplayText(moduleData.title)}
             </h1>
 
             <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200">
-              {moduleData.subtitle}
+              {formatFrenchDisplayText(moduleData.subtitle)}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -46,7 +47,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                 href={`/modules/${slug}/quiz`}
                 className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
               >
-                {moduleData.quizCtaLabel ?? "Passer au quiz"}
+                {formatFrenchDisplayText(moduleData.quizCtaLabel ?? "Passer au quiz")}
               </Link>
             </div>
           </div>
@@ -61,7 +62,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {card.label}
                 </p>
                 <p className="mt-3 text-base font-semibold text-slate-900">
-                  {card.value}
+                  {formatFrenchDisplayText(card.value)}
                 </p>
               </div>
             ))}
@@ -84,7 +85,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   <div className="flex items-center justify-between gap-3">
                     <span>
                       <span className="mr-2 text-slate-400">{index + 1}.</span>
-                      {section.title}
+                      {formatFrenchDisplayText(section.title)}
                     </span>
                     {section.estimatedMinutes ? (
                       <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
@@ -101,7 +102,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                 Objectif du module
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-700">
-                {moduleData.objective}
+                {formatFrenchDisplayText(moduleData.objective)}
               </p>
             </div>
           </aside>
@@ -120,18 +121,18 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                     </p>
                     {section.estimatedMinutes ? (
                       <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
-                        Temps estime : {section.estimatedMinutes} min
+                        Temps estimé : {section.estimatedMinutes} min
                       </span>
                     ) : null}
                   </div>
 
                   <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900">
-                    {section.title}
+                    {formatFrenchDisplayText(section.title)}
                   </h2>
 
                   {section.intro ? (
                     <p className="mt-4 text-base leading-8 text-slate-700">
-                      {section.intro}
+                      {formatFrenchDisplayText(section.intro)}
                     </p>
                   ) : null}
                 </div>
@@ -143,7 +144,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                         key={`${section.id}-content-${paragraphIndex}`}
                         className="text-base leading-8 text-slate-700"
                       >
-                        {paragraph}
+                        {formatFrenchDisplayText(paragraph)}
                       </p>
                     ))}
                   </div>
@@ -161,7 +162,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                             key={`${section.id}-deep-${indexDeepDive}`}
                             className="text-sm leading-7 text-slate-700"
                           >
-                            {item}
+                            {formatFrenchDisplayText(item)}
                           </p>
                         ))}
                       </div>
@@ -171,14 +172,14 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.keyPoints?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-green-200 bg-green-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-green-800">
-                        Points cles a retenir
+                        Points clés à retenir
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.keyPoints!.map((point) => (
                           <li key={point} className="flex items-start gap-3">
                             <span className="mt-2 h-2.5 w-2.5 rounded-full bg-green-600" />
                             <span className="text-sm leading-7 text-green-950">
-                              {point}
+                              {formatFrenchDisplayText(point)}
                             </span>
                           </li>
                         ))}
@@ -189,14 +190,14 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.forbiddenPoints?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-red-200 bg-red-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-                        Interdictions / erreurs a eviter
+                        Interdictions / erreurs à éviter
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.forbiddenPoints!.map((point) => (
                           <li key={point} className="flex items-start gap-3">
                             <span className="mt-2 h-2.5 w-2.5 rounded-full bg-red-600" />
                             <span className="text-sm leading-7 text-red-950">
-                              {point}
+                              {formatFrenchDisplayText(point)}
                             </span>
                           </li>
                         ))}
@@ -210,7 +211,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                         Cas pratique
                       </p>
                       <p className="mt-4 text-sm leading-7 text-amber-950">
-                        {section.practicalCase}
+                        {formatFrenchDisplayText(section.practicalCase)}
                       </p>
                     </div>
                   ) : null}
@@ -218,14 +219,14 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.legalRefs?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-blue-200 bg-blue-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
-                        Reperes reglementaires et normatifs
+                        Repères réglementaires et normatifs
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.legalRefs!.map((ref) => (
                           <li key={ref} className="flex items-start gap-3">
                             <span className="mt-2 h-2.5 w-2.5 rounded-full bg-blue-600" />
                             <span className="text-sm leading-7 text-blue-950">
-                              {ref}
+                              {formatFrenchDisplayText(ref)}
                             </span>
                           </li>
                         ))}
@@ -240,9 +241,9 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
                 Fin du parcours
               </p>
-              <h2 className="mt-3 text-2xl font-bold">Synthese finale</h2>
+              <h2 className="mt-3 text-2xl font-bold">Synthèse finale</h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200">
-                {moduleData.finalMessage}
+                {formatFrenchDisplayText(moduleData.finalMessage)}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -250,7 +251,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   href={`/modules/${slug}/quiz`}
                   className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
                 >
-                  {moduleData.quizCtaLabel ?? "Passer au quiz"}
+                  {formatFrenchDisplayText(moduleData.quizCtaLabel ?? "Passer au quiz")}
                 </Link>
 
                 <Link

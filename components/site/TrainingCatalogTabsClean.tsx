@@ -25,7 +25,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "habilitations", label: "Habilitations" },
   { key: "ssi", label: "SSI" },
   { key: "sprinkler", label: "Sprinkler" },
-  { key: "incendie", label: "Securite incendie" },
+  { key: "incendie", label: "Sécurité incendie" },
   { key: "sst", label: "SST" },
 ];
 
@@ -48,17 +48,17 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Exploitation SSI",
       duration: "1 jour",
-      price: "350 EUR HT",
-      group: "A partir de 1 800 EUR HT",
+      price: "200 € HT",
+      group: "À partir de 1 500 € HT",
       participants: "12 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
     },
     {
-      title: "SSI avance : architecture, reglementation et normes",
+      title: "SSI avancé : architecture, réglementation et normes",
       duration: "2 jours",
-      price: "690 EUR HT",
-      group: "A partir de 2 800 EUR HT",
+      price: "390 € HT",
+      group: "À partir de 2 400 € HT",
       participants: "10 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
@@ -68,17 +68,17 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Exploitation sprinkler",
       duration: "1 jour",
-      price: "490 EUR HT",
-      group: "A partir de 1 800 EUR HT",
+      price: "200 € HT",
+      group: "À partir de 1 000 € HT",
       participants: "6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
     },
     {
-      title: "Sprinkler technique + visite terrain",
+      title: "Sprinkler technique",
       duration: "2 jours",
-      price: "990 EUR HT",
-      group: "A partir de 3 200 EUR HT",
+      price: "490 € HT",
+      group: "À partir de 2 800 € HT",
       participants: "6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
@@ -88,7 +88,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Manipulation extincteurs",
       duration: "0,5 jour",
-      price: "149 EUR HT",
+      price: "149 € HT",
       group: "Sur devis",
       participants: "10 max",
       ctaHref: "/formation-securite-incendie",
@@ -97,16 +97,16 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Guide-file / Serre-file",
       duration: "0,5 jour",
-      price: "150 EUR HT",
+      price: "129 € HT",
       group: "Sur devis",
       participants: "10 max",
       ctaHref: "/formation-securite-incendie",
       ctaLabel: "Voir la formation",
     },
     {
-      title: "Equipier de Premiere Intervention (EPI)",
+      title: "Équipier de Première Intervention (EPI)",
       duration: "1 jour",
-      price: "220 EUR HT",
+      price: "130 € HT",
       group: "Sur devis",
       participants: "10 max",
       ctaHref: "/formation-securite-incendie",
@@ -117,18 +117,18 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "SST initial",
       duration: "2 jours",
-      price: "240 EUR HT",
-      group: "A partir de 1 190 EUR HT",
-      participants: "4 a 10",
+      price: "240 € HT",
+      group: "À partir de 1 190 € HT",
+      participants: "4 à 10",
       ctaHref: "/formation-sst",
       ctaLabel: "Voir la formation",
     },
     {
       title: "MAC SST",
       duration: "1 jour",
-      price: "130 EUR HT",
-      group: "A partir de 690 EUR HT",
-      participants: "4 a 10",
+      price: "130 € HT",
+      group: "À partir de 690 € HT",
+      participants: "4 à 10",
       ctaHref: "/formation-sst",
       ctaLabel: "Voir la formation",
     },
@@ -137,13 +137,13 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
 
 const audienceByTab: Record<TabKey, string[]> = {
   habilitations: [
-    "Personnel non electricien H0B0 / H0V",
-    "Personnel charge d'operations elementaires BS et BE Manoeuvre",
-    "Executants electriciens B1 / B1V",
-    "Charges de travaux B2 / B2V",
-    "Charges d'intervention generale BR",
-    "Charges de consignation BC",
-    "Personnel a multi-symboles BT selon organisation",
+    "Personnel non électricien H0B0 / H0V",
+    "Personnel chargé d'opérations élémentaires BS et BE Manœuvre",
+    "Exécutants électriciens B1 / B1V",
+    "Chargés de travaux B2 / B2V",
+    "Chargés d'intervention générale BR",
+    "Chargés de consignation BC",
+    "Personnel à multi-symboles BT selon organisation",
     "Agents de maintenance",
     "Techniciens d'intervention",
     "Encadrants techniques",
@@ -151,29 +151,29 @@ const audienceByTab: Record<TabKey, string[]> = {
   ssi: [
     "Responsables techniques",
     "Services maintenance",
-    "Responsables QHSE / securite",
+    "Responsables QHSE / sécurité",
     "Exploitants ERP, BUP, ICPE, IGH",
-    "Personnel charge de l'exploitation du SSI",
+    "Personnel chargé de l'exploitation du SSI",
   ],
   sprinkler: [
     "Responsables maintenance",
-    "Responsables securite incendie",
+    "Responsables sécurité incendie",
     "Exploitants logistiques et industriels",
     "Techniciens d'exploitation",
-    "Ingenieurs et bureaux d'etudes pour le module avance",
+    "Ingénieurs et bureaux d'études pour le module avancé",
   ],
   incendie: [
-    "Salaries d'entreprise",
-    "Personnel charge de l'evacuation",
-    "Equipiers de premiere intervention",
-    "Encadrants et referents securite",
-    "Collaborateurs a sensibiliser au risque incendie",
+    "Salariés d'entreprise",
+    "Personnel chargé de l'évacuation",
+    "Équipiers de première intervention",
+    "Encadrants et référents sécurité",
+    "Collaborateurs à sensibiliser au risque incendie",
   ],
   sst: [
-    "Salaries de tout secteur",
-    "Personnel designe secouriste",
+    "Salariés de tout secteur",
+    "Personnel désigné secouriste",
     "Collaborateurs devant porter assistance en cas d'accident",
-    "Titulaires SST a recycler pour le MAC SST",
+    "Titulaires SST à recycler pour le MAC SST",
   ],
 };
 
@@ -188,11 +188,12 @@ export default function TrainingCatalogTabsClean() {
             Tarifs des formations
           </p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Des formations structurees par domaine
+            Une sélection courte des offres principales
           </h2>
           <p className="mt-4 text-slate-600">
             Tarifs indicatifs en inter-entreprises par participant et en
-            intra-entreprise par groupe.
+            intra-entreprise par groupe. Le détail complet reste disponible
+            dans les pages formation.
           </p>
         </div>
 
@@ -214,15 +215,28 @@ export default function TrainingCatalogTabsClean() {
         </div>
 
         <div className="mt-8">
-          <Table rows={tableRowsByTab[active]} />
+          <Table
+            rows={tableRowsByTab[active].slice(
+              0,
+              active === "habilitations" ? 5 : 3
+            )}
+          />
           <AudienceBox items={audienceByTab[active]} />
         </div>
 
-        <p className="mt-6 text-sm text-slate-500">
-          Les tarifs intra-entreprise sont indiques a partir de et peuvent
-          varier selon le lieu d'intervention, les contraintes du site et le
-          nombre de participants.
-        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <Link
+            href="/formation-habilitation-electrique"
+            className="inline-flex rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          >
+            Voir tous les tarifs
+          </Link>
+          <p className="text-sm text-slate-500">
+            Les tarifs intra-entreprise sont indiqués à partir de et peuvent
+            varier selon le lieu d'intervention, les contraintes du site et le
+            nombre de participants.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -277,11 +291,11 @@ function Table({ rows }: { rows: TableRow[] }) {
             <thead className="bg-slate-100 text-left">
               <tr>
                 <th className="px-4 py-3 whitespace-nowrap">Formation</th>
-                <th className="px-4 py-3 whitespace-nowrap">Duree</th>
+                <th className="px-4 py-3 whitespace-nowrap">Durée</th>
                 <th className="px-4 py-3 whitespace-nowrap">Inter / pers</th>
                 <th className="px-4 py-3 whitespace-nowrap">Intra / groupe</th>
                 <th className="px-4 py-3 whitespace-nowrap">Participants</th>
-                <th className="px-4 py-3 whitespace-nowrap">Acces</th>
+                <th className="px-4 py-3 whitespace-nowrap">Accès</th>
               </tr>
             </thead>
             <tbody>
@@ -327,7 +341,7 @@ function AudienceBox({ items }: { items: string[] }) {
   return (
     <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
       <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-        Public concerne
+        Public concerné
       </p>
       <ul className="mt-3 grid gap-2 text-sm leading-7 text-slate-700 sm:grid-cols-2">
         {items.map((item) => (
