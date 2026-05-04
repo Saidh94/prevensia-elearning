@@ -7,13 +7,13 @@ import { useSearchParams } from "next/navigation";
 const formationsParCategorie = {
   "Habilitations electriques": [
     "H0B0 / H0V - E-learning + entretien 30 min",
-    "BS / BE Manoeuvre - E-learning + classe virtuelle",
-    "BS / BE Manoeuvre - E-learning + session entreprise",
+    "BS / BE Manœuvre - E-learning + classe virtuelle",
+    "BS / BE Manœuvre - E-learning + session entreprise",
     "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles",
-    "BS / BE Manoeuvre - E-learning + visio de recyclage",
+    "BS / BE Manœuvre - E-learning + visio de recyclage",
     "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
   ],
-  "Securite incendie": [
+  "Sécurité incendie": [
     "Manipulation extincteurs",
     "Guide-file / Serre-file",
     "Equipier de Premiere Intervention (EPI)",
@@ -41,13 +41,13 @@ function normaliserFormationDepuisCalendrier(
     entree.includes("be") &&
     entree.includes("recyclage")
   ) {
-    return "BS / BE Manoeuvre - E-learning + visio de recyclage";
+    return "BS / BE Manœuvre - E-learning + visio de recyclage";
   }
 
   if (entree.includes("bs") && entree.includes("be")) {
     return formatNormalise.includes("entreprise")
-      ? "BS / BE Manoeuvre - E-learning + session entreprise"
-      : "BS / BE Manoeuvre - E-learning + classe virtuelle";
+      ? "BS / BE Manœuvre - E-learning + session entreprise"
+      : "BS / BE Manœuvre - E-learning + classe virtuelle";
   }
 
   if (

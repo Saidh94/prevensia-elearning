@@ -85,7 +85,7 @@ const inrsVideoResources = [
   {
     title: "INRS - Les bases de l'habilitation electrique",
     description:
-      "Une ressource utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
+      "Une ressource utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilité de l'employeur.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-132",
     badge: "Vidéo INRS",
   },

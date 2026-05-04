@@ -26,13 +26,13 @@ const formations = [
       "Conduite a tenir en cas d'incident ou d'accident",
     ],
     note:
-      "Module theorique de sensibilisation complète par un entretien de validation de 30 minutes.",
+      "Module théorique de sensibilisation complète par un entretien de validation de 30 minutes.",
   },
   {
     slug: "bs-be-manoeuvre",
     category: "Habilitation électrique",
     title: "Habilitation électrique BS et BE Manœuvre",
-    duration: "E-learning : 5 h a 7 h + séquence encadrée : 45 min a 4 h",
+    duration: "E-learning : 5 h à 7 h + séquence encadrée : 45 min à 4 h",
     mode: "E-learning + classes virtuelle / visio",
     price: "320 EUR HT",
     level: "Intermediaire",
@@ -66,9 +66,9 @@ const formations = [
     audience:
       "Électriciens executants amenes a realiser des travaux electriques en basse tension sous direction.",
     description:
-      "Parcours theorique cible sur le rôle d'executant B1 / B1V, le voisinage, la lecture du cadre de travail et la discipline d'execution en sécurité.",
+      "Parcours théorique cible sur le rôle d'exécutant B1 / B1V, le voisinage, la lecture du cadre de travail et la discipline d'execution en sécurité.",
     objectifs: [
-      "Comprendre le rôle d'executant B1 / B1V",
+      "Comprendre le rôle d'exécutant B1 / B1V",
       "Respecter le cadre de travail fixe par le charge de travaux",
       "Identifier le voisinage et stopper en cas d'ecart",
     ],
@@ -92,14 +92,14 @@ const formations = [
     audience:
       "Charges de travaux, chefs d'équipe et responsables amenes a préparer et diriger des travaux electriques en basse tension.",
     description:
-      "Parcours theorique cible sur le rôle B2 / B2V, l'organisation du chantier électrique, la coordination et la maitrise du voisinage.",
+      "Parcours théorique cible sur le rôle B2 / B2V, l'organisation du chantier électrique, la coordination et la maîtrise du voisinage.",
     objectifs: [
       "Comprendre le rôle de charge de travaux",
       "Organiser la zone, le briefing et les protections",
       "Diriger l'équipe et suspendre le chantier si le cadre se dégradé",
     ],
     programme: [
-      "Cadre B2 / B2V et chaîne de responsabilite",
+      "Cadre B2 / B2V et chaîne de responsabilité",
       "Préparation des travaux et coordination",
       "Direction du chantier et maitrise du voisinage",
       "Ecarts, urgences et compte rendu de fin d'opération",
@@ -118,14 +118,14 @@ const formations = [
     audience:
       "Techniciens de maintenance et personnels amenes a conduire des interventions générales en basse tension.",
     description:
-      "Parcours theorique cible sur le depannage, le remplacement, les essais limites et les conditions strictes de l'intervention générale BR.",
+      "Parcours théorique cible sur le dépannage, le remplacement, les essais limites et les conditions strictes de l'intervention générale BR.",
     objectifs: [
       "Comprendre le cadre BR et ses limites",
       "Preparer une intervention générale en sécurité",
       "Refuser toute derive vers des travaux structures ou hors cadre",
     ],
     programme: [
-      "Cadre BR et responsabilites de l'intervenant",
+      "Cadre BR et responsabilités de l'intervenant",
       "Préparation, mise en sécurité et vérification",
       "Depannage, remplacement, mesurage et essais limites",
       "Anomalies, urgences et retour d'experience",
@@ -144,7 +144,7 @@ const formations = [
     audience:
       "Responsables techniques et personnels amenes a assurer la consignation et la deconsignation en basse tension.",
     description:
-      "Parcours theorique cible sur la chaîne de consignation, la vérification d'absence de tension, la tracabilite et la remise a disposition de l'installation.",
+      "Parcours théorique cible sur la chaîne de consignation, la vérification d'absence de tension, la traçabilité et la remise a disposition de l'installation.",
     objectifs: [
       "Comprendre le rôle de charge de consignation",
       "Maitriser la chaîne de consignation et la VAT",
@@ -170,7 +170,7 @@ const formations = [
     audience:
       "Techniciens amenes a realiser des vérifications, mesurages et contrôles en basse tension.",
     description:
-      "Parcours theorique cible sur la vérification, le mesurage, la lecture du cadre d'action, les instruments et les limites d'intervention.",
+      "Parcours théorique cible sur la vérification, le mesurage, la lecture du cadre d'action, les instruments et les limites d'intervention.",
     objectifs: [
       "Comprendre le cadre BE Vérification / BE Mesurage",
       "Preparer un contrôle en sécurité",
@@ -196,10 +196,10 @@ const formations = [
     audience:
       "Personnel électricien amene a couvrir plusieurs rôles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
     description:
-      "Parcours theorique transversal structure autour des rôles, responsabilites, séquences de sécurité, consignation et organisation des opérations d'ordre électrique en basse tension.",
+      "Parcours théorique transversal structure autour des rôles, responsabilités, séquences de sécurité, consignation et organisation des opérations d'ordre électrique en basse tension.",
     objectifs: [
       "Maitriser les prescriptions de sécurité applicables aux opérations d'ordre électrique",
-      "Comprendre les rôles, responsabilites et limites des differents symboles d'habilitation",
+      "Comprendre les rôles, responsabilités et limites des différents symboles d'habilitation",
       "Donner un socle commun avant requalification pratique par rôle",
     ],
     programme: [
@@ -210,7 +210,7 @@ const formations = [
       "Analyse des risques, conduite a tenir et cas pratiques",
     ],
     note:
-      "Socle theorique premium inclus dans l'offre présentielle multi-symboles. Non vendu comme formation e-learning autonome.",
+      "Socle théorique premium inclus dans l'offre présentielle multi-symboles. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "incendie",
@@ -331,7 +331,7 @@ const formations = [
     audience:
       "Salariés amenes a participer a la prévention des risques et a la prise en charge initiale d'une victime.",
     description:
-      "Parcours theorique d'introduction aux principes SST : proteger, examiner, alerter, secourir et participer a la prévention dans l'entreprise.",
+      "Parcours théorique d'introduction aux principes SST : proteger, examiner, alerter, secourir et participer a la prévention dans l'entreprise.",
     objectifs: [
       "Reperer une situation dangereuse et eviter le suraccident",
       "Adopter la logique proteger, examiner, alerter, secourir",

@@ -25,7 +25,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "habilitations", label: "Habilitations" },
   { key: "ssi", label: "SSI" },
   { key: "sprinkler", label: "Sprinkler" },
-  { key: "incendie", label: "Securite incendie" },
+  { key: "incendie", label: "Sécurité incendie" },
   { key: "sst", label: "SST" },
 ];
 
@@ -104,7 +104,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       ctaLabel: "Voir la formation",
     },
     {
-      title: "Equipier de Premiere Intervention (EPI)",
+      title: "Équipier de Première Intervention (EPI)",
       duration: "1 jour",
       price: "220 EUR HT",
       group: "Sur devis",
@@ -157,7 +157,7 @@ const audienceByTab: Record<TabKey, string[]> = {
   ],
   sprinkler: [
     "Responsables maintenance",
-    "Responsables securite incendie",
+    "Responsables sécurité incendie",
     "Exploitants logistiques et industriels",
     "Techniciens d'exploitation",
     "Ingenieurs et bureaux d'etudes pour le module avance",
@@ -165,9 +165,9 @@ const audienceByTab: Record<TabKey, string[]> = {
   incendie: [
     "Salaries d'entreprise",
     "Personnel charge de l'evacuation",
-    "Equipiers de premiere intervention",
+    "Équipiers de première intervention",
     "Encadrants et referents securite",
-    "Collaborateurs a sensibiliser au risque incendie",
+    "Collaborateurs à sensibiliser au risque incendie",
   ],
   sst: [
     "Salaries de tout secteur",
@@ -188,7 +188,7 @@ export default function TrainingCatalogTabsClean() {
             Tarifs des formations
           </p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Des formations structurees par domaine
+            Des formations structurées par domaine
           </h2>
           <p className="mt-4 text-slate-600">
             Tarifs indicatifs en inter-entreprises par participant et en

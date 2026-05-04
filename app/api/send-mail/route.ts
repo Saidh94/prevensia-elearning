@@ -10,13 +10,14 @@ import {
 
 export const runtime = "nodejs";
 
-const apiKey = process.env.RESEND_API_KEY?.trim();
-
-if (!apiKey) {
-  throw new Error("RESEND_API_KEY manquante dans Vercel");
+let _resend: import("resend").Resend | null = null;
+function getResend() {
+  if (_resend) return _resend;
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  if (!apiKey) throw new Error("RESEND_API_KEY manquante – configurez-la dans Vercel.");
+  _resend = new Resend(apiKey);
+  return _resend;
 }
-
-const resend = new Resend(apiKey);
 
 const FROM_EMAIL = "PREVENSIA <contact@prevensia-formation.fr>";
 const ADMIN_EMAIL = "prevensia.formation@outlook.fr";
@@ -73,7 +74,7 @@ const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
   bsbe: {
     slug: "bs-be-manoeuvre",
     title: "BS et BE Manoeuvre",
-    description: "Operations elementaires et manoeuvres BT.",
+    description: "Opérations élémentaires et manœuvres BT.",
     durationHours: 10,
     mode: "e-learning",
     isPublished: true,
@@ -100,7 +101,7 @@ const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
   "ssi-exploitation": {
     slug: "ssi-exploitation",
     title: "Exploitation des SSI - fondamentaux",
-    description: "Module PREVENSIA d'exploitation des systemes de securite incendie.",
+    description: "Module PREVENSIA d'exploitation des systèmes de sécurité incendie.",
     durationHours: 5,
     mode: "e-learning",
     isPublished: true,
@@ -541,6 +542,7 @@ async function createOrReuseEnrollment(
 }
 
 export async function POST(request: Request) {
+  const resend = getResend();
   try {
     const adminClient = createAdminClient();
 
@@ -616,7 +618,7 @@ export async function POST(request: Request) {
       <p><strong>Email :</strong> ${escapeHtml(email)}</p>
       <p><strong>Telephone :</strong> ${escapeHtml(phone || "Non renseigne")}</p>
       <p><strong>Entreprise :</strong> ${escapeHtml(company || "Non renseignee")}</p>
-      <p><strong>Categorie :</strong> ${escapeHtml(categorie || "Non renseignee")}</p>
+      <p><strong>Catégorie :</strong> ${escapeHtml(categorie || "Non renseignée")}</p>
       <p><strong>Formation demandee :</strong> ${escapeHtml(formation)}</p>
       <p><strong>Formation rattachee :</strong> ${escapeHtml(
         formationRecord.title || formationRecord.slug || "Formation"

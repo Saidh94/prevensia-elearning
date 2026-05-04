@@ -170,13 +170,13 @@ export default function ReservationPageClient({
                 Reservation formation
               </p>
               <h1 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-                Entretiens, classes virtuelles et journees terrain PREVENSIA
+                Entretiens, classes virtuelles et journées terrain PREVENSIA
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
                 PREVENSIA distingue la theorie e-learning, le quiz puis la
                 sequence finale avec formateur. Selon le parcours, vous pouvez
                 organiser un entretien H0B0 / H0V, une classe virtuelle BS /
-                BE Manoeuvre ou une journee presentielle BT electricien pour
+                BE Manoeuvre ou une journée présentielle BT electricien pour
                 B1 / B1V, B2 / B2V, BR, BC ou parcours multi-symboles, avec une lecture
                 claire entre besoins individuels, groupes et entreprises.
               </p>
@@ -205,7 +205,7 @@ export default function ReservationPageClient({
                 <p className="mt-3 text-sm leading-7 text-slate-700">
                   Pour les groupes et entreprises, PREVENSIA peut proposer une
                   classe virtuelle planifiee, une organisation en entreprise ou
-                  une journee terrain selon le nombre d&apos;apprenants et le
+                  une journée terrain selon le nombre d&apos;apprenants et le
                   niveau vise.
                 </p>
               </article>
