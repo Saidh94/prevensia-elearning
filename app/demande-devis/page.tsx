@@ -75,7 +75,7 @@ function DemandeDevisForm() {
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
           <p>
-            <strong>Email :</strong> prevensia.formation@outlook.fr
+            <strong>Email :</strong> contact@prevensia-formation.fr
           </p>
           <p>
             <strong>Téléphone :</strong> 01 89 62 94 92
