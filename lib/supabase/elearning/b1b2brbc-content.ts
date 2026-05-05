@@ -28,7 +28,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       content: [
         "Le B1 designe l'executant electricien en basse tension. Le B1V designe cet executant lorsqu'il agit dans un environnement de voisinage renforcant les exigences de securite. Le B2 designe le charge de travaux, c'est-a-dire la personne qui prepare, organise et dirige effectivement les travaux electriques confies a son equipe. Le B2V designe ce charge de travaux lorsqu'il intervient en voisinage dans les conditions prevues par l'organisation et la norme.",
         "Le BR designe le charge d'intervention en basse tension pour les interventions generales autorisees. Il se situe dans un cadre specifique d'entretien, de depannage, de mesure, d'essai limite ou de remise en etat. Le BC est le charge de consignation: il effectue ou fait effectuer les operations de separation, condamnation, identification, verification d'absence de tension et, lorsque cela est requis, mise a la terre et en court-circuit.",
-        "La norme insiste sur la définition des personnes: employeur, chargé de travaux, chargé d'intervention, chargé de consignation, exécutant, surveillant de sécurité électrique. Cette architecture n'est pas théorique. Elle structure la prevention du risque electrique parce que chacun doit savoir ce qu'il decide, ce qu'il controle et ce qu'il execute.",
+        "La norme insiste sur la definition des personnes: employeur, charge de travaux, charge d'intervention, charge de consignation, executant, surveillant de securite electrique. Cette architecture n'est pas theorique. Elle structure la prevention du risque electrique parce que chacun doit savoir ce qu'il decide, ce qu'il controle et ce qu'il execute.",
         "L'habilitation reste une reconnaissance employeur. Elle ne se deduit ni d'un diplome, ni de l'anciennete, ni d'une habitude de site. Un salarie peut posseder plusieurs symboles si ses missions le justifient, mais chaque symbole garde ses limites propres. Cumuler des titres ne signifie jamais melanger les roles pendant une operation sans clarification.",
         "La partie e-learning prepare la theorie, mais la delivrance du titre d'habilitation releve d'une verification employeur complete, appuyee sur une evaluation pratique et sur l'adequation entre les taches reelles et le symbole retenu.",
         "Le Code du travail et la NF C 18-510 encadrent cette logique: l'operation d'ordre electrique doit etre organisee, les personnes doivent etre formees et habilitees lorsque cela est requis, et l'employeur doit definir les missions reelles, les consignes et les moyens adaptes. Le titre d'habilitation n'est donc jamais une simple formalite administrative.",
@@ -36,8 +36,8 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Le professionnel fiable sait donc dire non a un glissement de mission. Un B1 ou un B1V n'agit pas comme un B2 ou un B2V. Un BR ne se transforme pas en BC parce qu'il faut aller vite. Et une operation non preparee doit etre stoppee meme si le besoin de remise en service est fort.",
       ],
       deepDive: [
-        "L'introduction de la norme insiste sur l'unicité, la cohérence et la maîtrise de l'information. Dans la pratique, cela veut dire qu'une opération électrique ne doit jamais reposer sur des consignes floues, des transmissions orales contradictoires ou des suppositions de terrain.",
-        "Le vrai professionnalisme ne consiste pas à 'se débrouiller'. Il consiste a tenir son role, à connaître sa limite et à exiger une requalification des que la situation ne correspond plus au cadre prévu.",
+        "L'introduction de la norme insiste sur l'unicite, la coherence et la maitrise de l'information. Dans la pratique, cela veut dire qu'une operation electrique ne doit jamais reposer sur des consignes floues, des transmissions orales contradictoires ou des suppositions de terrain.",
+        "Le vrai professionnalisme ne consiste pas a 'se debrouiller'. Il consiste a tenir son role, a connaitre sa limite et a exiger une requalification des que la situation ne correspond plus au cadre prevu.",
         "Chaque technicien doit savoir se positionner correctement dans l'organisation de sécurité, pas seulement réciter des définitions.",
       ],
       keyPoints: [
@@ -45,7 +45,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "B2 / B2V = charge de travaux en BT, avec ou sans voisinage selon l'attribut.",
         "BR = charge d'intervention en BT.",
         "BC = charge de consignation.",
-        "Chaque symbole correspond à un rôle et à des limites propres.",
+        "Chaque symbole correspond a un role et a des limites propres.",
       ],
       forbiddenPoints: [
         "Confondre experience terrain et droit d'agir.",
@@ -70,7 +70,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : un technicien assure habituellement du depannage en BR. On lui demande soudain d'organiser un chantier avec plusieurs operateurs et une mise hors tension preparee. La mission ne releve plus du meme cadre et doit etre requalifiee avant toute action.",
       visual: {
-        title: "Quatre fonctions, quatre responsabilités",
+        title: "Quatre fonctions, quatre responsabilites",
         subtitle: "Exécuter, diriger, intervenir, consigner : la norme fixe une frontière nette entre ces rôles.",
         items: ["B1 / B1V exécutant", "B2 / B2V chargé de travaux", "BR intervention générale", "BC consignation"],
         tone: "blue",
@@ -83,19 +83,19 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "2. Rôles, responsabilités et chaîne de décision",
       estimatedMinutes: 25,
       intro:
-        "Le risque electrique ne se maîtrise pas seulement par le geste technique. Il se maitrise d'abord par une organisation claire, des documents fiables et une chaîne de responsabilité que chacun comprend sans ambiguite.",
+        "Le risque electrique ne se maitrise pas seulement par le geste technique. Il se maitrise d'abord par une organisation claire, des documents fiables et une chaine de responsabilite que chacun comprend sans ambiguite.",
       content: [
-        "L'employeur définit les missions, les moyens, les procédures, les équipements de protection et les niveaux d'habilitation adaptes. Il doit s'assurer que le personnel dispose d'une formation adéquate, d'une information maîtrisée et d'une organisation compatible avec le risque électrique réel du site.",
+        "L'employeur definit les missions, les moyens, les procedures, les equipements de protection et les niveaux d'habilitation adaptes. Il doit s'assurer que le personnel dispose d'une formation adequate, d'une information maitrisee et d'une organisation compatible avec le risque electrique reel du site.",
         "Le charge de travaux B2 prepare l'intervention, delimite la zone, verifie le cadre de securite, organise le briefing, pilote l'equipe et suspend l'operation si les conditions prevues ne sont plus reunies. L'executant B1 applique les consignes, reste dans le perimetre defini et remonte immediatement tout ecart, doute ou evenement non prevu.",
         "Le charge d'intervention BR prepare et conduit l'intervention generale dans la limite de son cadre. Le charge de consignation BC garantit la fiabilite de la mise en securite electrique. Selon les configurations, d'autres fonctions peuvent intervenir: charge d'exploitation, surveillant de securite electrique, representant de l'entreprise exploitante ou donneur d'ordre. Le fil conducteur reste le meme: une personne sait, une personne autorise, une personne dirige, une personne execute.",
         "Cette chaine s'appuie sur des documents et des informations claires: instructions, analyses de risque, autorisations, attestations, certificats, reperages, procedures de suivi et de controle. La norme insiste sur ce point car une operation mal informee produit des erreurs d'identification, des glissements de mission et des illusions de securite.",
         "Dans les parcours les plus serieux, cette partie ne se limite pas a des definitions. Elle montre comment s'articulent concretement le titre d'habilitation, l'autorisation de travail, le balisage, la consignation, le briefing d'equipe, le compte rendu de fin d'intervention et la remise en service.",
-        "L'apprenant doit aussi savoir qu'une information fiable est unique, cohérente et maîtrisée. Si le schema, l'etiquetage, le dossier d'intervention ou l'instruction du jour se contredisent, la bonne reaction n'est pas d'interpreter au plus vite: c'est de suspendre et de faire clarifier.",
+        "L'apprenant doit aussi savoir qu'une information fiable est unique, coherente et maitrisee. Si le schema, l'etiquetage, le dossier d'intervention ou l'instruction du jour se contredisent, la bonne reaction n'est pas d'interpreter au plus vite: c'est de suspendre et de faire clarifier.",
         "Une mission electrique sure se prepare avec une information exploitable: qui intervient, sur quel materiel, dans quelle zone, avec quelle autorisation, quelles protections, quels points d'arret et quelles conditions de reprise.",
-        "La requalification de l'opération fait partie de cette maturite. Si un depannage simple revele finalement des travaux a organiser, ou si un chantier préparé se heurte à un voisinage non maîtrisé, l'operation n'est pas poursuivie par habitude: elle est stoppée puis redéfinie.",
+        "La requalification de l'operation fait partie de cette maturite. Si un depannage simple revele finalement des travaux a organiser, ou si un chantier prepare se heurte a un voisinage non maitrise, l'operation n'est pas poursuivie par habitude: elle est stoppee puis redefinie.",
       ],
       deepDive: [
-        "Beaucoup d'accidents trouvent leur origine dans une situation ou tout le monde croit que 'quelqu'un d'autre' a verifie. Le rôle de chacun doit donc être explicite, assumé et traçable.",
+        "Beaucoup d'accidents trouvent leur origine dans une situation ou tout le monde croit que 'quelqu'un d'autre' a verifie. Le role de chacun doit donc etre explicite, assume et tracable.",
         "La chaine de decision doit rester compatible avec le terrain: quand un materiel est mal repere, quand un depart voisin apparait sous tension ou quand un document n'est plus coherent, le processus de securite reprend la main sur la production.",
       ],
       keyPoints: [
@@ -111,7 +111,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Continuer alors que l'operation a change de nature.",
       ],
       legalRefs: [
-        "NF C 18-510 - introduction : unicité, cohérence et maîtrise de l'information.",
+        "NF C 18-510 - introduction : unicite, coherence et maitrise de l'information.",
         "NF C 18-510 - article 3 : definitions des charges et de l'executant.",
         "Code du travail - adequation entre competence, poste et risque electrique.",
       ],
@@ -120,9 +120,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
       chapterImagePath:
         "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
-        "Document technique et cadre d'autorisation utilises pour organiser une operation electrique et clarifier les responsabilités",
+        "Document technique et cadre d'autorisation utilises pour organiser une operation electrique et clarifier les responsabilites",
       visual: {
-        title: "Une chaîne de responsabilité lisible",
+        title: "Une chaine de responsabilite lisible",
         subtitle: "Employeur, responsables electriques, executants et documents doivent former un dispositif coherent.",
         items: ["Mission definie", "Role attribue", "Documents fiables", "Arret si l'operation change"],
         tone: "slate",
@@ -137,12 +137,12 @@ export const b1b2brbcModuleContent: ModuleContent = {
       intro:
         "Lire un symbole d'habilitation ne consiste pas a reconnaitre des lettres familieres. Il faut comprendre ce que chaque caractere ouvre ou, au contraire, interdit dans le cadre reel d'une operation.",
       content: [
-        "La lettre B renvoie a la basse tension. Les chiffres et lettres associes precisent la nature de l'opération ou du rôle: executant, charge de travaux, intervention, consignation. Le symbole n'est donc pas un simple intitulé administratif: il fixe un cadre concret d'action.",
+        "La lettre B renvoie a la basse tension. Les chiffres et lettres associes precisent la nature de l'operation ou du role: executant, charge de travaux, intervention, consignation. Le symbole n'est donc pas un simple intitule administratif: il fixe un cadre concret d'action.",
         "Les attributs et indices doivent etre lus avec rigueur. Un B1 n'est pas un B2. Un BR n'est pas un BC. L'attribut V renvoie a une situation de voisinage qui renforce les exigences de securite mais ne transforme jamais un symbole en autre chose que ce qu'il est. Un B1V n'est pas un BR et un BRV n'est pas un charge de consignation.",
         "La lecture correcte des symboles evite l'un des ecarts les plus courants du terrain: penser qu'une habitude, un niveau technique ou une urgence de production permettent d'elargir ce que le titre autorise. La norme fait exactement l'inverse: elle borne les missions pour eviter les derives.",
         "Le voisinage doit etre pense des la preparation. Il conditionne les ecrans, obstacles, capotages, delimitations de zone, protections collectives et parfois la necessite de changer de methode ou de suspendre l'operation. Un symbole avec voisinage n'est jamais un 'plus pratique'; c'est un cadre plus exigeant.",
         "L'attribut V ne donne pas un droit supplementaire de depannage ou de travaux. Il signifie qu'une operation est realisee dans des conditions de voisinage qui imposent une analyse plus rigoureuse, des protections renforcees et un encadrement adapte.",
-        "Le symbole BC ne doit pas être confondu avec un rôle général de chantier. Il vise la consignation. Le symbole BR ne doit pas etre confondu avec une autorisation generale de modifier librement une installation. Il couvre des interventions générales définies, méthodiques et limitées.",
+        "Le symbole BC ne doit pas etre confondu avec un role general de chantier. Il vise la consignation. Le symbole BR ne doit pas etre confondu avec une autorisation generale de modifier librement une installation. Il couvre des interventions generales definies, methodiques et limitees.",
         "Une lecture professionnelle des symboles implique enfin de rapprocher le titre, la mission, le materiel, l'environnement et la procedure. Si l'un de ces elements ne colle plus, le bon reflexe n'est pas d'interpreter au large. C'est de s'arreter et de requalifier.",
       ],
       deepDive: [
@@ -157,7 +157,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       forbiddenPoints: [
         "Deviner le sens d'un symbole au lieu de le lire strictement.",
-        "Utiliser le voisinage comme prétexte pour agir au-delà du rôle attribué.",
+        "Utiliser le voisinage comme pretexte pour agir au-dela du role attribue.",
       ],
       legalRefs: [
         "NF C 18-510 - tableau des elements du symbole et conditions associees.",
@@ -172,7 +172,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       visual: {
         title: "Chaque caractere compte",
         subtitle: "Lettre, indice et attribut fixent le cadre reel d'autorisation et les precautions a prendre.",
-        items: ["B = basse tension", "1 ou 2 = exécuter ou diriger", "R / C = intervenir ou consigner", "V = voisinage plus exigeant"],
+        items: ["B = basse tension", "1 ou 2 = executer ou diriger", "R / C = intervenir ou consigner", "V = voisinage plus exigeant"],
         tone: "green",
         imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-symboles.svg",
         imageAlt: "Illustration de lecture des symboles B1 B1V B2 B2V BR BC et de l'attribut V",
@@ -183,7 +183,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "4. Domaines de tension, voisinage et pièces nues sous tension",
       estimatedMinutes: 25,
       intro:
-        "Les habilitations B1, B1V, B2, B2V, BR et BC s'exercent dans un environnement ou la notion de voisinage, de PNST et de distances de sécurité change concretement la façon de préparer et d'exécuter une opération.",
+        "Les habilitations B1, B1V, B2, B2V, BR et BC s'exercent dans un environnement ou la notion de voisinage, de PNST et de distances de securite change concretement la facon de preparer et d'executer une operation.",
       content: [
         "La basse tension n'est pas une zone de confort. Elle reste un domaine ou le risque de choc electrique, d'arc et de court-circuit peut etre grave, en particulier si des pieces nues sous tension sont accessibles ou si l'environnement est degrade.",
         "La presence de voisinage doit etre analysee des la preparation. Elle conditionne les balisages, les ecrans, les obstacles, la delimitation de zone, les roles et parfois la necessite de modifier le cadre d'intervention.",
@@ -666,7 +666,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Exemple : un chantier electrique prepare glisse vers une modification de schema non prevue. Le bon choix est de suspendre et de redocumenter l'operation avant reprise.",
       chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
       chapterImageAlt:
-        "Schéma de synthèse des réflexes à conserver pour préparer, exécuter ou interrompre une opération électrique en basse tension",
+        "Schema de synthese des reflexes a conserver pour preparer, executer ou interrompre une operation electrique en basse tension",
       visual: {
         title: "Les 4 reflexes a retenir",
         subtitle: "Identifier, preparer, respecter son role, arreter si doute.",

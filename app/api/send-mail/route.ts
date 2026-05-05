@@ -10,6 +10,7 @@ import {
 
 export const runtime = "nodejs";
 
+// Resend instancié à la demande dans POST pour éviter le throw au chargement.
 let _resend: import("resend").Resend | null = null;
 function getResend() {
   if (_resend) return _resend;
@@ -20,7 +21,7 @@ function getResend() {
 }
 
 const FROM_EMAIL = "PREVENSIA <contact@prevensia-formation.fr>";
-const ADMIN_EMAIL = "prevensia.formation@outlook.fr";
+const ADMIN_EMAIL = "contact@prevensia-formation.fr";
 
 type FormationRecord = {
   id: string;
@@ -64,66 +65,66 @@ type FormationSeed = {
 const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
   h0b0: {
     slug: "h0b0",
-    title: "Habilitation electrique H0B0",
-    description: "Formation destinee au personnel non electricien.",
+    title: "Habilitation électrique H0B0",
+    description: "Formation destinée au personnel non électricien.",
     durationHours: 7,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "1 h 20 a 1 h 45",
+    elearningDuration: "1 h 20 à 1 h 45",
   },
   bsbe: {
     slug: "bs-be-manoeuvre",
-    title: "BS et BE Manoeuvre",
+    title: "BS et BE Manœuvre",
     description: "Opérations élémentaires et manœuvres BT.",
     durationHours: 10,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "7 h 30 a 9 h 30",
+    elearningDuration: "7 h 30 à 9 h 30",
   },
   b1b2brbc: {
     slug: "b1-b1v-b2-b2v-br-bc",
     title: "B1 / B1V / B2 / B2V / BR / BC",
-    description: "Formation complete personnel electricien.",
+    description: "Formation complète personnel électricien.",
     durationHours: 14,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "8 h 00 a 11 h 00",
+    elearningDuration: "8 h 00 à 11 h 00",
   },
   incendie: {
     slug: "securite-incendie",
-    title: "Securite incendie, alerte et evacuation",
-    description: "Module PREVENSIA sur la prevention incendie et les premiers reflexes.",
+    title: "Sécurité incendie, alerte et évacuation",
+    description: "Module PREVENSIA sur la prévention incendie et les premiers réflexes.",
     durationHours: 4,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "45 a 60 minutes",
+    elearningDuration: "45 à 60 minutes",
   },
   "ssi-exploitation": {
     slug: "ssi-exploitation",
-    title: "Exploitation des SSI - fondamentaux",
+    title: "Exploitation des SSI – fondamentaux",
     description: "Module PREVENSIA d'exploitation des systèmes de sécurité incendie.",
     durationHours: 5,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "45 a 60 minutes",
+    elearningDuration: "45 à 60 minutes",
   },
   sprinkler: {
     slug: "sprinkler",
-    title: "Exploitation sprinkler et referentiels techniques",
-    description: "Module PREVENSIA d'exploitation sprinkler et reperes techniques.",
+    title: "Exploitation sprinkler et référentiels techniques",
+    description: "Module PREVENSIA d'exploitation sprinkler et repères techniques.",
     durationHours: 5,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "45 a 60 minutes",
+    elearningDuration: "45 à 60 minutes",
   },
   sst: {
     slug: "sst",
     title: "SST - Sauveteur Secouriste du Travail",
-    description: "Module PREVENSIA d'introduction a la prevention et aux gestes de premier secours.",
+    description: "Module PREVENSIA d'introduction à la prévention et aux gestes de premiers secours.",
     durationHours: 7,
     mode: "e-learning",
     isPublished: true,
-    elearningDuration: "45 a 60 minutes",
+    elearningDuration: "45 à 60 minutes",
   },
 };
 
@@ -292,11 +293,11 @@ async function resolveFormation(
 
   const formations = data ?? [];
   const normalizedRequestedTitle = normalize(formation);
-  const canonicalSlug = inferCanonicalFormationSlug(formation, categorie);
+  const canonicalSlug = inferCanonicalFormationSlug(formation, catégorie);
   const slugCandidates = canonicalSlug
     ? [...new Set([getFormationSeed(canonicalSlug).slug, ...getModuleSlugCandidates(canonicalSlug)])]
     : [];
-  const searchTokens = buildSearchTokens(formation, categorie);
+  const searchTokens = buildSearchTokens(formation, catégorie);
 
   if (canonicalSlug) {
     const expectedDbSlug = getFormationSeed(canonicalSlug).slug;
@@ -392,7 +393,7 @@ async function upsertProfile(
       last_name: profile.lastName || null,
       phone: profile.phone || null,
       company: profile.company || null,
-      role: "learner",
+      rôle: "learner",
     },
     { onConflict: "id" }
   );
@@ -542,7 +543,6 @@ async function createOrReuseEnrollment(
 }
 
 export async function POST(request: Request) {
-  const resend = getResend();
   try {
     const adminClient = createAdminClient();
 
@@ -568,7 +568,7 @@ export async function POST(request: Request) {
     const company = String(body?.company ?? body?.entreprise ?? "").trim();
     const sessionId = String(body?.sessionId ?? "").trim();
     const formation = String(body?.formation ?? "").trim();
-    const categorie = String(body?.categorie ?? "").trim();
+    const catégorie = String(body?.catégorie ?? "").trim();
     const dateSession = String(body?.dateSession ?? body?.date ?? "").trim();
     const format = String(body?.format ?? "").trim();
 
@@ -592,7 +592,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const formationRecord = await resolveFormation(adminClient, formation, categorie);
+    const formationRecord = await resolveFormation(adminClient, formation, catégorie);
     const userAccount = await createOrReuseUser(adminClient, {
       email,
       firstName,
@@ -618,7 +618,7 @@ export async function POST(request: Request) {
       <p><strong>Email :</strong> ${escapeHtml(email)}</p>
       <p><strong>Telephone :</strong> ${escapeHtml(phone || "Non renseigne")}</p>
       <p><strong>Entreprise :</strong> ${escapeHtml(company || "Non renseignee")}</p>
-      <p><strong>Catégorie :</strong> ${escapeHtml(categorie || "Non renseignée")}</p>
+      <p><strong>Catégorie :</strong> ${escapeHtml(catégorie || "Non renseignee")}</p>
       <p><strong>Formation demandee :</strong> ${escapeHtml(formation)}</p>
       <p><strong>Formation rattachee :</strong> ${escapeHtml(
         formationRecord.title || formationRecord.slug || "Formation"
@@ -639,6 +639,7 @@ export async function POST(request: Request) {
       <p><strong>ID inscription :</strong> ${escapeHtml(enrollment.enrollmentId)}</p>
     `;
 
+    const resend = getResend();
     const adminResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: [ADMIN_EMAIL],
@@ -762,18 +763,9 @@ export async function POST(request: Request) {
       accountState: userAccount.accountState,
       adminMessageId: adminResult.data?.id ?? null,
       userMessageId: userResult.data?.id ?? null,
-      temporaryPassword:
-        process.env.NODE_ENV !== "production"
-          ? userAccount.temporaryPassword
-          : undefined,
     });
-  } catch (error) {
-    return NextResponse.json(
-      {
-        success: false,
-        error: error instanceof Error ? error.message : "Erreur inconnue",
-      },
-      { status: 500 }
-    );
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Erreur inconnue";
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }

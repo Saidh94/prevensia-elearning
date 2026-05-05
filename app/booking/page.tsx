@@ -123,7 +123,7 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
       ctaHref: "https://calendly.com/prevensia-formation-kq6l/30min",
       ctaExternal: true,
       variant: "green",
-      note: "L'entretien complete le module théorique et prepare la validation finale du parcours.",
+      note: "L'entretien complete le module theorique et prepare la validation finale du parcours.",
     };
   }
 
@@ -131,7 +131,7 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
     return {
       title: "Recyclage BS et BE Manoeuvre",
       summary:
-        "Parcours de recyclage avec rappel théorique, quiz puis visio de validation avec le formateur.",
+        "Parcours de recyclage avec rappel theorique, quiz puis visio de validation avec le formateur.",
       duration: "45 min a 1 h",
       audience: isEmployerFlow ? "Entreprise / groupe ou individuel" : "Individuel ou petit groupe",
       ctaLabel: "Choisir un creneau de recyclage",
@@ -183,11 +183,11 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
     return {
       title: `${specificLabel} - parcours BT avec presentiel`,
       summary:
-        "Ce niveau impose une vraie articulation entre e-learning, quiz et séquence présentielle ou organisation terrain avec formateur.",
-      duration: "1 journée présentielle",
+        "Ce niveau impose une vraie articulation entre e-learning, quiz et sequence presentielle ou organisation terrain avec formateur.",
+      duration: "1 journee presentielle",
       audience: isEmployerFlow ? "Entreprise / groupe" : "Individuel ou groupe",
       ctaLabel: isEmployerFlow
-        ? "Voir l'organisation présentielle"
+        ? "Voir l'organisation presentielle"
         : "Voir les prochaines sessions BT",
       ctaHref: isEmployerFlow
         ? "/reservation-formation?category=b1b2brbc_initial&audience=group"
@@ -361,7 +361,7 @@ export default async function BookingPage() {
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
             Vous disposez bien d&apos;un acces actif, mais la sequence formateur ne
-            s&apos;ouvre qu&apos;apres validation du parcours théorique et du quiz.
+            s&apos;ouvre qu&apos;apres validation du parcours theorique et du quiz.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

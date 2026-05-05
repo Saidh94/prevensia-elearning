@@ -36,14 +36,14 @@ const paymentRules: PaymentRule[] = [
     label: "B1 / B1V - parcours cible",
     anyKeywords: ["b1 / b1v", "b1/b1v", "parcours cible executant", "executant electricien"],
     reason:
-      "Ce parcours est ajusté selon les travaux réels, le voisinage et l'organisation retenue.",
+      "Ce parcours est ajuste selon les travaux reels, le voisinage et l'organisation retenue.",
   },
   {
     kind: "quote",
     label: "B2 / B2V - parcours cible",
     anyKeywords: ["b2 / b2v", "b2/b2v", "charge de travaux"],
     reason:
-      "Ce parcours est ajusté selon le rôle d'encadrement, le site et les procédures appliquées.",
+      "Ce parcours est ajuste selon le role d'encadrement, le site et les procedures appliquees.",
   },
   {
     kind: "quote",
@@ -57,7 +57,7 @@ const paymentRules: PaymentRule[] = [
     label: "BC - parcours cible",
     anyKeywords: ["formation bc", "habilitation bc", "charge de consignation"],
     reason:
-      "Le parcours BC dépend des procédures de consignation et de l'organisation du site.",
+      "Le parcours BC depend des procedures de consignation et de l'organisation du site.",
   },
   {
     kind: "quote",
@@ -77,7 +77,7 @@ const paymentRules: PaymentRule[] = [
     kind: "direct",
     label: "Recyclage BS et BE Manoeuvre e-learning",
     allKeywords: ["recyclage"],
-    anyKeywords: ["bs", "be manœuvre", "bs/be", "bs be", "manœuvre"],
+    anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
     kind: "quote",
@@ -96,7 +96,7 @@ const paymentRules: PaymentRule[] = [
     envKey: "STRIPE_PRICE_BSBE_ELEARNING_CENTS",
     kind: "direct",
     label: "BS et BE Manoeuvre - e-learning + visio",
-    anyKeywords: ["bs", "be manœuvre", "bs/be", "bs be", "manœuvre"],
+    anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
   },
   {
     kind: "quote",
@@ -190,8 +190,8 @@ const paymentRules: PaymentRule[] = [
   },
   {
     kind: "quote",
-    label: "Formation sécurité incendie sur mesure",
-    anyKeywords: ["sécurité incendie", "sur site", "intra", "présentiel", "sur mesure"],
+    label: "Formation securite incendie sur mesure",
+    anyKeywords: ["securite incendie", "sur site", "intra", "presentiel", "sur mesure"],
     reason:
       "Cette formation incendie est generalement dimensionnee selon l'effectif, le site et les exercices pratiques attendus.",
   },
@@ -299,7 +299,7 @@ export function getEnrollmentPaymentOption({
     kind: "quote",
     label: formationTitle?.trim() || "Formation PREVENSIA",
     reason:
-      "Le paiement en ligne n'est pas encore configuré pour cette offre. Utilisez la demande de devis ou marquez le paiement manuellement.",
+      "Le paiement en ligne n'est pas encore configure pour cette offre. Utilisez la demande de devis ou marquez le paiement manuellement.",
   };
 }
 
