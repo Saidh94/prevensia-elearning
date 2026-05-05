@@ -1,6 +1,7 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
+  alternates: { canonical: "https://prevensia-formation.fr/formation-ssi" },
   title: "Formation exploitation SSI | PREVENSIA FORMATION",
   description:
     "Formation exploitation du système de sécurité incendie (SSI) pour entreprises, exploitants et responsables techniques. Comprendre le fonctionnement du SSI, les normes AFNOR série NF S 61 et les cadres ERP, IGH, Code du Travail et ICPE.",
@@ -317,14 +318,4 @@ export default function FormationSSI() {
 
           <div className="mt-6">
             <a
-              href="/demande-devis?type=ssi"
-              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
-            >
-              Demander un devis SSI
-            </a>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
-}
+   

@@ -1,6 +1,7 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
+  alternates: { canonical: "https://prevensia-formation.fr/formation-sprinkler" },
   title: "Formation exploitation sprinkler et référentiels techniques | PREVENSIA FORMATION",
   description:
     "Formation sprinkler pour exploitants, responsables techniques et entreprises : fonctionnement, exploitation, surveillance et référentiels EN 12845, APSAD R1, NFPA 13 et FM Global.",
@@ -247,14 +248,4 @@ export default function FormationSprinkler() {
               </summary>
               <p className="mt-3 text-slate-700">
                           Non. La formation sensibilise aux bons réflexes d'exploitation et
-                aux référentiels techniques. La maintenance préventive et les essais
-                périodiques restent à la charge d'un mainteneur qualifié et d'un
-                contrat dédié.
-              </p>
-            </details>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
-}
+                aux référentiels techniques. La maintenance pré

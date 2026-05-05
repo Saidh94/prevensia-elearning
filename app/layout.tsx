@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Footer } from "@/components/site/Footer";
 
 const SITE_URL = "https://prevensia-formation.fr";
 
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
     "sprinkler",
     "Qualiopi",
     "e-learning sécurité",
+    "formation habilitation électrique Île-de-France",
+    "formation sécurité Paris",
+    "organisme formation Noisy-le-Grand",
+    "formation professionnelle Seine-Saint-Denis",
+    "FORMACENTRE",
   ],
   authors: [{ name: "PREVENSIA FORMATION" }],
   alternates: { canonical: SITE_URL },
@@ -96,6 +102,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Footer />
       </body>
     </html>
   );

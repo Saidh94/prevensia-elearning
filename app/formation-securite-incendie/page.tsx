@@ -1,6 +1,7 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
+  alternates: { canonical: "https://prevensia-formation.fr/formation-securite-incendie" },
   title: "Formation sécurité incendie en entreprise | PREVENSIA FORMATION",
   description:
     "Formation sécurité incendie en entreprise : manipulation des extincteurs, guide-file / serre-file et equipier de première intervention. Sessions adaptées aux besoins des entreprises avec PREVENSIA FORMATION.",
@@ -411,14 +412,4 @@ function FaqItem({
   answer: string;
 }) {
   return (
-    <details className="group mb-3 rounded-2xl border border-slate-200 bg-slate-50 p-5 open:shadow-md">
-      <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
-        {question}
-        <span className="float-right text-red-700 group-open:rotate-180 transition">
-          ▼
-        </span>
-      </summary>
-      <p className="mt-3 text-sm leading-7 text-slate-600">{answer}</p>
-    </details>
-  );
-}
+    <details className="grou

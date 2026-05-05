@@ -1,6 +1,7 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
+  alternates: { canonical: "https://prevensia-formation.fr/formation-sst" },
   title: "Formation SST et MAC SST | PREVENSIA FORMATION",
   description:
     "Formation SST initiale et MAC SST en présentiel pour entreprises et professionnels. Apprenez les gestes de premiers secours et la prévention des risques avec PREVENSIA FORMATION.",
@@ -329,15 +330,4 @@ export default function FormationSST() {
           </p>
 
           <div className="mt-6">
-            <a
-              href="/demande-devis?type=sst"
-              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
-            >
-              Demander un devis SST
-            </a>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
-}
+      
