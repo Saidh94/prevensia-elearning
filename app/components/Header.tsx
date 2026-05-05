@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
@@ -28,7 +28,7 @@ export function Header() {
             width={200}
             height={48}
             priority
-            className="h-10 w-auto"
+            className="h-auto w-[190px] sm:w-[250px] lg:w-[300px]"
           />
         </Link>
 

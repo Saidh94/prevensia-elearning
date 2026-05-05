@@ -177,8 +177,11 @@ const audienceByTab: Record<TabKey, string[]> = {
   ],
 };
 
+const MOBILE_INITIAL_COUNT = 3;
+
 export default function TrainingCatalogTabsClean() {
   const [active, setActive] = useState<TabKey>("habilitations");
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <section className="bg-white py-16">
@@ -201,7 +204,7 @@ export default function TrainingCatalogTabsClean() {
             <button
               key={tab.key}
               type="button"
-              onClick={() => setActive(tab.key)}
+              onClick={() => { setActive(tab.key); setExpanded(false); }}
               className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
                 active === tab.key
                   ? "bg-red-700 text-white"
@@ -214,7 +217,11 @@ export default function TrainingCatalogTabsClean() {
         </div>
 
         <div className="mt-8">
-          <Table rows={tableRowsByTab[active]} />
+          <Table
+            rows={tableRowsByTab[active]}
+            expanded={expanded}
+            onToggleExpand={() => setExpanded((v) => !v)}
+          />
           <AudienceBox items={audienceByTab[active]} />
         </div>
 
@@ -228,11 +235,22 @@ export default function TrainingCatalogTabsClean() {
   );
 }
 
-function Table({ rows }: { rows: TableRow[] }) {
+function Table({
+  rows,
+  expanded,
+  onToggleExpand,
+}: {
+  rows: TableRow[];
+  expanded: boolean;
+  onToggleExpand: () => void;
+}) {
+  const mobileRows = expanded ? rows : rows.slice(0, MOBILE_INITIAL_COUNT);
+  const hasMore = rows.length > MOBILE_INITIAL_COUNT;
+
   return (
     <>
       <div className="space-y-4 md:hidden">
-        {rows.map((row) => (
+        {mobileRows.map((row) => (
           <article
             key={row.title}
             className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
@@ -269,6 +287,18 @@ function Table({ rows }: { rows: TableRow[] }) {
             </div>
           </article>
         ))}
+
+        {hasMore && (
+          <button
+            type="button"
+            onClick={onToggleExpand}
+            className="mt-2 w-full rounded-2xl border border-slate-300 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            {expanded
+              ? "Voir moins"
+              : `Voir les ${rows.length - MOBILE_INITIAL_COUNT} autres formations`}
+          </button>
+        )}
       </div>
 
       <div className="hidden overflow-hidden rounded-2xl border border-slate-200 md:block">
