@@ -293,11 +293,11 @@ async function resolveFormation(
 
   const formations = data ?? [];
   const normalizedRequestedTitle = normalize(formation);
-  const canonicalSlug = inferCanonicalFormationSlug(formation, catégorie);
+  const canonicalSlug = inferCanonicalFormationSlug(formation, categorie);
   const slugCandidates = canonicalSlug
     ? [...new Set([getFormationSeed(canonicalSlug).slug, ...getModuleSlugCandidates(canonicalSlug)])]
     : [];
-  const searchTokens = buildSearchTokens(formation, catégorie);
+  const searchTokens = buildSearchTokens(formation, categorie);
 
   if (canonicalSlug) {
     const expectedDbSlug = getFormationSeed(canonicalSlug).slug;
