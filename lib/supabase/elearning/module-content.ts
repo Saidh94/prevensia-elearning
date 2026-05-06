@@ -2153,124 +2153,172 @@ export const modulesContent: Record<string, ModuleContent> = {
   },
 
   sst: {
-    title: "SST - Sauveteur Secouriste du Travail",
+    title: "SST — Sauveteur Secouriste du Travail",
     shortTitle: "SST",
     subtitle:
-      "Parcours e-learning d'introduction aux principes de prevention, au role du SST et aux gestes de premiere intervention en attendant les secours.",
-    duration: "55 a 80 minutes",
-    level: "Debutant a intermediaire",
+      "Parcours e-learning de préparation théorique au rôle de Sauveteur Secouriste du Travail : prévention, logique d'intervention et situations de secours courantes en milieu professionnel.",
+    duration: "1 h 10 à 1 h 30",
+    level: "Débutant à intermédiaire",
     objective:
-      "Reperer une situation dangereuse, proteger, examiner, alerter ou faire alerter, adopter les premiers gestes adaptes et situer la place du SST dans la prevention de l'entreprise.",
+      "Comprendre le rôle du SST en entreprise, appliquer la démarche protéger-examiner-alerter-secourir, reconnaître les urgences vitales et adopter les bons gestes face aux situations les plus fréquentes : saignement, étouffement, inconscience, arrêt cardiaque, malaise, brûlure et traumatisme.",
     audience:
-      "Salaries amenes a participer a la prevention des risques et a la prise en charge initiale d'une victime.",
+      "Salariés désignés ou volontaires appelés à participer à la prévention des risques et à la prise en charge initiale d'une victime en attendant les secours.",
     certificationNote:
-      "Ce module est un support theorique. La mise en pratique gestuelle et l'evaluation terrain restent indispensables dans un parcours SST.",
+      "Ce module constitue un support théorique de préparation. La compétence SST repose sur la mise en pratique gestuelle, les mises en situation encadrées et l'évaluation réalisée lors de la formation présentielle obligatoire.",
     heroBadge: "Secours au travail",
     finalMessage:
-      "Vous avez parcouru les bases SST. La competence reelle repose ensuite sur l'entrainement pratique, la repetition des gestes et la maitrise des protocoles d'alerte du site.",
+      "Le parcours SST vous a présenté la logique d'intervention et les situations de secours essentielles. La compétence réelle repose ensuite sur l'entraînement pratique régulier, la maîtrise des gestes et le respect des protocoles d'alerte propres à votre site.",
     quizCtaLabel: "Passer au quiz SST",
     sections: [
       {
         id: "role-sst",
-        title: "1. Role du SST et logique d'intervention",
+        title: "1. Rôle du SST et logique d'intervention",
         estimatedMinutes: 10,
         intro:
-          "Le SST n'est pas seulement un secouriste occasionnel. Il participe aussi a la prevention des risques dans l'entreprise.",
+          "Le Sauveteur Secouriste du Travail n'est pas seulement un secouriste d'urgence. Il est aussi un acteur de prévention des risques professionnels dans l'entreprise.",
         content: [
-          "Le sauveteur secouriste du travail intervient face a une situation d'accident du travail et contribue aussi a la prevention des risques professionnels.",
-          "Son role s'inscrit dans une logique simple: proteger, examiner, alerter ou faire alerter, puis secourir dans le cadre de sa formation.",
-          "Le SST agit dans le respect de son niveau de formation, des procedures du site et de la securite collective. Il ne remplace ni les secours specialises ni les dispositifs medicaux."
+          "Le SST intervient face à une situation d'accident ou de malaise et contribue également à la prévention des risques professionnels au quotidien. Ces deux rôles sont indissociables.",
+          "Son action suit une démarche structurée en quatre étapes : protéger, examiner, alerter ou faire alerter, puis secourir. Cet enchaînement n'est pas arbitraire : chaque étape conditionne la suivante.",
+          "Le SST agit dans le respect strict de sa formation, des procédures du site et de la sécurité collective. Il ne remplace ni les secours spécialisés ni les dispositifs médicaux. Son rôle est de stabiliser la situation et d'assurer la continuité de la prise en charge jusqu'à la relève.",
+          "La désignation d'un SST relève de l'employeur. Le Code du travail impose la présence d'un SST dans certains ateliers, chantiers ou lieux de travail présentant des risques particuliers.",
+          "Le MAC SST (maintien et actualisation des compétences) est obligatoire tous les deux ans pour conserver la certification. Sans recyclage, le titre devient caduc.",
+        ],
+        deepDive: [
+          "La NF EN 15151 et les recommandations INRS insistent sur le fait que la présence d'un SST formé réduit significativement le délai entre l'accident et la prise en charge effective. Chaque minute compte en cas d'arrêt cardiaque : la survie diminue de 10 % par minute sans défibrillation.",
+          "Le SST ne décide pas seul de l'urgence médicale. Son rôle est d'observer, d'agir dans son cadre et de transmettre une information fiable aux secours. L'improvisation au-delà de sa formation est contre-productive.",
+        ],
+        keyPoints: [
+          "Le SST intervient et contribue à la prévention : deux missions complémentaires.",
+          "La démarche est toujours : protéger → examiner → alerter → secourir.",
+          "Le SST agit dans les limites de sa formation, jamais au-delà.",
+          "Le MAC SST est obligatoire tous les deux ans.",
+        ],
+        forbiddenPoints: [
+          "Improviser des gestes non appris en formation.",
+          "Négliger la protection avant le secours.",
+          "Remplacer l'alerte aux secours par une action seul.",
+        ],
+        legalRefs: [
+          "Code du travail — article R. 4224-15 : obligation de présence d'un SST dans certains établissements.",
+          "INRS — programme national de formation SST défini en lien avec l'Assurance Maladie.",
+          "Décret n° 2007-1219 du 10 août 2007 relatif à la formation des secouristes.",
         ],
         chapterImagePath: "/elearning/sst/sst-role.svg",
-        chapterImageAlt:
-          "Formation SST et gestes de premiers secours en environnement professionnel",
+        chapterImageAlt: "Rôle du SST en entreprise — secours et prévention",
         resourceVideos: [
           {
-            title: "INRS - Video SST et secourisme au travail",
+            title: "INRS — SST et secourisme au travail",
             description:
-              "Ressource INRS utile pour ancrer la place du SST dans l'entreprise et la logique d'intervention face à un accident du travail.",
+              "Ressource INRS qui ancre la place du SST dans l'entreprise et la logique d'intervention face à un accident du travail.",
             url: "https://www.inrs.fr/media.html?refINRS=Anim-049",
             provider: "INRS",
-            ctaLabel: "Voir la video INRS",
-          },
-          {
-            title: "INRS France - Selection video SST",
-            description:
-              "Acces direct a une selection de contenus INRS autour du SST, des gestes de secours et de la prevention en entreprise.",
-            url: "https://www.youtube.com/@INRSFrance/search?query=SST",
-            provider: "INRS France",
-            ctaLabel: "Voir la selection INRS",
+            ctaLabel: "Voir la vidéo INRS",
           },
         ],
         visual: {
           title: "Le SST en entreprise",
-          subtitle: "Secourir et contribuer a la prevention.",
+          subtitle: "Secourir et contribuer à la prévention.",
           imagePath: "/elearning/sst/sst-role.svg",
-          imageAlt:
-            "Formation SST et gestes de premiers secours en environnement professionnel",
+          imageAlt: "Rôle du SST en entreprise — secours et prévention",
           items: [
             "Observer la situation",
             "Alerter utilement",
-            "Agir sans suraccident",
-            "Contribuer a la prevention"
+            "Agir sans sur-accident",
+            "Contribuer à la prévention",
           ],
           tone: "blue",
         },
       },
       {
         id: "proteger",
-        title: "2. Proteger",
+        title: "2. Protéger — Éviter le sur-accident",
         estimatedMinutes: 10,
         intro:
-          "Le premier objectif est d'eviter le suraccident. Il faut analyser rapidement la situation et supprimer ou isoler le danger sans s'exposer soi-meme.",
+          "Le premier objectif est d'éviter le sur-accident. Avant tout geste de secours, la scène doit être sécurisée. Un secouriste blessé devient une nouvelle victime.",
         content: [
-          "Le SST commence par proteger: baliser, couper si possible et sans risque, eloigner les personnes exposees ou faire cesser le danger quand cela est possible.",
-          "Un secouriste blesse ou expose devient une nouvelle victime. La protection prime donc avant toute autre action.",
-          "La protection se pense en lien avec le danger reel: circulation, electricite, machine, feu, chute, atmosphere dangereuse ou produit chimique."
+          "Protéger, c'est analyser rapidement la situation pour identifier le ou les dangers, puis supprimer ou isoler le risque sans s'exposer soi-même. L'action doit être proportionnée : on ne risque pas sa vie pour éteindre un début d'incendie si l'évacuation est la bonne réponse.",
+          "Les dangers à évaluer sont variés selon le contexte : circulation routière, machine en fonctionnement, installation électrique, chute de hauteur, atmosphère confinée, produit chimique, feu ou structure instable. Chaque situation impose une analyse avant l'action.",
+          "Si le danger ne peut pas être supprimé ou isolé, la dégagement d'urgence s'impose : déplacer la victime uniquement si son maintien en place l'expose à un danger immédiat et mortel. Ce dégagement doit être réalisé en ligne droite, axe tête-pieds, le plus rapidement possible.",
+          "Une fois la scène sécurisée, baliser la zone pour prévenir l'arrivée de nouveaux exposés. Ce balisage relève aussi de la protection.",
+        ],
+        deepDive: [
+          "Le dégagement d'urgence est une exception à la règle de non-déplacement de la victime. Il ne se réalise que si le danger est immédiat et qu'aucune autre option n'existe. Hors danger immédiat, on ne déplace jamais une victime avant l'arrivée des secours.",
+          "Dans un contexte électrique, l'approche de la victime sans mise hors tension préalable est interdite. Le SST ne devient pas électricien le temps de l'urgence.",
+        ],
+        keyPoints: [
+          "Supprimer ou isoler le danger avant tout geste sur la victime.",
+          "Ne jamais s'exposer au risque : un secouriste blessé aggrave la situation.",
+          "Le dégagement d'urgence n'est justifié qu'en cas de danger immédiat et mortel.",
+          "Baliser la zone pour protéger les témoins et les intervenants.",
+        ],
+        forbiddenPoints: [
+          "Approcher la victime sans avoir évalué et traité le danger.",
+          "Déplacer la victime sans raison de protection immédiate.",
+          "Improviser une mise hors tension électrique sans formation adaptée.",
+        ],
+        legalRefs: [
+          "INRS — gestes de premiers secours : protéger avant de secourir.",
+          "Programme SST INRS — chapitre 'Protéger' : logique et limites du dégagement d'urgence.",
         ],
         chapterImagePath: "/elearning/sst/sst-proteger.svg",
-        chapterImageAlt:
-          "Formation SST et mise en situation de premiers secours en environnement professionnel",
+        chapterImageAlt: "Protection de la victime et sécurisation de la scène — SST",
         visual: {
-          title: "Etape 1 : proteger",
-          subtitle: "Eviter le suraccident.",
+          title: "Étape 1 — Protéger",
+          subtitle: "Sécuriser la scène avant d'agir sur la victime.",
           imagePath: "/elearning/sst/sst-proteger.svg",
-          imageAlt:
-            "Formation SST et mise en sécurité d'une victime dans un environnement professionnel",
+          imageAlt: "Protection de la victime et sécurisation de la scène — SST",
           items: [
-            "Observer le danger",
-            "Se proteger soi-meme",
+            "Identifier le ou les dangers",
             "Supprimer ou isoler le risque",
-            "Empêcher l'exposition d'autrui"
+            "Dégagement d'urgence si nécessaire",
+            "Baliser la zone",
           ],
           tone: "red",
         },
       },
       {
         id: "examiner",
-        title: "3. Examiner",
-        estimatedMinutes: 10,
+        title: "3. Examiner — Identifier l'urgence vitale",
+        estimatedMinutes: 12,
         intro:
-          "Apres protection, il faut examiner la victime pour identifier l'urgence et orienter la suite des gestes.",
+          "Après la protection, le SST examine la victime selon une logique de priorités. L'ordre d'examen est déterminant : il guide le geste immédiat et la qualité de l'alerte.",
         content: [
-          "L'examen SST suit une logique de priorites: saignement abondant, etouffement, reponse, respiration, puis autres signes utiles.",
-          "Cet examen conditionne la nature du geste immediat et la qualite de l'alerte aux secours.",
-          "Le SST doit rester methodique, calme et rigoureux. Oublier l'examen ou agir dans le desordre fait perdre un temps precieux."
+          "L'examen SST suit une séquence précise en quatre étapes : 1. La victime saigne-t-elle abondamment ? 2. S'étouffe-t-elle ? 3. Répond-elle quand on lui parle ou qu'on la stimule ? 4. Respire-t-elle normalement ?",
+          "Cette séquence permet d'identifier en quelques secondes l'urgence vitale dominante et d'orienter l'action : compression pour le saignement, claques dorsales pour l'étouffement, PLS pour l'inconscience avec respiration, RCP pour l'arrêt cardiaque.",
+          "L'examen ne doit pas être précipité au point d'en sauter des étapes, ni si lent qu'il retarde le secours. La régularité acquise en formation pratique permet d'atteindre l'efficacité sans stress.",
+          "En cas de doutes sur plusieurs urgences simultanées (ex. : victime inconsciente ET saignante), le SST traite l'urgence vitale la plus immédiate — hémorragie incontrôlée prime sur la PLS si le saignement menace la vie en quelques minutes.",
+        ],
+        deepDive: [
+          "L'examen de la victime n'est pas un diagnostic médical. Le SST n'est pas compétent pour déterminer la cause de l'état de la victime. Il identifie l'urgence fonctionnelle observable (saigne, s'étouffe, inconsciente, ne respire pas) et agit en conséquence.",
+          "La stimulation de la victime se fait en lui parlant fort et en lui secouant doucement les épaules. Pas de bruit, pas de réponse = inconsciente. Cette vérification prend moins de 5 secondes.",
+        ],
+        keyPoints: [
+          "Séquence : saigne ? → s'étouffe ? → répond ? → respire ?",
+          "Chaque réponse oriente immédiatement le geste suivant.",
+          "Ne pas sauter d'étape, ne pas s'attarder inutilement.",
+          "En cas d'urgences multiples, traiter la menace vitale la plus immédiate en premier.",
+        ],
+        forbiddenPoints: [
+          "Examiner sans ordre : risquer de manquer une urgence vitale.",
+          "Poser un diagnostic médical — le SST observe, il ne diagnostique pas.",
+          "Ignorer le saignement abondant pour passer directement à la conscience.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — chapitre 'Examiner' : séquence d'examen et logique d'orientation.",
+          "INRS ED 6252 — formation SST : contenu et déroulement.",
         ],
         chapterImagePath: "/elearning/sst/sst-examiner.svg",
-        chapterImageAlt:
-          "Formation SST et evaluation d'une victime en environnement professionnel",
+        chapterImageAlt: "Examen de la victime selon la séquence SST — INRS",
         visual: {
-          title: "Etape 2 : examiner",
-          subtitle: "Identifier l'urgence vitale.",
+          title: "Étape 2 — Examiner",
+          subtitle: "Identifier l'urgence vitale en 4 questions.",
           imagePath: "/elearning/sst/sst-examiner.svg",
-          imageAlt:
-            "Formation SST et evaluation d'une victime en environnement professionnel",
+          imageAlt: "Examen de la victime selon la séquence SST — INRS",
           items: [
-            "Saigne-t-elle ?",
-            "S'etouffe-t-elle ?",
-            "Repond-elle ?",
-            "Respire-t-elle ?"
+            "Saigne abondamment ?",
+            "S'étouffe ?",
+            "Répond ?",
+            "Respire normalement ?",
           ],
           tone: "amber",
         },
@@ -2280,110 +2328,410 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "4. Alerter ou faire alerter",
         estimatedMinutes: 8,
         intro:
-          "L'alerte doit etre claire, rapide et utile. Elle fait partie de la prise en charge, pas d'une formalite secondaire.",
+          "L'alerte déclenche la chaîne de secours organisée. Elle doit être transmise le plus tôt possible, avec des informations précises et structurées.",
         content: [
-          "Une alerte efficace transmet le lieu exact, la nature de l'evenement, le nombre de victimes, les risques persistants et le geste deja engage.",
-          "Le SST doit connaitre les numeros utiles, les relais internes et les particularites du site: accueil, securite, PC, secours internes ou services externes.",
-          "Une alerte incomplète ralentit la prise en charge. Une alerte précise fait gagner du temps."
+          "Une alerte efficace comporte : le lieu exact de l'accident (bâtiment, étage, repère précis), la nature de l'événement, le nombre de victimes, leur état apparent, les dangers persistants éventuels et le geste déjà engagé.",
+          "Le SST doit connaître les numéros d'alerte du site (PC sécurité, infirmerie, standardiste) et les numéros nationaux : 15 (SAMU), 18 (pompiers), 112 (numéro européen), 17 (police). Il ne raccroche que lorsque le régulateur l'y autorise.",
+          "Si le SST est seul, il alerte en premier avant de débuter les gestes — sauf si la victime est en arrêt cardiaque et qu'un défibrillateur est accessible immédiatement : dans ce cas, commencer la RCP et déclencher l'alerte dès qu'une autre personne est disponible.",
+          "Le SST ne quitte pas la victime pour aller chercher de l'aide sauf si c'est strictement impossible autrement. Un témoin peut être chargé d'appeler les secours et d'aller chercher le défibrillateur.",
+        ],
+        deepDive: [
+          "Le délai entre l'accident et l'arrivée des secours professionnels est en moyenne de 8 à 12 minutes en France. Ce délai impose que le SST ait déjà agi avant leur arrivée : protéger, installer la victime, débuter la RCP si nécessaire.",
+          "L'alerte au 15 (SAMU) permet d'obtenir une guidance médicale en direct. Le régulateur peut guider le SST sur les gestes à réaliser en attendant l'équipe médicale.",
+        ],
+        keyPoints: [
+          "Alerter le plus tôt possible avec des informations précises.",
+          "Ne jamais raccrocher sans autorisation du régulateur.",
+          "Numéros clés : 15, 18, 112, 17.",
+          "Un témoin peut être chargé de l'alerte et de la recherche du DAE.",
+        ],
+        forbiddenPoints: [
+          "Alerter après avoir tout géré seul — le délai est souvent fatal.",
+          "Donner des informations approximatives ou paniquées.",
+          "Raccrocher avant que le régulateur ne l'autorise.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — chapitre 'Alerter ou faire alerter'.",
+          "Code du travail — article R. 4224-16 : moyens d'alerte organisés dans l'établissement.",
         ],
         chapterImagePath: "/elearning/sst/sst-alerter.svg",
-        chapterImageAlt:
-          "Formation SST et transmission de l'alerte en environnement professionnel",
+        chapterImageAlt: "Transmission de l'alerte lors d'un accident du travail — SST",
         visual: {
-          title: "Etape 3 : alerter",
-          subtitle: "Une alerte utile fait gagner du temps.",
+          title: "Étape 3 — Alerter",
+          subtitle: "Une alerte précise fait gagner des minutes décisives.",
           imagePath: "/elearning/sst/sst-alerter.svg",
-          imageAlt:
-            "Formation SST et transmission de l'alerte en environnement professionnel",
+          imageAlt: "Transmission de l'alerte lors d'un accident du travail — SST",
           items: [
-            "Lieu precis",
-            "Nature de l'evenement",
-            "Nombre de victimes",
-            "Risques persistants"
+            "Lieu précis",
+            "Nature de l'événement",
+            "Nombre et état des victimes",
+            "Gestes déjà engagés",
           ],
           tone: "blue",
         },
       },
       {
-        id: "secourir",
-        title: "5. Secourir selon la situation",
-        estimatedMinutes: 12,
+        id: "secourir-saignement",
+        title: "5. Secourir — Saignement abondant",
+        estimatedMinutes: 10,
         intro:
-          "Le bon geste depend de l'etat de la victime et du cadre appris en formation pratique.",
+          "Un saignement abondant non contrôlé peut entraîner la mort en quelques minutes. Le premier geste est la compression directe, immédiate et prolongée.",
         content: [
-          "Le SST doit connaitre la logique d'action en cas de saignement abondant, perte de connaissance, arret respiratoire, malaise, brulure ou traumatisme simple, selon les protocoles enseignés.",
-          "Les gestes ne remplacent pas l'action des secours specialises, mais ils peuvent limiter l'aggravation et maintenir les fonctions vitales en attendant la releve.",
-          "Le niveau attendu n'est pas l'improvisation mais l'application stricte de la methode apprise, avec surveillance continue de la victime jusqu'a l'arrivee des secours."
+          "Face à un saignement abondant, le SST applique une compression directe ferme et continue sur la plaie à l'aide d'un tissu propre ou d'un pansement. Cette compression ne doit pas être relâchée, même si le pansement se sature de sang — on en ajoute un autre par-dessus.",
+          "Si la compression directe est impossible (plaie au cou, à l'aine, ou membre arraché), le SST utilise le garrot si disponible et formé à son emploi, ou maintient une compression adaptée à l'anatomie de la plaie en attendant les secours.",
+          "La victime doit être allongée pour limiter les effets de l'hypovolémie. Les membres inférieurs peuvent être légèrement surélevés si aucun traumatisme osseux n'est suspecté.",
+          "Pendant la compression, continuer à surveiller : la victime peut perdre conscience. Si elle perd conscience et cesse de respirer, la situation bascule vers un arrêt cardiaque nécessitant la RCP.",
+        ],
+        deepDive: [
+          "La règle est simple : comprimer, ne pas relâcher, ne pas retirer. Chaque relâchement de la compression permet au saignement de reprendre et détruit le caillot en formation.",
+          "Le garrot est un moyen de dernier recours pour les hémorragies des membres quand la compression est impossible ou insuffisante. Son utilisation sans formation peut causer des lésions nerveuses ou vasculaires irréversibles.",
+        ],
+        keyPoints: [
+          "Compression directe, ferme, continue — sans relâcher.",
+          "Ajouter un pansement si le premier est saturé, ne pas retirer.",
+          "Allonger la victime, surveiller en permanence.",
+          "Si perte de conscience + arrêt respiratoire → bascule vers RCP.",
+        ],
+        forbiddenPoints: [
+          "Relâcher la compression pour 'vérifier' si ça saigne encore.",
+          "Poser un garrot sans formation ou sans indication précise.",
+          "Laisser la victime seule sans surveillance.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation 1 : la victime saigne abondamment.",
+          "INRS ED 6252 — gestes et protocoles de compression hémostatique.",
         ],
         chapterImagePath: "/elearning/sst/sst-secourir.svg",
-        chapterImageAlt:
-          "Mise en situation de premiers secours dans une formation SST",
+        chapterImageAlt: "Compression directe sur une hémorragie — geste SST",
         visual: {
-          title: "Etape 4 : secourir",
-          subtitle: "Le bon geste au bon moment.",
+          title: "Saignement abondant",
+          subtitle: "Comprimer directement, fermement et sans relâcher.",
           imagePath: "/elearning/sst/sst-secourir.svg",
-          imageAlt:
-            "Mise en situation de premiers secours dans une formation SST",
+          imageAlt: "Compression directe sur une hémorragie — geste SST",
           items: [
-            "Agir selon l'etat de la victime",
-            "Respecter la methode apprise",
-            "Surveiller jusqu'a l'arrivee des secours",
-            "Rendre compte a la releve"
+            "Compression directe ferme",
+            "Ne pas relâcher",
+            "Ajouter si saturé",
+            "Surveiller en continu",
           ],
-          tone: "green",
+          tone: "red",
+        },
+      },
+      {
+        id: "secourir-etouffement",
+        title: "6. Secourir — Étouffement (obstruction des voies aériennes)",
+        estimatedMinutes: 8,
+        intro:
+          "L'obstruction totale des voies aériennes est une urgence vitale immédiate. Sans intervention, la victime peut perdre conscience en moins de 2 minutes.",
+        content: [
+          "Face à une victime consciente qui s'étouffe et ne peut ni parler, ni crier, ni tousser efficacement, le SST réalise 5 claques vigoureuses dans le dos (entre les omoplates, paume ouverte, victime penchée en avant) puis, si insuffisant, 5 compressions abdominales (manœuvre de Heimlich).",
+          "La manœuvre de Heimlich : se placer derrière la victime, passer les bras sous les siens, positionner le poing fermé entre le nombril et le sternum, saisir ce poing avec l'autre main et effectuer une traction sèche vers l'intérieur et vers le haut. Alterner claques dorsales et Heimlich jusqu'à libération ou perte de conscience.",
+          "Si la victime perd conscience, la poser délicatement au sol et débuter la RCP (massage cardiaque) : les compressions thoraciques peuvent suffire à expulser le corps étranger.",
+          "Chez le nourrisson (moins d'un an), la manœuvre de Heimlich est contre-indiquée. On réalise 5 claques dorsales + 5 compressions thoraciques (deux doigts sur le sternum).",
+        ],
+        deepDive: [
+          "La toux efficace reste le meilleur moyen naturel d'expulsion. Tant que la victime tousse, on l'encourage à continuer et on ne réalise aucun geste. L'intervention commence seulement quand la toux est inefficace ou absente.",
+          "Ne jamais tenter de retirer à la main un corps étranger qu'on ne voit pas directement — ce geste risque de l'enfoncer davantage.",
+        ],
+        keyPoints: [
+          "5 claques dorsales → 5 compressions abdominales → alterner.",
+          "Claques d'abord : toujours avant le Heimlich.",
+          "Perte de conscience → RCP immédiate.",
+          "Nourrisson : jamais de Heimlich — claques + compressions thoraciques.",
+        ],
+        forbiddenPoints: [
+          "Tenter de saisir le corps étranger sans le voir.",
+          "Réaliser le Heimlich chez un nourrisson de moins d'un an.",
+          "Attendre sans agir face à une obstruction totale.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation 2 : la victime s'étouffe.",
+          "Recommandations ERC 2021 — obstruction des voies aériennes par corps étranger.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "Manœuvre de Heimlich et claques dorsales — étouffement SST",
+        visual: {
+          title: "Étouffement",
+          subtitle: "5 claques dorsales puis 5 compressions abdominales — alterner.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "Manœuvre de Heimlich et claques dorsales — étouffement SST",
+          items: [
+            "Pencher la victime en avant",
+            "5 claques dorsales vigoureuses",
+            "5 compressions abdominales (Heimlich)",
+            "Perte de conscience → RCP",
+          ],
+          tone: "amber",
+        },
+      },
+      {
+        id: "secourir-inconscience-respiration",
+        title: "7. Secourir — Victime inconsciente qui respire (PLS)",
+        estimatedMinutes: 8,
+        intro:
+          "Une victime inconsciente mais qui respire risque d'inhaler ses vomissements et de s'étouffer. La Position Latérale de Sécurité (PLS) protège ses voies aériennes.",
+        content: [
+          "Si la victime ne répond pas mais respire normalement, le SST la place en Position Latérale de Sécurité (PLS) : sur le côté, bouche orientée vers le bas pour permettre l'écoulement des secrétions, tête en légère extension pour maintenir les voies aériennes ouvertes.",
+          "La PLS est une technique précise : genou supérieur fléchi au sol pour la stabiliser, bras inférieur étendu devant, bras supérieur soutenant la tête. Elle doit permettre à la victime de respirer librement sans risque d'inhalation.",
+          "Une fois en PLS, surveiller en permanence : la respiration peut s'arrêter et la situation basculer vers un arrêt cardiaque. Dans ce cas, remettre immédiatement la victime sur le dos et débuter la RCP.",
+          "Ne jamais laisser une victime inconsciente sur le dos sans surveillance : c'est une position dangereuse si la respiration est maintenue.",
+        ],
+        deepDive: [
+          "La PLS est une mesure conservatoire en attente des secours — elle ne traite pas la cause de l'inconscience. Alerter les secours avant ou simultanément à la mise en PLS.",
+          "En cas de traumatisme cervical suspecté (chute, accident de la route), la PLS reste indiquée si la victime risque d'inhaler, mais elle doit être réalisée avec précaution en maintenant l'axe tête-cou-tronc. En pratique SST, la priorité reste les voies aériennes.",
+        ],
+        keyPoints: [
+          "Inconsciente + respire → PLS immédiate.",
+          "Bouche vers le bas, tête en extension légère, genou fléchi.",
+          "Surveiller la respiration en permanence.",
+          "Arrêt respiratoire → retourner sur le dos et démarrer RCP.",
+        ],
+        forbiddenPoints: [
+          "Laisser une victime inconsciente sur le dos sans surveillance.",
+          "Réaliser une PLS approximative qui ne protège pas les voies aériennes.",
+          "Arrêter de surveiller une fois la PLS en place.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation : victime inconsciente qui respire.",
+          "Recommandations ERC 2021 — PLS et gestion de l'inconscience.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "Position Latérale de Sécurité (PLS) — victime inconsciente SST",
+        visual: {
+          title: "Victime inconsciente qui respire",
+          subtitle: "PLS immédiate pour protéger les voies aériennes.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "Position Latérale de Sécurité — geste SST",
+          items: [
+            "Vérifier la respiration",
+            "Placer en PLS",
+            "Surveiller en continu",
+            "Arrêt → retourner + RCP",
+          ],
+          tone: "amber",
+        },
+      },
+      {
+        id: "secourir-arret-cardiaque",
+        title: "8. Secourir — Arrêt cardiaque : RCP et DAE",
+        estimatedMinutes: 14,
+        intro:
+          "L'arrêt cardiaque est l'urgence absolue. Sans RCP dans les 3 à 5 premières minutes, le risque de décès ou de séquelles cérébrales graves est majeur. Le SST doit agir immédiatement.",
+        content: [
+          "Une victime en arrêt cardiaque est inconsciente, ne répond pas et ne respire pas normalement (absence de respiration ou gasps agoniques). Le SST commence la Réanimation Cardio-Pulmonaire (RCP) sans délai.",
+          "La RCP comprend deux éléments : les compressions thoraciques (massage cardiaque) et, si formé, les insufflations. Les compressions sont prioritaires — une RCP uniquement par compressions est déjà efficace si les insufflations sont impossibles ou trop lentes.",
+          "Technique de compression : talons des mains au centre du thorax (demi-inférieure du sternum), bras tendus, compression de 5 à 6 cm à un rythme de 100 à 120 par minute, décompression complète entre chaque. Le ratio est de 30 compressions pour 2 insufflations si les insufflations sont réalisées.",
+          "Le Défibrillateur Automatisé Externe (DAE) doit être récupéré et mis en marche dès que possible. Il guide vocalement l'utilisateur. Dès que l'appareil est prêt, placer les électrodes et suivre les instructions. La RCP ne s'arrête que quand le DAE analyse ou délivre un choc, puis reprend immédiatement après.",
+          "La RCP se poursuit sans interruption jusqu'à l'arrivée des secours, au rétablissement spontané de la respiration normale ou jusqu'à épuisement physique total. Alterner les intervenants toutes les 2 minutes si possible.",
+        ],
+        deepDive: [
+          "L'efficacité d'un DAE utilisé dans les 3 à 5 premières minutes après un arrêt cardiaque par fibrillation ventriculaire peut atteindre 70 à 90 % de survie. Au-delà de 10 minutes sans défibrillation, la survie devient très faible.",
+          "Le massage cardiaque crée une pression artificielle qui pousse le sang vers le cerveau et les organes vitaux. Il ne recharge pas le cœur mais maintient une perfusion minimale jusqu'au choc électrique ou au rétablissement naturel.",
+        ],
+        keyPoints: [
+          "Inconsciente + ne respire pas → RCP immédiate, alerter les secours.",
+          "30 compressions + 2 insufflations (si formé) — ou compressions seules.",
+          "Fréquence : 100 à 120 compressions/minute, profondeur 5 à 6 cm.",
+          "DAE : allumer, placer les électrodes, suivre les instructions vocales.",
+          "Ne jamais interrompre la RCP sauf analyse ou choc DAE.",
+        ],
+        forbiddenPoints: [
+          "Attendre les secours sans débuter la RCP.",
+          "Interrompre la RCP pour autre chose qu'une analyse DAE.",
+          "Comprimer trop superficiellement ou trop lentement.",
+          "Retirer les électrodes du DAE après le choc — elles restent en place.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation : victime inconsciente qui ne respire pas.",
+          "Recommandations ERC 2021 (European Resuscitation Council) — RCP adulte.",
+          "Décret n° 2018-1186 du 19 décembre 2018 — accès au défibrillateur.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
+        visual: {
+          title: "Arrêt cardiaque — RCP + DAE",
+          subtitle: "Chaque seconde compte : comprimer, alerter, défibriller.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
+          items: [
+            "RCP immédiate (30+2 ou compressions seules)",
+            "Rythme 100-120/min, profondeur 5-6 cm",
+            "DAE : allumer + électrodes + suivre les instructions",
+            "Continuer sans interruption jusqu'aux secours",
+          ],
+          tone: "red",
+        },
+      },
+      {
+        id: "secourir-malaise",
+        title: "9. Secourir — Malaise",
+        estimatedMinutes: 7,
+        intro:
+          "Un malaise peut précéder une situation plus grave. Le SST installe la victime en position adaptée, surveille et alerte.",
+        content: [
+          "Face à une victime qui se plaint de malaise (vertiges, douleur thoracique, nausée, pâleur, sueurs froides, sensation de faiblesse), le SST l'installe dans la position qui lui semble la plus confortable : assis, demi-assis ou allongé selon les symptômes.",
+          "Un malaise avec douleur thoracique irradiant dans le bras gauche ou la mâchoire doit faire suspecter un infarctus du myocarde. Alerter immédiatement le 15 (SAMU). Ne pas laisser la victime marcher seule.",
+          "Un malaise avec perte d'équilibre, difficultés à parler, à voir ou paralysie d'un côté du visage ou du corps doit faire suspecter un AVC (Accident Vasculaire Cérébral). Alerter immédiatement le 15. L'AVC est une urgence : chaque minute de retard aggrave les séquelles.",
+          "Surveiller en permanence jusqu'à l'arrivée des secours. Si la victime perd conscience, vérifier la respiration et adapter le geste : PLS ou RCP selon l'état.",
+        ],
+        deepDive: [
+          "L'acronyme FAST aide à reconnaître un AVC : Face (visage asymétrique), Arm (bras qui chute), Speech (difficultés à parler), Time (appeler le 15 immédiatement). Ce moyen mnémotechnique est recommandé par la Haute Autorité de Santé.",
+          "En cas d'hypoglycémie suspectée (diabétique, malaise après effort intense), si la victime est consciente et peut avaler, donner du sucre. Ne jamais forcer une alimentation chez une personne semi-consciente.",
+        ],
+        keyPoints: [
+          "Installer en position confortable selon les symptômes.",
+          "Douleur thoracique → suspicion infarctus → 15 immédiatement.",
+          "Paralysie / trouble de la parole → suspicion AVC → 15 immédiatement.",
+          "Surveiller en permanence jusqu'aux secours.",
+        ],
+        forbiddenPoints: [
+          "Laisser une victime suspecte d'infarctus ou d'AVC marcher seule.",
+          "Minimiser le malaise et ne pas alerter les secours.",
+          "Donner à manger ou à boire à une victime semi-consciente.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation : la victime se plaint d'un malaise.",
+          "HAS — fiche AVC : reconnaître et agir vite.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "Prise en charge d'un malaise — SST",
+        visual: {
+          title: "Malaise",
+          subtitle: "Position adaptée, alerte immédiate, surveillance.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "Prise en charge d'un malaise — SST",
+          items: [
+            "Installer confortablement",
+            "Douleur thoracique → appeler le 15",
+            "FAST → AVC → appeler le 15",
+            "Surveiller jusqu'aux secours",
+          ],
+          tone: "amber",
+        },
+      },
+      {
+        id: "secourir-brulure-traumatisme",
+        title: "10. Secourir — Brûlure et traumatisme",
+        estimatedMinutes: 8,
+        intro:
+          "Les brûlures et les traumatismes sont des situations fréquentes en milieu professionnel. Le geste immédiat conditionne les suites.",
+        content: [
+          "Face à une brûlure thermique, le réflexe immédiat est le refroidissement : faire couler de l'eau fraîche (15 à 25 °C) sur la zone brûlée pendant 5 à 10 minutes minimum. Ne jamais utiliser de la glace (risque d'aggravation par vasoconstriction), ni de corps gras, ni de pansement adhésif directement sur la brûlure.",
+          "Alerter les secours si la brûlure dépasse 10 % de la surface corporelle chez l'adulte, si elle concerne le visage, les mains, les organes génitaux ou les articulations, si elle est circulaire, profonde ou d'origine électrique ou chimique.",
+          "Face à un traumatisme (chute, écrasement, choc violent), ne pas déplacer la victime si un traumatisme rachidien (colonne vertébrale) est suspecté, sauf danger immédiat. La victime reste en position de découverte. Ne pas mobiliser un membre suspect de fracture.",
+          "En cas de fracture ouverte (os visible), ne pas réduire et ne pas toucher la plaie. Protéger avec un pansement propre. Alerter les secours.",
+        ],
+        deepDive: [
+          "Le refroidissement d'une brûlure ralentit la progression de la chaleur dans les couches profondes et limite l'étendue des lésions. Son efficacité est maximale dans les premières minutes suivant l'accident.",
+          "Une brûlure électrique est souvent plus grave que son apparence externe ne le laisse penser : le courant peut causer des lésions profondes sur tout le trajet parcouru dans le corps. Toute brûlure électrique justifie une évaluation médicale.",
+        ],
+        keyPoints: [
+          "Brûlure → eau fraîche, 5 à 10 minutes minimum.",
+          "Jamais de glace, de corps gras ou de pansement adhésif sur la brûlure.",
+          "Traumatisme → ne pas déplacer si rachis suspect.",
+          "Fracture ouverte → ne pas réduire, protéger, alerter.",
+        ],
+        forbiddenPoints: [
+          "Appliquer de la glace, du beurre, de la crème sur une brûlure.",
+          "Mobiliser un membre ou une victime si fracture ou rachis suspect.",
+          "Retirer un corps étranger planté dans une plaie.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situations brûlure et traumatisme.",
+          "INRS ED 6252 — gestes de premiers secours en milieu professionnel.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "Brûlure et traumatisme — gestes SST en milieu professionnel",
+        visual: {
+          title: "Brûlure et traumatisme",
+          subtitle: "Eau fraîche pour la brûlure, immobilité pour le traumatisme.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "Brûlure et traumatisme — gestes SST en milieu professionnel",
+          items: [
+            "Eau fraîche 5-10 min sur la brûlure",
+            "Jamais de glace ni de corps gras",
+            "Ne pas mobiliser si fracture/rachis",
+            "Alerter les secours",
+          ],
+          tone: "slate",
         },
       },
       {
         id: "surveiller-transmettre",
-        title: "6. Surveiller la victime et transmettre à la relève",
-        estimatedMinutes: 8,
+        title: "11. Surveiller la victime et transmettre à la relève",
+        estimatedMinutes: 7,
         intro:
-          "Apres le geste d'urgence, le SST reste mobilisé. Il surveille l'évolution de l'état de la victime et transmet des informations fiables à la relève.",
+          "Après le geste d'urgence, le SST reste mobilisé. Il surveille l'évolution de l'état de la victime et transmet des informations fiables à la relève des secours.",
         content: [
-          "La surveillance continue permet de repérer une aggravation, un arrêt de la respiration, une reprise de saignement ou un changement de comportement de la victime.",
-          "La transmission doit être structurée: ce qui s'est passé, ce qui a été observé, ce qui a été fait, l'heure si utile et les risques encore présents sur zone.",
-          "Le SST ne quitte pas la victime sans relais organisé, sauf danger immédiat pour lui-même ou consigne explicite des secours."
+          "La surveillance continue permet de repérer une aggravation : arrêt de la respiration, reprise de saignement, perte de conscience, changement de comportement ou apparition de nouveaux signes. Chaque observation doit être mémorisée pour la transmission.",
+          "La transmission à la relève doit être structurée : ce qui s'est passé (heure, circonstances), ce qui a été observé (état initial, évolution), ce qui a été fait (gestes réalisés, durée) et les risques encore présents sur zone.",
+          "Le SST ne quitte pas la victime sans relais organisé, sauf danger immédiat pour lui-même ou consigne explicite des secours spécialisés. Une victime sans surveillance peut s'aggraver silencieusement.",
+        ],
+        keyPoints: [
+          "Surveiller en permanence : respiration, conscience, saignement.",
+          "Transmettre : circonstances → état observé → gestes réalisés → risques.",
+          "Ne pas quitter la victime sans relais organisé.",
+        ],
+        forbiddenPoints: [
+          "Abandonner la victime une fois l'alerte donnée.",
+          "Transmettre des informations imprécises ou incomplètes.",
+          "Cesser la surveillance dès l'arrivée des secours sans assurer la passation.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — surveillance et transmission à la relève.",
         ],
         chapterImagePath: "/elearning/sst/sst-surveiller.svg",
-        chapterImageAlt:
-          "Surveillance d'une victime et transmission à la relève dans une formation SST",
+        chapterImageAlt: "Surveillance et transmission à la relève — SST",
         visual: {
-          title: "Etape 5 : surveiller et transmettre",
+          title: "Surveiller et transmettre",
           subtitle: "Assurer la continuité de la prise en charge.",
           imagePath: "/elearning/sst/sst-surveiller.svg",
-          imageAlt:
-            "Surveillance d'une victime et transmission à la relève dans une formation SST",
+          imageAlt: "Surveillance et transmission à la relève — SST",
           items: [
-            "Surveiller l'etat de la victime",
-            "Repérer toute aggravation",
-            "Transmettre clairement à la relève",
-            "Ne jamais rompre la chaîne d'assistance"
+            "Surveiller respiration et conscience",
+            "Mémoriser les observations",
+            "Transmission structurée à la relève",
+            "Ne pas rompre la chaîne d'assistance",
           ],
           tone: "blue",
         },
       },
       {
         id: "prevention-entreprise",
-        title: "7. Prévention et remontée des situations dangereuses",
-        estimatedMinutes: 10,
+        title: "12. Prévention et remontée des situations dangereuses",
+        estimatedMinutes: 8,
         intro:
-          "Le SST participe aussi a la prevention en observant le travail reel et en faisant remonter les situations dangereuses.",
+          "Le SST contribue également à la prévention des risques en observant le travail réel et en faisant remonter les situations dangereuses avant qu'elles ne causent un accident.",
         content: [
-          "Un SST efficace ne se limite pas aux accidents declares. Il repere les situations a risque, les signale et contribue a l'amelioration des conditions de travail.",
-          "Cette logique relie secours et prevention: voir le danger, remonter l'information, proposer une action simple et contribuer a eviter le prochain accident.",
-          "La prevention en entreprise repose sur cette vigilance quotidienne, pas seulement sur l'intervention d'urgence."
+          "Un SST efficace ne se limite pas aux accidents déclarés. Il repère les situations à risque dans son environnement quotidien : sols glissants, équipements défectueux, postures inadaptées, zones mal éclairées, produits mal étiquetés, procédures non respectées.",
+          "Cette logique relie secours et prévention : voir le danger, remonter l'information à l'encadrement ou au service prévention, proposer une correction simple et contribuer à éviter le prochain accident. C'est le rôle actif du SST au-delà de l'urgence.",
+          "Le SST peut participer aux instances de prévention de l'entreprise (CSSCT, réunion d'équipe sécurité) et collaborer avec le service de santé au travail pour signaler les situations à risque récurrentes.",
+          "La prévention en entreprise repose sur cette vigilance quotidienne partagée, pas uniquement sur les audits périodiques. Chaque signal faible détecté est une opportunité d'éviter un accident grave.",
+        ],
+        keyPoints: [
+          "Observer le travail réel et identifier les écarts au quotidien.",
+          "Remonter les situations dangereuses sans attendre l'accident.",
+          "Participer aux instances de prévention si possible.",
+          "Prévenir vaut mieux que secourir.",
+        ],
+        forbiddenPoints: [
+          "Ignorer une situation dangereuse parce que ça n'a jamais causé d'accident.",
+          "Attendre l'accident pour signaler le problème.",
+        ],
+        legalRefs: [
+          "Code du travail — article L. 4131-1 : droit d'alerte et de retrait du salarié.",
+          "Programme SST INRS — rôle de prévention du SST en entreprise.",
         ],
         visual: {
-          title: "Prevenir pour agir moins souvent en urgence",
-          subtitle: "Observer, signaler, contribuer a la prevention.",
+          title: "Prévenir pour agir moins souvent en urgence",
+          subtitle: "Observer, signaler, contribuer à la prévention.",
           imagePath: "/images/sst.jpg",
-          imageAlt:
-            "Formation SST et prevention des risques en environnement professionnel",
+          imageAlt: "SST et prévention des risques en environnement professionnel",
           items: [
-            "Reperer les situations dangereuses",
-            "Faire remonter les ecarts",
-            "Participer a l'amelioration",
-            "Relier secours et prevention"
+            "Repérer les situations dangereuses",
+            "Faire remonter les écarts",
+            "Participer à l'amélioration",
+            "Relier secours et prévention",
           ],
           tone: "slate",
         },

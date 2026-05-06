@@ -3316,67 +3316,220 @@ export const quizContent: Record<string, QuizQuestion[]> = {
   ],
   sst: [
     {
-      question:
-        "Quelle est la premiere priorite d'un SST face a un accident ?",
+      question: "Quelle est la première priorité d'un SST face à un accident du travail ?",
       choices: [
-        "Proteger pour eviter le suraccident",
-        "Deplacer immediatement la victime quoi qu'il arrive",
-        "Appeler apres plusieurs minutes d'observation",
-        "Agir sans analyser le danger",
+        "Protéger pour éviter le sur-accident",
+        "Déplacer immédiatement la victime quoi qu'il arrive",
+        "Appeler les secours après plusieurs minutes d'observation",
+        "Commencer le massage cardiaque sans analyse préalable",
       ],
       answer: [0],
       explanation:
-        "Le SST commence par proteger afin d'eviter une nouvelle victime et de securiser la scene.",
+        "Le SST commence par protéger la zone afin d'éviter qu'un secouriste ou un témoin ne devienne une nouvelle victime.",
       timeLimit: 45,
       imagePath: "/images/sst.jpg",
-      imageAlt:
-        "Formation SST et gestes de premiers secours en environnement professionnel",
+      imageAlt: "Formation SST et gestes de premiers secours en entreprise",
     },
     {
-      question:
-        "L'examen SST sert principalement a :",
+      question: "Dans quel ordre le SST examine-t-il une victime ?",
       choices: [
-        "Identifier l'urgence et orienter le geste immediat",
-        "Remplacer l'avis medical",
-        "Choisir la victime la plus simple a traiter",
-        "Retarder l'alerte",
+        "Saigne ? → S'étouffe ? → Répond ? → Respire ?",
+        "Respire ? → Répond ? → Saigne ? → S'étouffe ?",
+        "S'étouffe ? → Saigne ? → Respire ? → Répond ?",
+        "Répond ? → Respire ? → S'étouffe ? → Saigne ?",
       ],
       answer: [0],
       explanation:
-        "L'examen permet de rechercher les urgences vitales et de guider la suite de l'intervention.",
-      timeLimit: 45,
+        "La séquence SST suit les urgences vitales par ordre de priorité : hémorragie grave → étouffement → conscience → respiration.",
+      timeLimit: 50,
     },
     {
-      question:
-        "Quelles informations doivent figurer dans une alerte utile ?",
+      question: "Quelles informations doivent figurer dans une alerte utile aux secours ?",
       choices: [
-        "Le lieu precis",
-        "La nature de l'evenement",
-        "Le nombre de victimes",
-        "Des informations sans lien avec la situation",
+        "Le lieu précis de l'accident",
+        "La nature de l'événement et le nombre de victimes",
+        "L'état apparent de la victime et les gestes déjà engagés",
+        "L'identité de tous les témoins présents",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "Une alerte claire et precise fait gagner du temps et facilite la prise en charge par les secours.",
+        "Une alerte efficace comporte le lieu, la nature de l'événement, le nombre de victimes, leur état et ce qui a déjà été fait.",
       timeLimit: 65,
     },
     {
-      question:
-        "Pourquoi la protection prime-t-elle avant le secours ?",
+      question: "Face à un saignement abondant, quel geste est prioritaire ?",
       choices: [
-        "Parce qu'il faut eviter le suraccident",
-        "Parce qu'un secouriste blesse devient une nouvelle victime",
-        "Parce qu'il faut agir vite sans jamais regarder le danger",
-        "Parce que tout danger disparait automatiquement en quelques secondes",
+        "Appliquer une compression directe et ferme sans relâcher",
+        "Poser un garrot immédiatement sur le membre",
+        "Nettoyer la plaie avec un antiseptique avant de comprimer",
+        "Laisser saigner quelques minutes pour attendre les secours",
       ],
-      answer: [0, 1],
+      answer: [0],
+      explanation:
+        "La compression directe, ferme et continue est le geste de référence. Le garrot est un moyen de dernier recours pour les hémorragies de membres non contrôlables.",
+      timeLimit: 45,
+    },
+    {
+      question: "Lors d'une compression pour hémorragie, le pansement est saturé de sang. Que faire ?",
+      choices: [
+        "Ajouter un pansement par-dessus sans retirer le premier",
+        "Retirer le pansement et en placer un propre",
+        "Relâcher la compression pour vérifier l'évolution du saignement",
+        "Appliquer de la glace sur le pansement",
+      ],
+      answer: [0],
+      explanation:
+        "On n'ôte jamais le pansement en place — cela détruirait le caillot en formation. On ajoute du renfort par-dessus.",
+      timeLimit: 45,
+    },
+    {
+      question: "Une victime consciente s'étouffe et ne peut ni parler ni tousser. Quel est le bon protocole ?",
+      choices: [
+        "5 claques vigoureuses dans le dos puis 5 compressions abdominales (Heimlich), en alternant",
+        "Tenter de saisir le corps étranger avec les doigts dans la bouche",
+        "Allonger la victime et attendre les secours sans intervenir",
+        "Réaliser immédiatement le Heimlich sans claques dorsales préalables",
+      ],
+      answer: [0],
+      explanation:
+        "Le protocole est : 5 claques dorsales vigoureuses puis 5 compressions abdominales, en alternant jusqu'à expulsion ou perte de conscience.",
+      timeLimit: 55,
+    },
+    {
+      question: "La victime qui s'étouffait vient de perdre conscience. Que fait le SST ?",
+      choices: [
+        "Poser la victime au sol et débuter la RCP (massage cardiaque)",
+        "Continuer le Heimlich même si elle est inconsciente",
+        "Mettre en PLS et attendre les secours",
+        "Tenter de retirer le corps étranger à la main",
+      ],
+      answer: [0],
+      explanation:
+        "La perte de conscience impose de passer à la RCP. Les compressions thoraciques peuvent suffire à expulser le corps étranger.",
+      timeLimit: 45,
+    },
+    {
+      question: "Une victime est inconsciente mais respire normalement. Quelle position adopte-t-on ?",
+      choices: [
+        "Position Latérale de Sécurité (PLS) pour protéger les voies aériennes",
+        "Sur le dos, bras le long du corps",
+        "Assise pour faciliter la respiration",
+        "Debout, maintenue par un témoin",
+      ],
+      answer: [0],
+      explanation:
+        "La PLS place la victime sur le côté, bouche vers le bas, pour éviter l'inhalation de vomissements et maintenir les voies aériennes libres.",
+      timeLimit: 40,
+    },
+    {
+      question: "Quels signes permettent de reconnaître un arrêt cardiaque ?",
+      choices: [
+        "La victime est inconsciente et ne respire pas normalement",
+        "La victime présente des gasps agoniques (respirations rares et bruyantes)",
+        "La victime ne répond pas aux stimulations",
+        "La victime a les yeux ouverts et parle normalement",
+      ],
+      answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "La scene doit etre securisee avant toute autre action pour eviter d'aggraver la situation.",
+        "L'arrêt cardiaque se reconnaît par : absence de réponse, absence de respiration normale (ou gasps). Ne pas perdre de temps à chercher un pouls.",
       timeLimit: 60,
     },
     {
+      question: "Lors d'une RCP adulte, quelle est la technique correcte pour les compressions thoraciques ?",
+      choices: [
+        "Talons des mains au centre du thorax, bras tendus, 5-6 cm de profondeur, 100-120/min",
+        "Bout des doigts sur le sternum, 3 cm de profondeur, 60/min",
+        "Paume entière sur le côté gauche du thorax, 2-3 cm, 80/min",
+        "Compressions sur l'abdomen, 100/min",
+      ],
+      answer: [0],
+      explanation:
+        "Les compressions doivent être réalisées au centre du thorax (moitié inférieure du sternum), avec les talons des mains, bras tendus, 5 à 6 cm de profondeur, à 100-120 par minute.",
+      timeLimit: 55,
+    },
+    {
+      question: "Concernant le défibrillateur automatisé externe (DAE), quelles affirmations sont vraies ?",
+      choices: [
+        "Il guide vocalement l'utilisateur étape par étape",
+        "Il peut être utilisé sans formation médicale",
+        "Il doit être récupéré et allumé le plus tôt possible après l'arrêt cardiaque",
+        "Il remplace la RCP : on n'a pas besoin de masser après un choc",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Le DAE est conçu pour être utilisé par tous. Il guide vocalement et ne délivre le choc que si nécessaire. La RCP reprend immédiatement après chaque choc.",
+      timeLimit: 65,
+    },
+    {
+      question: "Face à une brûlure thermique, quel est le geste immédiat correct ?",
+      choices: [
+        "Faire couler de l'eau fraîche (15-25 °C) pendant au moins 5 à 10 minutes",
+        "Appliquer de la glace directement sur la brûlure",
+        "Enduire la brûlure de beurre ou de crème hydratante",
+        "Percer les cloques pour soulager la douleur",
+      ],
+      answer: [0],
+      explanation:
+        "L'eau fraîche (pas glacée) refroidit les tissus et limite l'extension de la brûlure en profondeur. La glace, les corps gras et le perçage des cloques sont contre-indiqués.",
+      timeLimit: 45,
+    },
+    {
+      question: "Quels signes doivent faire suspecter un AVC et imposent d'appeler immédiatement le 15 ?",
+      choices: [
+        "Paralysie ou faiblesse soudaine d'un côté du visage ou du corps",
+        "Difficultés soudaines à parler ou à comprendre",
+        "Perte soudaine de vision d'un œil",
+        "Simple maux de tête passager sans autre signe",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "L'acronyme FAST aide : Face (asymétrie), Arm (bras qui chute), Speech (trouble de la parole), Time (appeler le 15 immédiatement). Chaque minute aggrave les séquelles.",
+      timeLimit: 65,
+    },
+    {
+      question: "Face à un traumatisme avec suspicion de fracture vertébrale, quelle est la règle de base ?",
+      choices: [
+        "Ne pas déplacer la victime sauf danger immédiat et mortel",
+        "Mobiliser la victime en la soutenant par la tête",
+        "Mettre la victime en PLS quelle que soit la situation",
+        "Tirer la victime par les pieds pour la mettre à l'abri",
+      ],
+      answer: [0],
+      explanation:
+        "Un traumatisme du rachis impose de ne pas mobiliser la victime. Seul un danger immédiat justifie un dégagement d'urgence, réalisé en maintenant l'axe tête-cou-tronc.",
+      timeLimit: 50,
+    },
+    {
+      question: "Quelle est la durée réglementaire de validité de la certification SST avant le MAC obligatoire ?",
+      choices: [
+        "2 ans",
+        "1 an",
+        "3 ans",
+        "5 ans",
+      ],
+      answer: [0],
+      explanation:
+        "Le MAC SST (Maintien et Actualisation des Compétences) est obligatoire tous les deux ans pour conserver la certification SST.",
+      timeLimit: 35,
+    },
+    {
+      question: "Quel est le rôle du SST en dehors des situations d'urgence ?",
+      choices: [
+        "Contribuer à la prévention en repérant et en remontant les situations dangereuses",
+        "Remplacer le médecin du travail dans les visites médicales",
+        "Décider seul des mesures de sécurité à mettre en place",
+        "Assurer uniquement les premiers secours et ne pas intervenir en prévention",
+      ],
+      answer: [0],
+      explanation:
+        "Le SST a deux missions complémentaires : intervenir en cas d'accident et contribuer à la prévention des risques en signalant les situations dangereuses.",
+      timeLimit: 45,
+    },
+  ],
       question:
         "Dans la logique SST, quels signes orientent l'examen initial ?",
       choices: [
