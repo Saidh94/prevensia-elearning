@@ -224,7 +224,8 @@ export const b1b2brbcModuleContent: ModuleContent = {
         subtitle: "PNST, capotage, zone et protection conditionnent l'action.",
         items: ["BT a risque", "PNST", "Voisinage", "Arret si non maîtrise"],
         tone: "amber",
-        imagePath: "/elearning/bsbe/bsbe-risque.svg",
+        imagePath: "/images/modules/electricite/distances-locaux-acces.jpg",
+        imageAlt: "Distances de sécurité et zones d'approche autour des pièces nues sous tension en basse tension — DMA, DLVS, DLVR",
       },
     },
     {
