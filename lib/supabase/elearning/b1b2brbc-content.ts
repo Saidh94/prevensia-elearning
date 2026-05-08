@@ -69,6 +69,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un technicien assure habituellement du dépannage en BR. On lui demande soudain d'organiser un chantier avec plusieurs opérateurs et une mise hors tension preparee. La mission ne releve plus du meme cadre et doit être requalifiée avant toute action.",
+      scenarios: [
+        {
+          situation: "Vous êtes technicien, habilité BR. Votre responsable vous demande d'organiser un chantier de remplacement d'un tableau électrique avec deux autres opérateurs sous votre direction, sans avoir modifié votre habilitation.",
+          question: "Pouvez-vous diriger ce chantier avec une habilitation BR ?",
+          wrongActions:           [
+            "Accepter la mission en considérant que votre expérience compense l'habilitation manquante.",
+            "Commencer les travaux en vous disant que le responsable a pris la décision et donc en porte la responsabilité.",
+            "Déléguer la direction à un collègue sans habilitation formelle pour vous couvrir.",
+          ],
+          correctActions:           [
+            "Refuser d'assumer le rôle de chargé de travaux avec votre seule habilitation BR.",
+            "Signaler à votre responsable que cette mission nécessite une habilitation B2 ou B2V.",
+            "Attendre la requalification officielle de votre habilitation avant toute action de direction.",
+          ],
+          explanation: "Le symbole BR couvre les interventions générales définies (dépannage, remplacement, mesure, essai limité). Diriger des travaux d'installation avec une équipe relève du rôle B2. Une habilitation inadaptée engage la responsabilité de l'employeur et du salarié.",
+          normRef: "NF C 18-510 § 5.3 — définition du chargé de travaux B2 et distinction avec le chargé d'intervention BR",
+        },
+        {
+          situation: "Vous arrivez sur un chantier et vous constatez que votre titre d'habilitation a expiré il y a trois semaines. Le chargé de travaux vous dit que ce n'est qu'une formalité et qu'il faut avancer.",
+          question: "Que faites-vous face à une habilitation expirée ?",
+          wrongActions:           [
+            "Travailler quand même en estimant que vos compétences n'ont pas changé.",
+            "Accepter de commencer en attendant la régularisation en fin de journée.",
+            "Signer les documents de consignation en indiquant votre ancienne habilitation.",
+          ],
+          correctActions:           [
+            "Refuser d'intervenir : une habilitation expirée n'est plus valide, quelles que soient les circonstances.",
+            "Informer le chargé de travaux et le signaler à votre employeur.",
+            "Attendre la délivrance d'un nouveau titre d'habilitation signé par l'employeur avant toute intervention.",
+          ],
+          explanation: "L'habilitation est un acte formel de l'employeur. Elle a une durée de validité fixée par l'employeur (généralement 3 ans). Travailler avec une habilitation expirée annule la couverture réglementaire et expose le salarié et l'employeur en cas d'accident.",
+          normRef: "NF C 18-510 § 6.1 — délivrance et validité de l'habilitation par l'employeur",
+        },
+      ],
       visual: {
         title: "Quatre fonctions, quatre responsabilités",
         subtitle: "Exécuter, diriger, intervenir, consigner : la norme fixe une frontière nette entre ces rôles.",
@@ -117,6 +151,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : lors d'une intervention sur une machine, un conducteur supplémentaire non documente est decouvert. Le BR suspend l'action, informe l'organisation et la mission est requalifiée avant reprise.",
+      scenarios: [
+        {
+          situation: "Vous êtes exécutant B1 sur un chantier de remplacement de câblage. En cours de travaux, vous remarquez que le câble voisin présente une isolation endommagée qui n'était pas prévue dans l'ordre de travail.",
+          question: "Que faites-vous lorsque vous constatez une anomalie non prévue ?",
+          wrongActions:           [
+            "Réparer vous-même l'anomalie car c'est rapide et vous êtes déjà sur place.",
+            "Ignorer l'anomalie pour ne pas ralentir le chantier.",
+            "Attendre la fin du chantier pour en parler lors du débriefing.",
+          ],
+          correctActions:           [
+            "Arrêter immédiatement toute action à proximité de l'anomalie.",
+            "Signaler sans délai l'anomalie au chargé de travaux B2.",
+            "Ne reprendre l'intervention qu'après décision formelle du B2 sur la conduite à tenir.",
+          ],
+          explanation: "Le rôle de l'exécutant B1 est d'exécuter dans le cadre défini et de signaler tout écart. Il ne peut pas décider seul d'une adaptation ou d'une action supplémentaire. L'initiative non autorisée est l'une des causes majeures d'accidents électriques.",
+          normRef: "NF C 18-510 § 5.2 — obligations de l'exécutant électricien",
+        },
+        {
+          situation: "Le chargé de travaux B2 quitte temporairement le chantier pour un appel urgent et vous demande, en tant qu'exécutant B1, de 'surveiller' l'équipe et de continuer.",
+          question: "Pouvez-vous assurer le rôle de chargé de travaux par délégation orale ?",
+          wrongActions:           [
+            "Accepter et superviser l'équipe puisque le B2 vous a désigné oralement.",
+            "Continuer les travaux en considérant que tout est préparé et qu'il n'y a pas de risque.",
+            "Donner des consignes aux autres exécutants pour avancer.",
+          ],
+          correctActions:           [
+            "Suspendre les travaux en l'absence du chargé de travaux.",
+            "Informer les autres exécutants de l'arrêt temporaire.",
+            "Attendre le retour du B2 ou la désignation officielle d'un chargé de travaux de remplacement.",
+          ],
+          explanation: "La fonction de chargé de travaux B2 ne peut pas être assumée par un exécutant B1 par simple délégation orale. Le B2 doit être présent ou remplacé formellement. En son absence, les travaux doivent être suspendus.",
+          normRef: "NF C 18-510 § 5.3 — responsabilités du chargé de travaux, présence et continuité de la surveillance",
+        },
+      ],
       chapterImagePath:
         "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
@@ -165,6 +233,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un technicien B1V travaille a proximite d'un départ voisin. Il ne gagne pas un droit de dépannage général: il reste exécutant dans une situation de voisinage plus exigeante.",
+      scenarios: [
+        {
+          situation: "Vous avez une habilitation B1 (sans indice V). Le chantier du jour se déroule à proximité d'un TGBT avec des jeux de barres nus sous tension. Le chargé de travaux vous dit que 'ça devrait aller'.",
+          question: "Pouvez-vous intervenir en zone de voisinage renforcé avec un B1 sans V ?",
+          wrongActions:           [
+            "Intervenir en restant simplement prudent et en faisant attention.",
+            "Faire confiance au jugement du chargé de travaux qui connaît le chantier.",
+            "Vous éloigner mentalement de la zone et continuer les travaux.",
+          ],
+          correctActions:           [
+            "Refuser d'intervenir dans la zone de voisinage renforcé sans l'indice V.",
+            "Signaler au chargé de travaux que votre habilitation ne couvre pas ce périmètre.",
+            "Attendre soit une protection physique de la zone, soit la désignation d'un intervenant B1V.",
+          ],
+          explanation: "L'indice V dans B1V ou B2V signifie que l'intervenant a été formé aux prescriptions du voisinage renforcé. Sans cet indice, travailler dans la zone de voisinage renforcé est interdit, même si le risque paraît faible. La frontière est normative, pas empirique.",
+          normRef: "NF C 18-510 § 4.4 — zones de travail et conditions de l'indice V",
+        },
+        {
+          situation: "Vous êtes affecté à un chantier de maintenance sur un TGBT basse tension. Votre habilitation porte les symboles B1 et BR. On vous demande d'assurer la consignation d'un départ avant de commencer.",
+          question: "Avec B1 et BR, pouvez-vous réaliser une consignation ?",
+          wrongActions:           [
+            "Réaliser la consignation en vous appuyant sur votre expérience.",
+            "Interpréter BR comme couvrant aussi la consignation.",
+            "Couper l'alimentation et coller une étiquette sans formaliser la procédure complète.",
+          ],
+          correctActions:           [
+            "Refuser d'effectuer la consignation : ni B1 ni BR ne couvrent ce rôle.",
+            "Signaler qu'un chargé de consignation BC doit être désigné pour cette étape.",
+            "Attendre la venue du BC ou la mise en place d'une procédure de consignation validée avant de commencer les travaux.",
+          ],
+          explanation: "La consignation est réservée au chargé de consignation BC. Ce rôle ne peut pas être assumé par un B1, un B2 ou un BR, même expérimentés. Chaque symbole couvre un périmètre précis et non substituable.",
+          normRef: "NF C 18-510 § 5.4 — rôle exclusif du chargé de consignation BC",
+        },
+      ],
       chapterImagePath:
         "/images/modules/electricite/symboles-habilitation-travaux-electriques.jpg",
       chapterImageAlt:
@@ -216,6 +318,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une intervention BR prévue sur un circuit terminal devient critique car un bornier voisin est decouvert après déposé partielle d'un capot. L'organisation de l'intervention doit être revue avant reprise.",
+      scenarios: [
+        {
+          situation: "Pendant des travaux dans un local technique, vous repérez un câble apparent dont l'isolation est usée, laissant apparaître un conducteur nu. Vous ne savez pas s'il est sous tension.",
+          question: "Comment réagissez-vous face à un conducteur potentiellement sous tension ?",
+          wrongActions:           [
+            "Toucher brièvement le câble avec un doigt ganté pour 'sentir' s'il est sous tension.",
+            "Ignorer le câble et continuer les travaux en restant éloigné.",
+            "Demander à un collègue d'aller vérifier pendant que vous continuez.",
+          ],
+          correctActions:           [
+            "Traiter immédiatement le câble comme sous tension, sans hypothèse contraire.",
+            "Délimiter la zone et interdire tout accès non autorisé.",
+            "Signaler au chargé de travaux pour décision : mise hors tension, capotage ou reconfinement.",
+          ],
+          explanation: "En présence d'une pièce nue sous tension (PNST) non identifiée, la règle est de considérer qu'elle est sous tension et dangereuse. Jamais d'hypothèse favorable. La distance limite de voisinage renforcé (DLVR) doit être respectée sans équipement adapté.",
+          normRef: "NF C 18-510 § 4.3 — définition PNST et distances de voisinage BT",
+        },
+        {
+          situation: "Vous réalisez des travaux en BT à 35 cm d'un jeu de barres nu à 400 V. Votre habilitation est B1V mais vous n'avez pas vos gants isolants classe 1 sur vous.",
+          question: "Pouvez-vous poursuivre les travaux sans gants isolants en zone de voisinage renforcé ?",
+          wrongActions:           [
+            "Continuer en faisant attention à ne pas toucher les barres.",
+            "Utiliser des gants de manutention non isolants par précaution.",
+            "Réduire votre périmètre d'action pour vous éloigner légèrement.",
+          ],
+          correctActions:           [
+            "Arrêter immédiatement les travaux dans cette zone.",
+            "Récupérer vos gants isolants de classe adaptée avant de reprendre.",
+            "Si les EPI ne sont pas disponibles, signaler au B2 et attendre la protection physique de la zone.",
+          ],
+          explanation: "En zone de voisinage renforcé BT (entre DMA et DLVR), les équipements de protection individuelle adaptés sont obligatoires. L'indice V de l'habilitation ne dispense pas des EPI : il autorise à travailler dans cette zone à condition de respecter les prescriptions, dont le port des EPI.",
+          normRef: "NF C 18-510 § 4.4 et § 9 — EPI requis en zone de voisinage renforcé BT",
+        },
+      ],
       chapterImagePath: "/images/modules/electricite/zones-voisinage-bt.jpg",
       chapterImageAlt:
         "Schema des zones autour d'un conducteur nu et des limites de voisinage en basse tension",
@@ -261,6 +397,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une équipe doit intervenir sur un départ repère en maintenance, mais la signaletique locale ne correspond pas au dossier. L'opération est suspendue jusqu'a vérification.",
+      scenarios: [
+        {
+          situation: "Vous êtes chargé de travaux B2 et vous arrivez sur site sans avoir consulté le schéma électrique de l'installation. Vous pensez connaître le tableau de mémoire pour être intervenu dessus il y a six mois.",
+          question: "Peut-on démarrer des travaux électriques sur la base d'un schéma mémorisé ?",
+          wrongActions:           [
+            "Commencer les travaux en vous appuyant sur votre mémoire.",
+            "Demander à un exécutant de vérifier visuellement pendant que vous organisez l'équipe.",
+            "Partir du principe qu'une installation standard n'a pas changé en six mois.",
+          ],
+          correctActions:           [
+            "Obtenir et consulter le schéma électrique à jour avant toute action.",
+            "Vérifier l'état réel de l'installation avec les documents de référence.",
+            "Différer le démarrage si le dossier technique est incomplet ou non disponible.",
+          ],
+          explanation: "La préparation des travaux repose sur des documents fiables et à jour. Une installation peut être modifiée sans que l'intervenant en soit informé. Se fier à la mémoire est une erreur méthodologique reconnue dans les analyses d'accidents électriques.",
+          normRef: "NF C 18-510 § 5.3 — obligations de préparation du chargé de travaux",
+        },
+        {
+          situation: "Vous débutez un chantier et constatez que le plan de prévention avec l'entreprise utilisatrice n'a pas été signé. Le responsable du site dit qu'il est 'en cours' et que vous pouvez commencer.",
+          question: "Peut-on commencer un chantier électrique sans plan de prévention finalisé ?",
+          wrongActions:           [
+            "Commencer en attendant la signature pour ne pas perdre la journée.",
+            "Démarrer sur la base de l'accord oral du responsable du site.",
+            "Réaliser une partie du travail en zone sans risque identifié.",
+          ],
+          correctActions:           [
+            "Refuser de commencer tant que le plan de prévention n'est pas signé.",
+            "Signaler la situation à votre propre hiérarchie.",
+            "Reprendre les travaux uniquement après validation formelle du plan de prévention.",
+          ],
+          explanation: "Le plan de prévention est obligatoire pour les travaux en entreprise extérieure dès 400 heures/an de prestation ou pour des travaux dangereux. Il définit les interfaces de sécurité entre les deux entreprises. Commencer sans ce document expose les deux parties.",
+          normRef: "Code du travail R. 4512-7 — plan de prévention travaux en entreprise extérieure",
+        },
+      ],
       chapterImagePath: "/images/modules/electricite/maintenance-environnement-technique.jpg",
       chapterImageAlt:
         "Technicien intervenant devant une armoire électrique en environnement technique contrôle",
@@ -317,6 +487,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : avant remplacement d'un appareillage, l'équipe constate plusieurs départs similaires dans l'armoire. Le BC doit verrouiller l'identification avant toute consignation effective.",
+      scenarios: [
+        {
+          situation: "En tant que BC, vous devez vérifier l'absence de tension sur un départ avant des travaux. Vous constatez que le voyant de présence tension est éteint. Vous en déduisez que le circuit est hors tension.",
+          question: "Un voyant éteint suffit-il à confirmer l'absence de tension ?",
+          wrongActions:           [
+            "Valider l'absence de tension sur la base du voyant éteint.",
+            "Procéder à la mise à la terre et commencer les travaux.",
+            "Indiquer dans le formulaire de consignation que la VAT a été faite.",
+          ],
+          correctActions:           [
+            "Effectuer la VAT avec un appareil de mesure adapté et vérifié (VAT ou multimètre CAT III/IV).",
+            "Contrôler le bon fonctionnement du dispositif de mesure avant et après la VAT.",
+            "Consigner le résultat de la VAT dans le dossier de consignation avant tout accès.",
+          ],
+          explanation: "Un voyant de présence tension peut être défaillant, mal câblé ou mal repéré. La vérification d'absence de tension (VAT) doit toujours être réalisée avec un appareil de mesure calibré et contrôlé. C'est l'étape critique de la consignation.",
+          normRef: "NF C 18-510 § 6.3 — séquence de consignation, étape VAT obligatoire",
+        },
+        {
+          situation: "Vous réalisez une consignation sur un tableau avec 6 départs similaires. Après séparation du départ 4, vous réalisez que les repérages des départs 3, 4 et 5 sont peu lisibles et se ressemblent.",
+          question: "Que faites-vous lorsque le repérage d'une installation est ambigu ?",
+          wrongActions:           [
+            "Continuer sur la base de votre interprétation la plus probable.",
+            "Demander à un collègue de confirmer à l'oral sans vérification documentaire.",
+            "Aller directement à la VAT pour confirmer par les mesures.",
+          ],
+          correctActions:           [
+            "Suspendre la consignation immédiatement.",
+            "Rechercher le schéma de l'armoire ou un repérage officiel fiable.",
+            "Ne reprendre la consignation qu'après identification certaine du départ concerné.",
+          ],
+          explanation: "L'identification certaine du circuit est une étape formelle de la consignation. En cas de doute sur le repérage, il faut suspendre et lever l'ambiguïté documentairement. Consigner le mauvais départ est l'une des causes d'accidents électriques graves.",
+          normRef: "NF C 18-510 § 6.3.3 — identification du circuit avant consignation",
+        },
+      ],
       chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
       chapterImageAlt:
         "Illustration de consignation avec vérification d'absence de tension et balisage de zone",
@@ -356,6 +560,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : lors d'un remplacement de matériel, un équipement voisin non prevu apparait sous tension a proximite. Le B2 suspend l'action et redefinit la protection de zone avant reprise.",
+      scenarios: [
+        {
+          situation: "Vous êtes exécutant B1 en train de remplacer des conducteurs dans un tableau. Le chargé de travaux est momentanément absent. Un responsable du site vous demande d'intervenir aussi sur le départ voisin pour gagner du temps.",
+          question: "Pouvez-vous élargir votre zone de travail sans l'accord du B2 ?",
+          wrongActions:           [
+            "Accepter en vous disant que techniquement c'est le même type d'opération.",
+            "Commencer rapidement pour montrer votre efficacité.",
+            "Demander à un autre exécutant de commencer pendant que vous finissez votre départ.",
+          ],
+          correctActions:           [
+            "Refuser d'élargir la zone sans l'accord formalisé du chargé de travaux B2.",
+            "Expliquer au responsable que tout changement de périmètre doit être validé par le B2.",
+            "Attendre le retour du B2 pour toute décision de modification du plan de travail.",
+          ],
+          explanation: "Le périmètre de travail est défini par le chargé de travaux B2. L'exécutant B1 n'a pas autorité pour l'étendre. Une action sur un départ non prévu peut porter sur un circuit encore sous tension ou non consigné.",
+          normRef: "NF C 18-510 § 5.2 — limites du rôle de l'exécutant électricien",
+        },
+        {
+          situation: "En fin de journée, les travaux de remplacement d'un câblage ne sont pas terminés. Il reste 30 minutes de travail mais l'heure de départ est dépassée. Le chargé de travaux vous demande de remonter l'alimentation pour la nuit.",
+          question: "Que vérifiez-vous avant toute remise sous tension partielle en fin de chantier ?",
+          wrongActions:           [
+            "Remettre sous tension le circuit partiellement câblé en attendant la reprise du lendemain.",
+            "Laisser le tableau ouvert avec les travaux en cours pour faciliter la reprise.",
+            "Boucler rapidement les connexions restantes sans vérification pour finir.",
+          ],
+          correctActions:           [
+            "S'assurer que le circuit est soit remis en état sécurisé, soit laissé sous consignation valide jusqu'à la reprise.",
+            "Ne jamais laisser un circuit partiellement câblé remis sous tension.",
+            "Documenter l'état d'arrêt dans le dossier de travaux pour la reprise du lendemain.",
+          ],
+          explanation: "Un câblage partiellement réalisé remis sous tension est une source majeure d'accident. Il faut soit terminer les travaux et lever la consignation correctement, soit maintenir la consignation jusqu'à la reprise. Aucune situation intermédiaire n'est acceptable.",
+          normRef: "NF C 18-510 § 6.5 — fin de travaux et remise sous tension",
+        },
+      ],
       visual: {
         title: "Travail encadre",
         subtitle: "Un exécutant et un chargé de travaux n'ont pas le meme rôle.",
@@ -397,6 +635,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un technicien BR intervient sur un arret machine. En ouvrant le dossier, il constate une modification ancienne non documentee du cablage. L'intervention doit être requalifiée et encadree autrement.",
+      scenarios: [
+        {
+          situation: "En tant que chargé d'intervention BR, vous constatez lors d'un dépannage que la panne nécessite de déposer et remplacer trois connexions sur un départ BT. Le client veut que ce soit fait aujourd'hui.",
+          question: "Le remplacement de connexions multiples entre-t-il dans le cadre BR ?",
+          wrongActions:           [
+            "Réaliser les trois connexions puisque vous êtes qualifié BR.",
+            "Interpréter 'remplacement' au sens large pour satisfaire le client.",
+            "Commencer en estimant que c'est 'dans l'esprit' du BR.",
+          ],
+          correctActions:           [
+            "Évaluer si l'opération correspond à une intervention générale BR définie ou à des travaux nécessitant un B2.",
+            "Si le périmètre dépasse le cadre BR, refuser et signaler le besoin d'un chargé de travaux B2.",
+            "Documenter la limite de l'intervention et les raisons du requalification dans le compte-rendu.",
+          ],
+          explanation: "Le BR couvre le dépannage, le remplacement de matériels défectueux et certaines connexions limitées. Dès que l'intervention implique une modification structurelle du câblage avec plusieurs opérations, elle sort du cadre BR pour entrer dans les travaux B2.",
+          normRef: "NF C 18-510 § 5.5 — périmètre des interventions générales du BR",
+        },
+        {
+          situation: "Vous êtes BR et intervenez sous tension pour localiser une panne sur un coffret BT 230 V. En retirant un cache, vous exposez des bornes sous tension à moins de 10 cm de votre main.",
+          question: "Quelles précautions s'imposent lors d'une intervention BR sous tension ?",
+          wrongActions:           [
+            "Continuer sans équipement complémentaire car vous connaissez ce type de coffret.",
+            "Utiliser un tournevis standard pour tester les bornes.",
+            "Travailler à une main pour limiter le risque de passage de courant.",
+          ],
+          correctActions:           [
+            "Porter les EPI adaptés : gants isolants classe 1, lunettes de protection, outils isolés 1000 V.",
+            "Travailler méthodiquement en un point à la fois, en maintenant la distance de sécurité.",
+            "Documenter les précautions prises dans le compte-rendu d'intervention.",
+          ],
+          explanation: "Le BR peut intervenir sous tension dans son cadre défini, mais uniquement avec les EPI et outillages adaptés. La technique à une main ne remplace pas les gants isolants. La règle des EPI s'applique indépendamment du niveau de tension apparente.",
+          normRef: "NF C 18-510 § 9 — équipements de protection pour interventions sous tension",
+        },
+      ],
       chapterImagePath:
         "/images/modules/electricite/maintenance-environnement-technique.jpg",
       chapterImageAlt:
@@ -443,6 +715,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : après remplacement d'un appareillage, un intervenant souhaite remettre sous tension pour 'voir si ca tient'. Le cadre de remise en service doit être revalide avant tout essai.",
+      scenarios: [
+        {
+          situation: "En cours d'intervention, le client vous demande d'effectuer un essai de fonctionnement non prévu dans votre ordre de mission, en remettant momentanément sous tension un départ consigné.",
+          question: "Pouvez-vous réaliser un essai hors de votre ordre de mission initial ?",
+          wrongActions:           [
+            "Lever la consignation pour l'essai puisque le client le demande.",
+            "Réaliser l'essai 'vite fait' avant de reconsigner.",
+            "Obtenir l'accord oral du client comme autorisation suffisante.",
+          ],
+          correctActions:           [
+            "Refuser de modifier le plan d'intervention sans validation formelle.",
+            "Expliquer que tout essai doit être prévu, documenté et autorisé dans l'ordre de mission.",
+            "Contacter votre hiérarchie pour obtenir une modification officielle de l'ordre de mission avant d'agir.",
+          ],
+          explanation: "Tout essai implique une remise temporaire sous tension d'un circuit. Cette opération doit être planifiée, autorisée et documentée. Une levée de consignation improvisée est l'une des causes d'accidents lors des phases de test.",
+          normRef: "NF C 18-510 § 6.4 — essais et remises sous tension temporaires",
+        },
+        {
+          situation: "On vous remet un multimètre pour réaliser des mesures de tension sur un TGBT 400 V. L'appareil indique CAT II. Vous n'avez pas d'autre instrument disponible.",
+          question: "Un multimètre CAT II est-il adapté à des mesures sur tableau BT industriel ?",
+          wrongActions:           [
+            "Utiliser l'appareil car il est conçu pour les mesures électriques.",
+            "Faire les mesures rapidement pour minimiser l'exposition.",
+            "Vérifier juste que les sondes sont en bon état.",
+          ],
+          correctActions:           [
+            "Refuser d'utiliser un multimètre CAT II sur un TGBT BT industriel.",
+            "Demander un appareil CAT III ou CAT IV adapté à ce type d'installation.",
+            "Différer les mesures jusqu'à disponibilité du matériel adapté.",
+          ],
+          explanation: "La catégorie de surtension (CAT) de l'appareil doit correspondre au point de mesure. Un CAT II convient aux appareils raccordés (prises). Un TGBT industriel exige un CAT III minimum. Utiliser un appareil sous-catégorisé peut provoquer un arc électrique en cas de transitoire.",
+          normRef: "NF EN 61010-1 — catégories de surtension des appareils de mesure",
+        },
+      ],
       chapterImagePath: "/images/modules/electricite/tableau-coffret-bt.jpg",
       chapterImageAlt:
         "Tableau basse tension et appareillage sur lesquels les mesurages, essais et remises en énergie exigent une méthode stricte",
@@ -486,6 +792,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : avant intervention, l'opérateur constate qu'un capot est manquant et que la zone est humide. L'action est reportee jusqu'au retour a des conditions compatibles.",
+      scenarios: [
+        {
+          situation: "Vous prenez un tournevis dans la caisse à outils communs et constatez que la poignée isolante est fissurée sur 3 cm. Vous avez besoin de cet outil pour démarrer le chantier.",
+          question: "Peut-on utiliser un outil isolé présentant des dommages visibles ?",
+          wrongActions:           [
+            "Utiliser le tournevis en faisant attention à ne pas toucher la fissure.",
+            "Réparer la fissure avec du ruban isolant.",
+            "Décider que la fissure n'atteint pas la partie conductrice.",
+          ],
+          correctActions:           [
+            "Mettre l'outil de côté et le signaler comme non conforme.",
+            "Rechercher un outil en bon état avant de commencer.",
+            "Ne jamais utiliser un EPI ou un outil isolé endommagé, même pour une opération courte.",
+          ],
+          explanation: "Un outil isolé endommagé n'offre plus la protection pour laquelle il a été conçu. La fissure peut exposer la partie conductrice ou laisser pénétrer l'humidité. L'intégrité des outils isolés doit être vérifiée avant chaque utilisation.",
+          normRef: "NF C 18-510 § 9.2 — vérification et état des outillages isolés",
+        },
+        {
+          situation: "En prenant vos gants isolants, vous constatez que leur date de périodicité de contrôle est dépassée de 4 mois. C'est les seuls gants disponibles sur le chantier.",
+          question: "Des gants isolants hors période de contrôle peuvent-ils être utilisés ?",
+          wrongActions:           [
+            "Utiliser les gants car ils semblent en bon état visuellement.",
+            "Les gonfler d'air pour vérifier l'étanchéité avant de les utiliser.",
+            "Considérer que 4 mois de dépassement est marginal.",
+          ],
+          correctActions:           [
+            "Refuser d'utiliser les gants hors période de contrôle.",
+            "Suspendre l'intervention jusqu'à obtention de gants conformes.",
+            "Signaler l'état du parc EPI à votre responsable pour mise en conformité.",
+          ],
+          explanation: "Les EPI isolants (gants, tapis, perches) ont une périodicité de contrôle diélectrique réglementaire. Passée cette date, leur niveau d'isolation n'est plus garanti. Un contrôle visuel ne remplace pas un test diélectrique en laboratoire.",
+          normRef: "NF EN 60903 et NF C 18-510 § 9.3 — périodicité de contrôle des gants isolants",
+        },
+      ],
       chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/epi-intervention.jpg",
       chapterImageAlt:
         "Illustration des équipements de protection collective et individuelle en environnement électrique",
@@ -531,6 +871,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : après consignation, un voyant reste allume sur un sous-ensemble. L'équipe s'arrête immédiatement et fait vérifier l'etat reel de l'installation avant toute poursuite.",
+      scenarios: [
+        {
+          situation: "Vous travaillez à côté d'un collègue qui reçoit soudainement une décharge électrique. Il lâche son outil, crie et s'effondre. Vous êtes le premier à réagir.",
+          question: "Quelles sont les premières actions à effectuer face à une électrisation ?",
+          wrongActions:           [
+            "Saisir votre collègue par le bras pour l'écarter de la source.",
+            "Crier pour appeler de l'aide sans autre action.",
+            "Attendre que quelqu'un d'autre intervienne.",
+          ],
+          correctActions:           [
+            "Ne jamais toucher la victime sans avoir coupé l'alimentation électrique ou l'avoir séparée de la source de façon sécurisée.",
+            "Couper l'alimentation au tableau le plus proche si accessible et sécurisé.",
+            "Alerter les secours (15, 18 ou 112), pratiquer les gestes de premiers secours si formé SST, et ne pas laisser la victime seule.",
+          ],
+          explanation: "En cas d'électrisation, la première règle est de ne pas se mettre en danger : ne pas toucher la victime avant coupure de l'alimentation. Après coupure ou séparation sécurisée, appeler les secours et pratiquer les gestes appris.",
+          normRef: "NF C 18-510 § 10 — conduite à tenir en cas d'accident électrique",
+        },
+        {
+          situation: "En inspectant un tableau après une intervention, vous sentez une forte odeur de brûlé et constatez des traces noircies autour d'un départ. Le voyant de défaut est allumé.",
+          question: "Que faites-vous face à une anomalie thermique sur une armoire électrique ?",
+          wrongActions:           [
+            "Ouvrir l'armoire pour identifier la pièce défectueuse.",
+            "Remettre le départ sous tension pour voir si le problème est résolu.",
+            "Passer la main sur la porte pour sentir si elle est chaude.",
+          ],
+          correctActions:           [
+            "Ne pas ouvrir l'armoire : risque d'amorçage d'arc et de propagation d'incendie.",
+            "Couper l'alimentation générale de l'armoire depuis l'amont.",
+            "Alerter le chargé de travaux ou le responsable de site, consigner l'armoire et attendre l'intervention d'un spécialiste avec le matériel adapté.",
+          ],
+          explanation: "Une anomalie thermique sur un tableau peut indiquer un arc électrique en cours, un composant en surchauffe ou un début d'incendie interne. L'ouverture sans précaution expose à un arc de forte énergie. La mise hors tension depuis l'amont est la première action.",
+          normRef: "NF C 18-510 § 10 — conduite à tenir face aux anomalies et risque d'incendie électrique",
+        },
+      ],
       chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/danger-armoires-électriques.jpg",
       chapterImageAlt:
         "Conduite a tenir en cas d'anomalie, de doute électrique ou d'urgence sur une installation basse tension",
@@ -576,6 +950,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : après une consignation difficile a confirmer sur un tableau mal repère, l'équipe fait formaliser une correction documentaire au lieu de laisser le problème en l'etat.",
+      scenarios: [
+        {
+          situation: "À la fin d'une journée de travail, vous réalisez que vous avez failli toucher un conducteur sous tension car une consignation était incomplète. Aucun accident ne s'est produit. Vous hésitez à le signaler pour ne pas créer de problèmes.",
+          question: "Un presque-accident (near miss) doit-il être signalé ?",
+          wrongActions:           [
+            "Ne rien dire puisqu'il n'y a eu aucun blessé.",
+            "En parler à voix basse entre collègues sans remontée officielle.",
+            "Corriger vous-même l'anomalie sans la documenter.",
+          ],
+          correctActions:           [
+            "Signaler le presque-accident immédiatement à votre responsable et au chargé de travaux.",
+            "Documenter les circonstances : heure, localisation, nature de la défaillance.",
+            "Participer activement à l'analyse pour identifier la cause et proposer une action corrective.",
+          ],
+          explanation: "Les presque-accidents (near miss) sont des signaux précurseurs d'accidents graves. Leur signalement et leur analyse permettent de corriger les défaillances organisationnelles ou techniques avant qu'un accident réel ne se produise. Le silence est une prise de risque collective.",
+          normRef: "Code du travail L. 4131-1 — droit de retrait et obligation de signalement des dangers",
+        },
+        {
+          situation: "Votre méthode personnelle de consignation diffère légèrement de la procédure écrite de l'entreprise. Vous avez développé cette méthode sur l'expérience et n'avez jamais eu d'accident.",
+          question: "Une méthode personnelle non documentée est-elle acceptable ?",
+          wrongActions:           [
+            "Continuer votre méthode car elle a fait ses preuves.",
+            "Utiliser votre méthode tout en respectant la procédure sur le papier.",
+            "Former les jeunes à votre méthode comme si c'était la référence.",
+          ],
+          correctActions:           [
+            "Respecter strictement la procédure de l'entreprise.",
+            "Si vous pensez que votre méthode est meilleure, la soumettre à validation formelle pour modifier la procédure officielle.",
+            "Ne jamais transmettre une méthode personnelle non validée à d'autres collaborateurs.",
+          ],
+          explanation: "Les procédures de consignation sont le résultat d'une analyse collective des risques. Une méthode personnelle peut sembler efficace jusqu'à une configuration inhabituellement dangereuse. La cohérence des pratiques est une condition de sécurité collective.",
+          normRef: "NF C 18-510 § 3 — principes généraux de prévention et cohérence des procédures",
+        },
+      ],
       chapterImagePath:
         "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
@@ -622,6 +1030,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une équipe B2 doit intervenir sur un départ consigne, mais un sous-traitant voisin annonce une remise en service partielle de zone. L'opération est suspendue jusqu'a coordination et revalidation du cadre.",
+      scenarios: [
+        {
+          situation: "Vous êtes chargé de consignation BC. En cours de procédure, vous réalisez que l'attestation de consignation n'a pas été contre-signée par le chargé de travaux avant de lui remettre. Il est pressé de commencer.",
+          question: "Les travaux peuvent-ils commencer sans signature complète des documents de consignation ?",
+          wrongActions:           [
+            "Remettre verbalement l'attestation en lui demandant de signer après.",
+            "Commencer les travaux en faisant confiance à la rigueur du chargé de travaux.",
+            "Signer vous-même en lieu et place du chargé de travaux pour débloquer la situation.",
+          ],
+          correctActions:           [
+            "Exiger la signature du chargé de travaux sur l'attestation avant tout début des travaux.",
+            "Ne pas remettre la zone de travail sans les signatures requises.",
+            "Expliquer que le document signé est la seule preuve formelle que la consignation a été réceptionnée.",
+          ],
+          explanation: "L'attestation de consignation signée par les deux parties (BC et chargé de travaux) est la formalité qui transfère la responsabilité de la zone. Sans signature, la consignation n'est pas officiellement remise. La pression du temps ne justifie pas de s'en affranchir.",
+          normRef: "NF C 18-510 § 6.3.6 — remise de l'attestation de consignation et signatures",
+        },
+        {
+          situation: "Le plan électrique dont vous disposez date de 3 ans. L'installation a visiblement évolué : un départ a été ajouté et un autre semble avoir été déplacé. Vous devez consigner un départ pour des travaux urgents.",
+          question: "Peut-on réaliser une consignation sur la base d'un plan non à jour ?",
+          wrongActions:           [
+            "Réaliser la consignation en adaptant le plan de mémoire.",
+            "Procéder par déduction visuelle pour identifier le circuit.",
+            "Consigner le circuit vraisemblable et vérifier a posteriori.",
+          ],
+          correctActions:           [
+            "Refuser de commencer la consignation sur un plan non à jour.",
+            "Demander le schéma à jour au responsable technique ou au gestionnaire de l'installation.",
+            "Si le plan ne peut être obtenu, différer les travaux jusqu'à mise à jour documentaire ou levée de doute terrain sécurisée.",
+          ],
+          explanation: "Un plan non à jour peut conduire à consigner le mauvais circuit, laissant un circuit sous tension considéré comme hors tension. C'est l'une des causes d'accidents les plus fréquentes lors d'interventions sur des installations évolutives.",
+          normRef: "NF C 18-510 § 5.3 — exigence de documentation fiable avant toute opération",
+        },
+      ],
       chapterImagePath: "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
         "Exemple de document technique ou administratif utilise pour tracer une installation et son cadre de conformité",
@@ -670,6 +1112,40 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un chantier électrique prépare glisse vers une modification de schéma non prévue. Le bon choix est de suspendre et de redocumenter l'opération avant reprise.",
+      scenarios: [
+        {
+          situation: "Un chargé de travaux B2 arrive sur un chantier et réunit rapidement son équipe. Il commence sans briefing structuré, sans vérifier les habilitations de chacun, sans délimiter la zone et sans s'assurer de la consignation préalable.",
+          question: "Quels éléments essentiels le B2 a-t-il omis avant le début des travaux ?",
+          wrongActions:           [
+            "Considérer que son équipe est compétente et que les vérifications sont superflues.",
+            "Déléguer les vérifications aux exécutants pour gagner du temps.",
+            "Effectuer les vérifications en cours de chantier au fur et à mesure.",
+          ],
+          correctActions:           [
+            "Vérifier les habilitations de tous les membres de l'équipe avant le démarrage.",
+            "S'assurer de la consignation formelle et signée avant d'accéder à la zone de travail.",
+            "Délimiter la zone, briefer l'équipe sur le périmètre, les rôles et les arrêts possibles, puis consigner les vérifications.",
+          ],
+          explanation: "Le briefing de début de chantier n'est pas une option. Il conditionne la sécurité collective de toute l'opération. Un B2 qui saute cette étape expose son équipe, engage sa responsabilité et viole la procédure de la norme.",
+          normRef: "NF C 18-510 § 5.3 — responsabilités du chargé de travaux : préparation, briefing et surveillance",
+        },
+        {
+          situation: "À la fin d'un parcours de formation B1/B2/BR/BC, un apprenant résume sa compréhension ainsi : 'L'essentiel c'est de ne pas toucher les fils sous tension et de mettre des gants.' Est-ce suffisant ?",
+          question: "Quelle est la véritable logique de sécurité retenue par la NF C 18-510 ?",
+          wrongActions:           [
+            "Valider cette compréhension car elle couvre l'essentiel du risque de contact.",
+            "Ajouter juste la règle des distances pour compléter.",
+            "Considérer que les gants sont la protection principale.",
+          ],
+          correctActions:           [
+            "Reformuler : la sécurité électrique repose sur une organisation rigoureuse, une habilitation adaptée au rôle réel, une préparation documentée, une consignation méthodique et un respect strict du périmètre.",
+            "Rappeler que les EPI sont une protection de dernier recours, pas une solution de substitution à l'organisation.",
+            "Insister sur la logique de non-improvisation et de signalement des écarts.",
+          ],
+          explanation: "La NF C 18-510 pose un cadre systémique : organisation, habilitations adaptées, documents fiables, consignation rigoureuse et réflexes face aux écarts. Réduire la sécurité électrique au seul geste de protection individuelle est une compréhension incomplète et dangereuse.",
+          normRef: "NF C 18-510 § 3 — principes généraux de la prévention du risque électrique",
+        },
+      ],
       chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
       chapterImageAlt:
         "Schema de synthese des reflexes a conserver pour préparer, exécuter ou interrompre une opération électrique en basse tension",

@@ -1,6 +1,89 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import type { ModuleContent } from "../../../lib/supabase/elearning/module-types";
+import type {
+  ModuleContent,
+  PracticalScenario,
+} from "../../../lib/supabase/elearning/module-types";
 import VisualCard from "./VisualCard";
+
+function ScenarioCard({ scenario }: { scenario: PracticalScenario }) {
+  const [revealed, setRevealed] = useState(false);
+
+  return (
+    <div className="overflow-hidden rounded-[2rem] border border-amber-200 bg-amber-50">
+      <div className="border-b border-amber-200 px-6 pb-4 pt-6">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-amber-800">
+          Cas pratique interactif
+        </p>
+        <p className="text-sm font-semibold leading-6 text-amber-950">
+          {scenario.situation}
+        </p>
+        <p className="mt-1 text-xs italic text-amber-700">{scenario.question}</p>
+      </div>
+
+      {!revealed ? (
+        <div className="flex items-center justify-between gap-4 px-6 py-5">
+          <p className="text-xs text-amber-700">
+            {"Réfléchissez avant de révéler la réponse."}
+          </p>
+          <button
+            onClick={() => setRevealed(true)}
+            className="shrink-0 rounded-xl bg-amber-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-amber-700"
+          >
+            Voir la réponse
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-4 px-6 py-5">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-red-700">
+              {"✗ À ne pas faire"}
+            </p>
+            <ul className="space-y-1">
+              {scenario.wrongActions.map((a, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-red-900">
+                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                  {a}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-green-700">
+              {"✓ Bonne conduite à tenir"}
+            </p>
+            <ol className="space-y-1">
+              {scenario.correctActions.map((a, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-green-900">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-600 text-[10px] font-bold text-white">
+                    {i + 1}
+                  </span>
+                  {a}
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="rounded-xl border border-amber-200 bg-white/70 px-4 py-3">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">
+              Pourquoi ?
+            </p>
+            <p className="text-sm leading-6 text-amber-950">{scenario.explanation}</p>
+          </div>
+
+          {scenario.normRef && (
+            <p className="text-xs font-medium text-blue-700">
+              {"📋 "}{scenario.normRef}
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 type CoursePageProps = {
   slug: string;
@@ -10,7 +93,7 @@ type CoursePageProps = {
 export default function CoursePage({ slug, moduleData }: CoursePageProps) {
   const topCards = [
     { label: "Parcours", value: moduleData.shortTitle },
-    { label: "Duree estimee", value: moduleData.duration ?? "" },
+    { label: "Durée estimée", value: moduleData.duration ?? "" },
     ...(moduleData.deliveryFormat
       ? [{ label: "Format", value: moduleData.deliveryFormat }]
       : []),
@@ -53,10 +136,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
 
           <div className="grid gap-4 px-6 py-6 sm:grid-cols-2 xl:grid-cols-4 sm:px-8">
             {topCards.map((card) => (
-              <div
-                key={card.label}
-                className="rounded-3xl border border-slate-200 bg-slate-50 p-5"
-              >
+              <div key={card.label} className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                   {card.label}
                 </p>
@@ -97,12 +177,8 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
             </nav>
 
             <div className="mt-6 rounded-3xl border border-blue-200 bg-blue-50 p-5">
-              <p className="text-sm font-semibold text-slate-900">
-                Objectif du module
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-700">
-                {moduleData.objective}
-              </p>
+              <p className="text-sm font-semibold text-slate-900">Objectif du module</p>
+              <p className="mt-3 text-sm leading-7 text-slate-700">{moduleData.objective}</p>
             </div>
           </aside>
 
@@ -120,7 +196,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                     </p>
                     {section.estimatedMinutes ? (
                       <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
-                        Temps estime : {section.estimatedMinutes} min
+                        Temps estimé : {section.estimatedMinutes} min
                       </span>
                     ) : null}
                   </div>
@@ -130,9 +206,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   </h2>
 
                   {section.intro ? (
-                    <p className="mt-4 text-base leading-8 text-slate-700">
-                      {section.intro}
-                    </p>
+                    <p className="mt-4 text-base leading-8 text-slate-700">{section.intro}</p>
                   ) : null}
                 </div>
 
@@ -171,15 +245,13 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.keyPoints?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-green-200 bg-green-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-green-800">
-                        Points cles a retenir
+                        Points clés à retenir
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.keyPoints!.map((point) => (
                           <li key={point} className="flex items-start gap-3">
                             <span className="mt-2 h-2.5 w-2.5 rounded-full bg-green-600" />
-                            <span className="text-sm leading-7 text-green-950">
-                              {point}
-                            </span>
+                            <span className="text-sm leading-7 text-green-950">{point}</span>
                           </li>
                         ))}
                       </ul>
@@ -189,15 +261,13 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                   {(section.forbiddenPoints?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-red-200 bg-red-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-                        Interdictions / erreurs a eviter
+                        Interdictions
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.forbiddenPoints!.map((point) => (
                           <li key={point} className="flex items-start gap-3">
                             <span className="mt-2 h-2.5 w-2.5 rounded-full bg-red-600" />
-                            <span className="text-sm leading-7 text-red-950">
-                              {point}
-                            </span>
+                            <span className="text-sm leading-7 text-red-950">{point}</span>
                           </li>
                         ))}
                       </ul>
@@ -215,18 +285,24 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                     </div>
                   ) : null}
 
+                  {(section.scenarios?.length ?? 0) > 0 ? (
+                    <div className="space-y-4">
+                      {section.scenarios!.map((scenario, i) => (
+                        <ScenarioCard key={i} scenario={scenario} />
+                      ))}
+                    </div>
+                  ) : null}
+
                   {(section.legalRefs?.length ?? 0) > 0 ? (
                     <div className="rounded-[2rem] border border-blue-200 bg-blue-50 p-6">
                       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
-                        Reperes reglementaires et normatifs
+                        Repères réglementaires et normatifs
                       </p>
                       <ul className="mt-4 space-y-3">
                         {section.legalRefs!.map((ref) => (
                           <li key={ref} className="flex items-start gap-3">
                             <span className="mt-2 h-2.5 w-2.5 rounded-full bg-blue-600" />
-                            <span className="text-sm leading-7 text-blue-950">
-                              {ref}
-                            </span>
+                            <span className="text-sm leading-7 text-blue-950">{ref}</span>
                           </li>
                         ))}
                       </ul>
@@ -240,7 +316,7 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-300">
                 Fin du parcours
               </p>
-              <h2 className="mt-3 text-2xl font-bold">Synthese finale</h2>
+              <h2 className="mt-3 text-2xl font-bold">Synthèse finale</h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200">
                 {moduleData.finalMessage}
               </p>

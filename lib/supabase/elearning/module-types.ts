@@ -28,35 +28,24 @@ export type ModuleResourceVideo = {
   ctaLabel?: string;
 };
 
+export type PracticalScenario = {
+  /** Question posée au stagiaire : "Que faites-vous si…" */
+  situation: string;
+  /** Reformulation courte affichée en titre de carte */
+  question: string;
+  /** Actions incorrectes / erreurs à ne pas commettre */
+  wrongActions: string[];
+  /** Actions correctes dans l'ordre à respecter */
+  correctActions: string[];
+  /** Explication pédagogique de la bonne réponse */
+  explanation: string;
+  /** Référence normative précise (NF C 18-510, Code du travail…) */
+  normRef?: string;
+};
+
 export type ModuleSection = {
   id: string;
   title: string;
   estimatedMinutes?: number;
   intro?: string;
   content?: string[];
-  deepDive?: string[];
-  keyPoints?: string[];
-  forbiddenPoints?: string[];
-  practicalCase?: string;
-  legalRefs?: string[];
-  chapterImagePath?: string;
-  chapterImageAlt?: string;
-  resourceVideos?: ModuleResourceVideo[];
-  visual?: ModuleVisual;
-};
-
-export type ModuleContent = {
-  title: string;
-  shortTitle: string;
-  subtitle?: string;
-  duration?: string;
-  deliveryFormat?: string;
-  level?: string;
-  objective?: string;
-  audience?: string;
-  certificationNote?: string;
-  heroBadge?: string;
-  sections: ModuleSection[];
-  finalMessage?: string;
-  quizCtaLabel?: string;
-};
