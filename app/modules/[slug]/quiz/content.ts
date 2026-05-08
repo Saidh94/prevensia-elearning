@@ -489,6 +489,186 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "La consignation fiable repose sur l'identification, la traçabilité et la vérification réelle, pas sur une confiance aveugle dans le repérage seul.",
       timeLimit: 75,
     },
+    {
+      question: "À partir de quelle intensité le courant alternatif devient-il dangereux pour le corps humain ?",
+      choices: ["1 mA", "10 mA", "50 mA", "100 mA"],
+      answer: [1],
+      explanation:
+        "Le courant électrique est dangereux à partir de 10 mA en courant alternatif. En courant continu, le seuil est de 40 mA.",
+      timeLimit: 40,
+    },
+    {
+      question: "Quelle est la tension de contact dangereuse en milieu sec, en courant alternatif ?",
+      choices: ["12 V", "25 V", "50 V", "120 V"],
+      answer: [2],
+      explanation:
+        "En milieu sec (résistance du corps : 5 000 Ω), la tension dangereuse est U = R × I = 5 000 × 0,01 = 50 V en courant alternatif.",
+      timeLimit: 40,
+    },
+    {
+      question: "En milieu humide, quelle est la tension de contact dangereuse en courant alternatif ?",
+      choices: ["12 V", "25 V", "50 V", "120 V"],
+      answer: [1],
+      explanation:
+        "En milieu humide (résistance réduite à 2 500 Ω), la tension dangereuse descend à 25 V en courant alternatif.",
+      timeLimit: 40,
+    },
+    {
+      question: "Quelle est la résistance conventionnelle du corps humain en milieu sec ?",
+      choices: ["500 Ω", "1 000 Ω", "2 500 Ω", "5 000 Ω"],
+      answer: [3],
+      explanation:
+        "La norme fixe la résistance conventionnelle du corps humain à 5 000 Ω en local ou emplacement sec, et à 2 500 Ω en milieu mouillé.",
+      timeLimit: 45,
+    },
+    {
+      question: "Qu'est-ce que la tétanisation ?",
+      choices: [
+        "Un arrêt cardiaque provoqué par le courant",
+        "Une paralysie des muscles due au passage du courant",
+        "Une brûlure interne causée par un arc électrique",
+        "Une perte de conscience sans séquelles",
+      ],
+      answer: [1],
+      explanation:
+        "La tétanisation est une paralysie des muscles. La personne peut succomber par asphyxie du fait du blocage de la cage thoracique.",
+      timeLimit: 45,
+    },
+    {
+      question: "La fibrillation ventriculaire provoquée par un choc électrique cède-t-elle spontanément ?",
+      choices: [
+        "Oui, après quelques secondes de repos",
+        "Non, elle ne cède jamais spontanément — seul un défibrillateur peut y remédier",
+        "Oui, si on applique une respiration artificielle",
+        "Non, seulement si on coupe immédiatement le courant",
+      ],
+      answer: [1],
+      explanation:
+        "La fibrillation ventriculaire est la contraction anarchique du muscle cardiaque. Elle ne cède jamais spontanément : seuls des contre-chocs électriques délivrés par un défibrillateur peuvent la corriger.",
+      timeLimit: 50,
+    },
+    {
+      question: "Quelles sont les quatre étapes obligatoires d'une consignation électrique ?",
+      choices: [
+        "Séparation de l'ouvrage",
+        "Condamnation en position d'ouverture",
+        "Identification de l'ouvrage",
+        "Vérification d'Absence de Tension (VAT) + MALT et CCT",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "La consignation électrique comprend 4 phases : 1. Séparation, 2. Condamnation, 3. Identification, 4. VAT + MALT/CCT. Une étape manquante invalide la consignation.",
+      timeLimit: 65,
+    },
+    {
+      question: "Lors d'une VAT (Vérification d'Absence de Tension), quand faut-il vérifier le bon fonctionnement du vérificateur ?",
+      choices: [
+        "Avant la mesure uniquement",
+        "Après la mesure uniquement",
+        "Avant ET après la mesure",
+        "Une fois par semaine, indépendamment des mesures",
+      ],
+      answer: [2],
+      explanation:
+        "Le VAT doit être vérifié avant et après chaque mesure pour s'assurer qu'il fonctionne correctement au moment où la mesure a été réalisée.",
+      timeLimit: 45,
+    },
+    {
+      question: "Dans quel(s) cas la mise à la terre et en court-circuit (MALT et CCT) est-elle obligatoire en basse tension ?",
+      choices: [
+        "Toujours, quelle que soit l'installation",
+        "En cas de risque de tension induite, de ré-alimentation ou avec des câbles de grande longueur",
+        "Uniquement en haute tension",
+        "Jamais en basse tension",
+      ],
+      answer: [1],
+      explanation:
+        "La MALT et CCT n'est pas obligatoire en BT, sauf en cas de risque de tension induite, risque de ré-alimentation ou avec des câbles de grandes longueurs.",
+      timeLimit: 55,
+    },
+    {
+      question: "L'habilitation BR entraîne automatiquement quelles autres habilitations ?",
+      choices: [
+        "B0 et B1 ainsi que B1V",
+        "B2 et BC",
+        "Toutes les habilitations BT",
+        "Aucune autre habilitation",
+      ],
+      answer: [0],
+      explanation:
+        "L'habilitation BR entraîne les habilitations B0, B1 et B1V, mais elle n'entraîne pas les habilitations B2 et BC.",
+      timeLimit: 50,
+    },
+    {
+      question: "À quoi est limitée l'habilitation BS ?",
+      choices: [
+        "Aux circuits terminaux en basse tension jusqu'à 400 V",
+        "Aux interventions en haute tension uniquement",
+        "À toutes les opérations BT sans restriction de tension",
+        "À la consignation des armoires industrielles",
+      ],
+      answer: [0],
+      explanation:
+        "L'habilitation BS est limitée à 400 V et aux circuits terminaux. Elle ne permet pas de remplacer un disjoncteur dans une armoire industrielle.",
+      timeLimit: 50,
+    },
+    {
+      question: "Quelle zone d'environnement est réservée aux opérations électriques en basse tension (zone 4) ?",
+      choices: [
+        "Zone accessible à tout le monde sans restriction",
+        "Zone réservée au personnel habilité, où le matériel IP2X ne doit pas être considéré comme sous tension",
+        "Zone uniquement accessible en haute tension",
+        "Zone d'investigation sans restriction pour le personnel non habilité",
+      ],
+      answer: [1],
+      explanation:
+        "La zone 4 est réservée au personnel habilité pour les opérations électriques en BT. Tout matériel de degré IP2X n'y est pas considéré comme sous tension accessible.",
+      timeLimit: 55,
+    },
+    {
+      question: "Quel est l'indice de protection minimal du matériel en basse tension (BT) pour assurer la protection contre les contacts directs ?",
+      choices: ["IP 1X", "IP 2X", "IP 3X", "IP 5X"],
+      answer: [1],
+      explanation:
+        "L'indice minimum de protection du matériel est IP 2X en Basse Tension et IP 3X en Haute Tension. Ils assurent la protection contre les contacts directs.",
+      timeLimit: 40,
+    },
+    {
+      question: "Quelle est la périodicité de recyclage recommandée pour une habilitation électrique ?",
+      choices: ["1 an", "2 ans", "3 ans", "5 ans"],
+      answer: [2],
+      explanation:
+        "La périodicité de recyclage, sauf contre-indication, est fixée à 3 ans pour les habilitations électriques.",
+      timeLimit: 35,
+    },
+    {
+      question: "Selon l'analyse des accidents d'origine électrique, quelle est la principale cause identifiée ?",
+      choices: [
+        "Matériel défectueux (12 %)",
+        "Formation insuffisante (12 %)",
+        "Mode opératoire inapproprié (31 %)",
+        "Application incomplète des procédures (15 %)",
+      ],
+      answer: [2],
+      explanation:
+        "L'analyse des accidents électriques montre que le mode opératoire inapproprié est la première cause (31 %), suivi de la méconnaissance des risques (30 %), l'application incomplète des procédures (15 %), et à égalité formation insuffisante et matériel (12 % chacun).",
+      timeLimit: 50,
+    },
+    {
+      question: "Quels équipements de protection individuelle (EPI) sont obligatoires lors de travaux au voisinage en électricité ?",
+      choices: [
+        "Gants isolants d'électricien adaptés à la tension",
+        "Écrans faciaux anti-UV",
+        "Casque isolant si risque de contact électrique à la tête",
+        "Chaussures de sécurité isolantes",
+      ],
+      answer: [0, 1, 2, 3],
+      multiple: true,
+      explanation:
+        "Les EPI obligatoires en voisinage comprennent les gants isolants (conformes aux normes, vérifiés avant et après usage), les écrans faciaux anti-UV, le casque isolant si risque à la tête, et les chaussures isolantes. Les objets métalliques personnels (bracelets, chaînes) sont interdits.",
+      timeLimit: 65,
+    },
   ],
     bsbe: [
     {
