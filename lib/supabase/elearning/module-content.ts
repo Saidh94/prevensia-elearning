@@ -131,7 +131,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         "L’employeur organise la prévention, définit les tâches confiées, vérifie l’adéquation entre le poste et le niveau d’habilitation, puis délivre l’habilitation.",
         "Le salarié habilité respecte les prescriptions de sécurité, les limites de son titre, les accès autorisés et les consignes internes du site.",
         "Le formateur transmet les connaissances théoriques et pratiques nécessaires à la sécurité, mais ne délivre pas lui-même l’habilitation.",
-        "Une mauvaise coordination ou une confusion sur les rôles peut conduire à un accident."
+        "Une mauvaise coordination ou une confusion sur les rôles peut conduire à un accident.",
+        "Le surveillant de sécurité électrique est une figure clé souvent méconnue des non-électriciens. Désigné par le chargé de travaux ou le chargé d'exploitation, il surveille en permanence les personnes non habilitées évoluant dans une zone à risque électrique. Il peut intervenir immédiatement en cas de dérive et fait le lien entre l'opérateur et l'organisation de prévention. Sa présence est une exigence réglementaire dès lors qu'un non-habilité doit opérer au voisinage de pièces nues sous tension."
       ],
       deepDive: [
         "L’employeur doit tenir compte du poste réel, de la nature des tâches, des locaux accessibles, des risques particuliers du site et du retour d’expérience.",
@@ -142,7 +143,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         "L’employeur habilite.",
         "Le formateur forme.",
         "Le salarié respecte strictement son périmètre.",
-        "La coordination fait partie de la prévention."
+        "La coordination fait partie de la prévention.",
+        "Le surveillant de sécurité électrique protège les non-habilités en zone à risque."
       ],
       forbiddenPoints: [
         "Donner oralement une consigne floue sur une action électrique.",
@@ -255,8 +257,11 @@ export const modulesContent: Record<string, ModuleContent> = {
       keyPoints: [
         "Les distances structurent la prévention.",
         "La consignation et le travail hors tension restent à privilégier quand ils relèvent des opérations autorisées.",
-        "En BT, 30 cm constitue un repère pédagogique important.",
-        "En HT, la DMA ne doit jamais être franchie."
+        "DMA BT = 0,30 m — ne jamais franchir cette limite.",
+        "DLI BT = 50 m — zone d'investigation.",
+        "DLAP = 0,50 m pour les canalisations enterrées.",
+        "Grillage avertisseur rouge = réseau électrique enterré.",
+        "En HT, les distances sont nettement plus importantes."
       ],
       forbiddenPoints: [
         "Franchir une limite de balisage.",
@@ -442,7 +447,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         "Le seuil de non-lâcher est un point clé : la victime peut ne plus réussir à se dégager seule de la partie sous tension, ce qui prolonge la durée d’exposition et aggrave considérablement l’accident.",
         "Le trajet du courant modifie fortement la gravité. Un trajet main-main ou main-pieds peut traverser le thorax et majorer le risque cardiaque. Un trajet plus localisé peut provoquer des brûlures ou des atteintes nerveuses importantes.",
         "La durée de passage du courant est un facteur aggravant majeur. Un courant relativement modéré mais appliqué plus longtemps peut devenir beaucoup plus dangereux qu’un passage très bref.",
-        "Le type de courant compte également. Dans les approches pédagogiques simplifiées, on rappelle souvent que les valeurs en courant continu sont généralement plus élevées que celles du courant alternatif pour produire certains effets physiologiques, mais cela ne signifie jamais absence de danger."
+        "Le type de courant compte également. Dans les approches pédagogiques simplifiées, on rappelle souvent que les valeurs en courant continu sont généralement plus élevées que celles du courant alternatif pour produire certains effets physiologiques, mais cela ne signifie jamais absence de danger.",
+        "Les statistiques d'accidents confirment la réalité du risque. En 2021, les données de sinistralité enregistraient environ 428 accidents du travail d'origine électrique, dont 46 mortels. L'analyse des facteurs causaux révèle que le mode opératoire inapproprié ou dangereux est la première cause (31 %), devant la méconnaissance des risques (30 %), l'application incomplète des procédures (15 %), la formation insuffisante (12 %) et le matériel défectueux (12 %). Ces chiffres montrent que la prévention technique ne suffit pas : le comportement et la culture de sécurité sont déterminants."
       ],
       deepDive: [
         "La tension seule n’explique pas tout. Ce sont les conditions réelles d’exposition qui déterminent la gravité.",
@@ -454,7 +460,10 @@ export const modulesContent: Record<string, ModuleContent> = {
         "10 mA : zone de non-lâcher possible.",
         "30 mA : niveau déjà très dangereux.",
         "75 mA : risque cardiaque majeur.",
-        "La durée de passage et le trajet changent la gravité."
+        "La durée de passage et le trajet changent la gravité.",
+        "2021 : 428 AT d'origine électrique — 46 mortels.",
+        "1re cause d'accident : mode opératoire inapproprié (31 %).",
+        "2e cause : méconnaissance des risques (30 %)."
       ],
       forbiddenPoints: [
         "Croire qu’un faible courant est forcément sans danger.",
@@ -559,7 +568,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         "À titre pédagogique, une peau sèche avec une résistance d’environ 4 000 ohms soumise à 50 V peut déjà conduire à un courant proche de 12 mA. Cela correspond déjà à une zone où le non-lâcher devient plausible.",
         "Lorsque les mains sont mouillées, que le sol est humide, que les vêtements sont trempés ou que l’on est en contact avec une structure métallique, le niveau de danger augmente fortement.",
         "Le même équipement électrique ne présente donc pas le même niveau de risque selon le contexte d’utilisation.",
-        "Pour un titulaire H0B0, le réflexe est simple : milieu humide = vigilance maximale, arrêt si doute et aucun geste improvisé."
+        "Pour un titulaire H0B0, le réflexe est simple : milieu humide = vigilance maximale, arrêt si doute et aucun geste improvisé.",
+        "La norme fixe des tensions de contact dangereuses selon l'environnement. En courant alternatif : 50 V en milieu sec, 25 V en milieu humide (condensation, transpiration), 12 V en milieu mouillé (eau ruisselante, immersion partielle). En courant continu les seuils sont plus élevés : 120 V sec, 60 V humide, 30 V mouillé. Ces valeurs montrent qu'une installation parfaitement conforme en bureau peut devenir dangereuse dans un atelier de nettoyage ou un local technique humide.",
+        "La résistance conventionnelle du corps humain retenue par la norme est de 5 000 Ω en milieu sec et 2 500 Ω en milieu humide. L'application directe de la loi d'Ohm (I = U/R) confirme qu'à 50 V on atteint 10 mA en milieu sec — valeur déjà au seuil du non-lâcher — et 20 mA en milieu humide, ce qui constitue un danger respiratoire réel."
       ],
       deepDive: [
         "L’humidité réduit la protection naturelle offerte par la peau.",
@@ -570,7 +581,11 @@ export const modulesContent: Record<string, ModuleContent> = {
         "L’humidité diminue la résistance du corps.",
         "La peau sèche protège davantage que la peau humide, sans supprimer le danger.",
         "50 V peuvent déjà conduire à un courant dangereux selon le contexte.",
-        "Le milieu de travail change directement le niveau de risque."
+        "Le milieu de travail change directement le niveau de risque.",
+        "Tensions dangereuses AC : 50 V (sec) / 25 V (humide) / 12 V (mouillé).",
+        "Tensions dangereuses DC : 120 V (sec) / 60 V (humide) / 30 V (mouillé).",
+        "Résistance corps : 5 000 Ω (sec) — 2 500 Ω (humide).",
+        "Eau = réduction de résistance = danger multiplié."
       ],
       forbiddenPoints: [
         "Manipuler une prise ou un équipement avec les mains mouillées.",
@@ -609,6 +624,7 @@ export const modulesContent: Record<string, ModuleContent> = {
       content: [
         "Les signes d’alerte les plus fréquents sont : câble écrasé, gaine coupée, prise fissurée, fiche cassée, conducteur apparent, rallonge déformée, coffret abîmé, capot manquant, traces noires, odeur de chaud, échauffement anormal, étincelles ou déclenchements répétés.",
         "Le fait qu’un appareil fonctionne encore ne prouve jamais qu’il est sûr. Au contraire, un matériel en service malgré un défaut visible peut être à l’origine d’une électrisation, d’un court-circuit ou d’un départ de feu.",
+        "Les canalisations électriques enterrées sont signalées par un grillage avertisseur de couleur rouge. Ce code couleur est réglementé et permet d'identifier le réseau avant toute fouille ou terrassement : rouge pour l'électricité, jaune pour le gaz, vert pour l'eau potable, bleu pour l'eau non potable, blanc pour les télécommunications. Rencontrer ce grillage lors d'un travail au sol impose l'arrêt immédiat et l'alerte.",
         "Le titulaire H0B0 ne doit jamais réparer, bricoler, scotcher, rebrancher en force ou neutraliser un défaut apparent sur un matériel électrique.",
         "L’inspection visuelle avant usage est une mesure simple mais essentielle : état des câbles, intégrité des fiches, présence des protections, stabilité des branchements, absence d’échauffement et cohérence avec l’environnement d’utilisation.",
         "Tout élément détérioré ou inhabituel doit être considéré comme un motif d’arrêt.",

@@ -669,6 +669,67 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Les EPI obligatoires en voisinage comprennent les gants isolants (conformes aux normes, vérifiés avant et après usage), les écrans faciaux anti-UV, le casque isolant si risque à la tête, et les chaussures isolantes. Les objets métalliques personnels (bracelets, chaînes) sont interdits.",
       timeLimit: 65,
     },
+    {
+      question: "Quelle est la Distance Minimale d'Approche (DMA) autour d'une pièce nue sous tension en basse tension (BT), en champ libre ?",
+      choices: ["0,05 m", "0,30 m", "1 m", "3 m"],
+      answer: [1],
+      explanation:
+        "La DMA en BT est de 0,30 m autour d'une pièce nue sous tension. En haute tension, cette distance est nettement plus grande. Un titulaire H0B0 ne doit jamais franchir cette limite.",
+      timeLimit: 40,
+    },
+    {
+      question: "En milieu humide (condensation, transpiration), quelle est la tension de contact dangereuse en courant alternatif ?",
+      choices: ["50 V", "25 V", "12 V", "120 V"],
+      answer: [1],
+      explanation:
+        "En milieu humide, la résistance du corps chute à environ 2 500 Ω. La tension dangereuse descend à 25 V en AC. En milieu sec elle est de 50 V, et en milieu mouillé de 12 V seulement.",
+      timeLimit: 40,
+    },
+    {
+      question: "En milieu mouillé (eau ruisselante, immersion partielle), quelle est la tension de contact dangereuse en courant alternatif ?",
+      choices: ["50 V", "25 V", "12 V", "30 V"],
+      answer: [2],
+      explanation:
+        "En milieu mouillé, la résistance du corps est très faible. La tension dangereuse en AC tombe à 12 V. Toute installation électrique dans un tel environnement présente un risque maximal même à très basse tension.",
+      timeLimit: 40,
+    },
+    {
+      question: "De quelle couleur est le grillage avertisseur signalant la présence d'une canalisation électrique enterrée ?",
+      choices: ["Jaune", "Vert", "Rouge", "Bleu"],
+      answer: [2],
+      explanation:
+        "Le grillage avertisseur rouge signale les canalisations électriques enterrées. Jaune = gaz, vert = eau potable, bleu = eau non potable, blanc = télécommunications. Découvrir ce grillage lors d'un terrassement impose l'arrêt immédiat.",
+      timeLimit: 35,
+    },
+    {
+      question: "Quelle est la Distance Limite d'Investigation (DLI) à respecter autour d'une pièce nue sous tension en basse tension ?",
+      choices: ["3 m", "10 m", "50 m", "100 m"],
+      answer: [2],
+      explanation:
+        "La DLI en BT est de 50 m. C'est la distance à partir de laquelle on commence à prendre en compte l'environnement électrique lors d'une analyse de risques avant travaux.",
+      timeLimit: 45,
+    },
+    {
+      question: "Quel est le rôle du surveillant de sécurité électrique dans le cadre d'une opération impliquant du personnel non habilité ?",
+      choices: [
+        "Réaliser lui-même les travaux électriques à la place du personnel non habilité",
+        "Surveiller en permanence les personnes non habilitées évoluant en zone à risque et intervenir si nécessaire",
+        "Vérifier uniquement la conformité administrative des habilitations",
+        "Remplacer le chargé de consignation en cas d'absence",
+      ],
+      answer: [1],
+      explanation:
+        "Le surveillant de sécurité électrique assure une surveillance permanente des personnes non habilitées travaillant en zone à risque. Il peut intervenir immédiatement en cas de dérive et fait le lien entre l'opérateur et l'organisation de prévention.",
+      timeLimit: 50,
+    },
+    {
+      question: "En courant continu, quelle est la tension de contact dangereuse en milieu sec ?",
+      choices: ["50 V", "25 V", "60 V", "120 V"],
+      answer: [3],
+      explanation:
+        "En courant continu et milieu sec, la tension dangereuse est de 120 V (contre 50 V en AC). En milieu humide DC : 60 V, en milieu mouillé DC : 30 V. Le courant continu est moins dangereux que l'AC à tension équivalente, mais ne doit jamais être banalisé.",
+      timeLimit: 40,
+    },
   ],
     bsbe: [
     {
@@ -1178,6 +1239,76 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Réflexes opérationnels BS et BE Manœuvre",
     },
 
+    {
+      question: "Parmi les opérations suivantes, lesquelles sont autorisées dans le cadre de l'habilitation BS selon la norme NF C 18-510 ?",
+      choices: [
+        "Remplacement d'un fusible à l'identique sur un circuit terminal",
+        "Remplacement d'une lampe ou d'un accessoire d'éclairage",
+        "Remplacement d'un socle de prise de courant ou d'un interrupteur",
+        "Raccordement d'un élément électrique simple",
+        "Réarmement ou désarmement d'un disjoncteur de protection",
+      ],
+      answer: [0, 1, 2, 3, 4],
+      multiple: true,
+      explanation:
+        "Ces cinq opérations sont précisément celles autorisées par la norme NF C 18-510 pour le symbole BS. Elles doivent toujours être réalisées hors tension, sur un circuit repéré, dans la limite de 400 V et sur des circuits terminaux.",
+      timeLimit: 70,
+    },
+    {
+      question: "Quelles sont les cinq conditions cumulatives requises pour qu'une opération soit qualifiée d'intervention BT élémentaire BS ?",
+      choices: [
+        "Basse tension (≤ 1 000 V AC)",
+        "Intensité ≤ 63 A",
+        "Courte durée sans interruption",
+        "Circuit protégé contre les surintensités",
+        "Analyse de risques sur place possible",
+      ],
+      answer: [0, 1, 2, 3, 4],
+      multiple: true,
+      explanation:
+        "Ces cinq conditions sont cumulatives. Si l'une fait défaut — par exemple l'intensité dépasse 63 A ou l'analyse sur place est impossible — il ne s'agit plus d'une intervention BS mais de travaux nécessitant une organisation différente.",
+      timeLimit: 75,
+    },
+    {
+      question: "Quels sont les trois types de manœuvres que le titulaire BE Manœuvre peut être amené à réaliser ?",
+      choices: [
+        "Manœuvres de consignation",
+        "Manœuvres d'exploitation",
+        "Manœuvres d'urgence",
+        "Manœuvres de diagnostic",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "La norme distingue : les manœuvres de consignation (selon instruction du chargé de consignation), les manœuvres d'exploitation (conduite normale), et les manœuvres d'urgence (procédure établie à l'avance). Le diagnostic improvisé n'est jamais une manœuvre autorisée.",
+      timeLimit: 60,
+    },
+    {
+      question: "Le BS peut-il effectuer une consignation complète pour le compte d'un autre opérateur comme le ferait un chargé de consignation BC ?",
+      choices: [
+        "Oui, si l'opération est simple et en BT",
+        "Oui, à condition d'être supervisé par un BR",
+        "Non, la consignation pour compte d'autrui relève exclusivement du BC",
+        "Non, sauf si l'employeur le précise dans le titre d'habilitation",
+      ],
+      answer: [2],
+      explanation:
+        "Le BS peut réaliser une mise hors tension pour son propre compte dans le cadre de son intervention élémentaire, mais il ne peut pas consigner pour le compte d'un autre opérateur. Cette responsabilité appartient exclusivement au chargé de consignation BC.",
+      timeLimit: 50,
+    },
+    {
+      question: "Lors d'une manœuvre BE Manœuvre, un disjoncteur retombe immédiatement après réarmement et une légère odeur se dégage. Quelle est la conduite à tenir ?",
+      choices: [
+        "Réarmer une deuxième fois en surveillant le tableau",
+        "Réarmer en forçant légèrement le levier pour maintenir le contact",
+        "Suspendre la manœuvre, ne pas réenclencher et transmettre à la personne compétente",
+        "Ouvrir le coffret pour observer le disjoncteur en détail",
+      ],
+      answer: [2],
+      explanation:
+        "Une odeur et un retombé immédiat signalent une anomalie. Le réarmement répété aggrave le risque. La conduite attendue est l'arrêt immédiat de la manœuvre et la transmission au niveau compétent (BR ou B2).",
+      timeLimit: 50,
+    },
     // === EPI ÉLECTRIQUES ===
     {
       question:

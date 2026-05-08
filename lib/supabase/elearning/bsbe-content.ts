@@ -477,9 +477,10 @@ export const bsbeModuleContent: ModuleContent = {
         "Une opération BS doit pouvoir être expliquée simplement : quel matériel, quel circuit, quelle procédure, quelle mise hors tension, quelle vérification et quelle remise en service.",
       ],
       keyPoints: [
-        "BS = remplacements simples et raccordements élémentaires.",
-        "Le cadre doit rester hors tension, repéré et documenté.",
-        "Le repère 400 V / 32 A aide à comprendre le niveau visé.",
+        "BS = 5 opérations précises définies par la norme NF C 18-510.",
+        "1. Fusible à l'identique — 2. Lampe/luminaire — 3. Socle prise/interrupteur.",
+        "4. Raccordement simple — 5. Réarmement/désarmement disjoncteur.",
+        "Toujours hors tension, circuit repéré, ≤ 400 V, circuits terminaux uniquement.",
       ],
       forbiddenPoints: [
         "Chercher la panne si le remplacement ne suffit pas.",
@@ -592,9 +593,12 @@ export const bsbeModuleContent: ModuleContent = {
         "Le cœur de la compétence BE Manœuvre est la discipline d’exploitation : agir sur le bon organe, au bon moment, selon la bonne instruction, sans démontage de protection, et s’arrêter au premier signal anormal.",
       ],
       keyPoints: [
+        "3 types de manœuvres : consignation / exploitation / urgence.",
+        "Manœuvre de consignation : selon instruction du chargé de consignation.",
+        "Manœuvre d'exploitation : conduite normale de l'installation.",
+        "Manœuvre d'urgence : procédure établie à l'avance, jamais improvisée.",
         "BE Manœuvre = organe prévu, procédure connue, contexte vérifié.",
-        "Pas de dépannage.",
-        "Pas de réenclenchement en boucle.",
+        "Pas de dépannage. Pas de réenclenchement en boucle.",
       ],
       forbiddenPoints: [
         "Ouvrir un coffret pour comprendre la cause.",
