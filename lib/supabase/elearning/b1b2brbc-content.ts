@@ -450,7 +450,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         subtitle: "Mesurer, tester, reconnecter et remettre sous tension exigent une méthode.",
         items: ["Mesurage", "Essai", "Connexion", "Remise en service"],
         tone: "green",
-        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-remise-énergie.svg",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-remise-energie.svg",
       },
     },
     {

@@ -1550,7 +1550,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           {
             title: "INRS France - Selection videos risque incendie",
             description:
-              "Selection officielle INRS pour completer les notions d'alarme, de detection, de reflexes incendie et de mise en securite.",
+              "Sélection officielle INRS pour compléter les notions d'alarme, de détection, de réflexes incendie et de mise en sécurité.",
             url: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
             provider: "INRS France",
             ctaLabel: "Voir la selection INRS",
@@ -1734,10 +1734,10 @@ export const modulesContent: Record<string, ModuleContent> = {
     audience:
       "Personnel d'exploitation, maintenance, encadrement technique, responsables de site, utilisateurs en environnement industriel, logistique ou tertiaire.",
     certificationNote:
-      "Ce module traite de l'exploitation et de la comprehension fonctionnelle. Il ne remplace ni une etude sprinkler, ni un audit de conformite, ni une mission de conception, ni la verification specialisee des referentiels applicables au site.",
+      "Ce module traite de l'exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude sprinkler, ni un audit de conformité, ni une mission de conception, ni la vérification spécialisée des référentiels applicables au site.",
     heroBadge: "Protection incendie",
     finalMessage:
-      "Vous avez acquis les fondamentaux de l'exploitation sprinkler. La performance depend ensuite du maintien en etat, des controles periodiques, de la tracabilite et de l'adequation permanente entre protection installee et risque reel.",
+      "Vous avez acquis les fondamentaux de l'exploitation sprinkler. La performance dépend ensuite du maintien en état, des contrôles périodiques, de la traçabilité et de l'adéquation permanente entre protection installée et risque réel.",
     quizCtaLabel: "Passer au quiz sprinkler",
     sections: [
       {
@@ -1745,19 +1745,19 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "1. Principe de fonctionnement",
         estimatedMinutes: 12,
         intro:
-          "Le sprinkler n'est ni un decor ni un deversement general automatique. C'est un systeme concu pour reagir localement et tot, au plus pres du foyer.",
+          "Le sprinkler n'est ni un décor ni un déversement général automatique. C'est un système conçu pour réagir localement et tôt, au plus près du foyer.",
         content: [
-          "Une installation sprinkler est concue pour detecter et maitriser automatiquement un incendie au plus pres du foyer grace au declenchement thermique des tetes concernees.",
+          "Une installation sprinkler est conçue pour détecter et maîtriser automatiquement un incendie au plus près du foyer grâce au déclenchement thermique des têtes concernées.",
           "Elle ne fonctionne pas comme un deversement general : seules les tetes exposees a une chaleur suffisante s'ouvrent.",
           "Cette logique doit etre comprise par l'exploitant pour eviter les idees fausses courantes, par exemple penser que toutes les tetes se declenchent simultanement.",
-          "Le sprinkler est concu pour contenir, maitriser ou controler un incendie en attendant les autres moyens de secours et l'action de l'organisation du site."
+          "Le sprinkler est conçu pour contenir, maîtriser ou contrôler un incendie en attendant les autres moyens de secours et l'action de l'organisation du site."
         ],
         chapterImagePath: "/images/installation-sprinkler.png",
         chapterImageAlt:
           "Schema de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de controle et reseau de sprinkleurs",
         visual: {
           title: "Principe sprinkler",
-          subtitle: "Detection thermique locale et attaque precoce.",
+          subtitle: "Détection thermique locale et attaque précoce.",
           imagePath: "/images/installation-sprinkler.png",
           imageAlt:
             "Schema de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de controle et reseau de sprinkleurs",
@@ -1765,7 +1765,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "La chaleur ouvre la tete concernee",
             "L'eau est delivree localement",
             "L'alarme est transmise",
-            "Le feu est maitrise ou contenu"
+            "Le feu est maîtrisé ou contenu"
           ],
           tone: "blue",
         },
@@ -1779,8 +1779,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "Une installation comprend notamment les tetes sprinkler, un reseau de tuyauteries, des postes de controle, une source d'eau et des dispositifs d'alarme.",
           "L'exploitation suppose de savoir reconnaitre les organes essentiels, les positions normales d'exploitation et les etats anormaux a surveiller.",
-          "La disponibilite de la source d'eau, l'accessibilite des organes, l'etat apparent du reseau, la lisibilite des reperes, la position normale des vannes et la comprehension des alarmes sont des points de vigilance de premier niveau.",
-          "Le niveau attendu n'est pas celui d'un bureau d'etudes, mais celui d'un professionnel capable de voir immediatement ce qui n'est pas conforme a l'etat normal d'exploitation."
+          "La disponibilité de la source d'eau, l'accessibilité des organes, l'état apparent du réseau, la lisibilité des repères, la position normale des vannes et la compréhension des alarmes sont des points de vigilance de premier niveau.",
+          "Le niveau attendu n'est pas celui d'un bureau d'études, mais celui d'un professionnel capable de voir immédiatement ce qui n'est pas conforme à l'état normal d'exploitation."
         ],
         keyPoints: [
           "Poste de controle",
@@ -1848,18 +1848,18 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "4. Referentiels et cadre d'exploitation",
         estimatedMinutes: 12,
         intro:
-          "Le sprinkler est souvent associe a des referentiels techniques exigeants. L'exploitant n'a pas a les reciter, mais il doit comprendre leur role.",
+          "Le sprinkler est souvent associé à des référentiels techniques exigeants. L'exploitant n'a pas à les réciter, mais il doit comprendre leur rôle.",
         content: [
-          "Les installations sprinkler sont frequemment exploitees, surveillees ou auditees au regard de referentiels tels qu'APSAD R1, EN 12845, NFPA 13 ou certaines fiches FM selon le contexte du site.",
-          "L'enjeu est de connaitre les exigences de maintien en etat, les essais periodiques et la coherence entre la protection installee et le risque reellement present.",
-          "Selon les sites, le referentiel contractuel ou technique ne sera pas le meme. Cela ne change pas le fond: une installation n'est performante que si elle est maintenue disponible, essayee, surveillee et adaptee a la realite du stockage ou du process.",
-          "Il faut toujours relier la technique au terrain: hauteur de stockage, nature des produits, evolution d'activite, encombrement, ambiance corrosive, travaux, indisponibilites temporaires et mesures compensatoires."
+          "Les installations sprinkler sont fréquemment exploitées, surveillées ou auditées au regard de référentiels tels qu'APSAD R1, EN 12845, NFPA 13 ou certaines fiches FM selon le contexte du site.",
+          "L'enjeu est de connaître les exigences de maintien en état, les essais périodiques et la cohérence entre la protection installée et le risque réellement présent.",
+          "Selon les sites, le référentiel contractuel ou technique ne sera pas le même. Cela ne change pas le fond : une installation n'est performante que si elle est maintenue disponible, essayée, surveillée et adaptée à la réalité du stockage ou du process.",
+          "Il faut toujours relier la technique au terrain : hauteur de stockage, nature des produits, évolution d'activité, encombrement, ambiance corrosive, travaux, indisponibilités temporaires et mesures compensatoires."
         ],
         legalRefs: [
           "EN 12845 - referentiel europeen souvent rencontre pour les installations sprinkler.",
-          "APSAD R1 - referentiel frequemment utilise en France dans les demarches de protection incendie.",
-          "NFPA 13 et FM Global Data Sheets - referentiels pouvant s'appliquer selon les sites, cahiers des charges ou assureurs.",
-          "Consignes d'exploitation, dossier de securite et exigences contractuelles du site protege."
+          "APSAD R1 — référentiel fréquemment utilisé en France dans les démarches de protection incendie.",
+          "NFPA 13 et FM Global Data Sheets — référentiels pouvant s'appliquer selon les sites, cahiers des charges ou assureurs.",
+          "Consignes d'exploitation, dossier de sécurité et exigences contractuelles du site protégé."
         ],
         chapterImagePath: "/images/reseau-sprinkler.jpg",
         chapterImageAlt:
@@ -1884,7 +1884,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "5. Focus entrepots, stockage et ICPE 1510",
         estimatedMinutes: 12,
         intro:
-          "Dans les environnements logistiques et les entrepots, le sprinkler doit etre lu dans une logique globale de maitrise du risque incendie.",
+          "Dans les environnements logistiques et les entrepôts, le sprinkler doit être lu dans une logique globale de maîtrise du risque incendie.",
         content: [
           "Dans les entrepots couverts relevant de la rubrique ICPE 1510, la prevention des sinistres s'apprecie dans un ensemble plus large de prescriptions : cellules, separation, toiture, moyens de secours, exploitation et gestion du risque.",
           "Toute modification d'exploitation significative peut justifier une relecture de la strategie incendie du site afin de confirmer que la protection reste adaptee.",
@@ -1919,15 +1919,15 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "6. Essais, surveillance et gestion des indisponibilites",
         estimatedMinutes: 10,
         intro:
-          "Une installation sprinkler reste credible si elle est surveillee dans le temps et si toute indisponibilite est pilotee avec methode.",
+          "Une installation sprinkler reste crédible si elle est surveillée dans le temps et si toute indisponibilité est pilotée avec méthode.",
         content: [
           "L'exploitant doit connaitre l'existence des essais periodiques, des levees de doute, des controles de routine et des remontees d'anomalies. Sans cette discipline, la protection peut sembler en place tout en etant partiellement degradee.",
-          "Une indisponibilite temporaire, une vanne fermee, un arret de source d'eau, une intervention de maintenance ou une zone neutralisee doivent declencher des mesures compensatoires selon l'organisation du site.",
-          "Le vrai sujet d'exploitation n'est pas seulement technique: c'est la capacite a savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protege pendant la periode degradee."
+          "Une indisponibilité temporaire, une vanne fermée, un arrêt de source d'eau, une intervention de maintenance ou une zone neutralisée doivent déclencher des mesures compensatoires selon l'organisation du site.",
+          "Le vrai sujet d'exploitation n'est pas seulement technique : c'est la capacité à savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protégé pendant la période dégradée."
         ],
         keyPoints: [
           "Essais et controles reguliers.",
-          "Indisponibilites tracees et compensees.",
+          "Indisponibilités tracées et compensées.",
           "Retour a la normale formalise."
         ],
         chapterImagePath: "/images/reseau-sprinkler.jpg",
@@ -1970,7 +1970,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Reseau sprinkler illustrant la repartition des tetes au-dessus des zones de stockage",
         visual: {
           title: "Tetes sprinkler et volume protege",
-          subtitle: "Degagement, absence d'obstacle, integrite visible.",
+          subtitle: "Dégagement, absence d'obstacle, intégrité visible.",
           imagePath: "/images/reseau-sprinkler.jpg",
           imageAlt:
             "Reseau sprinkler illustrant la repartition des tetes au-dessus des zones de stockage",
@@ -1990,18 +1990,18 @@ export const modulesContent: Record<string, ModuleContent> = {
     title: "Extinction automatique a gaz - exploitation et referentiels",
     shortTitle: "Extinction a gaz",
     subtitle:
-      "Parcours e-learning structure sur le fonctionnement d'un systeme fixe d'extinction automatique a gaz, la securite des personnes, l'integrite du local protege et les reperes APSAD R13 / NF EN 15004-1.",
+      "Parcours e-learning structuré sur le fonctionnement d'un système fixe d'extinction automatique à gaz, la sécurité des personnes, l'intégrité du local protégé et les repères APSAD R13 / NF EN 15004-1.",
     duration: "55 a 75 minutes",
     level: "Intermediaire",
     objective:
-      "Comprendre la logique d'un systeme d'extinction a gaz, distinguer ce systeme d'une installation sprinkler, integrer les contraintes de local protege et appliquer les bons reflexes d'exploitation et de securite.",
+      "Comprendre la logique d'un système d'extinction à gaz, distinguer ce système d'une installation sprinkler, intégrer les contraintes de local protégé et appliquer les bons réflexes d'exploitation et de sécurité.",
     audience:
       "Exploitants, responsables techniques, maintenance, encadrement et utilisateurs de locaux proteges par extinction automatique a gaz.",
     certificationNote:
-      "Ce module traite de l'exploitation et de la comprehension fonctionnelle. Il ne remplace ni une etude de conception, ni un calcul de concentration, ni la maintenance specialisee, ni les verifications reglementaires du site.",
+      "Ce module traite de l'exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude de conception, ni un calcul de concentration, ni la maintenance spécialisée, ni les vérifications réglementaires du site.",
     heroBadge: "Extinction automatique",
     finalMessage:
-      "Vous avez acquis les reperes essentiels d'un systeme d'extinction automatique a gaz. L'efficacite repose ensuite sur l'integrite du local protege, la qualite des controles, la maitrise des acces et le strict respect des consignes de securite.",
+      "Vous avez acquis les repères essentiels d'un système d'extinction automatique à gaz. L'efficacité repose ensuite sur l'intégrité du local protégé, la qualité des contrôles, la maîtrise des accès et le strict respect des consignes de sécurité.",
     quizCtaLabel: "Passer au quiz extinction a gaz",
     sections: [
       {
@@ -2009,10 +2009,10 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "1. Principe d'un systeme fixe d'extinction a gaz",
         estimatedMinutes: 12,
         intro:
-          "Un systeme a gaz n'est pas un sprinkler sans eau. Il repose sur une logique de volume protege, de detection et de diffusion controlee de l'agent extincteur.",
+          "Un système à gaz n'est pas un sprinkler sans eau. Il repose sur une logique de volume protégé, de détection et de diffusion contrôlée de l'agent extincteur.",
         content: [
           "Les systemes fixes d'extinction automatique a gaz sont utilises lorsque la protection par eau n'est pas adaptee ou lorsqu'il faut preserver des equipements, des volumes techniques ou des locaux sensibles.",
-          "L'efficacite du systeme depend d'une detection fiable, d'une chaine de commande correcte et de la capacite du local a conserver la concentration utile pendant le temps prevu.",
+          "L'efficacité du système dépend d'une détection fiable, d'une chaîne de commande correcte et de la capacité du local à conserver la concentration utile pendant le temps prévu.",
           "L'exploitant doit retenir qu'un systeme a gaz se gere comme un ensemble complet: detection, temporisation, alarmes, signalisation, coupures ou arrets associes, diffusion et controle du reacces."
         ],
         chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",

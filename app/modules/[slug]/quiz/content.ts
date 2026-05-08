@@ -3845,51 +3845,51 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Dans la logique SST, quels signes orientent l'examen initial ?",
       choices: [
         "Saignement abondant",
-        "Etouffement",
-        "Reponse de la victime",
+        "Étouffement",
+        "Réponse de la victime",
         "Respiration",
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "L'examen SST suit une logique methodique de recherche des urgences vitales.",
+        "L'examen SST suit une logique méthodique de recherche des urgences vitales.",
       timeLimit: 75,
     },
     {
       question:
-        "Quel enonce reste juste concernant le role du SST ?",
+        "Quel énoncé reste juste concernant le rôle du SST ?",
       choices: [
-        "Le SST secourt et contribue aussi a la prevention dans l'entreprise",
-        "Le SST remplace les secours specialises",
+        "Le SST secourt et contribue aussi à la prévention dans l'entreprise",
+        "Le SST remplace les secours spécialisés",
         "Le SST agit dans le cadre de sa formation et des consignes du site",
         "Le SST improvise des gestes non appris si la situation est impressionnante",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Le role du SST relie secours et prevention, dans le respect strict du cadre appris en formation.",
+        "Le rôle du SST relie secours et prévention, dans le respect strict du cadre appris en formation.",
       timeLimit: 65,
     },
     {
       question:
-        "Pourquoi le suivi de la victime reste-t-il important jusqu'a l'arrivee des secours ?",
+        "Pourquoi le suivi de la victime reste-t-il important jusqu'à l'arrivée des secours ?",
       choices: [
-        "Parce que son etat peut evoluer",
+        "Parce que son état peut évoluer",
         "Parce qu'il faut pouvoir transmettre un compte rendu utile",
-        "Parce qu'une fois l'alerte donnee, toute surveillance devient inutile",
+        "Parce qu'une fois l'alerte donnée, toute surveillance devient inutile",
         "Parce que l'attente remplace toujours les gestes appris",
       ],
       answer: [0, 1],
       multiple: true,
       explanation:
-        "Le SST surveille, rassure si possible et transmet des informations utiles a la releve.",
+        "Le SST surveille, rassure si possible et transmet des informations utiles à la relève.",
       timeLimit: 60,
     },
     {
       question:
-        "Dans quel ordre logique s'inscrit l'action du SST face a une situation d'accident ?",
+        "Dans quel ordre logique s'inscrit l'action du SST face à une situation d'accident ?",
       choices: [
-        "Proteger",
+        "Protéger",
         "Examiner",
         "Alerter ou faire alerter",
         "Secourir",
@@ -3897,7 +3897,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "La logique SST suit une methode ordonnee: proteger, examiner, alerter, puis secourir dans le cadre appris.",
+        "La logique SST suit une méthode ordonnée : protéger, examiner, alerter, puis secourir dans le cadre appris.",
       timeLimit: 70,
       imagePath: "/images/sst.jpg",
       imageAlt:
@@ -3905,10 +3905,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Quelles informations sont utiles lors de la releve ou de l'arrivee des secours ?",
+        "Quelles informations sont utiles lors de la relève ou de l'arrivée des secours ?",
       choices: [
-        "Ce qui a ete observe chez la victime",
-        "Le geste deja realise",
+        "Ce qui a été observé chez la victime",
+        "Le geste déjà réalisé",
         "Les risques persistants sur la zone",
         "Des commentaires sans lien avec la situation",
       ],
