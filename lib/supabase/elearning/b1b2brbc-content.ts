@@ -118,7 +118,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : lors d'une intervention sur une machine, un conducteur supplémentaire non documente est decouvert. Le BR suspend l'action, informe l'organisation et la mission est requalifiée avant reprise.",
       chapterImagePath:
-        "/elearning/b1-b1v-b2-b2v-br-bc/cours-electrique.jpg",
+        "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
         "Document technique et cadre d'autorisation utilises pour organiser une opération électrique et clarifier les responsabilites",
       visual: {
@@ -166,7 +166,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : un technicien B1V travaille a proximite d'un départ voisin. Il ne gagne pas un droit de dépannage général: il reste exécutant dans une situation de voisinage plus exigeante.",
       chapterImagePath:
-        "/elearning/b1-b1v-b2-b2v-br-bc/signalétiques.jpg",
+        "/images/modules/electricite/symboles-habilitation-travaux-electriques.jpg",
       chapterImageAlt:
         "Tableau des symboles d'habilitation utilises pour les autres opérations d'ordre électrique",
       visual: {
@@ -216,7 +216,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une intervention BR prévue sur un circuit terminal devient critique car un bornier voisin est decouvert apres déposé partielle d'un capot. L'organisation de l'intervention doit être revue avant reprise.",
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/danger-voisinage-simple-et-voisinage-bt.jpg",
+      chapterImagePath: "/images/modules/electricite/zones-voisinage-bt.jpg",
       chapterImageAlt:
         "Schema des zones autour d'un conducteur nu et des limites de voisinage en basse tension",
       visual: {
@@ -260,7 +260,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une équipe doit intervenir sur un départ repère en maintenance, mais la signaletique locale ne correspond pas au dossier. L'opération est suspendue jusqu'a vérification.",
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/pratique-terrain.jpg",
+      chapterImagePath: "/images/modules/electricite/maintenance-environnement-technique.jpg",
       chapterImageAlt:
         "Technicien intervenant devant une armoire électrique en environnement technique contrôle",
       visual: {
@@ -316,7 +316,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : avant remplacement d'un appareillage, l'équipe constate plusieurs départs similaires dans l'armoire. Le BC doit verrouiller l'identification avant toute consignation effective.",
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/étapes-consignation.jpg",
+      chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
       chapterImageAlt:
         "Illustration de consignation avec vérification d'absence de tension et balisage de zone",
       visual: {
@@ -397,7 +397,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : un technicien BR intervient sur un arret machine. En ouvrant le dossier, il constate une modification ancienne non documentee du cablage. L'intervention doit être requalifiée et encadree autrement.",
       chapterImagePath:
-        "/elearning/b1-b1v-b2-b2v-br-bc/pratique-terrain.jpg",
+        "/images/modules/electricite/maintenance-environnement-technique.jpg",
       chapterImageAlt:
         "Technicien intervenant en environnement technique devant une armoire électrique basse tension",
       visual: {
@@ -442,7 +442,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : apres remplacement d'un appareillage, un intervenant souhaite remettre sous tension pour 'voir si ca tient'. Le cadre de remise en service doit être revalide avant tout essai.",
-      chapterImagePath: "/images/armoire-electrique.jpg",
+      chapterImagePath: "/images/modules/electricite/tableau-coffret-bt.jpg",
       chapterImageAlt:
         "Tableau basse tension et appareillage sur lesquels les mesurages, essais et remises en énergie exigent une méthode stricte",
       visual: {
@@ -576,7 +576,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       practicalCase:
         "Exemple : apres une consignation difficile a confirmer sur un tableau mal repère, l'équipe fait formaliser une correction documentaire au lieu de laisser le probleme en l'etat.",
       chapterImagePath:
-        "/elearning/b1-b1v-b2-b2v-br-bc/cours-electrique.jpg",
+        "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
         "Support documentaire et cadre de traçabilité utilises pour formaliser un retour d'expérience et corriger durablement un écart",
       visual: {
@@ -621,7 +621,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une équipe B2 doit intervenir sur un départ consigne, mais un sous-traitant voisin annonce une remise en service partielle de zone. L'opération est suspendue jusqu'a coordination et revalidation du cadre.",
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/cours-electrique.jpg",
+      chapterImagePath: "/images/modules/electricite/document-chantier-autorisation.jpg",
       chapterImageAlt:
         "Exemple de document technique ou administratif utilise pour tracer une installation et son cadre de conformite",
       visual: {
