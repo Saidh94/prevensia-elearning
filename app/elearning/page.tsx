@@ -26,13 +26,13 @@ const formations = [
       "Conduite a tenir en cas d'incident ou d'accident",
     ],
     note:
-      "Module theorique de sensibilisation complète par un entretien de validation de 30 minutes.",
+      "Module théorique de sensibilisation complète par un entretien de validation de 30 minutes.",
   },
   {
-    slug: "bs-be-manoeuvre",
+    slug: "bs-be-manœuvre",
     category: "Habilitation électrique",
     title: "Habilitation électrique BS et BE Manœuvre",
-    duration: "E-learning : 5 h a 7 h + séquence encadrée : 45 min a 4 h",
+    duration: "E-learning : 5 h à 7 h + séquence encadrée : 45 min à 4 h",
     mode: "E-learning + classes virtuelle / visio",
     price: "320 EUR HT",
     level: "Intermediaire",
@@ -47,7 +47,7 @@ const formations = [
     ],
     programme: [
       "Rappels sur le risque électrique et les mesures de prévention",
-      "Rôle et limites d'un executant BS",
+      "Rôle et limites d'un exécutant BS",
       "Rôle et limites d'un habilite BE Manœuvre",
       "Mise en sécurité, vérifications visuelles et environnement de travail",
       "Conduite a tenir en cas d'anomalie, d'incident ou d'accident",
@@ -64,16 +64,16 @@ const formations = [
     price: "Inclus avec la formation présentielle",
     level: "Avance",
     audience:
-      "Électriciens executants amenes a realiser des travaux electriques en basse tension sous direction.",
+      "Électriciens exécutants amenes a réaliser des travaux électriques en basse tension sous direction.",
     description:
-      "Parcours theorique cible sur le rôle d'executant B1 / B1V, le voisinage, la lecture du cadre de travail et la discipline d'execution en sécurité.",
+      "Parcours théorique ciblé sur le rôle d'exécutant B1 / B1V, le voisinage, la lecture du cadré de travail et la discipline d'exécution en sécurité.",
     objectifs: [
-      "Comprendre le rôle d'executant B1 / B1V",
-      "Respecter le cadre de travail fixe par le charge de travaux",
+      "Comprendre le rôle d'exécutant B1 / B1V",
+      "Respecter le cadré de travail fixe par le chargé de travaux",
       "Identifier le voisinage et stopper en cas d'ecart",
     ],
     programme: [
-      "Cadre B1 / B1V et rôle de l'executant",
+      "Cadre B1 / B1V et rôle de l'exécutant",
       "Voisinage, pieces nues sous tension et limites d'action",
       "Préparation d'un travail électrique",
       "Execution sous direction et conduite a tenir en cas d'anomalie",
@@ -90,18 +90,18 @@ const formations = [
     price: "Inclus avec la formation présentielle",
     level: "Avance",
     audience:
-      "Charges de travaux, chefs d'équipe et responsables amenes a préparer et diriger des travaux electriques en basse tension.",
+      "Charges de travaux, chefs d'équipe et responsables amenes a préparer et diriger des travaux électriques en basse tension.",
     description:
-      "Parcours theorique cible sur le rôle B2 / B2V, l'organisation du chantier électrique, la coordination et la maitrise du voisinage.",
+      "Parcours théorique ciblé sur le rôle B2 / B2V, l'organisation du chantier électrique, la coordination et la maîtrise du voisinage.",
     objectifs: [
-      "Comprendre le rôle de charge de travaux",
+      "Comprendre le rôle de chargé de travaux",
       "Organiser la zone, le briefing et les protections",
-      "Diriger l'équipe et suspendre le chantier si le cadre se dégradé",
+      "Diriger l'équipe et suspendre le chantier si le cadre se dégrade",
     ],
     programme: [
-      "Cadre B2 / B2V et chaîne de responsabilite",
+      "Cadre B2 / B2V et chaîne de responsabilité",
       "Préparation des travaux et coordination",
-      "Direction du chantier et maitrise du voisinage",
+      "Direction du chantier et maîtrise du voisinage",
       "Ecarts, urgences et compte rendu de fin d'opération",
     ],
     note:
@@ -118,14 +118,14 @@ const formations = [
     audience:
       "Techniciens de maintenance et personnels amenes a conduire des interventions générales en basse tension.",
     description:
-      "Parcours theorique cible sur le depannage, le remplacement, les essais limites et les conditions strictes de l'intervention générale BR.",
+      "Parcours théorique ciblé sur le dépannage, le remplacement, les essais limites et les conditions strictes de l'intervention générale BR.",
     objectifs: [
       "Comprendre le cadre BR et ses limites",
-      "Preparer une intervention générale en sécurité",
-      "Refuser toute derive vers des travaux structures ou hors cadre",
+      "Préparer une intervention générale en sécurité",
+      "Refuser toute dérive vers des travaux structurés ou hors cadré",
     ],
     programme: [
-      "Cadre BR et responsabilites de l'intervenant",
+      "Cadre BR et responsabilités de l'intervenant",
       "Préparation, mise en sécurité et vérification",
       "Depannage, remplacement, mesurage et essais limites",
       "Anomalies, urgences et retour d'experience",
@@ -142,16 +142,16 @@ const formations = [
     price: "Inclus avec la formation présentielle",
     level: "Avance",
     audience:
-      "Responsables techniques et personnels amenes a assurer la consignation et la deconsignation en basse tension.",
+      "Responsables techniques et personnels amenes a assurer la consignation et la déconsignation en basse tension.",
     description:
-      "Parcours theorique cible sur la chaîne de consignation, la vérification d'absence de tension, la tracabilite et la remise a disposition de l'installation.",
+      "Parcours théorique ciblé sur la chaîne de consignation, la vérification d'absence de tension, la traçabilité et la remise à disposition de l'installation.",
     objectifs: [
-      "Comprendre le rôle de charge de consignation",
+      "Comprendre le rôle de chargé de consignation",
       "Maitriser la chaîne de consignation et la VAT",
       "Fiabiliser la documentation et les interfaces avec les travaux",
     ],
     programme: [
-      "Cadre BC et rôle de charge de consignation",
+      "Cadre BC et rôle de chargé de consignation",
       "Identification, separation, condamnation et VAT",
       "Documents, autorisations et coordination",
       "Ecarts, doute et retour a la normale",
@@ -160,7 +160,7 @@ const formations = [
       "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
   },
   {
-    slug: "be-vérification-mesurage",
+    slug: "be-verification-mesurage",
     category: "Habilitation électrique",
     title: "Habilitation électrique BE Vérification / BE Mesurage",
     duration: "E-learning : 5 h 30 a 7 h + pratique",
@@ -168,13 +168,13 @@ const formations = [
     price: "Inclus avec la formation présentielle",
     level: "Avance",
     audience:
-      "Techniciens amenes a realiser des vérifications, mesurages et contrôles en basse tension.",
+      "Techniciens amenes a réaliser des vérifications, mesurages et contrôles en basse tension.",
     description:
-      "Parcours theorique cible sur la vérification, le mesurage, la lecture du cadre d'action, les instruments et les limites d'intervention.",
+      "Parcours théorique ciblé sur la vérification, le mesurage, la lecture du cadré d'action, les instruments et les limites d'intervention.",
     objectifs: [
       "Comprendre le cadre BE Vérification / BE Mesurage",
-      "Preparer un contrôle en sécurité",
-      "Utiliser la bonne methode et refuser toute derive hors cadre",
+      "Préparer un contrôle en sécurité",
+      "Utiliser la bonne methode et refuser toute derive hors cadré",
     ],
     programme: [
       "Cadre BE et rôle du verificateur ou mesureur",
@@ -196,10 +196,10 @@ const formations = [
     audience:
       "Personnel électricien amene a couvrir plusieurs rôles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
     description:
-      "Parcours theorique transversal structure autour des rôles, responsabilites, séquences de sécurité, consignation et organisation des opérations d'ordre électrique en basse tension.",
+      "Parcours théorique transversal structuré autour des rôles, responsabilités, séquences de sécurité, consignation et organisation des opérations d'ordre électrique en basse tension.",
     objectifs: [
       "Maitriser les prescriptions de sécurité applicables aux opérations d'ordre électrique",
-      "Comprendre les rôles, responsabilites et limites des differents symboles d'habilitation",
+      "Comprendre les rôles, responsabilités et limites des différents symboles d'habilitation",
       "Donner un socle commun avant requalification pratique par rôle",
     ],
     programme: [
@@ -210,7 +210,7 @@ const formations = [
       "Analyse des risques, conduite a tenir et cas pratiques",
     ],
     note:
-      "Socle theorique premium inclus dans l'offre présentielle multi-symboles. Non vendu comme formation e-learning autonome.",
+      "Socle théorique premium inclus dans l'offre présentielle multi-symboles. Non vendu comme formation e-learning autonome.",
   },
   {
     slug: "incendie",
@@ -264,7 +264,7 @@ const formations = [
       "Cas pratiques d'anomalies d'exploitation",
     ],
     note:
-      "Support e-learning inclus avec la formation SSI encadrée. Il ne remplace pas une coordination SSI, une etude de conception ou une maintenance specialisee.",
+      "Support e-learning inclus avec la formation SSI encadrée. Il ne remplace pas une coordination SSI, une étude de conception ou une maintenance spécialisée.",
   },
   {
     slug: "sprinkler",
@@ -318,7 +318,7 @@ const formations = [
       "Reperes APSAD R13 et NF EN 15004-1",
     ],
     note:
-      "Support e-learning inclus avec la formation extinction gaz encadrée. Il ne remplace pas une etude de conception ni une maintenance specialisee.",
+      "Support e-learning inclus avec la formation extinction gaz encadrée. Il ne remplace pas une étude de conception ni une maintenance spécialisée.",
   },
   {
     slug: "sst",
@@ -331,11 +331,11 @@ const formations = [
     audience:
       "Salariés amenes a participer a la prévention des risques et a la prise en charge initiale d'une victime.",
     description:
-      "Parcours theorique d'introduction aux principes SST : proteger, examiner, alerter, secourir et participer a la prévention dans l'entreprise.",
+      "Parcours théorique d'introduction aux principes SST : proteger, examiner, alerter, secourir et participer a la prévention dans l'entreprise.",
     objectifs: [
       "Reperer une situation dangereuse et eviter le suraccident",
       "Adopter la logique proteger, examiner, alerter, secourir",
-      "Comprendre le cadre général d'intervention du SST",
+      "Comprendre le cadré général d'intervention du SST",
     ],
     programme: [
       "Proteger",
@@ -345,19 +345,19 @@ const formations = [
       "Prévention et rôle du salarié dans l'entreprise",
     ],
     note:
-      "Support e-learning inclus avec la formation SST encadrée. La pratique reste indispensable pour maitriser les gestes et valider reellement la compétence SST.",
+      "Support e-learning inclus avec la formation SST encadrée. La pratique reste indispensable pour maîtriser les gestes et valider reellement la compétence SST.",
   },
 ];
 
 const pointsForts = [
-  "Offres structurees selon le niveau d'habilitation visé",
-  "Contenus structures autour des risques réels en entreprise",
+  "Offres structurées selon le niveau d'habilitation visé",
+  "Contenus structurés autour des risques réels en entreprise",
   "Approche progressive selon les niveaux, metiers et contraintes terrain",
   "Modules pédagogiques avec chapitres, syntheses et quiz serieux",
   "Validation finale encadrée : entretien, visio ou présentiel",
 ];
 
-const categories = [
+const catégories = [
   "Habilitation électrique",
   "Prévention incendie",
   "SSI",
@@ -466,7 +466,7 @@ export default function ElearningPage() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {categories.map((category) => (
+              {catégories.map((category) => (
                 <span
                   key={category}
                   className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-slate-700"
@@ -687,24 +687,4 @@ export default function ElearningPage() {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/demande-devis"
-                  className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5"
-                >
-                  Demander un devis
-                </Link>
-
-                <Link
-                  href="/connexion"
-                  className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                >
-                  Accéder a mon espace
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-}
-
+        
