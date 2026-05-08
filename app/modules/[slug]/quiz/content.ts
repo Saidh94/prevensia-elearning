@@ -3840,7 +3840,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le SST a deux missions complémentaires : intervenir en cas d'accident et contribuer à la prévention des risques en signalant les situations dangereuses.",
       timeLimit: 45,
     },
-  ],
+    {
       question:
         "Dans la logique SST, quels signes orientent l'examen initial ?",
       choices: [
