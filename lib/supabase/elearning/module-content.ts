@@ -804,7 +804,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     "NF C 18-510 - prévention du risque électrique et conduite face à une situation dégradée.",
   ],
   practicalCase:
-    "Exemple : un opérateur trouve un collègue en contact avec une rallonge dégradée. Il identifie l'arrêt d'urgence du local, coupe l'alimentation, dégage le collègue avec un manche en bois sec, alerte le 18 en transmettant lieu, état et risques persistants. Il reste près de la victime jusqu'à l'arrivée des secours.",
+    "Exemple : un opérateur trouve un collègue en contact avec une rallonge dégradée. Il identifié l'arrêt d'urgence du local, coupe l'alimentation, dégage le collègue avec un manche en bois sec, alerte le 18 en transmettant lieu, état et risques persistants. Il reste près de la victime jusqu'à l'arrivée des secours.",
   resourceVideos: [
     {
       title: "INRS - SST et secourisme au travail",
@@ -1775,7 +1775,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "2. Composants principaux",
         estimatedMinutes: 12,
         intro:
-          "Un exploitant sprinkler doit savoir reconnaitre l'architecture generale de l'installation, meme s'il n'en assure pas la conception.",
+          "Un exploitant sprinkler doit savoir reconnaitre l'architecture générale de l'installation, meme s'il n'en assure pas la conception.",
         content: [
           "Une installation comprend notamment les tetes sprinkler, un reseau de tuyauteries, des postes de controle, une source d'eau et des dispositifs d'alarme.",
           "L'exploitation suppose de savoir reconnaitre les organes essentiels, les positions normales d'exploitation et les etats anormaux a surveiller.",
@@ -1794,7 +1794,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Vue schematique d'un reseau sprinkler desservant differentes zones d'un batiment",
         visual: {
           title: "Vue d'ensemble d'une installation",
-          subtitle: "Les organes a connaitre en exploitation.",
+          subtitle: "Les organes a connaître en exploitation.",
           imagePath: "/images/installation-spk.jpg",
           imageAlt:
             "Vue schematique d'un reseau sprinkler desservant differentes zones d'un batiment",
@@ -1815,21 +1815,21 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Une protection sprinkler peut exister sur le papier et etre gravement degradee dans la realite si les anomalies d'exploitation sont banalisees.",
         content: [
           "Une vanne fermee, une pression anormale, une alarme non traitee, un local source encombre, une fuite ou une corrosion visible doivent etre considerees avec serieux.",
-          "L'exploitation sprinkler demande de la rigueur, de la tracabilite et une remontee rapide des ecarts.",
-          "Un local technique inaccessible, un acces obstrue, un stockage trop proche des tetes, une tete peinte ou heurtee, une modification non declaree du process ou un reseau deteriore peuvent reduire fortement l'efficacite reelle de l'installation.",
+          "L'exploitation sprinkler demande de la rigueur, de la traçabilité et une remontee rapide des écarts.",
+          "Un local technique inaccessible, un accès obstrue, un stockage trop proche des tetes, une tete peinte ou heurtee, une modification non declaree du process ou un reseau deteriore peuvent reduire fortement l'efficacite reelle de l'installation.",
           "Les anomalies doivent etre consignees, traitees et suivies jusqu'au retour a la situation nominale."
         ],
         forbiddenPoints: [
           "Fermer une vanne sans procedure.",
           "Ignorer une alarme.",
-          "Encombrer les organes d'acces.",
+          "Encombrer les organes d'accès.",
           "Considerer une fuite comme anodine."
         ],
         chapterImagePath: "/images/installation-spk.jpg",
         chapterImageAlt:
           "Reseau sprinkler et organes de controle a surveiller lors de l'exploitation",
         visual: {
-          title: "Ecarts a surveiller",
+          title: "Écarts a surveiller",
           subtitle: "Une petite anomalie peut degrader toute la protection.",
           imagePath: "/images/reseau-sprinkler.jpg",
           imageAlt:
@@ -1886,7 +1886,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Dans les environnements logistiques et les entrepôts, le sprinkler doit être lu dans une logique globale de maîtrise du risque incendie.",
         content: [
-          "Dans les entrepots couverts relevant de la rubrique ICPE 1510, la prevention des sinistres s'apprecie dans un ensemble plus large de prescriptions : cellules, separation, toiture, moyens de secours, exploitation et gestion du risque.",
+          "Dans les entrepots couverts relevant de la rubrique ICPE 1510, la prevention des sinistres s'apprecie dans un ensemble plus large de prescriptions : cellules, séparation, toiture, moyens de secours, exploitation et gestion du risque.",
           "Toute modification d'exploitation significative peut justifier une relecture de la strategie incendie du site afin de confirmer que la protection reste adaptee.",
           "Changer la hauteur de stockage, la nature des marchandises, la densite de palettes, le conditionnement ou l'occupation d'une zone peut remettre en cause l'adequation entre le risque et la protection installee.",
           "Le sprinkler n'est donc pas un passe-partout. Il reste performant dans un cadre de conception et d'exploitation donne, qui doit rester coherent dans le temps."
@@ -1921,7 +1921,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Une installation sprinkler reste crédible si elle est surveillée dans le temps et si toute indisponibilité est pilotée avec méthode.",
         content: [
-          "L'exploitant doit connaitre l'existence des essais periodiques, des levees de doute, des controles de routine et des remontees d'anomalies. Sans cette discipline, la protection peut sembler en place tout en etant partiellement degradee.",
+          "L'exploitant doit connaître l'existence des essais periodiques, des levees de doute, des controles de routine et des remontees d'anomalies. Sans cette discipline, la protection peut sembler en place tout en etant partiellement degradee.",
           "Une indisponibilité temporaire, une vanne fermée, un arrêt de source d'eau, une intervention de maintenance ou une zone neutralisée doivent déclencher des mesures compensatoires selon l'organisation du site.",
           "Le vrai sujet d'exploitation n'est pas seulement technique : c'est la capacité à savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protégé pendant la période dégradée."
         ],
@@ -1943,7 +1943,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Essais periodiques",
             "Suivi des alarmes et defauts",
             "Mesures compensatoires en mode degrade",
-            "Retour a la normale verifie"
+            "Retour a la normale vérifié"
           ],
           tone: "blue",
         },
@@ -1953,11 +1953,11 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "7. Tetes sprinkler, obstacles et stockage",
         estimatedMinutes: 10,
         intro:
-          "Une installation sprinkler peut etre presente, alimentee et pourtant mal exploitee si les tetes sont masquees, endommagees ou mal degagees.",
+          "Une installation sprinkler peut etre présenté, alimentee et pourtant mal exploitee si les tetes sont masquees, endommagees ou mal degagees.",
         content: [
           "Les tetes sprinkler ne doivent pas etre peintes, utilisees comme points d'accroche ou exposees a des chocs sans analyse immediate.",
           "Le stockage, les faux plafonds, luminaires, gaines, rayonnages ou protections ajoutees peuvent creer des obstacles a la diffusion de l'eau ou modifier l'exposition a la chaleur.",
-          "L'exploitant doit surveiller les distances libres, l'absence d'encombrement sous les tetes et les ecarts visibles entre l'etat reel du local et les conditions prevues par la protection installee.",
+          "L'exploitant doit surveiller les distances libres, l'absence d'encombrement sous les tetes et les écarts visibles entre l'etat reel du local et les conditions prevues par la protection installee.",
           "Toute modification d'implantation ou de stockage qui rapproche les marchandises des tetes, modifie les hauteurs ou ajoute des obstacles doit etre remontee pour analyse."
         ],
         keyPoints: [
@@ -2011,7 +2011,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Un système à gaz n'est pas un sprinkler sans eau. Il repose sur une logique de volume protégé, de détection et de diffusion contrôlée de l'agent extincteur.",
         content: [
-          "Les systemes fixes d'extinction automatique a gaz sont utilises lorsque la protection par eau n'est pas adaptee ou lorsqu'il faut preserver des equipements, des volumes techniques ou des locaux sensibles.",
+          "Les systemes fixes d'extinction automatique a gaz sont utilises lorsque la protection par eau n'est pas adaptee ou lorsqu'il faut preserver des équipements, des volumes techniques ou des locaux sensibles.",
           "L'efficacité du système dépend d'une détection fiable, d'une chaîne de commande correcte et de la capacité du local à conserver la concentration utile pendant le temps prévu.",
           "L'exploitant doit retenir qu'un systeme a gaz se gere comme un ensemble complet: detection, temporisation, alarmes, signalisation, coupures ou arrets associes, diffusion et controle du reacces."
         ],
@@ -2019,7 +2019,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImageAlt:
           "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
         visual: {
-          title: "Systeme a gaz : logique generale",
+          title: "Systeme a gaz : logique générale",
           subtitle: "Detecter, temporiser, evacuer, diffuser, securiser.",
           imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
           imageAlt:
@@ -2028,7 +2028,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Local protege",
             "Detection et commande",
             "Temporisation et evacuation",
-            "Emission puis controle des acces"
+            "Emission puis controle des accès"
           ],
           tone: "blue",
         },
@@ -2041,8 +2041,8 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Un systeme a gaz n'est efficace que si le local protege reste conforme a l'etat prevu et si la securite des personnes est traitee en priorite.",
         content: [
           "L'integrite du local protege est un point critique: portes, passages de cables, clapets, fermetures et etancheite influencent directement la tenue de la concentration de l'agent extincteur.",
-          "La securite des personnes impose une chaine claire: alarme, temporisation, evacuation, interdiction d'acces pendant et apres emission, puis controle strict du reacces.",
-          "Apres declenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphere du local, des produits de decomposition eventuels et des consignes du site avant tout retour."
+          "La securite des personnes impose une chaine claire: alarme, temporisation, evacuation, interdiction d'accès pendant et après emission, puis controle strict du reacces.",
+          "Après declenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphere du local, des produits de decomposition eventuels et des consignes du site avant tout retour."
         ],
         keyPoints: [
           "Le local protege fait partie du systeme.",
@@ -2053,8 +2053,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImageAlt:
           "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
         visual: {
-          title: "Maitriser le volume protege",
-          subtitle: "Etancheite, acces, evacuation et reacces.",
+          title: "Maîtriser le volume protege",
+          subtitle: "Etancheite, accès, evacuation et reacces.",
           imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
           imageAlt:
             "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
@@ -2098,17 +2098,17 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "referentiels-gaz",
-        title: "4. Reperes APSAD R13 et NF EN 15004-1",
+        title: "4. Repères APSAD R13 et NF EN 15004-1",
         estimatedMinutes: 10,
         intro:
-          "L'exploitant n'a pas a reciter les normes, mais il doit savoir sur quels reperes techniques repose le systeme protege.",
+          "L'exploitant n'a pas a reciter les normes, mais il doit savoir sur quels repères techniques repose le systeme protege.",
         content: [
-          "APSAD R13 constitue un repere technique important pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
+          "APSAD R13 constitue un repère technique important pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
           "La NF EN 15004-1 fournit le cadre general relatif au calcul, a l'installation et a la maintenance des installations fixes d'extinction a gaz.",
           "En exploitation, l'essentiel est de comprendre que la performance depend autant du systeme installe que du maintien des conditions du local protege et du respect strict des procedures."
         ],
         legalRefs: [
-          "APSAD R13 - repere technique pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
+          "APSAD R13 - repère technique pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
           "NF EN 15004-1 - Installations fixes de lutte contre l'incendie - Installations d'extinction a gaz - Partie 1 : calcul, installation et maintenance.",
           "INRS ND 2191 - Agents extincteurs gazeux utilises dans les installations fixes d'extinction.",
           "Consignes d'exploitation et procedures specifiques du site protege."
@@ -2118,7 +2118,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
         visual: {
           title: "Normes et exploitation",
-          subtitle: "Reperes techniques pour un systeme sensible.",
+          subtitle: "Repères techniques pour un systeme sensible.",
           imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
           imageAlt:
             "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
@@ -2126,7 +2126,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "APSAD R13",
             "NF EN 15004-1",
             "Conditions du local protege",
-            "Essais, maintenance et tracabilite"
+            "Essais, maintenance et traçabilité"
           ],
           tone: "green",
         },
@@ -2139,13 +2139,13 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Un systeme a gaz neutralise ou en maintenance doit etre gere avec une discipline stricte, car une indisponibilite mal pilotee degrade immediatement la protection du local.",
         content: [
           "Une mise hors service, un essai, une intervention de maintenance ou une inhibition temporaire doivent etre autorises, traces et accompagnes des mesures compensatoires prevues par le site.",
-          "L'exploitant doit savoir qui autorise l'indisponibilite, qui informe les utilisateurs, comment la signaler sur place et comment verifier le retour a la situation nominale.",
+          "L'exploitant doit savoir qui autorise l'indisponibilite, qui informe les utilisateurs, comment la signaler sur place et comment vérifier le retour a la situation nominale.",
           "Le retour a la normale ne se limite pas a reenclencher un systeme. Il implique de confirmer l'etat du local, la remise en service effective, la levee des inhibitions et l'information des acteurs concernes."
         ],
         keyPoints: [
           "Indisponibilite autorisee et tracee.",
           "Mesures compensatoires appliquees.",
-          "Retour a la normale verifie et formalise."
+          "Retour a la normale vérifié et formalise."
         ],
         chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
         chapterImageAlt:
@@ -2305,7 +2305,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "En cas de doutes sur plusieurs urgences simultanées (ex. : victime inconsciente ET saignante), le SST traite l'urgence vitale la plus immédiate — hémorragie incontrôlée prime sur la PLS si le saignement menace la vie en quelques minutes.",
         ],
         deepDive: [
-          "L'examen de la victime n'est pas un diagnostic médical. Le SST n'est pas compétent pour déterminer la cause de l'état de la victime. Il identifie l'urgence fonctionnelle observable (saigne, s'étouffe, inconsciente, ne respire pas) et agit en conséquence.",
+          "L'examen de la victime n'est pas un diagnostic médical. Le SST n'est pas compétent pour déterminer la cause de l'état de la victime. Il identifié l'urgence fonctionnelle observable (saigne, s'étouffe, inconsciente, ne respire pas) et agit en conséquence.",
           "La stimulation de la victime se fait en lui parlant fort et en lui secouant doucement les épaules. Pas de bruit, pas de réponse = inconsciente. Cette vérification prend moins de 5 secondes.",
         ],
         keyPoints: [
