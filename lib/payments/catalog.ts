@@ -197,6 +197,13 @@ const paymentRules: PaymentRule[] = [
   },
   {
     kind: "quote",
+    label: "Habilitation électrique Véhicules / Engins (NF C 18-550)",
+    anyKeywords: ["vehicule", "engin", "18-550", "18550", "b0l", "b1l", "b2l", "habilitation-vehicules"],
+    reason:
+      "Ce parcours est ajusté selon le type de véhicule/engin, la tension batterie et les opérations réellement confiées.",
+  },
+  {
+    kind: "quote",
     label: "MAC SST",
     allKeywords: ["mac"],
     anyKeywords: ["sst", "secouriste"],

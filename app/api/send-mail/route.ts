@@ -50,7 +50,8 @@ type CanonicalFormationKey =
   | "incendie"
   | "ssi-exploitation"
   | "sprinkler"
-  | "sst";
+  | "sst"
+  | "habilitation-vehicules";
 
 type FormationSeed = {
   slug: string;
@@ -126,6 +127,15 @@ const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     isPublished: true,
     elearningDuration: "45 à 60 minutes",
   },
+  "habilitation-vehicules": {
+    slug: "habilitation-vehicules",
+    title: "Habilitation électrique — Véhicules et engins (NF C 18-550)",
+    description: "Module PREVENSIA dédié aux techniciens intervenant sur des véhicules ou engins à énergie embarquée : symboles L, IP2X, batteries, démarche 7 étapes.",
+    durationHours: 9,
+    mode: "e-learning",
+    isPublished: true,
+    elearningDuration: "1 h 30 à 2 h",
+  },
 };
 
 function normalize(value: string | null | undefined) {
@@ -179,6 +189,18 @@ function inferCanonicalFormationSlug(
 
   if (normalizedFormation.includes("ssi")) {
     return "ssi-exploitation";
+  }
+
+  if (
+    normalizedFormation.includes("vehicule") ||
+    normalizedFormation.includes("engin") ||
+    normalizedFormation.includes("18-550") ||
+    normalizedFormation.includes("18550") ||
+    normalizedFormation.includes("b0l") ||
+    normalizedFormation.includes("b1l") ||
+    normalizedFormation.includes("b2l")
+  ) {
+    return "habilitation-vehicules";
   }
 
   if (normalizedFormation.includes("sst") || normalizedCategory === "sst") {
