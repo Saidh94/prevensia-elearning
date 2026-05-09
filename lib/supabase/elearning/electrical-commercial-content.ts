@@ -748,7 +748,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
     ],
   },
 
-  "be-vérification-mesurage": {
+  "be-verification-mesurage": {
     ...b1b2brbcModuleContent,
     title: "BE vérification / BE Mesurage - Verifier et mesurer en basse tension",
     shortTitle: "BE vérification / BE Mesurage",

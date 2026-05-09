@@ -51,7 +51,8 @@ type CanonicalFormationKey =
   | "ssi-exploitation"
   | "sprinkler"
   | "sst"
-  | "habilitation-vehicules";
+  | "habilitation-vehicules"
+  | "be-verification-mesurage";
 
 type FormationSeed = {
   slug: string;
@@ -136,6 +137,15 @@ const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     isPublished: true,
     elearningDuration: "1 h 30 à 2 h",
   },
+  "be-verification-mesurage": {
+    slug: "be-verification-mesurage",
+    title: "BE Vérification / BE Mesurage",
+    description: "Parcours PREVENSIA centré sur la vérification, le mesurage et les limites entre contrôle, intervention et travaux en basse tension.",
+    durationHours: 14,
+    mode: "e-learning",
+    isPublished: true,
+    elearningDuration: "8 h 00 à 11 h 00",
+  },
 };
 
 function normalize(value: string | null | undefined) {
@@ -172,6 +182,16 @@ function inferCanonicalFormationSlug(
     normalizedFormation.includes("manoeuvre")
   ) {
     return "bsbe";
+  }
+
+  if (
+    normalizedFormation.includes("be verification") ||
+    normalizedFormation.includes("be mesurage") ||
+    normalizedFormation.includes("be mesure") ||
+    (normalizedFormation.includes("be") && normalizedFormation.includes("verification")) ||
+    (normalizedFormation.includes("be") && normalizedFormation.includes("mesurage"))
+  ) {
+    return "be-verification-mesurage";
   }
 
   if (
