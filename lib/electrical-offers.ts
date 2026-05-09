@@ -263,4 +263,4 @@ export const electricalCommercialOffers: ElectricalCommercialOffer[] = [
 ];
 
 export const homepageElectricalSummary =
-  "Offres distinctes pour H0 B0 H0V, BS / BE Manœuvre, BF / HF, B1 / B1V, B2 / B2V, BR   
+  "Offres distinctes pour H0 B0 H0V, BS / BE Manœuvre, BF / HF, B1 / B1V, B2 / B2V, BR, BC, B2T, BE Essai / Mesure / Vérification et HTA. Chaque parcours est adapté au périmètre d'habilitation, au niveau de responsabilité et aux exigences de la NF C 18-510.";

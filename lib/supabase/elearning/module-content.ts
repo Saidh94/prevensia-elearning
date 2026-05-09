@@ -1533,17 +1533,53 @@ export const modulesContent: Record<string, ModuleContent> = {
     quizCtaLabel: "Passer au quiz SSI",
     sections: [
       {
+        id: "role-ssi",
+        title: "1. Rôle d’un SSI",
+        estimatedMinutes: 12,
+        intro:
+          "Le SSI n’est pas un simple boîtier d’alarme. C’est un ensemble organisé destiné à détecter, signaler, traiter et piloter des fonctions de sécurité incendie.",
+        content: [
+          "Un système de sécurité incendie participe à la détection, à l’alarme, à la mise en sécurité et à l’exploitation des informations utiles en cas d’incendie.",
+          "Selon les bâtiments et leur réglementation, il peut intégrer ou piloter différentes fonctions : détection automatique ou manuelle, diffusion de l’alarme, compartimentage, désenfumage, gestion des issues, arrêt technique ou commandes associées.",
+          "Le bon niveau d’exploitation ne consiste pas à connaître toute l’ingénierie d’un SSI, mais à savoir ce que l’installation fait, quels équipements elle pilote, quels locaux elle protège et quelles conséquences une information incendie peut déclencher sur le site."
+        ],
+        chapterImagePath: "/images/fonctionnement-systeme-incendie.jpg",
+        chapterImageAlt:
+          "Schéma simplifié de fonctionnement d'un système incendie avec détecteurs, déclencheurs manuels, sirène et centrale",
+        resourceVideos: [
+          {
+            title: "INRS France - Selection videos risque incendie",
+            description:
+              "Sélection officielle INRS pour compléter les notions d'alarme, de détection, de réflexes incendie et de mise en sécurité.",
+            url: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+            provider: "INRS France",
+            ctaLabel: "Voir la selection INRS",
+          },
+        ],
+        visual: {
+          title: "Fonctions principales d’un SSI",
+          subtitle: "Détecter, alerter, mettre en sécurité.",
+          imagePath: "/images/fonction-systeme-de-securite-incendie.gif",
+          imageAlt:
+            "Fonctionnement global d'un système de sécurité incendie avec détection, alarme et mise en sécurité",
+          items: [
+            "Détection incendie",
+            "Diffusion de l’alarme",
+            "Mise en sécurité incendie",
+            "Transmission d’informations d’exploitation"
+          ],
+          tone: "blue",
         },
         scenarios: [
           {
             situation: "Un déclenchement d'alarme SSI se produit en dehors des heures de travail. La centrale indique 'Zone 3 — Cuisine'. L'astreinte bâtiment dit que 'c'est sûrement encore une fausse alarme comme la semaine dernière'.",
             question: "Comment réagissez-vous face à une alarme potentiellement considérée comme fausse ?",
-            wrongActions:             [
+            wrongActions: [
               "Acquitter l'alarme à distance sur la base de l'historique.",
               "Attendre 10 minutes pour voir si l'alarme se confirme.",
               "Laisser l'astreinte décider sans protocole.",
             ],
-            correctActions:             [
+            correctActions: [
               "Traiter chaque déclenchement comme réel jusqu'à preuve du contraire.",
               "Envoyer quelqu'un vérifier physiquement la zone signalée.",
               "Suivre le protocole SSI : vérification terrain, levée de doute, remise en état ou appel des secours.",
@@ -1552,6 +1588,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "NF S 61-933 — exploitation SSI, procédures de levée de doute",
           },
         ],
+
       },
       {
         id: "sdi-smsi",
@@ -1666,6 +1703,39 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "bons-reflexes",
+        title: "5. Bons réflexes d’exploitation et limites utilisateur",
+        estimatedMinutes: 13,
+        intro:
+          "L’exploitation d’un SSI demande de l’autonomie, mais jamais au prix d’une dérive vers la maintenance ou la neutralisation improvisée.",
+        content: [
+          "En exploitation courante, il faut connaître les accès autorisés, les procédures d’acquittement ou de réarmement prévues par l’organisation du site, et surtout les limites de ce qui peut être fait par un utilisateur non mainteneur.",
+          "Une alarme, un dérangement ou un défaut technique ne doivent jamais être ignorés. Toute anomalie répétitive doit être tracée, analysée et traitée.",
+          "L’exploitant doit aussi savoir quand escalader: mainteneur, sécurité incendie, coordinateur SSI, responsable de site, prestataire ou secours externes selon la situation.",
+          "Le professionnalisme consiste à comprendre, agir dans son rôle, puis transmettre proprement. Un réarmement ne remplace ni une analyse, ni une réparation."
+        ],
+        forbiddenPoints: [
+          "Neutraliser un équipement sans procédure.",
+          "Réarmer à répétition sans analyse.",
+          "Confondre exploitation et maintenance spécialisée.",
+          "Laisser persister des défauts chroniques sans traitement."
+        ],
+        chapterImagePath: "/images/centrale-ssi.jpg",
+        chapterImageAlt:
+          "Personnel exploitant ou technique en situation de suivi d'un système de sécurité incendie",
+        visual: {
+          title: "Exploiter un SSI avec méthode",
+          subtitle: "Comprendre, agir dans son rôle, tracer.",
+          imagePath: "/images/centrale-ssi.jpg",
+          imageAlt:
+            "Centrale SSI et exploitation méthodique d'une information incendie",
+          items: [
+            "Identifier le type d’information",
+            "Appliquer la consigne du site",
+            "Alerter le bon interlocuteur",
+            "Tracer et suivre l’anomalie"
+          ],
+          tone: "red",
         },
         scenarios: [
           {
@@ -1685,6 +1755,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "NF S 61-933 — exploitation SSI, signalement des défauts et interventions",
           },
         ],
+
       },
     ],
   },
@@ -1775,6 +1846,39 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "anomalies",
+        title: "3. Anomalies et vigilance",
+        estimatedMinutes: 12,
+        intro:
+          "Une protection sprinkler peut exister sur le papier et etre gravement degradee dans la realite si les anomalies d'exploitation sont banalisees.",
+        content: [
+          "Une vanne fermee, une pression anormale, une alarme non traitee, un local source encombre, une fuite ou une corrosion visible doivent etre considerees avec serieux.",
+          "L'exploitation sprinkler demande de la rigueur, de la traçabilité et une remontee rapide des écarts.",
+          "Un local technique inaccessible, un accès obstrue, un stockage trop proche des tetes, une tete peinte ou heurtee, une modification non declaree du process ou un reseau deteriore peuvent reduire fortement l'efficacite reelle de l'installation.",
+          "Les anomalies doivent etre consignees, traitees et suivies jusqu'au retour a la situation nominale."
+        ],
+        forbiddenPoints: [
+          "Fermer une vanne sans procedure.",
+          "Ignorer une alarme.",
+          "Encombrer les organes d'accès.",
+          "Considerer une fuite comme anodine."
+        ],
+        chapterImagePath: "/images/installation-spk.jpg",
+        chapterImageAlt:
+          "Reseau sprinkler et organes de controle a surveiller lors de l'exploitation",
+        visual: {
+          title: "Écarts a surveiller",
+          subtitle: "Une petite anomalie peut degrader toute la protection.",
+          imagePath: "/images/reseau-sprinkler.jpg",
+          imageAlt:
+            "Reseau sprinkler et organes de controle a surveiller lors de l'exploitation",
+          items: [
+            "Vanne non conforme",
+            "Pression anormale",
+            "Alarme non traitee",
+            "Encombrement ou defaut visible"
+          ],
+          tone: "red",
         },
         scenarios: [
           {
@@ -1794,6 +1898,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "APSAD R1 / NF EN 12845 — surveillance et maintenance des installations sprinkler",
           },
         ],
+
       },
       {
         id: "referentiels",
@@ -1867,6 +1972,37 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "essais-surveillance",
+        title: "6. Essais, surveillance et gestion des indisponibilites",
+        estimatedMinutes: 10,
+        intro:
+          "Une installation sprinkler reste crédible si elle est surveillée dans le temps et si toute indisponibilité est pilotée avec méthode.",
+        content: [
+          "L'exploitant doit connaître l'existence des essais periodiques, des levees de doute, des controles de routine et des remontees d'anomalies. Sans cette discipline, la protection peut sembler en place tout en etant partiellement degradee.",
+          "Une indisponibilité temporaire, une vanne fermée, un arrêt de source d'eau, une intervention de maintenance ou une zone neutralisée doivent déclencher des mesures compensatoires selon l'organisation du site.",
+          "Le vrai sujet d'exploitation n'est pas seulement technique : c'est la capacité à savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protégé pendant la période dégradée."
+        ],
+        keyPoints: [
+          "Essais et controles reguliers.",
+          "Indisponibilités tracées et compensées.",
+          "Retour a la normale formalise."
+        ],
+        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImageAlt:
+          "Reseau sprinkler et organes techniques faisant l'objet d'essais et de surveillance",
+        visual: {
+          title: "Garder la protection reellement disponible",
+          subtitle: "Surveiller, tracer, compenser, remettre en etat.",
+          imagePath: "/images/installation-spk.jpg",
+          imageAlt:
+            "Reseau sprinkler et organes techniques faisant l'objet d'essais et de surveillance",
+          items: [
+            "Essais periodiques",
+            "Suivi des alarmes et defauts",
+            "Mesures compensatoires en mode degrade",
+            "Retour a la normale vérifié"
+          ],
+          tone: "blue",
         },
         scenarios: [
           {
@@ -1886,6 +2022,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "APSAD R1 — tenue du registre de sécurité sprinkler, périodicité des essais",
           },
         ],
+
       },
       {
         id: "tetes-obstacles",
@@ -2071,6 +2208,37 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "mise-hors-service-gaz",
+        title: "5. Mise hors service, maintenance et retour a la normale",
+        estimatedMinutes: 10,
+        intro:
+          "Un systeme a gaz neutralise ou en maintenance doit etre gere avec une discipline stricte, car une indisponibilite mal pilotee degrade immediatement la protection du local.",
+        content: [
+          "Une mise hors service, un essai, une intervention de maintenance ou une inhibition temporaire doivent etre autorises, traces et accompagnes des mesures compensatoires prevues par le site.",
+          "L'exploitant doit savoir qui autorise l'indisponibilite, qui informe les utilisateurs, comment la signaler sur place et comment vérifier le retour a la situation nominale.",
+          "Le retour a la normale ne se limite pas a reenclencher un systeme. Il implique de confirmer l'etat du local, la remise en service effective, la levee des inhibitions et l'information des acteurs concernes."
+        ],
+        keyPoints: [
+          "Indisponibilite autorisee et tracee.",
+          "Mesures compensatoires appliquees.",
+          "Retour a la normale vérifié et formalise."
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        visual: {
+          title: "Piloter le mode degrade",
+          subtitle: "Autoriser, tracer, compenser, remettre en service.",
+          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+          imageAlt:
+            "Schema d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          items: [
+            "Inhibition ou maintenance autorisee",
+            "Information des acteurs du site",
+            "Mesures compensatoires pendant l'arret",
+            "Retour a la normale formalise"
+          ],
+          tone: "slate",
         },
         scenarios: [
           {
@@ -2090,6 +2258,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "APSAD R13 — mise hors service temporaire des systèmes d'extinction gaz",
           },
         ],
+
       },
     ],
   },
@@ -2113,6 +2282,62 @@ export const modulesContent: Record<string, ModuleContent> = {
     quizCtaLabel: "Passer au quiz SST",
     sections: [
       {
+        id: "role-sst",
+        title: "1. Rôle du SST et logique d'intervention",
+        estimatedMinutes: 10,
+        intro:
+          "Le Sauveteur Secouriste du Travail n'est pas seulement un secouriste d'urgence. Il est aussi un acteur de prévention des risques professionnels dans l'entreprise.",
+        content: [
+          "Le SST intervient face à une situation d'accident ou de malaise et contribue également à la prévention des risques professionnels au quotidien. Ces deux rôles sont indissociables.",
+          "Son action suit une démarche structurée en quatre étapes : protéger, examiner, alerter ou faire alerter, puis secourir. Cet enchaînement n'est pas arbitraire : chaque étape conditionne la suivante.",
+          "Le SST agit dans le respect strict de sa formation, des procédures du site et de la sécurité collective. Il ne remplace ni les secours spécialisés ni les dispositifs médicaux. Son rôle est de stabiliser la situation et d'assurer la continuité de la prise en charge jusqu'à la relève.",
+          "La désignation d'un SST relève de l'employeur. Le Code du travail impose la présence d'un SST dans certains ateliers, chantiers ou lieux de travail présentant des risques particuliers.",
+          "Le MAC SST (maintien et actualisation des compétences) est obligatoire tous les deux ans pour conserver la certification. Sans recyclage, le titre devient caduc.",
+        ],
+        deepDive: [
+          "La NF EN 15151 et les recommandations INRS insistent sur le fait que la présence d'un SST formé réduit significativement le délai entre l'accident et la prise en charge effective. Chaque minute compte en cas d'arrêt cardiaque : la survie diminue de 10 % par minute sans défibrillation.",
+          "Le SST ne décide pas seul de l'urgence médicale. Son rôle est d'observer, d'agir dans son cadre et de transmettre une information fiable aux secours. L'improvisation au-delà de sa formation est contre-productive.",
+        ],
+        keyPoints: [
+          "Le SST intervient et contribue à la prévention : deux missions complémentaires.",
+          "La démarche est toujours : protéger → examiner → alerter → secourir.",
+          "Le SST agit dans les limites de sa formation, jamais au-delà.",
+          "Le MAC SST est obligatoire tous les deux ans.",
+        ],
+        forbiddenPoints: [
+          "Improviser des gestes non appris en formation.",
+          "Négliger la protection avant le secours.",
+          "Remplacer l'alerte aux secours par une action seul.",
+        ],
+        legalRefs: [
+          "Code du travail — article R. 4224-15 : obligation de présence d'un SST dans certains établissements.",
+          "INRS — programme national de formation SST défini en lien avec l'Assurance Maladie.",
+          "Décret n° 2007-1219 du 10 août 2007 relatif à la formation des secouristes.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-role.svg",
+        chapterImageAlt: "Rôle du SST en entreprise — secours et prévention",
+        resourceVideos: [
+          {
+            title: "INRS — SST et secourisme au travail",
+            description:
+              "Ressource INRS qui ancre la place du SST dans l'entreprise et la logique d'intervention face à un accident du travail.",
+            url: "https://www.inrs.fr/media.html?refINRS=Anim-049",
+            provider: "INRS",
+            ctaLabel: "Voir la vidéo INRS",
+          },
+        ],
+        visual: {
+          title: "Le SST en entreprise",
+          subtitle: "Secourir et contribuer à la prévention.",
+          imagePath: "/elearning/sst/sst-role.svg",
+          imageAlt: "Rôle du SST en entreprise — secours et prévention",
+          items: [
+            "Observer la situation",
+            "Alerter utilement",
+            "Agir sans sur-accident",
+            "Contribuer à la prévention",
+          ],
+          tone: "blue",
         },
         scenarios: [
           {
@@ -2132,8 +2357,53 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "Code du travail R. 4224-15 — présence SST et obligations d'intervention",
           },
         ],
+
       },
       {
+        id: "proteger",
+        title: "2. Protéger — Éviter le sur-accident",
+        estimatedMinutes: 10,
+        intro:
+          "Le premier objectif est d'éviter le sur-accident. Avant tout geste de secours, la scène doit être sécurisée. Un secouriste blessé devient une nouvelle victime.",
+        content: [
+          "Protéger, c'est analyser rapidement la situation pour identifier le ou les dangers, puis supprimer ou isoler le risque sans s'exposer soi-même. L'action doit être proportionnée : on ne risque pas sa vie pour éteindre un début d'incendie si l'évacuation est la bonne réponse.",
+          "Les dangers à évaluer sont variés selon le contexte : circulation routière, machine en fonctionnement, installation électrique, chute de hauteur, atmosphère confinée, produit chimique, feu ou structure instable. Chaque situation impose une analyse avant l'action.",
+          "Si le danger ne peut pas être supprimé ou isolé, la dégagement d'urgence s'impose : déplacer la victime uniquement si son maintien en place l'expose à un danger immédiat et mortel. Ce dégagement doit être réalisé en ligne droite, axe tête-pieds, le plus rapidement possible.",
+          "Une fois la scène sécurisée, baliser la zone pour prévenir l'arrivée de nouveaux exposés. Ce balisage relève aussi de la protection.",
+        ],
+        deepDive: [
+          "Le dégagement d'urgence est une exception à la règle de non-déplacement de la victime. Il ne se réalise que si le danger est immédiat et qu'aucune autre option n'existe. Hors danger immédiat, on ne déplace jamais une victime avant l'arrivée des secours.",
+          "Dans un contexte électrique, l'approche de la victime sans mise hors tension préalable est interdite. Le SST ne devient pas électricien le temps de l'urgence.",
+        ],
+        keyPoints: [
+          "Supprimer ou isoler le danger avant tout geste sur la victime.",
+          "Ne jamais s'exposer au risque : un secouriste blessé aggrave la situation.",
+          "Le dégagement d'urgence n'est justifié qu'en cas de danger immédiat et mortel.",
+          "Baliser la zone pour protéger les témoins et les intervenants.",
+        ],
+        forbiddenPoints: [
+          "Approcher la victime sans avoir évalué et traité le danger.",
+          "Déplacer la victime sans raison de protection immédiate.",
+          "Improviser une mise hors tension électrique sans formation adaptée.",
+        ],
+        legalRefs: [
+          "INRS — gestes de premiers secours : protéger avant de secourir.",
+          "Programme SST INRS — chapitre 'Protéger' : logique et limites du dégagement d'urgence.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-proteger.svg",
+        chapterImageAlt: "Protection de la victime et sécurisation de la scène — SST",
+        visual: {
+          title: "Étape 1 — Protéger",
+          subtitle: "Sécuriser la scène avant d'agir sur la victime.",
+          imagePath: "/elearning/sst/sst-proteger.svg",
+          imageAlt: "Protection de la victime et sécurisation de la scène — SST",
+          items: [
+            "Identifier le ou les dangers",
+            "Supprimer ou isoler le risque",
+            "Dégagement d'urgence si nécessaire",
+            "Baliser la zone",
+          ],
+          tone: "red",
         },
         scenarios: [
           {
@@ -2153,8 +2423,53 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "Programme national SST — étape 1 : Protéger, éviter le sur-accident",
           },
         ],
+
       },
       {
+        id: "examiner",
+        title: "3. Examiner — Identifier l'urgence vitale",
+        estimatedMinutes: 12,
+        intro:
+          "Après la protection, le SST examine la victime selon une logique de priorités. L'ordre d'examen est déterminant : il guide le geste immédiat et la qualité de l'alerte.",
+        content: [
+          "L'examen SST suit une séquence précise en quatre étapes : 1. La victime saigne-t-elle abondamment ? 2. S'étouffe-t-elle ? 3. Répond-elle quand on lui parle ou qu'on la stimule ? 4. Respire-t-elle normalement ?",
+          "Cette séquence permet d'identifier en quelques secondes l'urgence vitale dominante et d'orienter l'action : compression pour le saignement, claques dorsales pour l'étouffement, PLS pour l'inconscience avec respiration, RCP pour l'arrêt cardiaque.",
+          "L'examen ne doit pas être précipité au point d'en sauter des étapes, ni si lent qu'il retarde le secours. La régularité acquise en formation pratique permet d'atteindre l'efficacité sans stress.",
+          "En cas de doutes sur plusieurs urgences simultanées (ex. : victime inconsciente ET saignante), le SST traite l'urgence vitale la plus immédiate — hémorragie incontrôlée prime sur la PLS si le saignement menace la vie en quelques minutes.",
+        ],
+        deepDive: [
+          "L'examen de la victime n'est pas un diagnostic médical. Le SST n'est pas compétent pour déterminer la cause de l'état de la victime. Il identifié l'urgence fonctionnelle observable (saigne, s'étouffe, inconsciente, ne respire pas) et agit en conséquence.",
+          "La stimulation de la victime se fait en lui parlant fort et en lui secouant doucement les épaules. Pas de bruit, pas de réponse = inconsciente. Cette vérification prend moins de 5 secondes.",
+        ],
+        keyPoints: [
+          "Séquence : saigne ? → s'étouffe ? → répond ? → respire ?",
+          "Chaque réponse oriente immédiatement le geste suivant.",
+          "Ne pas sauter d'étape, ne pas s'attarder inutilement.",
+          "En cas d'urgences multiples, traiter la menace vitale la plus immédiate en premier.",
+        ],
+        forbiddenPoints: [
+          "Examiner sans ordre : risquer de manquer une urgence vitale.",
+          "Poser un diagnostic médical — le SST observe, il ne diagnostique pas.",
+          "Ignorer le saignement abondant pour passer directement à la conscience.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — chapitre 'Examiner' : séquence d'examen et logique d'orientation.",
+          "INRS ED 6252 — formation SST : contenu et déroulement.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-examiner.svg",
+        chapterImageAlt: "Examen de la victime selon la séquence SST — INRS",
+        visual: {
+          title: "Étape 2 — Examiner",
+          subtitle: "Identifier l'urgence vitale en 4 questions.",
+          imagePath: "/elearning/sst/sst-examiner.svg",
+          imageAlt: "Examen de la victime selon la séquence SST — INRS",
+          items: [
+            "Saigne abondamment ?",
+            "S'étouffe ?",
+            "Répond ?",
+            "Respire normalement ?",
+          ],
+          tone: "amber",
         },
         scenarios: [
           {
@@ -2174,8 +2489,53 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "Programme national SST — bilan victime, suspicion traumatisme rachidien",
           },
         ],
+
       },
       {
+        id: "alerter",
+        title: "4. Alerter ou faire alerter",
+        estimatedMinutes: 8,
+        intro:
+          "L'alerte déclenche la chaîne de secours organisée. Elle doit être transmise le plus tôt possible, avec des informations précises et structurées.",
+        content: [
+          "Une alerte efficace comporte : le lieu exact de l'accident (bâtiment, étage, repère précis), la nature de l'événement, le nombre de victimes, leur état apparent, les dangers persistants éventuels et le geste déjà engagé.",
+          "Le SST doit connaître les numéros d'alerte du site (PC sécurité, infirmerie, standardiste) et les numéros nationaux : 15 (SAMU), 18 (pompiers), 112 (numéro européen), 17 (police). Il ne raccroche que lorsque le régulateur l'y autorise.",
+          "Si le SST est seul, il alerte en premier avant de débuter les gestes — sauf si la victime est en arrêt cardiaque et qu'un défibrillateur est accessible immédiatement : dans ce cas, commencer la RCP et déclencher l'alerte dès qu'une autre personne est disponible.",
+          "Le SST ne quitte pas la victime pour aller chercher de l'aide sauf si c'est strictement impossible autrement. Un témoin peut être chargé d'appeler les secours et d'aller chercher le défibrillateur.",
+        ],
+        deepDive: [
+          "Le délai entre l'accident et l'arrivée des secours professionnels est en moyenne de 8 à 12 minutes en France. Ce délai impose que le SST ait déjà agi avant leur arrivée : protéger, installer la victime, débuter la RCP si nécessaire.",
+          "L'alerte au 15 (SAMU) permet d'obtenir une guidance médicale en direct. Le régulateur peut guider le SST sur les gestes à réaliser en attendant l'équipe médicale.",
+        ],
+        keyPoints: [
+          "Alerter le plus tôt possible avec des informations précises.",
+          "Ne jamais raccrocher sans autorisation du régulateur.",
+          "Numéros clés : 15, 18, 112, 17.",
+          "Un témoin peut être chargé de l'alerte et de la recherche du DAE.",
+        ],
+        forbiddenPoints: [
+          "Alerter après avoir tout géré seul — le délai est souvent fatal.",
+          "Donner des informations approximatives ou paniquées.",
+          "Raccrocher avant que le régulateur ne l'autorise.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — chapitre 'Alerter ou faire alerter'.",
+          "Code du travail — article R. 4224-16 : moyens d'alerte organisés dans l'établissement.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-alerter.svg",
+        chapterImageAlt: "Transmission de l'alerte lors d'un accident du travail — SST",
+        visual: {
+          title: "Étape 3 — Alerter",
+          subtitle: "Une alerte précise fait gagner des minutes décisives.",
+          imagePath: "/elearning/sst/sst-alerter.svg",
+          imageAlt: "Transmission de l'alerte lors d'un accident du travail — SST",
+          items: [
+            "Lieu précis",
+            "Nature de l'événement",
+            "Nombre et état des victimes",
+            "Gestes déjà engagés",
+          ],
+          tone: "blue",
         },
         scenarios: [
           {
@@ -2195,6 +2555,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "Programme national SST — étape 3 : Alerter, message d'alerte structuré",
           },
         ],
+
       },
       {
         id: "secourir-saignement",
@@ -2291,6 +2652,50 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
+        id: "secourir-inconscience-respiration",
+        title: "7. Secourir — Victime inconsciente qui respire (PLS)",
+        estimatedMinutes: 8,
+        intro:
+          "Une victime inconsciente mais qui respire risque d'inhaler ses vomissements et de s'étouffer. La Position Latérale de Sécurité (PLS) protège ses voies aériennes.",
+        content: [
+          "Si la victime ne répond pas mais respire normalement, le SST la place en Position Latérale de Sécurité (PLS) : sur le côté, bouche orientée vers le bas pour permettre l'écoulement des secrétions, tête en légère extension pour maintenir les voies aériennes ouvertes.",
+          "La PLS est une technique précise : genou supérieur fléchi au sol pour la stabiliser, bras inférieur étendu devant, bras supérieur soutenant la tête. Elle doit permettre à la victime de respirer librement sans risque d'inhalation.",
+          "Une fois en PLS, surveiller en permanence : la respiration peut s'arrêter et la situation basculer vers un arrêt cardiaque. Dans ce cas, remettre immédiatement la victime sur le dos et débuter la RCP.",
+          "Ne jamais laisser une victime inconsciente sur le dos sans surveillance : c'est une position dangereuse si la respiration est maintenue.",
+        ],
+        deepDive: [
+          "La PLS est une mesure conservatoire en attente des secours — elle ne traite pas la cause de l'inconscience. Alerter les secours avant ou simultanément à la mise en PLS.",
+          "En cas de traumatisme cervical suspecté (chute, accident de la route), la PLS reste indiquée si la victime risque d'inhaler, mais elle doit être réalisée avec précaution en maintenant l'axe tête-cou-tronc. En pratique SST, la priorité reste les voies aériennes.",
+        ],
+        keyPoints: [
+          "Inconsciente + respire → PLS immédiate.",
+          "Bouche vers le bas, tête en extension légère, genou fléchi.",
+          "Surveiller la respiration en permanence.",
+          "Arrêt respiratoire → retourner sur le dos et démarrer RCP.",
+        ],
+        forbiddenPoints: [
+          "Laisser une victime inconsciente sur le dos sans surveillance.",
+          "Réaliser une PLS approximative qui ne protège pas les voies aériennes.",
+          "Arrêter de surveiller une fois la PLS en place.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation : victime inconsciente qui respire.",
+          "Recommandations ERC 2021 — PLS et gestion de l'inconscience.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "Position Latérale de Sécurité (PLS) — victime inconsciente SST",
+        visual: {
+          title: "Victime inconsciente qui respire",
+          subtitle: "PLS immédiate pour protéger les voies aériennes.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "Position Latérale de Sécurité — geste SST",
+          items: [
+            "Vérifier la respiration",
+            "Placer en PLS",
+            "Surveiller en continu",
+            "Arrêt → retourner + RCP",
+          ],
+          tone: "amber",
         },
         scenarios: [
           {
@@ -2310,8 +2715,57 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "Programme national SST — victime inconsciente qui respire, PLS",
           },
         ],
+
       },
       {
+        id: "secourir-arret-cardiaque",
+        title: "8. Secourir — Arrêt cardiaque : RCP et DAE",
+        estimatedMinutes: 14,
+        intro:
+          "L'arrêt cardiaque est l'urgence absolue. Sans RCP dans les 3 à 5 premières minutes, le risque de décès ou de séquelles cérébrales graves est majeur. Le SST doit agir immédiatement.",
+        content: [
+          "Une victime en arrêt cardiaque est inconsciente, ne répond pas et ne respire pas normalement (absence de respiration ou gasps agoniques). Le SST commence la Réanimation Cardio-Pulmonaire (RCP) sans délai.",
+          "La RCP comprend deux éléments : les compressions thoraciques (massage cardiaque) et, si formé, les insufflations. Les compressions sont prioritaires — une RCP uniquement par compressions est déjà efficace si les insufflations sont impossibles ou trop lentes.",
+          "Technique de compression : talons des mains au centre du thorax (demi-inférieure du sternum), bras tendus, compression de 5 à 6 cm à un rythme de 100 à 120 par minute, décompression complète entre chaque. Le ratio est de 30 compressions pour 2 insufflations si les insufflations sont réalisées.",
+          "Le Défibrillateur Automatisé Externe (DAE) doit être récupéré et mis en marche dès que possible. Il guide vocalement l'utilisateur. Dès que l'appareil est prêt, placer les électrodes et suivre les instructions. La RCP ne s'arrête que quand le DAE analyse ou délivre un choc, puis reprend immédiatement après.",
+          "La RCP se poursuit sans interruption jusqu'à l'arrivée des secours, au rétablissement spontané de la respiration normale ou jusqu'à épuisement physique total. Alterner les intervenants toutes les 2 minutes si possible.",
+        ],
+        deepDive: [
+          "L'efficacité d'un DAE utilisé dans les 3 à 5 premières minutes après un arrêt cardiaque par fibrillation ventriculaire peut atteindre 70 à 90 % de survie. Au-delà de 10 minutes sans défibrillation, la survie devient très faible.",
+          "Le massage cardiaque crée une pression artificielle qui pousse le sang vers le cerveau et les organes vitaux. Il ne recharge pas le cœur mais maintient une perfusion minimale jusqu'au choc électrique ou au rétablissement naturel.",
+        ],
+        keyPoints: [
+          "Inconsciente + ne respire pas → RCP immédiate, alerter les secours.",
+          "30 compressions + 2 insufflations (si formé) — ou compressions seules.",
+          "Fréquence : 100 à 120 compressions/minute, profondeur 5 à 6 cm.",
+          "DAE : allumer, placer les électrodes, suivre les instructions vocales.",
+          "Ne jamais interrompre la RCP sauf analyse ou choc DAE.",
+        ],
+        forbiddenPoints: [
+          "Attendre les secours sans débuter la RCP.",
+          "Interrompre la RCP pour autre chose qu'une analyse DAE.",
+          "Comprimer trop superficiellement ou trop lentement.",
+          "Retirer les électrodes du DAE après le choc — elles restent en place.",
+        ],
+        legalRefs: [
+          "Programme SST INRS — situation : victime inconsciente qui ne respire pas.",
+          "Recommandations ERC 2021 (European Resuscitation Council) — RCP adulte.",
+          "Décret n° 2018-1186 du 19 décembre 2018 — accès au défibrillateur.",
+        ],
+        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
+        visual: {
+          title: "Arrêt cardiaque — RCP + DAE",
+          subtitle: "Chaque seconde compte : comprimer, alerter, défibriller.",
+          imagePath: "/elearning/sst/sst-secourir.svg",
+          imageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
+          items: [
+            "RCP immédiate (30+2 ou compressions seules)",
+            "Rythme 100-120/min, profondeur 5-6 cm",
+            "DAE : allumer + électrodes + suivre les instructions",
+            "Continuer sans interruption jusqu'aux secours",
+          ],
+          tone: "red",
         },
         scenarios: [
           {
@@ -2331,6 +2785,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             normRef: "Programme national SST — RCP adulte, défibrillation précoce, chaîne de survie",
           },
         ],
+
       },
       {
         id: "secourir-malaise",
