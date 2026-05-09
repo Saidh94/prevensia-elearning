@@ -1212,6 +1212,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "Un feu naît de la rencontre d’une énergie d’activation, d’un combustible et d’un comburant. Dans les démarches de prévention, cette logique est fondamentale: on réduit le risque en supprimant les sources d’ignition, en maîtrisant les combustibles et en organisant les locaux de façon cohérente.",
           "Les causes fréquentes de départ de feu restent très concrètes: défaillance électrique, échauffement mécanique, travail par point chaud, stockage anarchique, déchets combustibles, cigarette mal gérée, défaut d’entretien ou intervention de maintenance mal préparée.",
+          "Parmi les causes industrielles les plus récurrentes en entreprise : une installation électrique en mauvais état ou dépourvue de protection (fusible, disjoncteur absent ou défectueux), la projection de particules en fusion lors de travaux par points chauds (disqueuse, tronçonneuse, soudure, chalumeau), et l’électricité statique non dissipée dans les environnements de manipulation de produits inflammables. Ces causes sont évitables par la maintenance préventive, le permis de feu et les mesures de prévention adaptées.",
           "Le sinistre ne se limite pas au départ de feu. Il faut aussi comprendre la propagation par rayonnement, convection, fumées et circulation d’air. Une porte coupe-feu bloquée ouverte, un local encombré, un faux plafond non maîtrisé ou une gaine technique mal gérée peuvent accélérer l’extension du sinistre.",
           "Les fumées constituent souvent le premier danger mortel. Elles réduisent la visibilité, gênent l’orientation, intoxiquent rapidement et compliquent l’évacuation bien avant que les flammes n’atteignent les personnes. C’est pour cela que la prévention ne se résume pas à l’extincteur: elle inclut le compartimentage, le désenfumage, l’alarme et l’organisation humaine."
         ],
@@ -1299,13 +1300,19 @@ export const modulesContent: Record<string, ModuleContent> = {
           "La prise en main des moyens n’est pas une pure théorie. Elle suppose de connaître l’implantation des extincteurs, des RIA lorsqu’ils existent, les accès, les catégories de feux traitables dans le cadre du site, les conditions d’attaque et la manière d’alerter simultanément.",
           "L’extincteur et le RIA ne répondent pas exactement au même usage. L’extincteur permet une attaque très précoce avec un agent extincteur donné. Le RIA permet, lorsque l’emploi de l’eau n’est pas interdit, une action plus puissante et plus continue dans l’attente des secours. Il doit rester signalé clairement, accessible, situé à proximité des accès et protégé contre le gel si nécessaire.",
           "Les extincteurs pouvant être employés sur des appareils ou conducteurs sous tension inférieure à 1 000 volts portent une mention spécifique. Même dans ce cas, l’opérateur doit rester vigilant au ruissellement et ne jamais improviser une attaque en se mettant en danger.",
+          "Deux familles d’extincteurs portables à retenir : l’extincteur à eau avec additif, dont l’agent émulseur rend l’eau plus pénétrante et mouillante pour les feux de classe A (solides) et B (liquides) ; et l’extincteur CO₂ (dioxyde de carbone), adapté aux feux électriques et au voisinage d’équipements sous tension car il est non conducteur et ne laisse aucun résidu. Un extincteur CO₂ de 2 kg a une durée de fonctionnement d’environ 8 secondes — il faut agir sans hésiter dès le départ de feu.",
+          "Distance d’attaque recommandée : 1,5 à 2,5 m face au feu. En extérieur, se positionner de profil pour éviter la chaleur rayonnante. Toujours se placer entre le feu et la sortie de secours la plus proche. Se baisser au maximum pour éviter les fumées, car l’air frais se situe près du sol.",
+          "Les colonnes sèches et colonnes humides sont des tuyauteries fixes installées dans les bâtiments pour faciliter l’intervention des sapeurs-pompiers : elles acheminent rapidement l’eau à tous les niveaux. Les colonnes sèches sont alimentées depuis l’extérieur par les pompiers ; les colonnes humides sont en permanence sous pression.",
+          "Tout extincteur portatif conforme porte une estampille argentée NF, délivrée par AFNOR, attestant la conformité à la norme NF EN 3. Cette estampille est la preuve visible de la conformité technique de l’appareil.",
           "L’agent de terrain doit aussi retenir que l’intervention initiale n’est qu’une composante d’un dispositif plus large. Même après une extinction apparente, il faut signaler, baliser si nécessaire et laisser la suite à l’organisation prévue."
         ],
         keyPoints: [
           "Intervenir seulement si la situation reste maîtrisable.",
           "Garder une issue et ne jamais s’exposer aux fumées.",
           "Alerter reste obligatoire, même en cas d’action initiale.",
-          "Un RIA doit rester accessible, signalé et employé dans un cadre compatible avec l’eau."
+          "Un RIA doit rester accessible, signalé et employé dans un cadre compatible avec l’eau.",
+          "CO₂ = feux électriques, ~8 secondes pour 2 kg, distance 1,5-2,5 m.",
+          "Estampille argentée NF EN 3 = conformité de l’extincteur."
         ],
         forbiddenPoints: [
           "Se lancer seul dans un local enfumé.",
@@ -1316,7 +1323,8 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Code du travail - moyens de premier secours contre l’incendie et personnel instruit de leur emploi.",
           "INRS ED 6054 - Les extincteurs d’incendie portatifs, mobiles et fixes.",
           "INRS - évacuation, intervention et consignes de sécurité sur le lieu de travail.",
-          "NF EN 2 et NF EN 2/A - classes de feu utilisées comme repères pour le choix pédagogique des agents extincteurs.",
+          "NF EN 3 - norme européenne des extincteurs portatifs (conformité attestée par l’estampille NF argentée).",
+          "NF EN 2 - classes de feux (A solides, B liquides, C gaz, D métaux, E électrique, F huiles/graisses).",
           "Consignes du site et organisation interne de première intervention."
         ],
         chapterImagePath: "/images/extincteur-ria-extincteur-mobile.jpg",
@@ -1381,6 +1389,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Le cadre incendie n’est pas unique. Le socle vient du Code du travail, puis il se renforce ou se précise selon le type de bâtiment et l’activité accueillie.",
         content: [
+          "Le Code du travail constitue le socle de base. L’article R4227-39 impose à l’employeur d’organiser une formation pratique et appropriée en matière de sécurité incendie pour ses salariés, à réaliser au moins tous les ans. Cette formation précise le comportement à adopter en cas d’incendie, les modalités de déclenchement de l’alarme, les circulations et issues de secours, les moyens de première intervention et le rôle de chacun. Les articles R4216-1 à R4216-34 régissent la conception des bâtiments de travail (dégagements, compartimentage, désenfumage), et les articles R4227-1 à R4227-57 organisent les mesures de prévention et d’exploitation.",
           "En Code du travail, l’employeur doit organiser les moyens de premier secours contre l’incendie, les consignes, les essais et les exercices. Cela constitue le socle de base applicable dans les lieux de travail.",
           "Dans les établissements recevant du public, la logique est complétée par des règles spécifiques de sécurité contre l’incendie et la panique, avec des exigences renforcées sur l’alarme, l’évacuation, les moyens de secours, le compartimentage et, selon les cas, le système de sécurité incendie.",
           "Dans les immeubles de grande hauteur, l’organisation devient plus exigeante encore: compartimentage, désenfumage, alarme, équipes de sécurité et exploitation sont traités dans un cadre très structuré.",
@@ -2370,6 +2379,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "Protéger, c'est analyser rapidement la situation pour identifier le ou les dangers, puis supprimer ou isoler le risque sans s'exposer soi-même. L'action doit être proportionnée : on ne risque pas sa vie pour éteindre un début d'incendie si l'évacuation est la bonne réponse.",
           "Les dangers à évaluer sont variés selon le contexte : circulation routière, machine en fonctionnement, installation électrique, chute de hauteur, atmosphère confinée, produit chimique, feu ou structure instable. Chaque situation impose une analyse avant l'action.",
+          "Face à une situation de violence ou d'attaque terroriste en entreprise, le SST respecte en priorité les consignes définies par l'employeur. En l'absence de consignes spécifiques, il applique les recommandations nationales : fuir si possible, se cacher et se mettre à l'abri en silence, puis alerter le 17 ou le 112 depuis un endroit sécurisé. Il ne tente pas de neutraliser la menace lui-même.",
+          "En période épidémique (Covid-19, grippe ou autre maladie à transmission respiratoire), le SST adapte sa pratique aux consignes sanitaires nationales et aux recommandations de l'INRS, sans renoncer aux gestes vitaux. Pour une victime en arrêt cardiaque, la RCP est maintenue avec protection (masque, gants si disponibles). L'adaptation des gestes ne justifie jamais l'inaction face à une urgence vitale.",
           "Si le danger ne peut pas être supprimé ou isolé, la dégagement d'urgence s'impose : déplacer la victime uniquement si son maintien en place l'expose à un danger immédiat et mortel. Ce dégagement doit être réalisé en ligne droite, axe tête-pieds, le plus rapidement possible.",
           "Une fois la scène sécurisée, baliser la zone pour prévenir l'arrivée de nouveaux exposés. Ce balisage relève aussi de la protection.",
         ],
@@ -2729,6 +2740,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Une victime en arrêt cardiaque est inconsciente, ne répond pas et ne respire pas normalement (absence de respiration ou gasps agoniques). Le SST commence la Réanimation Cardio-Pulmonaire (RCP) sans délai.",
           "La RCP comprend deux éléments : les compressions thoraciques (massage cardiaque) et, si formé, les insufflations. Les compressions sont prioritaires — une RCP uniquement par compressions est déjà efficace si les insufflations sont impossibles ou trop lentes.",
           "Technique de compression : talons des mains au centre du thorax (demi-inférieure du sternum), bras tendus, compression de 5 à 6 cm à un rythme de 100 à 120 par minute, décompression complète entre chaque. Le ratio est de 30 compressions pour 2 insufflations si les insufflations sont réalisées.",
+          "RCP de l'enfant (1 à 8 ans) et du nourrisson : la prise en charge diffère de celle de l'adulte. On débute par 5 insufflations initiales (primauté de l'oxygénation car l'arrêt est souvent d'origine respiratoire), puis on alterne 15 compressions thoraciques et 2 insufflations — et non 30+2 comme chez l'adulte. Chez le nourrisson, les compressions se font avec deux doigts au centre du thorax, à environ un tiers de la profondeur du thorax.",
           "Le Défibrillateur Automatisé Externe (DAE) doit être récupéré et mis en marche dès que possible. Il guide vocalement l'utilisateur. Dès que l'appareil est prêt, placer les électrodes et suivre les instructions. La RCP ne s'arrête que quand le DAE analyse ou délivre un choc, puis reprend immédiatement après.",
           "La RCP se poursuit sans interruption jusqu'à l'arrivée des secours, au rétablissement spontané de la respiration normale ou jusqu'à épuisement physique total. Alterner les intervenants toutes les 2 minutes si possible.",
         ],
@@ -2797,6 +2809,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Un malaise peut précéder une situation plus grave. Le SST installe la victime en position adaptée, surveille et alerte.",
         content: [
           "Face à une victime qui se plaint de malaise (vertiges, douleur thoracique, nausée, pâleur, sueurs froides, sensation de faiblesse), le SST l'installe dans la position qui lui semble la plus confortable : assis, demi-assis ou allongé selon les symptômes.",
+          "Malaise vagal : quand une victime consciente déclare faire régulièrement des malaises vagaux et présente des étourdissements, nausées, sueurs, sensation de chaleur ou de perte de conscience imminente, le SST l'invite à réaliser une manœuvre physique de contrepression pour éviter la syncope : croiser les jambes en position debout, serrer fortement les deux mains l'une contre l'autre ou contracter les bras. Ces manœuvres augmentent le retour veineux et peuvent interrompre le malaise. Si elles échouent, allonger la victime et surveiller.",
           "Un malaise avec douleur thoracique irradiant dans le bras gauche ou la mâchoire doit faire suspecter un infarctus du myocarde. Alerter immédiatement le 15 (SAMU). Ne pas laisser la victime marcher seule.",
           "Un malaise avec perte d'équilibre, difficultés à parler, à voir ou paralysie d'un côté du visage ou du corps doit faire suspecter un AVC (Accident Vasculaire Cérébral). Alerter immédiatement le 15. L'AVC est une urgence : chaque minute de retard aggrave les séquelles.",
           "Surveiller en permanence jusqu'à l'arrivée des secours. Si la victime perd conscience, vérifier la respiration et adapter le geste : PLS ou RCP selon l'état.",
@@ -2838,13 +2851,15 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "secourir-brulure-traumatisme",
-        title: "10. Secourir — Brûlure et traumatisme",
-        estimatedMinutes: 8,
+        title: "10. Secourir — Brûlure, plaie et traumatisme",
+        estimatedMinutes: 10,
         intro:
-          "Les brûlures et les traumatismes sont des situations fréquentes en milieu professionnel. Le geste immédiat conditionne les suites.",
+          "Les brûlures, plaies et traumatismes sont des situations fréquentes en milieu professionnel. La distinction plaie simple / grave et la règle du corps étranger sont des réflexes fondamentaux.",
         content: [
           "Face à une brûlure thermique, le réflexe immédiat est le refroidissement : faire couler de l'eau fraîche (15 à 25 °C) sur la zone brûlée pendant 5 à 10 minutes minimum. Ne jamais utiliser de la glace (risque d'aggravation par vasoconstriction), ni de corps gras, ni de pansement adhésif directement sur la brûlure.",
           "Alerter les secours si la brûlure dépasse 10 % de la surface corporelle chez l'adulte, si elle concerne le visage, les mains, les organes génitaux ou les articulations, si elle est circulaire, profonde ou d'origine électrique ou chimique.",
+          "Plaie simple (petite, propre, sans corps étranger) : séquence à retenir — se laver les mains avec de l'eau et du savon, nettoyer la plaie à l'eau et au savon, rincer, désinfecter selon les consignes du médecin du travail, puis protéger par un pansement propre. Ne jamais appliquer un antiseptique seul sans rinçage préalable, ni laisser la plaie à l'air libre sans protection.",
+          "Plaie grave (saignement important, corps étranger visible ou planté, plaie profonde, au visage, thoracique ou abdominale) : ne JAMAIS retirer un corps étranger planté. Il peut obstruer un vaisseau ; son retrait provoquerait une hémorragie incontrôlable. Protéger la plaie autour du corps étranger sans pression directe dessus, alerter immédiatement le 15 ou le 18, et surveiller la victime jusqu'à l'arrivée des secours.",
           "Face à un traumatisme (chute, écrasement, choc violent), ne pas déplacer la victime si un traumatisme rachidien (colonne vertébrale) est suspecté, sauf danger immédiat. La victime reste en position de découverte. Ne pas mobiliser un membre suspect de fracture.",
           "En cas de fracture ouverte (os visible), ne pas réduire et ne pas toucher la plaie. Protéger avec un pansement propre. Alerter les secours.",
         ],
@@ -2930,6 +2945,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Le SST contribue également à la prévention des risques en observant le travail réel et en faisant remonter les situations dangereuses avant qu'elles ne causent un accident.",
         content: [
+          "L'accident du travail (AT) est défini par l'article L411-1 du Code de la Sécurité sociale comme « tout accident survenu par le fait ou à l'occasion du travail, quelle qu'en soit la cause ». La qualification d'AT ne dépend ni de la gravité, ni de la cause (faute du salarié ou non), ni de la présence de témoins. Le SST contribue à la traçabilité en favorisant la déclaration et en rédigeant des constats factuels précis.",
+          "La certification SST est valide 2 ans. Le MAC (Maintien et Actualisation des Compétences) est obligatoire à l'échéance pour conserver la certification. Sans MAC, le salarié perd le statut de SST certifié. Cette périodicité est fixée par l'INRS dans le référentiel national SST.",
           "Un SST efficace ne se limite pas aux accidents déclarés. Il repère les situations à risque dans son environnement quotidien : sols glissants, équipements défectueux, postures inadaptées, zones mal éclairées, produits mal étiquetés, procédures non respectées.",
           "Cette logique relie secours et prévention : voir le danger, remonter l'information à l'encadrement ou au service prévention, proposer une correction simple et contribuer à éviter le prochain accident. C'est le rôle actif du SST au-delà de l'urgence.",
           "Le SST peut participer aux instances de prévention de l'entreprise (CSSCT, réunion d'équipe sécurité) et collaborer avec le service de santé au travail pour signaler les situations à risque récurrentes.",
