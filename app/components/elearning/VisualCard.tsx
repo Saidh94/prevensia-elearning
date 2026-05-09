@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { formatFrenchDisplayText } from "@/lib/french-display";
 import type {
   IllustrationKey,
@@ -848,20 +849,26 @@ export default function VisualCard({
                   compact ? "p-2" : "p-3"
                 }`}
               >
-                <img
-                  src={imagePath}
-                  alt={imageAlt}
-                  className={`mx-auto h-auto w-full object-contain object-top ${
-                    compact ? "max-h-[240px]" : "max-h-[420px]"
+                <div
+                  className={`relative w-full overflow-hidden ${
+                    compact ? "h-[240px]" : "h-[420px]"
                   }`}
-                  loading="lazy"
-                  onError={() =>
-                    setImageErrorState({
-                      imagePath,
-                      hasError: true,
-                    })
-                  }
-                />
+                >
+                  <Image
+                    src={imagePath}
+                    alt={imageAlt}
+                    fill
+                    className="object-contain object-top"
+                    sizes="(max-width: 768px) 100vw, 720px"
+                    unoptimized={imagePath.toLowerCase().endsWith(".svg")}
+                    onError={() =>
+                      setImageErrorState({
+                        imagePath,
+                        hasError: true,
+                      })
+                    }
+                  />
+                </div>
               </div>
             ) : (
               <div

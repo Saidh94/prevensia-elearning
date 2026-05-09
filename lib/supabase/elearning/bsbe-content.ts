@@ -163,6 +163,40 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un opérateur doit réinitialiser un organe alimenté par un coffret de commande. Il observe la présence d’un variateur et d’une alimentation secourue. Il ne doit pas agir tant que le cadre de manœuvre n’est pas confirmé.",
+      scenarios: [
+        {
+          situation: "Vous êtes habilité BS et devez remplacer une prise murale dans une salle serveurs. Vous coupez le disjoncteur qui dessert la prise, mais un onduleur (UPS) de 6 kVA installé dans le rack continue d’alimenter l’installation via son circuit de sortie. Les prises en aval de l’onduleur restent sous tension.",
+          question: "Comment traiter la présence d’un onduleur lors d’une intervention BS ?",
+          wrongActions: [
+            "Considérer que la coupure au disjoncteur principal suffit à mettre toute l’installation hors tension.",
+            "Débrancher le câble de la prise à remplacer sans vérifier l’absence de tension en aval de l’onduleur.",
+            "Demander à un collègue d’éteindre les équipements alimentés par l’onduleur et continuer sans VAT.",
+          ],
+          correctActions: [
+            "Identifier toutes les sources d’alimentation du circuit à traiter, y compris l’onduleur en sortie.",
+            "Effectuer une VAT sur chaque conducteur accessible avant tout contact, même après coupure du disjoncteur.",
+            "Si l’onduleur maintient une tension résiduelle, suspendre l’intervention et demander la mise hors service complète de la source autonome avant de poursuivre.",
+          ],
+          explanation: "Un onduleur constitue une source d’énergie autonome indépendante du réseau. La coupure du disjoncteur en amont ne met pas hors tension les circuits alimentés par la sortie de l’onduleur. La VAT reste obligatoire et doit confirmer l’absence de tension sur chaque conducteur du circuit à traiter.",
+          normRef: "NF C 18-510 § 5.4 — sources multiples, énergies autonomes et obligation de VAT avant toute intervention BS",
+        },
+        {
+          situation: "Vous devez remplacer un bloc autonome d’éclairage de sécurité (BAES) défaillant. Vous coupez le circuit dédié à l’éclairage de sécurité au tableau principal. En déposant le BAES, vous sentez que les bornes de raccordement sont encore sous une tension résiduelle provenant de la batterie interne du bloc.",
+          question: "Un BAES peut-il rester sous tension après coupure du circuit au tableau ?",
+          wrongActions: [
+            "Considérer que le bloc est hors tension dès que le circuit au tableau est ouvert.",
+            "Toucher les bornes du BAES sans vérifier leur état de tension.",
+            "Débrancher le BAES en tirant sur les fils sans VAT préalable.",
+          ],
+          correctActions: [
+            "Vérifier avant toute manipulation que le bloc autonome n’est plus en charge : décharge de la batterie ou neutralisation selon les consignes du fabricant.",
+            "Réaliser une VAT sur les bornes accessibles du BAES avant tout contact.",
+            "Respecter la procédure de remplacement spécifique aux BAES, qui prévoit la décharge de la batterie interne avant démontage.",
+          ],
+          explanation: "Un BAES possède une batterie intégrée qui peut maintenir une tension de sortie sur ses bornes même après coupure de l’alimentation secteur. Ce type d’énergie résiduelle est fréquemment sous-estimé. La VAT est obligatoire avant toute manipulation des bornes, quel que soit l’état du circuit d’alimentation.",
+          normRef: "NF C 18-510 § 5.4 — énergies résiduelles et sources autonomes : VAT obligatoire avant intervention BS",
+        },
+      ],
       chapterImagePath: "/elearning/bsbe/bsbe-bases.svg",
       chapterImageAlt:
         "Bases électriques utiles au BS et au BE Manœuvre",
@@ -216,6 +250,68 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un appareil est coupé au disjoncteur, mais reste raccordé à une alimentation secourue. L’opérateur doit considérer que le risque peut persister.",
+      scenarios: [
+        {
+          situation:
+            "Vous êtes habilité BS et intervenez pour changer un câble d’alimentation dans un local technique. En dégainant le cheminement de câbles, vous découvrez un câble avec une gaine orange et un marquage ‘20 kV’ sur la gaine. Le plan remis ne mentionnait qu’une installation basse tension dans ce local.",
+          question:
+            "Que faites-vous lorsque vous découvrez ce qui semble être un câble haute tension là où vous n’en attendiez pas ?",
+          wrongActions: [
+            "Continuer l’intervention en faisant attention de ne pas toucher ce câble.",
+            "Vérifier vous-même avec votre testeur BT si le câble est sous tension.",
+            "Couper le câble au niveau de l’armoire la plus proche pour l’identifier.",
+          ],
+          correctActions: [
+            "Arrêter immédiatement toute intervention et quitter la zone.",
+            "Informer sans délai votre chargé d’exploitation de la découverte.",
+            "Ne reprendre le travail qu’après confirmation par un personnel habilité HT et identification certaine du câble.",
+          ],
+          explanation:
+            "Un BS n’est pas habilité à travailler au voisinage de la haute tension ni à l’identifier. Un câble HT sous tension à proximité immédiate peut provoquer un arc à distance sans contact direct. La seule conduite est l’arrêt et l’alerte.",
+          normRef:
+            "NF C 18-510 § 5.3 — périmètre BS strictement limité à la basse tension ; § 3 — zones d’environnement en HT",
+        },
+        {
+          situation:
+            "Vous êtes habilité BE Manœuvre et on vous demande d’ouvrir le sectionneur ‘D12’ dans une armoire de distribution. En ouvrant la porte de l’armoire, vous remarquez un pictogramme en forme d’éclair avec la mention ‘10 kV’ sur un jeu de barres non protégé situé en partie haute, à moins d’un mètre de vous.",
+          question:
+            "Quelle est la bonne attitude face à une partie HT non protégée à proximité de votre zone d’intervention BT ?",
+          wrongActions: [
+            "Effectuer la manœuvre rapidement en vous éloignant le plus possible de la partie HT.",
+            "Recouvrir la partie HT avec un chiffon isolant avant de procéder.",
+            "Appliquer quand même la consigne reçue puisque votre manœuvre concerne un départ BT.",
+          ],
+          correctActions: [
+            "Refuser d’effectuer la manœuvre tant que la partie HT n’est pas protégée ou condamnée par un habilité HT.",
+            "Signaler immédiatement la situation à votre chargé d’exploitation.",
+            "Ne pas recouvrir vous-même la partie HT : cette opération relève d’un habilité HTA ou HTB.",
+          ],
+          explanation:
+            "Le BE Manœuvre intervient exclusivement en BT. La présence d’une partie HT accessible dans son environnement immédiat invalide les conditions de sécurité de sa manœuvre. Il ne peut pas modifier lui-même la situation HT et doit s’arrêter.",
+          normRef:
+            "NF C 18-510 § 5.4 — conditions d’intervention BE Manœuvre ; § 4 — zones d’environnement HT et DMA",
+        },
+        {
+          situation:
+            "Vous intervenez en BS dans un sous-station électrique pour remplacer un capot de prise 230 V côté basse tension. Le poste contient aussi un transformateur HTA/BT. Le transformateur est séparé de votre zone de travail uniquement par un grillage métallique. Aucun personnel HT n’est présent sur site.",
+          question:
+            "Dans ce contexte, quelles précautions supplémentaires s’imposent à vous en tant que BS ?",
+          wrongActions: [
+            "Travailler normalement puisque votre intervention est côté BT et que le grillage vous sépare du transformateur.",
+            "Vous approcher du grillage pour identifier les jeux de barres HT afin d’estimer le risque.",
+            "Commencer l’intervention si votre chef vous dit que le transformateur est hors tension.",
+          ],
+          correctActions: [
+            "Vérifier que la zone HT est verrouillée et que vous disposez d’une autorisation écrite de travail mentionnant les conditions de séparation.",
+            "Ne jamais vous appuyer sur le grillage ni approcher de la partie HT, même pour observer.",
+            "Si aucune séparation physique certifiée n’est en place côté HT, différer l’intervention jusqu’à ce qu’un chargé de travaux habilité HT ait sécurisé la zone.",
+          ],
+          explanation:
+            "Un BS dans une sous-station reste exposé aux zones de voisinage HT. La présence d’un grillage n’équivaut pas à une mise hors tension et hors tension certifiée de la HT. Sans autorisation écrite et sans séparation physique certifiée, l’intervention BS ne peut pas commencer.",
+          normRef:
+            "NF C 18-510 § 5.3 — conditions d’habilitation BS ; § 4 — distances de voisinage renforcé HTA",
+        },
+      ],
       chapterImagePath: "/elearning/h0b0/domaines-tension.png",
       chapterImageAlt:
         "Domaines de tension et distinction TBT, BT et HT utiles au BS et au BE Manœuvre",
@@ -384,6 +480,40 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un organe porte une étiquette ancienne et le schéma local est partiellement modifié. L’opérateur n’agit pas tant que le repère n’est pas confirmé.",
+      scenarios: [
+        {
+          situation: "Vous intervenez en BS pour remplacer un interrupteur dans une salle de réunion. Selon le schéma papier remis par le responsable, ce circuit est terminal, alimenté par un seul départ. Sur le tableau ouvert, vous constatez que le câble passe en fait dans une goulotte commune à deux départs non repérés. Le schéma n’a manifestement pas été mis à jour après des travaux d’extension réalisés six mois plus tôt.",
+          question: "Comment réagir lorsque le schéma ne correspond plus à l’installation réelle ?",
+          wrongActions: [
+            "Couper l’un des deux départs en supposant qu’il s’agit du bon et faire la VAT pour confirmer.",
+            "Couper les deux départs pour être sûr, même sans en avoir l’autorisation.",
+            "Faire confiance au schéma papier et intervenir en ignorant la divergence observée.",
+          ],
+          correctActions: [
+            "Suspendre l’intervention dès que la cohérence entre le schéma et le terrain n’est plus assurée.",
+            "Signaler la divergence au responsable ou au chargé d’exploitation pour obtenir un repérage mis à jour.",
+            "Ne reprendre l’intervention qu’une fois l’identification du départ correct confirmée par une personne compétente.",
+          ],
+          explanation: "Un schéma non à jour est une source majeure d’erreur de repérage. Agir sur la base d’un document obsolète expose à couper le mauvais départ, à laisser le circuit à traiter sous tension ou à toucher un conducteur actif non identifié. La suspension de l’opération est la seule réaction correcte.",
+          normRef: "NF C 18-510 § 5.4 — cohérence entre document, repérage terrain et opération BS",
+        },
+        {
+          situation: "Vous devez réarmer le disjoncteur ‘PC bureau 3’ selon la consigne reçue. Devant le tableau, deux disjoncteurs portent des étiquettes similaires : l’un porte ‘PC Bureau 3’ et l’autre ‘Bureau 3 - PC’. Un collègue vous assure que le bon est celui de gauche, mais sans certitude.",
+          question: "Un doute sur le repérage de deux organes similaires autorise-t-il à agir au jugé ?",
+          wrongActions: [
+            "Choisir le disjoncteur de gauche sur conseil oral d’un collègue.",
+            "Réarmer les deux disjoncteurs successivement pour identifier le bon par élimination.",
+            "Considérer que l’enjeu est faible et agir quand même.",
+          ],
+          correctActions: [
+            "Refuser d’agir tant que le repérage n’est pas confirmé de façon certaine.",
+            "Demander au chargé d’exploitation ou au responsable de confirmer le départ exact à manœuvrer.",
+            "Signaler que les deux étiquettes sont ambiguës et demander une mise à jour du repérage.",
+          ],
+          explanation: "Un repérage ambigu invalide la condition d’identification certaine requise pour toute manœuvre BS ou BE Manœuvre. Agir sur la base d’une supposition orale expose à couper le mauvais circuit ou à mettre sous tension une zone en cours d’intervention. L’exigence de repérage fiable n’est pas une formalité.",
+          normRef: "NF C 18-510 § 5.4 — repérage fiable des organes comme condition préalable à toute manœuvre ou intervention",
+        },
+      ],
       chapterImagePath: "/images/modules/electricite/tableau-coffret-bt.jpg",
       chapterImageAlt:
         "Armoire électrique basse tension avec organes de commande et de protection",
@@ -438,6 +568,24 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un disjoncteur est situé dans un coffret normalement fermé, mais la façade est fendue et une pièce interne devient accessible au doigt. Le geste de réarmement n’est plus banal et l’opérateur suspend l’action.",
+      scenarios: [
+        {
+          situation: "Vous êtes habilité BE Manœuvre. On vous remet une procédure de réarmement datée de 14 mois. Sur le coffret de commande, vous constatez que l’organe décrit dans la procédure (un disjoncteur magnétothermique de marque A) a été remplacé lors d’une révision récente par un module différentiel de marque B avec un bouton de réarmement de type et d’emplacement différents. La procédure écrite ne correspond plus au matériel présent.",
+          question: "Peut-on appliquer une procédure de manœuvre qui ne correspond plus au matériel installé ?",
+          wrongActions: [
+            "Adapter la procédure soi-même en identifiant le nouveau bouton de réarmement par analogie.",
+            "Exécuter la manœuvre ‘à peu près’ en supposant que la logique reste la même.",
+            "Considérer que 14 mois c’est récent et que la procédure est encore valable.",
+          ],
+          correctActions: [
+            "Suspendre la manœuvre dès que la procédure ne correspond plus au matériel présent.",
+            "Signaler au chargé d’exploitation ou au responsable la divergence entre la procédure écrite et l’équipement réel.",
+            "Ne reprendre l’opération qu’après validation d’une procédure mise à jour et adaptée au nouveau matériel.",
+          ],
+          explanation: "Une procédure de manœuvre n’est valable que si elle correspond au matériel réellement installé. Un changement de composant sans mise à jour documentaire est une cause classique d’erreur de manœuvre. L’opérateur BE Manœuvre ne doit jamais adapter lui-même une procédure : c’est une responsabilité qui relève du chargé d’exploitation ou du service compétent.",
+          normRef: "NF C 18-510 § 5.4 — adéquation entre la procédure et le matériel présent : condition préalable à toute manœuvre BE",
+        },
+      ],
       chapterImagePath: "/elearning/bsbe/zone-ne-pas-franchir.jpg",
       chapterImageAlt:
         "Zone de travail à ne pas franchir devant une installation électrique",
@@ -466,9 +614,10 @@ export const bsbeModuleContent: ModuleContent = {
       intro:
         "Le cœur du symbole BS est ici : intervenir uniquement sur des opérations élémentaires prévues, identifiées, hors tension et strictement encadrées par les consignes de l’employeur.",
       content: [
-        "Le titulaire BS peut réaliser des remplacements simples et des raccordements élémentaires en basse tension lorsque l’installation, le circuit et le matériel sont identifiés et que la procédure de l’entreprise le permet.",
-        "Dans la pratique, il peut s’agir de remplacements de lampe, fusible basse tension, accessoire d’éclairage, socle de prise, interrupteur, convecteur, chauffe-eau, volet ou autre matériel simple, dans la limite du cadre autorisé.",
-        "Un repère pédagogique souvent retenu dans les programmes BS est celui de matériels simples jusqu’à 400 V et 32 A en courant alternatif. Ce repère aide à comprendre le niveau visé, mais il ne dispense jamais de vérifier le matériel réel et la procédure locale.",
+        "La norme NF C 18-510 établit une gradation importante que le BS doit connaître : toutes les opérations simples n’exigent pas forcément une habilitation BS. Certaines peuvent être effectuées par du personnel formé mais non habilité — ce qui délimite encore plus précisément ce que le BS doit réaliser.",
+        "Premier cas : le remplacement de lampe ou d’accessoire sur un matériel présentant un degré de protection IP2X ou IPXXB (pas de risque de contact avec les parties actives). Dans ce cas, la norme autorise le remplacement en présence de tension par du personnel formé non habilité. Dès qu’il y a risque de contact, l’intervention relève du BS ou du BR.",
+        "Deuxième cas : le remplacement d’un fusible à fusion enfermée (cartouche de type CH10, diazed ou cartouche industrielle dont la fusion n’est pas accessible). La norme permet ce remplacement sans VAT (Vérification d’Absence de Tension) préalable, par une personne formée B0 ou même non habilité si le fusible et son support sont conçus à cet effet (fusion confinée). Dès que le fusible n’est pas à fusion enfermée ou que le porte-fusible est nu, le BS et la mise hors tension s’imposent.",
+        "Ce que le BS fait que le B0 ne peut pas faire : raccordement d’une platine sur circuit en attente, remplacement d’une prise ou d’un interrupteur sur circuit non protégé IP2X, remplacement d’un fusible non enfermé — toujours hors tension, circuit identifié.",
         "Le raccordement doit rester élémentaire, hors tension, sur un support prévu et identifié. Si l’action impose un diagnostic, une adaptation de câblage, un doute sur le repérage ou une complexité technique, elle sort du cadre BS.",
         "La qualité du raisonnement se voit dans cette capacité à distinguer une opération élémentaire d’un dépannage improvisé.",
       ],
@@ -477,10 +626,11 @@ export const bsbeModuleContent: ModuleContent = {
         "Une opération BS doit pouvoir être expliquée simplement : quel matériel, quel circuit, quelle procédure, quelle mise hors tension, quelle vérification et quelle remise en service.",
       ],
       keyPoints: [
-        "BS = 5 opérations précises définies par la norme NF C 18-510.",
-        "1. Fusible à l'identique — 2. Lampe/luminaire — 3. Socle prise/interrupteur.",
-        "4. Raccordement simple — 5. Réarmement/désarmement disjoncteur.",
-        "Toujours hors tension, circuit repéré, ≤ 400 V, circuits terminaux uniquement.",
+        "Lampe IP2X sous tension → personnel formé non habilité peut intervenir (NF C 18-510 § 10).",
+        "Fusible à fusion enfermée sans VAT → B0 ou personnel formé non habilité suffisent.",
+        "Tout le reste (lampe sans IP2X, fusible nu, prise, interrupteur, raccordement) → BS requis, hors tension.",
+        "BS = remplacement à l'identique, hors tension, circuit repéré, ≤ 400 V, circuits terminaux.",
+        "BS ≠ diagnostic, ≠ câblage modifié, ≠ intervention sur circuit non identifié.",
       ],
       forbiddenPoints: [
         "Chercher la panne si le remplacement ne suffit pas.",
@@ -603,6 +753,22 @@ export const bsbeModuleContent: ModuleContent = {
           ],
           explanation: "La VAT n'a de valeur que si l'appareil utilisé est lui-même vérifié. La séquence correcte est : vérification de l'appareil sur source connue → VAT → vérification de l'appareil sur source connue après. Un testeur défaillant donne une fausse sécurité.",
           normRef: "NF C 18-510 § 5.4 — vérification du bon fonctionnement du dispositif de VAT",
+        },
+        {
+          situation: "Vous intervenez en BS pour déposer le capot d'un coffret de compensation d'énergie réactive contenant des condensateurs de 25 kvar. Vous avez coupé le sectionneur d'alimentation et attendu deux minutes. En approchant votre testeur de tension des bornes des condensateurs, vous mesurez encore 180 V.",
+          question: "Que signifie cette tension résiduelle et comment réagir ?",
+          wrongActions: [
+            "Considérer que 180 V est une valeur résiduelle négligeable qui disparaîtra d'elle-même.",
+            "Utiliser un chiffon pour court-circuiter les bornes et accélérer la décharge.",
+            "Attendre 30 secondes supplémentaires et recommencer sans recontacter un responsable.",
+          ],
+          correctActions: [
+            "Ne pas toucher les bornes : une tension de 180 V est pleinement dangereuse.",
+            "Suspendre l'intervention et signaler au chargé d'exploitation que les condensateurs ne sont pas déchargés.",
+            "Attendre que la décharge soit confirmée par la VAT (résultat nul sur chaque conducteur) avant toute manipulation, ou demander l'intervention d'un électricien habilité pour réaliser la décharge contrôlée selon la procédure prévue.",
+          ],
+          explanation: "Les condensateurs de compensation peuvent conserver une charge importante plusieurs minutes après la coupure de l'alimentation. Une tension de 180 V est mortelle. La coupure du sectionneur ne suffit pas : la VAT doit confirmer une tension nulle avant tout contact. Si la décharge n'est pas assurée, l'opération sort du cadre BS et relève d'un électricien compétent.",
+          normRef: "NF C 18-510 § 5.4 — énergies résiduelles sur condensateurs : VAT obligatoire et procédure de décharge contrôlée",
         },
       ],
       chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
@@ -755,6 +921,38 @@ export const bsbeModuleContent: ModuleContent = {
           ],
           explanation: "Le BE Manœuvre est autorisé à effectuer des manœuvres simples d'exploitation sur ordre. Il ne réalise pas de diagnostic, de dépannage ou d'analyse de panne. Toute action au-delà des manœuvres reçues sort de son périmètre.",
           normRef: "NF C 18-510 § 5.4 — périmètre BE Manœuvre : manœuvres d'exploitation sur ordre",
+        },
+        {
+          situation: "Vous êtes habilité BS et intervenez pour remplacer un socle de prise dans un couloir technique. Vous avez coupé le disjoncteur concerné et posé votre outillage. Un autre collègue, habilité BE Manœuvre, est en train de manœuvrer des départs dans le même tableau pour une commande d'éclairage, sans savoir que vous êtes en train d'intervenir sur un circuit adjacent. Aucune consigne de coordination n'a été formalisée entre vous deux.",
+          question: "Que faire lorsque deux opérateurs interviennent simultanément sur le même tableau sans coordination ?",
+          wrongActions: [
+            "Continuer votre intervention en demandant verbalement à votre collègue de faire attention.",
+            "Estimer que vos deux interventions sont indépendantes et ne posent pas de problème.",
+            "Vous dépêcher de finir avant que votre collègue n'actionne un autre départ.",
+          ],
+          correctActions: [
+            "Interrompre votre intervention et coordonner avec votre collègue avant de reprendre.",
+            "Informer le chargé d'exploitation de la situation de co-activité et demander une organisation claire : qui intervient, sur quel départ, dans quel ordre.",
+            "Condamner le départ sur lequel vous intervenez (cadenas ou étiquette de consignation) pour empêcher toute remise sous tension intempestive pendant votre intervention.",
+          ],
+          explanation: "La co-activité sur un même tableau entre deux opérateurs sans coordination formelle est l'une des causes classiques de remise sous tension accidentelle. Le BS doit protéger son propre circuit de toute action extérieure, notamment par condamnation. La norme exige une organisation claire et une communication formalisée dès que plusieurs personnes sont susceptibles d'agir sur la même installation.",
+          normRef: "NF C 18-510 § 5.4 et § 6 — co-activité, coordination des interventions et prévention du multi-corps",
+        },
+        {
+          situation: "Vous intervenez en BS dans un local de stockage pour remplacer un interrupteur. Vous avez coupé le disjoncteur mais ne l'avez pas condamné (pas de cadenas disponible, pas d'étiquette de signalement). Pendant votre intervention, un agent d'exploitation qui ne sait pas que vous êtes présent dans la pièce réenclenche le disjoncteur depuis le tableau situé à l'étage inférieur.",
+          question: "Comment prévenir une remise sous tension par une tierce personne lors d'une intervention BS ?",
+          wrongActions: [
+            "Compter sur l'organisation informelle du site pour que personne n'actionne le tableau.",
+            "Commencer l'intervention en demandant à voix haute si quelqu'un doit toucher au tableau.",
+            "Travailler rapidement pour finir avant qu'une remise sous tension ne soit possible.",
+          ],
+          correctActions: [
+            "Ne jamais commencer une intervention BS sans avoir condamné le départ par un moyen physique : cadenas, dispositif de condamnation ou à défaut étiquette de signalisation visible.",
+            "Informer le responsable ou le chargé d'exploitation de l'intervention en cours avant de commencer.",
+            "Si aucun moyen de condamnation n'est disponible, différer l'intervention jusqu'à ce que les moyens adaptés soient obtenus.",
+          ],
+          explanation: "La condamnation du départ est une condition impérative de l'intervention BS. Sans condamnation physique, aucune procédure organisationnelle n'est fiable à 100 % contre une remise sous tension involontaire par une tierce personne. La norme impose de prévenir toute remise sous tension intempestive avant de commencer à travailler.",
+          normRef: "NF C 18-510 § 5.4 — prévention de la remise sous tension et condamnation dans le cadre d'une intervention BS",
         },
       ],
       chapterImagePath: "/elearning/bsbe/types-operations-electriques.jpg",
@@ -992,8 +1190,120 @@ export const bsbeModuleContent: ModuleContent = {
     },
 
     {
+      id: "installations-anciennes",
+      title: "15. Installations anciennes : reconnaître et s'arrêter",
+      estimatedMinutes: 10,
+      intro:
+        "La NF C 18-510 § 10.4.1 limite strictement le BS au remplacement à l'identique d'une prise, d'un interrupteur, d'une lampe ou d'un fusible BT, et au raccordement d'un circuit en attente. Toute autre opération est exclue. Ce chapitre donne les signaux visuels que le BS peut rencontrer lors de ces opérations limitées, et pour lesquels la bonne réponse est unique : arrêter et signaler.",
+      content: [
+        "Lors du remplacement d'une prise de courant ou d'un interrupteur, le BS dépose la plaque et peut voir les conducteurs raccordés derrière. Ce moment est le seul instant où une anomalie visuelle sur le câblage peut se révéler. Il ne s'agit pas pour le BS de diagnostiquer l'installation — cela dépasse son périmètre — mais de reconnaître un signal d'alerte évident.",
+        "Premier signal : une gaine extérieure en tissu tressé gris, brun ou blanc, ou une isolation individuelle des conducteurs qui se fissure, s'effrite ou tombe en poudre au simple toucher. Ce type de câble (câble en coton ou caoutchouc vulcanisé des années 1960-1970) a une isolation hors d'usage. Toute manipulation peut rompre l'isolation résiduelle et créer un contact direct.",
+        "Deuxième signal : l'absence de conducteur vert-jaune dans le câble, ou un câble qui ne comporte que deux conducteurs (phase et neutre) sans aucune protection. Le BS ne peut pas analyser le schéma de l'installation, mais l'absence visible d'un conducteur de protection est un indicateur que quelque chose ne correspond pas à l'état attendu.",
+        "Troisième signal : l'état général du tableau ou du boîtier dans lequel il intervient. Des traces de brûlure, des conducteurs dénudés sans bornier, des fusibles sans étiquette identifiable, un tableau ouvert avec des parties actives accessibles non prévues — autant de situations où l'intervention prévue (remplacement à l'identique) ne peut pas se réaliser dans les conditions définies par la norme.",
+        "Dans tous ces cas, la conduite est la même : ne pas poursuivre l'intervention, ne pas improviser de remède, signaler à l'employeur et au chargé d'exploitation. La NF C 18-510 § 10.4.3 impose au BS d'informer le chargé d'exploitation des réserves pouvant résulter de l'intervention.",
+      ],
+      deepDive: [
+        "L'analyse de l'état d'une installation ancienne (schéma TN-C, état des câbles, conformité du tableau) relève du chargé d'intervention générale (BR) ou d'un électricien B2. Ce n'est pas le rôle du BS. Lui demander d'évaluer le câblage dépasse son habilitation et engage la responsabilité de l'employeur s'il lui confie une tâche hors périmètre.",
+      ],
+      keyPoints: [
+        "Périmètre BS : remplacement à l'identique + raccordement circuit en attente (§ 10.4.1).",
+        "Câble textile effrité ou isolation qui s'émiette → arrêter, signaler.",
+        "Tableau dégradé, parties actives non protégées, fusibles non repérés → arrêter, signaler.",
+        "Le BS ne diagnostique pas. Il reconnaît et s'arrête.",
+      ],
+      forbiddenPoints: [
+        "Poursuivre l'intervention en contournant l'anomalie observée.",
+        "Tenter de rembobiner ou de recouvrir une isolation dégradée.",
+        "Analyser le schéma de l'installation : ce n'est pas le rôle du BS.",
+      ],
+      legalRefs: [
+        "NF C 18-510 § 10.4.1 — champ d'application strict de l'intervention BT élémentaire.",
+        "NF C 18-510 § 10.4.3 — obligation d'informer le chargé d'exploitation des réserves.",
+        "NF C 18-510 § 10.5.7 — rôle du chargé d'intervention élémentaire.",
+      ],
+      practicalCase:
+        "Exemple : un BS remplace une prise de courant dans un couloir. En retirant la plaque, il voit deux conducteurs avec une gaine grisâtre qui s'effrite au toucher. Il n'y a pas de conducteur vert-jaune visible. Il repose la plaque, remet sous tension, et signale immédiatement la situation à son employeur et au chargé d'exploitation. Il n'improvise aucune remédiation.",
+      scenarios: [
+        {
+          situation:
+            "Vous êtes BS et remplacez un interrupteur dans un bâtiment construit dans les années 1960. En retirant la plaque, vous découvrez deux conducteurs dont la gaine extérieure est en tissu tressé grisâtre et dont l'isolation individuelle s'effrite quand vous les touchez légèrement.",
+          question:
+            "Quelle est la bonne conduite à tenir face à ces câbles visiblement dégradés ?",
+          wrongActions: [
+            "Enrouler les parties effrittées avec du ruban isolant et continuer le remplacement de l'interrupteur.",
+            "Remplacer l'interrupteur sans manipuler les câbles, en faisant attention.",
+            "Tirer délicatement sur les câbles pour voir s'ils tiennent avant de décider.",
+          ],
+          correctActions: [
+            "Arrêter immédiatement l'intervention sans manipuler davantage les câbles.",
+            "Remettre en place la plaque et redonner accès à l'installation dans son état initial.",
+            "Signaler sans délai l'état du câblage à votre employeur et au chargé d'exploitation, en formulant des réserves sur la poursuite de l'intervention.",
+          ],
+          explanation:
+            "L'isolation de ces câbles anciens (coton, caoutchouc des années 1960) est hors d'usage. La manipulation la plus légère peut rompre l'isolation résiduelle et créer immédiatement un contact direct. Rembobiner avec du ruban isolant ne restitue pas les propriétés diélectriques requises. Le remplacement du câblage relève d'un électricien qualifié (B1 ou B2), pas du BS. La NF C 18-510 § 10.4.3 impose au BS de signaler toute réserve.",
+          normRef: "NF C 18-510 § 10.4.1 — champ strict de l'intervention BT élémentaire ; § 10.4.3 — obligation de signalement des réserves",
+        },
+        {
+          situation:
+            "Vous êtes BS et intervenez pour réarmer un disjoncteur dans une armoire de distribution. Votre responsable vous a indiqué le disjoncteur à réarmer par son repère. En ouvrant l'armoire, vous constatez que plusieurs disjoncteurs n'ont plus d'étiquette lisible et que les repères sont effacés. Vous n'êtes plus certain d'identifier le bon disjoncteur.",
+          question:
+            "Que faites-vous si vous ne pouvez pas identifier avec certitude l'organe à manœuvrer ?",
+          wrongActions: [
+            "Réarmer le disjoncteur qui vous semble le plus probable selon sa position.",
+            "Réarmer tous les disjoncteurs déclenché pour être sûr que le bon est inclus.",
+            "Appeler votre collègue pour qu'il confirme oralement lequel est le bon.",
+          ],
+          correctActions: [
+            "Ne manœuvrer aucun organe tant que l'identification n'est pas certaine.",
+            "Contacter votre employeur ou le chargé d'exploitation pour qu'il vous désigne physiquement le bon disjoncteur sur place.",
+            "Signaler le défaut de repérage pour qu'il soit corrigé.",
+          ],
+          explanation:
+            "La NF C 18-510 § 10.4.3 exige que le BS réalise une préidentification avant toute mise hors tension. Manœuvrer un organe non identifié avec certitude peut couper un équipement critique ou, au contraire, laisser sous tension le circuit sur lequel porte l'intervention. L'identification certaine est une condition non négociable.",
+          normRef: "NF C 18-510 § 10.4.3 — préidentification obligatoire avant toute mise hors tension ou manœuvre",
+        },
+        {
+          situation:
+            "Vous êtes BS et remplacez une prise de courant. En retirant la plaque, vous constatez que le tableau qui alimente cette prise est visible dans la pièce adjacente et que sa porte est ouverte, laissant apparent un jeu de barres sans protection ni capot.",
+          question:
+            "L'état du tableau adjacent modifie-t-il les conditions de votre intervention BS ?",
+          wrongActions: [
+            "Non : votre intervention porte sur la prise, pas sur le tableau. Continuez.",
+            "Fermer la porte du tableau avant de commencer pour réduire le risque.",
+            "Procéder rapidement pour limiter le temps d'exposition au risque.",
+          ],
+          correctActions: [
+            "Arrêter l'intervention : des pièces actives accessibles à proximité créent un environnement hors des conditions normales de votre intervention BS.",
+            "Signaler l'état du tableau ouvert au chargé d'exploitation pour qu'il le sécurise.",
+            "Ne reprendre l'intervention qu'une fois le tableau fermé ou les pièces actives protégées.",
+          ],
+          explanation:
+            "La NF C 18-510 § 10.4.1 exige que l'intervention BS se déroule hors zone de voisinage renforcé BT. Des pièces nues sous tension accessibles à proximité immédiate constituent précisément cette zone. Fermer soi-même la porte du tableau dépasse le périmètre du BS. L'état de l'environnement électrique conditionne la faisabilité de l'intervention.",
+          normRef: "NF C 18-510 § 10.4.1 — intervention BS hors tension et hors zone de voisinage renforcé BT",
+        },
+      ],
+      chapterImagePath: "/elearning/bsbe/installations-anciennes.jpg",
+      chapterImageAlt:
+        "Signaux d'alerte visuels pour le BS : câble textile dégradé, tableau ouvert, repérage absent",
+      visual: {
+        title: "Le BS reconnaît et s'arrête",
+        subtitle:
+          "Son rôle n'est pas de diagnostiquer. C'est de reconnaître que la situation dépasse son périmètre.",
+        items: [
+          "Câble textile effrité → arrêter",
+          "Organe non identifiable → arrêter",
+          "Pièces actives accessibles → arrêter",
+          "Signaler au chargé d'exploitation",
+        ],
+        tone: "amber",
+        imagePath: "/elearning/bsbe/installations-anciennes.jpg",
+        imageAlt:
+          "Signaux d'alerte visuels pour le BS : câble textile dégradé, tableau ouvert, repérage absent",
+      },
+    },
+    {
       id: "synthese-operationnelle",
-      title: "15. Synthèse opérationnelle",
+      title: "16. Synthèse opérationnelle",
       estimatedMinutes: 10,
       intro:
         "Ce dernier chapitre fixe les réflexes opérationnels à retenir avant l’évaluation finale. L’objectif est que l’apprenant reparte avec une méthode simple, utilisable sur le terrain, pour agir uniquement lorsque le cadre BS / BE Manœuvre est clair, autorisé et maîtrisé.",

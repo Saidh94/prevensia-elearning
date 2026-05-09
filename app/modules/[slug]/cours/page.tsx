@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -1062,13 +1063,18 @@ export default function CoursPage() {
               </p>
             </div>
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-2">
               {chapters.map((chapter, index) => {
                 const itemProgress = progressData.find(
                   (item) => item.chapter_key === chapter.key
                 );
 
                 const done = itemProgress?.is_completed ?? false;
+                const itemSeconds = itemProgress?.seconds_spent ?? 0;
+                const itemPercent = chapterProgressPercent(
+                  itemSeconds,
+                  chapter.minSeconds
+                );
 
                 const unlocked =
                   viewerContext.isAdmin ||
@@ -1080,6 +1086,8 @@ export default function CoursPage() {
                   ) ||
                   index <= currentIndex;
 
+                const isCurrent = currentIndex === index;
+
                 return (
                   <button
                     key={chapter.key}
@@ -1088,42 +1096,89 @@ export default function CoursPage() {
                       if (unlocked) setCurrentIndex(index);
                     }}
                     disabled={!unlocked}
+                    aria-current={isCurrent ? "step" : undefined}
                     className={`w-full rounded-2xl border px-4 py-3 text-left transition ${
-                      currentIndex === index
+                      isCurrent
                         ? "border-slate-900 bg-slate-900 text-white"
                         : done
-                          ? "border-green-200 bg-green-50 text-slate-800"
-                          : "border-slate-200 bg-white text-slate-700"
-                    } disabled:cursor-not-allowed disabled:opacity-50`}
+                          ? "border-green-200 bg-green-50 text-slate-800 hover:bg-green-100"
+                          : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                    } disabled:cursor-not-allowed disabled:opacity-40`}
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-semibold">
-                          {formatFrenchDisplayText(chapter.title)}
-                        </p>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2">
+                          {done ? (
+                            <span
+                              aria-hidden="true"
+                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                                isCurrent
+                                  ? "bg-green-400 text-white"
+                                  : "bg-green-600 text-white"
+                              }`}
+                            >
+                              ✓
+                            </span>
+                          ) : (
+                            <span
+                              aria-hidden="true"
+                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
+                                isCurrent
+                                  ? "bg-white/20 text-white"
+                                  : "bg-slate-100 text-slate-500"
+                              }`}
+                            >
+                              {index + 1}
+                            </span>
+                          )}
+                          <p className="truncate text-sm font-semibold leading-5">
+                            {formatFrenchDisplayText(chapter.title)}
+                          </p>
+                        </div>
 
                         <p
-                          className={`mt-1 text-xs ${
-                            currentIndex === index
-                              ? "text-slate-200"
-                              : "text-slate-500"
+                          className={`mt-1.5 text-xs ${
+                            isCurrent ? "text-slate-300" : "text-slate-500"
                           }`}
                         >
-                          Temps mini : {formatSeconds(chapter.minSeconds)}
+                          {done
+                            ? "Chapitre validé"
+                            : `Temps mini : ${formatSeconds(chapter.minSeconds)}`}
                         </p>
+
+                        {!done && unlocked && itemPercent > 0 ? (
+                          <div className="mt-2">
+                            <div
+                              className={`h-1.5 w-full rounded-full ${
+                                isCurrent ? "bg-white/20" : "bg-slate-200"
+                              }`}
+                            >
+                              <div
+                                className={`h-1.5 rounded-full transition-all duration-500 ${
+                                  isCurrent ? "bg-green-400" : "bg-emerald-500"
+                                }`}
+                                style={{ width: `${itemPercent}%` }}
+                              />
+                            </div>
+                            <p
+                              className={`mt-1 text-[10px] font-medium ${
+                                isCurrent ? "text-slate-300" : "text-slate-400"
+                              }`}
+                            >
+                              {itemPercent}% lu
+                            </p>
+                          </div>
+                        ) : null}
                       </div>
 
-                      <span
-                        className={`rounded-full px-2 py-1 text-[11px] font-semibold ${
-                          done
-                            ? "bg-green-600 text-white"
-                            : currentIndex === index
-                              ? "bg-white/15 text-white"
-                              : "bg-slate-100 text-slate-600"
-                        }`}
-                      >
-                        {done ? "Validé" : unlocked ? "Ouvert" : "Verrouillé"}
-                      </span>
+                      {!done && !unlocked ? (
+                        <span
+                          aria-label="Chapitre verrouillé"
+                          className="mt-0.5 shrink-0 text-slate-400"
+                        >
+                          🔒
+                        </span>
+                      ) : null}
                     </div>
                   </button>
                 );
@@ -1260,12 +1315,16 @@ export default function CoursPage() {
 
               {currentChapter.image ? (
                 <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-4 shadow-sm">
-                  <img
-                    src={currentChapter.image}
-                    alt={currentChapter.imageAlt ?? currentChapter.title}
-                    className="mx-auto block h-auto max-h-[520px] w-full max-w-5xl rounded-2xl object-contain"
-                    loading="lazy"
-                  />
+                  <div className="relative mx-auto h-[520px] w-full max-w-5xl overflow-hidden rounded-2xl">
+                    <Image
+                      src={currentChapter.image}
+                      alt={currentChapter.imageAlt ?? currentChapter.title}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 960px"
+                      unoptimized={currentChapter.image.toLowerCase().endsWith(".svg")}
+                    />
+                  </div>
                 </div>
               ) : fallbackVisualBlock ? (
                 <div className="mb-6">

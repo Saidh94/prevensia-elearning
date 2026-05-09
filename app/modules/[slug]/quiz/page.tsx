@@ -26,8 +26,23 @@ type SavedQuizProgress = {
   answers: number[][];
   finished: boolean;
   timeLeft: number;
+  shuffleSeed: number;
   updatedAt: string;
 };
+
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const out = [...arr];
+  let s = seed >>> 0;
+  const rng = () => {
+    s = Math.imul(s, 1664525) + 1013904223;
+    return (s >>> 0) / 4294967296;
+  };
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
 
 type QuizContext = {
   enrollmentId: string;
@@ -82,6 +97,29 @@ export default function QuizPage() {
     return quizContent[canonicalSlug] ?? [];
   }, [canonicalSlug]);
 
+  const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
+
+  const shuffledQuiz = useMemo((): QuizQuestion[] => {
+    if (!quiz.length) return [];
+    const questionOrder = seededShuffle(
+      Array.from({ length: quiz.length }, (_, i) => i),
+      shuffleSeed
+    );
+    return questionOrder.map((origIdx) => {
+      const q = quiz[origIdx];
+      const choiceSeed = shuffleSeed + origIdx * 7919;
+      const choiceOrder = seededShuffle(
+        Array.from({ length: q.choices.length }, (_, i) => i),
+        choiceSeed
+      );
+      return {
+        ...q,
+        choices: choiceOrder.map((ci) => q.choices[ci]),
+        answer: q.answer.map((origA) => choiceOrder.indexOf(origA)),
+      };
+    });
+  }, [quiz, shuffleSeed]);
+
   const progressStorageKey = useMemo(() => {
     return canonicalSlug ? `quiz-progress-${canonicalSlug}` : "";
   }, [canonicalSlug]);
@@ -109,7 +147,7 @@ export default function QuizPage() {
   const [quizContext, setQuizContext] = useState<QuizContext>(defaultQuizContext);
   const [loadingQuizContext, setLoadingQuizContext] = useState(true);
 
-  const currentQuestion = quiz[current];
+  const currentQuestion = shuffledQuiz[current];
   const currentQuestionTimeLimit =
     currentQuestion?.timeLimit ?? DEFAULT_QUESTION_TIME_LIMIT;
 
@@ -199,11 +237,11 @@ export default function QuizPage() {
     completedChapterCount >= requiredChapterCount;
 
   const score = useMemo(() => {
-    return quiz.reduce((acc, question, index) => {
+    return shuffledQuiz.reduce((acc, question, index) => {
       const selectedAnswers = answers[index] ?? [];
       return acc + (arraysEqual(selectedAnswers, question.answer) ? 1 : 0);
     }, 0);
-  }, [quiz, answers]);
+  }, [shuffledQuiz, answers]);
 
   const passingScore = useMemo(() => {
     return quiz.length > 0 ? Math.ceil(quiz.length * 0.7) : 0;
@@ -216,7 +254,7 @@ export default function QuizPage() {
   }, [score, quiz.length]);
 
   const reviewItems = useMemo(() => {
-    return quiz.map((question, index) => {
+    return shuffledQuiz.map((question, index) => {
       const selectedAnswers = answers[index] ?? [];
       const correct = arraysEqual(selectedAnswers, question.answer);
 
@@ -233,7 +271,7 @@ export default function QuizPage() {
         ),
       };
     });
-  }, [answers, quiz]);
+  }, [answers, shuffledQuiz]);
 
   useEffect(() => {
     if (!canonicalSlug || !progressStorageKey || quiz.length === 0) return;
@@ -247,12 +285,13 @@ export default function QuizPage() {
 
       const isValid =
         saved &&
-        saved.version === 2 &&
+        saved.version === 3 &&
         saved.totalQuestions === quiz.length &&
         Array.isArray(saved.answers) &&
         typeof saved.current === "number" &&
         typeof saved.finished === "boolean" &&
-        typeof saved.timeLeft === "number";
+        typeof saved.timeLeft === "number" &&
+        typeof saved.shuffleSeed === "number";
 
       if (!isValid) {
         localStorage.removeItem(progressStorageKey);
@@ -288,12 +327,13 @@ export default function QuizPage() {
     if (isAdminPreview) return;
 
     const payload: SavedQuizProgress = {
-      version: 2,
+      version: 3,
       totalQuestions: quiz.length,
       current,
       answers,
       finished,
       timeLeft,
+      shuffleSeed,
       updatedAt: new Date().toISOString(),
     };
 
@@ -305,6 +345,7 @@ export default function QuizPage() {
     answers,
     finished,
     timeLeft,
+    shuffleSeed,
     progressStorageKey,
     restoreChoicePending,
     isAdminPreview,
@@ -325,10 +366,10 @@ export default function QuizPage() {
         if (prev <= 1) {
           window.clearInterval(interval);
 
-          if (current < quiz.length - 1) {
+          if (current < shuffledQuiz.length - 1) {
             const nextIndex = current + 1;
             setCurrent(nextIndex);
-            return quiz[nextIndex]?.timeLimit ?? DEFAULT_QUESTION_TIME_LIMIT;
+            return shuffledQuiz[nextIndex]?.timeLimit ?? DEFAULT_QUESTION_TIME_LIMIT;
           }
 
           setFinished(true);
@@ -343,8 +384,8 @@ export default function QuizPage() {
   }, [
     current,
     finished,
-    quiz,
-    quiz.length,
+    shuffledQuiz,
+    shuffledQuiz.length,
     restoreChoicePending,
     currentQuestion,
     isAdminPreview,
@@ -377,7 +418,13 @@ export default function QuizPage() {
         localStorage.setItem(resultStorageKey, JSON.stringify(payload));
         localStorage.removeItem(progressStorageKey);
 
-        if (!success || isAdminPreview) {
+        // Résultats par question : extrait court du texte + correct/incorrect
+        const questionResults = shuffledQuiz.map((q, idx) => ({
+          q: q.question.slice(0, 80),
+          correct: arraysEqual(answers[idx] ?? [], q.answer),
+        }));
+
+        if (isAdminPreview) {
           return;
         }
 
@@ -391,8 +438,9 @@ export default function QuizPage() {
             score,
             total: quiz.length,
             passingScore,
-            passed: true,
+            passed: success,
             completedAt: nowIso,
+            questionResults,
           }),
         });
 
@@ -422,6 +470,8 @@ export default function QuizPage() {
     resultStorageKey,
     progressStorageKey,
     isAdminPreview,
+    shuffledQuiz,
+    answers,
   ]);
 
   const handleRestoreProgress = () => {
@@ -429,6 +479,9 @@ export default function QuizPage() {
       setRestoreChoicePending(false);
       return;
     }
+
+    const restoredSeed = savedProgress.shuffleSeed ?? Date.now();
+    setShuffleSeed(restoredSeed);
 
     const safeCurrent = Math.max(
       0,
@@ -498,7 +551,7 @@ export default function QuizPage() {
   };
 
   const next = () => {
-    if (current < quiz.length - 1) {
+    if (current < shuffledQuiz.length - 1) {
       setCurrent((prev) => prev + 1);
       return;
     }
@@ -507,6 +560,7 @@ export default function QuizPage() {
   };
 
   const restartQuiz = () => {
+    setShuffleSeed(Date.now());
     setCurrent(0);
     setAnswers([]);
     setFinished(false);
@@ -741,10 +795,10 @@ export default function QuizPage() {
           <div className="flex flex-wrap items-center justify-between gap-3 bg-white/5 px-6 py-4">
             <div className="flex flex-wrap items-center gap-2 text-sm">
               <span className="rounded-full bg-white/10 px-3 py-1 font-semibold text-white">
-                {quiz.length} question{quiz.length > 1 ? "s" : ""}
+                {shuffledQuiz.length} question{shuffledQuiz.length > 1 ? "s" : ""}
               </span>
               <span className="rounded-full bg-emerald-500/15 px-3 py-1 font-semibold text-emerald-200">
-                Seuil : {passingScore}/{quiz.length}
+                Seuil : {passingScore}/{shuffledQuiz.length}
               </span>
             </div>
 
@@ -773,13 +827,24 @@ export default function QuizPage() {
                 </div>
               ) : null}
 
+              <div
+                aria-live="polite"
+                aria-atomic="true"
+                className="sr-only"
+              >
+                Question {current + 1} sur {shuffledQuiz.length}.{" "}
+                {currentQuestion.multiple
+                  ? "Plusieurs réponses possibles."
+                  : "Une seule réponse."}
+              </div>
+
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                     Session en cours
                   </p>
                   <h2 className="mt-2 text-2xl font-bold text-slate-900">
-                    Question {current + 1} sur {quiz.length}
+                    Question {current + 1} sur {shuffledQuiz.length}
                   </h2>
                 </div>
 
@@ -808,8 +873,16 @@ export default function QuizPage() {
                   </span>
                 </div>
 
-                <div className="mt-4 h-3 w-full rounded-full bg-slate-200">
+                <div
+                  role="progressbar"
+                  aria-valuenow={timeLeft}
+                  aria-valuemin={0}
+                  aria-valuemax={currentQuestionTimeLimit}
+                  aria-label={`Temps restant : ${timeLeft} secondes`}
+                  className="mt-4 h-3 w-full rounded-full bg-slate-200"
+                >
                   <div
+                    aria-hidden="true"
                     className="h-3 rounded-full bg-emerald-600 transition-all duration-1000"
                     style={{
                       width: `${(timeLeft / currentQuestionTimeLimit) * 100}%`,
@@ -852,7 +925,33 @@ export default function QuizPage() {
                 </div>
               ) : null}
 
-              <div className="mt-6 space-y-3">
+              <div
+                role={currentQuestion.multiple ? "group" : "radiogroup"}
+                aria-label={
+                  currentQuestion.multiple
+                    ? "Choisissez une ou plusieurs réponses"
+                    : "Choisissez une réponse"
+                }
+                aria-required="true"
+                className="mt-6 space-y-3"
+                onKeyDown={(e) => {
+                  if (currentQuestion.multiple) return;
+                  const choices = currentQuestion.choices;
+                  const selected = answers[current]?.[0] ?? -1;
+                  if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+                    e.preventDefault();
+                    const next = (selected + 1) % choices.length;
+                    handleSingleAnswer(next);
+                    (e.currentTarget.children[next] as HTMLElement)?.focus();
+                  } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+                    e.preventDefault();
+                    const prev =
+                      (selected - 1 + choices.length) % choices.length;
+                    handleSingleAnswer(prev);
+                    (e.currentTarget.children[prev] as HTMLElement)?.focus();
+                  }
+                }}
+              >
                 {currentQuestion.choices.map((choice: string, i: number) => {
                   const isSelected = (answers[current] ?? []).includes(i);
 
@@ -861,6 +960,8 @@ export default function QuizPage() {
                       <button
                         key={i}
                         type="button"
+                        role="checkbox"
+                        aria-checked={isSelected}
                         onClick={() => handleMultipleAnswer(i)}
                         className={`flex w-full items-start gap-3 rounded-xl border px-4 py-4 text-left text-sm font-medium transition ${
                           isSelected
@@ -869,6 +970,7 @@ export default function QuizPage() {
                         }`}
                       >
                         <span
+                          aria-hidden="true"
                           className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border text-xs font-bold ${
                             isSelected
                               ? "border-white bg-white text-emerald-700"
@@ -886,6 +988,9 @@ export default function QuizPage() {
                     <button
                       key={i}
                       type="button"
+                      role="radio"
+                      aria-checked={isSelected}
+                      tabIndex={isSelected || (i === 0 && (answers[current] ?? []).length === 0) ? 0 : -1}
                       onClick={() => handleSingleAnswer(i)}
                       className={`w-full rounded-xl border px-4 py-4 text-left text-sm font-medium transition ${
                         isSelected
@@ -902,6 +1007,7 @@ export default function QuizPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href={`/modules/${slug}/cours`}
+                  aria-label="Retour au cours — quitter le quiz"
                   className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
                 >
                   Retour au cours
@@ -909,6 +1015,7 @@ export default function QuizPage() {
 
                 <button
                   type="button"
+                  aria-label={`Question précédente — revenir à la question ${current}`}
                   onClick={() => setCurrent((prev) => Math.max(0, prev - 1))}
                   disabled={current === 0}
                   className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
@@ -920,9 +1027,14 @@ export default function QuizPage() {
                   type="button"
                   onClick={next}
                   disabled={!isAdminPreview && !hasAnsweredCurrentQuestion}
+                  aria-label={
+                    current < shuffledQuiz.length - 1
+                      ? `Question suivante — passer à la question ${current + 2} sur ${shuffledQuiz.length}`
+                      : "Terminer le quiz et voir les résultats"
+                  }
                   className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  {current < quiz.length - 1
+                  {current < shuffledQuiz.length - 1
                     ? "Question suivante"
                     : "Terminer le quiz"}
                 </button>
@@ -944,7 +1056,7 @@ export default function QuizPage() {
                   <span className="font-semibold text-slate-900">{score}</span>{" "}
                   bonne(s) réponse(s) sur{" "}
                   <span className="font-semibold text-slate-900">
-                    {quiz.length}
+                    {shuffledQuiz.length}
                   </span>
                   .
                 </p>
@@ -959,7 +1071,7 @@ export default function QuizPage() {
                 <p className="mt-2 text-base leading-7 text-slate-700">
                   Seuil de validation :{" "}
                   <span className="font-semibold text-slate-900">
-                    {passingScore} / {quiz.length}
+                    {passingScore} / {shuffledQuiz.length}
                   </span>
                 </p>
 
@@ -1084,16 +1196,30 @@ export default function QuizPage() {
                     >
                       Planifier l’entretien
                     </Link>
+                    <Link
+                      href={`/modules/${slug}/attestation`}
+                      className="inline-flex items-center rounded-xl border border-emerald-600 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
+                    >
+                      Télécharger l’attestation
+                    </Link>
                   </>
                 )}
 
                 {success && !saveError && quizContext.orderedByEmployer && (
-                  <Link
-                    href="/booking"
-                    className="inline-flex items-center rounded-xl border border-emerald-600 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
-                  >
-                    Planifier l’entretien
-                  </Link>
+                  <>
+                    <Link
+                      href="/booking"
+                      className="inline-flex items-center rounded-xl border border-emerald-600 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
+                    >
+                      Planifier l’entretien
+                    </Link>
+                    <Link
+                      href={`/modules/${slug}/attestation`}
+                      className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+                    >
+                      Télécharger l’attestation
+                    </Link>
+                  </>
                 )}
               </div>
             </>

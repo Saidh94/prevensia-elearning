@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import type {
   ModuleContent,
@@ -8,6 +9,11 @@ import type {
   PracticalScenario,
 } from "../../../lib/supabase/elearning/module-types";
 import VisualCard from "./VisualCard";
+
+type ChapterProgress = {
+  chapter_key: string;
+  is_completed: boolean;
+};
 
 function ResourceVideoCard({ video }: { video: ModuleResourceVideo }) {
   return (
@@ -123,6 +129,23 @@ type CoursePageProps = {
 };
 
 export default function CoursePage({ slug, moduleData }: CoursePageProps) {
+  const [progressData, setProgressData] = useState<ChapterProgress[]>([]);
+
+  useEffect(() => {
+    if (!slug) return;
+    fetch(`/api/chapter-progress/${slug}`, { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => setProgressData(Array.isArray(data) ? data : []))
+      .catch(() => setProgressData([]));
+  }, [slug]);
+
+  const completedCount = moduleData.sections.filter((s) =>
+    progressData.some((p) => p.chapter_key === s.id && p.is_completed)
+  ).length;
+  const totalCount = moduleData.sections.length;
+  const globalPercent =
+    totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+
   const topCards = [
     { label: "Parcours", value: moduleData.shortTitle },
     { label: "Durée estimée", value: moduleData.duration ?? "" },
@@ -186,26 +209,62 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
               Sommaire
             </p>
 
-            <nav className="mt-5 space-y-2">
-              {moduleData.sections.map((section, index) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className="block rounded-2xl border border-slate-200 px-4 py-3 text-sm font-medium leading-6 text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <span>
-                      <span className="mr-2 text-slate-400">{index + 1}.</span>
-                      {section.title}
-                    </span>
-                    {section.estimatedMinutes ? (
-                      <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
-                        {section.estimatedMinutes} min
+            {totalCount > 0 ? (
+              <div className="mt-4 rounded-2xl bg-slate-50 p-4">
+                <div className="flex items-center justify-between text-sm text-slate-600">
+                  <span>Progression</span>
+                  <span className="font-semibold text-slate-900">
+                    {completedCount}/{totalCount}
+                  </span>
+                </div>
+                <div className="mt-2 h-2.5 w-full rounded-full bg-slate-200">
+                  <div
+                    className="h-2.5 rounded-full bg-green-500 transition-all duration-500"
+                    style={{ width: `${globalPercent}%` }}
+                  />
+                </div>
+              </div>
+            ) : null}
+
+            <nav className="mt-4 space-y-2">
+              {moduleData.sections.map((section, index) => {
+                const done = progressData.some(
+                  (p) => p.chapter_key === section.id && p.is_completed
+                );
+                return (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className={`block rounded-2xl border px-4 py-3 text-sm font-medium leading-6 transition ${
+                      done
+                        ? "border-green-200 bg-green-50 text-slate-800 hover:bg-green-100"
+                        : "border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="flex items-center gap-2 min-w-0">
+                        {done ? (
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-600 text-white">
+                            <svg viewBox="0 0 12 12" className="h-3 w-3 fill-current">
+                              <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        ) : (
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-slate-300 text-[10px] font-semibold text-slate-500">
+                            {index + 1}
+                          </span>
+                        )}
+                        <span className="truncate">{section.title}</span>
                       </span>
-                    ) : null}
-                  </div>
-                </a>
-              ))}
+                      {section.estimatedMinutes ? (
+                        <span className="shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
+                          {section.estimatedMinutes} min
+                        </span>
+                      ) : null}
+                    </div>
+                  </a>
+                );
+              })}
             </nav>
 
             <div className="mt-6 rounded-3xl border border-blue-200 bg-blue-50 p-5">
@@ -223,11 +282,12 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
               >
                 {section.chapterImagePath ? (
                   <div className="relative h-48 w-full overflow-hidden sm:h-56">
-                    <img
+                    <Image
                       src={section.chapterImagePath}
                       alt={section.chapterImageAlt ?? section.title}
-                      className="h-full w-full object-cover object-center"
-                      loading="lazy"
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 900px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
                   </div>

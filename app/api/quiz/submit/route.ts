@@ -49,6 +49,16 @@ export async function POST(req: Request) {
     const scorePercent =
       safeTotal > 0 ? Math.round((safeScore / safeTotal) * 100) : 0;
 
+    const questionResults = Array.isArray(body?.questionResults)
+      ? body.questionResults.filter(
+          (r: unknown) =>
+            r !== null &&
+            typeof r === "object" &&
+            typeof (r as Record<string, unknown>).q === "string" &&
+            typeof (r as Record<string, unknown>).correct === "boolean"
+        )
+      : [];
+
     const { data: formations, error: formationError } = await supabase
       .from("formations")
       .select("id, slug, title");
@@ -93,6 +103,26 @@ export async function POST(req: Request) {
         { error: "Inscription introuvable pour cette formation." },
         { status: 404 }
       );
+    }
+
+    // Enregistrer la tentative dans quiz_attempts (toutes tentatives, réussies ou non)
+    const { error: attemptError } = await supabase
+      .from("quiz_attempts")
+      .insert({
+        user_id: user.id,
+        enrollment_id: enrollment.id,
+        formation_slug: formationSlug,
+        score: safeScore,
+        total: safeTotal,
+        passing_score: safePassingScore,
+        passed,
+        score_percent: scorePercent,
+        question_results: questionResults,
+      });
+
+    if (attemptError) {
+      // Non-bloquant : on log mais on ne stoppe pas le flux
+      console.error("Erreur enregistrement quiz_attempts :", attemptError.message);
     }
 
     if (passed) {

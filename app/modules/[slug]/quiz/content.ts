@@ -730,6 +730,71 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "En courant continu et milieu sec, la tension dangereuse est de 120 V (contre 50 V en AC). En milieu humide DC : 60 V, en milieu mouillé DC : 30 V. Le courant continu est moins dangereux que l'AC à tension équivalente, mais ne doit jamais être banalisé.",
       timeLimit: 40,
     },
+    {
+      question: "Quelle est la caractéristique principale du schéma IT (neutre impédant) ?",
+      choices: [
+        "Le neutre est directement mis à la terre, les masses sont protégées par un différentiel",
+        "Le neutre est isolé ou relié à la terre par une haute impédance — le premier défaut ne coupe pas l'alimentation",
+        "Le neutre et le conducteur de protection sont fusionnés dans un conducteur PEN",
+        "Le neutre est flottant et aucune protection n'est nécessaire",
+      ],
+      answer: [1],
+      explanation:
+        "En schéma IT, le neutre du transformateur est isolé ou relié à la terre par une impédance élevée (500 à 1 000 Ω). Lors d'un premier défaut d'isolement, le courant de défaut reste limité et l'alimentation n'est pas interrompue — c'est l'avantage de continuité de service. Un Contrôleur Permanent d'Isolement (CPI) surveille l'installation et déclenche une alarme dès ce premier défaut.",
+      timeLimit: 50,
+    },
+    {
+      question: "Pourquoi le premier défaut en schéma IT ne coupe-t-il pas l'alimentation, contrairement aux schémas TT et TN ?",
+      choices: [
+        "Parce que les protections différentielles sont désactivées en IT",
+        "Parce que l'impédance du neutre limite le courant de défaut à un niveau non dangereux pour les utilisateurs",
+        "Parce que le schéma IT n'a pas de prise de terre sur les masses",
+        "Parce que le disjoncteur général est réglé à un seuil plus élevé",
+      ],
+      answer: [1],
+      explanation:
+        "L'impédance entre le neutre et la terre (500 à 1 000 Ω) limite le courant circulant lors d'un premier défaut à une valeur trop faible pour déclencher les protections et trop faible pour être dangereuse. C'est ce qui permet la continuité de service dans les hôpitaux et les industries de process.",
+      timeLimit: 50,
+    },
+    {
+      question: "Sur une installation en schéma IT, le Contrôleur Permanent d'Isolement (CPI) passe en alarme rouge. Quelle est la bonne réaction du BR ?",
+      choices: [
+        "Neutraliser l'alarme pour travailler tranquillement, puis signaler en fin d'intervention",
+        "Continuer l'intervention prévue : le premier défaut en IT n'est pas dangereux",
+        "Suspendre toute intervention sur l'installation, localiser le premier défaut et l'éliminer avant de reprendre",
+        "Couper l'alimentation générale immédiatement",
+      ],
+      answer: [2],
+      explanation:
+        "Une alarme CPI signale un premier défaut actif. Intervenir sur un autre circuit dans cet état crée un risque de deuxième défaut simultané, qui lui est potentiellement mortel (court-circuit ou électrocution entre les deux points de défaut). Il faut localiser et éliminer le premier défaut avant toute autre opération. Ne jamais neutraliser le CPI.",
+      timeLimit: 55,
+    },
+    {
+      question: "Qu'est-ce qu'un deuxième défaut simultané en schéma IT et pourquoi est-il dangereux ?",
+      choices: [
+        "Un deuxième disjoncteur qui tombe en même temps — risque de panne électrique étendue",
+        "Deux défauts d'isolement actifs en même temps sur deux phases ou circuits différents — risque d'électrocution ou de court-circuit entre les deux points",
+        "Une surtension provoquée par la présence de deux défauts — risque matériel uniquement",
+        "Un double déclenchement de la protection différentielle — alarme uniquement",
+      ],
+      answer: [1],
+      explanation:
+        "En IT, le premier défaut est sans coupure. Mais si un deuxième défaut apparaît simultanément sur une autre phase ou un autre circuit, un courant dangereux peut circuler entre les deux points de défaut — potentiellement à travers une personne ou une masse. C'est pour cette raison que le premier défaut doit être éliminé impérativement avant de poursuivre toute intervention.",
+      timeLimit: 55,
+    },
+    {
+      question: "Dans quels types de sites rencontre-t-on typiquement le schéma IT ?",
+      choices: [
+        "Logements individuels et bureaux",
+        "Installations résidentielles neuves après 2000",
+        "Blocs opératoires, industries de process continu (sidérurgie, chimie), sites à continuité de service critique",
+        "Éclairage public et voirie",
+      ],
+      answer: [2],
+      explanation:
+        "Le schéma IT est choisi pour garantir la continuité de service : un premier défaut ne coupe pas l'alimentation. Il est donc utilisé dans les blocs opératoires (NF C 15-211), les unités de réanimation, les industries de process où une coupure entraînerait des conséquences graves, et certains datacenters critiques.",
+      timeLimit: 45,
+    },
   ],
     bsbe: [
     {
@@ -1473,6 +1538,164 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 50,
       imagePath: "/elearning/bsbe/bsbe-ip.svg",
       imageAlt: "Indice IP requis selon les conditions d'installation",
+    },
+
+    // === IP2X ET FUSION ENFERMÉE — GRADATION OPÉRATIONNELLE ===
+    {
+      question:
+        "Un luminaire de bureau est conçu avec un indice de protection IP2X sur les parties sous tension. Qui peut remplacer l'ampoule SANS mise hors tension et SANS habilitation BS ?",
+      choices: [
+        "Uniquement un électricien habilité B1",
+        "Un personnel formé non habilité, sous réserve d'une formation au risque électrique",
+        "Personne : toute intervention sur un luminaire en service est interdite",
+        "Uniquement le responsable de site",
+      ],
+      answer: [1],
+      explanation:
+        "La NF C 18-510 § 10 prévoit une exception pour les matériels IP2X : si les parties actives sous tension sont inaccessibles au toucher (protection mécanique IP2X), un personnel formé au risque électrique mais non habilité peut effectuer le remplacement sous tension. L'habilitation BS n'est pas requise dans ce cas précis.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Peut-on remplacer un fusible à fusion enfermée sans VAT (Vérification d'Absence de Tension) et sans habilitation BS, si le porte-fusible est conçu à cet effet ?",
+      choices: [
+        "Non, la VAT est toujours obligatoire avant toute manipulation d'un fusible",
+        "Oui, un personnel B0 ou formé non habilité peut effectuer cette opération si le fusible et son support sont conçus pour une manipulation en charge",
+        "Oui, mais uniquement avec une habilitation BS",
+        "Non, seul un électricien habilité H peut manipuler des fusibles",
+      ],
+      answer: [1],
+      explanation:
+        "Un fusible à fusion enfermée (cartouche cylindrique type gG, aM…) monté dans un porte-fusible adapté est conçu pour être manipulé sans risque de contact avec les parties actives. Dans ce cas précis, la NF C 18-510 § 10 autorise un personnel B0 ou formé non habilité à procéder au remplacement sans VAT préalable. L'habilitation BS n'est pas requise.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Scénario : un collègue titulaire de l'habilitation B0 remplace une ampoule sur un luminaire standard (sans indice IP2X sur les parties sous tension), sans mettre le circuit hors tension ni demander une habilitation BS. Quelle est la situation ?",
+      choices: [
+        "Correcte : le B0 peut intervenir sur tous les matériels d'éclairage en service",
+        "Incorrecte : sans IP2X avéré sur les parties actives, le contact accidentel est possible ; la mise hors tension et l'habilitation BS sont requises",
+        "Correcte : l'ampoule est basse tension, donc sans risque",
+        "Incorrecte : seul un chef d'équipe peut remplacer une ampoule",
+      ],
+      answer: [1],
+      explanation:
+        "L'exception IP2X s'applique uniquement si les parties actives sont effectivement inaccessibles au toucher (protection certifiée IP2X). Sur un luminaire standard sans cette protection, le risque de contact direct est réel. L'habilitation BS et la mise hors tension (VAT incluse) sont obligatoires. Le B0 n'est pas habilité à intervenir dans ce contexte.",
+      timeLimit: 60,
+    },
+
+    // === SCÉNARIOS BS/BE AVANCÉS ===
+    {
+      question:
+        "Scénario — Énergies résiduelles : Un technicien BS vient de couper le disjoncteur d’un circuit d’éclairage. La VAT indique bien l’absence de tension. Il remarque que le câblage comprend un condensateur de compensation du facteur de puissance. Que doit-il faire avant de toucher les conducteurs ?",
+      choices: [
+        "Intervenir immédiatement : la VAT confirme l’absence de tension, les condensateurs sont sans danger",
+        "Attendre que le condensateur se décharge naturellement et vérifier à nouveau la tension aux bornes du condensateur avant de toucher",
+        "Courts-circuiter le condensateur avec la main pour accélérer la décharge",
+        "Appeler le fabricant pour connaître le temps de décharge",
+      ],
+      answer: [1],
+      explanation:
+        "Un condensateur peut rester chargé plusieurs secondes à minutes après coupure, même si la VAT sur les conducteurs indique zéro. Il existe un risque de choc électrique par la décharge du condensateur. Il faut attendre la décharge complète (durée indiquée sur la fiche technique ou la plaque) et vérifier l’absence de tension directement aux bornes avant de toucher. Ne jamais court-circuiter manuellement.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Scénario — Situation imprévue : Un opérateur BS remplace un interrupteur dans un local technique. Une fois le circuit coupé et la VAT effectuée, il découvre que le câblage est différent du schéma fourni : trois fils au lieu de deux, dont un non identifié. Quelle est la bonne conduite à tenir ?",
+      choices: [
+        "Continuer : la VAT a confirmé l’absence de tension sur les fils accessibles",
+        "Identifier le fil inconnu avec un simple test tactile rapide",
+        "Arrêter immédiatement l’intervention, baliser la zone et rendre compte à la hiérarchie ou au chargé de travaux",
+        "Couper tous les disjoncteurs du tableau pour être sûr puis continuer",
+      ],
+      answer: [2],
+      explanation:
+        "Le BS intervient dans un cadre strictement défini. Toute situation imprévue — câblage non conforme au schéma, fil inconnu, doute sur l’identification — impose l’arrêt immédiat. L’opérateur BS n’a ni l’habilitation ni la compétence pour analyser un câblage modifié ou inconnu. Il balise, rend compte et attend l’intervention d’une personne habilitée (B1, BR…).",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Scénario — Document obsolète : Le bon de travail remis à l’opérateur BS mentionne un tableau T3 dans le couloir de production. Sur place, le tableau porte désormais l’étiquette T3-BIS. L’opérateur hésite. Que fait-il ?",
+      choices: [
+        "Couper le disjoncteur qu’il pense être le bon sur T3-BIS et faire la VAT",
+        "Suspendre l’intervention, ne toucher à aucun organe, contacter le responsable pour clarifier l’identification avant de commencer",
+        "Faire la VAT sur tous les disjoncteurs de T3-BIS pour trouver le bon",
+        "Ignorer la différence : le bon de travail est légalement valable même si le repérage a changé",
+      ],
+      answer: [1],
+      explanation:
+        "Le repérage est une condition fondamentale de la sécurité BS. Si le document de travail ne correspond pas à la réalité terrain (étiquette différente, numérotation modifiée), l’identification n’est pas certaine. Il faut suspendre sans toucher à aucun organe et demander une mise à jour du bon de travail ou une confirmation auprès du responsable. Intervenir avec un repérage douteux expose au risque de couper le mauvais circuit ou d’intervenir sur un circuit actif.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Scénario — Multi-victimes : Dans un atelier, un opérateur est victime d’une électrisation et est retrouvé immobile, en contact avec une armoire électrique. Deux collègues BS se précipitent pour l’aider. Quelle est la première action correcte ?",
+      choices: [
+        "Attraper immédiatement la victime pour l’éloigner de l’armoire",
+        "Appeler le 15 ou le 18 avant toute chose",
+        "Couper l’alimentation électrique avant de toucher la victime, puis déclencher l’alerte",
+        "Alerter uniquement le chef d’équipe",
+      ],
+      answer: [2],
+      explanation:
+        "Toucher une victime en contact avec une source électrique sous tension expose le sauveteur à une électrisation secondaire. La première action est toujours de couper l’alimentation (disjoncteur, interrupteur…) AVANT tout contact avec la victime. Une fois le circuit hors tension, on alerte les secours (15 ou 18 selon le contexte) et on prodigue les premiers secours (PLS, RCP si nécessaire).",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Scénario — Périmètre BS : Un opérateur BS doit remplacer un fusible cylindrique (type gG) sur un tableau BT. Le circuit est coupé, condamné, identifié et la VAT confirme l’absence de tension. En ouvrant l’armoire, il constate que le porte-fusible est visiblement brûlé et fissuré. Que fait-il ?",
+      choices: [
+        "Remplacer quand même le fusible : l’essentiel est que le circuit soit hors tension",
+        "Remplacer le fusible et signaler l’état du porte-fusible dans le compte rendu après l’intervention",
+        "Ne pas remplacer le fusible, remettre en place les protections de l’armoire, consigner le problème et rendre compte à la hiérarchie",
+        "Remplacer le porte-fusible par lui-même car il a l’habilitation BS",
+      ],
+      answer: [2],
+      explanation:
+        "Le BS autorise uniquement le remplacement à l’identique dans un périmètre défini. Un porte-fusible brûlé ou fissuré constitue une dégradation matérielle non prévue : ce n’est plus un remplacement à l’identique, et le risque de mise en danger lors de la remise sous tension est réel. L’opérateur BS doit arrêter, consigner le problème par écrit et rendre compte. La réparation du porte-fusible relève d’un électricien habilité (B1, BR).",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Scénario — Condamnation insuffisante : Un opérateur BS identifie le bon disjoncteur, le coupe, effectue la VAT. Il n’applique pas de cadenas car il ne dispose pas de cadenas individuel. Un collègue re-enclenche le disjoncteur 30 secondes plus tard, pensant qu’il était ouvert par erreur. Quelle régle aurait évité cet accident ?",
+      choices: [
+        "Afficher un panneau ‘Ne pas toucher’ sur le tableau",
+        "Demander à un collègue de surveiller le tableau pendant l’intervention",
+        "Apposer un cadenas individuel sur le disjoncteur AVANT la VAT, et ne jamais intervenir sans condamnation physique",
+        "Appeler le responsable de site pour qu’il supervise la manœuvre",
+      ],
+      answer: [2],
+      explanation:
+        "La condamnation est une étape obligatoire de la mise hors tension. Elle consiste à rendre impossible le réenclenchement accidentel par un tiers, grâce à un cadenas individuel dont l’opérateur possède seul la clé. Un panneau ou une surveillance humaine sont insuffisants : seule une condamnation physique (cadenas) garantit que personne d’autre ne peut remettre sous tension. La VAT doit être effectuée APRÈS la condamnation.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Scénario — Habilitation périmée : Un opérateur présente un titre d’habilitation BS daté de 4 ans. Son responsable lui demande d’effectuer un remplacement d’interrupteur. L’habilitation est-elle valable ?",
+      choices: [
+        "Oui, une habilitation BS est valable à vie une fois délivrée",
+        "Oui si l’opérateur n’a jamais eu d’accident depuis",
+        "Non : l’habilitation doit être renouvelée périodiquement (en général tous les 3 ans) ou après changement de poste, d’installation ou d’absence prolongée",
+        "Oui, sauf si l’employeur a modifié les consignes de sécurité",
+      ],
+      answer: [2],
+      explanation:
+        "L’habilitation n’est pas permanente. La NF C 18-510 prévoit un réexamen périodique, généralement tous les 3 ans, ainsi qu’une réévaluation après changement de poste, modification significative de l’installation ou absence prolongée. L’employeur est responsable de maintenir à jour les habilitations de ses salariés. Intervenir avec une habilitation expirée est une faute de l’employeur et expose l’opérateur à un risque non couvert.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Scénario — Limites du BE Manœuvre : Un responsable demande à un opérateur BE Manœuvre de manœuvrer un disjoncteur de protection moteur pour tester le redémarrage après une surcharge. Le disjoncteur est dans une armoire non repérée sur le plan fourni. L’opérateur doit-il exécuter l’ordre ?",
+      choices: [
+        "Oui, le BE Manœuvre est autorisé à manœuvrer tous les organes de coupure",
+        "Oui si le responsable est présent pour surveiller",
+        "Non : le BE Manœuvre ne peut manœuvrer que des organes identifiés sur un document de travail ou des consignes écrites. Un organe non repéré sort du périmètre autorisé",
+        "Oui, manœuvrer un disjoncteur est toujours sans risque avec le BE Manœuvre",
+      ],
+      answer: [2],
+      explanation:
+        "Le BE Manœuvre n’autorise que des manœuvres prévues sur des organes clairement identifiés dans les consignes du site ou le bon de travail. Si l’organe n’est pas repéré ou ne figure pas dans les documents de référence, l’opérateur ne peut pas procéder. Il doit demander une identification formelle (mise à jour du plan, étiquetage) avant toute action. Manœuvrer un disjoncteur inconnu expose à une coupure sur un équipement non prévu.",
+      timeLimit: 55,
     },
   ],
   h0b0: [
@@ -4109,6 +4332,190 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Au-delà des gestes de secours, le SST contribue à la prévention en repérant les situations dangereuses et en alertant l'encadrement.",
+    },
+    {
+      question:
+        "Une victime vient d'être électrisée. Elle est consciente et présente des brûlures aux mains. Quelle est votre priorité immédiate ?",
+      choices: [
+        "Refroidir les brûlures avec de l'eau pendant 15 minutes",
+        "S'assurer que le circuit est hors tension, puis prendre en charge la victime",
+        "Appliquer un pansement gras sur les brûlures",
+        "Lui donner du sucre pour prévenir un malaise",
+      ],
+      answer: [1],
+      explanation:
+        "Avant tout contact, vérifier que le circuit est hors tension. Refroidir à l'eau n'est approprié qu'une fois tout risque électrique écarté. Les brûlures électriques sont souvent plus profondes qu'elles n'y paraissent : surveiller la victime en attendant les secours.",
+      timeLimit: 30,
+    },
+    {
+      question:
+        "Qu'est-ce qui caractérise les brûlures électriques par rapport aux brûlures thermiques classiques ?",
+      choices: [
+        "Elles sont toujours superficielles",
+        "Elles présentent souvent un point d'entrée et un point de sortie du courant",
+        "Elles ne nécessitent pas de soins médicaux",
+        "Elles guérissent plus vite",
+      ],
+      answer: [1],
+      explanation:
+        "Le courant électrique suit un trajet à travers l'organisme, créant une lésion d'entrée et une lésion de sortie. Les dommages internes (muscles, nerfs, vaisseaux) peuvent être bien plus importants que les lésions cutanées visibles.",
+      timeLimit: 25,
+    },
+    {
+      question:
+        "Après une électrisation, une victime dit se sentir bien et veut repartir travailler. Quelle est la bonne conduite à tenir ?",
+      choices: [
+        "La laisser repartir si elle est consciente et orientée",
+        "L'autoriser à reprendre après 10 minutes de repos",
+        "Insister pour qu'elle soit examinée par un médecin malgré l'absence de symptômes",
+        "Lui conseiller de prendre un antidouleur",
+      ],
+      answer: [2],
+      explanation:
+        "Les effets d'une électrisation peuvent être différés : troubles du rythme cardiaque, lésions musculaires ou rénales apparaissant plusieurs heures après l'accident. Toute victime électrisée doit être examinée par un médecin, même si elle semble indemne.",
+      timeLimit: 25,
+    },
+    {
+      question:
+        "Quel risque cardiaque est spécifiquement associé au passage du courant électrique à travers le thorax ?",
+      choices: [
+        "Infarctus du myocarde",
+        "Fibrillation ventriculaire",
+        "Insuffisance cardiaque chronique",
+        "Tachycardie sinusale bénigne",
+      ],
+      answer: [1],
+      explanation:
+        "Le courant électrique peut désorganiser l'activité électrique du cœur et provoquer une fibrillation ventriculaire, arythmie létale sans pouls efficace. C'est pourquoi la défibrillation précoce (DAE) est une priorité après une électrisation avec perte de connaissance.",
+      timeLimit: 25,
+    },
+    {
+      question:
+        "Une victime électrisée est inconsciente et ne respire pas. Après avoir sécurisé la zone, quelle séquence appliquez-vous ?",
+      choices: [
+        "Mettre en PLS, appeler le 15",
+        "Alerter les secours, commencer la RCP, utiliser le DAE dès qu'il est disponible",
+        "Attendre l'arrivée des pompiers sans toucher la victime",
+        "Effectuer uniquement des insufflations bouche-à-bouche",
+      ],
+      answer: [1],
+      explanation:
+        "En l'absence de respiration, la chaîne de survie s'applique : alerte immédiate (15/18/112), RCP 30 compressions / 2 insufflations, pose du DAE sans délai. La fibrillation ventriculaire post-électrique répond bien à la défibrillation précoce.",
+      timeLimit: 30,
+    },
+    {
+      question:
+        "Sur les lieux d'un accident électrique avec plusieurs victimes, quelle est la première action du premier secouriste arrivant ?",
+      choices: [
+        "Commencer la RCP sur la victime la plus proche",
+        "Sécuriser la zone : couper le courant ou baliser avant toute approche",
+        "Appeler les collègues pour former une chaîne humaine",
+        "Prendre en photo la scène pour le rapport d'accident",
+      ],
+      answer: [1],
+      explanation:
+        "Le sur-accident est le risque majeur : une source électrique non neutralisée peut électriser le sauveteur. La sécurisation (coupure du courant, balisage) précède toute prise en charge des victimes.",
+      timeLimit: 25,
+    },
+    {
+      question:
+        "Combien de temps après une électrisation un trouble du rythme cardiaque peut-il apparaître ?",
+      choices: [
+        "Uniquement dans les 5 premières minutes",
+        "Jusqu'à 24 à 48 heures après l'accident",
+        "Jamais après la phase initiale",
+        "Seulement si la victime a perdu connaissance",
+      ],
+      answer: [1],
+      explanation:
+        "Des arythmies tardives ont été documentées jusqu'à 24–48 h après une électrisation, même en l'absence de symptômes immédiats. Une surveillance médicale en milieu hospitalier est systématiquement recommandée.",
+      timeLimit: 25,
+    },
+    {
+      question:
+        "Une victime électrisée présente des brûlures aux deux mains et des fourmillements dans les bras. Elle est consciente. Faut-il appeler le 15 ?",
+      choices: [
+        "Non, les fourmillements passeront seuls",
+        "Oui, les symptômes neurologiques et les brûlures électriques nécessitent une évaluation médicale urgente",
+        "Seulement si elle perd connaissance",
+        "Non, il suffit de lui donner de l'eau sucrée",
+      ],
+      answer: [1],
+      explanation:
+        "Les fourmillements (paresthésies) indiquent un passage de courant à travers les membres supérieurs. Combinés aux brûlures électriques, ils justifient un appel immédiat au 15 et une surveillance en milieu hospitalier.",
+      timeLimit: 25,
+    },
+    {
+      question:
+        "Pourquoi ne doit-on pas refroidir une brûlure électrique à l'eau avant d'avoir sécurisé la zone ?",
+      choices: [
+        "L'eau aggrave chimiquement la brûlure électrique",
+        "L'eau est conductrice et peut propager le choc électrique au sauveteur si la source n'est pas neutralisée",
+        "L'eau est interdite sur les brûlures profondes",
+        "Le refroidissement n'a aucun intérêt sur une brûlure électrique",
+      ],
+      answer: [1],
+      explanation:
+        "L'eau est un conducteur électrique. En l'absence de mise hors tension confirmée, verser de l'eau sur une brûlure électrique expose le sauveteur à une électrisation par contact indirect. Sécuriser d'abord, soigner ensuite.",
+      timeLimit: 25,
+    },
+
+    // === SST SPÉCIFIQUE ÉLECTRISATION ===
+    {
+      question:
+        "Une victime est en contact avec un conducteur nu sous tension et ne peut pas lâcher. Pourquoi ne parvient-elle pas à s'écarter d'elle-même ?",
+      choices: [
+        "Elle est paralysée par la peur",
+        "Le courant provoque une tétanisation des muscles fléchisseurs, empêchant d'ouvrir la main",
+        "Elle est inconsciente",
+        "Le conducteur est collant",
+      ],
+      answer: [1],
+      explanation:
+        "Le courant alternatif à 50 Hz provoque une contraction musculaire involontaire et soutenue (tétanisation). Les muscles fléchisseurs de la main, plus puissants que les extenseurs, maintiennent la prise. La victime ne peut pas se dégager seule. Il faut couper le courant AVANT de la toucher.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "La source électrique ne peut pas être coupée immédiatement. Comment dégager une victime en contact avec un conducteur sous tension, sans risquer de s'électriser soi-même ?",
+      choices: [
+        "Attraper la victime par les poignets rapidement",
+        "Utiliser un matériau sec et non conducteur (bâton en bois sec, corde en plastique, tissu épais sec) pour déplacer le conducteur ou éloigner la victime",
+        "Verser de l'eau pour refroidir le conducteur",
+        "Former une chaîne humaine de plusieurs personnes",
+      ],
+      answer: [1],
+      explanation:
+        "En l'absence de coupure de courant, le contact direct avec la victime expose au risque d'électrisation secondaire. Un matériau isolant sec (bois sec, plastic, tissu sec) permet d'éloigner le conducteur ou la victime sans créer de contact électrique. L'eau est conductrice. La chaîne humaine transmet le courant à tous les maillons.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quel trajet du courant électrique à travers le corps est le plus dangereux pour le cœur ?",
+      choices: [
+        "Pied gauche → pied droit (trajet transverse bas)",
+        "Main droite → pied gauche (trajet traversant le thorax et le cœur)",
+        "Main → coude (trajet localisé au membre supérieur)",
+        "Tête → main (trajet descendant)",
+      ],
+      answer: [1],
+      explanation:
+        "Le risque cardiaque est maximal lorsque le courant traverse le thorax. Le trajet main droite–pied gauche (ou main droite–main gauche) passe directement à travers la région cardiaque, augmentant fortement le risque de fibrillation ventriculaire. C'est pourquoi travailler avec une seule main (l'autre dans le dos) est une règle de sécurité chez les électriciens.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Une victime a reçu un choc électrique haute tension (HTA, câble tombé). Le sauveteur arrive sur les lieux. Quelle différence importante par rapport à une électrisation basse tension ?",
+      choices: [
+        "En haute tension, la victime peut être électrisée même sans contact direct (arc, pas de tension) — la zone de danger est bien plus large",
+        "En haute tension, le risque est moins élevé car les protections déclenchent plus vite",
+        "En haute tension, on peut approcher la victime à moins de 1 mètre si elle n'est plus en contact avec le câble",
+        "Il n'y a pas de différence pratique pour les premiers secours",
+      ],
+      answer: [0],
+      explanation:
+        "En haute tension, l'arc électrique peut se produire à distance (jusqu'à plusieurs dizaines de centimètres selon la tension), et le 'pas de tension' (gradient de potentiel au sol) expose toute personne approchant la zone à un risque d'électrisation ascendante. Il faut rester loin, ne pas approcher, alerter le gestionnaire du réseau (ENEDIS, RTE) et attendre la mise hors tension confirmée avant toute intervention.",
+      timeLimit: 50,
     },
   ],
 };

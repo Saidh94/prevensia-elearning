@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { formatFrenchDisplayText } from "@/lib/french-display";
 import type {
   ModuleVisual,
@@ -110,12 +111,16 @@ export default function VisualBlock({ visual }: VisualBlockProps) {
 
         {imagePath ? (
           <div className="rounded-[1.25rem] border border-slate-200 bg-white p-4">
-            <img
-              src={imagePath}
-              alt={imageAlt}
-              className="mx-auto block h-auto max-h-none w-full max-w-full rounded-2xl object-contain"
-              loading="lazy"
-            />
+            <div className="relative h-[420px] w-full overflow-hidden rounded-2xl">
+              <Image
+                src={imagePath}
+                alt={imageAlt}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 720px"
+                unoptimized={imagePath.toLowerCase().endsWith(".svg")}
+              />
+            </div>
           </div>
         ) : null}
       </div>

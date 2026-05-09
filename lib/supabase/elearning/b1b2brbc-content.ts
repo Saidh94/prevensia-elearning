@@ -682,8 +682,159 @@ export const b1b2brbcModuleContent: ModuleContent = {
       },
     },
     {
+      id: "installations-existantes-br",
+      title: "9. Schémas de liaison à la terre (TN-C, IT) et installations existantes",
+      estimatedMinutes: 35,
+      intro:
+        "Le chargé d'intervention BR rencontre des schémas de liaison à la terre variés selon les sites : TT classique, TN-C en installations anciennes, schéma IT dans les hôpitaux et industries de process, voire TN-C-S en transition. Reconnaître chaque schéma, comprendre ses contraintes opérationnelles et intervenir dans les limites de son habilitation fait partie des compétences attendues.",
+      content: [
+        "La NF C 15-100 distingue cinq schémas de liaison à la terre. Chaque lettre décrit le raccordement de neutre (T = terre, I = isolé/impédant) et des masses utilisateurs (T = terre indépendante, N = raccordées au neutre). Le schéma TT est la référence des installations résidentielles et tertiaires courantes (protection par différentiel). Le schéma TN-S (neutre et PE séparés) est courant dans l'industrie moderne. Le schéma TN-C (conducteur PEN unique) est interdit dans les installations neuves depuis la révision de la NF C 15-100 mais reste présent dans de nombreux bâtiments industriels construits avant 1990. Le schéma TN-C-S combine TN-C en amont et TN-S en aval. Le schéma IT, enfin, utilise un neutre isolé ou impédant et s'applique dans les contextes où la continuité de service est prioritaire.",
+        "Dans un schéma TN-C, le conducteur PEN cumule deux rôles : il est à la fois le retour du courant de service (neutre) et le conducteur de protection des masses (terre). On le reconnaît à l'absence de borne PE distincte dans le tableau, à un unique conducteur bleu ou vert-jaune raccordé à la fois sur la barre neutre et la barre de terre, et à l'absence de conducteur vert-jaune séparé dans les câbles de distribution.",
+        "La rupture du PEN est l'un des accidents les plus graves sur ce type d'installation : toutes les masses métalliques situées en aval du point de rupture peuvent se retrouver à la tension de neutre (potentiellement 230 V par rapport au sol) sans que les dispositifs de protection ne déclenchent. Le courant de défaut ne peut pas circuler normalement, les disjoncteurs et fusibles restent fermés. La tension apparaît sur les carcasses des appareils, les câbles de terre, les canalisations métalliques.",
+        "Conséquences opérationnelles pour le BR : ne jamais déconnecter un conducteur PEN sans avoir consigné l'ensemble du départ aval. Ne jamais supprimer la continuité du PEN, même momentanément. Si une intervention nécessite de toucher au PEN, elle doit faire l'objet d'une consignation complète (BC ou B2) et non d'une simple mise hors tension pour son propre compte.",
+        "Les câbles à isolation textile (coton, soie, caoutchouc vulcanisé) étaient courants jusqu'aux années 1970-1980. Leur isolation se dégrade avec le temps, la chaleur et les cycles de dilatation. Un câble dont la gaine s'effrite au toucher, dont l'isolation individuelle se fissure ou dont la coloration est uniformément grisée doit être traité comme un câble à risque d'arc. La manipulation peut rompre l'isolation résiduelle et créer un défaut de phase ou un contact direct.",
+        "La mesure de résistance d'isolement (Ri) sur un câble ancien à isolation textile doit être réalisée avec prudence : la tension de test du mégohmmètre (500 V ou 1 000 V) peut accélérer la dégradation d'une isolation déjà fragilisée. Il est préférable de commencer par une inspection visuelle complète et de signaler l'état au responsable de maintenance avant d'appliquer la tension de test.",
+        "Les tableaux électriques pré-1990 peuvent présenter des caractéristiques hors des exigences actuelles : disjoncteurs à faible pouvoir de coupure (PDC inférieur aux niveaux requis pour l'installation), fusibles à couteaux ou à cartouche ouverts sans protection contre les projections en cas de court-circuit, absence de protection différentielle 30 mA sur les circuits terminaux, borniers de terre non équipotentiels. Ces installations peuvent être en exploitation légale mais le BR doit adapter son analyse de risque en conséquence.",
+        "Le schéma IT (Impédant-Terre) est caractérisé par un neutre de transformateur isolé ou relié à la terre par une haute impédance (typiquement 500 à 1 000 Ω). Les masses utilisateurs sont, elles, reliées à une prise de terre locale. Ce schéma est choisi dans les contextes où la continuité de service est impérative : blocs opératoires, salles de réanimation, industries de process en continu (sidérurgie, papeterie, chimie), certains systèmes informatiques critiques.",
+        "La propriété fondamentale du schéma IT est la suivante : lors d'un premier défaut d'isolement (contact accidentel entre un conducteur actif et la masse ou la terre), l'alimentation n'est pas interrompue. Le courant de défaut reste limité par l'impédance du neutre, les utilisateurs ne sont pas exposés et la production continue. Ce premier défaut est signalé par un Contrôleur Permanent d'Isolement (CPI) — dispositif de surveillance qui émet une alarme visuelle et sonore. C'est ce signal qu'il faut impérativement traiter.",
+        "Le danger en schéma IT intervient lors d'un deuxième défaut simultané sur une autre phase ou un autre circuit. Dans ce cas, les deux défauts se combinent : un courant de court-circuit ou d'électrocution peut circuler entre les deux points de défaut, potentiellement à travers une personne ou une masse. Le système coupe alors automatiquement, mais le risque d'accident est réel si le premier défaut n'a pas été éliminé à temps.",
+        "Pour le BR en schéma IT, les règles opérationnelles sont claires. Premièrement, ne jamais ignorer une alarme CPI : c'est le signal qu'un premier défaut est présent quelque part sur l'installation. Deuxièmement, localiser et éliminer le premier défaut avant d'intervenir sur d'autres circuits, car tout geste sur une autre partie de l'installation crée un risque de deuxième défaut simultané. Troisièmement, ne jamais neutraliser ou court-circuiter le CPI pour 'faire taire l'alarme' : cela supprime la seule protection qui distingue un premier défaut (sans danger) d'un deuxième défaut (potentiellement mortel).",
+        "Identifier un schéma IT sur site : le tableau général comporte un CPI (boîtier de surveillance avec voyant vert/rouge et bornes de mesure), le neutre du transformateur n'est pas raccordé directement à la terre, et les câbles de protection sont reliés à une prise de terre distincte du neutre. En pratique, la présence d'un CPI sur le tableau est le premier indicateur visible.",
+      ],
+      deepDive: [
+        "Sur une installation TN-C, la mise à la terre des équipements repose entièrement sur la continuité du PEN. Un défaut d'isolement sur un équipement raccordé en TN-C déclenche le dispositif de protection par court-circuit entre phase et PEN — le courant de défaut est élevé. Si le PEN est rompu en amont du défaut, ce mécanisme disparaît. C'est pourquoi la norme interdit le TN-C dans les nouvelles installations et dans toute extension d'installation existante.",
+        "La mise en conformité d'une installation TN-C (passage en TN-S ou TT) nécessite le remplacement des câbles de distribution (ajout d'un conducteur PE séparé) et la mise en place de protections différentielles adaptées. Cette décision relève du chargé d'exploitation électrique et de l'employeur, pas du BR. Le rôle du BR est d'identifier la situation, de documenter les risques associés et de les signaler.",
+        "En schéma IT, la surveillance du CPI est une obligation d'exploitation, pas une option. Dans les établissements de santé (salles de bloc opératoire), les alimentations en IT sont définies par la norme NF C 15-211 et les interventions nécessitent une coordination étroite avec les équipes de maintenance biomédicale. Le BR qui intervient dans un établissement de santé sur un circuit IT doit systématiquement vérifier l'état du CPI avant de commencer.",
+      ],
+      keyPoints: [
+        "TN-C : PEN = neutre + terre, pas de PE séparé. Rupture du PEN = masses à 230 V sans déclenchement.",
+        "Ne jamais déconnecter le PEN sans consignation complète de l'aval.",
+        "Câbles textiles dégradés : risque d'arc à la manipulation, précaution avant mégohmmètre.",
+        "Tableaux pré-1990 : PDC insuffisant, pas de différentiel, signaler avant intervention.",
+        "IT : neutre isolé ou impédant. 1er défaut → alarme CPI, pas de coupure.",
+        "IT : 2e défaut simultané → coupure + risque d'électrocution entre les deux points de défaut.",
+        "Alarme CPI en IT : localiser et éliminer le défaut avant toute autre intervention.",
+        "Ne jamais neutraliser un CPI. Ne jamais ignorer son alarme.",
+        "Évaluation et signalement sont dans le périmètre BR. La remise en conformité est hors périmètre.",
+      ],
+      forbiddenPoints: [
+        "Couper ou déconnecter un conducteur PEN sans consignation complète de l'aval.",
+        "Considérer un câble à isolation dégradée comme acceptable sans évaluation préalable.",
+        "Réaliser une remise en conformité d'une installation TN-C sans ordre formalisé d'un B2 ou chargé d'exploitation.",
+        "Neutraliser ou court-circuiter un CPI pour faire taire une alarme IT.",
+        "Ignorer une alarme CPI et continuer à intervenir sur d'autres circuits en schéma IT.",
+      ],
+      legalRefs: [
+        "NF C 15-100 § 312.2 — schémas de liaison à la terre TN-C, TN-S, TN-C-S, IT, TT.",
+        "NF C 15-100 § 413.1.5 — schéma IT : conditions d'application et contrôleur permanent d'isolement.",
+        "NF C 15-100 § 543 — conducteurs de protection et conducteur PEN.",
+        "NF C 15-211 — installations électriques dans les établissements de soins (schéma IT médical).",
+        "NF C 18-510 § 10.3 — intervention BT générale : préparation et analyse de risque.",
+        "UTE C 15-103 — guide de choix des canalisations selon les conditions d'environnement.",
+      ],
+      practicalCase:
+        "Exemple 1 (TN-C) : le BR intervient dans un atelier des années 1975. En ouvrant le tableau, il constate un schéma TN-C avec un unique conducteur bleu raccordé à la barre neutre et à la barre de terre. Il mesure la continuité du PEN sur les départs, documente l'état du tableau et rédige un rapport signalant les risques avant toute intervention sur les câbles.\nExemple 2 (IT) : le BR intervient dans un hôpital sur un circuit qui ne déclenche pas malgré un défaut apparent. En regardant le tableau, il identifie un CPI avec voyant rouge et alarme active. Il suspend toute intervention sur les circuits en aval, localise d'abord l'origine du premier défaut et le signale au responsable avant de poursuivre.",
+      scenarios: [
+        {
+          situation:
+            "Vous intervenez en BR pour diagnostiquer une prise défectueuse dans un atelier industriel construit en 1978. En ouvrant le tableau de zone, vous identifiez un schéma TN-C avec un unique conducteur bleu jouant le rôle de PEN. Votre client vous demande de débrancher ce conducteur du tableau pour le remplacer.",
+          question:
+            "Pouvez-vous déconnecter le conducteur PEN dans le cadre d'une intervention BR standard ?",
+          wrongActions: [
+            "Déconnecter le PEN après avoir coupé le disjoncteur général du tableau.",
+            "Mettre hors tension le départ concerné et déconnecter le PEN.",
+            "Déconnecter le PEN rapidement puis le reconnecter immédiatement après remplacement.",
+          ],
+          correctActions: [
+            "Refuser de déconnecter le PEN dans le cadre d'une intervention BR simple.",
+            "Expliquer que toute intervention sur le PEN nécessite une consignation complète de l'ensemble de l'aval par un BC ou un chargé de travaux B2, car la rupture du PEN peut mettre les masses aval à la tension du neutre.",
+            "Documenter la situation et la transmettre au chargé d'exploitation pour organisation d'une consignation formelle.",
+          ],
+          explanation:
+            "Dans un schéma TN-C, le conducteur PEN assure simultanément le retour du courant de service et la protection des masses. Sa rupture, même momentanée, peut faire apparaître sur toutes les masses métalliques aval une tension de 230 V par rapport au sol sans déclencher les protections. Couper simplement le disjoncteur amont ne suffit pas : il faut une consignation complète de tout l'aval pour intervenir sur le PEN en sécurité.",
+          normRef: "NF C 15-100 § 543.4 — conducteur PEN : continuité et conditions d'intervention ; NF C 18-510 § 10.3",
+        },
+        {
+          situation:
+            "Lors d'une intervention BR dans un immeuble de bureaux des années 1965, vous devez mesurer la résistance d'isolement d'un câble de distribution. En inspectant visuellement le câble avant de brancher votre mégohmmètre, vous constatez que sa gaine extérieure est en tissu grisâtre, et que l'isolation individuelle des conducteurs semble se fissurer légèrement sur toute la longueur visible.",
+          question:
+            "Comment procédez-vous avant d'appliquer la tension de test du mégohmmètre sur ce câble ?",
+          wrongActions: [
+            "Appliquer directement la tension de test 500 V : la mesure dira si le câble est encore acceptable.",
+            "Appliquer une tension réduite de 100 V pour ménager le câble.",
+            "Décider que le câble est hors service sans mesurer et le remplacer immédiatement.",
+          ],
+          correctActions: [
+            "Documenter l'état visuel du câble avant toute mesure (photos, description écrite).",
+            "Informer le responsable de maintenance de l'état dégradé avant d'appliquer la tension de test.",
+            "Si la mesure est néanmoins réalisée, appliquer la tension progressivement et observer toute dégradation supplémentaire lors du test.",
+          ],
+          explanation:
+            "Un câble à isolation textile dégradée peut voir son état s'aggraver sous la tension de test du mégohmmètre. Appliquer 500 V ou 1 000 V sur une isolation déjà fragilisée peut créer un claquage qui n'existait pas avant le test, transformant un câble à risque en câble hors service. La documentation de l'état préalable protège le BR et informe le client avant la décision de remplacement.",
+          normRef: "NF C 15-100 § 612.3.2 — résistance d'isolement ; NF C 18-510 § 10.3.1 — préparation de l'intervention BR",
+        },
+        {
+          situation:
+            "Vous intervenez en BR pour évaluer un tableau des années 1985 dont les disjoncteurs déclenchent fréquemment. En inspection, vous constatez que les disjoncteurs ont un pouvoir de coupure indiqué de 3 kA, alors que le niveau de court-circuit disponible en amont est de 6 kA selon la documentation de l'installation.",
+          question:
+            "Quel est le risque lié à un disjoncteur dont le PDC est inférieur au courant de court-circuit disponible, et quelle suite donnez-vous ?",
+          wrongActions: [
+            "Remplacer immédiatement les disjoncteurs par des modèles conformes.",
+            "Ignorer l'écart : les disjoncteurs anciens fonctionnent depuis des années sans incident.",
+            "Calibrer les disjoncteurs à un déclenchement plus rapide pour compenser.",
+          ],
+          correctActions: [
+            "Documenter l'écart dans votre rapport d'intervention : PDC insuffisant = risque d'explosion du disjoncteur en cas de court-circuit franc.",
+            "Signaler l'anomalie au chargé d'exploitation avec recommandation de remplacement prioritaire.",
+            "Ne pas remplacer vous-même les disjoncteurs sans ordre formalisé d'un chargé de travaux B2 : la modification d'un tableau de distribution sort du périmètre BR standard.",
+          ],
+          explanation:
+            "Un disjoncteur dont le PDC est inférieur au courant de court-circuit disponible peut exploser en cas de défaut franc, projetant des éclats et provoquant un incendie. Ce n'est pas un défaut mineur. Le BR documente et signale — la décision de remplacement et les travaux associés appartiennent à un chargé de travaux B2.",
+          normRef: "NF C 15-100 § 434 — protection contre les courants de court-circuit ; NF C 18-510 § 10.3.1 — limites de l'intervention BR",
+        },
+        {
+          situation:
+            "Vous intervenez en BR dans une clinique pour diagnostiquer une prise défectueuse dans une salle de soins. En inspectant le tableau de zone, vous observez un boîtier CPI avec un voyant rouge clignotant et une alarme sonore active. Le personnel soignant vous demande de 'couper cette alarme agaçante' pour travailler tranquillement.",
+          question:
+            "Comment réagissez-vous face à cette demande et que faites-vous avant de poursuivre votre intervention ?",
+          wrongActions: [
+            "Neutraliser le CPI ou mettre son alarme en silence pour continuer l'intervention.",
+            "Ignorer l'alarme et commencer à travailler sur la prise défectueuse : le CPI ne concerne pas votre circuit.",
+            "Remplacer la prise puis signaler l'alarme à la fin de l'intervention.",
+          ],
+          correctActions: [
+            "Refuser de neutraliser le CPI : son alarme signale un premier défaut d'isolement actif sur l'installation IT.",
+            "Suspendre l'intervention sur la prise jusqu'à ce que le premier défaut soit localisé et éliminé.",
+            "Expliquer au personnel que l'alarme CPI en IT protège contre le deuxième défaut simultané : intervenir sur un autre circuit avec un premier défaut actif crée un risque d'électrocution.",
+            "Localiser d'abord l'origine du premier défaut (mesure d'isolement par départs successifs) avant de reprendre toute intervention.",
+          ],
+          explanation:
+            "En schéma IT, le premier défaut ne coupe pas l'alimentation — c'est la propriété qui garantit la continuité de service. Mais ce premier défaut doit être éliminé avant toute nouvelle intervention sur l'installation, car un deuxième défaut simultané sur une autre phase crée un court-circuit ou une électrocution entre les deux points de défaut. Neutraliser le CPI supprime la seule alarme qui distingue une situation sûre d'une situation à double défaut. C'est interdit et dangereux.",
+          normRef: "NF C 15-100 § 413.1.5 — schéma IT : surveillance par CPI et élimination du premier défaut ; NF C 15-211 — installations IT médicales",
+        },
+      ],
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-installations-existantes.svg",
+      chapterImageAlt:
+        "Schémas TN-C et IT — risques spécifiques et règles opérationnelles pour le BR",
+      visual: {
+        title: "Schémas de liaison à la terre : les points critiques BR",
+        subtitle:
+          "TN-C, IT, câbles dégradés et tableaux anciens : identifier, comprendre les contraintes, documenter.",
+        items: [
+          "TN-C : PEN = neutre + terre — ne pas couper sans consignation",
+          "IT : 1er défaut = alarme CPI → localiser et éliminer",
+          "IT : 2e défaut simultané = risque d'électrocution",
+          "Câbles textiles : isolation fragile — précaution mégohmmètre",
+          "Tableaux anciens : PDC insuffisant — signaler",
+          "Rôle BR : évaluer, documenter, signaler",
+        ],
+        tone: "slate",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-installations-existantes.svg",
+      },
+    },
+    {
       id: "mesurages-essais-connexions",
-      title: "9. Mesurages, essais, connexions / déconnexions et limites d'intervention",
+      title: "10. Mesurages, essais, connexions / déconnexions et limites d'intervention",
       estimatedMinutes: 25,
       intro:
         "Les habilitations B1, B1V, B2, B2V, BR et BC ne donnent pas toutes les memes possibilites de mesurer, tester, connecter, deconnecter ou remettre en service. Ce chapitre sert a fixer une lecture plus serieuse des limites d'action.",
@@ -762,7 +913,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "outils-protections",
-      title: "10. Outils, EPI, EPC et environnement de travail",
+      title: "11. Outils, EPI, EPC et environnement de travail",
       estimatedMinutes: 20,
       intro:
         "La maîtrise du risque électrique repose aussi sur le choix des moyens de travail, l'etat des outils et l'usage correct des protections collectives et individuelles.",
@@ -839,7 +990,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "anomalies-urgence",
-      title: "11. Anomalies, écarts et situations d'urgence",
+      title: "12. Anomalies, écarts et situations d'urgence",
       estimatedMinutes: 20,
       intro:
         "La bonne réaction face a l'anomalie ne consiste pas a finir coute que coute, mais a proteger, stopper, alerter et reprendre seulement si le cadre est remaitrise.",
@@ -918,7 +1069,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "retour-experience",
-      title: "12. Retour d'expérience, compte rendu et maintien des compétences",
+      title: "13. Retour d'expérience, compte rendu et maintien des compétences",
       estimatedMinutes: 20,
       intro:
         "Une organisation mature ne s'arrête pas à l'exécution technique. Elle apprend aussi des écarts, des quasi-accidents, des difficultés de repérage et des problèmes de coordination pour fiabiliser les opérations suivantes.",
@@ -998,7 +1149,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
     },
     {
       id: "documents-coordination",
-      title: "13. Documents, autorisations et coordination de chantier",
+      title: "14. Documents, autorisations et coordination de chantier",
       estimatedMinutes: 25,
       intro:
         "Les habilitations B1, B1V, B2, B2V, BR et BC prennent toute leur valeur dans une organisation documentee. Le travail électrique se securise aussi par les autorisations, plans, permis et consignes de chantier.",
@@ -1081,8 +1232,276 @@ export const b1b2brbcModuleContent: ModuleContent = {
       },
     },
     {
+      id: "pv-batteries-dc-br",
+      title: "15. Photovoltaïque, batteries et courant continu : spécificités pour le BR",
+      estimatedMinutes: 30,
+      intro:
+        "Le courant continu produit par les installations photovoltaïques, les batteries industrielles et les onduleurs présente des risques spécifiques que le chargé d'intervention BR doit savoir identifier. Arc électrique difficile à couper, tension permanente des panneaux, densité d'énergie élevée des batteries : le cadre d'intervention est différent du courant alternatif classique.",
+      content: [
+        "Les panneaux photovoltaïques génèrent du courant continu dès qu'ils sont exposés à la lumière. Contrairement à un circuit alternatif qui s'interrompt au disjoncteur côté réseau, les chaînes PV côté courant continu restent sous tension tant que la lumière du jour les atteint. Il n'existe pas de disjoncteur en courant continu capable de rompre le circuit PV côté source.",
+        "Cette tension continue peut atteindre 600 V à 1 500 V selon l'architecture du système. En cas de contact ou d'arc, la tension ne se réduit pas naturellement à zéro comme en courant alternatif. L'arc électrique DC ne s'éteint pas de lui-même : il peut se maintenir, progresser et provoquer un incendie.",
+        "Pour intervenir sur un circuit PV côté DC, il faut à la fois couper l'onduleur côté AC (pour supprimer l'injection réseau) et couvrir les panneaux avec une bâche opaque ou attendre l'obscurité complète pour supprimer la source DC. Ces deux actions sont indépendantes et toutes deux nécessaires.",
+        "Les batteries industrielles (plomb ouvert, plomb gel, lithium-ion, NiMH) présentent une tension permanente qui ne peut pas être interrompue par un disjoncteur seul : l'énergie est stockée dans les cellules et disponible immédiatement. Même un bloc de batteries avec sectionneur ouvert peut délivrer un courant élevé si un contact involontaire court-circuite les bornes.",
+        "Les batteries au lithium présentent un risque supplémentaire : le thermal runaway (emballement thermique). Un court-circuit, un choc mécanique ou une surchauffe peuvent déclencher une réaction chimique auto-entretenue, avec dégagement de gaz inflammables et toxiques, et risque d'incendie ou d'explosion.",
+        "En courant continu, la valeur du courant de contact est perçue différemment par l'organisme par rapport au courant alternatif. Le seuil de tétanisation musculaire est plus élevé en DC qu'en AC, mais le risque de brûlure par arc est supérieur en DC en raison du maintien de l'arc. Un arc DC à 500 V provoque des lésions thermiques sévères.",
+        "Le BR doit intégrer ces spécificités avant toute intervention sur une installation comportant des panneaux PV, des batteries ou des onduleurs DC/AC. Si l'intervention dépasse le cadre de son titre, il doit s'arrêter et faire appel à un habilité adapté ou à un spécialiste de l'installation.",
+      ],
+      deepDive: [
+        "La norme NF C 15-712 encadre la conception des installations photovoltaïques raccordées au réseau. Elle impose des dispositifs de coupure et de sectionnement côté DC, des protections contre les surtensions et une signalisation des risques spécifiques. Le BR intervenant sur une installation PV existante doit vérifier que ces dispositifs sont présents et opérationnels avant tout travail.",
+        "Les batteries lithium-ion posent un problème particulier lors d'interventions de maintenance : elles peuvent être en charge partielle ou totale même quand le système est en veille. Le BR doit obtenir l'état de charge et l'état de santé (SOH) de la batterie auprès du BMS (Battery Management System) avant d'intervenir sur les connexions.",
+      ],
+      keyPoints: [
+        "Panneaux PV : tension DC permanente dès la lumière, arc non extinctible sans occultation.",
+        "Couper l'onduleur côté AC ET couvrir les panneaux pour supprimer le risque DC.",
+        "Batteries : énergie stockée indisponible à l'ouverture du sectionneur seul.",
+        "Batteries Li-ion : risque d'emballement thermique, gaz inflammables et toxiques.",
+        "Arc DC : ne s'éteint pas naturellement, brûlures sévères.",
+      ],
+      forbiddenPoints: [
+        "Considérer qu'ouvrir le disjoncteur AC suffit à mettre hors tension une installation PV côté DC.",
+        "Intervenir sur une batterie lithium sans connaître son état de charge et son état de santé.",
+        "Confondre les spécificités DC et AC : les protections, les appareils et les réflexes sont différents.",
+      ],
+      legalRefs: [
+        "NF C 15-712-1 — installations photovoltaïques raccordées au réseau.",
+        "NF C 18-510 § 5 — opérations électriques en courant continu.",
+        "Guide UTE C 15-712-2 — systèmes de stockage d'énergie (batteries).",
+        "IEC 62619 — exigences de sécurité pour les batteries lithium-ion industrielles.",
+      ],
+      practicalCase:
+        "Exemple : un BR est appelé pour intervenir sur l'onduleur d'une toiture PV de 30 kWc. Il coupe le disjoncteur de réseau côté AC. Avant de toucher les câbles DC côté panneaux, il vérifie que les panneaux sont occultés (bâche ou nuit tombée) et mesure l'absence de tension DC avec un multimètre CAT III adapté aux mesures DC haute tension.",
+      scenarios: [
+        {
+          situation:
+            "Vous êtes BR et intervenez pour remplacer un onduleur sur une installation PV de toiture. Il est 14 h, grand soleil. Vous avez coupé le disjoncteur de dérivation côté réseau 230 V. Votre collègue vous dit qu'il faut maintenant débrancher les connecteurs MC4 des câbles DC côté panneaux.",
+          question:
+            "Pouvez-vous débrancher les connecteurs MC4 DC directement après avoir coupé l'onduleur côté AC ?",
+          wrongActions: [
+            "Débrancher les MC4 immédiatement : l'onduleur est coupé, donc plus de risque DC.",
+            "Utiliser vos gants d'isolation BT pour débrancher les connecteurs sous tension.",
+            "Mesurer la tension avec votre multimètre CAT II BT pour vérifier l'absence de tension.",
+          ],
+          correctActions: [
+            "Ne pas toucher les connecteurs MC4 : les panneaux sont toujours sous tension DC tant qu'ils reçoivent de la lumière.",
+            "Couvrir les panneaux avec une bâche opaque ou reporter l'intervention après la tombée de la nuit.",
+            "Mesurer l'absence de tension DC avec un multimètre CAT III adapté à la tension DC de l'installation (≥ 600 V DC) avant tout contact.",
+          ],
+          explanation:
+            "Couper l'onduleur côté AC n'interrompt pas la production des panneaux PV côté DC. Sous plein soleil, les câbles DC restent à la tension de circuit ouvert (Voc) de la chaîne, pouvant dépasser 400 V à 700 V selon l'architecture. Un arc DC à cette tension est non extinctible et provoque des brûlures sévères.",
+          normRef: "NF C 15-712-1 § 712.537 — sectionnement et coupure des installations PV ; NF C 18-510 § 5",
+        },
+        {
+          situation:
+            "Vous intervenez en BR pour effectuer une mesure de résistance d'isolement sur un câblage DC d'une batterie de stockage lithium-ion 48 V / 200 Ah. Avant de brancher votre mégohmmètre, vous ouvrez le sectionneur principal de la batterie.",
+          question:
+            "L'ouverture du sectionneur principal suffit-elle à rendre la batterie Li-ion sûre pour une mesure d'isolement ?",
+          wrongActions: [
+            "Oui, le sectionneur ouvert coupe toute énergie : brancher le mégohmmètre.",
+            "Vérifier uniquement avec un voltmètre aux bornes du sectionneur pour confirmer l'absence de tension.",
+            "Connecter le mégohmmètre directement aux bornes DC de la batterie pour mesurer l'isolement.",
+          ],
+          correctActions: [
+            "Vérifier auprès du BMS (Battery Management System) que la batterie est en état de repos et que le sectionneur de cellules internes est ouvert.",
+            "Ne jamais connecter un mégohmmètre directement aux bornes de cellules Li-ion : la tension de test peut endommager ou initier un emballement thermique.",
+            "Mesurer la tension résiduelle aux bornes du câblage avant de connecter tout instrument.",
+          ],
+          explanation:
+            "Les batteries Li-ion contiennent une énergie stockée dans les cellules qui est indépendante de l'état du sectionneur de coffret. L'ouverture du sectionneur ne supprime pas la tension interne. Un court-circuit ou une tension de test inadaptée peut provoquer un emballement thermique (thermal runaway) avec dégagement de gaz inflammables et risque d'incendie.",
+          normRef: "IEC 62619 — sécurité des batteries lithium-ion industrielles ; Guide UTE C 15-712-2",
+        },
+        {
+          situation:
+            "En inspectant une installation PV d'ombrière de parking, vous observez sur les câbles DC une gaine partiellement fondue sur environ 15 cm, avec trace de carbonisation. L'installation est en service. Votre ordre de mission porte sur une vérification visuelle.",
+          question:
+            "Que faites-vous face à cette anomalie sur câble DC sous tension ?",
+          wrongActions: [
+            "Enrouler la zone abîmée avec du ruban isolant pour la protéger provisoirement.",
+            "Continuer la vérification visuelle et noter l'anomalie dans votre rapport sans autre action.",
+            "Couper l'onduleur AC et couper les chaînes au niveau du boîtier DC pour intervenir immédiatement sur le câble.",
+          ],
+          correctActions: [
+            "Signaler immédiatement l'anomalie au responsable de l'installation et lui recommander l'arrêt du système en urgence.",
+            "Ne pas toucher le câble endommagé, même avec des EPI : l'état de l'isolant ne garantit pas la sécurité en cas de contact.",
+            "Documenter l'anomalie avec une photo et une description précise pour le rapport.",
+          ],
+          explanation:
+            "Un câble DC avec gaine fondue ou carbonisée présente un risque d'arc électrique imminent. L'arc DC ne s'éteint pas de lui-même et peut déclencher un incendie. Une intervention improvisée sur un câble DC dégradé sous tension, même avec des EPI BT, dépasse le cadre d'une vérification visuelle et expose à un risque non maîtrisé. L'arrêt de l'installation doit être décidé par le responsable.",
+          normRef: "NF C 15-712-1 § 712.52 — protection contre les défauts d'isolement en courant continu",
+        },
+        {
+          situation:
+            "Lors d'une intervention de maintenance préventive sur un onduleur bidirectionnel couplé à un rack de batteries Li-ion, vous entendez un léger sifflement inhabituel et percevez une légère odeur âcre provenant du rack de batteries.",
+          question:
+            "Quels sont les bons réflexes face à ces signaux d'alerte sur un système de stockage Li-ion ?",
+          wrongActions: [
+            "Continuer l'intervention : ces odeurs sont normales sur des batteries sous charge.",
+            "Ouvrir le rack pour identifier la source de l'odeur.",
+            "Brancher un extracteur d'air pour dissiper les éventuels gaz et reprendre le travail.",
+          ],
+          correctActions: [
+            "Arrêter immédiatement l'intervention et quitter la zone.",
+            "Couper l'alimentation de l'onduleur depuis un point de commande distant si disponible, sans s'approcher du rack.",
+            "Alerter le responsable de site, les secours si nécessaire, et interdire l'accès à la zone jusqu'à expertise d'un technicien spécialisé batteries.",
+          ],
+          explanation:
+            "Un sifflement et une odeur âcre sur un rack Li-ion sont des signaux précurseurs d'emballement thermique. À ce stade, des gaz inflammables et toxiques (fluorure d'hydrogène, monoxyde de carbone) peuvent déjà être présents. Ouvrir le rack accélèrerait l'emballement par apport d'oxygène. L'évacuation et l'alerte sont les seuls réflexes adaptés.",
+          normRef: "IEC 62619 § 6.4 — prévention et gestion des incidents thermiques sur batteries Li-ion",
+        },
+      ],
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-pv-batteries-dc.svg",
+      chapterImageAlt:
+        "Installation photovoltaïque avec panneaux, onduleur et système de stockage batteries pour BR",
+      visual: {
+        title: "DC : des risques que l'AC n'a pas",
+        subtitle:
+          "Panneaux toujours actifs sous la lumière, batteries jamais vraiment hors tension, arc qui ne s'éteint pas.",
+        items: [
+          "Panneaux PV : tension DC permanente",
+          "Batteries : énergie stockée inaccessible au sectionneur",
+          "Arc DC : non extinctible sans occultation",
+          "Li-ion : risque d'emballement thermique",
+        ],
+        tone: "amber",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-pv-batteries-dc.svg",
+      },
+    },
+    {
+      id: "mesures-br-specifiques",
+      title: "16. Mesures spécifiques BR : résistance d'isolement, impédance de boucle et thermographie",
+      estimatedMinutes: 30,
+      intro:
+        "Le chargé d'intervention BR est l'un des rares habilités autorisés à effectuer des mesurages en basse tension dans un cadre d'intervention générale. Résistance d'isolement, impédance de boucle et thermographie sont trois outils du diagnostic terrain qui exigent méthode, matériel adapté et lecture des résultats.",
+      content: [
+        "La résistance d'isolement (Ri) mesure la qualité de l'isolation entre les conducteurs actifs et la masse ou la terre. Elle s'exprime en mégohms (MΩ). Une valeur dégradée révèle une détérioration du matériau isolant, une humidité, un vieillissement ou un défaut d'installation.",
+        "La mesure de Ri s'effectue hors tension, avec un mégohmmètre (ou télémégohmmètre). Le circuit à tester doit être consigné, les appareils sensibles déconnectés (variateurs, équipements électroniques), et la tension de test adaptée au domaine : 500 V pour les circuits BT courants, 1 000 V pour certains câbles haute isolation.",
+        "Les valeurs minimales couramment retenues par la pratique sont 1 MΩ pour les circuits neufs et 0,5 MΩ pour les circuits existants en exploitation. En dessous, une investigation est requise. Ces seuils sont indicatifs : les référentiels constructeurs et les normes d'installation prévalent.",
+        "L'impédance de boucle (Zs) mesure la résistance totale du circuit de défaut entre le point de mesure et la source. Elle conditionne le courant de court-circuit disponible et détermine si les dispositifs de protection (disjoncteur, fusible) peuvent déclencher dans les temps requis.",
+        "La mesure d'impédance de boucle s'effectue sous tension avec un ohmmètre de boucle conforme aux exigences de la NF C 15-100. Le résultat est comparé à l'impédance maximale admissible en fonction du calibre et du type du dispositif de protection. Si Zs est trop élevée, la protection ne déclenche pas dans les délais réglementaires.",
+        "La thermographie infrarouge détecte les points chauds sur les installations électriques sous charge. Un échauffement anormal sur un bornier, une connexion, un disjoncteur ou un jeu de barres révèle une résistance de contact élevée, un déséquilibre de charge ou un défaut en développement avant claquage.",
+        "La thermographie s'effectue sous tension et sous charge représentative (idéalement au moins 30 % de la charge nominale). Elle nécessite une caméra infrarouge calibrée et un protocole d'interprétation (référence à une connexion saine adjacente, classification selon les écarts de température). Les résultats doivent être tracés dans un rapport.",
+        "Ces trois techniques sont complémentaires : la résistance d'isolement révèle les défauts d'isolation, l'impédance de boucle garantit l'efficacité des protections, et la thermographie détecte les échauffements sous charge. Aucune ne se substitue aux autres.",
+      ],
+      deepDive: [
+        "Un BR réalisant des mesures doit documenter ses résultats, indiquer les seuils de référence utilisés, noter les conditions opératoires (tension de test, charge présente, température ambiante) et signaler tout résultat hors seuil à son chargé d'exploitation ou au responsable de maintenance.",
+        "La thermographie ne peut pas être réalisée par n'importe quel opérateur : l'interprétation des images demande une formation spécifique (niveau 1 ou 2 de qualification thermographe) et une connaissance du matériel inspecté. Le BR peut assister à la mesure, mais l'interprétation formelle revient à un thermographe qualifié.",
+      ],
+      keyPoints: [
+        "Résistance d'isolement : mesure hors tension, mégohmmètre, seuil ≥ 0,5 MΩ.",
+        "Impédance de boucle : mesure sous tension, compare au calibre du dispositif de protection.",
+        "Thermographie : sous charge, détecte les points chauds, exige un thermographe qualifié pour l'interprétation.",
+        "Les trois mesures sont complémentaires et documentées.",
+      ],
+      forbiddenPoints: [
+        "Mesurer la résistance d'isolement sur un circuit sous tension.",
+        "Interpréter seul une thermographie sans qualification thermographe.",
+        "Utiliser un mégohmmètre 500 V sur un circuit avec des variateurs connectés.",
+      ],
+      legalRefs: [
+        "NF C 15-100 § 612 — vérification des installations neuves (isolement, protection).",
+        "NF EN 61010-1 — catégories de surtension des appareils de mesure.",
+        "Guide UTE C 15-900 — vérifications des installations électriques.",
+        "NF EN 13187 / ISO 6781 — thermographie des enveloppes de bâtiments (référence croisée pour la méthode thermographique).",
+      ],
+      practicalCase:
+        "Exemple : lors d'une visite de maintenance préventive, le BR mesure l'impédance de boucle d'un départ éclairage 16 A. Il obtient Zs = 1,2 Ω. Le disjoncteur C16 exige Zs ≤ 1,44 Ω pour déclencher en 0,4 s. Le résultat est limite : le BR le documente, signale la situation et recommande une vérification des connexions.",
+      scenarios: [
+        {
+          situation:
+            "Vous êtes habilité BR et devez mesurer la résistance d'isolement d'un circuit de prises de courant 230 V. En préparant votre intervention, vous réalisez que ce circuit alimente aussi un variateur de vitesse 7,5 kW raccordé en permanence.",
+          question:
+            "Comment gérez-vous la présence du variateur avant de réaliser la mesure de résistance d'isolement ?",
+          wrongActions: [
+            "Appliquer la tension de test 500 V directement : le variateur est conçu pour la BT.",
+            "Réduire la tension de test à 100 V pour préserver le variateur.",
+            "Réaliser la mesure rapidement sans déconnecter : les variateurs modernes résistent aux transitoires.",
+          ],
+          correctActions: [
+            "Déconnecter le variateur de vitesse du circuit avant d'appliquer la tension de test du mégohmmètre.",
+            "Identifier tous les équipements électroniques raccordés sur le circuit et les déconnecter.",
+            "Documenter les équipements déconnectés pour permettre leur reconnexion après la mesure.",
+          ],
+          explanation:
+            "Les mégohmmètres appliquent une tension continue de 500 V à 1 000 V pour tester l'isolement. Cette tension peut claquer les condensateurs de filtrage et les composants d'entrée des variateurs, onduleurs et automates. Tous les équipements électroniques doivent être déconnectés avant la mesure.",
+          normRef: "NF C 15-100 § 612.3.2 — résistance d'isolement des installations",
+        },
+        {
+          situation:
+            "Lors d'une intervention de maintenance, vous mesurez l'impédance de boucle d'un départ prise 16 A (disjoncteur type B). Vous obtenez Zs = 0,45 Ω. La valeur limite pour un B16 est Zs ≤ 1,15 Ω. Votre responsable vous demande si l'installation est conforme.",
+          question:
+            "Comment interpréter ce résultat et que communiquez-vous à votre responsable ?",
+          wrongActions: [
+            "Signaler que l'installation est non conforme car 0,45 est différent de 1,15.",
+            "Considérer que le résultat est bon sans l'analyser davantage.",
+            "Refuser de communiquer sur les résultats car ce n'est pas dans votre rôle de BR.",
+          ],
+          correctActions: [
+            "Indiquer que le résultat de 0,45 Ω est inférieur à la limite de 1,15 Ω : la protection est efficace, le départ est conforme sur ce critère.",
+            "Préciser les conditions de mesure (charge présente, tension de mesure, température) dans votre rapport.",
+            "Souligner que la conformité d'une installation ne repose pas sur ce seul critère.",
+          ],
+          explanation:
+            "Une faible impédance de boucle est favorable : elle permet un courant de défaut élevé qui déclenche rapidement le dispositif de protection. Le résultat est conforme si Zs est inférieur à la valeur limite du dispositif de protection installé. La documentation des conditions de mesure est indispensable pour que le résultat soit exploitable.",
+          normRef: "NF C 15-100 § 411.4 — protection par coupure automatique de l'alimentation en schéma TN",
+        },
+        {
+          situation:
+            "Lors d'une campagne de maintenance thermographique dans un TGBT, vous observez sur la caméra infrarouge un écart de température de +48 °C sur le bornier de l'arrivée d'un disjoncteur de 63 A, par rapport aux borniers adjacents qui sont à la température ambiante. La charge est à 55 % de la valeur nominale.",
+          question:
+            "Comment qualifier cet écart et quelle suite donner à cette observation ?",
+          wrongActions: [
+            "Considérer que c'est normal car le disjoncteur est sous charge.",
+            "Retarder le signalement à la prochaine visite annuelle.",
+            "Remplacer immédiatement le disjoncteur sans traçabilité.",
+          ],
+          correctActions: [
+            "Classer l'anomalie comme sérieuse (écart > 40 °C sous charge < 100 %) selon les référentiels thermographiques courants.",
+            "Documenter l'image infrarouge, la charge au moment de la mesure, la température ambiante et la localisation précise.",
+            "Signaler immédiatement l'anomalie au responsable de maintenance pour programmer une vérification des connexions et un serrage dans les meilleurs délais.",
+          ],
+          explanation:
+            "Un écart de +48 °C sur un bornier sous 55 % de charge est un indicateur d'anomalie sérieuse, probablement un défaut de connexion (desserrage, oxydation, mauvais contact). Ce niveau d'échauffement peut conduire au claquage de l'isolant, à un départ de feu ou à une mise en défaut. La thermographie permet de détecter ce type de défaut avant la défaillance.",
+          normRef: "Guide UTE C 15-900 — classification des anomalies thermographiques en installations électriques BT",
+        },
+        {
+          situation:
+            "Vous êtes BR et votre client vous demande de rédiger un rapport thermographique formel avec classification des anomalies, selon la norme de référence, pour transmission à son assureur.",
+          question:
+            "Pouvez-vous rédiger seul ce rapport thermographique en tant que BR ?",
+          wrongActions: [
+            "Rédiger le rapport car vous avez réalisé les mesures vous-même.",
+            "Établir le rapport en indiquant un niveau de qualification thermographe que vous n'avez pas.",
+            "Remettre les images brutes en indiquant que c'est suffisant pour l'assureur.",
+          ],
+          correctActions: [
+            "Indiquer clairement à votre client que la rédaction d'un rapport thermographique certifiable nécessite l'intervention d'un thermographe qualifié (niveau 1 minimum selon ISO 18436-7).",
+            "Transmettre vos observations et images au thermographe qualifié qui rédige le rapport formel.",
+            "Si nécessaire, proposer de solliciter un thermographe certifié dans le cadre de la prestation.",
+          ],
+          explanation:
+            "La mesure thermographique de terrain peut être conduite par un BR formé à cet outil, mais l'interprétation formelle et la rédaction d'un rapport certifiable (notamment pour des assureurs ou des organismes de contrôle) relève d'un thermographe qualifié selon ISO 18436-7. Dépasser son périmètre de compétence engage la responsabilité civile et professionnelle.",
+          normRef: "ISO 18436-7 — qualification des thermographes industriels",
+        },
+      ],
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-mesures-br.svg",
+      chapterImageAlt:
+        "Instruments de mesure électrique BR : mégohmmètre, ohmmètre de boucle et caméra thermique",
+      visual: {
+        title: "Trois outils du diagnostic terrain BR",
+        subtitle:
+          "Résistance d'isolement, impédance de boucle et thermographie : trois mesures complémentaires pour qualifier l'état d'une installation.",
+        items: [
+          "Résistance d'isolement (hors tension)",
+          "Impédance de boucle (sous tension)",
+          "Thermographie (sous charge)",
+          "Documentation systématique",
+        ],
+        tone: "green",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-mesures-br.svg",
+      },
+    },
+    {
       id: "synthese",
-      title: "14. Synthèse opérationnelle",
+      title: "17. Synthèse opérationnelle",
       estimatedMinutes: 20,
       intro:
         "La maîtrise des habilitations B1, B1V, B2, B2V, BR et BC repose sur la clarte des rôles, la préparation méthodique et la rigueur face au risque électrique.",

@@ -259,6 +259,12 @@ export default async function AdminPage({
               >
                 Mot de passe
               </Link>
+              <Link
+                href="/admin/quiz-analytics"
+                className="inline-flex items-center rounded-xl border border-indigo-300 bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 transition hover:bg-indigo-100"
+              >
+                Analytics quiz
+              </Link>
             </div>
           </div>
         </div>

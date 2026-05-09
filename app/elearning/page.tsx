@@ -389,6 +389,92 @@ const inrsSelections = [
   },
 ];
 
+const habilitationPath = [
+  {
+    symbol: "H0B0 / H0V",
+    label: "Personnel non électricien",
+    description:
+      "Sensibilisation au risque électrique pour toute personne évoluant dans un environnement électrique sans réaliser d'opérations électriques.",
+    keyPoints: [
+      "Aucune intervention sur installation",
+      "Respect des zones et distances",
+      "Conduite à tenir en cas d'accident",
+    ],
+    slug: "h0b0",
+    availability: "",
+    colors: {
+      wrapper: "border-slate-200 bg-slate-50",
+      badge: "bg-slate-800 text-white",
+      dot: "bg-slate-600",
+      cta: "bg-slate-900 text-white hover:bg-slate-800",
+      tag: "text-slate-500",
+    },
+  },
+  {
+    symbol: "BS / BE Manœuvre",
+    label: "Non-électricien — actes simples autorisés",
+    description:
+      "Personnel non électricien autorisé à réaliser des remplacements simples (BS) ou des manœuvres d'exploitation sur ordre (BE), dans un cadre strictement limité par la norme.",
+    keyPoints: [
+      "BS : remplacement à l'identique hors tension",
+      "BE : manœuvre sur organe identifié, sur ordre",
+      "VAT avant toute intervention BS",
+      "Arrêt immédiat si situation imprévue",
+    ],
+    slug: "bs-be-manœuvre",
+    availability: "",
+    colors: {
+      wrapper: "border-blue-200 bg-blue-50",
+      badge: "bg-blue-600 text-white",
+      dot: "bg-blue-600",
+      cta: "bg-blue-700 text-white hover:bg-blue-800",
+      tag: "text-blue-500",
+    },
+  },
+  {
+    symbol: "B1 / B1V",
+    label: "Exécutant électricien",
+    description:
+      "Réalisation de travaux électriques en BT sous la direction d'un chargé de travaux habilité B2.",
+    keyPoints: [
+      "Travaux sous direction B2",
+      "Respect du cadre de travail",
+      "Identification du voisinage",
+      "Arrêt en cas d'écart",
+    ],
+    slug: null,
+    availability: "Inclus avec la formation présentielle",
+    colors: {
+      wrapper: "border-green-200 bg-green-50",
+      badge: "bg-green-600 text-white",
+      dot: "bg-green-600",
+      cta: "",
+      tag: "text-green-700",
+    },
+  },
+  {
+    symbol: "B2 / B2V",
+    label: "Chargé de travaux",
+    description:
+      "Direction des travaux électriques en BT, analyse des risques, délivrance des autorisations de travail et responsabilité de l'équipe.",
+    keyPoints: [
+      "Direction des travaux BT",
+      "Analyse de risque préalable",
+      "Délivrance des ATT",
+      "Levée des consignations",
+    ],
+    slug: null,
+    availability: "Inclus avec la formation présentielle",
+    colors: {
+      wrapper: "border-amber-200 bg-amber-50",
+      badge: "bg-amber-500 text-slate-950",
+      dot: "bg-amber-500",
+      cta: "",
+      tag: "text-amber-700",
+    },
+  },
+] as const;
+
 export default function ElearningPage() {
   return (
     <main className="min-h-screen bg-slate-50">
@@ -885,6 +971,78 @@ export default function ElearningPage() {
                   Voir la selection INRS
                 </a>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-[0.24em] text-red-600">
+            Parcours habilitation électrique
+          </p>
+          <h2 className="mt-3 text-3xl font-bold text-slate-900">
+            De H0B0 à B2 : une progression pédagogique structurée
+          </h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-600">
+            Les habilitations NF C 18-510 suivent une logique de responsabilité
+            croissante, du personnel non électricien jusqu&apos;au chargé de travaux.
+            Chaque niveau conditionne les opérations autorisées et les mesures
+            de prévention associées.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {habilitationPath.map((level, index) => (
+              <div key={level.symbol} className="relative flex flex-col">
+                {index < habilitationPath.length - 1 ? (
+                  <div className="absolute right-0 top-10 hidden h-0.5 w-6 translate-x-full bg-slate-200 lg:block" />
+                ) : null}
+                <div
+                  className={`flex-1 rounded-[1.5rem] border p-5 ${level.colors.wrapper}`}
+                >
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] ${level.colors.badge}`}
+                  >
+                    Niveau {index + 1}
+                  </span>
+                  <p className="mt-3 text-2xl font-black tracking-tight text-slate-950">
+                    {level.symbol}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-slate-800">
+                    {level.label}
+                  </p>
+                  <p className="mt-3 text-xs leading-5 text-slate-600">
+                    {level.description}
+                  </p>
+                  <ul className="mt-4 space-y-1.5">
+                    {level.keyPoints.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-2 text-xs text-slate-700"
+                      >
+                        <span
+                          className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${level.colors.dot}`}
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  {level.slug ? (
+                    <Link
+                      href={`/modules/${level.slug}`}
+                      className={`mt-5 inline-flex w-full items-center justify-center rounded-2xl px-3 py-2 text-xs font-semibold transition hover:-translate-y-0.5 ${level.colors.cta}`}
+                    >
+                      Accéder au module →
+                    </Link>
+                  ) : (
+                    <p
+                      className={`mt-5 text-center text-xs font-semibold ${level.colors.tag}`}
+                    >
+                      {level.availability}
+                    </p>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
         </div>

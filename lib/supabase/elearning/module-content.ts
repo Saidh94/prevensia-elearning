@@ -228,7 +228,7 @@ export const modulesContent: Record<string, ModuleContent> = {
    content: [
   "La norme NF C 18-510 organise le risque autour de zones d’environnement électrique définies par des distances de sécurité autour des pièces nues sous tension. Ces distances permettent de prévenir le risque de contact direct mais également, en haute tension, le risque d’amorçage électrique à distance.",
 
-  "Plusieurs distances normatives structurent ces zones : la DLI (Distance Limite d’Intervention), la DLVS (Distance Limite de Voisinage Simple) et la DLVR (Distance Limite de Voisinage Renforcé). Ces distances ne sont pas arbitraires : elles dépendent du domaine de tension et des conditions d’exploitation.",
+  "Plusieurs distances normatives structurent ces zones : la DLI (Distance Limite d’Investigation), la DLVS (Distance Limite de Voisinage Simple) et la DLVR (Distance Limite de Voisinage Renforcé). Ces distances ne sont pas arbitraires : elles dépendent du domaine de tension et des conditions d’exploitation.",
 
   "La DLI correspond à la limite à partir de laquelle une opération sur l’installation électrique devient possible uniquement par du personnel habilité pour des opérations d’ordre électrique. La DLVS matérialise la zone de voisinage simple, dans laquelle le risque devient significatif. La DLVR correspond à une zone de danger renforcé, notamment en haute tension, où le risque d’arc électrique est présent.",
 
