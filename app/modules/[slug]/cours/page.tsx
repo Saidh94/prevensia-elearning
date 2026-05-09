@@ -695,8 +695,47 @@ const H0B0_CHAPTERS: Chapter[] = [
     ],
   },
   {
+    key: "classes-materiels-ip",
+    title: "Chapitre 18 — Classes des matériels et indices de protection IP",
+    subtitle:
+      "Reconnaître la classe d'un équipement électrique et lire un indice IP pour évaluer le risque et adopter le bon comportement",
+    minSeconds: 240,
+    image: "/elearning/bsbe/bsbe-classes-materiels.svg",
+    imageAlt: "Tableau des 4 classes de matériels électriques — Classe 0, I, II, III",
+    highlights: [
+      "La classe 0 est interdite en milieu professionnel en France : signaler immédiatement.",
+      "L'indice IP indique le niveau de protection contre les solides et les liquides.",
+      "IP2X sur les parties actives est le seuil minimum en basse tension.",
+    ],
+    content: [
+      "Les matériels électriques sont classés en quatre catégories selon leur niveau de protection intrinsèque contre le risque d'électrocution. Cette classification, définie par la norme NF EN 61140, est lisible sur la plaque signalétique ou dans la documentation du matériel.",
+      "La classe 0 ne possède qu'une isolation principale, sans protection supplémentaire. Elle est interdite en milieu professionnel en France. Si un titulaire B0 / H0 rencontre un matériel classe 0 en service, il doit le signaler et ne pas l'utiliser.",
+      "La classe I est la plus répandue dans les environnements professionnels. Elle combine une isolation principale et une mise à la terre de toutes les masses métalliques via un conducteur PE. Ces matériels utilisent une fiche 3 broches (la troisième broche assure la mise à la terre). En cas de défaut d'isolement, le courant est dévié vers la terre et le disjoncteur différentiel déclenche.",
+      "La classe II dispose d'une double isolation ou d'une isolation renforcée. Elle ne nécessite pas de mise à la terre. Ces matériels portent le symbole d'un carré inscrit dans un autre carré (□□). Outils portatifs, appareils électroménagers courants, certains luminaires. Ne jamais tenter de brancher une prise de terre sur un matériel classe II : il n'est pas conçu pour.",
+      "La classe III fonctionne sous très basse tension de sécurité (TBTS), soit 50 V alternatif maximum ou 120 V continu. Lampes LED 12 V, jouets, certains équipements médicaux. Le risque d'électrocution est intrinsèquement limité par la tension d'alimentation.",
+      "L'indice de protection IP (norme NF EN 60529) indique à quel point un équipement est protégé contre la pénétration de corps étrangers solides (premier chiffre, de 0 à 6) et de liquides (second chiffre, de 0 à 8). Une lettre additionnelle optionnelle précise la protection des personnes contre l'accès aux parties dangereuses.",
+      "Pour le titulaire B0 / H0, la lecture de l'indice IP sert principalement à évaluer si l'enveloppe du matériel offre une protection suffisante : un IP2X ou IPXXB signifie qu'un doigt ne peut pas atteindre les parties actives. C'est le seuil minimum requis en basse tension. En dessous de ce seuil, le risque de contact direct existe dès que l'enveloppe est approchée.",
+      "En pratique, le titulaire B0 / H0 n'intervient jamais sur l'installation. Mais connaître ces notions lui permet de comprendre pourquoi certaines enveloppes doivent rester fermées, pourquoi une armoire dégradée ou ouverte devient immédiatement dangereuse, et pourquoi le choix de l'emplacement d'un matériel (intérieur sec, extérieur exposé) est régi par des règles précises.",
+    ],
+    essentials: [
+      "Classe 0 : isolation simple uniquement — INTERDITE en milieu professionnel.",
+      "Classe I : isolation + mise à la terre (prise 3 broches) — la plus courante.",
+      "Classe II : double isolation, symbole □□ — pas de mise à la terre.",
+      "Classe III : TBTS ≤ 50 V AC — tension intrinsèquement sûre.",
+      "IP 1er chiffre = corps solides, 2e chiffre = liquides.",
+      "IP2X = doigt ne peut pas atteindre les parties actives — seuil minimal BT.",
+      "Enveloppe ouverte ou dégradée = perte de la protection IP → danger immédiat.",
+    ],
+    references: [
+      { label: "NF EN 61140 — classification des classes de protection des matériels électriques" },
+      { label: "NF EN 60529 — degrés de protection IP" },
+      { label: "NF C 18-510 — conditions d'accès et de protection en présence du risque électrique" },
+    ],
+  },
+
+  {
     key: "summary",
-    title: "Chapitre 18 — Synthèse opérationnelle",
+    title: "Chapitre 19 — Synthèse opérationnelle",
     subtitle:
       "Consolider les réflexes essentiels avant l’évaluation finale et fixer les règles à retenir durablement",
     minSeconds: 180,

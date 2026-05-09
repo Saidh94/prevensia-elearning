@@ -607,9 +607,65 @@ export const bsbeModuleContent: ModuleContent = {
     },
 
     {
+      id: "classes-materiels-ip",
+      title:
+        "8. Classes des matériels électriques et indices de protection IP",
+      estimatedMinutes: 20,
+      intro:
+        "Avant d'intervenir sur un équipement, le titulaire BS doit savoir identifier sa classe de protection intrinsèque et lire son indice IP. Ces deux informations conditionnent directement le type d'intervention autorisé.",
+      content: [
+        "Les matériels électriques sont classés en quatre catégories selon leur niveau de protection intrinsèque contre le risque de contact électrique. Cette classification est définie par la norme NF EN 61140.",
+        "La classe 0 correspond à une isolation principale uniquement, sans aucune protection supplémentaire. Elle est interdite en milieu professionnel en France : si un opérateur BS rencontre un tel matériel, il doit le signaler immédiatement sans l'utiliser.",
+        "La classe I dispose d'une isolation principale complétée par une mise à la terre de toutes les masses métalliques. En cas de défaut d'isolement, le courant de fuite est détecté par le disjoncteur différentiel et le circuit est coupé. Ces matériels utilisent une fiche 3 broches. C'est la classe la plus courante en milieu professionnel.",
+        "La classe II possède une double isolation ou une isolation renforcée. Aucune mise à la terre n'est nécessaire ni prévue. Ces matériels portent le symbole d'un carré inscrit dans un autre carré (□□). L'opérateur BS ne doit jamais connecter une prise de terre sur un matériel classe II.",
+        "La classe III fonctionne sous très basse tension de sécurité (TBTS) : 50 V alternatif maximum ou 120 V continu. Elle est utilisée pour les jouets, les lampes LED 12 V, certains appareils médicaux. Le risque d'électrocution y est intrinsèquement limité.",
+        "L'indice de protection IP (Ingress Protection) est défini par la norme NF EN 60529. Il indique le degré de protection d'un équipement contre la pénétration de corps solides (premier chiffre) et de liquides (second chiffre). Une lettre additionnelle optionnelle précise la protection des personnes contre l'accès aux parties dangereuses.",
+        "Le premier chiffre IP va de 0 (aucune protection) à 6 (étanche aux poussières). Le chiffre 2 signifie que les doigts ne peuvent pas atteindre les parties dangereuses — c'est le seuil minimum en BT (IP 2X). Le chiffre 4 protège contre les corps solides supérieurs à 1 mm.",
+        "Le second chiffre IP va de 0 (aucune protection) à 8 (immersion prolongée). Le chiffre 4, très courant en extérieur, signifie protection contre les projections d'eau de toutes directions. Le chiffre 3 ne couvre que les aspersions jusqu'à 60°, insuffisant en extérieur exposé.",
+        "La lettre additionnelle A, B, C ou D précise la protection des personnes : A (main ≥ 50 mm), B (doigt ≥ 12,5 mm), C (outil ≥ 2,5 mm), D (fil ≥ 1 mm). La lettre C est fréquente sur les armoires accessibles avec des outils.",
+        "Pour le titulaire BS, la règle opérationnelle est simple : un matériel IP2X ou IPXXB sur les parties actives permet un remplacement sous tension par du personnel formé non habilité (NF C 18-510 § 10). Tout matériel sans cette protection impose la mise hors tension avant toute intervention.",
+      ],
+      keyPoints: [
+        "Classe 0 : isolation simple — INTERDITE en milieu professionnel.",
+        "Classe I : isolation + mise à la terre — la plus courante (prise 3 broches).",
+        "Classe II : double isolation, symbole □□ — pas de mise à la terre.",
+        "Classe III : TBTS ≤ 50 V AC — très basse tension de sécurité.",
+        "IP 1er chiffre = corps solides, 2e chiffre = liquides, lettre = personnes.",
+        "IP 2X minimum en BT = doigt ne peut pas atteindre les parties actives.",
+        "IP2X sur parties actives → remplacement possible sous tension (personnel formé non habilité).",
+        "Sans IP2X → mise hors tension et habilitation BS obligatoires.",
+      ],
+      forbiddenPoints: [
+        "Mettre à la terre un matériel classe II (pas de conducteur PE prévu).",
+        "Utiliser ou laisser en service un matériel classe 0.",
+        "Intervenir sous tension sur un matériel sans indice IP2X avéré.",
+      ],
+      legalRefs: [
+        "NF EN 61140 — classification des classes de protection des matériels",
+        "NF EN 60529 — degrés de protection IP",
+        "NF C 18-510 § 10 — conditions d'intervention sur matériels IP2X",
+      ],
+      visual: {
+        title: "Classes des matériels électriques",
+        subtitle: "Norme NF EN 61140 — 4 classes selon le niveau de protection intrinsèque.",
+        imagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+        imageAlt: "Tableau des 4 classes de matériels électriques — Classe 0, I, II, III",
+        tone: "blue",
+        items: [
+          "Classe 0 : isolation simple — interdite en France",
+          "Classe I : isolation + PE (prise 3 broches)",
+          "Classe II : double isolation, symbole □□",
+          "Classe III : TBTS ≤ 50 V AC / 120 V DC",
+        ],
+      },
+      chapterImagePath: "/elearning/bsbe/bsbe-ip.svg",
+      chapterImageAlt: "Structure de l'indice de protection IP — premier chiffre corps solides, second chiffre liquides",
+    },
+
+    {
       id: "operations-bs",
       title:
-        "8. Opérations BS : remplacement simple et raccordement élémentaire",
+        "9. Opérations BS : remplacement simple et raccordement élémentaire",
       estimatedMinutes: 20,
       intro:
         "Le cœur du symbole BS est ici : intervenir uniquement sur des opérations élémentaires prévues, identifiées, hors tension et strictement encadrées par les consignes de l’employeur.",
@@ -685,7 +741,7 @@ export const bsbeModuleContent: ModuleContent = {
     {
       id: "procedure-bs-mise-hors-tension-vat",
       title:
-        "9. Procédure BS : mise hors tension pour son propre compte, VAT et documents",
+        "10. Procédure BS : mise hors tension pour son propre compte, VAT et documents",
       estimatedMinutes: 18,
       intro:
         "Le BS doit comprendre la logique de mise en sécurité sans être confondu avec un chargé de consignation BC. Cette partie clarifie la mise hors tension pour son propre compte, la vérification adaptée et les documents de travail.",
@@ -794,7 +850,7 @@ export const bsbeModuleContent: ModuleContent = {
     {
       id: "operations-be-manoeuvre",
       title:
-        "10. Opérations BE Manœuvre : réarmement, ouverture, fermeture, basculement",
+        "11. Opérations BE Manœuvre : réarmement, ouverture, fermeture, basculement",
       estimatedMinutes: 18,
       intro:
         "La manœuvre doit être enseignée comme un acte d’exploitation encadré, jamais comme un prétexte à dépanner ou à investiguer.",
@@ -854,7 +910,7 @@ export const bsbeModuleContent: ModuleContent = {
     {
       id: "limites-bsbe",
       title:
-        "11. Savoir dire non : limites BS / BE Manœuvre et bascule vers BR ou travaux",
+        "12. Savoir dire non : limites BS / BE Manœuvre et bascule vers BR ou travaux",
       estimatedMinutes: 15,
       intro:
         "Le BS et le BE Manœuvre donnent un cadre d’action limité. L’opérateur doit savoir reconnaître immédiatement les situations qui sortent de ce cadre et imposent un arrêt, une requalification ou l’appel à un autre niveau d’habilitation.",
@@ -977,7 +1033,7 @@ export const bsbeModuleContent: ModuleContent = {
     {
       id: "epi-epc-environnement",
       title:
-        "12. EPI, EPC, environnement de travail et préalables à respecter",
+        "13. EPI, EPC, environnement de travail et préalables à respecter",
       estimatedMinutes: 12,
       intro:
         "La prévention ne se limite pas au bon geste. Elle repose aussi sur l’environnement, les protections collectives, les protections individuelles et l’état apparent du matériel.",
@@ -1052,7 +1108,7 @@ export const bsbeModuleContent: ModuleContent = {
 
     {
       id: "synthese-pedagogique",
-      title: "13. Synthèse pédagogique",
+      title: "14. Synthèse pédagogique",
       estimatedMinutes: 10,
       intro:
         "Ce chapitre consolide les acquis avant la fin du parcours. L’objectif n’est pas de répéter mécaniquement les définitions, mais de vérifier que l’apprenant sait raisonner dans une situation réelle BS / BE Manœuvre : identifier le cadre, reconnaître les limites, refuser l’improvisation et transmettre en cas de doute.",
@@ -1115,7 +1171,7 @@ export const bsbeModuleContent: ModuleContent = {
     {
       id: "incendie-urgence",
       title:
-        "14. Incident, incendie électrique et premiers secours",
+        "15. Incident, incendie électrique et premiers secours",
       estimatedMinutes: 12,
       intro:
         "Un titulaire BS / BE Manœuvre doit savoir arrêter l’action dès qu’une anomalie, un début d’incendie ou un accident électrique modifie les conditions de sécurité prévues.",
@@ -1191,7 +1247,7 @@ export const bsbeModuleContent: ModuleContent = {
 
     {
       id: "installations-anciennes",
-      title: "15. Installations anciennes : reconnaître et s'arrêter",
+      title: "16. Installations anciennes : reconnaître et s'arrêter",
       estimatedMinutes: 10,
       intro:
         "La NF C 18-510 § 10.4.1 limite strictement le BS au remplacement à l'identique d'une prise, d'un interrupteur, d'une lampe ou d'un fusible BT, et au raccordement d'un circuit en attente. Toute autre opération est exclue. Ce chapitre donne les signaux visuels que le BS peut rencontrer lors de ces opérations limitées, et pour lesquels la bonne réponse est unique : arrêter et signaler.",
@@ -1303,7 +1359,7 @@ export const bsbeModuleContent: ModuleContent = {
     },
     {
       id: "synthese-operationnelle",
-      title: "16. Synthèse opérationnelle",
+      title: "17. Synthèse opérationnelle",
       estimatedMinutes: 10,
       intro:
         "Ce dernier chapitre fixe les réflexes opérationnels à retenir avant l’évaluation finale. L’objectif est que l’apprenant reparte avec une méthode simple, utilisable sur le terrain, pour agir uniquement lorsque le cadre BS / BE Manœuvre est clair, autorisé et maîtrisé.",
