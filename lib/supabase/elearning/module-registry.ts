@@ -49,6 +49,19 @@ const MODULE_ALIASES: Record<string, string[]> = {
   sst: ["sst"],
   incendie: ["incendie", "securite-incendie"],
   "ssi-exploitation": ["ssi-exploitation", "ssi_exploitation", "ssi"],
+  "habilitation-vehicules": [
+    "habilitation-vehicules",
+    "habilitation_vehicules",
+    "vehicules-engins",
+    "vehicules",
+    "nfc18-550",
+    "nf-c-18-550",
+    "b0l",
+    "b1l",
+    "b2l",
+    "habilitation-ve",
+    "elec-vehicules",
+  ],
 };
 
 function normalizeSlugKey(value: string | null | undefined): string {

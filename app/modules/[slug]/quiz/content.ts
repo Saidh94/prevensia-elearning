@@ -2837,6 +2837,119 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "Le triangle du feu : combustible (matière qui brûle) + comburant (oxygène) + source d'inflammation. Supprimer un sommet supprime le feu.",
     },
+    {
+      question:
+        "Quel article du Code du travail impose à l'employeur d'organiser une formation à la prévention du risque incendie pour ses salariés ?",
+      choices: [
+        "R4227-39",
+        "L4121-1",
+        "R4216-1",
+        "L2281-1",
+      ],
+      answer: [0],
+      explanation:
+        "L'article R4227-39 fixe le contenu de la formation incendie et impose sa réalisation au moins annuellement, en précisant le rôle de chacun en cas d'incendie.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Parmi les causes industrielles d'incendie, lesquelles sont les plus fréquentes dans les locaux de travail ?",
+      choices: [
+        "Installation électrique en mauvais état ou dépourvue de protection (fusible, disjoncteur)",
+        "Projection de particules en fusion (disqueuse, tronçonneuse, soudure)",
+        "Électricité statique non dissipée",
+        "Erreur de conception du plan d'évacuation",
+      ],
+      answer: [0, 1, 2],
+      multiple: true,
+      explanation:
+        "Les causes industrielles majeures sont les défauts d'installation électrique, la projection de particules en fusion lors de travaux par points chauds et l'électricité statique. La conception du plan d'évacuation relève de l'organisation, non d'une cause d'incendie.",
+      timeLimit: 60,
+    },
+    {
+      question:
+        "À quelle distance minimale d'attaque doit-on se placer pour utiliser un extincteur à eau ou à poudre face à un feu ?",
+      choices: [
+        "Entre 1,5 m et 2,5 m",
+        "Moins de 0,5 m pour maximiser l'efficacité",
+        "Plus de 5 m pour des raisons de sécurité",
+        "À la même distance quelle que soit la taille du feu",
+      ],
+      answer: [0],
+      explanation:
+        "La distance d'attaque recommandée est de 1,5 à 2,5 m. En extérieur, on se positionne de profil pour éviter la chaleur rayonnante. Se placer trop près expose aux retours de flamme.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quelle est la durée approximative de fonctionnement d'un extincteur CO₂ de 2 kg ?",
+      choices: [
+        "Environ 8 secondes",
+        "Environ 30 secondes",
+        "Environ 2 minutes",
+        "Environ 5 minutes",
+      ],
+      answer: [0],
+      explanation:
+        "Un extincteur CO₂ de 2 kg a une durée de fonctionnement d'environ 8 secondes. La courte durée impose d'agir sans hésiter dès le début du feu.",
+      timeLimit: 35,
+    },
+    {
+      question:
+        "Pour quels types de feux l'extincteur CO₂ (dioxyde de carbone) est-il particulièrement adapté ?",
+      choices: [
+        "Feux en présence d'installations électriques sous tension",
+        "Feux de matières solides avec braises (classe A)",
+        "Feux de métaux (classe D)",
+        "Feux de cuisines (huiles et graisses, classe F)",
+      ],
+      answer: [0],
+      explanation:
+        "Le CO₂ est l'agent extincteur de référence pour les feux électriques (transformateurs, tableaux, ordinateurs) car il est non conducteur et ne laisse aucun résidu. Il est peu adapté aux feux de classe A car il ne refroidit pas.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Les colonnes sèches et colonnes humides implantées dans les bâtiments sont destinées à :",
+      choices: [
+        "Faciliter l'intervention des sapeurs-pompiers en amenant l'eau rapidement à tous les niveaux",
+        "Alimenter les extincteurs automatiques (sprinklers) du bâtiment",
+        "Servir de réservoir d'eau de secours pour les occupants",
+        "Remplacer les robinets d'incendie armés (RIA) dans les ERP",
+      ],
+      answer: [0],
+      explanation:
+        "Les colonnes sèches (alimentées par les pompiers à l'extérieur) et humides (sous pression permanente) sont des tuyauteries fixes et rigides destinées à faciliter l'acheminement de l'eau à tous les niveaux du bâtiment par les sapeurs-pompiers.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quelle norme certifie la conformité d'un extincteur portatif, matérialisée par une estampille argentée NF ?",
+      choices: [
+        "NF EN 3",
+        "NF EN 54",
+        "NF S 61-970",
+        "NF C 15-100",
+      ],
+      answer: [0],
+      explanation:
+        "La norme NF EN 3 régit les extincteurs portatifs. L'estampille argentée NF, délivrée par AFNOR, atteste la conformité à cette norme et aux exigences complémentaires techniques.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Lors d'une brûlure thermique grave (cloques, zones blanches ou noires), quelle conduite à tenir est correcte ?",
+      choices: [
+        "Refroidir avec de l'eau tempérée (15-25 °C) pendant 5 à 10 min, puis alerter les secours sans retirer les vêtements collés",
+        "Percer les cloques pour évacuer le liquide et appliquer un antiseptique",
+        "Enduire de beurre ou de crème hydratante pour calmer la douleur",
+        "Appliquer de la glace directement sur la brûlure pour arrêter la progression",
+      ],
+      answer: [0],
+      explanation:
+        "Le refroidissement à l'eau tempérée (ni froide, ni glacée) pendant au minimum 5 min limite l'extension en profondeur. On ne perce jamais les cloques, on n'applique rien de gras et on ne retire pas les vêtements collés. Pour une brûlure grave, alerter rapidement les secours.",
+      timeLimit: 55,
+    },
   ],
   "ssi-exploitation": [
     {
@@ -4516,6 +4629,274 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "En haute tension, l'arc électrique peut se produire à distance (jusqu'à plusieurs dizaines de centimètres selon la tension), et le 'pas de tension' (gradient de potentiel au sol) expose toute personne approchant la zone à un risque d'électrisation ascendante. Il faut rester loin, ne pas approcher, alerter le gestionnaire du réseau (ENEDIS, RTE) et attendre la mise hors tension confirmée avant toute intervention.",
       timeLimit: 50,
+    },
+    {
+      question:
+        "Quelle est la définition légale de l'accident du travail selon le Code de la Sécurité sociale ?",
+      choices: [
+        "Tout accident survenu par le fait ou à l'occasion du travail, quelle qu'en soit la cause",
+        "Uniquement les accidents provoquant un arrêt de travail supérieur à 3 jours",
+        "Les seuls accidents survenant dans les ateliers ou zones de production",
+        "Les accidents dont la cause est directement liée à une faute du salarié",
+      ],
+      answer: [0],
+      explanation:
+        "L'article L411-1 du Code de la Sécurité sociale définit l'AT comme « tout accident survenu par le fait ou à l'occasion du travail à toute personne salariée ». La cause et la gravité n'ont pas d'importance pour la qualification.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Une victime consciente déclare faire régulièrement des malaises vagaux et présente des nausées, sueurs et sensation de perte de conscience imminente. Quelle est la conduite à tenir ?",
+      choices: [
+        "L'inviter à réaliser une manœuvre physique (croiser les jambes, serrer les mains) pour éviter la syncope",
+        "L'allonger immédiatement à plat sur le sol et appeler le 15",
+        "Ne rien faire et observer jusqu'à la perte de conscience",
+        "Lui donner un verre d'eau sucrée et attendre",
+      ],
+      answer: [0],
+      explanation:
+        "Face à un malaise vagal annoncé, les manœuvres physiques de contrepression (croiser les jambes en position debout, serrer les mains, contracter les bras) augmentent le retour veineux et peuvent prévenir la syncope. L'allongement est une option si les manœuvres échouent.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Une victime présente une plaie simple (petite, propre, sans corps étranger). Quelle est la séquence correcte ?",
+      choices: [
+        "Se laver les mains → nettoyer la plaie à l'eau et au savon → désinfecter → protéger par un pansement",
+        "Appliquer directement un antiseptique sans rinçage préalable",
+        "Poser un garrot en amont de la plaie pour stopper toute saignée",
+        "Laisser la plaie à l'air libre sans pansement pour favoriser la cicatrisation",
+      ],
+      answer: [0],
+      explanation:
+        "La séquence pour une plaie simple : lavage des mains, nettoyage eau + savon, rinçage, désinfection selon les consignes du médecin du travail, protection par un pansement propre. Un antiseptique seul sans rinçage préalable est insuffisant.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Une victime présente une plaie grave (saignement important, corps étranger visible, plaie profonde ou au visage). Que ne faut-il surtout PAS faire ?",
+      choices: [
+        "Retirer le corps étranger et nettoyer la plaie avec de l'antiseptique",
+        "Protéger la plaie sans l'appuyer directement si présence de corps étranger",
+        "Alerter immédiatement les secours (15 ou 18)",
+        "Surveiller la victime et la rassurer en attendant les secours",
+      ],
+      answer: [0],
+      explanation:
+        "Un corps étranger planté NE doit JAMAIS être retiré par le SST : il peut obstruer un vaisseau et son retrait provoquerait une hémorragie massive. La plaie est protégée autour du corps étranger, sans pression directe dessus. Les secours sont alertés sans délai.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Pour la RCP d'un nourrisson ou d'un enfant de moins de 8 ans, quelle différence majeure s'applique par rapport à l'adulte ?",
+      choices: [
+        "Débuter par 5 insufflations initiales, puis alterner 15 compressions thoraciques et 2 insufflations",
+        "Réaliser exactement le même protocole que pour l'adulte (30 compressions + 2 insufflations)",
+        "Effectuer uniquement des compressions thoraciques sans insufflations",
+        "Utiliser exclusivement le DAE sans massage cardiaque",
+      ],
+      answer: [0],
+      explanation:
+        "Chez l'enfant (1-8 ans) et le nourrisson, la RCP débute par 5 insufflations initiales (primauté de l'oxygénation), puis alterne 15 compressions et 2 insufflations. Chez l'adulte, on part directement sur 30 compressions + 2 insufflations.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "En entreprise, quelle conduite à tenir le SST doit-il adopter face à une situation de violence ou d'attaque terroriste ?",
+      choices: [
+        "Appliquer en priorité les consignes définies par l'employeur pour le site, ou à défaut les consignes nationales (fuir, se cacher, alerter)",
+        "Intervenir immédiatement pour neutraliser la menace si possible",
+        "Évacuer l'ensemble du bâtiment selon la procédure incendie habituelle",
+        "Attendre que la situation se calme avant d'alerter les secours",
+      ],
+      answer: [0],
+      explanation:
+        "Face à une attaque terroriste ou une situation de violence, le SST respecte les consignes internes définies par l'employeur. En l'absence de consignes spécifiques, il applique les recommandations nationales : fuir si possible, se cacher et se mettre à l'abri, puis alerter le 17 ou le 112 en sécurité.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "En période épidémique (Covid-19, grippe…), comment le SST doit-il adapter sa conduite à tenir ?",
+      choices: [
+        "Respecter les consignes sanitaires nationales et les recommandations de l'INRS, et adapter les gestes de secours en conséquence",
+        "Suspendre tout geste de secours pour éviter la contamination",
+        "Réaliser les gestes habituels sans adaptation particulière",
+        "Appliquer uniquement les mesures barrières et ne pas toucher la victime",
+      ],
+      answer: [0],
+      explanation:
+        "En période épidémique, le SST adapte sa pratique aux consignes sanitaires (masque, gants, distance) et aux recommandations spécifiques de l'INRS sans renoncer aux gestes vitaux. Par exemple, pour une victime en arrêt cardiaque, la RCP est maintenue avec protection.",
+      timeLimit: 50,
+    },
+  ],
+  "habilitation-vehicules": [
+    {
+      question:
+        "Quelle norme réglemente spécifiquement l'habilitation électrique des opérations sur les véhicules et engins à énergie embarquée ?",
+      choices: [
+        "NF C 18-550",
+        "NF C 18-510",
+        "NF EN 61140",
+        "NF C 15-100",
+      ],
+      answer: [0],
+      explanation:
+        "La NF C 18-550 est dédiée aux opérations sur les véhicules et engins à énergie électrique embarquée. La NF C 18-510 s'applique aux installations électriques fixes. Ces deux normes coexistent et ne se substituent pas l'une à l'autre.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Depuis quand l'habilitation électrique est-elle obligatoire pour les opérations sur les véhicules et engins à énergie embarquée ?",
+      choices: [
+        "Depuis le 1er juillet 2011",
+        "Depuis le 1er janvier 2000",
+        "Depuis le 1er janvier 2020",
+        "Elle n'est pas obligatoire, seulement recommandée",
+      ],
+      answer: [0],
+      explanation:
+        "Depuis le 1er juillet 2011, l'habilitation électrique est une exigence réglementaire pour tous les travailleurs effectuant des opérations sur les installations électriques des véhicules et engins ou dans leur voisinage (Art. R4544-9 Code du travail).",
+      timeLimit: 35,
+    },
+    {
+      question:
+        "Quelle lettre finale distingue systématiquement les symboles d'habilitation liés aux véhicules et engins dans la NF C 18-550 ?",
+      choices: [
+        "La lettre L",
+        "La lettre V",
+        "La lettre E",
+        "La lettre T",
+      ],
+      answer: [0],
+      explanation:
+        "La lettre L est la lettre finale caractérisant toutes les habilitations électriques liées aux opérations sur les véhicules ou engins à énergie électrique embarquée. Par exemple : B0L, B1L, B2L, B1XL, BCL.",
+      timeLimit: 35,
+    },
+    {
+      question:
+        "Un technicien automobile doit effectuer seul des opérations électriques hors tension sur la chaîne de traction d'un véhicule hybride. Quel symbole est le plus adapté ?",
+      choices: [
+        "B2L",
+        "B1L",
+        "B0L",
+        "BCL",
+      ],
+      answer: [0],
+      explanation:
+        "B2L désigne le chargé de travaux d'ordre électrique hors tension sur véhicule, travaillant de façon autonome (sans direction d'un supérieur). B1L désigne l'exécutant travaillant sous la direction d'un chargé de travaux.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Pour une opération sur batterie de véhicule électrique, de quels paramètres dépend le choix du symbole d'habilitation ?",
+      choices: [
+        "L'indice de protection (IP) des bornes, la tension (V) et la capacité (Ah) de la batterie",
+        "Uniquement la marque et le modèle du véhicule",
+        "La date de mise en service du véhicule uniquement",
+        "La couleur des câbles d'alimentation",
+      ],
+      answer: [0],
+      explanation:
+        "Trois paramètres conditionnent le choix du symbole pour les batteries : l'IP des bornes (IP2X minimum pour les véhicules récents), la tension U en volts et la capacité C en ampères-heure. Si les bornes sont à IP2X et que l'environnement n'expose pas à des pièces nues sous tension, la formation suffit sans habilitation formelle.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Que signifie l'indice de protection IP2X appliqué aux bornes de batteries de véhicules ?",
+      choices: [
+        "Les parties conductrices sous tension ne sont pas accessibles au doigt (objet de plus de 12 mm)",
+        "La batterie résiste à une immersion totale",
+        "La borne est protégée contre la corrosion",
+        "La batterie peut fonctionner sous 2 000 V maximum",
+      ],
+      answer: [0],
+      explanation:
+        "IP2X : le chiffre 2 signifie une protection contre les corps solides de diamètre supérieur à 12 mm, dont le doigt humain. Le X signifie que la protection contre l'eau n'est pas évaluée. C'est le seuil minimal imposé par les dispositions constructives des véhicules récents.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Un technicien doit réaliser uniquement la vérification du niveau d'électrolyte et le nettoyage du corps d'une batterie dont les bornes sont protégées à IP2X. Que faut-il ?",
+      choices: [
+        "Une formation adaptée suffit ; l'habilitation formelle n'est pas obligatoire dans ce cas",
+        "Une habilitation B2XL obligatoire avant toute opération",
+        "Une habilitation BCL car il s'agit d'une consignation",
+        "Aucune formation particulière n'est requise",
+      ],
+      answer: [0],
+      explanation:
+        "Les opérations d'ordre non électrique sur les batteries (vérification du niveau d'électrolyte, nettoyage du corps) ne requièrent pas d'habilitation si les bornes sont protégées à IP2X minimum. Le travailleur doit néanmoins avoir reçu une formation adaptée aux risques.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Qui délivre le titre d'habilitation à un technicien automobile en entreprise ?",
+      choices: [
+        "L'employeur, après avis favorable du formateur",
+        "Le formateur à l'issue de la formation théorique",
+        "L'organisme de certification (AFNOR, QUALIOPI)",
+        "Le médecin du travail lors de la visite médicale",
+      ],
+      answer: [0],
+      explanation:
+        "L'habilitation est délivrée par l'employeur, après avoir pris en compte l'avis du formateur. Le formateur ne fait que rédiger et remettre un « avis après formation » — il ne délivre pas l'habilitation lui-même.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quelle est la périodicité de recyclage recommandée par la NF C 18-550 pour une habilitation sur véhicule/engin ?",
+      choices: [
+        "3 ans (2 ans si pratique occasionnelle ou exceptionnelle)",
+        "1 an dans tous les cas",
+        "5 ans pour les électriciens expérimentés",
+        "Pas de recyclage obligatoire si le symbole n'a pas changé",
+      ],
+      answer: [0],
+      explanation:
+        "La NF C 18-550 recommande un recyclage tous les 3 ans. Pour une pratique occasionnelle ou exceptionnelle, la périodicité peut être ramenée à 2 ans. Sans recyclage à échéance, l'employeur doit remettre en cause l'habilitation.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Un chariot élévateur électrique est un exemple de :",
+      choices: [
+        "Engin (machine non routière à énergie électrique embarquée)",
+        "Véhicule (ensemble manufacturé circulant sur route)",
+        "Installation électrique fixe régie par la NF C 18-510",
+        "Équipement de protection individuelle",
+      ],
+      answer: [0],
+      explanation:
+        "Au sens de la NF C 18-550, un engin est une machine non routière à énergie électrique embarquée dont la fonction exige la mobilité pendant le travail. Un chariot élévateur, une PEMP ou un engin de travaux publics sont des engins. Un véhicule circule sur route.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Pour une opération sur batteries en série dont la tension de chaque élément est 48 V, quelle tension totale doit-on retenir pour choisir le symbole d'habilitation si le bloc comporte 4 éléments en série ?",
+      choices: [
+        "192 V (48 V × 4)",
+        "48 V (la tension d'un seul élément)",
+        "12 V (valeur standard de référence)",
+        "La tension ne compte pas, seule la capacité en Ah est déterminante",
+      ],
+      answer: [0],
+      explanation:
+        "En série, les tensions s'additionnent : 4 × 48 V = 192 V. C'est cette tension totale qui détermine le domaine et le symbole d'habilitation. Une erreur de calcul peut conduire à une sous-habilitation et à un risque grave.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Lors d'une intervention sur un véhicule hybride accidenté ou endommagé, quel risque spécifique doit être pris en compte ?",
+      choices: [
+        "L'intégrité de la chaîne de traction peut être compromise, exposant à des pièces sous tension même si le véhicule semble éteint",
+        "Le risque est nul si la clé de contact est retirée",
+        "Seul le risque de choc mécanique est à évaluer",
+        "Le risque électrique disparaît dès que la batterie principale est déconnectée",
+      ],
+      answer: [0],
+      explanation:
+        "Un véhicule hybride ou électrique accidenté peut présenter des câbles endommagés, des condensateurs chargés ou des batteries dont l'isolation est compromise. Le retrait de la clé ou la déconnexion de la batterie principale ne garantit pas l'absence de tension résiduelle sur l'ensemble du circuit.",
+      timeLimit: 55,
     },
   ],
 };

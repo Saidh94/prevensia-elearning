@@ -2,11 +2,13 @@
 import { bsbeModuleContent } from "./bsbe-content";
 import { ModuleContent } from "./module-types";
 import { electricalCommercialModuleContent } from "./electrical-commercial-content";
+import { vehiculesModuleContent } from "./vehicules-content";
 
 export const modulesContent: Record<string, ModuleContent> = {
   ...electricalCommercialModuleContent,
   bsbe: bsbeModuleContent,
   b1b2brbc: b1b2brbcModuleContent,
+  "habilitation-vehicules": vehiculesModuleContent,
   h0b0: {
   title: "H0B0 - Exécuter en sécurité des travaux d’ordre non électrique",
   shortTitle: "H0B0",
