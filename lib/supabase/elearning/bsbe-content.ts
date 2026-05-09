@@ -1338,7 +1338,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 10.4.1 — intervention BS hors tension et hors zone de voisinage renforcé BT",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/installations-anciennes.jpg",
+      chapterImagePath: "/elearning/bsbe/appareil-défectueux.jpg",
       chapterImageAlt:
         "Signaux d'alerte visuels pour le BS : câble textile dégradé, tableau ouvert, repérage absent",
       visual: {
@@ -1352,7 +1352,7 @@ export const bsbeModuleContent: ModuleContent = {
           "Signaler au chargé d'exploitation",
         ],
         tone: "amber",
-        imagePath: "/elearning/bsbe/installations-anciennes.jpg",
+        imagePath: "/elearning/bsbe/appareil-défectueux.jpg",
         imageAlt:
           "Signaux d'alerte visuels pour le BS : câble textile dégradé, tableau ouvert, repérage absent",
       },

@@ -1304,7 +1304,8 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Distance d’attaque recommandée : 1,5 à 2,5 m face au feu. En extérieur, se positionner de profil pour éviter la chaleur rayonnante. Toujours se placer entre le feu et la sortie de secours la plus proche. Se baisser au maximum pour éviter les fumées, car l’air frais se situe près du sol.",
           "Les colonnes sèches et colonnes humides sont des tuyauteries fixes installées dans les bâtiments pour faciliter l’intervention des sapeurs-pompiers : elles acheminent rapidement l’eau à tous les niveaux. Les colonnes sèches sont alimentées depuis l’extérieur par les pompiers ; les colonnes humides sont en permanence sous pression.",
           "Tout extincteur portatif conforme porte une estampille argentée NF, délivrée par AFNOR, attestant la conformité à la norme NF EN 3. Cette estampille est la preuve visible de la conformité technique de l’appareil.",
-          "L’agent de terrain doit aussi retenir que l’intervention initiale n’est qu’une composante d’un dispositif plus large. Même après une extinction apparente, il faut signaler, baliser si nécessaire et laisser la suite à l’organisation prévue."
+          "L’agent de terrain doit aussi retenir que l’intervention initiale n’est qu’une composante d’un dispositif plus large. Même après une extinction apparente, il faut signaler, baliser si nécessaire et laisser la suite à l’organisation prévue.",
+          "Brûlure grave — conduite à tenir : en cas de brûlure thermique, arroser immédiatement et abondamment à l’eau froide pendant 15 minutes minimum, même sur les vêtements (sauf si ceux-ci adhèrent à la peau : ne jamais les retirer de force). Ne pas percer les cloques, ne pas appliquer de corps gras, de dentifrice ou de glace. Alerter le 15 (SAMU), le 18 (pompiers) ou le 112. Couvrir la brûlure avec un pansement propre non adhérent ou un film plastique en attendant les secours. Une brûlure étendue (supérieure à la paume de la main) ou profonde constitue une urgence médicale absolue."
         ],
         keyPoints: [
           "Intervenir seulement si la situation reste maîtrisable.",
@@ -1312,7 +1313,8 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Alerter reste obligatoire, même en cas d’action initiale.",
           "Un RIA doit rester accessible, signalé et employé dans un cadre compatible avec l’eau.",
           "CO₂ = feux électriques, ~8 secondes pour 2 kg, distance 1,5-2,5 m.",
-          "Estampille argentée NF EN 3 = conformité de l’extincteur."
+          "Estampille argentée NF EN 3 = conformité de l’extincteur.",
+          "Brûlure : 15 min eau froide, ne pas retirer vêtements adhérents, alerter 15/18/112."
         ],
         forbiddenPoints: [
           "Se lancer seul dans un local enfumé.",
@@ -1333,9 +1335,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Décider vite, sans improviser",
           subtitle: "Agir seulement si le feu est limité, l’issue maîtrisée et le moyen adapté.",
-          imagePath: "/images/comment-utiliser-un-extincteur-1.webp",
+          imagePath: "/images/distance-de-securite-extincteur-a-eau-pulverisee.webp",
           imageAlt:
-            "Geste de mise en oeuvre d'un extincteur portatif en quatre étapes",
+            "Distance d'attaque recommandée et positionnement face au feu avec un extincteur à eau",
           items: [
             "Alerte déjà donnée",
             "Feu encore limité",
@@ -2379,6 +2381,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "Protéger, c'est analyser rapidement la situation pour identifier le ou les dangers, puis supprimer ou isoler le risque sans s'exposer soi-même. L'action doit être proportionnée : on ne risque pas sa vie pour éteindre un début d'incendie si l'évacuation est la bonne réponse.",
           "Les dangers à évaluer sont variés selon le contexte : circulation routière, machine en fonctionnement, installation électrique, chute de hauteur, atmosphère confinée, produit chimique, feu ou structure instable. Chaque situation impose une analyse avant l'action.",
+          "Danger électrique — réflexes spécifiques : face à une victime électrisée, ne JAMAIS la toucher à mains nues si elle est encore en contact avec la source. La tétanisation (contraction musculaire incontrôlable qui empêche de lâcher le conducteur) peut maintenir la victime sous tension. La priorité absolue est de couper l'alimentation électrique (disjoncteur, interrupteur) avant tout contact avec la victime. Utiliser un outil isolant si le coupure est impossible et que la situation est vitale. En haute tension, le danger persiste à distance par l'arc électrique et le pas de tension : ne pas approcher, alerter le gestionnaire du réseau (ENEDIS, RTE) et attendre la mise hors tension confirmée.",
+          "Le trajet du courant dans le corps détermine la gravité de l'électrisation. Le trajet main droite → pied gauche est le plus dangereux car il traverse le cœur. Même une électrisation apparemment bénigne peut provoquer un arrêt cardiaque différé (jusqu'à quelques heures). Toute victime électrisée doit être examinée par un médecin, même si elle semble aller bien.",
           "Face à une situation de violence ou d'attaque terroriste en entreprise, le SST respecte en priorité les consignes définies par l'employeur. En l'absence de consignes spécifiques, il applique les recommandations nationales : fuir si possible, se cacher et se mettre à l'abri en silence, puis alerter le 17 ou le 112 depuis un endroit sécurisé. Il ne tente pas de neutraliser la menace lui-même.",
           "En période épidémique (Covid-19, grippe ou autre maladie à transmission respiratoire), le SST adapte sa pratique aux consignes sanitaires nationales et aux recommandations de l'INRS, sans renoncer aux gestes vitaux. Pour une victime en arrêt cardiaque, la RCP est maintenue avec protection (masque, gants si disponibles). L'adaptation des gestes ne justifie jamais l'inaction face à une urgence vitale.",
           "Si le danger ne peut pas être supprimé ou isolé, la dégagement d'urgence s'impose : déplacer la victime uniquement si son maintien en place l'expose à un danger immédiat et mortel. Ce dégagement doit être réalisé en ligne droite, axe tête-pieds, le plus rapidement possible.",
@@ -2966,6 +2970,8 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Code du travail — article L. 4131-1 : droit d'alerte et de retrait du salarié.",
           "Programme SST INRS — rôle de prévention du SST en entreprise.",
         ],
+        chapterImagePath: "/elearning/sst/sst-role.svg",
+        chapterImageAlt: "Rôle de prévention du SST en entreprise — observer, signaler et contribuer",
         visual: {
           title: "Prévenir pour agir moins souvent en urgence",
           subtitle: "Observer, signaler, contribuer à la prévention.",

@@ -4267,16 +4267,16 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le SST est un Sauveteur Secouriste du Travail formé pour porter secours à toute victime sur le lieu de travail.",
     },
     {
-      question: "L'acronyme PAS du SST signifie :",
+      question: "La démarche SST s'articule en 4 étapes. Laquelle est correcte ?",
       choices: [
-        "Protéger, Alerter, Secourir",
-        "Prévenir, Avertir, Soigner",
-        "Préparer, Agir, Stopper",
-        "Pratiquer, Apprendre, Surveiller",
+        "Protéger → Examiner → Alerter ou faire alerter → Secourir",
+        "Alerter → Protéger → Secourir → Examiner",
+        "Examiner → Alerter → Protéger → Secourir",
+        "Secourir → Alerter → Protéger → Examiner",
       ],
       answer: [0],
       explanation:
-        "Le réflexe SST suit la chaîne : Protéger (la zone et la victime), Examiner, Alerter (les secours), Secourir.",
+        "La démarche SST (référentiel INRS) comporte 4 étapes dans l'ordre : Protéger (supprimer le danger pour éviter le sur-accident), Examiner (rechercher les urgences vitales), Alerter ou faire alerter (15, 18 ou 112), Secourir (réaliser les gestes appris). Cet ordre est toujours respecté sauf si le danger vital impose d'alerter simultanément.",
     },
     {
       question: "La première étape de l'action du SST face à un accident est :",

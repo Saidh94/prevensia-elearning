@@ -813,7 +813,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           normRef: "NF C 15-100 § 413.1.5 — schéma IT : surveillance par CPI et élimination du premier défaut ; NF C 15-211 — installations IT médicales",
         },
       ],
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-installations-existantes.svg",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-br.svg",
       chapterImageAlt:
         "Schémas TN-C et IT — risques spécifiques et règles opérationnelles pour le BR",
       visual: {
@@ -829,7 +829,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           "Rôle BR : évaluer, documenter, signaler",
         ],
         tone: "slate",
-        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-installations-existantes.svg",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-br.svg",
       },
     },
     {
@@ -1348,7 +1348,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           normRef: "IEC 62619 § 6.4 — prévention et gestion des incidents thermiques sur batteries Li-ion",
         },
       ],
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-pv-batteries-dc.svg",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
       chapterImageAlt:
         "Installation photovoltaïque avec panneaux, onduleur et système de stockage batteries pour BR",
       visual: {
@@ -1362,7 +1362,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           "Li-ion : risque d'emballement thermique",
         ],
         tone: "amber",
-        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-pv-batteries-dc.svg",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
       },
     },
     {
@@ -1482,7 +1482,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           normRef: "ISO 18436-7 — qualification des thermographes industriels",
         },
       ],
-      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-mesures-br.svg",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-moyens.svg",
       chapterImageAlt:
         "Instruments de mesure électrique BR : mégohmmètre, ohmmètre de boucle et caméra thermique",
       visual: {
@@ -1496,7 +1496,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           "Documentation systématique",
         ],
         tone: "green",
-        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-mesures-br.svg",
+        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-moyens.svg",
       },
     },
     {

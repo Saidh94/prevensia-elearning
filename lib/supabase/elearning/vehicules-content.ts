@@ -49,6 +49,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "Art. R4544-9 Code du travail — Obligation d'habilitation",
         "NF C 18-510 — Habilitation électrique installations fixes (norme générale)",
       ],
+      chapterImagePath: "/elearning/bsbe/bsbe-cadre.svg",
+      chapterImageAlt: "Cadre réglementaire de l'habilitation électrique véhicules et engins — NF C 18-550",
     },
     {
       id: "symboles",
@@ -98,6 +100,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "NF C 18-550 §2.3 — Symboles d'habilitation",
         "NF C 18-550 §2.4 — Choix du symbole adapté à l'opération",
       ],
+      chapterImagePath: "/elearning/h0b0/symboles-habilitation.png",
+      chapterImageAlt: "Symboles d'habilitation électrique véhicules — lettre L (B0L, B1L, B2L, BCL…)",
     },
     {
       id: "batteries",
@@ -113,6 +117,7 @@ export const vehiculesModuleContent: ModuleContent = {
         "Attention aux batteries en série ou en parallèle : la tension totale ou la capacité totale peut dépasser les valeurs de chaque élément pris séparément.",
         "Les opérations d'ordre non électrique sur les batteries (manipulation, vérification du niveau d'électrolyte, nettoyage du corps) ne requièrent pas d'habilitation si les bornes sont protégées à IP2X minimum.",
         "Les symboles préconisés pour les opérations sur batteries sont de niveau 2 (B2XL) pour les chargés d'opération autonomes, et de niveau 1 (B1XL) pour les exécutants travaillant sous surveillance.",
+        "Véhicule hybride endommagé ou accidenté : même si le moteur est éteint et la clé retirée, la batterie haute tension reste potentiellement sous tension (tension résiduelle). Certains systèmes maintiendront une tension résiduelle plusieurs heures après l'accident. Ne jamais intervenir sur un hybride ou un véhicule électrique accidenté sans avoir confirmé la mise hors tension par le système de sécurité embarqué ou par une procédure constructeur validée. En cas de doute, traiter le véhicule comme étant sous tension.",
       ],
       deepDive: [
         "L'IP2X est un seuil minimal : le premier chiffre (2) indique la protection contre les corps solides de plus de 12 mm (y compris un doigt). Le X signifie que la protection contre l'eau n'est pas évaluée.",
@@ -129,6 +134,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "NF C 18-550 §2.4.2 — Opérations sur batteries",
         "NF EN 60529 — Degrés de protection procurés par les enveloppes (code IP)",
       ],
+      chapterImagePath: "/elearning/bsbe/bsbe-ip.svg",
+      chapterImageAlt: "Indice de protection IP2X des bornes de batteries — critères de choix du symbole d'habilitation véhicule",
     },
     {
       id: "demarche",
@@ -154,6 +161,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "NF C 18-550 chapitre 3 — Démarche d'habilitation",
         "Art. R4544-9 et R4544-10 Code du travail",
       ],
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-chaine.svg",
+      chapterImageAlt: "Démarche d'habilitation électrique en 7 étapes — véhicules et engins NF C 18-550",
     },
     {
       id: "formation",
@@ -186,6 +195,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "NF C 18-550 §6 — Suivi et recyclage de l'habilitation",
         "Art. R4544-10 Code du travail — Carnet de prescriptions",
       ],
+      chapterImagePath: "/elearning/bsbe/bsbe-bases.svg",
+      chapterImageAlt: "Formation et recyclage — habilitation électrique véhicules NF C 18-550",
     },
     {
       id: "acteurs",
@@ -210,6 +221,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "Art. R4511-5 Code du travail — Coordination entre entreprises",
         "Art. R4624-22 à R4624-28 Code du travail — Suivi médical renforcé",
       ],
+      chapterImagePath: "/elearning/commun/roles-responsabilites.png",
+      chapterImageAlt: "Acteurs de l'habilitation — employeur, formateur, travailleurs intérimaires et entreprises extérieures",
     },
     {
       id: "synthese",
@@ -235,6 +248,8 @@ export const vehiculesModuleContent: ModuleContent = {
         "NF C 18-550 — Habilitation électrique véhicules et engins (INRS ED 6313)",
         "Art. R4544-9 et R4544-10 Code du travail",
       ],
+      chapterImagePath: "/elearning/bsbe/bsbe-synthese.svg",
+      chapterImageAlt: "Synthèse — points clés de l'habilitation électrique véhicules et engins",
     },
   ],
 };
