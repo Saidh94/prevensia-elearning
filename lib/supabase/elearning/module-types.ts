@@ -49,3 +49,29 @@ export type ModuleSection = {
   estimatedMinutes?: number;
   intro?: string;
   content?: string[];
+  deepDive?: string[];
+  keyPoints?: string[];
+  forbiddenPoints?: string[];
+  practicalCase?: string;
+  scenarios?: PracticalScenario[];
+  legalRefs?: string[];
+  chapterImagePath?: string;
+  chapterImageAlt?: string;
+  resourceVideos?: ModuleResourceVideo[];
+  visual?: ModuleVisual;
+};
+
+export type ModuleContent = {
+  title: string;
+  shortTitle: string;
+  subtitle?: string;
+  duration?: string;
+  deliveryFormat?: string;
+  level?: string;
+  objective?: string;
+  audience?: string;
+  certificationNote?: string;
+  heroBadge?: string;
+  sections: ModuleSection[];
+  finalMessage?: string;
+ 
