@@ -2,18 +2,18 @@
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="700" rx="40" fill="#FFF7ED"/>
   <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#FDBA74" stroke-width="4"/>
-  <text x="100" y="130" fill="#9A3412" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Etape 1 : proteger</text>
-  <text x="100" y="175" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">Supprimer le danger si c'est possible sans s'exposer soi-meme.</text>
+  <text x="100" y="130" fill="#9A3412" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Étape 1 : Protéger</text>
+  <text x="100" y="175" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">Supprimer le danger si c'est possible sans s'exposer soi-même.</text>
   <rect x="100" y="240" width="360" height="250" rx="26" fill="#FFEDD5"/>
   <circle cx="210" cy="340" r="60" fill="#FDBA74"/>
   <rect x="290" y="290" width="120" height="24" rx="12" fill="#EA580C"/>
   <rect x="290" y="334" width="90" height="24" rx="12" fill="#FB923C"/>
   <rect x="290" y="378" width="140" height="24" rx="12" fill="#FDBA74"/>
   <rect x="540" y="240" width="500" height="250" rx="26" fill="#FFF7ED" stroke="#FED7AA" stroke-width="2"/>
-  <text x="580" y="300" fill="#9A3412" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">A faire</text>
+  <text x="580" y="300" fill="#9A3412" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">À faire</text>
   <text x="580" y="350" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">• baliser la zone</text>
-  <text x="580" y="390" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">• couper si c'est autorise et sans risque</text>
-  <text x="580" y="430" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">• eloigner les personnes exposees</text>
+  <text x="580" y="390" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">• couper si c'est autorisé et sans risque</text>
+  <text x="580" y="430" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="24">• éloigner les personnes exposées</text>
   <rect x="100" y="525" width="940" height="80" rx="20" fill="#7C2D12"/>
-  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26">La protection passe avant tout geste de secours: une seconde victime complique toujours l'intervention.</text>
+  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24">La protection passe avant tout geste de secours : une seconde victime complique toujours l'intervention.</text>
 </svg>

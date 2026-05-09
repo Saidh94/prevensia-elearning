@@ -318,4 +318,14 @@ export default function FormationSSI() {
 
           <div className="mt-6">
             <a
-   
+              href="/demande-devis?type=ssi"
+              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
+            >
+              Demander un devis SSI
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+}

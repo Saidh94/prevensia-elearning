@@ -256,7 +256,7 @@ function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
         notes: "Hors tension, sans voisinage, limites NF C 18-510",
       },
       beManoeuvre: {
-        symbol: "BE Manoeuvre",
+        symbol: "BE Manœuvre",
         domain: "BT",
         scope: "Organes de commande identifiés",
         notes: "Manœuvres uniquement, pas de dépannage",

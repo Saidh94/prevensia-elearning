@@ -20,13 +20,12 @@
 
   <text x="873" y="298" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="52" font-weight="700">1 / 2</text>
   <text x="873" y="346" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="24" font-weight="700">Executer / diriger</text>
-  <text x="873" y="382" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18">Role dans l'operation</text>
+  <text x="873" y="382" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18">Rôle dans l'opération</text>
 
   <text x="327" y="512" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="52" font-weight="700">R / C</text>
   <text x="327" y="560" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="24" font-weight="700">Intervenir / consigner</text>
-  <text x="327" y="596" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Nature de l'action autorisee</text>
+  <text x="327" y="596" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Nature de l'action autorisée</text>
 
   <text x="873" y="512" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="52" font-weight="700">V</text>
   <text x="873" y="560" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="24" font-weight="700">Voisinage renforce</text>
-  <text x="873" y="596" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">Exigences de securite supplementaires</text>
-</svg>
+  <text x="873" y="596" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">Exigences de sécurité 
