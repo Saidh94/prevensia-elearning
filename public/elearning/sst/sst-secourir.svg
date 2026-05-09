@@ -2,7 +2,7 @@
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="700" rx="40" fill="#F0FDF4"/>
   <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#86EFAC" stroke-width="4"/>
-  <text x="100" y="130" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Étape 4 : Secourir</text>
+  <text x="100" y="130" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Etape 4 : secourir</text>
   <text x="100" y="175" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="24">Appliquer le bon geste appris, sans improviser ni sortir de son cadre.</text>
   <rect x="100" y="240" width="350" height="250" rx="26" fill="#DCFCE7"/>
   <circle cx="190" cy="320" r="48" fill="#86EFAC"/>
@@ -11,9 +11,9 @@
   <rect x="260" y="384" width="140" height="22" rx="11" fill="#86EFAC"/>
   <rect x="510" y="240" width="530" height="250" rx="26" fill="#F8FAFC" stroke="#BBF7D0" stroke-width="2"/>
   <text x="550" y="300" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Logique d'action</text>
-  <text x="550" y="350" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="24">• appliquer la méthode enseignée</text>
+  <text x="550" y="350" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="24">• appliquer la methode enseignee</text>
   <text x="550" y="390" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="24">• surveiller la victime en continu</text>
-  <text x="550" y="430" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="24">• préparer la relève des secours</text>
+  <text x="550" y="430" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="24">• preparer la releve des secours</text>
   <rect x="100" y="525" width="940" height="80" rx="20" fill="#14532D"/>
-  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24">Le SST n'improvise pas : il applique des gestes appris et reste dans un cadre de secours immédiat.</text>
+  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="26">Le SST n'improvise pas: il applique des gestes appris et reste dans un cadre de secours immediat.</text>
 </svg>

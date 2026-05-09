@@ -477,10 +477,9 @@ export const bsbeModuleContent: ModuleContent = {
         "Une opération BS doit pouvoir être expliquée simplement : quel matériel, quel circuit, quelle procédure, quelle mise hors tension, quelle vérification et quelle remise en service.",
       ],
       keyPoints: [
-        "BS = 5 opérations précises définies par la norme NF C 18-510.",
-        "1. Fusible à l'identique — 2. Lampe/luminaire — 3. Socle prise/interrupteur.",
-        "4. Raccordement simple — 5. Réarmement/désarmement disjoncteur.",
-        "Toujours hors tension, circuit repéré, ≤ 400 V, circuits terminaux uniquement.",
+        "BS = remplacements simples et raccordements élémentaires.",
+        "Le cadre doit rester hors tension, repéré et documenté.",
+        "Le repère 400 V / 32 A aide à comprendre le niveau visé.",
       ],
       forbiddenPoints: [
         "Chercher la panne si le remplacement ne suffit pas.",
@@ -495,24 +494,6 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.bsbe],
       practicalCase:
         "Exemple : un luminaire doit être remplacé selon procédure. Si l’équipement neuf ne fonctionne pas et que le support ne permet plus une action élémentaire, l’opérateur s’arrête et transmet.",
-      scenarios: [
-        {
-          situation: "Vous êtes habilité BS. Votre responsable vous demande de remplacer un fusible de 16 A dans une armoire terminale. En ouvrant l'armoire, vous constatez que plusieurs départs sont sous tension et que le fusible à remplacer est difficile à identifier.",
-          question: "Comment procéder lorsque l'identification du fusible est incertaine ?",
-          wrongActions:           [
-            "Retirer le fusible qui semble le plus probable et voir si quelque chose s'éteint.",
-            "Toucher plusieurs porte-fusibles pour repérer celui qui est chaud.",
-            "Demander à un collègue de 'surveiller' pendant que vous tentez de remplacer.",
-          ],
-          correctActions:           [
-            "Refuser de remplacer le fusible sans identification certaine du circuit concerné.",
-            "Demander le schéma de l'armoire ou l'assistance d'un électricien habilité BR ou B2.",
-            "Ne jamais travailler dans une armoire multi-départs sous tension sans délimitation claire du périmètre d'intervention.",
-          ],
-          explanation: "Le BS est autorisé à remplacer des fusibles et petits matériels dans des conditions définies. L'identification certaine du circuit est indispensable. Une confusion peut entraîner une coupure non autorisée ou un contact avec un départ non consigné. Le BS doit connaître ses limites.",
-          normRef: "NF C 18-510 § 5.4 — périmètre d'intervention BS : remplacement d'éléments protégés et identifiés",
-        },
-      ],
       chapterImagePath: "/elearning/bsbe/pratique-terrain.jpg",
       chapterImageAlt:
         "Intervention élémentaire en environnement électrique basse tension",
@@ -571,40 +552,6 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.consignation],
       practicalCase:
         "Exemple : la procédure de remplacement d’un accessoire indique un départ clairement repéré. Sur place, le repérage ne correspond plus au tableau. L’opérateur suspend l’intervention et demande une clarification avant toute action.",
-      scenarios: [
-        {
-          situation: "Vous êtes habilité BS et devez remplacer une prise défectueuse dans un bureau. Avant d'intervenir, vous coupez le disjoncteur différentiel qui dessert la pièce. Le voyant sur le boîtier de la prise est éteint. Vous concluez que c'est hors tension et commencez à dévisser.",
-          question: "La procédure BS a-t-elle été correctement respectée ?",
-          wrongActions:           [
-            "Déduire l'absence de tension uniquement d'un voyant éteint ou d'un disjoncteur ouvert.",
-            "Commencer le démontage sans avoir effectué la VAT avec un appareil de mesure.",
-            "S'appuyer sur le circuit supposé pour identifier le départ sans vérifier.",
-          ],
-          correctActions:           [
-            "Effectuer une vérification d'absence de tension (VAT) avec un testeur de tension adapté et vérifié.",
-            "Condamner le disjoncteur si possible (cadenas ou étiquette) pour éviter une remise sous tension intempestive.",
-            "Procéder à l'intervention uniquement après confirmation de l'absence de tension.",
-          ],
-          explanation: "La procédure BS impose une séquence : mise hors tension, condamnation si possible, identification du circuit, VAT avec appareil adapté, puis intervention. Un voyant ou un disjoncteur ouvert ne remplace pas la VAT. C'est l'étape critique qui garantit la sécurité de l'intervenant.",
-          normRef: "NF C 18-510 § 5.4 — séquence d'intervention BS et vérification d'absence de tension",
-        },
-        {
-          situation: "Vous réalisez une intervention BS pour changer un interrupteur. Votre testeur de tension ne fonctionne pas correctement (pile faible, pas de signal sur une prise connue comme sous tension). Vous pensez quand même faire la VAT avec cet appareil.",
-          question: "Peut-on utiliser un testeur de tension dont on n'a pas vérifié le bon fonctionnement ?",
-          wrongActions:           [
-            "Réaliser la VAT avec un appareil dont le fonctionnement est incertain.",
-            "Remplacer la pile et considérer que l'appareil est de nouveau fiable sans test.",
-            "Tâter les fils avec une pince de test non calibrée.",
-          ],
-          correctActions:           [
-            "Vérifier le bon fonctionnement du testeur sur une source de tension connue avant la VAT.",
-            "Si le testeur est défaillant, ne pas commencer l'intervention.",
-            "Obtenir un appareil de mesure fonctionnel avant toute intervention.",
-          ],
-          explanation: "La VAT n'a de valeur que si l'appareil utilisé est lui-même vérifié. La séquence correcte est : vérification de l'appareil sur source connue → VAT → vérification de l'appareil sur source connue après. Un testeur défaillant donne une fausse sécurité.",
-          normRef: "NF C 18-510 § 5.4 — vérification du bon fonctionnement du dispositif de VAT",
-        },
-      ],
       chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
       chapterImageAlt:
         "Mise hors tension pour son propre compte, VAT et documents en BS",
@@ -645,12 +592,9 @@ export const bsbeModuleContent: ModuleContent = {
         "Le cœur de la compétence BE Manœuvre est la discipline d’exploitation : agir sur le bon organe, au bon moment, selon la bonne instruction, sans démontage de protection, et s’arrêter au premier signal anormal.",
       ],
       keyPoints: [
-        "3 types de manœuvres : consignation / exploitation / urgence.",
-        "Manœuvre de consignation : selon instruction du chargé de consignation.",
-        "Manœuvre d'exploitation : conduite normale de l'installation.",
-        "Manœuvre d'urgence : procédure établie à l'avance, jamais improvisée.",
         "BE Manœuvre = organe prévu, procédure connue, contexte vérifié.",
-        "Pas de dépannage. Pas de réenclenchement en boucle.",
+        "Pas de dépannage.",
+        "Pas de réenclenchement en boucle.",
       ],
       forbiddenPoints: [
         "Ouvrir un coffret pour comprendre la cause.",
@@ -723,40 +667,6 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : après remplacement d’un fusible, le circuit retombe immédiatement. L’opérateur n’entame pas une recherche de défaut et fait remonter la situation pour requalification.",
-      scenarios: [
-        {
-          situation: "Vous êtes habilité BS. En remplaçant une prise, vous découvrez que le câble derrière la boîte est dénudé sur 5 cm et présente un fil de cuivre apparent. Le client vous demande de le réparer pendant que vous êtes là.",
-          question: "La réparation d'un câble endommagé entre-t-elle dans le périmètre BS ?",
-          wrongActions:           [
-            "Réparer le câble avec du ruban isolant puisque vous êtes déjà sur place.",
-            "Accepter de 'finir le travail' pour éviter de revenir.",
-            "Considérer que c'est une extension logique du BS.",
-          ],
-          correctActions:           [
-            "Refuser d'intervenir sur le câble endommagé : cela dépasse le cadre BS.",
-            "Expliquer au client que cette réparation nécessite un électricien habilité B1 ou BR.",
-            "Laisser la zone sécurisée (câble protégé provisoirement, circuit coupé si possible) et signaler l'anomalie.",
-          ],
-          explanation: "Le BS est limité au remplacement de matériels et petites interventions sur des éléments protégés et accessibles. La réparation d'un câble endommagé sort de ce périmètre. Accepter cette mission expose l'intervenant et le client à un risque non couvert par son habilitation.",
-          normRef: "NF C 18-510 § 5.4 — limites du BS, interventions élémentaires sur matériels définis",
-        },
-        {
-          situation: "Votre collègue, habilité BE Manœuvre, vient de réaliser une manœuvre d'ouverture d'un disjoncteur sur ordre du chargé d'exploitation. Il remarque en refermant le tableau que l'afficheur d'un compteur clignote avec un code d'erreur. Il veut noter le code et chercher la panne.",
-          question: "Le rôle BE Manœuvre inclut-il le diagnostic et la recherche de pannes ?",
-          wrongActions:           [
-            "Commencer à analyser l'erreur et chercher la cause dans l'armoire.",
-            "Ré-enclencher manuellement le disjoncteur pour tester si l'erreur disparaît.",
-            "Prendre une initiative de dépannage sans en avoir reçu l'ordre.",
-          ],
-          correctActions:           [
-            "Noter le code d'erreur et le signaler au chargé d'exploitation ou au chargé d'intervention.",
-            "Ne réaliser aucune action technique supplémentaire sans ordre explicite.",
-            "Rester dans le cadre des manœuvres définies : ouvrir, fermer, enclencer ou déclencher selon les ordres reçus.",
-          ],
-          explanation: "Le BE Manœuvre est autorisé à effectuer des manœuvres simples d'exploitation sur ordre. Il ne réalise pas de diagnostic, de dépannage ou d'analyse de panne. Toute action au-delà des manœuvres reçues sort de son périmètre.",
-          normRef: "NF C 18-510 § 5.4 — périmètre BE Manœuvre : manœuvres d'exploitation sur ordre",
-        },
-      ],
       chapterImagePath: "/elearning/bsbe/types-operations-electriques.jpg",
       chapterImageAlt:
         "Types d'opérations électriques et limites entre opération simple, manœuvre et intervention hors cadre",
@@ -814,24 +724,6 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : une manœuvre simple est demandée dans un local où le sol est humide et le coffret partiellement abîmé. L’opérateur ne commence pas et fait traiter le risque environnemental.",
-      scenarios: [
-        {
-          situation: "Vous devez intervenir (BS) dans un local technique humide où des travaux d'étanchéité ont eu lieu la veille. Le sol est encore légèrement humide. Vous avez vos EPI habituels mais pas de tapis isolant.",
-          question: "Peut-on intervenir sur une installation électrique dans un local partiellement humide sans tapis isolant ?",
-          wrongActions:           [
-            "Intervenir en faisant attention à ne pas poser les genoux ou les coudes au sol.",
-            "Poser un carton ou un sac plastique au sol en guise de protection.",
-            "Estimer que l'humidité est résiduelle et sans risque.",
-          ],
-          correctActions:           [
-            "Refuser d'intervenir sans tapis isolant adapté dans ce contexte.",
-            "Obtenir le matériel de protection approprié avant de commencer.",
-            "Ou attendre que le local soit sec et vérifié avant d'intervenir.",
-          ],
-          explanation: "L'humidité réduit la résistance de contact et augmente considérablement le risque d'électrocution. Le tapis isolant est un EPC essentiel dans les environnements humides. Un plastique ou un carton n'offrent aucune protection diélectrique.",
-          normRef: "NF C 18-510 § 9 et § 4.6 — EPI et EPC en environnement humide",
-        },
-      ],
       chapterImagePath: "/elearning/bsbe/epi-intervention.jpg",
       chapterImageAlt:
         "EPI d'intervention en environnement électrique et hiérarchie des protections",
@@ -953,24 +845,6 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.chocElectrique],
       practicalCase:
         "Exemple : un coffret de commande dégage de la fumée pendant une manœuvre. L’opérateur se met en sécurité, protège la zone et alerte sans chercher à démonter ou à réarmer.",
-      scenarios: [
-        {
-          situation: "Vous réalisez une intervention BS dans un appartement. En retirant un cache, vous provoquiez un court-circuit bref et apercevez des étincelles. L'installation ne semble pas avoir de dommages visibles mais vous sentez une légère odeur de brûlé.",
-          question: "Que faites-vous après un court-circuit accidentel avec étincelles ?",
-          wrongActions:           [
-            "Continuer l'intervention si tout semble normal après quelques secondes.",
-            "Remettre en service pour vérifier que tout fonctionne.",
-            "Ne pas signaler l'incident car il n'y a pas eu d'incendie.",
-          ],
-          correctActions:           [
-            "Couper l'alimentation du circuit concerné immédiatement.",
-            "Inspecter visuellement les zones accessibles pour détecter tout départ de feu ou dommage.",
-            "Signaler l'incident au client et à votre responsable, documenter les circonstances.",
-          ],
-          explanation: "Un court-circuit avec étincelles peut entraîner un départ de feu différé (câble carbonisé, matière inflammable proche). Il ne faut jamais remettre en service sans vérification. Tout incident doit être signalé, même sans conséquence immédiate visible.",
-          normRef: "NF C 18-510 § 10 — conduite à tenir en cas d'incident électrique",
-        },
-      ],
       chapterImagePath: "/elearning/bsbe/danger-armoires-electriques.jpg",
       chapterImageAlt:
         "Armoire électrique présentant un danger et imposant arrêt, protection et alerte",

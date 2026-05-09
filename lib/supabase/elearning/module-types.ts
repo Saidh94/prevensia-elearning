@@ -74,4 +74,5 @@ export type ModuleContent = {
   heroBadge?: string;
   sections: ModuleSection[];
   finalMessage?: string;
- 
+  quizCtaLabel?: string;
+};

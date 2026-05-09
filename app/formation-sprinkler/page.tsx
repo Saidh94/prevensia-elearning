@@ -248,14 +248,4 @@ export default function FormationSprinkler() {
               </summary>
               <p className="mt-3 text-slate-700">
                           Non. La formation sensibilise aux bons réflexes d'exploitation et
-                aux référentiels techniques. La maintenance préventive et les essais
-                périodiques restent à la charge d'un mainteneur qualifié et d'un
-                contrat dédié.
-              </p>
-            </details>
-          </div>
-        </section>
-      </div>
-    </main>
-  );
-}
+                aux référentiels techniques. La maintenance pré

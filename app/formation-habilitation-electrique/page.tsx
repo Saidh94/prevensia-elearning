@@ -530,18 +530,4 @@ export default function FormationHabilitationElectriquePage() {
             <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
               <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
                 Pouvez-vous intervenir sur notre site ?
-                <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
-              </summary>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                Oui, en intra-entreprise partout en France. Le devis intègre
-                les frais de déplacement et l’adaptation du contenu à vos
-                installations réelles, vos consignes et vos retours
-                d’expérience.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-}
+                <span className="

@@ -489,247 +489,6 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "La consignation fiable repose sur l'identification, la traçabilité et la vérification réelle, pas sur une confiance aveugle dans le repérage seul.",
       timeLimit: 75,
     },
-    {
-      question: "À partir de quelle intensité le courant alternatif devient-il dangereux pour le corps humain ?",
-      choices: ["1 mA", "10 mA", "50 mA", "100 mA"],
-      answer: [1],
-      explanation:
-        "Le courant électrique est dangereux à partir de 10 mA en courant alternatif. En courant continu, le seuil est de 40 mA.",
-      timeLimit: 40,
-    },
-    {
-      question: "Quelle est la tension de contact dangereuse en milieu sec, en courant alternatif ?",
-      choices: ["12 V", "25 V", "50 V", "120 V"],
-      answer: [2],
-      explanation:
-        "En milieu sec (résistance du corps : 5 000 Ω), la tension dangereuse est U = R × I = 5 000 × 0,01 = 50 V en courant alternatif.",
-      timeLimit: 40,
-    },
-    {
-      question: "En milieu humide, quelle est la tension de contact dangereuse en courant alternatif ?",
-      choices: ["12 V", "25 V", "50 V", "120 V"],
-      answer: [1],
-      explanation:
-        "En milieu humide (résistance réduite à 2 500 Ω), la tension dangereuse descend à 25 V en courant alternatif.",
-      timeLimit: 40,
-    },
-    {
-      question: "Quelle est la résistance conventionnelle du corps humain en milieu sec ?",
-      choices: ["500 Ω", "1 000 Ω", "2 500 Ω", "5 000 Ω"],
-      answer: [3],
-      explanation:
-        "La norme fixe la résistance conventionnelle du corps humain à 5 000 Ω en local ou emplacement sec, et à 2 500 Ω en milieu mouillé.",
-      timeLimit: 45,
-    },
-    {
-      question: "Qu'est-ce que la tétanisation ?",
-      choices: [
-        "Un arrêt cardiaque provoqué par le courant",
-        "Une paralysie des muscles due au passage du courant",
-        "Une brûlure interne causée par un arc électrique",
-        "Une perte de conscience sans séquelles",
-      ],
-      answer: [1],
-      explanation:
-        "La tétanisation est une paralysie des muscles. La personne peut succomber par asphyxie du fait du blocage de la cage thoracique.",
-      timeLimit: 45,
-    },
-    {
-      question: "La fibrillation ventriculaire provoquée par un choc électrique cède-t-elle spontanément ?",
-      choices: [
-        "Oui, après quelques secondes de repos",
-        "Non, elle ne cède jamais spontanément — seul un défibrillateur peut y remédier",
-        "Oui, si on applique une respiration artificielle",
-        "Non, seulement si on coupe immédiatement le courant",
-      ],
-      answer: [1],
-      explanation:
-        "La fibrillation ventriculaire est la contraction anarchique du muscle cardiaque. Elle ne cède jamais spontanément : seuls des contre-chocs électriques délivrés par un défibrillateur peuvent la corriger.",
-      timeLimit: 50,
-    },
-    {
-      question: "Quelles sont les quatre étapes obligatoires d'une consignation électrique ?",
-      choices: [
-        "Séparation de l'ouvrage",
-        "Condamnation en position d'ouverture",
-        "Identification de l'ouvrage",
-        "Vérification d'Absence de Tension (VAT) + MALT et CCT",
-      ],
-      answer: [0, 1, 2, 3],
-      multiple: true,
-      explanation:
-        "La consignation électrique comprend 4 phases : 1. Séparation, 2. Condamnation, 3. Identification, 4. VAT + MALT/CCT. Une étape manquante invalide la consignation.",
-      timeLimit: 65,
-    },
-    {
-      question: "Lors d'une VAT (Vérification d'Absence de Tension), quand faut-il vérifier le bon fonctionnement du vérificateur ?",
-      choices: [
-        "Avant la mesure uniquement",
-        "Après la mesure uniquement",
-        "Avant ET après la mesure",
-        "Une fois par semaine, indépendamment des mesures",
-      ],
-      answer: [2],
-      explanation:
-        "Le VAT doit être vérifié avant et après chaque mesure pour s'assurer qu'il fonctionne correctement au moment où la mesure a été réalisée.",
-      timeLimit: 45,
-    },
-    {
-      question: "Dans quel(s) cas la mise à la terre et en court-circuit (MALT et CCT) est-elle obligatoire en basse tension ?",
-      choices: [
-        "Toujours, quelle que soit l'installation",
-        "En cas de risque de tension induite, de ré-alimentation ou avec des câbles de grande longueur",
-        "Uniquement en haute tension",
-        "Jamais en basse tension",
-      ],
-      answer: [1],
-      explanation:
-        "La MALT et CCT n'est pas obligatoire en BT, sauf en cas de risque de tension induite, risque de ré-alimentation ou avec des câbles de grandes longueurs.",
-      timeLimit: 55,
-    },
-    {
-      question: "L'habilitation BR entraîne automatiquement quelles autres habilitations ?",
-      choices: [
-        "B0 et B1 ainsi que B1V",
-        "B2 et BC",
-        "Toutes les habilitations BT",
-        "Aucune autre habilitation",
-      ],
-      answer: [0],
-      explanation:
-        "L'habilitation BR entraîne les habilitations B0, B1 et B1V, mais elle n'entraîne pas les habilitations B2 et BC.",
-      timeLimit: 50,
-    },
-    {
-      question: "À quoi est limitée l'habilitation BS ?",
-      choices: [
-        "Aux circuits terminaux en basse tension jusqu'à 400 V",
-        "Aux interventions en haute tension uniquement",
-        "À toutes les opérations BT sans restriction de tension",
-        "À la consignation des armoires industrielles",
-      ],
-      answer: [0],
-      explanation:
-        "L'habilitation BS est limitée à 400 V et aux circuits terminaux. Elle ne permet pas de remplacer un disjoncteur dans une armoire industrielle.",
-      timeLimit: 50,
-    },
-    {
-      question: "Quelle zone d'environnement est réservée aux opérations électriques en basse tension (zone 4) ?",
-      choices: [
-        "Zone accessible à tout le monde sans restriction",
-        "Zone réservée au personnel habilité, où le matériel IP2X ne doit pas être considéré comme sous tension",
-        "Zone uniquement accessible en haute tension",
-        "Zone d'investigation sans restriction pour le personnel non habilité",
-      ],
-      answer: [1],
-      explanation:
-        "La zone 4 est réservée au personnel habilité pour les opérations électriques en BT. Tout matériel de degré IP2X n'y est pas considéré comme sous tension accessible.",
-      timeLimit: 55,
-    },
-    {
-      question: "Quel est l'indice de protection minimal du matériel en basse tension (BT) pour assurer la protection contre les contacts directs ?",
-      choices: ["IP 1X", "IP 2X", "IP 3X", "IP 5X"],
-      answer: [1],
-      explanation:
-        "L'indice minimum de protection du matériel est IP 2X en Basse Tension et IP 3X en Haute Tension. Ils assurent la protection contre les contacts directs.",
-      timeLimit: 40,
-    },
-    {
-      question: "Quelle est la périodicité de recyclage recommandée pour une habilitation électrique ?",
-      choices: ["1 an", "2 ans", "3 ans", "5 ans"],
-      answer: [2],
-      explanation:
-        "La périodicité de recyclage, sauf contre-indication, est fixée à 3 ans pour les habilitations électriques.",
-      timeLimit: 35,
-    },
-    {
-      question: "Selon l'analyse des accidents d'origine électrique, quelle est la principale cause identifiée ?",
-      choices: [
-        "Matériel défectueux (12 %)",
-        "Formation insuffisante (12 %)",
-        "Mode opératoire inapproprié (31 %)",
-        "Application incomplète des procédures (15 %)",
-      ],
-      answer: [2],
-      explanation:
-        "L'analyse des accidents électriques montre que le mode opératoire inapproprié est la première cause (31 %), suivi de la méconnaissance des risques (30 %), l'application incomplète des procédures (15 %), et à égalité formation insuffisante et matériel (12 % chacun).",
-      timeLimit: 50,
-    },
-    {
-      question: "Quels équipements de protection individuelle (EPI) sont obligatoires lors de travaux au voisinage en électricité ?",
-      choices: [
-        "Gants isolants d'électricien adaptés à la tension",
-        "Écrans faciaux anti-UV",
-        "Casque isolant si risque de contact électrique à la tête",
-        "Chaussures de sécurité isolantes",
-      ],
-      answer: [0, 1, 2, 3],
-      multiple: true,
-      explanation:
-        "Les EPI obligatoires en voisinage comprennent les gants isolants (conformes aux normes, vérifiés avant et après usage), les écrans faciaux anti-UV, le casque isolant si risque à la tête, et les chaussures isolantes. Les objets métalliques personnels (bracelets, chaînes) sont interdits.",
-      timeLimit: 65,
-    },
-    {
-      question: "Quelle est la Distance Minimale d'Approche (DMA) autour d'une pièce nue sous tension en basse tension (BT), en champ libre ?",
-      choices: ["0,05 m", "0,30 m", "1 m", "3 m"],
-      answer: [1],
-      explanation:
-        "La DMA en BT est de 0,30 m autour d'une pièce nue sous tension. En haute tension, cette distance est nettement plus grande. Un titulaire H0B0 ne doit jamais franchir cette limite.",
-      timeLimit: 40,
-    },
-    {
-      question: "En milieu humide (condensation, transpiration), quelle est la tension de contact dangereuse en courant alternatif ?",
-      choices: ["50 V", "25 V", "12 V", "120 V"],
-      answer: [1],
-      explanation:
-        "En milieu humide, la résistance du corps chute à environ 2 500 Ω. La tension dangereuse descend à 25 V en AC. En milieu sec elle est de 50 V, et en milieu mouillé de 12 V seulement.",
-      timeLimit: 40,
-    },
-    {
-      question: "En milieu mouillé (eau ruisselante, immersion partielle), quelle est la tension de contact dangereuse en courant alternatif ?",
-      choices: ["50 V", "25 V", "12 V", "30 V"],
-      answer: [2],
-      explanation:
-        "En milieu mouillé, la résistance du corps est très faible. La tension dangereuse en AC tombe à 12 V. Toute installation électrique dans un tel environnement présente un risque maximal même à très basse tension.",
-      timeLimit: 40,
-    },
-    {
-      question: "De quelle couleur est le grillage avertisseur signalant la présence d'une canalisation électrique enterrée ?",
-      choices: ["Jaune", "Vert", "Rouge", "Bleu"],
-      answer: [2],
-      explanation:
-        "Le grillage avertisseur rouge signale les canalisations électriques enterrées. Jaune = gaz, vert = eau potable, bleu = eau non potable, blanc = télécommunications. Découvrir ce grillage lors d'un terrassement impose l'arrêt immédiat.",
-      timeLimit: 35,
-    },
-    {
-      question: "Quelle est la Distance Limite d'Investigation (DLI) à respecter autour d'une pièce nue sous tension en basse tension ?",
-      choices: ["3 m", "10 m", "50 m", "100 m"],
-      answer: [2],
-      explanation:
-        "La DLI en BT est de 50 m. C'est la distance à partir de laquelle on commence à prendre en compte l'environnement électrique lors d'une analyse de risques avant travaux.",
-      timeLimit: 45,
-    },
-    {
-      question: "Quel est le rôle du surveillant de sécurité électrique dans le cadre d'une opération impliquant du personnel non habilité ?",
-      choices: [
-        "Réaliser lui-même les travaux électriques à la place du personnel non habilité",
-        "Surveiller en permanence les personnes non habilitées évoluant en zone à risque et intervenir si nécessaire",
-        "Vérifier uniquement la conformité administrative des habilitations",
-        "Remplacer le chargé de consignation en cas d'absence",
-      ],
-      answer: [1],
-      explanation:
-        "Le surveillant de sécurité électrique assure une surveillance permanente des personnes non habilitées travaillant en zone à risque. Il peut intervenir immédiatement en cas de dérive et fait le lien entre l'opérateur et l'organisation de prévention.",
-      timeLimit: 50,
-    },
-    {
-      question: "En courant continu, quelle est la tension de contact dangereuse en milieu sec ?",
-      choices: ["50 V", "25 V", "60 V", "120 V"],
-      answer: [3],
-      explanation:
-        "En courant continu et milieu sec, la tension dangereuse est de 120 V (contre 50 V en AC). En milieu humide DC : 60 V, en milieu mouillé DC : 30 V. Le courant continu est moins dangereux que l'AC à tension équivalente, mais ne doit jamais être banalisé.",
-      timeLimit: 40,
-    },
   ],
     bsbe: [
     {
@@ -1239,76 +998,6 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Réflexes opérationnels BS et BE Manœuvre",
     },
 
-    {
-      question: "Parmi les opérations suivantes, lesquelles sont autorisées dans le cadre de l'habilitation BS selon la norme NF C 18-510 ?",
-      choices: [
-        "Remplacement d'un fusible à l'identique sur un circuit terminal",
-        "Remplacement d'une lampe ou d'un accessoire d'éclairage",
-        "Remplacement d'un socle de prise de courant ou d'un interrupteur",
-        "Raccordement d'un élément électrique simple",
-        "Réarmement ou désarmement d'un disjoncteur de protection",
-      ],
-      answer: [0, 1, 2, 3, 4],
-      multiple: true,
-      explanation:
-        "Ces cinq opérations sont précisément celles autorisées par la norme NF C 18-510 pour le symbole BS. Elles doivent toujours être réalisées hors tension, sur un circuit repéré, dans la limite de 400 V et sur des circuits terminaux.",
-      timeLimit: 70,
-    },
-    {
-      question: "Quelles sont les cinq conditions cumulatives requises pour qu'une opération soit qualifiée d'intervention BT élémentaire BS ?",
-      choices: [
-        "Basse tension (≤ 1 000 V AC)",
-        "Intensité ≤ 63 A",
-        "Courte durée sans interruption",
-        "Circuit protégé contre les surintensités",
-        "Analyse de risques sur place possible",
-      ],
-      answer: [0, 1, 2, 3, 4],
-      multiple: true,
-      explanation:
-        "Ces cinq conditions sont cumulatives. Si l'une fait défaut — par exemple l'intensité dépasse 63 A ou l'analyse sur place est impossible — il ne s'agit plus d'une intervention BS mais de travaux nécessitant une organisation différente.",
-      timeLimit: 75,
-    },
-    {
-      question: "Quels sont les trois types de manœuvres que le titulaire BE Manœuvre peut être amené à réaliser ?",
-      choices: [
-        "Manœuvres de consignation",
-        "Manœuvres d'exploitation",
-        "Manœuvres d'urgence",
-        "Manœuvres de diagnostic",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "La norme distingue : les manœuvres de consignation (selon instruction du chargé de consignation), les manœuvres d'exploitation (conduite normale), et les manœuvres d'urgence (procédure établie à l'avance). Le diagnostic improvisé n'est jamais une manœuvre autorisée.",
-      timeLimit: 60,
-    },
-    {
-      question: "Le BS peut-il effectuer une consignation complète pour le compte d'un autre opérateur comme le ferait un chargé de consignation BC ?",
-      choices: [
-        "Oui, si l'opération est simple et en BT",
-        "Oui, à condition d'être supervisé par un BR",
-        "Non, la consignation pour compte d'autrui relève exclusivement du BC",
-        "Non, sauf si l'employeur le précise dans le titre d'habilitation",
-      ],
-      answer: [2],
-      explanation:
-        "Le BS peut réaliser une mise hors tension pour son propre compte dans le cadre de son intervention élémentaire, mais il ne peut pas consigner pour le compte d'un autre opérateur. Cette responsabilité appartient exclusivement au chargé de consignation BC.",
-      timeLimit: 50,
-    },
-    {
-      question: "Lors d'une manœuvre BE Manœuvre, un disjoncteur retombe immédiatement après réarmement et une légère odeur se dégage. Quelle est la conduite à tenir ?",
-      choices: [
-        "Réarmer une deuxième fois en surveillant le tableau",
-        "Réarmer en forçant légèrement le levier pour maintenir le contact",
-        "Suspendre la manœuvre, ne pas réenclencher et transmettre à la personne compétente",
-        "Ouvrir le coffret pour observer le disjoncteur en détail",
-      ],
-      answer: [2],
-      explanation:
-        "Une odeur et un retombé immédiat signalent une anomalie. Le réarmement répété aggrave le risque. La conduite attendue est l'arrêt immédiat de la manœuvre et la transmission au niveau compétent (BR ou B2).",
-      timeLimit: 50,
-    },
     // === EPI ÉLECTRIQUES ===
     {
       question:
@@ -3627,269 +3316,116 @@ export const quizContent: Record<string, QuizQuestion[]> = {
   ],
   sst: [
     {
-      question: "Quelle est la première priorité d'un SST face à un accident du travail ?",
+      question:
+        "Quelle est la premiere priorite d'un SST face a un accident ?",
       choices: [
-        "Protéger pour éviter le sur-accident",
-        "Déplacer immédiatement la victime quoi qu'il arrive",
-        "Appeler les secours après plusieurs minutes d'observation",
-        "Commencer le massage cardiaque sans analyse préalable",
+        "Proteger pour eviter le suraccident",
+        "Deplacer immediatement la victime quoi qu'il arrive",
+        "Appeler apres plusieurs minutes d'observation",
+        "Agir sans analyser le danger",
       ],
       answer: [0],
       explanation:
-        "Le SST commence par protéger la zone afin d'éviter qu'un secouriste ou un témoin ne devienne une nouvelle victime.",
+        "Le SST commence par proteger afin d'eviter une nouvelle victime et de securiser la scene.",
       timeLimit: 45,
       imagePath: "/images/sst.jpg",
-      imageAlt: "Formation SST et gestes de premiers secours en entreprise",
+      imageAlt:
+        "Formation SST et gestes de premiers secours en environnement professionnel",
     },
     {
-      question: "Dans quel ordre le SST examine-t-il une victime ?",
+      question:
+        "L'examen SST sert principalement a :",
       choices: [
-        "Saigne ? → S'étouffe ? → Répond ? → Respire ?",
-        "Respire ? → Répond ? → Saigne ? → S'étouffe ?",
-        "S'étouffe ? → Saigne ? → Respire ? → Répond ?",
-        "Répond ? → Respire ? → S'étouffe ? → Saigne ?",
+        "Identifier l'urgence et orienter le geste immediat",
+        "Remplacer l'avis medical",
+        "Choisir la victime la plus simple a traiter",
+        "Retarder l'alerte",
       ],
       answer: [0],
       explanation:
-        "La séquence SST suit les urgences vitales par ordre de priorité : hémorragie grave → étouffement → conscience → respiration.",
-      timeLimit: 50,
+        "L'examen permet de rechercher les urgences vitales et de guider la suite de l'intervention.",
+      timeLimit: 45,
     },
     {
-      question: "Quelles informations doivent figurer dans une alerte utile aux secours ?",
+      question:
+        "Quelles informations doivent figurer dans une alerte utile ?",
       choices: [
-        "Le lieu précis de l'accident",
-        "La nature de l'événement et le nombre de victimes",
-        "L'état apparent de la victime et les gestes déjà engagés",
-        "L'identité de tous les témoins présents",
+        "Le lieu precis",
+        "La nature de l'evenement",
+        "Le nombre de victimes",
+        "Des informations sans lien avec la situation",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "Une alerte efficace comporte le lieu, la nature de l'événement, le nombre de victimes, leur état et ce qui a déjà été fait.",
+        "Une alerte claire et precise fait gagner du temps et facilite la prise en charge par les secours.",
       timeLimit: 65,
     },
     {
-      question: "Face à un saignement abondant, quel geste est prioritaire ?",
+      question:
+        "Pourquoi la protection prime-t-elle avant le secours ?",
       choices: [
-        "Appliquer une compression directe et ferme sans relâcher",
-        "Poser un garrot immédiatement sur le membre",
-        "Nettoyer la plaie avec un antiseptique avant de comprimer",
-        "Laisser saigner quelques minutes pour attendre les secours",
+        "Parce qu'il faut eviter le suraccident",
+        "Parce qu'un secouriste blesse devient une nouvelle victime",
+        "Parce qu'il faut agir vite sans jamais regarder le danger",
+        "Parce que tout danger disparait automatiquement en quelques secondes",
       ],
-      answer: [0],
-      explanation:
-        "La compression directe, ferme et continue est le geste de référence. Le garrot est un moyen de dernier recours pour les hémorragies de membres non contrôlables.",
-      timeLimit: 45,
-    },
-    {
-      question: "Lors d'une compression pour hémorragie, le pansement est saturé de sang. Que faire ?",
-      choices: [
-        "Ajouter un pansement par-dessus sans retirer le premier",
-        "Retirer le pansement et en placer un propre",
-        "Relâcher la compression pour vérifier l'évolution du saignement",
-        "Appliquer de la glace sur le pansement",
-      ],
-      answer: [0],
-      explanation:
-        "On n'ôte jamais le pansement en place — cela détruirait le caillot en formation. On ajoute du renfort par-dessus.",
-      timeLimit: 45,
-    },
-    {
-      question: "Une victime consciente s'étouffe et ne peut ni parler ni tousser. Quel est le bon protocole ?",
-      choices: [
-        "5 claques vigoureuses dans le dos puis 5 compressions abdominales (Heimlich), en alternant",
-        "Tenter de saisir le corps étranger avec les doigts dans la bouche",
-        "Allonger la victime et attendre les secours sans intervenir",
-        "Réaliser immédiatement le Heimlich sans claques dorsales préalables",
-      ],
-      answer: [0],
-      explanation:
-        "Le protocole est : 5 claques dorsales vigoureuses puis 5 compressions abdominales, en alternant jusqu'à expulsion ou perte de conscience.",
-      timeLimit: 55,
-    },
-    {
-      question: "La victime qui s'étouffait vient de perdre conscience. Que fait le SST ?",
-      choices: [
-        "Poser la victime au sol et débuter la RCP (massage cardiaque)",
-        "Continuer le Heimlich même si elle est inconsciente",
-        "Mettre en PLS et attendre les secours",
-        "Tenter de retirer le corps étranger à la main",
-      ],
-      answer: [0],
-      explanation:
-        "La perte de conscience impose de passer à la RCP. Les compressions thoraciques peuvent suffire à expulser le corps étranger.",
-      timeLimit: 45,
-    },
-    {
-      question: "Une victime est inconsciente mais respire normalement. Quelle position adopte-t-on ?",
-      choices: [
-        "Position Latérale de Sécurité (PLS) pour protéger les voies aériennes",
-        "Sur le dos, bras le long du corps",
-        "Assise pour faciliter la respiration",
-        "Debout, maintenue par un témoin",
-      ],
-      answer: [0],
-      explanation:
-        "La PLS place la victime sur le côté, bouche vers le bas, pour éviter l'inhalation de vomissements et maintenir les voies aériennes libres.",
-      timeLimit: 40,
-    },
-    {
-      question: "Quels signes permettent de reconnaître un arrêt cardiaque ?",
-      choices: [
-        "La victime est inconsciente et ne respire pas normalement",
-        "La victime présente des gasps agoniques (respirations rares et bruyantes)",
-        "La victime ne répond pas aux stimulations",
-        "La victime a les yeux ouverts et parle normalement",
-      ],
-      answer: [0, 1, 2],
+      answer: [0, 1],
       multiple: true,
       explanation:
-        "L'arrêt cardiaque se reconnaît par : absence de réponse, absence de respiration normale (ou gasps). Ne pas perdre de temps à chercher un pouls.",
+        "La scene doit etre securisee avant toute autre action pour eviter d'aggraver la situation.",
       timeLimit: 60,
-    },
-    {
-      question: "Lors d'une RCP adulte, quelle est la technique correcte pour les compressions thoraciques ?",
-      choices: [
-        "Talons des mains au centre du thorax, bras tendus, 5-6 cm de profondeur, 100-120/min",
-        "Bout des doigts sur le sternum, 3 cm de profondeur, 60/min",
-        "Paume entière sur le côté gauche du thorax, 2-3 cm, 80/min",
-        "Compressions sur l'abdomen, 100/min",
-      ],
-      answer: [0],
-      explanation:
-        "Les compressions doivent être réalisées au centre du thorax (moitié inférieure du sternum), avec les talons des mains, bras tendus, 5 à 6 cm de profondeur, à 100-120 par minute.",
-      timeLimit: 55,
-    },
-    {
-      question: "Concernant le défibrillateur automatisé externe (DAE), quelles affirmations sont vraies ?",
-      choices: [
-        "Il guide vocalement l'utilisateur étape par étape",
-        "Il peut être utilisé sans formation médicale",
-        "Il doit être récupéré et allumé le plus tôt possible après l'arrêt cardiaque",
-        "Il remplace la RCP : on n'a pas besoin de masser après un choc",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "Le DAE est conçu pour être utilisé par tous. Il guide vocalement et ne délivre le choc que si nécessaire. La RCP reprend immédiatement après chaque choc.",
-      timeLimit: 65,
-    },
-    {
-      question: "Face à une brûlure thermique, quel est le geste immédiat correct ?",
-      choices: [
-        "Faire couler de l'eau fraîche (15-25 °C) pendant au moins 5 à 10 minutes",
-        "Appliquer de la glace directement sur la brûlure",
-        "Enduire la brûlure de beurre ou de crème hydratante",
-        "Percer les cloques pour soulager la douleur",
-      ],
-      answer: [0],
-      explanation:
-        "L'eau fraîche (pas glacée) refroidit les tissus et limite l'extension de la brûlure en profondeur. La glace, les corps gras et le perçage des cloques sont contre-indiqués.",
-      timeLimit: 45,
-    },
-    {
-      question: "Quels signes doivent faire suspecter un AVC et imposent d'appeler immédiatement le 15 ?",
-      choices: [
-        "Paralysie ou faiblesse soudaine d'un côté du visage ou du corps",
-        "Difficultés soudaines à parler ou à comprendre",
-        "Perte soudaine de vision d'un œil",
-        "Simple maux de tête passager sans autre signe",
-      ],
-      answer: [0, 1, 2],
-      multiple: true,
-      explanation:
-        "L'acronyme FAST aide : Face (asymétrie), Arm (bras qui chute), Speech (trouble de la parole), Time (appeler le 15 immédiatement). Chaque minute aggrave les séquelles.",
-      timeLimit: 65,
-    },
-    {
-      question: "Face à un traumatisme avec suspicion de fracture vertébrale, quelle est la règle de base ?",
-      choices: [
-        "Ne pas déplacer la victime sauf danger immédiat et mortel",
-        "Mobiliser la victime en la soutenant par la tête",
-        "Mettre la victime en PLS quelle que soit la situation",
-        "Tirer la victime par les pieds pour la mettre à l'abri",
-      ],
-      answer: [0],
-      explanation:
-        "Un traumatisme du rachis impose de ne pas mobiliser la victime. Seul un danger immédiat justifie un dégagement d'urgence, réalisé en maintenant l'axe tête-cou-tronc.",
-      timeLimit: 50,
-    },
-    {
-      question: "Quelle est la durée réglementaire de validité de la certification SST avant le MAC obligatoire ?",
-      choices: [
-        "2 ans",
-        "1 an",
-        "3 ans",
-        "5 ans",
-      ],
-      answer: [0],
-      explanation:
-        "Le MAC SST (Maintien et Actualisation des Compétences) est obligatoire tous les deux ans pour conserver la certification SST.",
-      timeLimit: 35,
-    },
-    {
-      question: "Quel est le rôle du SST en dehors des situations d'urgence ?",
-      choices: [
-        "Contribuer à la prévention en repérant et en remontant les situations dangereuses",
-        "Remplacer le médecin du travail dans les visites médicales",
-        "Décider seul des mesures de sécurité à mettre en place",
-        "Assurer uniquement les premiers secours et ne pas intervenir en prévention",
-      ],
-      answer: [0],
-      explanation:
-        "Le SST a deux missions complémentaires : intervenir en cas d'accident et contribuer à la prévention des risques en signalant les situations dangereuses.",
-      timeLimit: 45,
     },
     {
       question:
         "Dans la logique SST, quels signes orientent l'examen initial ?",
       choices: [
         "Saignement abondant",
-        "Étouffement",
-        "Réponse de la victime",
+        "Etouffement",
+        "Reponse de la victime",
         "Respiration",
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "L'examen SST suit une logique méthodique de recherche des urgences vitales.",
+        "L'examen SST suit une logique methodique de recherche des urgences vitales.",
       timeLimit: 75,
     },
     {
       question:
-        "Quel énoncé reste juste concernant le rôle du SST ?",
+        "Quel enonce reste juste concernant le role du SST ?",
       choices: [
-        "Le SST secourt et contribue aussi à la prévention dans l'entreprise",
-        "Le SST remplace les secours spécialisés",
+        "Le SST secourt et contribue aussi a la prevention dans l'entreprise",
+        "Le SST remplace les secours specialises",
         "Le SST agit dans le cadre de sa formation et des consignes du site",
         "Le SST improvise des gestes non appris si la situation est impressionnante",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Le rôle du SST relie secours et prévention, dans le respect strict du cadre appris en formation.",
+        "Le role du SST relie secours et prevention, dans le respect strict du cadre appris en formation.",
       timeLimit: 65,
     },
     {
       question:
-        "Pourquoi le suivi de la victime reste-t-il important jusqu'à l'arrivée des secours ?",
+        "Pourquoi le suivi de la victime reste-t-il important jusqu'a l'arrivee des secours ?",
       choices: [
-        "Parce que son état peut évoluer",
+        "Parce que son etat peut evoluer",
         "Parce qu'il faut pouvoir transmettre un compte rendu utile",
-        "Parce qu'une fois l'alerte donnée, toute surveillance devient inutile",
+        "Parce qu'une fois l'alerte donnee, toute surveillance devient inutile",
         "Parce que l'attente remplace toujours les gestes appris",
       ],
       answer: [0, 1],
       multiple: true,
       explanation:
-        "Le SST surveille, rassure si possible et transmet des informations utiles à la relève.",
+        "Le SST surveille, rassure si possible et transmet des informations utiles a la releve.",
       timeLimit: 60,
     },
     {
       question:
-        "Dans quel ordre logique s'inscrit l'action du SST face à une situation d'accident ?",
+        "Dans quel ordre logique s'inscrit l'action du SST face a une situation d'accident ?",
       choices: [
-        "Protéger",
+        "Proteger",
         "Examiner",
         "Alerter ou faire alerter",
         "Secourir",
@@ -3897,7 +3433,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "La logique SST suit une méthode ordonnée : protéger, examiner, alerter, puis secourir dans le cadre appris.",
+        "La logique SST suit une methode ordonnee: proteger, examiner, alerter, puis secourir dans le cadre appris.",
       timeLimit: 70,
       imagePath: "/images/sst.jpg",
       imageAlt:
@@ -3905,10 +3441,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Quelles informations sont utiles lors de la relève ou de l'arrivée des secours ?",
+        "Quelles informations sont utiles lors de la releve ou de l'arrivee des secours ?",
       choices: [
-        "Ce qui a été observé chez la victime",
-        "Le geste déjà réalisé",
+        "Ce qui a ete observe chez la victime",
+        "Le geste deja realise",
         "Les risques persistants sur la zone",
         "Des commentaires sans lien avec la situation",
       ],
@@ -4416,595 +3952,4 @@ quizContent["be-verification-mesurage"] = [
     ],
     12
   ),
-];
-// ─────────────────────────────────────────────────────────────────────────────
-// QUIZ — Extinction automatique à gaz
-// ─────────────────────────────────────────────────────────────────────────────
-quizContent["extinction-automatique-gaz"] = [
-  {
-    question: "Quel agent extincteur gazeux est aujourd'hui interdit par la réglementation européenne pour les nouvelles installations ?",
-    choices: ["FM-200 (HFC-227ea)", "Halon 1301", "Novec 1230", "CO2"],
-    answer: [1],
-    explanation: "Le Halon 1301 est interdit depuis 1994 par le règlement CE sur les substances appauvrissant la couche d'ozone. Les nouvelles installations utilisent FM-200, Novec 1230, CO2 ou gaz inertes. Des dérogations limitées existent pour certains sites existants.",
-    timeLimit: 40,
-  },
-  {
-    question: "Quelle est la principale différence entre un agent gazeux 'propre' (FM-200, Novec) et le CO2 ?",
-    choices: [
-      "Les agents propres sont plus efficaces à extinction",
-      "Le CO2 est inoffensif pour les personnes présentes dans le local",
-      "Les agents propres ne présentent pas de risque d'asphyxie à concentration d'extinction",
-      "Le CO2 est réservé aux locaux occupés",
-    ],
-    answer: [2],
-    explanation: "Les agents 'propres' comme FM-200 et Novec 1230 ont une concentration d'extinction bien en dessous du seuil d'asphyxie. Le CO2, au contraire, chasse l'oxygène et représente un danger mortel pour les personnes présentes dans le local. C'est pourquoi le CO2 est réservé aux locaux non occupés avec des procédures d'évacuation strictes.",
-    timeLimit: 45,
-  },
-  {
-    question: "Lors d'une alarme de pré-déclenchement (phase 1) d'un système gaz, quelle est l'action prioritaire ?",
-    choices: [
-      "Attendre la phase 2 et l'émission du gaz",
-      "Quitter immédiatement le local protégé",
-      "Rechercher la cause de l'alarme et acquitter manuellement",
-      "Couper l'alimentation électrique du système",
-    ],
-    answer: [1],
-    explanation: "En phase de pré-déclenchement, il faut évacuer le local immédiatement. La temporisation avant émission est courte (généralement 30 secondes à 1 minute). Chercher la cause ou acquitter l'alarme dans le local expose la personne à l'émission du gaz. L'évacuation est automatiquement signalée par des avertisseurs sonores et lumineux.",
-    timeLimit: 40,
-  },
-  {
-    question: "Combien de phases de détection comporte généralement un système d'extinction gaz à double détection ?",
-    choices: ["1 phase unique", "2 phases successives", "3 phases", "4 phases"],
-    answer: [1],
-    explanation: "Un système à double détection comporte 2 phases : phase 1 (premier détecteur déclenché) génère une alarme restreinte et met en alerte le personnel ; phase 2 (second détecteur) déclenche la temporisation puis l'émission. Cette logique réduit les risques de déclenchement accidentel.",
-    timeLimit: 40,
-  },
-  {
-    question: "La temporisation avant émission d'un système gaz a pour objectif :",
-    choices: [
-      "De laisser le temps au gaz de se préparer",
-      "De permettre l'évacuation du local avant l'émission",
-      "De vérifier que le détecteur n'est pas défaillant",
-      "De prévenir les pompiers",
-    ],
-    answer: [1],
-    explanation: "La temporisation (généralement 30 secondes à plusieurs minutes selon le site) donne le temps aux personnes présentes d'évacuer le local avant l'émission du gaz extincteur. Durant cette période, des avertisseurs sonores et lumineux se déclenchent pour ordonner l'évacuation.",
-    timeLimit: 35,
-  },
-  {
-    question: "Lors d'une mise hors service temporaire du système gaz pour des travaux, quelle mesure compensatoire est obligatoire ?",
-    choices: [
-      "Fermer toutes les portes du local",
-      "Organiser une surveillance humaine ou des rondes renforcées",
-      "Éteindre tous les appareils électriques du local",
-      "Aucune, la mise hors service est sans contrainte",
-    ],
-    answer: [1],
-    explanation: "Lorsqu'un système d'extinction est mis hors service, le risque incendie n'est plus couvert automatiquement. Des mesures compensatoires sont obligatoires : surveillance humaine renforcée, rondes fréquentes, interdiction de travaux à risque ou présence d'extincteurs supplémentaires. Ces mesures doivent être formalisées.",
-    timeLimit: 40,
-  },
-  {
-    question: "L'APSAD R13 est :",
-    choices: [
-      "Une norme de construction des locaux techniques",
-      "Un référentiel de conception, installation et maintenance des systèmes gaz",
-      "Une réglementation relative aux EPI des exploitants",
-      "Un guide des agents extincteurs prohibés",
-    ],
-    answer: [1],
-    explanation: "L'APSAD R13 est le référentiel technique de référence en France pour les installations fixes d'extinction automatique à gaz. Il couvre la conception, l'installation, la réception et la maintenance. Il complète la norme NF EN 15004-1 sur le plan technique.",
-    timeLimit: 40,
-  },
-  {
-    question: "Après une émission réelle de gaz CO2 dans un local, quelle action est prioritaire avant tout accès ?",
-    choices: [
-      "Aérer naturellement 5 minutes puis entrer",
-      "Vérifier que la pression de la bouteille est nulle",
-      "Faire intervenir uniquement des personnes équipées d'ARI (Appareil Respiratoire Isolant)",
-      "Entrer rapidement pour éteindre les foyers résiduels",
-    ],
-    answer: [2],
-    explanation: "Après une émission de CO2, la concentration dans le local est potentiellement mortelle. L'accès est interdit sans Appareil Respiratoire Isolant (ARI). Même après ventilation, des zones basses peuvent conserver une concentration dangereuse. Seul un personnel équipé et formé peut intervenir.",
-    timeLimit: 40,
-  },
-  {
-    question: "Le poste de commande manuelle d'un système gaz permet :",
-    choices: [
-      "De régler la durée de temporisation",
-      "De déclencher manuellement l'émission en cas de feu confirmé",
-      "De recharger les bouteilles d'agent extincteur",
-      "D'acquitter les alarmes de défaut",
-    ],
-    answer: [1],
-    explanation: "Le poste de commande manuelle permet de déclencher manuellement l'émission du gaz lorsqu'un feu est confirmé et que le déclenchement automatique n'a pas eu lieu ou doit être anticipé. Il est généralement situé à l'extérieur du local protégé pour la sécurité de l'opérateur.",
-    timeLimit: 40,
-  },
-  {
-    question: "Que signifie l'état 'dérangement' sur la centrale d'un système gaz ?",
-    choices: [
-      "Un feu est détecté dans le local protégé",
-      "Une coupure de courant est survenue",
-      "Un composant du système est en défaut sans feu confirmé",
-      "Le gaz a été émis partiellement",
-    ],
-    answer: [2],
-    explanation: "Un dérangement signale un défaut technique du système (câble coupé, détecteur défaillant, batterie basse) sans que cela corresponde à une détection de feu. Il doit être traité rapidement par la maintenance car il peut affecter la capacité du système à fonctionner en cas d'incendie réel.",
-    timeLimit: 40,
-  },
-  {
-    question: "Les portes du local protégé par un système gaz doivent être :",
-    choices: [
-      "En bois massif pour résister à la pression du gaz",
-      "Maintenues ouvertes pour faciliter l'évacuation",
-      "Coupe-feu et se fermant automatiquement lors du déclenchement",
-      "Équipées d'une grille de ventilation pour le gaz",
-    ],
-    answer: [2],
-    explanation: "Les portes du local protégé doivent être coupe-feu et à fermeture automatique. Leur fermeture lors de l'émission du gaz est essentielle pour maintenir la concentration d'agent extincteur nécessaire à l'extinction. Une porte ouverte viderait le gaz et rendrait l'extinction inefficace.",
-    timeLimit: 40,
-  },
-  {
-    question: "Quels sont les deux systèmes de détection généralement utilisés dans un local protégé par extinction gaz ?",
-    choices: [
-      "Détecteurs thermiques et sprinklers",
-      "Détecteurs ioniques et optiques fumée",
-      "Détecteurs de flamme et de gaz combustible",
-      "Caméras thermiques et systèmes VESDA uniquement",
-    ],
-    answer: [1],
-    explanation: "La double détection utilise généralement des détecteurs ioniques (sensibles aux feux couvants) et des détecteurs optiques à effet Tyndall (sensibles aux fumées visibles). La combinaison des deux technologies réduit les déclenchements intempestifs tout en assurant une bonne couverture des risques.",
-    timeLimit: 45,
-  },
-  {
-    question: "En exploitation, que doit faire l'exploitant face à un déclenchement automatique du système gaz en dehors des heures de travail ?",
-    choices: [
-      "Attendre le lendemain matin pour vérifier",
-      "Appeler la maintenance uniquement si une bouteille semble vide",
-      "Traiter le déclenchement comme un incendie réel jusqu'à preuve du contraire et alerter les secours",
-      "Entrer dans le local pour vérifier l'état du feu",
-    ],
-    answer: [2],
-    explanation: "Tout déclenchement doit être traité comme une situation réelle jusqu'à preuve du contraire. Il faut alerter les secours (18 ou 112), ne pas entrer dans le local sans équipement adapté, et suivre le protocole du site. Le déclenchement peut être accidentel, mais seule une vérification externe sécurisée permettra de l'établir.",
-    timeLimit: 40,
-  },
-  {
-    question: "La NF EN 15004-1 s'applique principalement à :",
-    choices: [
-      "La certification des agents extincteurs gazeux",
-      "Le calcul, l'installation et la maintenance des installations fixes d'extinction à gaz",
-      "La formation des exploitants SSI",
-      "L'agrément des centres de rechargement des bouteilles",
-    ],
-    answer: [1],
-    explanation: "La NF EN 15004-1 est la norme européenne qui couvre le calcul de la quantité d'agent, les conditions d'installation et les exigences de maintenance des systèmes fixes d'extinction à gaz. Elle s'applique à tous les agents gazeux et complète les référentiels nationaux comme l'APSAD R13.",
-    timeLimit: 40,
-  },
-  {
-    question: "Lors d'un essai hebdomadaire du système gaz, quelle vérification est systématiquement réalisée ?",
-    choices: [
-      "La concentration du gaz dans le local",
-      "Le bon fonctionnement des détecteurs et des avertisseurs sans déclenchement de l'émission",
-      "La pression de toutes les bouteilles d'agent",
-      "L'étanchéité du local par fumigène",
-    ],
-    answer: [1],
-    explanation: "Les essais hebdomadaires vérifient le bon fonctionnement des détecteurs, avertisseurs, commandes et liaisons sans provoquer l'émission du gaz. La mise à l'essai implique généralement la neutralisation de la commande d'émission pour éviter un déclenchement accidentel. Les résultats sont consignés dans le registre de sécurité.",
-    timeLimit: 40,
-  },
-  {
-    question: "Qu'est-ce que la 'concentration de conception' d'un agent extincteur gazeux ?",
-    choices: [
-      "La concentration minimale létale pour l'homme",
-      "La concentration d'agent dans le local à l'issue de l'émission, calculée pour éteindre le feu",
-      "La concentration de l'agent dans la bouteille de stockage",
-      "Le seuil d'alarme du détecteur de gaz",
-    ],
-    answer: [1],
-    explanation: "La concentration de conception est la quantité d'agent calculée pour atteindre et maintenir la concentration nécessaire à l'extinction dans tout le volume du local. Elle est calculée selon la NF EN 15004 en tenant compte du type d'agent, de la classe de feu et du volume du local. Elle doit être maintenue suffisamment longtemps pour garantir l'extinction.",
-    timeLimit: 45,
-  },
-  {
-    question: "Quel risque présente une perte d'étanchéité du local protégé par un système gaz ?",
-    choices: [
-      "Un risque de corrosion des bouteilles",
-      "Une réduction de la concentration d'agent et un risque d'extinction inefficace",
-      "Un déclenchement prématuré du système",
-      "Une surconcentration dangereuse pour l'agent",
-    ],
-    answer: [1],
-    explanation: "La performance d'un système gaz dépend de l'étanchéité du local. Des ouvertures (passages de câbles non obturés, grilles de ventilation non fermées, joints de portes défaillants) font chuter la concentration sous le seuil d'extinction. Le test d'étanchéité (porte fan) est recommandé lors des inspections périodiques.",
-    timeLimit: 45,
-  },
-  {
-    question: "Qui est responsable de l'inscription des essais et maintenances dans le registre de sécurité du système gaz ?",
-    choices: [
-      "L'assureur du bâtiment",
-      "Uniquement le technicien de maintenance certifié",
-      "L'exploitant ou le responsable sécurité du site",
-      "Le fabricant du système",
-    ],
-    answer: [2],
-    explanation: "Le registre de sécurité est sous la responsabilité de l'exploitant ou du responsable sécurité du site. Il doit consigner tous les essais, maintenances, déclenchements et anomalies. C'est un document réglementaire qui peut être demandé lors d'une inspection ou d'un sinistre.",
-    timeLimit: 40,
-  },
-  {
-    question: "Un système d'extinction gaz peut-il être déclenché manuellement de l'intérieur du local protégé ?",
-    choices: [
-      "Oui, toujours, pour permettre une intervention rapide",
-      "Non, les commandes manuelles sont placées à l'extérieur du local",
-      "Oui, mais seulement si l'automatique est en panne",
-      "Non, les déclenchements manuels sont interdits par la norme",
-    ],
-    answer: [1],
-    explanation: "Les commandes manuelles de déclenchement sont toujours placées à l'extérieur du local protégé, généralement près des accès. Cela garantit que la personne qui déclenche est hors de la zone d'émission. Déclencher depuis l'intérieur exposerait l'opérateur au gaz émis.",
-    timeLimit: 40,
-  },
-  {
-    question: "Après une émission de Novec 1230 ou FM-200, le local peut-il être réoccupé sans ventilation préalable ?",
-    choices: [
-      "Oui, ces agents sont sans danger pour les personnes",
-      "Non, même pour les agents 'propres', une ventilation est nécessaire avant réoccupation",
-      "Oui si l'émission a duré moins de 30 secondes",
-      "Non, il faut attendre 24h minimum",
-    ],
-    answer: [1],
-    explanation: "Même si Novec 1230 et FM-200 ne sont pas mortels à concentration d'extinction contrairement au CO2, une ventilation du local est recommandée avant la réoccupation. L'émission génère des sous-produits de décomposition thermique potentiellement irritants. La procédure de réoccupation doit être définie dans le plan d'intervention du site.",
-    timeLimit: 40,
-  },
-  {
-    question: "Quelle est la fréquence minimale recommandée des inspections périodiques d'un système d'extinction gaz par un technicien spécialisé ?",
-    choices: ["Tous les mois", "Tous les 6 mois", "Tous les ans", "Tous les 3 ans"],
-    answer: [2],
-    explanation: "APSAD R13 recommande une inspection annuelle par un technicien qualifié, complétée par des vérifications hebdomadaires et mensuelles réalisées par l'exploitant. Cette fréquence garantit la disponibilité opérationnelle du système. Certaines assurances imposent une fréquence semestrielle pour les sites sensibles.",
-    timeLimit: 40,
-  },
-  {
-    question: "Un 'signal de confirmation' dans un système gaz à double détection signifie :",
-    choices: [
-      "Que la maintenance a confirmé l'état du système",
-      "Que le second détecteur a été déclenché, confirmant la détection d'incendie",
-      "Que l'émission du gaz est terminée",
-      "Que l'assureur a été prévenu",
-    ],
-    answer: [1],
-    explanation: "Dans un système à double détection, le signal de confirmation est émis lorsque le second détecteur se déclenche, confirmant la présence probable d'un incendie. C'est ce signal qui lance la temporisation puis l'émission. Ce mécanisme évite les faux déclenchements liés à un seul détecteur défaillant.",
-    timeLimit: 40,
-  },
-  {
-    question: "Qu'est-ce qu'un 'sélecteur de zone' dans un système d'extinction gaz multi-zones ?",
-    choices: [
-      "Un dispositif permettant de choisir quelle zone sera protégée lors de la prochaine maintenance",
-      "Un organe permettant de diriger l'agent extincteur vers le local détecté en feu",
-      "Un détecteur spécialisé pour les zones à risque élevé",
-      "Un clapet coupe-feu commandé par le système",
-    ],
-    answer: [1],
-    explanation: "Dans les installations protégeant plusieurs locaux avec un seul stock d'agent, le sélecteur de zone oriente l'agent vers le local concerné lors du déclenchement. Il garantit que seul le local en feu reçoit l'agent, préservant la protection des autres zones. Sa maintenance et sa position sont critiques pour le bon fonctionnement.",
-    timeLimit: 45,
-  },
-  {
-    question: "L'exploitant d'un système gaz constate que le manomètre d'une bouteille d'agent indique une pression inférieure au seuil vert. Que fait-il ?",
-    choices: [
-      "Recharger lui-même la bouteille avec la valve disponible",
-      "Signaler immédiatement le défaut à la maintenance et documenter dans le registre",
-      "Attendre la prochaine maintenance annuelle programmée",
-      "Passer la bouteille en réserve et continuer",
-    ],
-    answer: [1],
-    explanation: "Une bouteille sous-chargée ne peut pas délivrer la quantité d'agent prévue, compromettant l'extinction. L'exploitant doit signaler immédiatement le défaut à la maintenance et le consigner dans le registre. Le rechargement ou le remplacement de la bouteille relève de la maintenance spécialisée, pas de l'exploitant.",
-    timeLimit: 40,
-  },
-  {
-    question: "Pourquoi les passages de câbles et conduits traversant les parois du local protégé doivent-ils être obturés ?",
-    choices: [
-      "Pour respecter une règle esthétique de construction",
-      "Pour maintenir l'étanchéité et la concentration d'agent lors de l'émission",
-      "Pour éviter la propagation de l'incendie par les câbles",
-      "Pour protéger les câbles du gaz extincteur",
-    ],
-    answer: [1],
-    explanation: "L'étanchéité du local est indispensable au maintien de la concentration d'agent pendant le temps d'extinction. Des passages non obturés créent des fuites qui font chuter la concentration sous le seuil d'extinction. Les traversées de paroi doivent être colmatées avec des matériaux adaptés (mastics coupe-feu intumescents).",
-    timeLimit: 40,
-  },
-];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// QUIZ — SSI Exploitation
-// ─────────────────────────────────────────────────────────────────────────────
-quizContent["ssi-exploitation"] = [
-  {
-    question: "Que signifie l'acronyme SSI ?",
-    choices: [
-      "Système de Sécurité Incendie",
-      "Service de Surveillance et d'Inspection",
-      "Système de Signalisation Intégrée",
-      "Sensor Safety Interface",
-    ],
-    answer: [0],
-    explanation: "SSI signifie Système de Sécurité Incendie. Il désigne l'ensemble des équipements automatiques et manuels conçus pour détecter un incendie et commander les actions de mise en sécurité d'un bâtiment.",
-    timeLimit: 35,
-  },
-  {
-    question: "Le SDI (Système de Détection Incendie) comprend :",
-    choices: [
-      "Uniquement les détecteurs automatiques",
-      "Les détecteurs automatiques, les déclencheurs manuels, la centrale de détection et les indicateurs d'action",
-      "La centrale et les systèmes d'extinction uniquement",
-      "Tous les équipements de sécurité incendie du bâtiment",
-    ],
-    answer: [1],
-    explanation: "Le SDI comprend les détecteurs automatiques (ioniques, optiques, thermiques), les déclencheurs manuels (bris de glace), la centrale de détection incendie (CDI) et les indicateurs d'action. Il détecte le feu et génère les informations nécessaires à la mise en sécurité.",
-    timeLimit: 40,
-  },
-  {
-    question: "Quelle est la différence entre le SMSI et le SDI ?",
-    choices: [
-      "Le SMSI détecte le feu, le SDI commande les actions",
-      "Le SDI détecte le feu, le SMSI commande les actions de mise en sécurité",
-      "Ce sont deux appellations du même système",
-      "Le SMSI est réservé aux ERP, le SDI aux IGH",
-    ],
-    answer: [1],
-    explanation: "Le SDI (Système de Détection Incendie) détecte et signale un incendie. Le SMSI (Système de Mise en Sécurité Incendie) reçoit l'information du SDI et commande les actions de sécurité : désenfumage, compartimentage, diffusion de l'alarme d'évacuation, etc. Ces deux systèmes interagissent via le CMSI.",
-    timeLimit: 45,
-  },
-  {
-    question: "Un CMSI est :",
-    choices: [
-      "Un Contrôleur de Mise en Sécurité Incendie",
-      "Un Composant de Mesure de Sécurité Intégrée",
-      "Un Centre de Management des Systèmes d'Incendie",
-      "Un Capteur de Mesure de Signal Incendie",
-    ],
-    answer: [0],
-    explanation: "CMSI signifie Centralisateur de Mise en Sécurité Incendie. C'est l'équipement central du SMSI qui reçoit les informations du SDI et commande l'ensemble des fonctions de mise en sécurité (DAS, désenfumage, alarme d'évacuation, etc.).",
-    timeLimit: 35,
-  },
-  {
-    question: "Que signifie DAS dans le contexte du SSI ?",
-    choices: [
-      "Dispositif Actionné de Sécurité",
-      "Déclencheur Automatique de Sécurité",
-      "Détecteur Autonome de Signalisation",
-      "Dispositif d'Alerte et de Surveillance",
-    ],
-    answer: [0],
-    explanation: "DAS signifie Dispositif Actionné de Sécurité. Ce sont les équipements commandés par le SMSI lors d'une alarme : volets de désenfumage, clapets coupe-feu, portes coupe-feu à fermeture automatique, blocs-portes, ascenseurs rappelés au niveau d'évacuation, etc.",
-    timeLimit: 35,
-  },
-  {
-    question: "L'UGA (Unité de Gestion de l'Alarme) a pour rôle de :",
-    choices: [
-      "Détecter les incendies dans les zones à risque",
-      "Gérer la diffusion de l'alarme d'évacuation vers les occupants",
-      "Commander les trappes de désenfumage",
-      "Alimenter les détecteurs en secours",
-    ],
-    answer: [1],
-    explanation: "L'UGA gère la diffusion de l'alarme générale d'évacuation (AGSS ou AGS) vers les occupants du bâtiment. Elle reçoit l'ordre d'alarme du CMSI et commande les diffuseurs sonores et lumineux d'évacuation. Son bon fonctionnement est indispensable à l'évacuation en cas d'incendie.",
-    timeLimit: 40,
-  },
-  {
-    question: "Lors d'une alarme de niveau 1 (alarme restreinte) sur une centrale SSI, quelle est l'action de l'exploitant ?",
-    choices: [
-      "Déclencher immédiatement l'évacuation générale",
-      "Effectuer une levée de doute sur la zone concernée",
-      "Appeler les pompiers sans vérification",
-      "Acquitter l'alarme et reprendre le travail",
-    ],
-    answer: [1],
-    explanation: "L'alarme restreinte (niveau 1) est destinée au personnel d'exploitation pour investigation. L'exploitant doit effectuer une levée de doute physique sur la zone signalée. Si un feu est confirmé, l'alarme générale est déclenchée et les secours alertés. Si la cause est identifiée comme sans danger, l'alarme est acquittée après consignation.",
-    timeLimit: 40,
-  },
-  {
-    question: "Qu'est-ce qu'une Zone de Détection (ZD) dans un SSI ?",
-    choices: [
-      "Une zone du bâtiment équipée d'extincteurs",
-      "Un sous-ensemble du bâtiment couvert par un groupe de détecteurs, permettant de localiser un incendie",
-      "La zone d'intervention des sapeurs-pompiers",
-      "Un secteur de désenfumage commandé",
-    ],
-    answer: [1],
-    explanation: "Une Zone de Détection est un découpage du bâtiment associé à un groupe de détecteurs. Lorsqu'un détecteur se déclenche, la centrale localise l'alarme dans la ZD correspondante. Plus les ZD sont petites, plus la localisation est précise, facilitant la levée de doute et l'intervention.",
-    timeLimit: 40,
-  },
-  {
-    question: "Une Zone de Mise en Sécurité (ZS) différente de la Zone de Détection (ZD) signifie :",
-    choices: [
-      "Une erreur de conception du SSI",
-      "Que les actions de sécurité ne correspondent pas aux zones détectées",
-      "Qu'une détection dans une ZD peut commander des actions de sécurité dans une ou plusieurs ZS différentes",
-      "Que le désenfumage est indépendant de la détection",
-    ],
-    answer: [2],
-    explanation: "Les ZD et ZS peuvent être différentes selon la conception du bâtiment. Par exemple, une détection dans une ZD peut commander le désenfumage d'une ZS adjacente pour confiner la fumée, ou fermer des clapets dans une autre zone. L'exploitant doit connaître ces correspondances via le tableau de corrélation ZD/ZS.",
-    timeLimit: 45,
-  },
-  {
-    question: "La catégorie A d'un SSI correspond à :",
-    choices: [
-      "Un système minimal sans détection automatique",
-      "Un système complet avec détection automatique et mise en sécurité totale",
-      "Un système réservé aux ERP de 1re catégorie",
-      "Une centrale de détection sans CMSI",
-    ],
-    answer: [1],
-    explanation: "La catégorie A est la plus complète : elle comprend un SDI avec détection automatique et un SMSI assurant l'ensemble des fonctions de mise en sécurité. Les catégories B à E sont des systèmes moins complets, allant jusqu'à la catégorie E qui se limite à un simple bloc autonome d'alarme sans détection automatique.",
-    timeLimit: 45,
-  },
-  {
-    question: "Qu'est-ce qu'une 'mise hors service partielle' (MHS) dans un SSI ?",
-    choices: [
-      "L'arrêt total du SSI pour maintenance",
-      "La neutralisation temporaire d'une zone ou d'un équipement spécifique",
-      "Le remplacement d'un détecteur défaillant",
-      "L'activation d'un mode nuit réduisant la sensibilité",
-    ],
-    answer: [1],
-    explanation: "Une MHS partielle consiste à neutraliser temporairement une zone ou un équipement du SSI (pour travaux, nettoyage, faux positifs répétés). Elle doit être tracée, limitée dans le temps, compensée par des mesures alternatives et approuvée par le responsable sécurité. Une MHS non tracée est une non-conformité grave.",
-    timeLimit: 40,
-  },
-  {
-    question: "Le tableau de signalisation d'une centrale SSI affiche 'DEFAUT'. Que cela indique-t-il ?",
-    choices: [
-      "Un incendie est en cours dans le bâtiment",
-      "Un composant du système est en panne ou en anomalie technique sans détection de feu",
-      "Une mise hors service a été effectuée",
-      "L'alimentation secours est activée",
-    ],
-    answer: [1],
-    explanation: "Un défaut signale une anomalie technique du SSI : câble coupé, détecteur hors service, batterie faible, problème de communication. Ce n'est pas une alarme feu. Cependant, un défaut doit être traité rapidement car il peut réduire la capacité du système à détecter un incendie réel.",
-    timeLimit: 40,
-  },
-  {
-    question: "Les tests hebdomadaires d'un SSI consistent généralement à :",
-    choices: [
-      "Déclencher un feu réel pour tester le système",
-      "Tester des déclencheurs manuels et vérifier que la centrale signale correctement",
-      "Inspecter visuellement tous les détecteurs du bâtiment",
-      "Remplacer les batteries des détecteurs",
-    ],
-    answer: [1],
-    explanation: "Les tests hebdomadaires consistent généralement à activer des déclencheurs manuels (bris de glace) et des points d'essai pour vérifier que la centrale reçoit correctement les signaux et que les actions de sécurité correspondantes se déclenchent. Les résultats sont consignés dans le registre de sécurité.",
-    timeLimit: 40,
-  },
-  {
-    question: "Quelle norme réglemente la conception et l'installation des SSI en France ?",
-    choices: [
-      "NF S 61-970",
-      "NF S 61-931 à NF S 61-940 (série SSI)",
-      "NF EN 54 uniquement",
-      "APSAD R7 exclusivement",
-    ],
-    answer: [1],
-    explanation: "La série de normes NF S 61-931 à 61-940 encadre les SSI en France : NF S 61-931 définit les règles d'installation, NF S 61-932 les règles de conception, NF S 61-933 les règles d'exploitation et de maintenance. La NF EN 54 complète cette série pour les composants de détection.",
-    timeLimit: 40,
-  },
-  {
-    question: "Lors d'un exercice d'évacuation, l'exploitant SSI doit :",
-    choices: [
-      "Mettre hors service le SSI pour éviter les faux positifs",
-      "Déclencher manuellement l'alarme d'évacuation et observer le comportement du SSI",
-      "Se contenter de déclencher l'alarme sans observer les DAS",
-      "Laisser les pompiers gérer l'exercice sans intervention de l'exploitant",
-    ],
-    answer: [1],
-    explanation: "Lors d'un exercice, l'exploitant déclenche l'alarme (via déclencheur manuel ou test central) et observe que tous les DAS s'actionnent correctement, que les diffuseurs sonores fonctionnent, que l'évacuation se déroule conformément aux consignes. Les résultats sont consignés dans le registre. C'est un test grandeur nature.",
-    timeLimit: 40,
-  },
-  {
-    question: "Un détecteur optique de fumée est particulièrement adapté à la détection de :",
-    choices: [
-      "Les feux à flammes vives sans fumée",
-      "Les feux couvants produisant des fumées visibles denses",
-      "Les gaz explosifs",
-      "Les hausses lentes de température",
-    ],
-    answer: [1],
-    explanation: "Les détecteurs optiques (à effet Tyndall) sont sensibles aux fumées visibles denses, typiques des feux couvants (matières plastiques, mousses, textiles). Ils sont moins adaptés aux feux vifs à haute température avec peu de fumée. Les détecteurs ioniques complètent cette couverture pour les fumées moins denses.",
-    timeLimit: 40,
-  },
-  {
-    question: "Qu'est-ce qu'un déclencheur manuel (DM) dans un SSI ?",
-    choices: [
-      "Un bouton permettant d'activer manuellement l'alarme d'évacuation",
-      "Un interrupteur de mise hors service de la centrale",
-      "Un équipement de désenfumage commandé manuellement",
-      "Un détecteur thermique à déclenchement par bris de verre",
-    ],
-    answer: [0],
-    explanation: "Le déclencheur manuel (communément appelé 'bris de glace') est un boîtier rouge permettant à toute personne découvrant un incendie de déclencher manuellement l'alarme. Il est raccordé au SDI et génère une alarme feu dans la zone correspondante. Son placement réglementaire est défini dans les normes de sécurité incendie.",
-    timeLimit: 35,
-  },
-  {
-    question: "Quelle est la conséquence d'une centrale SSI non renseignée sur sa cartographie (zones non étiquetées) ?",
-    choices: [
-      "Aucune conséquence fonctionnelle",
-      "Un risque de retard dans la localisation et la levée de doute lors d'une alarme réelle",
-      "Un défaut signalé automatiquement par la centrale",
-      "Une mise hors service automatique des zones concernées",
-    ],
-    answer: [1],
-    explanation: "Si les zones de la centrale ne sont pas étiquetées ou correspondent à une cartographie obsolète, l'exploitant ne peut pas localiser rapidement la zone en alarme. Ce retard peut être critique lors d'un incendie réel. La tenue à jour de la cartographie de la centrale fait partie des obligations d'exploitation.",
-    timeLimit: 40,
-  },
-  {
-    question: "Le Tableau de Report (TR) d'un SSI est :",
-    choices: [
-      "Un document récapitulatif des incidents",
-      "Un équipement reportant les états de la centrale vers un poste de surveillance déporté",
-      "Un panneau d'affichage des consignes de sécurité",
-      "La liste des zones de détection du bâtiment",
-    ],
-    answer: [1],
-    explanation: "Le Tableau de Report reporte les informations essentielles de la centrale (alarme, défaut, MHS) vers un poste de surveillance déporté, par exemple la loge du gardien ou le PC sécurité. Il permet une surveillance du SSI sans être devant la centrale principale, notamment en dehors des heures de bureau.",
-    timeLimit: 40,
-  },
-  {
-    question: "Lors d'une alarme générale d'évacuation dans un ERP, dans quel délai maximum les occupants doivent-ils évacuer selon la réglementation ?",
-    choices: ["1 minute", "3 minutes", "5 minutes", "10 minutes"],
-    answer: [1],
-    explanation: "La réglementation des ERP impose une évacuation dans un délai de 3 minutes à compter du déclenchement de l'alarme d'évacuation. Ce délai est dimensionnant pour le calcul du nombre et de la largeur des issues de secours. L'exploitant SSI doit s'assurer que les exercices vérifient ce respect du délai.",
-    timeLimit: 40,
-  },
-  {
-    question: "Qu'est-ce que le désenfumage dans le contexte d'un SSI ?",
-    choices: [
-      "L'extinction du feu par injection de gaz inerte",
-      "L'extraction des fumées d'un local pour permettre l'évacuation et l'intervention des secours",
-      "La ventilation forcée pour apporter de l'air frais",
-      "Le confinement des fumées dans le local en feu",
-    ],
-    answer: [1],
-    explanation: "Le désenfumage extrait les fumées et gaz chauds produits par l'incendie pour maintenir une couche d'air pur en bas du local, permettant l'évacuation des occupants et l'intervention des secours. Il est commandé par le SMSI via des volets, ouvrants de façade, ou extracteurs mécaniques.",
-    timeLimit: 40,
-  },
-  {
-    question: "Un exploitant SSI constate que plusieurs détecteurs de la même zone déclenchent régulièrement des alarmes intempestives. Quelle est la bonne démarche ?",
-    choices: [
-      "Mettre les détecteurs défaillants hors service définitivement",
-      "Réduire la sensibilité de la centrale pour toute la zone",
-      "Analyser la cause des déclenchements et traiter la source avant toute MHS",
-      "Ignorer les alarmes si elles sont toujours sans feu",
-    ],
-    answer: [2],
-    explanation: "Les alarmes intempestives répétées indiquent un problème de fond : poussières, vapeurs, courants d'air, travaux, détecteur mal adapté. Il faut analyser et traiter la cause. La mise hors service ou la réduction de sensibilité ne règlent pas le problème et réduisent la sécurité. Un plan d'action et un suivi documenté sont requis.",
-    timeLimit: 45,
-  },
-  {
-    question: "La NF S 61-933 concerne principalement :",
-    choices: [
-      "Les règles de conception des SSI",
-      "Les règles d'exploitation et de maintenance des SSI",
-      "Les spécifications des détecteurs automatiques",
-      "La certification des installateurs SSI",
-    ],
-    answer: [1],
-    explanation: "La NF S 61-933 fixe les règles d'exploitation et de maintenance des SSI. Elle définit les vérifications périodiques, les essais, la tenue des documents, les règles de mise hors service et les compétences requises des exploitants. C'est la norme de référence pour l'exploitant d'un SSI.",
-    timeLimit: 40,
-  },
-  {
-    question: "Quel document est obligatoire pour consigner toutes les opérations réalisées sur un SSI ?",
-    choices: [
-      "Le plan du bâtiment annoté",
-      "Le registre de sécurité incendie",
-      "Le rapport annuel de l'installateur",
-      "La fiche technique de chaque détecteur",
-    ],
-    answer: [1],
-    explanation: "Le registre de sécurité incendie est un document obligatoire dans tout ERP et IGH. Il consigne les essais, maintenances, alarmes, incidents, remplacements et mises hors service du SSI ainsi que tous les équipements de sécurité incendie. C'est une pièce maîtresse lors des visites de commission de sécurité.",
-    timeLimit: 35,
-  },
-  {
-    question: "Lors d'une visite de commission de sécurité, l'exploitant SSI doit pouvoir présenter :",
-    choices: [
-      "Uniquement le contrat de maintenance",
-      "Le registre de sécurité à jour, les rapports de maintenance et les résultats des essais périodiques",
-      "Seulement les plans du bâtiment",
-      "La notice de la centrale SSI",
-    ],
-    answer: [1],
-    explanation: "La commission de sécurité vérifie la conformité réglementaire et le bon fonctionnement des équipements de sécurité. Elle demande systématiquement le registre de sécurité, les rapports de maintenance périodique, les résultats des essais et les documents de formation du personnel. Un registre incomplet peut entraîner un avis défavorable.",
-    timeLimit: 40,
-  },
 ];

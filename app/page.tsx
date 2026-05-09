@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Header } from "@/app/components/Header";
+import { useRouter, usePathname } from "next/navigation";
 import TrainingCatalogTabsClean from "@/components/site/TrainingCatalogTabsClean";
 import FloatingContactButtons from "@/components/site/FloatingContactButtons";
 import LocationCoverageSection from "@/components/site/LocationCoverageSection";
 import { homepageElectricalSummary } from "@/lib/electrical-offers";
+import { Header } from "@/app/components/Header";
 
 type HomeSession = {
   id: string;
@@ -84,14 +84,14 @@ const testimonials = [
 
 const inrsVideoResources = [
   {
-    title: "INRS - Les bases de l'habilitation electrique",
+    title: "INRS - Les bases de l'habilitation électrique",
     description:
-      "Une ressource utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilite de l'employeur.",
+      "Une ressource utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilité de l'employeur.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-132",
     badge: "Vidéo INRS",
   },
   {
-    title: "INRS - Comment choisir les habilitations electriques ?",
+    title: "INRS - Comment choisir les habilitations électriques ?",
     description:
       "Webinaire officiel pour recaler les symboles, les rôles et le choix du bon parcours selon les missions réelles.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-184",
@@ -101,6 +101,8 @@ const inrsVideoResources = [
 
 export default function Home() {
   const router = useRouter();
+  const pathname = usePathname();
+
   const [showScrollTopButton, setShowScrollTopButton] = useState(false);
   const [homeSessions, setHomeSessions] = useState<HomeSession[]>([]);
   const [loading, setLoading] = useState(true);
@@ -656,7 +658,7 @@ export default function Home() {
                 Ressources INRS
               </p>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Deux vidéos utiles pour cadrer le risque electrique
+                Deux vidéos utiles pour cadrer le risque électrique
               </h2>
               <p className="mt-4 text-slate-600">
                 PREVENSIA s'appuie sur ses propres parcours, mais recommande
@@ -993,30 +995,6 @@ export default function Home() {
                 <div className="mt-4 space-y-1.5 text-sm text-slate-800">
                   <p className="font-medium">contact@prevensia-formation.fr</p>
                   <p className="font-medium">01 89 62 94 92</p>
-                </div>
-                <div className="mt-auto pt-6 flex flex-wrap gap-3">
-                  <a
-                    href="tel:+33189629492"
-                    className="inline-flex rounded-2xl bg-red-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-800"
-                  >
-                    Appeler
-                  </a>
-                  <a
-                    href="https://wa.me/33780992417?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20formations"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-2xl border border-green-300 px-4 py-2.5 text-sm font-semibold text-green-700 transition hover:bg-green-50"
-                  >
-                    WhatsApp
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/prevensia-formation-3450a0385/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex rounded-2xl border border-blue-300 px-4 py-2.5 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
-                  >
-                    LinkedIn
-                  </a>
                 </div>
               </div>
             </div>
