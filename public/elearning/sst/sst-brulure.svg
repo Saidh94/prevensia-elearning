@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="40" fill="#F8FAFC"/>
+  <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="4"/>
+  <text x="100" y="130" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Brulure et traumatisme</text>
+  <text x="100" y="175" fill="#334155" font-family="Arial, Helvetica, sans-serif" font-size="24">Des reflexes precis pour limiter les lesions et proteger la victime.</text>
+  <rect x="100" y="230" width="460" height="270" rx="24" fill="#FEF3C7"/>
+  <text x="330" y="278" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Brulure thermique</text>
+  <text x="130" y="322" fill="#78350F" font-family="Arial, Helvetica, sans-serif" font-size="20">• Eau fraiche 15-25°C</text>
+  <text x="130" y="358" fill="#78350F" font-family="Arial, Helvetica, sans-serif" font-size="20">• 5 a 10 minutes minimum</text>
+  <text x="130" y="398" fill="#B91C1C" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Jamais :</text>
+  <text x="130" y="432" fill="#7F1D1D" font-family="Arial, Helvetica, sans-serif" font-size="20">• Glace / corps gras / creme</text>
+  <text x="130" y="468" fill="#7F1D1D" font-family="Arial, Helvetica, sans-serif" font-size="20">• Pansement adhesif direct</text>
+  <rect x="610" y="230" width="530" height="270" rx="24" fill="#E2E8F0"/>
+  <text x="875" y="278" text-anchor="middle" fill="#0F172A" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Traumatisme</text>
+  <text x="640" y="322" fill="#1E293B" font-family="Arial, Helvetica, sans-serif" font-size="20">• Ne pas deplacer si rachis</text>
+  <text x="640" y="356" fill="#1E293B" font-family="Arial, Helvetica, sans-serif" font-size="20">  suspecte</text>
+  <text x="640" y="394" fill="#1E293B" font-family="Arial, Helvetica, sans-serif" font-size="20">• Ne pas mobiliser membre</text>
+  <text x="640" y="428" fill="#1E293B" font-family="Arial, Helvetica, sans-serif" font-size="20">  si fracture suspectee</text>
+  <text x="640" y="468" fill="#B91C1C" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">• Jamais retirer corps</text>
+  <text x="640" y="498" fill="#7F1D1D" font-family="Arial, Helvetica, sans-serif" font-size="20">  etranger plante</text>
+  <rect x="100" y="525" width="940" height="80" rx="20" fill="#0F172A"/>
+  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22">Alerter les secours pour toute brulure etendue, electrique, chimique ou tout traumatisme grave.</text>
+</svg>

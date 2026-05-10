@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="40" fill="#FFFBEB"/>
+  <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#FCD34D" stroke-width="4"/>
+  <text x="100" y="130" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Position Laterale de Securite</text>
+  <text x="100" y="175" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="24">Inconsciente + respire → PLS immediate pour proteger les voies aeriennes.</text>
+  <rect x="100" y="230" width="480" height="270" rx="26" fill="#FEF3C7"/>
+  <text x="340" y="278" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Etapes PLS</text>
+  <text x="130" y="322" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">1. Verifier la respiration</text>
+  <text x="130" y="360" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">2. Placer sur le cote</text>
+  <text x="130" y="398" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">3. Bouche orientee vers le bas</text>
+  <text x="130" y="436" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">4. Tete en legere extension</text>
+  <text x="130" y="474" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">5. Genou superieur flechis au sol</text>
+  <rect x="620" y="230" width="500" height="270" rx="26" fill="#FFF7ED" stroke="#FED7AA" stroke-width="2"/>
+  <text x="660" y="280" fill="#9A3412" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Surveillance continue</text>
+  <text x="660" y="326" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">• Respiration normale ?</text>
+  <text x="660" y="366" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">• Conscience stable ?</text>
+  <text x="660" y="406" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">• Arret respiratoire →</text>
+  <text x="660" y="442" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">  retourner + RCP</text>
+  <text x="660" y="482" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">• Ne jamais laisser seule</text>
+  <rect x="100" y="525" width="940" height="80" rx="20" fill="#92400E"/>
+  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22">La PLS protege les voies aeriennes — la surveillance continue permet de detecter un arret respiratoire.</text>
+</svg>

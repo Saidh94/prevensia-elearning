@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="40" fill="#FFF1F2"/>
+  <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#FDA4AF" stroke-width="4"/>
+  <text x="100" y="130" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Arret cardiaque — RCP + DAE</text>
+  <text x="100" y="175" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="24">Inconsciente + ne respire pas → RCP immediate sans attendre.</text>
+  <rect x="100" y="230" width="300" height="270" rx="24" fill="#FFE4E6"/>
+  <text x="250" y="276" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">COMPRESSIONS</text>
+  <text x="250" y="318" text-anchor="middle" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">30</text>
+  <text x="250" y="360" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">Centre du thorax</text>
+  <text x="250" y="392" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">100-120 / min</text>
+  <text x="250" y="424" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">Profondeur 5-6 cm</text>
+  <text x="250" y="462" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">Decompression complete</text>
+  <rect x="440" y="230" width="300" height="270" rx="24" fill="#FEE2E2"/>
+  <text x="590" y="276" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">INSUFFLATIONS</text>
+  <text x="590" y="318" text-anchor="middle" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">2</text>
+  <text x="590" y="360" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">Si forme</text>
+  <text x="590" y="396" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">Sinon compressions</text>
+  <text x="590" y="432" text-anchor="middle" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="18">seules suffisent</text>
+  <rect x="780" y="230" width="360" height="270" rx="24" fill="#FFF1F2" stroke="#FCA5A5" stroke-width="2"/>
+  <text x="820" y="278" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">DAE</text>
+  <text x="820" y="322" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="19">1. Allumer des que dispo</text>
+  <text x="820" y="360" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="19">2. Placer les electrodes</text>
+  <text x="820" y="398" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="19">3. Suivre les instructions</text>
+  <text x="820" y="436" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="19">4. Reprendre RCP apres</text>
+  <text x="820" y="474" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="19">   chaque choc</text>
+  <rect x="100" y="525" width="940" height="80" rx="20" fill="#9F1239"/>
+  <text x="130" y="573" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22">RCP sans interruption jusqu'aux secours. Alterner les intervenants toutes les 2 minutes.</text>
+</svg>

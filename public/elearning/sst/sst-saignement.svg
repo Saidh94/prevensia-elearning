@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="40" fill="#FFF1F2"/>
+  <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#FDA4AF" stroke-width="4"/>
+  <text x="100" y="130" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Saignement abondant</text>
+  <text x="100" y="175" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="24">Comprimer directement, fermement et sans relacher.</text>
+  <rect x="100" y="240" width="380" height="250" rx="26" fill="#FFE4E6"/>
+  <circle cx="210" cy="350" r="64" fill="#FDA4AF"/>
+  <rect x="300" y="296" width="140" height="28" rx="14" fill="#E11D48"/>
+  <rect x="300" y="340" width="110" height="28" rx="14" fill="#F43F5E"/>
+  <rect x="300" y="384" width="150" height="28" rx="14" fill="#FDA4AF"/>
+  <rect x="560" y="240" width="480" height="250" rx="26" fill="#FFF1F2" stroke="#FCA5A5" stroke-width="2"/>
+  <text x="600" y="298" fill="#9F1239" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700">Reflexes cles</text>
+  <text x="600" y="346" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="22">• Compression directe et ferme</text>
+  <text x="600" y="386" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="22">• Ne jamais relacher</text>
+  <text x="600" y="426" fill="#BE123C" font-family="Arial, Helvetica, sans-serif" font-size="22">• Ajouter si panse sature</text>
+  <rect x="100" y="525" width="940" height="80" rx="20" fill="#9F1239"/>
+  <text x="130" y="575" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22">Chaque relachement de la compression detruit le caillot en formation et relance le saignement.</text>
+</svg>

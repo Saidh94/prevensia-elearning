@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="40" fill="#FFFBEB"/>
+  <rect x="60" y="60" width="1080" height="580" rx="30" fill="#FFFFFF" stroke="#FCD34D" stroke-width="4"/>
+  <text x="100" y="130" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">Etouffement</text>
+  <text x="100" y="175" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="24">5 claques dorsales puis 5 compressions abdominales — alterner.</text>
+  <rect x="100" y="230" width="220" height="280" rx="24" fill="#FEF3C7" stroke="#FCD34D" stroke-width="2"/>
+  <text x="210" y="295" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">5 CLAQUES</text>
+  <text x="210" y="323" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="18">dorsales</text>
+  <text x="210" y="355" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">Paume ouverte</text>
+  <text x="210" y="381" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">Entre les</text>
+  <text x="210" y="403" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">omoplates</text>
+  <text x="210" y="440" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">↕</text>
+  <text x="210" y="478" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">Pencher avant</text>
+  <rect x="360" y="230" width="220" height="280" rx="24" fill="#FEF9C3" stroke="#FDE047" stroke-width="2"/>
+  <text x="470" y="295" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">5 HEIMLICH</text>
+  <text x="470" y="323" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="18">abdominales</text>
+  <text x="470" y="355" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">Poing entre</text>
+  <text x="470" y="377" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">nombril et sternum</text>
+  <text x="470" y="413" text-anchor="middle" fill="#92400E" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">↗</text>
+  <text x="470" y="451" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">Traction sèche</text>
+  <text x="470" y="473" text-anchor="middle" fill="#B45309" font-family="Arial, Helvetica, sans-serif" font-size="16">vers haut/interieur</text>
+  <rect x="620" y="230" width="500" height="280" rx="24" fill="#FFF7ED" stroke="#FED7AA" stroke-width="2"/>
+  <text x="660" y="290" fill="#9A3412" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Attention</text>
+  <text x="660" y="335" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">Perte de conscience → RCP</text>
+  <text x="660" y="375" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">Nourrisson : jamais Heimlich</text>
+  <text x="660" y="415" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">→ claques + compressions</text>
+  <text x="660" y="455" fill="#7C2D12" font-family="Arial, Helvetica, sans-serif" font-size="20">   thoraciques seulement</text>
+  <rect x="100" y="530" width="940" height="75" rx="20" fill="#92400E"/>
+  <text x="130" y="577" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22">Alterner claques et Heimlich jusqu'a liberation de l'obstruction ou perte de conscience.</text>
+</svg>

@@ -2364,8 +2364,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Étape 1 — Protéger",
           subtitle: "Sécuriser la scène avant d'agir sur la victime.",
-          imagePath: "/elearning/sst/sst-proteger.svg",
-          imageAlt: "Protection de la victime et sécurisation de la scène — SST",
+          illustrationKey: "work-environment" as const,
           items: [
             "Identifier le ou les dangers",
             "Supprimer ou isoler le risque",
@@ -2430,8 +2429,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Étape 2 — Examiner",
           subtitle: "Identifier l'urgence vitale en 4 questions.",
-          imagePath: "/elearning/sst/sst-examiner.svg",
-          imageAlt: "Examen de la victime selon la séquence SST — INRS",
+          illustrationKey: "body-effects" as const,
           items: [
             "Saigne abondamment ?",
             "S'étouffe ?",
@@ -2496,8 +2494,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Étape 3 — Alerter",
           subtitle: "Une alerte précise fait gagner des minutes décisives.",
-          imagePath: "/elearning/sst/sst-alerter.svg",
-          imageAlt: "Transmission de l'alerte lors d'un accident du travail — SST",
+          animationKey: "alerte-incendie" as const,
           items: [
             "Lieu précis",
             "Nature de l'événement",
@@ -2557,13 +2554,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — situation 1 : la victime saigne abondamment.",
           "INRS ED 6252 — gestes et protocoles de compression hémostatique.",
         ],
-        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImagePath: "/elearning/sst/sst-saignement.svg",
         chapterImageAlt: "Compression directe sur une hémorragie — geste SST",
         visual: {
           title: "Saignement abondant",
           subtitle: "Comprimer directement, fermement et sans relâcher.",
-          imagePath: "/elearning/sst/sst-secourir.svg",
-          imageAlt: "Compression directe sur une hémorragie — geste SST",
+          illustrationKey: "body-effects" as const,
           items: [
             "Compression directe ferme",
             "Ne pas relâcher",
@@ -2604,13 +2600,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — situation 2 : la victime s'étouffe.",
           "Recommandations ERC 2021 — obstruction des voies aériennes par corps étranger.",
         ],
-        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImagePath: "/elearning/sst/sst-etouffement.svg",
         chapterImageAlt: "Manœuvre de Heimlich et claques dorsales — étouffement SST",
         visual: {
           title: "Étouffement",
           subtitle: "5 claques dorsales puis 5 compressions abdominales — alterner.",
-          imagePath: "/elearning/sst/sst-secourir.svg",
-          imageAlt: "Manœuvre de Heimlich et claques dorsales — étouffement SST",
+          illustrationKey: "body-effects" as const,
           items: [
             "Pencher la victime en avant",
             "5 claques dorsales vigoureuses",
@@ -2651,12 +2646,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — situation : victime inconsciente qui respire.",
           "Recommandations ERC 2021 — PLS et gestion de l'inconscience.",
         ],
-        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImagePath: "/elearning/sst/sst-pls.svg",
         chapterImageAlt: "Position Latérale de Sécurité (PLS) — victime inconsciente SST",
         visual: {
           title: "Victime inconsciente qui respire",
           subtitle: "PLS immédiate pour protéger les voies aériennes.",
-          imagePath: "/elearning/sst/sst-secourir.svg",
+          illustrationKey: "emergency-response" as const,
           imageAlt: "Position Latérale de Sécurité — geste SST",
           items: [
             "Vérifier la respiration",
@@ -2722,12 +2717,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Recommandations ERC 2021 (European Resuscitation Council) — RCP adulte.",
           "Décret n° 2018-1186 du 19 décembre 2018 — accès au défibrillateur.",
         ],
-        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImagePath: "/elearning/sst/sst-rcp.svg",
         chapterImageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
         visual: {
           title: "Arrêt cardiaque — RCP + DAE",
           subtitle: "Chaque seconde compte : comprimer, alerter, défibriller.",
-          imagePath: "/elearning/sst/sst-secourir.svg",
+          illustrationKey: "emergency-response" as const,
           imageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
           items: [
             "RCP immédiate (30+2 ou compressions seules)",
@@ -2789,12 +2784,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — situation : la victime se plaint d'un malaise.",
           "HAS — fiche AVC : reconnaître et agir vite.",
         ],
-        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImagePath: "/elearning/sst/sst-malaise.svg",
         chapterImageAlt: "Prise en charge d'un malaise — SST",
         visual: {
           title: "Malaise",
           subtitle: "Position adaptée, alerte immédiate, surveillance.",
-          imagePath: "/elearning/sst/sst-secourir.svg",
+          illustrationKey: "emergency-response" as const,
           imageAlt: "Prise en charge d'un malaise — SST",
           items: [
             "Installer confortablement",
@@ -2838,12 +2833,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — situations brûlure et traumatisme.",
           "INRS ED 6252 — gestes de premiers secours en milieu professionnel.",
         ],
-        chapterImagePath: "/elearning/sst/sst-secourir.svg",
+        chapterImagePath: "/elearning/sst/sst-brulure.svg",
         chapterImageAlt: "Brûlure et traumatisme — gestes SST en milieu professionnel",
         visual: {
           title: "Brûlure et traumatisme",
           subtitle: "Eau fraîche pour la brûlure, immobilité pour le traumatisme.",
-          imagePath: "/elearning/sst/sst-secourir.svg",
+          illustrationKey: "body-effects" as const,
           imageAlt: "Brûlure et traumatisme — gestes SST en milieu professionnel",
           items: [
             "Eau fraîche 5-10 min sur la brûlure",
@@ -2883,7 +2878,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Surveiller et transmettre",
           subtitle: "Assurer la continuité de la prise en charge.",
-          imagePath: "/elearning/sst/sst-surveiller.svg",
+          illustrationKey: "summary-reflexes" as const,
           imageAlt: "Surveillance et transmission à la relève — SST",
           items: [
             "Surveiller respiration et conscience",
@@ -2927,7 +2922,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Prévenir pour agir moins souvent en urgence",
           subtitle: "Observer, signaler, contribuer à la prévention.",
-          imagePath: "/images/sst.jpg",
+          illustrationKey: "authorized-forbidden" as const,
           imageAlt: "SST et prévention des risques en environnement professionnel",
           items: [
             "Repérer les situations dangereuses",
