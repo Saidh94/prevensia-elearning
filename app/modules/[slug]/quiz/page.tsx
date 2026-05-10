@@ -963,6 +963,7 @@ export default function QuizPage() {
                         role="checkbox"
                         aria-checked={isSelected}
                         onClick={() => handleMultipleAnswer(i)}
+                        onKeyDown={(e) => { if (e.key === " ") { e.preventDefault(); handleMultipleAnswer(i); } }}
                         className={`flex w-full items-start gap-3 rounded-xl border px-4 py-4 text-left text-sm font-medium transition ${
                           isSelected
                             ? "border-emerald-600 bg-emerald-600 text-white"
@@ -1042,6 +1043,11 @@ export default function QuizPage() {
             </>
           ) : (
             <>
+              <div aria-live="assertive" aria-atomic="true" className="sr-only">
+                Quiz terminé. Score : {score} sur {shuffledQuiz.length}, soit {scorePercent}%.{" "}
+                {success ? "Validation réussie." : "Score insuffisant — recommencez le quiz."}
+              </div>
+
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                 Résultat
               </p>
@@ -1110,21 +1116,23 @@ export default function QuizPage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Débrief pédagogique
                 </p>
-                <div className="mt-4 space-y-4">
+                <ol className="mt-4 space-y-4" aria-label="Correction détaillée des questions">
                   {reviewItems.map((item) => (
-                    <div
+                    <li
                       key={`review-${item.index}`}
                       className={`rounded-2xl border p-4 ${
                         item.correct
                           ? "border-green-200 bg-green-50"
                           : "border-red-200 bg-white"
                       }`}
+                      aria-label={`Question ${item.index + 1} : ${item.correct ? "correcte" : "incorrecte"}`}
                     >
                       <div className="flex flex-wrap items-center justify-between gap-3">
                         <p className="text-sm font-semibold text-slate-900">
                           Question {item.index + 1}
                         </p>
                         <span
+                          aria-hidden="true"
                           className={`rounded-full px-3 py-1 text-xs font-semibold ${
                             item.correct
                               ? "bg-green-600 text-white"
@@ -1169,13 +1177,14 @@ export default function QuizPage() {
                       </div>
                     </div>
                   ))}
-                </div>
+                </ol>
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
                   type="button"
                   onClick={restartQuiz}
+                  aria-label="Recommencer le quiz depuis le début"
                   className="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
                 >
                   Recommencer le quiz

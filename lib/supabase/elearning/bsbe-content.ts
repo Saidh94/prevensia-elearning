@@ -826,6 +826,22 @@ export const bsbeModuleContent: ModuleContent = {
           explanation: "Les condensateurs de compensation peuvent conserver une charge importante plusieurs minutes après la coupure de l'alimentation. Une tension de 180 V est mortelle. La coupure du sectionneur ne suffit pas : la VAT doit confirmer une tension nulle avant tout contact. Si la décharge n'est pas assurée, l'opération sort du cadre BS et relève d'un électricien compétent.",
           normRef: "NF C 18-510 § 5.4 — énergies résiduelles sur condensateurs : VAT obligatoire et procédure de décharge contrôlée",
         },
+        {
+          situation: "Vous êtes BS et devez remplacer un interrupteur dans une salle serveurs. Vous coupez le disjoncteur principal du tableau général. En approchant votre testeur de tension du conducteur de sortie, vous mesurez 230 V alors que le disjoncteur principal est ouvert. Le local est équipé d'un onduleur (UPS) branché en aval.",
+          question: "Pourquoi une tension peut-elle subsister même après coupure du disjoncteur principal ?",
+          wrongActions: [
+            "Considérer que l'onduleur ne maintient la tension que quelques secondes : attendre puis intervenir.",
+            "Couper l'onduleur soi-même sans consigne, car c'est le seul moyen de sécuriser.",
+            "Intervenir quand même car le courant fourni par un onduleur est 'moins dangereux'.",
+          ],
+          correctActions: [
+            "Ne pas toucher les conducteurs : la tension mesurée (230 V) est pleinement dangereuse quelle que soit la source.",
+            "Suspendre l'intervention et signaler au chargé d'exploitation que la coupure réseau ne suffit pas à mettre le circuit hors tension.",
+            "Demander qu'un protocole de mise hors tension intégrant l'onduleur soit établi avant toute reprise de l'intervention.",
+          ],
+          explanation: "Un onduleur (UPS) est une source d'énergie indépendante du réseau. Il continue d'alimenter les circuits aval même après ouverture du disjoncteur réseau. La tension produite par un onduleur est aussi dangereuse qu'une tension réseau. La VAT doit systématiquement confirmer l'absence de tension avant toute intervention, quelle que soit la source supposée coupée.",
+          normRef: "NF C 18-510 § 5.4 — sources multiples et VAT : toute source d'alimentation doit être identifiée et coupée",
+        },
       ],
       chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
       chapterImageAlt:
@@ -888,9 +904,59 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.bsbe],
       practicalCase:
         "Exemple : un disjoncteur de départ a sauté. L’opérateur constate une odeur de chaud et un bruit anormal. Il n’effectue pas de réarmement et fait traiter la situation par une personne compétente.",
+      scenarios: [
+        {
+          situation: "Vous êtes BE Manœuvre dans une usine. La consigne prévoit de réarmer le disjoncteur ‘D7 - pompe process’ si celui-ci déclenche après un arrêt planifié. Vous le réarmez une première fois : il redéclenche immédiatement. Votre chef vous demande de réessayer ‘pour voir si ça tient’.",
+          question: "Quelle est la bonne réaction face à un disjoncteur qui redéclenche au premier réarmement ?",
+          wrongActions: [
+            "Réarmer une seconde fois sur demande du chef, car c’est lui le responsable.",
+            "Forcer le réarmement en maintenant le bouton enfoncé.",
+            "Réarmer successivement plusieurs fois pour ‘voir si le problème disparaît’.",
+          ],
+          correctActions: [
+            "Ne pas réarmer une seconde fois : un redéclenchement immédiat signale une anomalie persistante.",
+            "Informer le chargé d’exploitation que la manœuvre ne peut pas être exécutée dans ces conditions.",
+            "Laisser le diagnostic et la décision de reprise à une personne compétente (BR, B2 ou technicien habilité).",
+          ],
+          explanation: "Un redéclenchement immédiat indique que la protection a détecté un défaut persistant (surcharge, court-circuit, défaut d’isolement). Réarmer en boucle aggrave potentiellement les dégâts sur le câblage et le matériel, et peut déclencher un incendie. La pression hiérarchique ne change pas la règle : le BE Manœuvre suspend et transmet.",
+          normRef: "NF C 18-510 § 10 — manœuvre d’exploitation : arrêt si anomalie persistante",
+        },
+        {
+          situation: "Vous devez effectuer une manœuvre de basculement sur un tableau de distribution. La consigne indique : ‘Ouvrir DT4, fermer DT4-S’. En approchant du tableau, vous constatez que le sectionneur DT4-S porte l’étiquette ‘Réservé maintenance — Ne pas manœuvrer’ depuis une intervention récente non clôturée.",
+          question: "Que faire si un organe à manœuvrer porte une consigne de blocage ou une étiquette de restriction non levée ?",
+          wrongActions: [
+            "Retirer l’étiquette : elle est probablement oubliée et la consigne d’exploitation prime.",
+            "Manœuvrer quand même car votre ordre vient du responsable de production.",
+            "Contourner DT4-S en cherchant un autre chemin électrique.",
+          ],
+          correctActions: [
+            "Ne pas manœuvrer l’organe tant que la restriction n’est pas formellement levée.",
+            "Contacter le responsable de maintenance pour vérifier si l’étiquette est toujours valide.",
+            "Signaler le blocage à votre chargé d’exploitation et attendre une instruction actualisée.",
+          ],
+          explanation: "Une étiquette de restriction ou une consigne de blocage est une mesure de sécurité. La retirer ou l’ignorer sans autorisation peut conduire à manœuvrer un organe sous consignation active, avec un risque de remise sous tension sur une zone où un électricien travaille. La levée d’un blocage doit toujours être formelle et traçable.",
+          normRef: "NF C 18-510 § 5 — respect des condamnations et des consignes de blocage avant toute manœuvre",
+        },
+        {
+          situation: "Votre employeur vous remet une procédure BE Manœuvre datée de deux ans pour réaliser un basculement sur un tableau de secours. Sur le tableau, le schéma affiché montre une configuration différente : un organe a été ajouté et les repères ont été modifiés depuis la création de la procédure.",
+          question: "Peut-on utiliser une procédure de manœuvre dont la configuration ne correspond plus au tableau actuel ?",
+          wrongActions: [
+            "Adapter la procédure soi-même en identifiant par analogie les nouveaux organes.",
+            "Réaliser la manœuvre en faisant confiance à sa propre expérience du tableau.",
+            "Appliquer la procédure existante en sautant les étapes qui ne s’appliquent pas.",
+          ],
+          correctActions: [
+            "Suspendre la manœuvre : la procédure ne correspond plus à la configuration réelle.",
+            "Signaler la divergence au chargé d’exploitation pour obtenir une procédure actualisée.",
+            "Ne reprendre l’opération qu’avec un document mis à jour et validé par une personne compétente.",
+          ],
+          explanation: "Une procédure de manœuvre obsolète est une procédure inutilisable. Adapter soi-même la séquence pour ‘coller’ au tableau modifié revient à improviser une manœuvre non validée. Si l’installation a évolué et que la procédure n’a pas été mise à jour, c’est un défaut d’organisation à signaler, pas une situation à contourner individuellement.",
+          normRef: "NF C 18-510 § 5 — adéquation entre instruction de sécurité, procédure et état réel de l’installation",
+        },
+      ],
       chapterImagePath: "/elearning/bsbe/cours-electrique.jpg",
       chapterImageAlt:
-        "Tableau électrique basse tension et organes d'exploitation utiles à une manœuvre",
+        "Tableau électrique basse tension et organes d’exploitation utiles à une manœuvre",
       visual: {
         title: "BE Manœuvre : la bonne séquence",
         subtitle: "Identifier, vérifier, manœuvrer, surveiller.",
@@ -1209,6 +1275,38 @@ export const bsbeModuleContent: ModuleContent = {
         "Exemple : un coffret de commande dégage de la fumée pendant une manœuvre. L’opérateur se met en sécurité, protège la zone et alerte sans chercher à démonter ou à réarmer.",
       scenarios: [
         {
+          situation: "Vous travaillez en binôme. Votre collègue saisit un câble sans avoir réalisé la VAT et s'effondre. Il est inconscient et sa main est encore proche du conducteur nu. Vous voyez qu'il est en contact avec l'installation.",
+          question: "Quelle est la priorité absolue avant tout geste de secours sur une victime d'électrisation ?",
+          wrongActions: [
+            "Saisir immédiatement votre collègue par les épaules pour l'éloigner du câble.",
+            "Tenter de lui faire du bouche-à-bouche sur place, sans couper l'alimentation.",
+            "Appeler le 15 puis attendre sans rien faire en restant à côté de lui.",
+          ],
+          correctActions: [
+            "Couper l'alimentation électrique du circuit concerné avant tout contact avec la victime.",
+            "Si la coupure n'est pas possible, utiliser un matériau non conducteur (bâton sec, vêtement) pour écarter le câble — jamais à mains nues.",
+            "Alerter le 15 ou le 18 immédiatement, préciser qu'il y a une victime d'électrisation, et commencer les gestes de secours uniquement une fois le risque électrique écarté.",
+          ],
+          explanation: "Le 'suraccident' est la première cause de décès lors de secours à une victime d'électrisation. Un sauveteur qui touche la victime encore en contact avec une source active devient lui-même victime. La suppression du risque électrique prime toujours sur le geste de secours. La règle : supprimer le danger, alerter, puis secourir.",
+          normRef: "NF C 18-510 § 10 — conduite à tenir en cas d'accident d'origine électrique : éviter le suraccident",
+        },
+        {
+          situation: "Vous arrivez dans une chaufferie où deux techniciens ont été électrisés simultanément lors d'une intervention. L'un est debout mais désemparé, l'autre est à terre, inconscient. Vous êtes seul sur les lieux et ne savez pas si l'installation est encore sous tension.",
+          question: "Comment gérer une situation avec deux victimes lorsque l'état électrique de l'installation est inconnu ?",
+          wrongActions: [
+            "Aller directement secourir la victime inconsciente car elle est la plus grave.",
+            "Toucher les deux victimes pour évaluer leur état avant d'appeler les secours.",
+            "Chercher à couper l'alimentation en entrant dans le local technique adjacent sans consigne.",
+          ],
+          correctActions: [
+            "Ne toucher aucune victime avant d'avoir confirmé l'absence de tension ou écarté le risque électrique.",
+            "Appeler immédiatement le 15 ou le 18 en précisant : deux victimes, électrisation, localisation exacte, état de conscience.",
+            "Suivre les instructions des secours par téléphone et sécuriser le périmètre pour éviter tout accès non autorisé.",
+          ],
+          explanation: "Face à plusieurs victimes en environnement électrique inconnu, l'urgence est d'alerter les secours professionnels avant tout geste. Toucher les victimes sans s'être assuré de l'absence de risque électrique peut faire de vous une troisième victime. Les secours (SAMU, pompiers) ont les moyens de gérer le risque électrique sur intervention.",
+          normRef: "NF C 18-510 § 10 — multi-victimes en accident électrique : alerte prioritaire et prévention du suraccident",
+        },
+        {
           situation: "Vous réalisez une intervention BS dans un appartement. En retirant un cache, vous provoquiez un court-circuit bref et apercevez des étincelles. L'installation ne semble pas avoir de dommages visibles mais vous sentez une légère odeur de brûlé.",
           question: "Que faites-vous après un court-circuit accidentel avec étincelles ?",
           wrongActions:           [
@@ -1403,6 +1501,40 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.bsbe],
       practicalCase:
         "Exemple : un opérateur sait techniquement réarmer un départ, mais la zone est encombrée, le repère local est douteux et l’équipement a déjà déclenché deux fois. La bonne décision consiste à ne pas réarmer, à sécuriser la situation et à transmettre à une personne compétente.",
+      scenarios: [
+        {
+          situation: "Vous êtes BS et remplacez un fusible dans un coffret de commande. Le responsable de production vous remet une procédure BS papier et indique ‘c’est le même coffret qu’il y a six mois, pas de souci’. En ouvrant le coffret, vous constatez qu’un variateur de fréquence a été ajouté depuis lors, avec des condensateurs internes. La procédure ne mentionne pas ce composant.",
+          question: "Une procédure BS remise par un responsable est-elle fiable si l’installation a évolué depuis sa rédaction ?",
+          wrongActions: [
+            "Faire confiance au responsable : il connaît le matériel, la procédure est valide.",
+            "Adapter mentalement la procédure pour intégrer le variateur et continuer.",
+            "Réaliser la VAT sur le fusible uniquement et ignorer le variateur puisqu’il n’est pas la cible.",
+          ],
+          correctActions: [
+            "Suspendre l’intervention dès que la réalité du coffret ne correspond plus à la procédure.",
+            "Signaler que le coffret a évolué (ajout variateur) et que la procédure doit être mise à jour.",
+            "Demander une procédure révisée qui prend en compte les énergies résiduelles potentielles du variateur avant de poursuivre.",
+          ],
+          explanation: "Les variateurs de fréquence contiennent des condensateurs qui peuvent rester chargés plusieurs minutes après la coupure. Une procédure qui ne mentionne pas ce composant est incomplète pour cette installation. La décharge des condensateurs d’un variateur nécessite une procédure spécifique, souvent fournie par le fabricant. L’ajout d’un composant depuis la rédaction de la procédure invalide celle-ci pour cet équipement.",
+          normRef: "NF C 18-510 § 5.4 — procédure BS à jour et énergies résiduelles sur variateurs",
+        },
+        {
+          situation: "Vous revenez d’une intervention BS dans un local technique où vous avez remplacé une prise de courant. En rendant compte à votre responsable, vous mentionnez que la prise adjacente présentait une trace noire et une odeur de brûlé, mais que vous ne l’avez pas signalée sur le moment car ‘ce n’était pas votre mission’. Votre responsable vous demande ce que vous auriez dû faire.",
+          question: "La détection d’une anomalie hors périmètre d’une intervention BS impose-t-elle de la signaler ?",
+          wrongActions: [
+            "Non : votre mission était la prise défectueuse identifiée, pas les autres prises.",
+            "Oui, mais uniquement si la trace noire concerne directement votre prise.",
+            "Non : signaler des anomalies hors mission risque de compliquer l’organisation.",
+          ],
+          correctActions: [
+            "Oui : toute anomalie visible (brûlure, odeur, trace, câble détérioré) doit être signalée au chargé d’exploitation, même si elle est hors du périmètre direct de l’intervention.",
+            "Consigner l’observation dans le compte rendu d’intervention.",
+            "Ne pas intervenir sur l’anomalie (hors cadre BS), mais en assurer la transmission pour qu’elle soit traitée par une personne compétente.",
+          ],
+          explanation: "La NF C 18-510 § 10.4.3 impose au BS d’informer le chargé d’exploitation des réserves pouvant résulter de son intervention. Cette obligation s’étend aux anomalies constatées dans l’environnement immédiat. Un signal non transmis peut masquer une anomalie grave (arc électrique naissant, câble carbonisé en cours de défaillance). La transmission est une compétence de sécurité à part entière.",
+          normRef: "NF C 18-510 § 10.4.3 — obligation de compte rendu et signalement des réserves après intervention BS",
+        },
+      ],
       chapterImagePath: "/elearning/bsbe/synthese-operationnelle.svg",
       chapterImageAlt:
         "Synthèse opérationnelle BS et BE Manœuvre : identifier, vérifier, agir si autorisé, stopper si doute.",

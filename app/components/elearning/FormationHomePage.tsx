@@ -8,6 +8,27 @@ type FormationHomePageProps = {
   moduleData: ModuleContent;
 };
 
+const H0B0_OVERVIEW_SECTIONS = [
+  { id: "intro", title: "Cadre du B0 / H0 / H0V et logique de l'habilitation", estimatedMinutes: 4 },
+  { id: "symbols", title: "Lecture des symboles d'habilitation", estimatedMinutes: 4 },
+  { id: "roles", title: "Rôles et responsabilités", estimatedMinutes: 3 },
+  { id: "voltage-domains", title: "Domaines de tension en courant alternatif et en courant continu", estimatedMinutes: 4 },
+  { id: "zones", title: "Zones d'environnement électrique et distances d'approche", estimatedMinutes: 5 },
+  { id: "access", title: "Accès aux locaux et zones électriques", estimatedMinutes: 5 },
+  { id: "documents", title: "Consignes, signalisation et documents applicables", estimatedMinutes: 4 },
+  { id: "environments", title: "Types d'environnements électriques", estimatedMinutes: 4 },
+  { id: "movement-tools", title: "Déplacement, outillage et situations de travail", estimatedMinutes: 4 },
+  { id: "contacts", title: "Contacts directs et indirects", estimatedMinutes: 3 },
+  { id: "current-effects", title: "Intensité du courant, durée d'exposition et dommages", estimatedMinutes: 4 },
+  { id: "electrisation", title: "Électrisation et électrocution", estimatedMinutes: 3 },
+  { id: "body-resistance", title: "Résistance du corps humain, peau sèche ou humide", estimatedMinutes: 3 },
+  { id: "equipment", title: "Matériels défectueux et signaux d'alerte", estimatedMinutes: 3 },
+  { id: "ppe", title: "Équipements de protection collective et individuelle", estimatedMinutes: 3 },
+  { id: "authorized-forbidden", title: "Comportements autorisés et interdits", estimatedMinutes: 4 },
+  { id: "conduct", title: "Conduite à tenir en cas d'anomalie, d'électrisation ou de départ de feu", estimatedMinutes: 4 },
+  { id: "classes-materiels-ip", title: "Classes des matériels et indices de protection IP", estimatedMinutes: 4 },
+  { id: "summary", title: "Synthèse opérationnelle", estimatedMinutes: 3 },
+];
 
 function getDisplaySectionTitle(title: string) {
   return formatFrenchDisplayText(title)
@@ -20,7 +41,7 @@ export default function FormationHomePage({
   slug,
   moduleData,
 }: FormationHomePageProps) {
-  const displaySections = moduleData.sections;
+  const displaySections = slug === "h0b0" ? H0B0_OVERVIEW_SECTIONS : moduleData.sections;
 
   const topCards = [
     { label: "Parcours", value: moduleData.shortTitle ?? "" },
