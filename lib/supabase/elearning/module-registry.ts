@@ -13,10 +13,10 @@ const MODULE_ALIASES: Record<string, string[]> = {
     "be-manoeuvre",
     "manoeuvre-bt",
   ],
-  "bt-multi-symboles": [
+  "b1b2brbc": [
+    "b1b2brbc",
     "bt-multi-symboles",
     "bt_multi_symboles",
-    "b1b2brbc",
     "b1-b1v-b2-b2v-br-bc",
     "b1_b1v_b2_b2v_br_bc",
     "b1-b2-br-bc",
@@ -47,7 +47,7 @@ const MODULE_ALIASES: Record<string, string[]> = {
     "gaz-extinction",
   ],
   sst: ["sst"],
-  incendie: ["incendie", "securite-incendie"],
+  "securite-incendie": ["incendie", "securite-incendie"],
   "ssi-exploitation": ["ssi-exploitation", "ssi_exploitation", "ssi"],
   "habilitation-vehicules": [
     "habilitation-vehicules",
