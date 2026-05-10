@@ -1365,7 +1365,13 @@ export default function CoursPage() {
                     />
                   </div>
                 </div>
-              ) : fallbackVisualBlock ? (
+              ) : null}
+
+              {formattedSectionVisual?.animationKey ? (
+                <div className="mb-6">
+                  <VisualBlock visual={formattedSectionVisual} />
+                </div>
+              ) : !currentChapter.image && fallbackVisualBlock ? (
                 <div className="mb-6">
                   <VisualBlock visual={fallbackVisualBlock} />
                 </div>
