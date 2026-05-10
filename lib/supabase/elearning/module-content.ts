@@ -2374,7 +2374,6 @@ export const modulesContent: Record<string, ModuleContent> = {
           "INRS — gestes de premiers secours : protéger avant de secourir.",
           "Programme SST INRS — chapitre 'Protéger' : logique et limites du dégagement d'urgence.",
         ],
-        chapterImagePath: "/elearning/sst/sst-proteger.svg",
         chapterImageAlt: "Protection de la victime et sécurisation de la scène — SST",
         visual: {
           title: "Étape 1 — Protéger",
@@ -2439,7 +2438,6 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — chapitre 'Examiner' : séquence d'examen et logique d'orientation.",
           "INRS ED 6252 — formation SST : contenu et déroulement.",
         ],
-        chapterImagePath: "/elearning/sst/sst-examiner.svg",
         chapterImageAlt: "Examen de la victime selon la séquence SST — INRS",
         visual: {
           title: "Étape 2 — Examiner",
@@ -2504,7 +2502,6 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Programme SST INRS — chapitre 'Alerter ou faire alerter'.",
           "Code du travail — article R. 4224-16 : moyens d'alerte organisés dans l'établissement.",
         ],
-        chapterImagePath: "/elearning/sst/sst-alerter.svg",
         chapterImageAlt: "Transmission de l'alerte lors d'un accident du travail — SST",
         visual: {
           title: "Étape 3 — Alerter",
@@ -2888,7 +2885,6 @@ export const modulesContent: Record<string, ModuleContent> = {
         legalRefs: [
           "Programme SST INRS — surveillance et transmission à la relève.",
         ],
-        chapterImagePath: "/elearning/sst/sst-surveiller.svg",
         chapterImageAlt: "Surveillance et transmission à la relève — SST",
         visual: {
           title: "Surveiller et transmettre",
