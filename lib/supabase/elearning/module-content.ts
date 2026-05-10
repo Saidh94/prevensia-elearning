@@ -1559,9 +1559,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Fonctions principales d’un SSI",
           subtitle: "Détecter, alerter, mettre en sécurité.",
-          imagePath: "/images/fonction-systeme-de-securite-incendie.gif",
-          imageAlt:
-            "Fonctionnement global d'un système de sécurité incendie avec détection, alarme et mise en sécurité",
+          animationKey: "alerte-incendie" as const,
           items: [
             "Détection incendie",
             "Diffusion de l’alarme",
@@ -1654,9 +1652,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Référentiels à connaître",
           subtitle: "Normes et textes se complètent.",
-          imagePath: "/images/niveau-ssi.jpg",
-          imageAlt:
-            "Niveaux de risque, catégories de SSI et types d'équipement d'alarme",
+          illustrationKey: "authorized-forbidden" as const,
           items: [
             "NF S 61-931",
             "NF S 61-932",
@@ -1688,9 +1684,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Ne pas tout lire de la même manière",
           subtitle: "Le bon réflexe dépend du type exact d’information affichée.",
-          imagePath: "/images/alarme-type-4.png",
-          imageAlt:
-            "Lecture d'une alarme type 4 avec déclencheur manuel, équipement d'alarme et diffuseur sonore",
+          animationKey: "ssi-chaine-fonctionnelle" as const,
           items: [
             "Alarme feu",
             "Dérangement",
@@ -1724,9 +1718,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Exploiter un SSI avec méthode",
           subtitle: "Comprendre, agir dans son rôle, tracer.",
-          imagePath: "/images/centrale-ssi.jpg",
-          imageAlt:
-            "Centrale SSI et exploitation méthodique d'une information incendie",
+          illustrationKey: "emergency-response" as const,
           items: [
             "Identifier le type d’information",
             "Appliquer la consigne du site",
@@ -1829,9 +1821,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Vue d'ensemble d'une installation",
           subtitle: "Les organes a connaître en exploitation.",
-          imagePath: "/images/installation-spk.jpg",
-          imageAlt:
-            "Vue schématique d'un réseau sprinkler desservant differentes zones d'un bâtiment",
+          illustrationKey: "work-environment" as const,
           items: [
             "Source d'eau",
             "Poste de contrôle",
@@ -1865,9 +1855,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Écarts a surveiller",
           subtitle: "Une petite anomalie peut degrader toute la protection.",
-          imagePath: "/images/reseau-sprinkler.jpg",
-          imageAlt:
-            "réseau sprinkler et organes de contrôle a surveiller lors de l'exploitation",
+          animationKey: "alerte-incendie" as const,
           items: [
             "Vanne non conforme",
             "Pression anormale",
@@ -1920,9 +1908,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Cadre technique d'exploitation",
           subtitle: "Protection installee, risque reel, organisation du site.",
-          imagePath: "/images/installation-spk.jpg",
-          imageAlt:
-            "Vue d'une installation sprinkler en environnement industriel ou logistique",
+          illustrationKey: "authorized-forbidden" as const,
           items: [
             "référentiel technique applicable",
             "Conditions normales d'exploitation",
@@ -1955,9 +1941,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Logique ICPE 1510",
           subtitle: "Protection incendie + organisation + adequation du risque.",
-          imagePath: "/images/installation-spk.jpg",
-          imageAlt:
-            "Installation sprinkler et logique de protection d'un entrepot ou d'une zone de stockage",
+          animationKey: "triangle-du-feu" as const,
           items: [
             "Compartimentage et cellules",
             "Sprinkler et autres moyens",
@@ -1989,9 +1973,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Garder la protection reellement disponible",
           subtitle: "Surveiller, tracer, compenser, remettre en état.",
-          imagePath: "/images/installation-spk.jpg",
-          imageAlt:
-            "réseau sprinkler et organes techniques faisant l'objet d'essais et de surveillance",
+          illustrationKey: "summary-reflexes" as const,
           items: [
             "Essais périodiques",
             "Suivi des alarmes et defauts",
@@ -2043,9 +2025,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "têtes sprinkler et volume protégé",
           subtitle: "Dégagement, absence d'obstacle, intégrité visible.",
-          imagePath: "/images/reseau-sprinkler.jpg",
-          imageAlt:
-            "réseau sprinkler illustrant la répartition des têtes au-dessus des zones de stockage",
+          illustrationKey: "work-environment" as const,
           items: [
             "tête intacte et non peinte",
             "Aucun stockage sous la tête",
@@ -2087,15 +2067,13 @@ export const modulesContent: Record<string, ModuleContent> = {
           "L'efficacité du système dépend d'une détection fiable, d'une chaîne de commande correcte et de la capacité du local à conserver la concentration utile pendant le temps prévu.",
           "L'exploitant doit retenir qu'un systeme a gaz se gere comme un ensemble complet: detection, temporisation, alarmes, signalisation, coupures ou arrets associes, diffusion et contrôle du réaccès."
         ],
-        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImagePath: "/images/triangle-du-feu.jpg",
         chapterImageAlt:
-          "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          "Triangle du feu illustrant les trois éléments nécessaires à la combustion : comburant, combustible, énergie",
         visual: {
           title: "Systeme a gaz : logique générale",
           subtitle: "Detecter, temporiser, evacuer, diffuser, securiser.",
-          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-          imageAlt:
-            "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          animationKey: "triangle-du-feu" as const,
           items: [
             "Local protégé",
             "Detection et commande",
@@ -2121,15 +2099,13 @@ export const modulesContent: Record<string, ModuleContent> = {
           "L'évacuation doit preceder l'emission.",
           "Le réaccès se pilote selon les consignes du site."
         ],
-        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImagePath: "/images/evacuation-securite-incendie.jpg",
         chapterImageAlt:
-          "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          "Panneau et procédure d'évacuation d'urgence dans un local protégé par système d'extinction gaz",
         visual: {
           title: "Maîtriser le volume protégé",
           subtitle: "étanchéité, accès, évacuation et réaccès.",
-          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-          imageAlt:
-            "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          animationKey: "evacuation-schema" as const,
           items: [
             "Fermetures et passages maitrises",
             "Signalisation et alarme",
@@ -2150,15 +2126,13 @@ export const modulesContent: Record<string, ModuleContent> = {
           "L'exploitant doit savoir differencier une alarme reelle, un essai, un derangement et une mise hors service, puis suivre la procedure du site sans improviser de maintenance.",
           "Une neutralisation, un defaut ou une indisponibilite de la chaine de commande doivent être traces, traites et compenses selon l'organisation prevue."
         ],
-        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImagePath: "/images/alarme-incendie.jpg",
         chapterImageAlt:
-          "schéma d'un systeme d'extinction automatique a gaz avec detection, avertisseurs et reserve",
+          "Déclencheur manuel d'alarme incendie rouge sur fond de local protégé par système d'extinction gaz",
         visual: {
           title: "Avant l'emission",
           subtitle: "Lire l'information et securiser le contexte.",
-          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-          imageAlt:
-            "schéma d'un systeme d'extinction automatique a gaz avec detection, avertisseurs et reserve",
+          animationKey: "alerte-incendie" as const,
           items: [
             "Detection incendie",
             "Temporisation",
@@ -2185,15 +2159,13 @@ export const modulesContent: Record<string, ModuleContent> = {
           "INRS ND 2191 - Agents extincteurs gazeux utilises dans les installations fixes d'extinction.",
           "Consignes d'exploitation et procedures specifiques du site protégé."
         ],
-        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImagePath: "/images/formation-ssi.jpg",
         chapterImageAlt:
-          "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          "Formation sécurité incendie avec présentation des référentiels techniques et normes applicables",
         visual: {
           title: "Normes et exploitation",
           subtitle: "Repères techniques pour un systeme sensible.",
-          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-          imageAlt:
-            "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          illustrationKey: "authorized-forbidden" as const,
           items: [
             "APSAD R13",
             "NF EN 15004-1",
@@ -2225,9 +2197,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Piloter le mode degrade",
           subtitle: "Autoriser, tracer, compenser, remettre en service.",
-          imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
-          imageAlt:
-            "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          illustrationKey: "summary-reflexes" as const,
           items: [
             "Inhibition ou maintenance autorisee",
             "Information des acteurs du site",
