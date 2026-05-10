@@ -1828,16 +1828,16 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImageAlt:
           "Les 4 types de systèmes sprinkler : humide, préaction, sec, déluge — APSAD R1 / NF EN 12845",
         visual: {
-          title: "Vue d'ensemble d'une installation",
-          subtitle: "Les organes a connaître en exploitation.",
-          illustrationKey: "work-environment" as const,
+          title: "Composants d'une installation sprinkler",
+          subtitle: "Les organes à connaître en exploitation.",
+          animationKey: "sprinkler-activation" as const,
           items: [
-            "Source d'eau",
-            "Poste de contrôle",
-            "réseau de distribution",
-            "têtes sprinkler et alarmes"
+            "Source d'eau (bac, réservoir, réseau)",
+            "Poste de contrôle (vannes, alarmes)",
+            "Réseau de distribution (tuyauteries)",
+            "Têtes sprinkler (ampoule + déflecteur)"
           ],
-          tone: "slate",
+          tone: "blue",
         },
       },
       {
@@ -2041,9 +2041,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImageAlt:
           "Têtes sprinkler — interdictions, dégagements à respecter et surveillance en exploitation",
         visual: {
-          title: "têtes sprinkler et volume protégé",
+          title: "Têtes sprinkler et volume protégé",
           subtitle: "Dégagement, absence d'obstacle, intégrité visible.",
-          illustrationKey: "work-environment" as const,
+          animationKey: "sprinkler-activation" as const,
           items: [
             "tête intacte et non peinte",
             "Aucun stockage sous la tête",
@@ -2385,7 +2385,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Étape 1 — Protéger",
           subtitle: "Sécuriser la scène avant d'agir sur la victime.",
-          illustrationKey: "work-environment" as const,
+          illustrationKey: "emergency-response" as const,
           items: [
             "Identifier le ou les dangers",
             "Supprimer ou isoler le risque",
