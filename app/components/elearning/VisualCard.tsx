@@ -8,6 +8,7 @@ import type {
   ModuleVisual,
   VisualTone,
 } from "../../../lib/supabase/elearning/module-types";
+import AnimationRenderer from "./animations/AnimationRenderer";
 
 type VisualCardProps = {
   visual: ModuleVisual;
@@ -829,9 +830,10 @@ export default function VisualCard({
 
   const badgeLabel = compact ? "Repère visuel" : "Illustration pédagogique";
   const shouldRenderImage = Boolean(imagePath) && !hasImageError;
+  const shouldRenderAnimation = !shouldRenderImage && Boolean(visual.animationKey);
   const shouldRenderIllustration =
-    !shouldRenderImage && Boolean(visual.illustrationKey);
-  const shouldRenderMedia = shouldRenderImage || shouldRenderIllustration;
+    !shouldRenderImage && !shouldRenderAnimation && Boolean(visual.illustrationKey);
+  const shouldRenderMedia = shouldRenderImage || shouldRenderAnimation || shouldRenderIllustration;
   const hasTextBlock = Boolean(title || subtitle || items.length > 0);
 
   return (
@@ -869,6 +871,14 @@ export default function VisualCard({
                     }
                   />
                 </div>
+              </div>
+            ) : shouldRenderAnimation ? (
+              <div
+                className={`mx-auto ${
+                  compact ? "max-w-[320px]" : "max-w-[520px]"
+                }`}
+              >
+                <AnimationRenderer animationKey={visual.animationKey!} />
               </div>
             ) : (
               <div

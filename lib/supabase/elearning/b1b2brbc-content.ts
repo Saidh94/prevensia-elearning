@@ -526,10 +526,16 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Illustration de consignation avec vérification d'absence de tension et balisage de zone",
       visual: {
         title: "La chaine de consignation",
-        subtitle: "Separer, condamner, identifier, vérifier.",
-        items: ["Séparation", "Condamnation", "Identification", "VAT"],
+        subtitle: "5 étapes impératives — dans l'ordre, sans raccourci.",
+        items: [
+          "1. Séparer le circuit",
+          "2. Condamner (cadenas + étiquette)",
+          "3. Vérifier l'absence de tension (VAT)",
+          "4. Mettre à la terre et en court-circuit (si requis)",
+          "5. Délimiter la zone de travail",
+        ],
         tone: "red",
-        imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-consignation.svg",
+        animationKey: "consignation-chaine" as const,
       },
     },
     {

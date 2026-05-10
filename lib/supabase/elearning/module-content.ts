@@ -281,16 +281,13 @@ export const modulesContent: Record<string, ModuleContent> = {
   title: "Zones et distances de sécurité",
   subtitle: "Le danger commence avant le contact.",
   items: [
-    "DLI",
-    "DLVS",
-    "DLVR",
-    "DMA",
-    "Repère BT à 30 cm",
-    "Respect strict des limites"
+    "Zone renforcée BT = 30 cm (interdit sans habilitation)",
+    "Zone voisinage simple BT = 3 m",
+    "Respect strict des distances normatives",
+    "Arrêt immédiat et alerte en cas de doute"
   ],
   tone: "amber",
-  imagePath: "/elearning/h0b0/zones-approche.png",
-  imageAlt: "Illustration des zones d’environnement électrique et distances d’approche"
+  animationKey: "zones-voisinage-bt" as const,
 }
     },
     {
@@ -1231,9 +1228,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Triangle du feu",
           subtitle: "Comprendre l’origine du sinistre pour agir avant l’incendie.",
-          imagePath: "/images/triangle-du-feu.jpg",
-          imageAlt:
-            "Triangle du feu avec combustible, comburant et énergie d'activation",
+          animationKey: "triangle-du-feu" as const,
           items: [
             "Combustible",
             "Comburant",
@@ -1333,16 +1328,14 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImageAlt:
           "Extincteur et robinet d'incendie armé en entreprise à proximité d'une zone technique",
         visual: {
-          title: "Décider vite, sans improviser",
-          subtitle: "Agir seulement si le feu est limité, l’issue maîtrisée et le moyen adapté.",
-          imagePath: "/images/distance-de-securite-extincteur-a-eau-pulverisee.webp",
-          imageAlt:
-            "Distance d'attaque recommandée et positionnement face au feu avec un extincteur à eau",
+          title: "Classes de feux et extincteurs",
+          subtitle: "Choisir le bon agent en fonction de la nature du foyer.",
+          animationKey: "classes-extincteurs" as const,
           items: [
-            "Alerte déjà donnée",
-            "Feu encore limité",
-            "Issue de repli disponible",
-            "Moyen de première intervention adapté"
+            "Alerte déjà donnée avant d’agir",
+            "Feu encore limité, issue de repli disponible",
+            "Extincteur adapté à la classe du feu",
+            "Jamais d’eau sur feu électrique (classe E) ou graisses (classe F)"
           ],
           tone: "amber",
         },
@@ -2340,15 +2333,14 @@ export const modulesContent: Record<string, ModuleContent> = {
           },
         ],
         visual: {
-          title: "Le SST en entreprise",
-          subtitle: "Secourir et contribuer à la prévention.",
-          imagePath: "/elearning/sst/sst-role.svg",
-          imageAlt: "Rôle du SST en entreprise — secours et prévention",
+          title: "Méthode PEAS",
+          subtitle: "La démarche SST en 4 étapes — dans l'ordre, sans exception.",
+          animationKey: "peas-sst" as const,
           items: [
-            "Observer la situation",
-            "Alerter utilement",
-            "Agir sans sur-accident",
-            "Contribuer à la prévention",
+            "Protéger — sécuriser la zone en premier",
+            "Examiner — évaluer l'état de la victime",
+            "Alerter — appeler le 15, 18 ou 112",
+            "Secourir — appliquer les gestes appris",
           ],
           tone: "blue",
         },

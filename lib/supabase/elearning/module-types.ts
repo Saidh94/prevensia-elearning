@@ -10,12 +10,21 @@ export type IllustrationKey =
   | "summary-reflexes"
   | "generic";
 
+export type AnimationKey =
+  | "triangle-du-feu"
+  | "zones-voisinage-bt"
+  | "peas-sst"
+  | "consignation-chaine"
+  | "classes-extincteurs"
+  | "niveaux-vehicules";
+
 export type ModuleVisual = {
   title?: string;
   subtitle?: string;
   items?: string[];
   tone?: VisualTone;
   illustrationKey?: IllustrationKey;
+  animationKey?: AnimationKey;
   imagePath?: string;
   imageAlt?: string;
 };
