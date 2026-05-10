@@ -13,4 +13,6 @@
   <text x="528" y="416" fill="#9A3412" font-family="Arial, sans-serif" font-size="18">Coordination et objectif definis</text>
   <text x="864" y="416" fill="#9A3412" font-family="Arial, sans-serif" font-size="18">Fin d'opération vérifiée</text>
   <rect x="92" y="544" width="1016" height="66" rx="18" fill="#7C2D12"/>
-  <text x="122" y="584" fill="#FFEDD5" font-family="Arial, sans-serif" font-size="20">Un geste techniquement possible n'est pas automatiquement un geste autorisé par l'habilitation détenue.
+  <text x="122" y="584" fill="#FFEDD5" font-family="Arial, sans-serif" font-size="20">Un geste techniquement possible n'est pas automatiquement un geste autorisé par l'habilitation détenue.</text>
+
+</svg>
