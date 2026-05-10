@@ -2578,7 +2578,6 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Saignement abondant",
           subtitle: "Comprimer directement, fermement et sans relâcher.",
-          illustrationKey: "emergency-response" as const,
           items: [
             "Compression directe ferme",
             "Ne pas relâcher",
@@ -2624,7 +2623,6 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Étouffement",
           subtitle: "5 claques dorsales puis 5 compressions abdominales — alterner.",
-          illustrationKey: "emergency-response" as const,
           items: [
             "Pencher la victime en avant",
             "5 claques dorsales vigoureuses",
@@ -2670,7 +2668,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Victime inconsciente qui respire",
           subtitle: "PLS immédiate pour protéger les voies aériennes.",
-          illustrationKey: "emergency-response" as const,
+          animationKey: "peas-sst" as const,
           imageAlt: "Position Latérale de Sécurité — geste SST",
           items: [
             "Vérifier la respiration",
@@ -2741,7 +2739,6 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Arrêt cardiaque — RCP + DAE",
           subtitle: "Chaque seconde compte : comprimer, alerter, défibriller.",
-          illustrationKey: "emergency-response" as const,
           imageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
           items: [
             "RCP immédiate (30+2 ou compressions seules)",
@@ -2808,7 +2805,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Malaise",
           subtitle: "Position adaptée, alerte immédiate, surveillance.",
-          illustrationKey: "emergency-response" as const,
+          illustrationKey: "summary-reflexes" as const,
           imageAlt: "Prise en charge d'un malaise — SST",
           items: [
             "Installer confortablement",
