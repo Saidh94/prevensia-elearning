@@ -368,23 +368,24 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.chocElectrique],
       practicalCase:
         "Exemple : lors d’un remplacement simple, un opérateur ressent une décharge en retirant un accessoire endommagé. L’action est interrompue, la situation est signalée et l’équipement n’est pas réutilisé.",
-      chapterImagePath: "/elearning/h0b0/intensites-effets.png",
+      chapterImagePath: "/elearning/bsbe/bsbe-effets.svg",
       chapterImageAlt:
-        "Effets du courant électrique sur le corps humain selon l'intensité et le temps de contact",
+        "Effets du courant électrique sur le corps humain selon l’intensité et le temps de contact",
       visual: {
         title: "Pourquoi un choc électrique peut être grave",
         subtitle:
           "L’intensité, le temps de contact, le trajet et le milieu humide aggravent le risque corporel.",
         items: [
-        "Électrisation",
+          "Électrisation",
           "Tétanisation",
           "Troubles cardiaques",
           "Milieu humide",
         ],
         tone: "red",
-        imagePath: "/elearning/h0b0/intensites-effets.png",
+        illustrationKey: "body-effects" as const,
+        imagePath: "/elearning/bsbe/bsbe-effets.svg",
         imageAlt:
-          "Effets du courant électrique sur le corps humain selon l'intensité et le temps de contact",
+          "Effets du courant électrique sur le corps humain selon l’intensité et le temps de contact",
       },
     },
 
@@ -439,6 +440,7 @@ export const bsbeModuleContent: ModuleContent = {
           "PNST et voisinage",
         ],
         tone: "amber",
+        animationKey: "zones-voisinage-bt" as const,
         imagePath: "/elearning/bsbe/danger-voisinage-simple-et-voisinage-bt.jpg",
         imageAlt:
           "Voisinage simple et voisinage renforcé BT autour d'une pièce nue sous tension",
@@ -843,7 +845,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 5.4 — sources multiples et VAT : toute source d'alimentation doit être identifiée et coupée",
         },
       ],
-      chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
+      chapterImagePath: "/elearning/bsbe/bsbe-vat.svg",
       chapterImageAlt:
         "Mise hors tension pour son propre compte, VAT et documents en BS",
       visual: {
@@ -857,7 +859,8 @@ export const bsbeModuleContent: ModuleContent = {
           "Compte rendu",
         ],
         tone: "slate",
-        imagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
+        animationKey: "consignation-chaine" as const,
+        imagePath: "/elearning/bsbe/bsbe-vat.svg",
         imageAlt:
           "Mise hors tension pour son propre compte, VAT et documents en BS",
       },
@@ -1077,9 +1080,9 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 5.4 — prévention de la remise sous tension et condamnation dans le cadre d'une intervention BS",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/types-operations-electriques.jpg",
+      chapterImagePath: "/elearning/bsbe/bsbe-limites.svg",
       chapterImageAlt:
-        "Types d'opérations électriques et limites entre opération simple, manœuvre et intervention hors cadre",
+        "Types d’opérations électriques et limites entre opération simple, manœuvre et intervention hors cadre",
       visual: {
         title: "Le bon niveau d’arrêt",
         subtitle: "Si la situation se complique, le cadre change.",
@@ -1090,9 +1093,10 @@ export const bsbeModuleContent: ModuleContent = {
           "Requalification nécessaire",
         ],
         tone: "red",
-        imagePath: "/elearning/bsbe/types-operations-electriques.jpg",
+        illustrationKey: "authorized-forbidden" as const,
+        imagePath: "/elearning/bsbe/bsbe-limites.svg",
         imageAlt:
-          "Types d'opérations électriques et limites entre opération simple, manœuvre et intervention hors cadre",
+          "Types d’opérations électriques et limites entre opération simple, manœuvre et intervention hors cadre",
       },
     },
 
@@ -1152,7 +1156,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 9 et § 4.6 — EPI et EPC en environnement humide",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/epi-intervention.jpg",
+      chapterImagePath: "/elearning/bsbe/bsbe-epi.svg",
       chapterImageAlt:
         "EPI d'intervention en environnement électrique et hiérarchie des protections",
       visual: {
@@ -1166,7 +1170,7 @@ export const bsbeModuleContent: ModuleContent = {
           "Zone compatible",
         ],
         tone: "amber",
-        imagePath: "/elearning/bsbe/epi-intervention.jpg",
+        imagePath: "/elearning/bsbe/bsbe-epi.svg",
         imageAlt:
           "EPI d'intervention en environnement électrique et hiérarchie des protections",
       },
@@ -1323,7 +1327,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 10 — conduite à tenir en cas d'incident électrique",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/danger-armoires-electriques.jpg",
+      chapterImagePath: "/elearning/bsbe/bsbe-urgence.svg",
       chapterImageAlt:
         "Armoire électrique présentant un danger et imposant arrêt, protection et alerte",
       visual: {
@@ -1333,11 +1337,12 @@ export const bsbeModuleContent: ModuleContent = {
         items: [
           "Incident",
           "Incendie",
-        "Électrisation",
+          "Électrisation",
           "Premiers secours",
         ],
         tone: "red",
-        imagePath: "/elearning/bsbe/danger-armoires-electriques.jpg",
+        illustrationKey: "emergency-response" as const,
+        imagePath: "/elearning/bsbe/bsbe-urgence.svg",
         imageAlt:
           "Armoire électrique présentant un danger et imposant arrêt, protection et alerte",
       },
@@ -1549,6 +1554,7 @@ export const bsbeModuleContent: ModuleContent = {
           "Transmission si doute",
         ],
         tone: "green",
+        illustrationKey: "summary-reflexes" as const,
         imagePath: "/elearning/bsbe/synthese-operationnelle.svg",
         imageAlt:
           "Illustration de synthèse des réflexes de décision pour le parcours BS et BE Manœuvre",
