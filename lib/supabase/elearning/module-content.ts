@@ -2578,6 +2578,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Saignement abondant",
           subtitle: "Comprimer directement, fermement et sans relâcher.",
+          illustrationKey: "emergency-response" as const,
           items: [
             "Compression directe ferme",
             "Ne pas relâcher",
@@ -2623,6 +2624,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Étouffement",
           subtitle: "5 claques dorsales puis 5 compressions abdominales — alterner.",
+          illustrationKey: "authorized-forbidden" as const,
           items: [
             "Pencher la victime en avant",
             "5 claques dorsales vigoureuses",
@@ -2739,6 +2741,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Arrêt cardiaque — RCP + DAE",
           subtitle: "Chaque seconde compte : comprimer, alerter, défibriller.",
+          animationKey: "peas-sst" as const,
           imageAlt: "RCP et défibrillation DAE — arrêt cardiaque — SST",
           items: [
             "RCP immédiate (30+2 ou compressions seules)",
@@ -2854,7 +2857,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Brûlure et traumatisme",
           subtitle: "Eau fraîche pour la brûlure, immobilité pour le traumatisme.",
-          illustrationKey: "summary-reflexes" as const,
+          illustrationKey: "emergency-response" as const,
           imageAlt: "Brûlure et traumatisme — gestes SST en milieu professionnel",
           items: [
             "Eau fraîche 5-10 min sur la brûlure",
