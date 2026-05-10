@@ -8,6 +8,7 @@ import type {
   VisualTone,
 } from "@/lib/supabase/elearning/module-types";
 import AnimationRenderer from "./animations/AnimationRenderer";
+import ElearningIllustration, { TONE_COLORS } from "./ElearningIllustration";
 
 type VisualBlockProps = {
   visual: ModuleVisual;
@@ -66,7 +67,9 @@ export default function VisualBlock({ visual }: VisualBlockProps) {
 
   const [replayKey, setReplayKey] = useState(0);
 
-  if (!title && !subtitle && items.length === 0 && !imagePath && !visual.animationKey) {
+  const toneColors = TONE_COLORS[tone] ?? TONE_COLORS.blue;
+
+  if (!title && !subtitle && items.length === 0 && !imagePath && !visual.animationKey && !visual.illustrationKey) {
     return null;
   }
 
@@ -139,6 +142,15 @@ export default function VisualBlock({ visual }: VisualBlockProps) {
                 Rejouer
               </button>
             </div>
+          </div>
+        ) : visual.illustrationKey ? (
+          <div className="rounded-[1.25rem] border border-slate-200 bg-white p-4">
+            <ElearningIllustration
+              illustrationKey={visual.illustrationKey}
+              stroke={toneColors.stroke}
+              fillSoft={toneColors.fillSoft}
+              fillStrong={toneColors.fillStrong}
+            />
           </div>
         ) : imagePath ? (
           <div className="rounded-[1.25rem] border border-slate-200 bg-white p-4">

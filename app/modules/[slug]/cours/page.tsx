@@ -1367,7 +1367,7 @@ export default function CoursPage() {
                 </div>
               ) : null}
 
-              {formattedSectionVisual?.animationKey ? (
+              {(formattedSectionVisual?.animationKey || formattedSectionVisual?.illustrationKey) ? (
                 <div className="mb-6">
                   <VisualBlock visual={formattedSectionVisual} />
                 </div>
