@@ -52,7 +52,9 @@ type CanonicalFormationKey =
   | "sprinkler"
   | "sst"
   | "habilitation-vehicules"
-  | "be-verification-mesurage";
+  | "be-verification-mesurage"
+  | "br"
+  | "bc";
 
 type FormationSeed = {
   slug: string;
@@ -146,6 +148,24 @@ const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     isPublished: true,
     elearningDuration: "8 h 00 à 11 h 00",
   },
+  br: {
+    slug: "br",
+    title: "Habilitation BR — Interventions générales en basse tension",
+    description: "Parcours PREVENSIA centré sur l'intervention générale : diagnostic, dépannage, remplacement, mesure et remise en service contrôlée dans les limites du BR.",
+    durationHours: 14,
+    mode: "e-learning",
+    isPublished: true,
+    elearningDuration: "8 h 00 à 11 h 00",
+  },
+  bc: {
+    slug: "bc",
+    title: "Habilitation BC — Consignation en basse tension",
+    description: "Parcours PREVENSIA centré sur la chaîne de consignation : séparation, condamnation, identification, VAT et sécurisation fiable de l'installation.",
+    durationHours: 14,
+    mode: "e-learning",
+    isPublished: true,
+    elearningDuration: "8 h 00 à 11 h 00",
+  },
 };
 
 function normalize(value: string | null | undefined) {
@@ -192,6 +212,26 @@ function inferCanonicalFormationSlug(
     (normalizedFormation.includes("be") && normalizedFormation.includes("mesurage"))
   ) {
     return "be-verification-mesurage";
+  }
+
+  if (
+    normalizedFormation.includes("habilitation br") ||
+    normalizedFormation.includes("formation br") ||
+    normalizedFormation === "br" ||
+    normalizedFormation.includes("intervention generale") ||
+    normalizedFormation.includes("interventions generales")
+  ) {
+    return "br";
+  }
+
+  if (
+    normalizedFormation.includes("habilitation bc") ||
+    normalizedFormation.includes("formation bc") ||
+    normalizedFormation === "bc" ||
+    normalizedFormation.includes("charge de consignation") ||
+    (normalizedFormation.includes("bc") && normalizedFormation.includes("consignation"))
+  ) {
+    return "bc";
   }
 
   if (
