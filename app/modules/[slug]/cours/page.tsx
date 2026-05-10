@@ -855,10 +855,6 @@ export default function CoursPage() {
   const canonicalSlug = resolveModuleSlug(normalizedSlug) ?? normalizedSlug;
 
   const currentModuleData = useMemo(() => {
-    if (canonicalSlug === "h0b0") {
-      return null;
-    }
-
     return getModuleContentBySlug(canonicalSlug);
   }, [canonicalSlug]);
 
@@ -893,7 +889,7 @@ export default function CoursPage() {
 
   const currentChapter = chapters[currentIndex] ?? chapters[0];
   const currentSectionVisual =
-    currentModuleData?.sections[currentIndex]?.visual ?? null;
+    currentModuleData?.sections.find((s) => s.id === currentChapter?.key)?.visual ?? null;
 
   const leadingParagraphs = currentChapter?.content?.slice(0, 4) ?? [];
   const bodyParagraphs = currentChapter?.content?.slice(4) ?? [];
