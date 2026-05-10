@@ -1,6 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      // Toutes les variantes BS/BE → canonical /modules/bsbe
+      {
+        source: "/modules/bs-be-manoeuvre/:path*",
+        destination: "/modules/bsbe/:path*",
+        permanent: false,
+      },
+      {
+        source: "/modules/bs-be-man%C5%93uvre/:path*",
+        destination: "/modules/bsbe/:path*",
+        permanent: false,
+      },
+      {
+        source: "/modules/bsbe-manoeuvre/:path*",
+        destination: "/modules/bsbe/:path*",
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {
