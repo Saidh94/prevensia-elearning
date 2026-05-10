@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F0FDF4"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BBF7D0" stroke-width="2"/>
+  <text x="92" y="112" fill="#14532D" font-family="Arial, sans-serif" font-size="34" font-weight="700">Périodicités d'essais — NF EN 12845</text>
+  <text x="92" y="148" fill="#166534" font-family="Arial, sans-serif" font-size="18">Chaque essai doit être consigné dans le registre de sécurité avec date, résultat et signature.</text>
+
+  <!-- Mensuel -->
+  <rect x="92" y="172" width="238" height="330" rx="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <rect x="92" y="172" width="238" height="52" rx="18" fill="#1D4ED8"/>
+  <rect x="92" y="204" width="238" height="20" fill="#1D4ED8"/>
+  <text x="211" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">MENSUEL</text>
+  <text x="211" y="248" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="13">Inspection visuelle</text>
+  <text x="112" y="280" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Vannes principales</text>
+  <text x="112" y="300" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">  (position ouverte)</text>
+  <text x="112" y="322" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Manomètres</text>
+  <text x="112" y="342" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">  (pression nominale)</text>
+  <text x="112" y="364" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Voyants de pompe</text>
+  <text x="112" y="384" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Niveau du bac</text>
+  <text x="112" y="404" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">  ou réservoir</text>
+  <text x="112" y="432" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12" font-weight="700">Consignation obligatoire</text>
+  <text x="112" y="450" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12">dans le registre</text>
+  <text x="112" y="468" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12">avec date et signature</text>
+
+  <!-- Trimestriel -->
+  <rect x="350" y="172" width="238" height="330" rx="18" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+  <rect x="350" y="172" width="238" height="52" rx="18" fill="#065F46"/>
+  <rect x="350" y="204" width="238" height="20" fill="#065F46"/>
+  <text x="469" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">TRIMESTRIEL</text>
+  <text x="469" y="248" text-anchor="middle" fill="#059669" font-family="Arial, sans-serif" font-size="13">Test fonctionnel</text>
+  <text x="370" y="280" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• Test vanne de purge</text>
+  <text x="370" y="300" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">  (simule une tête ouverte)</text>
+  <text x="370" y="322" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• Vérifie alarme</text>
+  <text x="370" y="342" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">  hydraulique (gong)</text>
+  <text x="370" y="364" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• Vérifie alarme</text>
+  <text x="370" y="384" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">  électrique (report SSI)</text>
+  <text x="370" y="406" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• Pompe électrique</text>
+  <text x="370" y="426" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">  en marche confirmé</text>
+  <text x="370" y="454" fill="#065F46" font-family="Arial, sans-serif" font-size="12" font-weight="700">Résultat attendu :</text>
+  <text x="370" y="472" fill="#065F46" font-family="Arial, sans-serif" font-size="12">Alarme type A déclenchée</text>
+
+  <!-- Annuel -->
+  <rect x="608" y="172" width="238" height="330" rx="18" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <rect x="608" y="172" width="238" height="52" rx="18" fill="#92400E"/>
+  <rect x="608" y="204" width="238" height="20" fill="#92400E"/>
+  <text x="727" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">ANNUEL</text>
+  <text x="727" y="248" text-anchor="middle" fill="#D97706" font-family="Arial, sans-serif" font-size="13">Test de débit complet</text>
+  <text x="628" y="280" fill="#78350F" font-family="Arial, sans-serif" font-size="13">• Test de débit au poste</text>
+  <text x="628" y="300" fill="#78350F" font-family="Arial, sans-serif" font-size="13">  de contrôle</text>
+  <text x="628" y="322" fill="#78350F" font-family="Arial, sans-serif" font-size="13">• Validation de la courbe</text>
+  <text x="628" y="342" fill="#78350F" font-family="Arial, sans-serif" font-size="13">  de la pompe</text>
+  <text x="628" y="364" fill="#78350F" font-family="Arial, sans-serif" font-size="13">• Pression disponible</text>
+  <text x="628" y="384" fill="#78350F" font-family="Arial, sans-serif" font-size="13">  en condition réelle</text>
+  <text x="628" y="406" fill="#78350F" font-family="Arial, sans-serif" font-size="13">• Test du groupe diesel</text>
+  <text x="628" y="426" fill="#78350F" font-family="Arial, sans-serif" font-size="13">  (si présent)</text>
+  <text x="628" y="454" fill="#92400E" font-family="Arial, sans-serif" font-size="12" font-weight="700">Par technicien qualifié</text>
+  <text x="628" y="472" fill="#92400E" font-family="Arial, sans-serif" font-size="12">+ rapport d'intervention</text>
+
+  <!-- 25 ans -->
+  <rect x="866" y="172" width="282" height="330" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <rect x="866" y="172" width="282" height="52" rx="18" fill="#991B1B"/>
+  <rect x="866" y="204" width="282" height="20" fill="#991B1B"/>
+  <text x="1007" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">25 ANS</text>
+  <text x="1007" y="248" text-anchor="middle" fill="#FCA5A5" font-family="Arial, sans-serif" font-size="13">Inspection approfondie</text>
+  <text x="886" y="280" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Inspection interne</text>
+  <text x="886" y="300" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">  des canalisations</text>
+  <text x="886" y="322" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Prélèvement de têtes</text>
+  <text x="886" y="342" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">  envoyées en laboratoire</text>
+  <text x="886" y="364" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Vérification du seuil</text>
+  <text x="886" y="384" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">  thermique de déclenchement</text>
+  <text x="886" y="406" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Vérification du facteur K</text>
+  <text x="886" y="426" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">  (débit de diffusion)</text>
+  <text x="886" y="454" fill="#991B1B" font-family="Arial, sans-serif" font-size="12" font-weight="700">Obligation réglementaire</text>
+  <text x="886" y="472" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">même si l'installation semble OK</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="522" width="1056" height="76" rx="16" fill="#14532D"/>
+  <text x="120" y="550" fill="#DCFCE7" font-family="Arial, sans-serif" font-size="16" font-weight="700">Registre de sécurité :</text>
+  <text x="120" y="576" fill="#DCFCE7" font-family="Arial, sans-serif" font-size="15">Tout essai non consigné est considéré comme non réalisé. Une lacune de registre est une non-conformité réglementaire.</text>
+</svg>

@@ -1775,23 +1775,30 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Le sprinkler n'est ni un décor ni un déversement général automatique. C'est un système conçu pour réagir localement et tôt, au plus près du foyer.",
         content: [
-          "Une installation sprinkler est conçue pour détecter et maîtriser automatiquement un incendie au plus près du foyer grâce au déclenchement thermique des têtes concernées.",
-          "Elle ne fonctionne pas comme un deversement general : seules les têtes exposées a une chaleur suffisante s'ouvrent.",
-          "Cette logique doit être comprise par l'exploitant pour éviter les idees fausses courantes, par exemple penser que toutes les têtes se déclenchent simultanément.",
-          "Le sprinkler est conçu pour contenir, maîtriser ou contrôler un incendie en attendant les autres moyens de secours et l'action de l'organisation du site."
+          "Une installation sprinkler est conçue pour détecter et maîtriser automatiquement un incendie au plus près du foyer grâce au déclenchement thermique des têtes concernées. Selon la NFPA, un système fonctionnel contrôle efficacement près de 97 % des départs de feu.",
+          "Elle ne fonctionne pas comme un déversement général : seules les têtes exposées à une chaleur suffisante s'ouvrent. Chaque tête est indépendante — c'est une erreur fréquente de croire que toutes s'activent simultanément.",
+          "Le mécanisme repose sur une ampoule en verre remplie de liquide qui se brise à une température nominale précise, identifiable par sa couleur : orange à 57 °C, rouge à 68 °C (le plus courant pour les installations standard), jaune à 79 °C, vert à 93–100 °C, bleu à 121–141 °C, mauve à 163–182 °C. La température nominale doit être supérieure d'au moins 30 °C à la température ambiante maximale du local.",
+          "Il existe quatre types principaux d'installations. Le système humide — le plus répandu — maintient les canalisations sous eau en permanence pour une réaction immédiate ; il équipe la majorité des ERP, entrepôts chauffés et sites industriels. Le système à préaction combine un réseau sec et une détection préalable : l'eau n'entre dans les canalisations qu'après un signal d'alarme, ce qui évite tout déclenchement accidentel ; il protège les archives, musées et data centers. Le système sec utilise des canalisations remplies d'air sous pression, adapté aux zones exposées au gel comme les parkings couverts ou entrepôts non chauffés. Le système déluge dispose de toutes les têtes ouvertes en permanence et projette massivement l'eau dès l'activation du poste de contrôle ; il est réservé aux sites industriels à haut risque ou aux feux de liquides inflammables.",
+          "Le sprinkler est conçu pour contenir, maîtriser ou contrôler un incendie en attendant les autres moyens de secours. Il ne remplace pas l'organisation humaine ni l'intervention des secours."
         ],
-        chapterImagePath: "/images/installation-sprinkler.png",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-principe.svg",
         chapterImageAlt:
-          "schéma de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de contrôle et réseau de sprinkleurs",
+          "Les 4 étapes d'activation d'un sprinkler : chaleur → ampoule brisée → eau projetée → alarme déclenchée",
+        keyPoints: [
+          "97 % des départs de feu contrôlés quand le système est fonctionnel (NFPA).",
+          "Activation locale uniquement — pas de déversement général.",
+          "Codes couleur ampoule : orange 57 °C, rouge 68 °C (standard), jaune 79 °C, vert 93–100 °C, bleu 121–141 °C.",
+          "4 types : humide (standard), préaction (zones sensibles), sec (gel), déluge (risque très élevé).",
+        ],
         visual: {
           title: "Principe sprinkler",
           subtitle: "Détection thermique locale et attaque précoce.",
           animationKey: "sprinkler-activation" as const,
           items: [
-            "La chaleur ouvre la tête concernee",
-            "L'eau est delivree localement",
-            "L'alarme est transmise",
-            "Le feu est maîtrisé ou contenu"
+            "La chaleur brise l'ampoule de la tête exposée",
+            "L'eau sous pression est libérée localement",
+            "L'alarme hydraulique et électrique est transmise",
+            "Le feu est maîtrisé ou contenu avant l'arrivée des secours"
           ],
           tone: "blue",
         },
@@ -1817,9 +1824,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Alarme et report",
           "Classe de risque : LH / OH / HH — à connaître pour son site"
         ],
-        chapterImagePath: "/elearning/sprinkler/sprinkler-classification.svg",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-types.svg",
         chapterImageAlt:
-          "Classes de risque NF EN 12845 : LH, OH1 à OH4, HH, HHP, HHS — impact sur la protection",
+          "Les 4 types de systèmes sprinkler : humide, préaction, sec, déluge — APSAD R1 / NF EN 12845",
         visual: {
           title: "Vue d'ensemble d'une installation",
           subtitle: "Les organes a connaître en exploitation.",
@@ -1906,9 +1913,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "NFPA 13 et FM Global Data Sheets — référentiels pouvant s'appliquer selon les sites, cahiers des charges ou assureurs.",
           "Consignes d'exploitation, dossier de sécurité et exigences contractuelles du site protégé."
         ],
-        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-referentiels.svg",
         chapterImageAlt:
-          "schéma pedagogique d'une installation sprinkler dans un bâtiment logistique ou industriel",
+          "Référentiels applicables : NF EN 12845, APSAD R1 (version 2020), NFPA 13, FM Global — cadre d'exploitation sprinkler",
         visual: {
           title: "Cadre technique d'exploitation",
           subtitle: "Protection installee, risque reel, organisation du site.",
@@ -1978,9 +1985,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "25 ans : inspection interne canalisations + prélèvement de têtes en labo.",
           "Mise hors service : notification préalable, rondes, permis de feu, retour vérifié."
         ],
-        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-essais.svg",
         chapterImageAlt:
-          "réseau sprinkler et organes techniques faisant l'objet d'essais et de surveillance",
+          "Périodicités d'essais NF EN 12845 : mensuel, trimestriel, annuel, 25 ans — registre de sécurité",
         visual: {
           title: "Garder la protection reellement disponible",
           subtitle: "Surveiller, tracer, compenser, remettre en état.",
@@ -2030,9 +2037,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Respecter les dégagements sous les sprinklers.",
           "Analyser tout obstacle ou modification de stockage."
         ],
-        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-tetes.svg",
         chapterImageAlt:
-          "réseau sprinkler illustrant la répartition des têtes au-dessus des zones de stockage",
+          "Têtes sprinkler — interdictions, dégagements à respecter et surveillance en exploitation",
         visual: {
           title: "têtes sprinkler et volume protégé",
           subtitle: "Dégagement, absence d'obstacle, intégrité visible.",

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F0FDF4"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BBF7D0" stroke-width="2"/>
+  <text x="92" y="112" fill="#14532D" font-family="Arial, sans-serif" font-size="34" font-weight="700">Les 4 types de systèmes sprinkler</text>
+  <text x="92" y="148" fill="#166534" font-family="Arial, sans-serif" font-size="18">Chaque type répond à un contexte d'installation spécifique — APSAD R1 / NF EN 12845</text>
+
+  <!-- Type 1: Humide -->
+  <rect x="92" y="172" width="244" height="340" rx="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <rect x="92" y="172" width="244" height="52" rx="18" fill="#1D4ED8"/>
+  <rect x="92" y="204" width="244" height="20" fill="#1D4ED8"/>
+  <text x="214" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="19" font-weight="700">HUMIDE</text>
+  <text x="214" y="248" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="13">Le plus répandu</text>
+  <text x="112" y="280" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13" font-weight="700">Principe :</text>
+  <text x="112" y="300" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">Canalisations remplies</text>
+  <text x="112" y="318" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">d'eau sous pression</text>
+  <text x="112" y="336" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">en permanence</text>
+  <text x="112" y="362" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13" font-weight="700">Avantages :</text>
+  <text x="112" y="380" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Réaction immédiate</text>
+  <text x="112" y="398" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Maintenance simple</text>
+  <text x="112" y="416" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Débit constant</text>
+  <text x="112" y="444" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13" font-weight="700">Usage type :</text>
+  <text x="112" y="462" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13">ERP, industrie, entrepôts</text>
+  <text x="112" y="480" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13">chauffés</text>
+
+  <!-- Type 2: Préaction -->
+  <rect x="356" y="172" width="244" height="340" rx="18" fill="#F3E8FF" stroke="#A855F7" stroke-width="2"/>
+  <rect x="356" y="172" width="244" height="52" rx="18" fill="#7E22CE"/>
+  <rect x="356" y="204" width="244" height="20" fill="#7E22CE"/>
+  <text x="478" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="19" font-weight="700">PRÉACTION</text>
+  <text x="478" y="248" text-anchor="middle" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13">Réseau sec + détection</text>
+  <text x="376" y="280" fill="#581C87" font-family="Arial, sans-serif" font-size="13" font-weight="700">Principe :</text>
+  <text x="376" y="300" fill="#581C87" font-family="Arial, sans-serif" font-size="13">L'eau n'entre dans les</text>
+  <text x="376" y="318" fill="#581C87" font-family="Arial, sans-serif" font-size="13">canalisations qu'après</text>
+  <text x="376" y="336" fill="#581C87" font-family="Arial, sans-serif" font-size="13">signal d'alarme</text>
+  <text x="376" y="362" fill="#581C87" font-family="Arial, sans-serif" font-size="13" font-weight="700">Avantages :</text>
+  <text x="376" y="380" fill="#581C87" font-family="Arial, sans-serif" font-size="13">• Pas de déclenchement</text>
+  <text x="376" y="398" fill="#581C87" font-family="Arial, sans-serif" font-size="13">  accidentel</text>
+  <text x="376" y="416" fill="#581C87" font-family="Arial, sans-serif" font-size="13">• Limite les dégâts eau</text>
+  <text x="376" y="444" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13" font-weight="700">Usage type :</text>
+  <text x="376" y="462" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13">Archives, musées,</text>
+  <text x="376" y="480" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13">data centers</text>
+
+  <!-- Type 3: Sec -->
+  <rect x="620" y="172" width="244" height="340" rx="18" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <rect x="620" y="172" width="244" height="52" rx="18" fill="#92400E"/>
+  <rect x="620" y="204" width="244" height="20" fill="#92400E"/>
+  <text x="742" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="19" font-weight="700">SEC</text>
+  <text x="742" y="248" text-anchor="middle" fill="#713F12" font-family="Arial, sans-serif" font-size="13">Canalisations sous air</text>
+  <text x="640" y="280" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">Principe :</text>
+  <text x="640" y="300" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Canalisations remplies</text>
+  <text x="640" y="318" fill="#78350F" font-family="Arial, sans-serif" font-size="13">d'air sous pression.</text>
+  <text x="640" y="336" fill="#78350F" font-family="Arial, sans-serif" font-size="13">L'eau libérée à l'ouverture</text>
+  <text x="640" y="362" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">Avantages :</text>
+  <text x="640" y="380" fill="#78350F" font-family="Arial, sans-serif" font-size="13">• Résistant au gel</text>
+  <text x="640" y="398" fill="#78350F" font-family="Arial, sans-serif" font-size="13">• Zones non chauffées</text>
+  <text x="640" y="444" fill="#713F12" font-family="Arial, sans-serif" font-size="13" font-weight="700">Usage type :</text>
+  <text x="640" y="462" fill="#713F12" font-family="Arial, sans-serif" font-size="13">Parkings couverts,</text>
+  <text x="640" y="480" fill="#713F12" font-family="Arial, sans-serif" font-size="13">entrepôts non chauffés</text>
+
+  <!-- Type 4: Déluge -->
+  <rect x="884" y="172" width="264" height="340" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <rect x="884" y="172" width="264" height="52" rx="18" fill="#991B1B"/>
+  <rect x="884" y="204" width="264" height="20" fill="#991B1B"/>
+  <text x="1016" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="19" font-weight="700">DÉLUGE</text>
+  <text x="1016" y="248" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Toutes les têtes ouvertes</text>
+  <text x="904" y="280" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Principe :</text>
+  <text x="904" y="300" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Toutes les têtes sont</text>
+  <text x="904" y="318" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">ouvertes. Activation par</text>
+  <text x="904" y="336" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">poste de contrôle global</text>
+  <text x="904" y="362" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Avantages :</text>
+  <text x="904" y="380" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Réponse totale immédiate</text>
+  <text x="904" y="398" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Feux rapides / liquides</text>
+  <text x="904" y="444" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Usage type :</text>
+  <text x="904" y="462" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Sites industriels</text>
+  <text x="904" y="480" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">à haut risque</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="532" width="1056" height="56" rx="16" fill="#14532D"/>
+  <text x="120" y="566" fill="#DCFCE7" font-family="Arial, sans-serif" font-size="16">Le type est défini à la conception selon le risque et l'environnement. Toute modification d'exploitation peut remettre en cause le type installé.</text>
+</svg>

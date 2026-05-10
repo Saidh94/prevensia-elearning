@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="92" y="112" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">Codes couleur des ampoules thermiques — sprinkler</text>
+  <text x="92" y="148" fill="#475569" font-family="Arial, sans-serif" font-size="18">La couleur identifie la température nominale de déclenchement — choisie selon l'ambiance thermique du local.</text>
+
+  <!-- Orange 57°C -->
+  <rect x="92" y="172" width="140" height="340" rx="14" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <rect x="92" y="172" width="140" height="52" rx="14" fill="#F97316"/>
+  <rect x="92" y="204" width="140" height="20" fill="#F97316"/>
+  <text x="162" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">ORANGE</text>
+  <text x="162" y="250" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="26" font-weight="700">57 °C</text>
+  <text x="112" y="292" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">Locaux frais</text>
+  <text x="112" y="312" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">Température</text>
+  <text x="112" y="330" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">ambiante max.</text>
+  <text x="112" y="348" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">38 °C</text>
+  <text x="112" y="380" fill="#9A3412" font-family="Arial, sans-serif" font-size="12">Parkings</text>
+  <text x="112" y="398" fill="#9A3412" font-family="Arial, sans-serif" font-size="12">Entrepôts</text>
+  <text x="112" y="416" fill="#9A3412" font-family="Arial, sans-serif" font-size="12">froids</text>
+
+  <!-- Rouge 68°C -->
+  <rect x="248" y="172" width="150" height="340" rx="14" fill="#FEF2F2" stroke="#EF4444" stroke-width="3"/>
+  <rect x="248" y="172" width="150" height="52" rx="14" fill="#DC2626"/>
+  <rect x="248" y="204" width="150" height="20" fill="#DC2626"/>
+  <text x="323" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">ROUGE</text>
+  <text x="323" y="250" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="26" font-weight="700">68 °C</text>
+  <text x="268" y="286" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">LE PLUS COURANT</text>
+  <text x="268" y="308" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Température</text>
+  <text x="268" y="326" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">ambiante max.</text>
+  <text x="268" y="344" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">49 °C</text>
+  <text x="268" y="376" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">Bureaux, ERP</text>
+  <text x="268" y="394" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">Entrepôts std</text>
+  <text x="268" y="412" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">Stockages</text>
+
+  <!-- Jaune 79°C -->
+  <rect x="414" y="172" width="140" height="340" rx="14" fill="#FEFCE8" stroke="#EAB308" stroke-width="2"/>
+  <rect x="414" y="172" width="140" height="52" rx="14" fill="#CA8A04"/>
+  <rect x="414" y="204" width="140" height="20" fill="#CA8A04"/>
+  <text x="484" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">JAUNE</text>
+  <text x="484" y="250" text-anchor="middle" fill="#713F12" font-family="Arial, sans-serif" font-size="26" font-weight="700">79 °C</text>
+  <text x="434" y="292" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Ambiance</text>
+  <text x="434" y="312" fill="#78350F" font-family="Arial, sans-serif" font-size="13">chaude</text>
+  <text x="434" y="332" fill="#78350F" font-family="Arial, sans-serif" font-size="13">max. 60 °C</text>
+  <text x="434" y="376" fill="#92400E" font-family="Arial, sans-serif" font-size="12">Cuisines</text>
+  <text x="434" y="394" fill="#92400E" font-family="Arial, sans-serif" font-size="12">Laveries</text>
+
+  <!-- Vert 93-100°C -->
+  <rect x="570" y="172" width="150" height="340" rx="14" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+  <rect x="570" y="172" width="150" height="52" rx="14" fill="#15803D"/>
+  <rect x="570" y="204" width="150" height="20" fill="#15803D"/>
+  <text x="645" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">VERT</text>
+  <text x="645" y="250" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="22" font-weight="700">93–100 °C</text>
+  <text x="590" y="292" fill="#14532D" font-family="Arial, sans-serif" font-size="13">Zones très</text>
+  <text x="590" y="312" fill="#14532D" font-family="Arial, sans-serif" font-size="13">chaudes</text>
+  <text x="590" y="332" fill="#14532D" font-family="Arial, sans-serif" font-size="13">max. 74 °C</text>
+  <text x="590" y="376" fill="#166534" font-family="Arial, sans-serif" font-size="12">Chaufferies</text>
+  <text x="590" y="394" fill="#166534" font-family="Arial, sans-serif" font-size="12">Séchoirs</text>
+
+  <!-- Bleu 121-141°C -->
+  <rect x="736" y="172" width="150" height="340" rx="14" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <rect x="736" y="172" width="150" height="52" rx="14" fill="#1D4ED8"/>
+  <rect x="736" y="204" width="150" height="20" fill="#1D4ED8"/>
+  <text x="811" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">BLEU</text>
+  <text x="811" y="250" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="22" font-weight="700">121–141 °C</text>
+  <text x="756" y="292" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">Ambiance</text>
+  <text x="756" y="312" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">très chaude</text>
+  <text x="756" y="332" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">max. 107 °C</text>
+  <text x="756" y="376" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12">Fours</text>
+  <text x="756" y="394" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12">Incinérateurs</text>
+
+  <!-- Mauve 163-182°C -->
+  <rect x="902" y="172" width="140" height="340" rx="14" fill="#FAF5FF" stroke="#A855F7" stroke-width="2"/>
+  <rect x="902" y="172" width="140" height="52" rx="14" fill="#7E22CE"/>
+  <rect x="902" y="204" width="140" height="20" fill="#7E22CE"/>
+  <text x="972" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">MAUVE</text>
+  <text x="972" y="250" text-anchor="middle" fill="#6B21A8" font-family="Arial, sans-serif" font-size="20" font-weight="700">163–182 °C</text>
+  <text x="922" y="292" fill="#581C87" font-family="Arial, sans-serif" font-size="13">Haute</text>
+  <text x="922" y="312" fill="#581C87" font-family="Arial, sans-serif" font-size="13">température</text>
+  <text x="922" y="370" fill="#7E22CE" font-family="Arial, sans-serif" font-size="12">Zones</text>
+  <text x="922" y="388" fill="#7E22CE" font-family="Arial, sans-serif" font-size="12">industrielles</text>
+  <text x="922" y="406" fill="#7E22CE" font-family="Arial, sans-serif" font-size="12">spécifiques</text>
+
+  <!-- Noir note -->
+  <rect x="1058" y="172" width="90" height="340" rx="14" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <rect x="1058" y="172" width="90" height="52" rx="14" fill="#0F172A"/>
+  <rect x="1058" y="204" width="90" height="20" fill="#0F172A"/>
+  <text x="1103" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">NOIR</text>
+  <text x="1103" y="250" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="14" font-weight="700">204–</text>
+  <text x="1103" y="270" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="14" font-weight="700">343 °C</text>
+  <text x="1073" y="310" fill="#334155" font-family="Arial, sans-serif" font-size="12">Chaleur</text>
+  <text x="1073" y="328" fill="#334155" font-family="Arial, sans-serif" font-size="12">extrême</text>
+  <text x="1073" y="376" fill="#334155" font-family="Arial, sans-serif" font-size="11">Salles</text>
+  <text x="1073" y="394" fill="#334155" font-family="Arial, sans-serif" font-size="11">fournaise</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="532" width="1056" height="66" rx="16" fill="#0F172A"/>
+  <text x="120" y="558" fill="#F1F5F9" font-family="Arial, sans-serif" font-size="15" font-weight="700">Règle de sélection :</text>
+  <text x="120" y="582" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="14">La température nominale doit être supérieure d'au moins 30 °C à la température ambiante maximale du local — 68 °C (rouge) est le standard pour la majorité des installations.</text>
+</svg>

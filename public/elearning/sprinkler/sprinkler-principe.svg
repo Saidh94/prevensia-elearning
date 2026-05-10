@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#EFF6FF"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+  <text x="92" y="112" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="34" font-weight="700">Fonctionnement d'un système sprinkler</text>
+  <text x="92" y="148" fill="#1E40AF" font-family="Arial, sans-serif" font-size="18">Activation locale et précoce — contrôle efficace dans 97 % des cas (NFPA)</text>
+
+  <!-- Étape 1 -->
+  <rect x="92" y="176" width="230" height="290" rx="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="207" cy="230" r="32" fill="#3B82F6"/>
+  <text x="207" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">1</text>
+  <text x="207" y="286" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="16" font-weight="700">Chaleur détectée</text>
+  <text x="112" y="318" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">Ampoule en verre</text>
+  <text x="112" y="338" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">remplie de liquide</text>
+  <text x="112" y="360" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">57 °C → orange</text>
+  <text x="112" y="380" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">68 °C → rouge (standard)</text>
+  <text x="112" y="400" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">79 °C → jaune…</text>
+  <text x="112" y="424" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12" font-weight="700">Seule la tête exposée</text>
+  <text x="112" y="442" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12" font-weight="700">au feu s'ouvre</text>
+  <text x="112" y="458" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="12" font-weight="700">Pas d'activation générale</text>
+
+  <!-- Flèche 1→2 -->
+  <text x="334" y="328" text-anchor="middle" fill="#3B82F6" font-family="Arial, sans-serif" font-size="28">→</text>
+
+  <!-- Étape 2 -->
+  <rect x="352" y="176" width="230" height="290" rx="18" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+  <circle cx="467" cy="230" r="32" fill="#10B981"/>
+  <text x="467" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">2</text>
+  <text x="467" y="286" text-anchor="middle" fill="#065F46" font-family="Arial, sans-serif" font-size="16" font-weight="700">Obturateur s'ouvre</text>
+  <text x="372" y="318" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">L'ampoule brisée</text>
+  <text x="372" y="338" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">libère l'obturateur</text>
+  <text x="372" y="362" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">L'eau sous pression</text>
+  <text x="372" y="382" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">présente dans</text>
+  <text x="372" y="402" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">les canalisations</text>
+  <text x="372" y="422" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">est libérée</text>
+
+  <!-- Flèche 2→3 -->
+  <text x="594" y="328" text-anchor="middle" fill="#10B981" font-family="Arial, sans-serif" font-size="28">→</text>
+
+  <!-- Étape 3 -->
+  <rect x="612" y="176" width="230" height="290" rx="18" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <circle cx="727" cy="230" r="32" fill="#EAB308"/>
+  <text x="727" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">3</text>
+  <text x="727" y="286" text-anchor="middle" fill="#713F12" font-family="Arial, sans-serif" font-size="16" font-weight="700">Eau projetée</text>
+  <text x="632" y="318" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Diffusion en pluie</text>
+  <text x="632" y="338" fill="#78350F" font-family="Arial, sans-serif" font-size="13">sur la zone en feu</text>
+  <text x="632" y="362" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Refroidissement</text>
+  <text x="632" y="382" fill="#78350F" font-family="Arial, sans-serif" font-size="13">et extinction</text>
+  <text x="632" y="406" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Limitation de</text>
+  <text x="632" y="426" fill="#78350F" font-family="Arial, sans-serif" font-size="13">la propagation</text>
+
+  <!-- Flèche 3→4 -->
+  <text x="854" y="328" text-anchor="middle" fill="#EAB308" font-family="Arial, sans-serif" font-size="28">→</text>
+
+  <!-- Étape 4 -->
+  <rect x="872" y="176" width="276" height="290" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="1010" cy="230" r="32" fill="#EF4444"/>
+  <text x="1010" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">4</text>
+  <text x="1010" y="286" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="16" font-weight="700">Alarme déclenchée</text>
+  <text x="892" y="318" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Alarme hydraulique</text>
+  <text x="892" y="338" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">(gong) + électrique</text>
+  <text x="892" y="362" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Report vers SSI</text>
+  <text x="892" y="382" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Information secours</text>
+  <text x="892" y="406" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Alarme type A :</text>
+  <text x="892" y="426" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">traitement immédiat</text>
+  <text x="892" y="446" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">comme un incendie</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="488" width="1056" height="100" rx="16" fill="#1E3A8A"/>
+  <text x="120" y="520" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="16" font-weight="700">Points clés :</text>
+  <text x="120" y="544" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="15">— Efficace dans 97 % des départs de feu (NFPA) quand le système est fonctionnel</text>
+  <text x="120" y="568" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="15">— Seule(s) la/les tête(s) directement exposée(s) au feu s'ouvrent — pas d'activation générale</text>
+</svg>

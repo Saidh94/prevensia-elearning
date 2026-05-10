@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="92" y="112" fill="#0F172A" font-family="Arial, sans-serif" font-size="34" font-weight="700">Référentiels applicables — cadre d'exploitation sprinkler</text>
+  <text x="92" y="148" fill="#475569" font-family="Arial, sans-serif" font-size="18">Connaître le référentiel de son installation est une exigence minimale d'exploitation.</text>
+
+  <!-- NF EN 12845 -->
+  <rect x="92" y="172" width="310" height="340" rx="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <rect x="92" y="172" width="310" height="56" rx="18" fill="#1D4ED8"/>
+  <rect x="92" y="208" width="310" height="20" fill="#1D4ED8"/>
+  <text x="247" y="208" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">NF EN 12845 + A1</text>
+  <text x="247" y="248" text-anchor="middle" fill="#93C5FD" font-family="Arial, sans-serif" font-size="13">Norme européenne — 26 pays</text>
+  <text x="112" y="280" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">Publiée en 2004, amendée A1 en 2019</text>
+  <text x="112" y="304" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13" font-weight="700">Couvre :</text>
+  <text x="112" y="324" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Conception et dimensionnement</text>
+  <text x="112" y="344" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Classes de risque LH / OH / HH</text>
+  <text x="112" y="364" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Pression et débit requis</text>
+  <text x="112" y="384" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Périodicités d'essais</text>
+  <text x="112" y="404" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="13">• Mise en service et maintenance</text>
+  <text x="112" y="428" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13" font-weight="700">Annexe J :</text>
+  <text x="112" y="448" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13">Protocole de mise hors service</text>
+  <text x="112" y="468" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13">temporaire et mesures compensatoires</text>
+  <text x="112" y="494" fill="#1E40AF" font-family="Arial, sans-serif" font-size="12" font-weight="700">Référence technique principale en Europe</text>
+
+  <!-- APSAD R1 -->
+  <rect x="422" y="172" width="310" height="340" rx="18" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+  <rect x="422" y="172" width="310" height="56" rx="18" fill="#065F46"/>
+  <rect x="422" y="208" width="310" height="20" fill="#065F46"/>
+  <text x="577" y="208" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">APSAD R1</text>
+  <text x="577" y="248" text-anchor="middle" fill="#6EE7B7" font-family="Arial, sans-serif" font-size="13">Référentiel France — assureurs</text>
+  <text x="442" y="280" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">Version 2020 en vigueur</text>
+  <text x="442" y="304" fill="#064E3B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Classes de risque :</text>
+  <text x="442" y="324" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• LH — Risque léger</text>
+  <text x="442" y="344" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• OH — Risque ordinaire (OH1 à OH4)</text>
+  <text x="442" y="364" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• HHP — Procédés industriels</text>
+  <text x="442" y="384" fill="#064E3B" font-family="Arial, sans-serif" font-size="13">• HHS — Stockage risque élevé</text>
+  <text x="442" y="408" fill="#065F46" font-family="Arial, sans-serif" font-size="13" font-weight="700">Certification N1 :</text>
+  <text x="442" y="428" fill="#065F46" font-family="Arial, sans-serif" font-size="13">Garantit montage et suivi conformes</text>
+  <text x="442" y="448" fill="#065F46" font-family="Arial, sans-serif" font-size="13">aux standards de sécurité incendie</text>
+  <text x="442" y="472" fill="#047857" font-family="Arial, sans-serif" font-size="12" font-weight="700">Reconnu par les assureurs en France</text>
+
+  <!-- NFPA 13 / FM -->
+  <rect x="752" y="172" width="396" height="340" rx="18" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <rect x="752" y="172" width="396" height="56" rx="18" fill="#92400E"/>
+  <rect x="752" y="208" width="396" height="20" fill="#92400E"/>
+  <text x="950" y="208" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">NFPA 13 / FM Global</text>
+  <text x="950" y="248" text-anchor="middle" fill="#D97706" font-family="Arial, sans-serif" font-size="13">Référentiels internationaux — certains sites</text>
+  <text x="772" y="280" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">NFPA 13 (National Fire Protection Association) :</text>
+  <text x="772" y="300" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Origine américaine — référence mondiale.</text>
+  <text x="772" y="320" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Applicable sur exigence contractuelle</text>
+  <text x="772" y="340" fill="#78350F" font-family="Arial, sans-serif" font-size="13">ou selon cahier des charges assureur.</text>
+  <text x="772" y="368" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">FM Global Data Sheets :</text>
+  <text x="772" y="388" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Exigences spécifiques FM sur certains sites</text>
+  <text x="772" y="408" fill="#78350F" font-family="Arial, sans-serif" font-size="13">multinationaux ou à couverture FM.</text>
+  <text x="772" y="436" fill="#92400E" font-family="Arial, sans-serif" font-size="13" font-weight="700">À vérifier dans :</text>
+  <text x="772" y="456" fill="#92400E" font-family="Arial, sans-serif" font-size="13">Dossier de sécurité, contrat assurance,</text>
+  <text x="772" y="476" fill="#92400E" font-family="Arial, sans-serif" font-size="13">cahier des charges d'exploitation du site</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="532" width="1056" height="56" rx="16" fill="#0F172A"/>
+  <text x="120" y="566" fill="#F1F5F9" font-family="Arial, sans-serif" font-size="16">Le référentiel applicable est celui du dossier de sécurité du site — pas forcément le même d'un site à l'autre.</text>
+</svg>

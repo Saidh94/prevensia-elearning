@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFF7ED"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#FED7AA" stroke-width="2"/>
+  <text x="92" y="112" fill="#7C2D12" font-family="Arial, sans-serif" font-size="34" font-weight="700">Têtes sprinkler — règles d'exploitation</text>
+  <text x="92" y="148" fill="#9A3412" font-family="Arial, sans-serif" font-size="18">Une tête masquée, peinte ou heurtée peut réduire à zéro l'efficacité de toute la zone protégée.</text>
+
+  <!-- Interdictions -->
+  <rect x="92" y="172" width="330" height="350" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <rect x="92" y="172" width="330" height="52" rx="18" fill="#991B1B"/>
+  <rect x="92" y="204" width="330" height="20" fill="#991B1B"/>
+  <text x="257" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">STRICTEMENT INTERDIT</text>
+  <text x="112" y="248" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14" font-weight="700">Ne jamais :</text>
+  <text x="112" y="274" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">✗  Peindre une tête sprinkler</text>
+  <text x="112" y="298" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">✗  Utiliser comme point d'accroche</text>
+  <text x="112" y="322" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">✗  Heurter ou choquer une tête</text>
+  <text x="112" y="346" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">✗  Ajouter un obstacle sous la tête</text>
+  <text x="112" y="370" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">✗  Rapprocher le stockage sans</text>
+  <text x="112" y="390" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">     analyse préalable</text>
+  <text x="112" y="414" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">✗  Modifier les faux plafonds</text>
+  <text x="112" y="434" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">     sans étude d'impact</text>
+  <text x="112" y="462" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Toute tête choquée doit être</text>
+  <text x="112" y="480" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">remplacée même sans dommage visible</text>
+  <text x="112" y="498" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">— le seuil thermique peut être altéré</text>
+
+  <!-- Dégagements -->
+  <rect x="442" y="172" width="330" height="350" rx="18" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <rect x="442" y="172" width="330" height="52" rx="18" fill="#92400E"/>
+  <rect x="442" y="204" width="330" height="20" fill="#92400E"/>
+  <text x="607" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">DÉGAGEMENTS À RESPECTER</text>
+  <text x="462" y="248" fill="#78350F" font-family="Arial, sans-serif" font-size="14" font-weight="700">Distances minimales :</text>
+  <text x="462" y="274" fill="#78350F" font-family="Arial, sans-serif" font-size="14">• 0,5 m minimum sous la tête</text>
+  <text x="462" y="298" fill="#78350F" font-family="Arial, sans-serif" font-size="14">  (volume libre de tout obstacle)</text>
+  <text x="462" y="322" fill="#78350F" font-family="Arial, sans-serif" font-size="14">• Stockage en racks :</text>
+  <text x="462" y="342" fill="#78350F" font-family="Arial, sans-serif" font-size="14">  écart max 1,2 m entre marchandise</text>
+  <text x="462" y="362" fill="#78350F" font-family="Arial, sans-serif" font-size="14">  et tête → têtes intermédiaires</text>
+  <text x="462" y="382" fill="#78350F" font-family="Arial, sans-serif" font-size="14">  obligatoires au-delà</text>
+  <text x="462" y="406" fill="#78350F" font-family="Arial, sans-serif" font-size="14">• Gaines, luminaires, cloisons :</text>
+  <text x="462" y="426" fill="#78350F" font-family="Arial, sans-serif" font-size="14">  doivent rester en dehors</text>
+  <text x="462" y="446" fill="#78350F" font-family="Arial, sans-serif" font-size="14">  du cône de diffusion</text>
+  <text x="462" y="474" fill="#92400E" font-family="Arial, sans-serif" font-size="13" font-weight="700">Tout ajout de rayonnage ou</text>
+  <text x="462" y="494" fill="#92400E" font-family="Arial, sans-serif" font-size="13" font-weight="700">modification de hauteur = analyse préalable</text>
+
+  <!-- Surveillance -->
+  <rect x="792" y="172" width="356" height="350" rx="18" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+  <rect x="792" y="172" width="356" height="52" rx="18" fill="#065F46"/>
+  <rect x="792" y="204" width="356" height="20" fill="#065F46"/>
+  <text x="970" y="207" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">SURVEILLANCE EXPLOITATION</text>
+  <text x="812" y="248" fill="#064E3B" font-family="Arial, sans-serif" font-size="14" font-weight="700">À vérifier lors des rondes :</text>
+  <text x="812" y="274" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">✓  Têtes intactes, non peintes</text>
+  <text x="812" y="298" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">✓  Ampoule de couleur visible</text>
+  <text x="812" y="322" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">     et intacte</text>
+  <text x="812" y="346" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">✓  Aucun stockage en appui</text>
+  <text x="812" y="370" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">     contre les tuyauteries</text>
+  <text x="812" y="394" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">✓  Écart conforme entre sommet</text>
+  <text x="812" y="414" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">     de stockage et têtes</text>
+  <text x="812" y="438" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">✓  Modifications remontées</text>
+  <text x="812" y="458" fill="#064E3B" font-family="Arial, sans-serif" font-size="14">     pour analyse avant exécution</text>
+  <text x="812" y="486" fill="#065F46" font-family="Arial, sans-serif" font-size="13" font-weight="700">Tout écart constaté = signalement</text>
+  <text x="812" y="506" fill="#065F46" font-family="Arial, sans-serif" font-size="13" font-weight="700">immédiat + inscription au registre</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="542" width="1056" height="56" rx="16" fill="#7C2D12"/>
+  <text x="120" y="576" fill="#FFEDD5" font-family="Arial, sans-serif" font-size="16">La protection sprinkler ne vaut que si les têtes voient le feu, sont alimentées et peuvent diffuser librement — vérifier cela en exploitation.</text>
+</svg>
