@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#EFF6FF"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+  <text x="92" y="118" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="36" font-weight="700">Classes de risque NF EN 12845</text>
+  <text x="92" y="156" fill="#1E40AF" font-family="Arial, sans-serif" font-size="20">La classe determine la densite d'eau, la pression et le type de tetes requis.</text>
+
+  <rect x="92" y="190" width="190" height="360" rx="20" fill="#DCFCE7" stroke="#22C55E" stroke-width="2"/>
+  <text x="187" y="230" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="22" font-weight="700">LH</text>
+  <text x="187" y="256" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="14">Risque leger</text>
+  <text x="112" y="296" fill="#166534" font-family="Arial, sans-serif" font-size="13">Bureaux</text>
+  <text x="112" y="318" fill="#166534" font-family="Arial, sans-serif" font-size="13">Hotels</text>
+  <text x="112" y="340" fill="#166534" font-family="Arial, sans-serif" font-size="13">Hopitaux</text>
+  <text x="112" y="362" fill="#166534" font-family="Arial, sans-serif" font-size="13">Ecoles</text>
+  <text x="112" y="384" fill="#166534" font-family="Arial, sans-serif" font-size="13">Commerces</text>
+  <text x="112" y="406" fill="#166534" font-family="Arial, sans-serif" font-size="13">legers</text>
+
+  <rect x="302" y="190" width="310" height="360" rx="20" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <text x="457" y="230" text-anchor="middle" fill="#713F12" font-family="Arial, sans-serif" font-size="22" font-weight="700">OH 1 → 4</text>
+  <text x="457" y="256" text-anchor="middle" fill="#854D0E" font-family="Arial, sans-serif" font-size="14">Risque ordinaire</text>
+  <text x="322" y="296" fill="#854D0E" font-family="Arial, sans-serif" font-size="13">OH1 — Faible charge calorifique</text>
+  <text x="322" y="322" fill="#854D0E" font-family="Arial, sans-serif" font-size="13">OH2 — Industrie legere</text>
+  <text x="322" y="348" fill="#854D0E" font-family="Arial, sans-serif" font-size="13">OH3 — Ateliers, entrepots</text>
+  <text x="322" y="374" fill="#854D0E" font-family="Arial, sans-serif" font-size="13">     moyens combustibles</text>
+  <text x="322" y="400" fill="#854D0E" font-family="Arial, sans-serif" font-size="13">OH4 — Activites a risque</text>
+  <text x="322" y="426" fill="#854D0E" font-family="Arial, sans-serif" font-size="13">     plus eleve, peinture</text>
+
+  <rect x="632" y="190" width="220" height="360" rx="20" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <text x="742" y="230" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="22" font-weight="700">HH</text>
+  <text x="742" y="256" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">Risque eleve</text>
+  <text x="652" y="296" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Stockage general</text>
+  <text x="652" y="318" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Produits combustibles</text>
+  <text x="652" y="340" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Racks et palettes</text>
+  <text x="652" y="368" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">HHP — Procedes</text>
+  <text x="652" y="390" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">industriels dangereux</text>
+  <text x="652" y="418" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">HHS — Stockage</text>
+  <text x="652" y="440" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">risque tres eleve</text>
+
+  <rect x="872" y="190" width="276" height="360" rx="20" fill="#F3E8FF" stroke="#A855F7" stroke-width="2"/>
+  <text x="1010" y="230" text-anchor="middle" fill="#6B21A8" font-family="Arial, sans-serif" font-size="18" font-weight="700">Impact exploitation</text>
+  <text x="892" y="270" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13">LH → densite minimale</text>
+  <text x="892" y="296" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13">OH → densite intermediate</text>
+  <text x="892" y="322" fill="#6B21A8" font-family="Arial, sans-serif" font-size="13">HH/HHS → densite elevee</text>
+  <text x="892" y="360" fill="#581C87" font-family="Arial, sans-serif" font-size="13" font-weight="700">Changement d'activite</text>
+  <text x="892" y="382" fill="#581C87" font-family="Arial, sans-serif" font-size="13">ou de stockage = possible</text>
+  <text x="892" y="404" fill="#581C87" font-family="Arial, sans-serif" font-size="13">changement de classe</text>
+  <text x="892" y="430" fill="#581C87" font-family="Arial, sans-serif" font-size="13">→ analyse obligatoire</text>
+
+  <rect x="92" y="572" width="1056" height="56" rx="16" fill="#1E3A8A"/>
+  <text x="120" y="606" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="18">Connaitre la classe de son installation est le premier repere pour evaluer si la protection reste adaptee au risque reel.</text>
+</svg>

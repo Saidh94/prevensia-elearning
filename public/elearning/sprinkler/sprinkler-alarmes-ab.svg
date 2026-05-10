@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="92" y="118" fill="#0F172A" font-family="Arial, sans-serif" font-size="36" font-weight="700">Alarmes sprinkler : type A et type B</text>
+  <text x="92" y="156" fill="#475569" font-family="Arial, sans-serif" font-size="20">Ne pas confondre ces deux types est essentiel — la reponse n'est pas la meme.</text>
+
+  <rect x="92" y="186" width="490" height="370" rx="24" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <rect x="112" y="206" width="80" height="36" rx="10" fill="#EF4444"/>
+  <text x="152" y="230" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">TYPE A</text>
+  <text x="340" y="230" fill="#991B1B" font-family="Arial, sans-serif" font-size="22" font-weight="700">Alarme feu</text>
+  <text x="112" y="276" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="17" font-weight="700">Declencheurs :</text>
+  <text x="112" y="304" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="16">• Debit d'eau detecte dans le reseau</text>
+  <text x="112" y="330" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="16">• Pompe d'incendie en marche</text>
+  <text x="112" y="370" fill="#991B1B" font-family="Arial, sans-serif" font-size="17" font-weight="700">Reponse requise :</text>
+  <text x="112" y="398" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="16">• Traitement immediat comme un incendie</text>
+  <text x="112" y="424" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="16">• Information des secours exterieurs</text>
+  <text x="112" y="450" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="16">• Evacuation selon consignes du site</text>
+  <text x="112" y="490" fill="#991B1B" font-family="Arial, sans-serif" font-size="15" font-weight="700">Ne jamais acquitter sans levee de doute terrain.</text>
+
+  <rect x="618" y="186" width="490" height="370" rx="24" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <rect x="638" y="206" width="80" height="36" rx="10" fill="#EAB308"/>
+  <text x="678" y="230" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">TYPE B</text>
+  <text x="840" y="230" fill="#713F12" font-family="Arial, sans-serif" font-size="22" font-weight="700">Defaut technique</text>
+  <text x="638" y="276" fill="#78350F" font-family="Arial, sans-serif" font-size="17" font-weight="700">Declencheurs :</text>
+  <text x="638" y="304" fill="#78350F" font-family="Arial, sans-serif" font-size="16">• Basse pression d'air (systeme a air)</text>
+  <text x="638" y="330" fill="#78350F" font-family="Arial, sans-serif" font-size="16">• Vanne partiellement fermee</text>
+  <text x="638" y="356" fill="#78350F" font-family="Arial, sans-serif" font-size="16">• Defaut secteur / niveau carburant bas</text>
+  <text x="638" y="396" fill="#78350F" font-family="Arial, sans-serif" font-size="17" font-weight="700">Reponse requise :</text>
+  <text x="638" y="424" fill="#78350F" font-family="Arial, sans-serif" font-size="16">• Appel du technicien de maintenance</text>
+  <text x="638" y="450" fill="#78350F" font-family="Arial, sans-serif" font-size="16">• Tracer l'anomalie dans le registre</text>
+  <text x="638" y="476" fill="#78350F" font-family="Arial, sans-serif" font-size="16">• Surveiller jusqu'a correction</text>
+  <text x="638" y="506" fill="#92400E" font-family="Arial, sans-serif" font-size="15" font-weight="700">Systeme toujours operationnel mais degrade.</text>
+
+  <rect x="92" y="572" width="1056" height="56" rx="16" fill="#0F172A"/>
+  <text x="120" y="606" fill="#F1F5F9" font-family="Arial, sans-serif" font-size="18">Type A = reponse incendie.   Type B = appel mainteneur.   Les deux doivent etre traces dans le registre de securite.</text>
+</svg>

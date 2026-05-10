@@ -1817,9 +1817,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Alarme et report",
           "Classe de risque : LH / OH / HH — à connaître pour son site"
         ],
-        chapterImagePath: "/images/reseau-sprinkler.jpg",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-classification.svg",
         chapterImageAlt:
-          "Vue schématique d'un réseau sprinkler desservant differentes zones d'un bâtiment",
+          "Classes de risque NF EN 12845 : LH, OH1 à OH4, HH, HHP, HHS — impact sur la protection",
         visual: {
           title: "Vue d'ensemble d'une installation",
           subtitle: "Les organes a connaître en exploitation.",
@@ -1853,9 +1853,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Considerer une fuite comme anodine.",
           "Traiter une alarme de type A comme un simple défaut technique."
         ],
-        chapterImagePath: "/images/installation-spk.jpg",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-alarmes-ab.svg",
         chapterImageAlt:
-          "réseau sprinkler et organes de contrôle a surveiller lors de l'exploitation",
+          "Distinction alarme type A (feu) et type B (défaut technique) — réponses différentes",
         visual: {
           title: "Écarts a surveiller",
           subtitle: "Une petite anomalie peut degrader toute la protection.",
@@ -1942,9 +1942,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Catégories de marchandises I à IV — plus la catégorie est élevée, plus les contraintes sont fortes.",
           "Racks (ST4) : têtes intermédiaires obligatoires si écart > 1,2 m."
         ],
-        chapterImagePath: "/images/installation-sprinkler.png",
+        chapterImagePath: "/elearning/sprinkler/sprinkler-categories.svg",
         chapterImageAlt:
-          "Installation sprinkler et logique de protection d'un entrepot ou d'une zone de stockage",
+          "Catégories de marchandises I à IV selon NF EN 12845 avec hauteurs maximales de stockage",
         visual: {
           title: "Logique ICPE 1510",
           subtitle: "Protection incendie + organisation + adequation du risque.",
