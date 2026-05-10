@@ -149,9 +149,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre précisément ce que signifient B, H, 0 et V, et ce qu’un symbole n’autorise jamais",
     minSeconds: 210,
-    image: "/elearning/references/symboles-travaux-non-electriques.jpg",
+    image: "/elearning/references/symboles-autres-travaux-electriques.jpg",
     imageAlt:
-      "Tableau des symboles d'habilitation utilises pour les travaux d'ordre non electrique",
+      "Tableau complet des symboles d’habilitation electrique : B0, H0, H0V, B1, B2, BR, BC, BE",
     highlights: [
       "B = basse tension, H = haute tension.",
       "0 = opérations d’ordre non électrique.",
