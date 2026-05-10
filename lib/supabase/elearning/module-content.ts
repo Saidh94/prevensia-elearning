@@ -1806,14 +1806,16 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Une installation comprend notamment les têtes sprinkler, un réseau de tuyauteries, des postes de contrôle, une source d'eau et des dispositifs d'alarme.",
           "L'exploitation suppose de savoir reconnaître les organes essentiels, les positions normales d'exploitation et les états anormaux a surveiller.",
           "La disponibilité de la source d'eau, l'accessibilité des organes, l'état apparent du réseau, la lisibilité des repères, la position normale des vannes et la compréhension des alarmes sont des points de vigilance de premier niveau.",
-          "Le niveau attendu n'est pas celui d'un bureau d'études, mais celui d'un professionnel capable de voir immédiatement ce qui n'est pas conforme à l'état normal d'exploitation."
+          "Le niveau attendu n'est pas celui d'un bureau d'études, mais celui d'un professionnel capable de voir immédiatement ce qui n'est pas conforme à l'état normal d'exploitation.",
+          "La NF EN 12845 classe les installations selon le niveau de risque du bâtiment ou de l'activité : LH (risque léger — bureaux, hôtels), OH1 à OH4 (risque ordinaire — industrie légère à moyenne), HH / HHP / HHS (risque élevé — stockage de produits combustibles). Cette classe détermine la densité d'eau requise, la pression, le type de têtes et la surface maximale de chaque tête. Un exploitant doit savoir dans quelle classe est son installation, car tout changement d'activité ou de stockage peut exiger une révision de la protection."
         ],
         keyPoints: [
           "Poste de contrôle",
           "Source d'eau",
-          "réseau",
-          "têtes sprinkler",
-          "Alarme et report"
+          "Réseau de distribution",
+          "Têtes sprinkler",
+          "Alarme et report",
+          "Classe de risque : LH / OH / HH — à connaître pour son site"
         ],
         chapterImagePath: "/images/reseau-sprinkler.jpg",
         chapterImageAlt:
@@ -1841,13 +1843,15 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Une vanne fermee, une pression anormale, une alarme non traitee, un local source encombre, une fuite ou une corrosion visible doivent être considerees avec serieux.",
           "L'exploitation sprinkler demande de la rigueur, de la traçabilité et une remontee rapide des écarts.",
           "Un local technique inaccessible, un accès obstrue, un stockage trop proche des têtes, une tête peinte ou heurtée, une modification non déclarée du process ou un réseau détérioré peuvent réduire fortement l'efficacité reelle de l'installation.",
-          "Les anomalies doivent être consignees, traitees et suivies jusqu'au retour a la situation nominale."
+          "Les anomalies doivent être consignees, traitees et suivies jusqu'au retour a la situation nominale.",
+          "La NF EN 12845 distingue deux catégories d'alarmes selon leur nature. Les alarmes de type A signalent un débit d'eau dans le réseau ou la mise en marche d'une pompe : elles correspondent à un déclenchement réel ou suspecté et imposent une réponse incendie immédiate avec information des secours. Les alarmes de type B signalent un défaut technique : basse pression d'air dans un système à air, vanne partiellement fermée, défaut secteur, niveau de carburant bas sur groupe diesel. Elles n'indiquent pas un incendie mais une dégradation de la disponibilité du système, qui doit déclencher l'appel du technicien de maintenance. Confondre ces deux types est une erreur fréquente et potentiellement grave."
         ],
         forbiddenPoints: [
           "Fermer une vanne sans procedure.",
-          "Ignorer une alarme.",
+          "Ignorer une alarme de type A ou B.",
           "Encombrer les organes d'accès.",
-          "Considerer une fuite comme anodine."
+          "Considerer une fuite comme anodine.",
+          "Traiter une alarme de type A comme un simple défaut technique."
         ],
         chapterImagePath: "/images/installation-spk.jpg",
         chapterImageAlt:
@@ -1928,12 +1932,15 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Dans les entrepots couverts relevant de la rubrique ICPE 1510, la prevention des sinistres s'apprecie dans un ensemble plus large de prescriptions : cellules, séparation, toiture, moyens de secours, exploitation et gestion du risque.",
           "Toute modification d'exploitation significative peut justifier une relecture de la strategie incendie du site afin de confirmer que la protection reste adaptee.",
           "Changer la hauteur de stockage, la nature des marchandises, la densite de palettes, le conditionnement ou l'occupation d'une zone peut remettre en cause l'adequation entre le risque et la protection installee.",
-          "Le sprinkler n'est donc pas un passe-partout. Il reste performant dans un cadre de conception et d'exploitation donne, qui doit rester cohérent dans le temps."
+          "Le sprinkler n'est donc pas un passe-partout. Il reste performant dans un cadre de conception et d'exploitation donne, qui doit rester cohérent dans le temps.",
+          "La NF EN 12845 classe les marchandises en quatre catégories selon leur inflammabilité. La catégorie I regroupe les matières peu combustibles : métaux, verre, céramiques. La catégorie II couvre le papier, le carton, les fibres naturelles. La catégorie III comprend les textiles, le cuir et certains plastiques. La catégorie IV rassemble les matières plastiques synthétiques les plus combustibles. Plus la catégorie est élevée, plus la hauteur de stockage autorisée sous protection OH est réduite : de 4,0 m en catégorie I à 1,2 m en catégorie IV au-delà desquelles l'installation bascule en classe HH ou HHS. Le mode de stockage compte autant que la hauteur : le stockage en racks (ST4) impose des têtes intermédiaires entre les niveaux si l'écart dépasse 1,2 m entre la marchandise et les têtes de plafond."
         ],
         keyPoints: [
           "ICPE 1510 = approche globale du risque entrepot.",
           "Le sprinkler reste une composante d'un dispositif plus large.",
-          "Les changements d'exploitation doivent être analyses."
+          "Les changements d'exploitation doivent être analyses.",
+          "Catégories de marchandises I à IV — plus la catégorie est élevée, plus les contraintes sont fortes.",
+          "Racks (ST4) : têtes intermédiaires obligatoires si écart > 1,2 m."
         ],
         chapterImagePath: "/images/installation-sprinkler.png",
         chapterImageAlt:
@@ -1959,13 +1966,17 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Une installation sprinkler reste crédible si elle est surveillée dans le temps et si toute indisponibilité est pilotée avec méthode.",
         content: [
           "L'exploitant doit connaître l'existence des essais périodiques, des levees de doute, des contrôles de routine et des remontees d'anomalies. Sans cette discipline, la protection peut sembler en place tout en etant partiellement degradee.",
+          "La NF EN 12845 fixe des périodicités précises. Chaque mois, une inspection visuelle des vannes principales, des manomètres et des voyants de pompe doit être réalisée et consignée. Chaque trimestre, un test de la vanne de purge simule l'ouverture d'une tête : il vérifie que le débit d'eau déclenche bien l'alarme hydraulique (gong) et l'alarme électrique. Chaque année, un test de débit complet au poste de contrôle valide la courbe de la pompe et la pression disponible en condition réelle. Tous les vingt-cinq ans, une inspection interne des canalisations est obligatoire, accompagnée d'un prélèvement de têtes envoyées en laboratoire pour vérification du seuil thermique et du facteur K.",
           "Une indisponibilité temporaire, une vanne fermée, un arrêt de source d'eau, une intervention de maintenance ou une zone neutralisée doivent déclencher des mesures compensatoires selon l'organisation du site.",
+          "La mise hors service d'une installation ou d'une zone obéit à un protocole strict issu de la NF EN 12845 (Annexe J) : notification préalable à l'autorité compétente, travaux uniquement en heures ouvrées sauf dérogation, rondes continues dans les zones non protégées, interdiction de feux nus et permis de feu obligatoire pour tout travail par point chaud, remise en service vérifiée avant de lever les mesures compensatoires.",
           "Le vrai sujet d'exploitation n'est pas seulement technique : c'est la capacité à savoir qui alerter, qui autorise, qui trace, qui remet en service et comment le site reste protégé pendant la période dégradée."
         ],
         keyPoints: [
-          "Essais et contrôles reguliers.",
-          "Indisponibilités tracées et compensées.",
-          "Retour a la normale formalise."
+          "Mensuel : inspection visuelle vannes, manomètres, pompe.",
+          "Trimestriel : test vanne de purge — alarme hydraulique et électrique.",
+          "Annuel : test de débit complet, courbe pompe au poste de contrôle.",
+          "25 ans : inspection interne canalisations + prélèvement de têtes en labo.",
+          "Mise hors service : notification préalable, rondes, permis de feu, retour vérifié."
         ],
         chapterImagePath: "/images/reseau-sprinkler.jpg",
         chapterImageAlt:
@@ -2064,6 +2075,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Un système à gaz n'est pas un sprinkler sans eau. Il repose sur une logique de volume protégé, de détection et de diffusion contrôlée de l'agent extincteur.",
         content: [
           "Les systemes fixes d'extinction automatique a gaz sont utilises lorsque la protection par eau n'est pas adaptee ou lorsqu'il faut preserver des équipements, des volumes techniques ou des locaux sensibles.",
+          "Il existe plusieurs variantes selon la configuration du risque. L'inondation totale est la plus répandue : l'agent extincteur est diffusé dans l'ensemble du volume du local fermé jusqu'à atteindre une concentration suffisante pour étouffer le feu. L'application locale protège un équipement précis sans inonder tout le local — elle convient aux risques localisés comme une cabine de peinture ou un transformateur. Les systèmes en cascade utilisent plusieurs bouteilles reliées pour protéger de grands volumes ou déclencher des zones successives.",
           "L'efficacité du système dépend d'une détection fiable, d'une chaîne de commande correcte et de la capacité du local à conserver la concentration utile pendant le temps prévu.",
           "L'exploitant doit retenir qu'un systeme a gaz se gere comme un ensemble complet: detection, temporisation, alarmes, signalisation, coupures ou arrets associes, diffusion et contrôle du réaccès."
         ],
@@ -2091,13 +2103,16 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Un systeme a gaz n'est efficace que si le local protégé reste conforme a l'état prevu et si la securite des personnes est traitee en priorite.",
         content: [
           "L'intégrité du local protégé est un point critique: portes, passages de cables, clapets, fermetures et étanchéité influencent directement la tenue de la concentration de l'agent extincteur.",
+          "L'intégrité se vérifie concrètement : le test de porte consiste à fermer le local et à vérifier qu'aucune fuite significative ne compromet le maintien de la concentration pendant la durée prévue (généralement 10 minutes minimum). Tout percement non bouché, gaine ouverte, joint de porte défectueux ou trappe mal fermée dégrade ce maintien. Une installation peut déclencher parfaitement et rester inefficace si le local fuit trop vite. C'est pourquoi toute modification du local — cloisonnement, passage de câble, remplacement d'une porte — doit être signalée et évaluée avant travaux.",
           "La securite des personnes impose une chaine claire: alarme, temporisation, évacuation, interdiction d'accès pendant et après emission, puis contrôle strict du réaccès.",
           "Après declenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphere du local, des produits de decomposition eventuels et des consignes du site avant tout retour."
         ],
         keyPoints: [
-          "Le local protégé fait partie du systeme.",
-          "L'évacuation doit preceder l'emission.",
-          "Le réaccès se pilote selon les consignes du site."
+          "Le local protégé fait partie intégrante du système.",
+          "L'évacuation doit précéder l'émission — temporisation prévue à cet effet.",
+          "Test de porte : vérifie le maintien de la concentration 10 min minimum.",
+          "Toute modification du local doit être évaluée avant d'être réalisée.",
+          "Le réaccès se pilote selon les consignes du site — jamais improvisé."
         ],
         chapterImagePath: "/images/evacuation-securite-incendie.jpg",
         chapterImageAlt:
