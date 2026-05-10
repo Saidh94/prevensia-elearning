@@ -823,6 +823,8 @@ export default function VisualCard({
     hasError: false,
   });
 
+  const [replayKey, setReplayKey] = useState(0);
+
   const hasImageError =
     imageErrorState.imagePath === imagePath
       ? imageErrorState.hasError
@@ -878,7 +880,30 @@ export default function VisualCard({
                   compact ? "max-w-[320px]" : "max-w-[520px]"
                 }`}
               >
-                <AnimationRenderer animationKey={visual.animationKey!} />
+                <AnimationRenderer key={replayKey} animationKey={visual.animationKey!} />
+                <div className="mt-2 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setReplayKey((k) => k + 1)}
+                    className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-medium text-slate-500 shadow-sm transition hover:border-slate-300 hover:text-slate-700 active:scale-95"
+                    aria-label="Rejouer l'animation"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-3.5 w-3.5"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 3a5 5 0 1 0 4.546 2.914.75.75 0 0 1 1.36-.634A6.5 6.5 0 1 1 8 1.5v-.75a.75.75 0 0 1 1.28-.53l1.5 1.5a.75.75 0 0 1 0 1.06l-1.5 1.5A.75.75 0 0 1 9 3.75V3Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Rejouer
+                  </button>
+                </div>
               </div>
             ) : (
               <div

@@ -15,11 +15,16 @@ function cloneSection(
       }
     : undefined;
 
+  // Ne pas écraser animationKey avec imagePath : l'animation a la priorité
   const visual = baseVisual
     ? {
         ...baseVisual,
-        imagePath: chapterImagePath ?? baseVisual.imagePath,
-        imageAlt: chapterImageAlt ?? baseVisual.imageAlt,
+        ...(baseVisual.animationKey
+          ? {}
+          : {
+              imagePath: chapterImagePath ?? baseVisual.imagePath,
+              imageAlt: chapterImageAlt ?? baseVisual.imageAlt,
+            }),
       }
     : undefined;
 
