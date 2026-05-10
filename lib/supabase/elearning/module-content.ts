@@ -383,8 +383,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     "Configuration provisoire ou dégradée"
   ],
   tone: "slate",
-  imagePath: "/elearning/h0b0/environnement-travail.png",
-  imageAlt: "Illustration des différents types d’environnements électriques"
+  illustrationKey: "work-environment" as const,
 }
     },
     {
@@ -431,8 +430,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     "Danger parfois invisible"
   ],
   tone: "amber",
-  imagePath: "/elearning/h0b0/risque-electrique.png",
-  imageAlt: "Illustration du contact direct et du contact indirect"
+  illustrationKey: "electric-risk" as const,
 }
     },
     {
@@ -499,8 +497,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     "Durée + trajet = aggravation"
   ],
   tone: "red",
-  imagePath: "/elearning/h0b0/intensites-effets.png",
-  imageAlt: "Illustration pédagogique de la relation entre intensité du courant et dommages"
+  illustrationKey: "body-effects" as const,
 }
     },
     {
@@ -763,8 +760,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     "Ne jamais ouvrir / réparer / improviser"
   ],
   tone: "green",
-  imagePath: "/elearning/h0b0/autorise-interdit.png",
-  imageAlt: "Illustration des comportements autorisés et interdits en H0B0"
+  illustrationKey: "authorized-forbidden" as const,
 }
     },
  {
@@ -833,8 +829,7 @@ export const modulesContent: Record<string, ModuleContent> = {
       "Patienter avec la victime",
     ],
     tone: "red",
-    imagePath: "/elearning/h0b0/conduite-tenir.png",
-    imageAlt: "Illustration de la conduite à tenir face à un accident électrique",
+    illustrationKey: "emergency-response" as const,
   },
 },
     {
@@ -891,8 +886,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     "Alerter immédiatement"
   ],
   tone: "blue",
-  imagePath: "/elearning/h0b0/reflexes-h0b0.png",
-  imageAlt: "Illustration de synthèse des réflexes H0B0"
+  illustrationKey: "summary-reflexes" as const,
 }
     }
   ]
@@ -1271,9 +1265,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Réaction immédiate",
           subtitle: "Observer, alerter, déclencher, se mettre à l’abri.",
-          imagePath: "/images/fonctionnement-systeme-incendie.jpg",
-          imageAlt:
-            "Fonctionnement d'un système incendie avec détection, alarme et commande des organes de sécurité",
+          animationKey: "alerte-incendie" as const,
           items: [
             "Repérer la situation anormale",
             "Alerter selon la procédure du site",
@@ -1368,6 +1360,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Principes d’évacuation",
           subtitle: "Quitter, rejoindre, compter, rendre compte.",
+          animationKey: "evacuation-schema" as const,
           items: [
             "Suivre le cheminement",
             "Aider sans se mettre en danger",
@@ -1476,6 +1469,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Avant d’allumer, on sécurise",
           subtitle: "Préparer la zone, autoriser, contrôler, surveiller.",
+          animationKey: "permis-feu-etapes" as const,
           items: [
             "Analyser la zone et les risques voisins",
             "Déplacer ou protéger les combustibles",
@@ -1620,16 +1614,14 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Lecture simple de l’architecture SSI",
           subtitle: "Information puis action de sécurité.",
-          imagePath: "/images/schema-ssi.gif",
-          imageAlt:
-            "Architecture SSI avec détection incendie, traitement central et dispositifs actionnés de sécurité",
+          animationKey: "ssi-chaine-fonctionnelle" as const,
           items: [
             "Détecteur ou déclencheur manuel",
             "Traitement de l’information incendie",
             "Commande des fonctions de sécurité",
             "Exploitation et retour d’information"
           ],
-          tone: "amber",
+          tone: "blue",
         },
       },
       {
@@ -1802,9 +1794,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         visual: {
           title: "Principe sprinkler",
           subtitle: "Détection thermique locale et attaque précoce.",
-          imagePath: "/images/installation-sprinkler.png",
-          imageAlt:
-            "schéma de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de contrôle et réseau de sprinkleurs",
+          animationKey: "sprinkler-activation" as const,
           items: [
             "La chaleur ouvre la tête concernee",
             "L'eau est delivree localement",

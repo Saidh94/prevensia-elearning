@@ -16,7 +16,12 @@ export type AnimationKey =
   | "peas-sst"
   | "consignation-chaine"
   | "classes-extincteurs"
-  | "niveaux-vehicules";
+  | "niveaux-vehicules"
+  | "alerte-incendie"
+  | "evacuation-schema"
+  | "permis-feu-etapes"
+  | "ssi-chaine-fonctionnelle"
+  | "sprinkler-activation";
 
 export type ModuleVisual = {
   title?: string;

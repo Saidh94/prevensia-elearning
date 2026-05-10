@@ -8,6 +8,11 @@ const ANIMATION_MAP: Record<AnimationKey, React.ComponentType> = {
   "consignation-chaine": dynamic(() => import("./ConsignationChaine")),
   "classes-extincteurs": dynamic(() => import("./ClassesExtincteurs")),
   "niveaux-vehicules": dynamic(() => import("./NiveauxVehicules")),
+  "alerte-incendie": dynamic(() => import("./AlerteIncendie")),
+  "evacuation-schema": dynamic(() => import("./EvacuationSchema")),
+  "permis-feu-etapes": dynamic(() => import("./PermisFeuEtapes")),
+  "ssi-chaine-fonctionnelle": dynamic(() => import("./SsiChaineFonctionnelle")),
+  "sprinkler-activation": dynamic(() => import("./SprinklerActivation")),
 };
 
 export default function AnimationRenderer({ animationKey }: { animationKey: AnimationKey }) {
