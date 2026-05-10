@@ -1175,7 +1175,7 @@ export default function QuizPage() {
                           </p>
                         ) : null}
                       </div>
-                    </div>
+                    </li>
                   ))}
                 </ol>
               </div>
