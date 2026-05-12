@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFFBEB"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#FDE68A" stroke-width="2"/>
+  <text x="92" y="112" fill="#78350F" font-family="Arial, sans-serif" font-size="34" font-weight="700">Étouffement — séquence de désobstruction</text>
+  <text x="92" y="148" fill="#92400E" font-family="Arial, sans-serif" font-size="18">Alterner sans interruption jusqu'à expulsion ou perte de conscience.</text>
+
+  <!-- Bloc gauche : 5 claques dorsales -->
+  <rect x="92" y="172" width="490" height="350" rx="20" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <rect x="92" y="172" width="490" height="56" rx="20" fill="#D97706"/>
+  <rect x="92" y="208" width="490" height="20" fill="#D97706"/>
+  <text x="337" y="210" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">5 CLAQUES DORSALES</text>
+
+  <!-- Numéros claques -->
+  <circle cx="152" cy="290" r="28" fill="#D97706"/>
+  <text x="152" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">1</text>
+  <circle cx="232" cy="290" r="28" fill="#D97706"/>
+  <text x="232" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">2</text>
+  <circle cx="312" cy="290" r="28" fill="#D97706"/>
+  <text x="312" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">3</text>
+  <circle cx="392" cy="290" r="28" fill="#D97706"/>
+  <text x="392" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">4</text>
+  <circle cx="472" cy="290" r="28" fill="#D97706"/>
+  <text x="472" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">5</text>
+
+  <text x="337" y="352" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="16" font-weight="700">Comment :</text>
+  <text x="337" y="374" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="15">Pencher la victime en avant</text>
+  <text x="337" y="396" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="15">Frapper fort entre les omoplates</text>
+  <text x="337" y="418" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="15">avec le talon de la main</text>
+  <text x="337" y="448" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="14" font-weight="700">Vérifier après chaque claque</text>
+  <text x="337" y="468" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="14">si l'objet est expulsé</text>
+  <text x="337" y="492" text-anchor="middle" fill="#D97706" font-family="Arial, sans-serif" font-size="14" font-weight="700">TOUJOURS EN PREMIER</text>
+
+  <!-- Flèche alternance -->
+  <text x="600" y="355" text-anchor="middle" fill="#D97706" font-family="Arial, sans-serif" font-size="36" font-weight="700">⇄</text>
+  <text x="600" y="390" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">Alterner</text>
+
+  <!-- Bloc droit : 5 compressions abdominales -->
+  <rect x="618" y="172" width="530" height="350" rx="20" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <rect x="618" y="172" width="530" height="56" rx="20" fill="#92400E"/>
+  <rect x="618" y="208" width="530" height="20" fill="#92400E"/>
+  <text x="883" y="210" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">5 COMPRESSIONS ABDOMINALES</text>
+
+  <!-- Numéros compressions -->
+  <circle cx="678" cy="290" r="28" fill="#92400E"/>
+  <text x="678" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">1</text>
+  <circle cx="764" cy="290" r="28" fill="#92400E"/>
+  <text x="764" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">2</text>
+  <circle cx="850" cy="290" r="28" fill="#92400E"/>
+  <text x="850" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">3</text>
+  <circle cx="936" cy="290" r="28" fill="#92400E"/>
+  <text x="936" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">4</text>
+  <circle cx="1022" cy="290" r="28" fill="#92400E"/>
+  <text x="1022" y="298" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">5</text>
+
+  <text x="883" y="352" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="16" font-weight="700">Comment (Heimlich) :</text>
+  <text x="883" y="374" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="15">Se placer derrière la victime</text>
+  <text x="883" y="396" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="15">Poings serrés sous le sternum</text>
+  <text x="883" y="418" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="15">Tirer vers soi en haut et en arrière</text>
+  <text x="883" y="448" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="14" font-weight="700">Nourrisson : pas de Heimlich</text>
+  <text x="883" y="468" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="14">→ 5 claques + 5 compressions thoraciques</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="544" width="1056" height="54" rx="16" fill="#78350F"/>
+  <text x="120" y="568" fill="#FEF3C7" font-family="Arial, sans-serif" font-size="15" font-weight="700">Si perte de conscience :</text>
+  <text x="310" y="568" fill="#FDE68A" font-family="Arial, sans-serif" font-size="15">allonger au sol → appeler le 15 → commencer la RCP immédiatement.</text>
+  <text x="120" y="586" fill="#FDE68A" font-family="Arial, sans-serif" font-size="14">Ne pas mettre les doigts dans la bouche sans voir clairement l'objet.</text>
+</svg>

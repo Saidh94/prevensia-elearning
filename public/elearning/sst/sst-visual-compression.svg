@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFF1F2"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#FECDD3" stroke-width="2"/>
+  <text x="92" y="112" fill="#9F1239" font-family="Arial, sans-serif" font-size="34" font-weight="700">Compression hémostatique — geste SST</text>
+  <text x="92" y="148" fill="#BE123C" font-family="Arial, sans-serif" font-size="18">Stopper l'hémorragie en moins de 30 secondes. Chaque seconde compte.</text>
+
+  <!-- Étape 1 -->
+  <rect x="92" y="176" width="300" height="310" rx="20" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="242" cy="230" r="34" fill="#DC2626"/>
+  <text x="242" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">1</text>
+  <text x="242" y="282" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17" font-weight="700">Positionner</text>
+  <text x="112" y="316" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">Placer un tissu propre</text>
+  <text x="112" y="336" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">ou un pansement épais</text>
+  <text x="112" y="356" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">directement sur la plaie</text>
+  <text x="112" y="390" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Ne pas retirer si saturé —</text>
+  <text x="112" y="408" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">ajouter par-dessus</text>
+  <text x="112" y="456" fill="#DC2626" font-family="Arial, sans-serif" font-size="13" font-weight="700">✓ Tissu propre si possible</text>
+  <text x="112" y="474" fill="#DC2626" font-family="Arial, sans-serif" font-size="13">✓ Gants si disponibles</text>
+
+  <!-- Flèche -->
+  <text x="410" y="345" text-anchor="middle" fill="#EF4444" font-family="Arial, sans-serif" font-size="32" font-weight="700">→</text>
+
+  <!-- Étape 2 -->
+  <rect x="440" y="176" width="300" height="310" rx="20" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="590" cy="230" r="34" fill="#DC2626"/>
+  <text x="590" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">2</text>
+  <text x="590" y="282" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17" font-weight="700">Comprimer</text>
+  <text x="460" y="316" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">Appuyer FORT</text>
+  <text x="460" y="336" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">avec les deux mains</text>
+  <text x="460" y="356" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">en continu</text>
+  <text x="460" y="390" fill="#991B1B" font-family="Arial, sans-serif" font-size="26" font-weight="700">NE PAS</text>
+  <text x="460" y="418" fill="#991B1B" font-family="Arial, sans-serif" font-size="26" font-weight="700">RELÂCHER</text>
+  <text x="460" y="458" fill="#DC2626" font-family="Arial, sans-serif" font-size="13">Relâcher détruit le caillot</text>
+  <text x="460" y="476" fill="#DC2626" font-family="Arial, sans-serif" font-size="13">et relance le saignement</text>
+
+  <!-- Flèche -->
+  <text x="760" y="345" text-anchor="middle" fill="#EF4444" font-family="Arial, sans-serif" font-size="32" font-weight="700">→</text>
+
+  <!-- Étape 3 -->
+  <rect x="788" y="176" width="360" height="310" rx="20" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="968" cy="230" r="34" fill="#DC2626"/>
+  <text x="968" y="238" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">3</text>
+  <text x="968" y="282" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17" font-weight="700">Surveiller et alerter</text>
+  <text x="808" y="316" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">Allonger la victime</text>
+  <text x="808" y="336" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">Appeler le 15 ou 18</text>
+  <text x="808" y="356" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">Maintenir la compression</text>
+  <text x="808" y="376" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">jusqu'à l'arrivée des secours</text>
+  <text x="808" y="406" fill="#991B1B" font-family="Arial, sans-serif" font-size="14" font-weight="700">Surveiller :</text>
+  <text x="808" y="426" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">• Conscience</text>
+  <text x="808" y="446" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">• Respiration</text>
+  <text x="808" y="466" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14">• Couleur de la peau</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="508" width="1056" height="80" rx="16" fill="#9F1239"/>
+  <text x="120" y="538" fill="#FFE4E6" font-family="Arial, sans-serif" font-size="16" font-weight="700">Règle absolue :</text>
+  <text x="120" y="562" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="15">Ne jamais retirer le premier pansement — ajouter par-dessus si saturé. Maintenir la pression sans interruption.</text>
+  <text x="120" y="580" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="14">Un garrot artériel peut être posé si la compression directe est impossible (membre sectionné, multiples blessés).</text>
+</svg>

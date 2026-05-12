@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFF1F2"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#FECDD3" stroke-width="2"/>
+  <text x="92" y="112" fill="#9F1239" font-family="Arial, sans-serif" font-size="34" font-weight="700">Arrêt cardiaque — RCP + DAE</text>
+  <text x="92" y="148" fill="#BE123C" font-family="Arial, sans-serif" font-size="18">Chaque minute sans RCP réduit les chances de survie de 10 %. Agir immédiatement.</text>
+
+  <!-- Bloc 1 : Appel -->
+  <rect x="92" y="172" width="220" height="290" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="202" cy="226" r="32" fill="#DC2626"/>
+  <text x="202" y="220" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">1</text>
+  <text x="202" y="236" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">ALERTER</text>
+  <text x="202" y="278" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="14" font-weight="700">Appeler ou</text>
+  <text x="202" y="296" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="14" font-weight="700">faire appeler</text>
+  <text x="202" y="324" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="26" font-weight="700">15 / 18</text>
+  <text x="112" y="366" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Envoyer chercher</text>
+  <text x="112" y="384" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">un DAE</text>
+  <text x="112" y="402" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Ne pas quitter</text>
+  <text x="112" y="420" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">la victime seul</text>
+  <text x="112" y="444" fill="#991B1B" font-family="Arial, sans-serif" font-size="12" font-weight="700">Rester en ligne</text>
+  <text x="112" y="460" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">avec le régulateur</text>
+
+  <!-- Flèche -->
+  <text x="328" y="325" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="28">→</text>
+
+  <!-- Bloc 2 : 30 compressions -->
+  <rect x="346" y="172" width="270" height="290" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="3"/>
+  <circle cx="481" cy="226" r="32" fill="#9F1239"/>
+  <text x="481" y="220" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">2</text>
+  <text x="481" y="236" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">COMPRIMER</text>
+  <text x="481" y="278" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="50" font-weight="700">30</text>
+  <text x="481" y="316" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="15" font-weight="700">compressions</text>
+  <text x="481" y="336" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="15" font-weight="700">sternales</text>
+  <text x="366" y="370" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Talons des mains, bras tendus</text>
+  <text x="366" y="390" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Enfoncer 5–6 cm</text>
+  <text x="366" y="410" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Rythme 100–120 / min</text>
+  <text x="366" y="430" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Laisser le thorax</text>
+  <text x="366" y="448" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">se décomprimer</text>
+
+  <!-- Flèche -->
+  <text x="632" y="325" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="28">→</text>
+
+  <!-- Bloc 3 : 2 insufflations -->
+  <rect x="654" y="172" width="240" height="290" rx="18" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="774" cy="226" r="32" fill="#DC2626"/>
+  <text x="774" y="220" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">3</text>
+  <text x="774" y="236" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10">INSUFFLER</text>
+  <text x="774" y="278" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="50" font-weight="700">2</text>
+  <text x="774" y="316" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="15" font-weight="700">insufflations</text>
+  <text x="774" y="336" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="15" font-weight="700">bouche-à-bouche</text>
+  <text x="674" y="370" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Pincer le nez</text>
+  <text x="674" y="390" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Souffler 1 seconde</text>
+  <text x="674" y="410" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">• Voir la poitrine se lever</text>
+  <text x="674" y="434" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Si refus ou impossible :</text>
+  <text x="674" y="452" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">compressions seules</text>
+
+  <!-- Bloc 4 : DAE -->
+  <rect x="914" y="172" width="234" height="290" rx="18" fill="#FEE2E2" stroke="#9F1239" stroke-width="3"/>
+  <circle cx="1031" cy="226" r="32" fill="#9F1239"/>
+  <text x="1031" y="220" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">DAE</text>
+  <text x="1031" y="236" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9">DÈS QUE DISPO</text>
+  <text x="1031" y="276" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="15" font-weight="700">Mettre en marche</text>
+  <text x="1031" y="296" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="15" font-weight="700">dès l'arrivée</text>
+  <text x="934" y="328" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Suivre les</text>
+  <text x="934" y="346" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">instructions vocales</text>
+  <text x="934" y="378" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">Ne pas interrompre</text>
+  <text x="934" y="396" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">la RCP pendant</text>
+  <text x="934" y="414" fill="#991B1B" font-family="Arial, sans-serif" font-size="13" font-weight="700">la pose des électrodes</text>
+  <text x="934" y="444" fill="#DC2626" font-family="Arial, sans-serif" font-size="13" font-weight="700">S'écarter au choc</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="484" width="1056" height="104" rx="16" fill="#9F1239"/>
+  <text x="120" y="514" fill="#FFE4E6" font-family="Arial, sans-serif" font-size="17" font-weight="700">Cycle à répéter : 30 compressions → 2 insufflations → recommencer</text>
+  <text x="120" y="540" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="15">Ne s'arrêter que si : la victime reprend conscience, les secours prennent le relais, épuisement total.</text>
+  <text x="120" y="564" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="15">Le DAE analyse et choque uniquement si une fibrillation ventriculaire est détectée — il ne peut pas faire de mal.</text>
+</svg>
