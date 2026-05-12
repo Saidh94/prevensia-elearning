@@ -42,6 +42,14 @@ export type ModuleResourceVideo = {
   ctaLabel?: string;
 };
 
+export type ModuleResourceFile = {
+  title: string;
+  description?: string;
+  url: string;
+  fileType?: string;
+  ctaLabel?: string;
+};
+
 export type PracticalScenario = {
   /** Question posée au stagiaire : "Que faites-vous si…" */
   situation: string;
@@ -87,6 +95,7 @@ export type ModuleContent = {
   certificationNote?: string;
   heroBadge?: string;
   sections: ModuleSection[];
+  resourceFiles?: ModuleResourceFile[];
   finalMessage?: string;
   quizCtaLabel?: string;
 };

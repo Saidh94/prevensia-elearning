@@ -26,6 +26,15 @@ export const modulesContent: Record<string, ModuleContent> = {
   finalMessage:
     "Le parcours H0B0 a pour finalité de faire reconnaître le risque, respecter strictement son périmètre, ne jamais improviser et alerter correctement. La validation passe ensuite par le quiz puis, selon l’organisation retenue, par la mise en situation et l’évaluation pratique.",
   quizCtaLabel: "Passer au quiz H0B0",
+  resourceFiles: [
+    {
+      title: "Habilitation Électrique H0 B0 H0V — Présentation Pro",
+      description: "Support de formation complet : définitions, risques, zones de voisinage, interdictions, cas concrets nettoyage / maintenance / cariste. Format PDF — 12 pages.",
+      url: "/downloads/h0b0-habilitation-electrique.pdf",
+      fileType: "PDF",
+      ctaLabel: "Télécharger le support de formation",
+    },
+  ],
   sections: [
     {
       id: "intro",

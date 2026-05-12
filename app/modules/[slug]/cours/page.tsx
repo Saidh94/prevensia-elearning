@@ -1348,6 +1348,60 @@ export default function CoursPage() {
                 </div>
               ) : null}
 
+              {currentIndex === 0 && (currentModuleData?.resourceFiles ?? []).length > 0 ? (
+                <div className="mb-6 rounded-[1.5rem] border border-blue-100 bg-blue-50 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">
+                    Supports de formation
+                  </p>
+
+                  <div className="mt-4 grid gap-5">
+                    {(currentModuleData?.resourceFiles ?? []).map((file, index) => (
+                      <article
+                        key={`resource-file-${index}`}
+                        className="rounded-[1.25rem] border border-blue-100 bg-white p-5"
+                      >
+                        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">
+                          {file.fileType ?? "Document PDF"}
+                        </p>
+
+                        <h3 className="mt-3 text-lg font-bold text-slate-900">
+                          {formatFrenchDisplayText(file.title)}
+                        </h3>
+
+                        {file.description ? (
+                          <p className="mt-3 text-sm leading-7 text-slate-600">
+                            {formatFrenchDisplayText(file.description)}
+                          </p>
+                        ) : null}
+
+                        <a
+                          href={file.url}
+                          download
+                          className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-blue-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                          </svg>
+                          {file.ctaLabel ?? "Télécharger"}
+                        </a>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               {currentChapter.image ? (
                 <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-4 shadow-sm">
                   <div className="relative mx-auto h-[520px] w-full max-w-5xl overflow-hidden rounded-2xl">
