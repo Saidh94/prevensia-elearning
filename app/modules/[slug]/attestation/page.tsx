@@ -106,6 +106,31 @@ export default function AttestationPage() {
           return;
         }
 
+        // Fallback : si le localStorage ne contient pas de résultat, on cherche
+        // dans quiz_attempts la dernière tentative réussie pour cette formation.
+        if (!quizResult) {
+          const { data: attemptData } = await supabase
+            .from("quiz_attempts")
+            .select("score, total, passing_score, passed, attempted_at")
+            .eq("user_id", user.id)
+            .eq("formation_slug", slug)
+            .eq("passed", true)
+            .order("attempted_at", { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          if (attemptData) {
+            quizResult = {
+              slug,
+              score: attemptData.score,
+              total: attemptData.total,
+              passingScore: attemptData.passing_score,
+              success: attemptData.passed,
+              completedAt: attemptData.attempted_at,
+            };
+          }
+        }
+
         // Check if user is admin — admins bypass enrollment requirement
         const { data: profileData } = await supabase
           .from("profiles")
