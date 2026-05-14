@@ -71,20 +71,10 @@ export const modulesContent: Record<string, ModuleContent> = {
       ],
       practicalCase:
         "Exemple : un agent logistique doit déplacer des palettes à proximité d’un tableau électrique fermé. Il peut réaliser son travail s’il reste dans le cadre prévu, respecte les dégagements et n’agit jamais sur le matériel électrique.",
-     visual: {
-  title: "Périmètre du H0B0",
-  subtitle: "Être autorisé à évoluer dans l’environnement ne signifie pas être autorisé à agir sur l’installation.",
-  items: [
-    "Personnel non électricien",
-    "Travaux d’ordre non électrique",
-    "Présence possible à proximité d’installations",
-    "Interdiction d’intervention électrique"
-  ],
-  tone: "blue",
-  illustrationKey: "habilitation-scope",
-  imagePath: "/elearning/h0b0/roles-responsabilites.png",
-  imageAlt: "Illustration du périmètre H0B0 et des limites d’intervention"
-}
+      visual: {
+        imagePath: "/elearning/h0b0/h0b0-perimetre.svg",
+        imageAlt: "Périmètre H0B0 : ce qui est autorisé vs interdit",
+      }
     },
     {
       id: "symbols",
@@ -120,18 +110,9 @@ export const modulesContent: Record<string, ModuleContent> = {
       practicalCase:
         "Exemple : un salarié H0B0 travaille dans un bâtiment comportant des armoires BT. Il peut évoluer dans l’environnement prévu mais ne peut ni ouvrir l’armoire ni agir sur un organe électrique, même si l’action lui paraît simple.",
       visual: {
-  title: "Lecture des symboles",
-  subtitle: "Comprendre ce que le titre autorise réellement.",
-  items: [
-    "B = basse tension",
-    "H = haute tension",
-    "0 = ordre non électrique",
-    "H0V = voisinage en HT selon le cadre prévu"
-  ],
-  tone: "slate",
-  imagePath: "/elearning/h0b0/symboles-habilitation.png",
-  imageAlt: "Illustration pédagogique des symboles d’habilitation électrique"
-}
+        imagePath: "/elearning/h0b0/h0b0-symboles.svg",
+        imageAlt: "Symboles B0, H0 et H0V — lecture du titre d’habilitation",
+      }
     },
     {
       id: "roles",
@@ -382,18 +363,10 @@ export const modulesContent: Record<string, ModuleContent> = {
       practicalCase:
         "Exemple : un agent intervient dans une zone de lavage où des rallonges alimentent des équipements mobiles. La présence d’eau et de matériels provisoires impose une vigilance renforcée et peut justifier l’arrêt si le cadre n’est pas sécurisé."
       ,
-  visual: {
-  title: "Lire le bon environnement électrique",
-  subtitle: "Le niveau de risque dépend aussi du contexte.",
-  items: [
-    "Champ libre",
-    "Local réservé",
-    "Armoire / coffret ouvert",
-    "Configuration provisoire ou dégradée"
-  ],
-  tone: "slate",
-  illustrationKey: "work-environment" as const,
-}
+      visual: {
+        imagePath: "/elearning/h0b0/h0b0-environnements.svg",
+        imageAlt: "Types d'environnements électriques et niveaux de risque H0B0",
+      }
     },
     {
       id: "contacts",
@@ -495,19 +468,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       ],
       visual: {
-  title: "Relation intensité / dommages",
-  subtitle: "Plus l’intensité, la durée et le trajet sont défavorables, plus la gravité augmente.",
-  items: [
-    "0,5 mA : perception",
-    "5 mA : choc ressenti",
-    "10 mA : non-lâcher possible",
-    "30 mA : danger respiratoire sérieux",
-    "75 mA : fibrillation / arrêt cardiaque",
-    "Durée + trajet = aggravation"
-  ],
-  tone: "red",
-  illustrationKey: "body-effects" as const,
-}
+        imagePath: "/elearning/h0b0/h0b0-intensite.svg",
+        imageAlt: "Échelle intensité courant et effets sur le corps humain",
+      }
     },
     {
       id: "electrisation",

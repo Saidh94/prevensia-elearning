@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+
+  <text x="92" y="112" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="34" font-weight="700">Types d'environnements électriques — H0B0</text>
+  <text x="92" y="148" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18">Observer l'environnement avant d'agir est un réflexe de sécurité essentiel.</text>
+
+  <!-- Bloc 1 : Champ libre -->
+  <rect x="92" y="172" width="240" height="330" rx="18" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+  <rect x="92" y="172" width="240" height="52" rx="18" fill="#15803D"/>
+  <rect x="92" y="206" width="240" height="18" fill="#15803D"/>
+  <text x="212" y="205" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="15" font-weight="700">CHAMP LIBRE</text>
+  <text x="212" y="254" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Niveau de risque</text>
+  <text x="212" y="274" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="20" font-weight="700">FAIBLE</text>
+  <text x="112" y="310" fill="#166534" font-family="Arial, sans-serif" font-size="13">Installations fermées</text>
+  <text x="112" y="330" fill="#166534" font-family="Arial, sans-serif" font-size="13">et protégées</text>
+  <text x="112" y="362" fill="#166534" font-family="Arial, sans-serif" font-size="13">Armoires fermées,</text>
+  <text x="112" y="382" fill="#166534" font-family="Arial, sans-serif" font-size="13">capots en place</text>
+  <text x="112" y="402" fill="#166534" font-family="Arial, sans-serif" font-size="13">Signalisation présente</text>
+  <text x="112" y="436" fill="#14532D" font-family="Arial, sans-serif" font-size="12" font-weight="700">Évoluer normalement</text>
+  <text x="112" y="454" fill="#14532D" font-family="Arial, sans-serif" font-size="12" font-weight="700">sans toucher</text>
+  <text x="112" y="474" fill="#15803D" font-family="Arial, sans-serif" font-size="12" font-weight="700">✓ Situation habituelle</text>
+
+  <!-- Bloc 2 : Local réservé -->
+  <rect x="352" y="172" width="240" height="330" rx="18" fill="#FEF9C3" stroke="#EAB308" stroke-width="2"/>
+  <rect x="352" y="172" width="240" height="52" rx="18" fill="#92400E"/>
+  <rect x="352" y="206" width="240" height="18" fill="#92400E"/>
+  <text x="472" y="205" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="15" font-weight="700">LOCAL RÉSERVÉ</text>
+  <text x="472" y="254" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">Niveau de risque</text>
+  <text x="472" y="274" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="20" font-weight="700">MODÉRÉ</text>
+  <text x="372" y="310" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Local technique ou électrique</text>
+  <text x="372" y="330" fill="#78350F" font-family="Arial, sans-serif" font-size="13">réservé aux électriciens</text>
+  <text x="372" y="362" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Accès restreint,</text>
+  <text x="372" y="382" fill="#78350F" font-family="Arial, sans-serif" font-size="13">signalisation obligatoire</text>
+  <text x="372" y="402" fill="#78350F" font-family="Arial, sans-serif" font-size="13">Pièces actives possibles</text>
+  <text x="372" y="436" fill="#92400E" font-family="Arial, sans-serif" font-size="12" font-weight="700">Entrer uniquement</text>
+  <text x="372" y="454" fill="#92400E" font-family="Arial, sans-serif" font-size="12" font-weight="700">dans un cadre autorisé</text>
+  <text x="372" y="474" fill="#92400E" font-family="Arial, sans-serif" font-size="12" font-weight="700">⚠ Ne jamais ouvrir un coffret</text>
+
+  <!-- Bloc 3 : Armoire ouverte -->
+  <rect x="612" y="172" width="240" height="330" rx="18" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+  <rect x="612" y="172" width="240" height="52" rx="18" fill="#DC2626"/>
+  <rect x="612" y="206" width="240" height="18" fill="#DC2626"/>
+  <text x="732" y="205" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="15" font-weight="700">ARMOIRE OUVERTE</text>
+  <text x="732" y="254" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Niveau de risque</text>
+  <text x="732" y="274" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="20" font-weight="700">ÉLEVÉ</text>
+  <text x="632" y="310" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Parties actives visibles</text>
+  <text x="632" y="330" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">ou accessibles</text>
+  <text x="632" y="362" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Capot retiré ou cassé</text>
+  <text x="632" y="382" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">Zone de voisinage active</text>
+  <text x="632" y="402" fill="#991B1B" font-family="Arial, sans-serif" font-size="13">BT : 30 cm de marge</text>
+  <text x="632" y="436" fill="#B91C1C" font-family="Arial, sans-serif" font-size="12" font-weight="700">S'éloigner, arrêter l'action</text>
+  <text x="632" y="454" fill="#B91C1C" font-family="Arial, sans-serif" font-size="12" font-weight="700">Signaler immédiatement</text>
+  <text x="632" y="474" fill="#DC2626" font-family="Arial, sans-serif" font-size="12" font-weight="700">✗ Ne pas refermer soi-même</text>
+
+  <!-- Bloc 4 : Provisoire/dégradé -->
+  <rect x="872" y="172" width="276" height="330" rx="18" fill="#FFF1F2" stroke="#9F1239" stroke-width="3"/>
+  <rect x="872" y="172" width="276" height="52" rx="18" fill="#9F1239"/>
+  <rect x="872" y="206" width="276" height="18" fill="#9F1239"/>
+  <text x="1010" y="205" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="15" font-weight="700">PROVISOIRE / DÉGRADÉ</text>
+  <text x="1010" y="254" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Niveau de risque</text>
+  <text x="1010" y="274" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="20" font-weight="700">TRÈS ÉLEVÉ</text>
+  <text x="892" y="310" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Rallonges, coffrets chantier</text>
+  <text x="892" y="330" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Zone humide ou conductrice</text>
+  <text x="892" y="362" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Coactivité non maîtrisée</text>
+  <text x="892" y="382" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Matériel abîmé en service</text>
+  <text x="892" y="402" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">Protections absentes</text>
+  <text x="892" y="436" fill="#9F1239" font-family="Arial, sans-serif" font-size="12" font-weight="700">Arrêt immédiat, signalement</text>
+  <text x="892" y="454" fill="#9F1239" font-family="Arial, sans-serif" font-size="12" font-weight="700">Ne pas improviser</text>
+  <text x="892" y="474" fill="#9F1239" font-family="Arial, sans-serif" font-size="12" font-weight="700">✗ Aucun geste sans cadre</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="524" width="1056" height="74" rx="16" fill="#1E3A5F"/>
+  <text x="600" y="549" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="15" font-weight="700">Règle universelle H0B0 : observer avant d'agir — arrêter et signaler en cas de doute</text>
+  <text x="600" y="571" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="13">Un même site peut présenter plusieurs niveaux de risque selon les zones et les moments.</text>
+  <text x="600" y="589" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="13">Humidité + coactivité + installation provisoire = vigilance maximale.</text>
+</svg>

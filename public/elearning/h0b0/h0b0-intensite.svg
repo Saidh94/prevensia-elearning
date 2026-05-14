@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFF1F2"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#FECDD3" stroke-width="2"/>
+
+  <text x="92" y="112" fill="#9F1239" font-family="Arial, sans-serif" font-size="34" font-weight="700">Intensité du courant et effets sur le corps humain</text>
+  <text x="92" y="148" fill="#BE123C" font-family="Arial, sans-serif" font-size="18">La gravité dépend de l'intensité, de la durée d'exposition et du trajet dans le corps.</text>
+
+  <!-- Niveau 1 : 0,5 mA -->
+  <rect x="92" y="172" width="194" height="136" rx="14" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+  <text x="92" y="172" font-family="Arial, sans-serif"/>
+  <text x="189" y="208" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="28" font-weight="700">0,5 mA</text>
+  <text x="189" y="232" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="13" font-weight="700">PERCEPTION</text>
+  <text x="189" y="258" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="12">Légère sensation</text>
+  <text x="189" y="276" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="12">Fourmillement</text>
+  <text x="189" y="296" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="11" font-weight="700">Pas encore dangereux</text>
+
+  <!-- Flèche -->
+  <text x="296" y="248" text-anchor="middle" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="22">→</text>
+
+  <!-- Niveau 2 : 5 mA -->
+  <rect x="310" y="172" width="194" height="136" rx="14" fill="#FEF9C3" stroke="#FDE68A" stroke-width="2"/>
+  <text x="407" y="208" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="28" font-weight="700">5 mA</text>
+  <text x="407" y="232" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="13" font-weight="700">CHOC NET</text>
+  <text x="407" y="258" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="12">Choc nettement ressenti</text>
+  <text x="407" y="276" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="12">Contraction musculaire</text>
+  <text x="407" y="296" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="11" font-weight="700">Risque de chute ou réaction</text>
+
+  <!-- Flèche -->
+  <text x="514" y="248" text-anchor="middle" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="22">→</text>
+
+  <!-- Niveau 3 : 10 mA -->
+  <rect x="528" y="172" width="194" height="136" rx="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="625" y="208" text-anchor="middle" fill="#B45309" font-family="Arial, sans-serif" font-size="28" font-weight="700">10 mA</text>
+  <text x="625" y="232" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="13" font-weight="700">NON-LÂCHER</text>
+  <text x="625" y="258" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="12">La victime ne peut plus</text>
+  <text x="625" y="276" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="12">lâcher la prise</text>
+  <text x="625" y="296" text-anchor="middle" fill="#B45309" font-family="Arial, sans-serif" font-size="11" font-weight="700">⚠ Danger : prolonge l'exposition</text>
+
+  <!-- Flèche -->
+  <text x="732" y="248" text-anchor="middle" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="22">→</text>
+
+  <!-- Niveau 4 : 30 mA -->
+  <rect x="746" y="172" width="194" height="136" rx="14" fill="#FEE2E2" stroke="#FCA5A5" stroke-width="2"/>
+  <text x="843" y="208" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="28" font-weight="700">30 mA</text>
+  <text x="843" y="232" text-anchor="middle" fill="#B91C1C" font-family="Arial, sans-serif" font-size="13" font-weight="700">DANGER GRAVE</text>
+  <text x="843" y="258" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">Paralysie respiratoire</text>
+  <text x="843" y="276" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">Risque évanouissement</text>
+  <text x="843" y="296" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="11" font-weight="700">Seuil du DDR type AC (30 mA)</text>
+
+  <!-- Flèche -->
+  <text x="950" y="248" text-anchor="middle" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="22">→</text>
+
+  <!-- Niveau 5 : 75 mA -->
+  <rect x="964" y="172" width="184" height="136" rx="14" fill="#FFF1F2" stroke="#9F1239" stroke-width="3"/>
+  <text x="1056" y="208" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="28" font-weight="700">75 mA</text>
+  <text x="1056" y="232" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13" font-weight="700">VITAL</text>
+  <text x="1056" y="258" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="12">Fibrillation ventriculaire</text>
+  <text x="1056" y="276" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="12">Arrêt cardiaque possible</text>
+  <text x="1056" y="296" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="11" font-weight="700">Risque mortel immédiat</text>
+
+  <!-- Bloc facteurs aggravants -->
+  <rect x="92" y="328" width="1056" height="120" rx="16" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <text x="120" y="360" fill="#C2410C" font-family="Arial, sans-serif" font-size="16" font-weight="700">Facteurs qui aggravent systématiquement la situation :</text>
+  <text x="120" y="390" fill="#7C2D12" font-family="Arial, sans-serif" font-size="14">• Durée d'exposition prolongée (non-lâcher, exposition continue) — plus longtemps = plus grave</text>
+  <text x="120" y="414" fill="#7C2D12" font-family="Arial, sans-serif" font-size="14">• Trajet main-main ou main-pieds traversant le cœur — aggrave le risque cardiaque</text>
+  <text x="120" y="436" fill="#7C2D12" font-family="Arial, sans-serif" font-size="14">• Humidité (peau, vêtements, sol) — réduit la résistance du corps et facilite le passage du courant</text>
+
+  <!-- Barre bas : stats -->
+  <rect x="92" y="468" width="1056" height="130" rx="16" fill="#9F1239"/>
+  <text x="120" y="500" fill="#FFE4E6" font-family="Arial, sans-serif" font-size="16" font-weight="700">Chiffres réels — France 2021</text>
+  <text x="120" y="528" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="14">428 accidents du travail d'origine électrique enregistrés — dont 46 mortels.</text>
+  <text x="120" y="552" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="14">1re cause : mode opératoire inapproprié (31 %) · 2e cause : méconnaissance des risques (30 %)</text>
+  <text x="120" y="576" fill="#FEE2E2" font-family="Arial, sans-serif" font-size="14">La prévention comportementale est aussi importante que la prévention technique.</text>
+</svg>
