@@ -29,6 +29,24 @@ const articles = [
     duree: "4 min",
     categorie: "Réglementation",
   },
+  {
+    slug: "habilitation-electrique-sous-traitants",
+    titre: "Habilitation électrique pour les sous-traitants",
+    description:
+      "Donneur d'ordre, plan de prévention, inspection commune préalable : qui est responsable de l'habilitation électrique des sous-traitants intervenant sur site ?",
+    date: "2025-05-15",
+    duree: "5 min",
+    categorie: "Réglementation",
+  },
+  {
+    slug: "difference-nf-c-18-510-ute-c-18-510",
+    titre: "Différence entre NF C 18-510 et UTE C 18-510",
+    description:
+      "La NF C 18-510 est la norme de référence, l'UTE C 18-510 son guide d'application. Ce que chacun contient et ce qui est réellement opposable en cas d'accident.",
+    date: "2025-05-22",
+    duree: "4 min",
+    categorie: "Réglementation",
+  },
 ];
 
 export default function BlogPage() {

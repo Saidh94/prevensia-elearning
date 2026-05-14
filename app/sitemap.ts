@@ -30,6 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "formation-bs-be-manoeuvre", priority: 0.92 },
     { slug: "formation-b1-b2-br-bc", priority: 0.92 },
     { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.88 },
+    { slug: "formation-habilitation-electrique-paris", priority: 0.85 },
+    { slug: "formation-habilitation-electrique-seine-saint-denis", priority: 0.85 },
   ];
 
   const habilitationSeoEntries: MetadataRoute.Sitemap = habilitationSeoPages.map(
@@ -45,6 +47,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogArticles = [
     "comment-choisir-son-habilitation-electrique",
     "duree-validite-habilitation-electrique",
+    "habilitation-electrique-sous-traitants",
+    "difference-nf-c-18-510-ute-c-18-510",
   ];
 
   const blogEntries: MetadataRoute.Sitemap = blogArticles.map((slug) => ({
