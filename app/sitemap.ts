@@ -49,6 +49,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "duree-validite-habilitation-electrique",
     "habilitation-electrique-sous-traitants",
     "difference-nf-c-18-510-ute-c-18-510",
+    "formation-sst-entreprise-obligations",
+    "obligations-securite-incendie-entreprise",
   ];
 
   const blogEntries: MetadataRoute.Sitemap = blogArticles.map((slug) => ({

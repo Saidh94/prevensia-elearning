@@ -47,6 +47,24 @@ const articles = [
     duree: "4 min",
     categorie: "Réglementation",
   },
+  {
+    slug: "formation-sst-entreprise-obligations",
+    titre: "Formation SST en entreprise : obligations et organisation",
+    description:
+      "Combien de SST faut-il dans une entreprise ? La formation est-elle obligatoire ? Qui finance ? Guide des obligations employeur en matière de secourisme au travail.",
+    date: "2025-05-29",
+    duree: "5 min",
+    categorie: "Guide pratique",
+  },
+  {
+    slug: "obligations-securite-incendie-entreprise",
+    titre: "Obligations sécurité incendie en entreprise",
+    description:
+      "Exercices d'évacuation, extincteurs, guide-file, EPI : ce que le Code du travail impose concrètement à chaque employeur en matière de prévention incendie.",
+    date: "2025-06-05",
+    duree: "5 min",
+    categorie: "Réglementation",
+  },
 ];
 
 export default function BlogPage() {
