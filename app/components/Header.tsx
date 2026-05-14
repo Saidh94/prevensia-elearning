@@ -7,8 +7,10 @@ import Image from "next/image";
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/formation-habilitation-electrique", label: "Habilitation" },
+  { href: "/formation-atex", label: "ATEX" },
   { href: "/formation-sst", label: "SST" },
   { href: "/formation-securite-incendie", label: "Incendie" },
+  { href: "/formation-ssiap1", label: "SSIAP1" },
   { href: "/formation-ssi", label: "SSI" },
   { href: "/formation-sprinkler", label: "Sprinkler" },
   { href: "/planning", label: "Planning" },
@@ -34,7 +36,7 @@ export function Header() {
         </Link>
 
         {/* Nav desktop */}
-        <nav className="hidden items-center gap-5 text-sm font-medium text-slate-700 lg:flex">
+        <nav className="hidden items-center gap-3 text-sm font-medium text-slate-700 lg:flex">
           {navLinks.map((l) => (
             <Link key={l.href} href={l.href} className="hover:text-red-700">
               {l.label}
