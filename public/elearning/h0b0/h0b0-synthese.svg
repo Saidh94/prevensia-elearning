@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#EFF6FF"/>
+  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+
+  <text x="92" y="104" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="34" font-weight="700">Synthèse opérationnelle B0 / H0 / H0V</text>
+  <text x="92" y="140" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="17">Les réflexes fondamentaux à retenir durablement — NF C 18-510</text>
+
+  <!-- Réflexe 1 -->
+  <rect x="92" y="162" width="242" height="200" rx="16" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="213" cy="200" r="28" fill="#1D4ED8"/>
+  <text x="213" y="206" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">1</text>
+  <text x="213" y="244" text-anchor="middle" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="14" font-weight="700">OBSERVER</text>
+  <text x="213" y="266" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="12">Analyser l'environnement</text>
+  <text x="213" y="284" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="12">avant toute action</text>
+  <text x="213" y="308" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="11" font-weight="700">Repérer zones, balisage,</text>
+  <text x="213" y="326" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="11" font-weight="700">protections, anomalies</text>
+  <text x="213" y="350" text-anchor="middle" fill="#93C5FD" font-family="Arial, sans-serif" font-size="11">Réflexe permanent</text>
+
+  <!-- Réflexe 2 -->
+  <rect x="350" y="162" width="242" height="200" rx="16" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
+  <circle cx="471" cy="200" r="28" fill="#15803D"/>
+  <text x="471" y="206" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">2</text>
+  <text x="471" y="244" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="14" font-weight="700">RESPECTER</text>
+  <text x="471" y="266" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="12">Distances, balisage,</text>
+  <text x="471" y="284" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="12">consignes, périmètre</text>
+  <text x="471" y="308" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="11" font-weight="700">B0/H0/H0V = non</text>
+  <text x="471" y="326" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="11" font-weight="700">électrique uniquement</text>
+  <text x="471" y="350" text-anchor="middle" fill="#86EFAC" font-family="Arial, sans-serif" font-size="11">Sans exception</text>
+
+  <!-- Réflexe 3 -->
+  <rect x="608" y="162" width="242" height="200" rx="16" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="729" cy="200" r="28" fill="#DC2626"/>
+  <text x="729" y="206" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">3</text>
+  <text x="729" y="244" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="14" font-weight="700">NE PAS IMPROVISER</text>
+  <text x="729" y="266" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">Jamais d'action électrique</text>
+  <text x="729" y="284" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="12">même simple ou rapide</text>
+  <text x="729" y="308" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="11" font-weight="700">Habitude + urgence =</text>
+  <text x="729" y="326" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="11" font-weight="700">cause 1re d'accident</text>
+  <text x="729" y="350" text-anchor="middle" fill="#FCA5A5" font-family="Arial, sans-serif" font-size="11">Règle absolue</text>
+
+  <!-- Réflexe 4 -->
+  <rect x="866" y="162" width="282" height="200" rx="16" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <circle cx="1007" cy="200" r="28" fill="#C2410C"/>
+  <text x="1007" y="206" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">4</text>
+  <text x="1007" y="244" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="14" font-weight="700">ALERTER</text>
+  <text x="1007" y="266" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="12">Toute anomalie, tout doute,</text>
+  <text x="1007" y="284" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="12">toute situation dégradée</text>
+  <text x="1007" y="308" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="11" font-weight="700">Signaler à la personne</text>
+  <text x="1007" y="326" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="11" font-weight="700">compétente — ne pas attendre</text>
+  <text x="1007" y="350" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="11">Immédiatement</text>
+
+  <!-- Bloc règles à retenir -->
+  <rect x="92" y="380" width="1056" height="172" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="120" y="410" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="15" font-weight="700">Règles essentielles à retenir :</text>
+  <text x="120" y="438" fill="#374151" font-family="Arial, sans-serif" font-size="14">• B0/H0/H0V = opérations d'ordre non électrique — jamais d'action sur l'installation électrique</text>
+  <text x="120" y="462" fill="#374151" font-family="Arial, sans-serif" font-size="14">• La formation ne vaut pas habilitation — c'est l'employeur qui délivre le titre</text>
+  <text x="120" y="486" fill="#374151" font-family="Arial, sans-serif" font-size="14">• Le danger peut être invisible (défaut d'isolement, masse sous tension, arc HT sans contact)</text>
+  <text x="120" y="510" fill="#374151" font-family="Arial, sans-serif" font-size="14">• L'humidité aggrave le risque — milieu humide = vigilance maximale</text>
+  <text x="120" y="534" fill="#374151" font-family="Arial, sans-serif" font-size="14">• Protection collective d'abord (capots, enveloppes, balisage) — jamais les contourner</text>
+
+  <!-- Barre bas -->
+  <rect x="92" y="570" width="1056" height="50" rx="14" fill="#1E3A5F"/>
+  <text x="600" y="591" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="15" font-weight="700">Doute = arrêt immédiat · Anomalie = signalement · Hors périmètre = refus</text>
+  <text x="600" y="610" text-anchor="middle" fill="#93C5FD" font-family="Arial, sans-serif" font-size="12">Ces trois réflexes protègent autant le salarié que les collègues et l'organisation.</text>
+</svg>

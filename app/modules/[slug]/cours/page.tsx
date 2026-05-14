@@ -111,9 +111,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre le périmètre de l’habilitation, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
     minSeconds: 240,
-    image: "/elearning/references/symboles-travaux-non-electriques.jpg",
-    imageAlt:
-      "Tableau des symboles d'habilitation utilises pour les travaux d'ordre non electrique",
+    image: "/elearning/h0b0/h0b0-perimetre.svg",
+    imageAlt: "Périmètre H0B0 : ce qui est autorisé vs interdit",
     highlights: [
       "Le B0, le H0 et le H0V concernent exclusivement des opérations d’ordre non électrique.",
       "La formation préalable ne vaut jamais habilitation à elle seule.",
@@ -149,9 +148,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre précisément ce que signifient B, H, 0 et V, et ce qu’un symbole n’autorise jamais",
     minSeconds: 210,
-    image: "/elearning/references/symboles-autres-travaux-electriques.jpg",
-    imageAlt:
-      "Tableau complet des symboles d’habilitation electrique : B0, H0, H0V, B1, B2, BR, BC, BE",
+    image: "/elearning/h0b0/h0b0-symboles.svg",
+    imageAlt: "Symboles B0, H0 et H0V — lecture du titre d’habilitation",
     highlights: [
       "B = basse tension, H = haute tension.",
       "0 = opérations d’ordre non électrique.",
@@ -373,8 +371,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Reconnaître les contextes où le risque varie selon le lieu, l’activité, l’humidité, l’état des matériels et l’organisation",
     minSeconds: 210,
-    image: "/elearning/h0b0/environnement-travail.png",
-    imageAlt: "Illustration des différents types d’environnements électriques",
+    image: "/elearning/h0b0/h0b0-environnements.svg",
+    imageAlt: "Types d’environnements électriques et niveaux de risque H0B0",
     highlights: [
       "Le niveau de risque dépend aussi du contexte de travail.",
       "Local technique, atelier, chantier ou zone logistique n’exposent pas de la même manière.",
@@ -440,8 +438,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Différencier les principaux mécanismes d’exposition et comprendre pourquoi un matériel apparemment banal peut devenir dangereux",
     minSeconds: 180,
-    image: "/elearning/h0b0/electrisation-electrocution.png",
-    imageAlt: "Illustration pedagogique du contact direct, du contact indirect et de leurs consequences",
+    image: "/elearning/h0b0/h0b0-contacts.svg",
+    imageAlt: "Contact direct et contact indirect — mécanismes d'exposition électrique",
     highlights: [
       "Le contact direct concerne une partie active normalement sous tension.",
       "Le contact indirect concerne une masse devenue dangereuse après défaut.",
@@ -472,9 +470,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre comment l’intensité, la durée de passage et le trajet du courant conditionnent la gravité des effets",
     minSeconds: 210,
-    image: "/elearning/h0b0/intensites-effets.png",
-    imageAlt:
-      "Illustration pédagogique de la relation entre intensité du courant et dommages",
+    image: "/elearning/h0b0/h0b0-intensite.svg",
+    imageAlt: "Échelle intensité courant et effets sur le corps humain — 0,5 mA à 75 mA",
     highlights: [
       "Les effets dépendent de l’intensité, de la durée et du trajet du courant.",
       "Une durée d’exposition plus longue aggrave fortement les conséquences.",
@@ -739,8 +736,8 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Consolider les réflexes essentiels avant l’évaluation finale et fixer les règles à retenir durablement",
     minSeconds: 180,
-    image: "/elearning/h0b0/reflexes-h0b0.png",
-    imageAlt: "Illustration de synthèse des réflexes B0 H0 H0V",
+    image: "/elearning/h0b0/h0b0-synthese.svg",
+    imageAlt: "Synthèse opérationnelle B0/H0/H0V — 4 réflexes fondamentaux",
     highlights: [
       "L’habilitation est délivrée par l’employeur, pas par la formation seule.",
       "Le B0 / H0 / H0V concerne uniquement les opérations d’ordre non électrique.",

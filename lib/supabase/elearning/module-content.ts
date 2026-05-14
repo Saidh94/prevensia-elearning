@@ -402,18 +402,10 @@ export const modulesContent: Record<string, ModuleContent> = {
       practicalCase:
         "Exemple : une machine donne une sensation de picotement au contact de sa carcasse métallique. Il peut s’agir d’un contact indirect lié à un défaut d’isolement. L’usage doit être interrompu immédiatement."
       ,
-     visual: {
-  title: "Contact direct / contact indirect",
-  subtitle: "Deux mécanismes différents, un même niveau de gravité possible.",
-  items: [
-    "Partie active",
-    "Masse métallique",
-    "Défaut d’isolement",
-    "Danger parfois invisible"
-  ],
-  tone: "amber",
-  illustrationKey: "electric-risk" as const,
-}
+      visual: {
+        imagePath: "/elearning/h0b0/h0b0-contacts.svg",
+        imageAlt: "Contact direct et contact indirect — mécanismes d’exposition",
+      }
     },
     {
       id: "current-effects",
@@ -846,20 +838,10 @@ export const modulesContent: Record<string, ModuleContent> = {
       practicalCase:
         "Exemple : sur le terrain, le bon réflexe H0B0 n’est pas de chercher à dépanner, mais de reconnaître le danger, de s’écarter, de signaler et de laisser intervenir la personne compétente."
       ,
-    visual: {
-  title: "Les réflexes H0B0",
-  subtitle: "Une logique opérationnelle basée sur la maîtrise du risque et le respect strict du périmètre.",
-  items: [
-    "Observer l’environnement",
-    "Identifier le risque électrique",
-    "Respecter les distances et protections",
-    "Ne pas intervenir sur l’installation",
-    "Stopper en cas de doute",
-    "Alerter immédiatement"
-  ],
-  tone: "blue",
-  illustrationKey: "summary-reflexes" as const,
-}
+      visual: {
+        imagePath: "/elearning/h0b0/h0b0-synthese.svg",
+        imageAlt: "Synthèse opérationnelle B0/H0/H0V — 4 réflexes fondamentaux",
+      }
     }
   ]
 },
