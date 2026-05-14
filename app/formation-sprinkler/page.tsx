@@ -1,4 +1,6 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sprinkler" },
@@ -14,6 +16,29 @@ export const metadata = {
     "formation responsable technique sprinkler",
   ],
 };
+
+const faqItemsSprinkler = [
+  {
+    question: "À qui s'adresse la formation exploitation sprinkler ?",
+    answer:
+      "La formation s'adresse aux exploitants de bâtiments, responsables techniques, agents de maintenance, responsables sécurité incendie et tout personnel gérant un site équipé d'une installation sprinkler (entrepôt logistique, site industriel, ERP, centre commercial).",
+  },
+  {
+    question: "Quelle est la différence entre EN 12845, APSAD R1 et NFPA 13 ?",
+    answer:
+      "EN 12845 est la norme européenne de référence pour les systèmes sprinkler. APSAD R1 est la règle française de certification publiée par le CNPP, souvent exigée par les assureurs. NFPA 13 est la norme américaine, applicable sur certains sites avec exigences assureur FM Global ou pour des installations conçues selon le standard américain.",
+  },
+  {
+    question: "Pourquoi former les équipes alors que la maintenance est assurée par un prestataire ?",
+    answer:
+      "Le prestataire assure la maintenance préventive et corrective, mais c'est l'exploitant qui surveille l'installation au quotidien, détecte les anomalies opérationnelles (vanne fermée, zone modifiée, alarme non traitée) et coordonne les interventions. Une formation permet d'éviter les erreurs d'exploitation qui réduisent la protection réelle.",
+  },
+  {
+    question: "La formation 2 jours inclut-elle réellement une visite d'installation ?",
+    answer:
+      "Oui. La formule 2 jours renforcée inclut une visite encadrée d'une installation sprinkler réelle, réalisée avec les apprenants sur un site logistique ou industriel partenaire. Cette approche terrain est unique et directement applicable sur vos propres sites.",
+  },
+];
 
 const programme = [
   {
@@ -60,6 +85,13 @@ const tarifs = [
 export default function FormationSprinkler() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Formation sprinkler", url: "/formation-sprinkler" },
+        ]}
+      />
+      <FaqJsonLd items={faqItemsSprinkler} />
       <CourseJsonLd
         name="Formation exploitation sprinkler"
         description="Formation sprinkler pour exploitants et responsables techniques : fonctionnement, exploitation, surveillance et référentiels EN 12845, APSAD R1, NFPA 13."

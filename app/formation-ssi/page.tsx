@@ -1,4 +1,6 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-ssi" },
@@ -15,9 +17,39 @@ export const metadata = {
   ],
 };
 
+const faqItemsSsi = [
+  {
+    question: "À qui s'adresse la formation exploitation SSI ?",
+    answer:
+      "La formation s'adresse aux exploitants de bâtiments, responsables techniques, agents de maintenance, responsables sécurité et tout personnel amené à surveiller ou utiliser un SSI au quotidien dans un ERP, IGH, site industriel ou logistique.",
+  },
+  {
+    question: "Quelle est la différence entre le SDI, le CMSI et l'UGA ?",
+    answer:
+      "Le SDI (Système de Détection Incendie) détecte les départs de feu et transmet l'information. Le CMSI (Centralisateur de Mise en Sécurité Incendie) commande les équipements de mise en sécurité (désenfumage, compartimentage, DAS). L'UGA (Unité de Gestion de l'Alarme) gère les niveaux d'alarme et la diffusion sonore. Ces éléments constituent ensemble le SSI.",
+  },
+  {
+    question: "La formation SSI est-elle obligatoire pour les exploitants de bâtiments ?",
+    answer:
+      "La réglementation ERP (Code de la Construction) et le Code du travail imposent aux exploitants de s'assurer que le personnel maîtrise l'exploitation du SSI. Une formation spécifique est fortement recommandée, voire imposée selon la catégorie et le type d'établissement.",
+  },
+  {
+    question: "La formation couvre-t-elle les interventions en cas d'alarme ?",
+    answer:
+      "Oui. La formation inclut la conduite à tenir en cas d'alarme (feu, défaut, dérangement), les procédures de levée de doute, la coordination avec les secours et les consignes d'exploitation adaptées au site.",
+  },
+];
+
 export default function FormationSSI() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Formation SSI", url: "/formation-ssi" },
+        ]}
+      />
+      <FaqJsonLd items={faqItemsSsi} />
       <CourseJsonLd
         name="Formation exploitation du SSI"
         description="Formation à l'exploitation du Système de Sécurité Incendie : normes NF S 61, cadres ERP, IGH, Code du Travail, ICPE. Pour exploitants et responsables techniques."

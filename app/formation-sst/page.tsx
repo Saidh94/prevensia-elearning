@@ -1,4 +1,6 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sst" },
@@ -14,6 +16,29 @@ export const metadata = {
     "organisme formation SST Qualiopi",
   ],
 };
+
+const faqItemsSst = [
+  {
+    question: "À qui s'adresse la formation SST ?",
+    answer:
+      "La formation SST s'adresse aux salariés, agents, techniciens et personnels d'entreprise souhaitant apprendre les gestes de premiers secours et contribuer à la prévention des risques professionnels.",
+  },
+  {
+    question: "Quelle différence entre SST initiale et MAC SST ?",
+    answer:
+      "La formation SST initiale (14h) permet d'acquérir les bases du secourisme au travail et d'obtenir le certificat SST INRS. Le MAC SST (7h) est le maintien et l'actualisation des compétences, à renouveler tous les 2 ans pour conserver la validité du certificat.",
+  },
+  {
+    question: "La formation SST est-elle obligatoire en entreprise ?",
+    answer:
+      "Selon l'activité et les risques, la présence de salariés SST peut être imposée par la réglementation ou fortement recommandée dans le cadre du DUERP. Le Code du travail (R.4224-15) impose la présence d'un secouriste dans tout atelier où sont effectués des travaux dangereux.",
+  },
+  {
+    question: "Le certificat SST est-il reconnu à l'échelle nationale ?",
+    answer:
+      "Oui. Le certificat SST est un titre national délivré par l'INRS et les CARSAT. Il est reconnu par toutes les entreprises et administrations françaises. Sa validité est de 2 ans, renouvelable par un MAC SST.",
+  },
+];
 
 const inrsSstResources = [
   {
@@ -37,6 +62,13 @@ const inrsSstResources = [
 export default function FormationSST() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Formation SST", url: "/formation-sst" },
+        ]}
+      />
+      <FaqJsonLd items={faqItemsSst} />
       <CourseJsonLd
         name="Formation SST – Sauveteur Secouriste du Travail"
         description="Formation SST initiale (14 h) et MAC SST (7 h) selon le programme INRS, en présentiel pour entreprises et professionnels."

@@ -1,4 +1,6 @@
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-securite-incendie" },
@@ -14,6 +16,29 @@ export const metadata = {
     "organisme formation incendie Qualiopi",
   ],
 };
+
+const faqItemsIncendie = [
+  {
+    question: "Mon entreprise est-elle obligée de former à la sécurité incendie ?",
+    answer:
+      "Oui. L'article R.4227-39 du Code du travail impose un exercice d'évacuation au moins tous les six mois. Plus largement, la formation à la manipulation des extincteurs et au rôle de guide-file / serre-file est attendue dans le cadre de l'évaluation des risques (DUERP).",
+  },
+  {
+    question: "Quelle est la différence entre guide-file, serre-file et EPI ?",
+    answer:
+      "Le guide-file ouvre la marche et conduit les occupants vers la sortie. Le serre-file ferme la marche, vérifie qu'aucun occupant n'est resté dans les locaux et referme les portes coupe-feu. L'équipier de première intervention (EPI) peut tenter d'éteindre un début d'incendie avec les moyens disponibles, dans un cadre maîtrisé.",
+  },
+  {
+    question: "Combien de salariés faut-il former à la sécurité incendie ?",
+    answer:
+      "La règle pratique : un guide-file et un serre-file par étage et par zone, avec une rotation pour couvrir absences et congés. Pour la manipulation des extincteurs, on vise au minimum 10 % des effectifs, à recycler tous les 2 à 3 ans.",
+  },
+  {
+    question: "Les sessions peuvent-elles être organisées directement sur notre site ?",
+    answer:
+      "Oui. Toutes nos formations incendie peuvent être organisées en intra-entreprise, avec adaptation aux consignes du site, à l'implantation des moyens de première intervention et aux risques spécifiques de l'activité (logistique, industrie, tertiaire, ICPE).",
+  },
+];
 
 const programmes = [
   {
@@ -60,6 +85,13 @@ const inrsIncendieResources = [
 export default function FormationSecuriteIncendie() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Sécurité incendie", url: "/formation-securite-incendie" },
+        ]}
+      />
+      <FaqJsonLd items={faqItemsIncendie} />
       <CourseJsonLd
         name="Formation sécurité incendie en entreprise"
         description="Formation sécurité incendie : manipulation extincteurs, guide-file, serre-file, équipier de première intervention. Sessions adaptées aux entreprises."
