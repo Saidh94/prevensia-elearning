@@ -44,7 +44,7 @@ const faqItems = [
   {
     question: "La formation e-learning remplace-t-elle la formation SSIAP1 officielle ?",
     answer:
-      "Non. La certification SSIAP1 officielle (200h + stage) délivrée par des organismes agréés reste obligatoire pour exercer la profession d'agent de sécurité incendie en ERP. Notre parcours e-learning constitue une sensibilisation théorique complémentaire, idéale pour les personnels ERP non spécialisés ou en préparation à la formation SSIAP1 certifiante.",
+      "Non. La certification SSIAP1 officielle exige une formation de 67 heures minimum (environ 10 à 12 jours ouvrés, 12 stagiaires maximum par session), dispensée par un organisme agréé CNPP. Elle comprend des apports théoriques, des exercices pratiques (désenfumage, gestes professionnels, mises en situation) et un examen final : QCM écrit, épreuve pratique d'identification d'anomalies et oral devant jury. Notre parcours e-learning constitue une sensibilisation théorique complémentaire, idéale pour les personnels ERP non spécialisés ou comme préparation à la partie théorique de la formation certifiante.",
   },
   {
     question: "Quelle est la réglementation applicable aux ERP en matière d'incendie ?",
@@ -575,6 +575,69 @@ export default function FormationSsiap1Page() {
                 <span className="text-sm text-slate-700">{obj}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certification officielle & recyclage */}
+      <section className="bg-red-50 border-y border-red-200 py-12">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-slate-900">
+            Formation certifiante SSIAP1 — ce que dit la réglementation
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Notre sensibilisation e-learning est distincte de la certification officielle SSIAP1.
+            Voici les éléments clés à connaître pour bien orienter votre projet de formation.
+          </p>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+            <div className="rounded-xl bg-white border border-red-200 p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-red-600 mb-3">Formation initiale SSIAP1</p>
+              <ul className="space-y-2 text-sm text-slate-700">
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span><strong>67 heures minimum</strong> (hors examen), soit environ 10 à 12 jours ouvrés</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span>Certains centres proposent jusqu&apos;à <strong>80 heures</strong> pour approfondir les modules techniques</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span>Maximum <strong>12 stagiaires</strong> par session</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span>Théorie + exercices pratiques + mises en situation professionnelle</span></li>
+              </ul>
+            </div>
+
+            <div className="rounded-xl bg-white border border-red-200 p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-red-600 mb-3">Examen de certification</p>
+              <ul className="space-y-2 text-sm text-slate-700">
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span><strong>Épreuve écrite</strong> : QCM sur les connaissances théoriques</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span><strong>Épreuve pratique</strong> : contrôle et identification d&apos;anomalies sur équipements réels</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span><strong>Oral devant jury</strong> : mise en situation professionnelle</span></li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><span>Délivré par un organisme habilité (CNPP, IFRAE…)</span></li>
+              </ul>
+            </div>
+
+            <div className="rounded-xl bg-white border border-orange-200 p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-3">Recyclage SSIAP1 — tous les 3 ans</p>
+              <ul className="space-y-2 text-sm text-slate-700">
+                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span><span><strong>14 heures obligatoires</strong> de recyclage tous les 3 ans pour maintenir la qualification</span></li>
+                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span><span>Remise à niveau sur les évolutions réglementaires et pratiques</span></li>
+                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span><span>Sans recyclage : la qualification SSIAP1 est suspendue</span></li>
+                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span><span>Le e-learning PREVENSIA peut préparer ce recyclage théorique</span></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="mt-6 rounded-xl bg-slate-900 text-white px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <p className="font-bold">Notre e-learning prépare la théorie — nous organisons aussi la pratique</p>
+              <p className="mt-1 text-sm text-slate-300">
+                Pour les établissements qui souhaitent préparer leurs agents à la certification officielle SSIAP1,
+                PREVENSIA propose un accompagnement complet : e-learning théorique + journée(s) pratiques encadrées.
+              </p>
+            </div>
+            <a
+              href="/demande-devis?type=ssiap1-certification"
+              className="shrink-0 rounded-lg border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors whitespace-nowrap"
+            >
+              En savoir plus →
+            </a>
           </div>
         </div>
       </section>

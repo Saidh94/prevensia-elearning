@@ -13,7 +13,7 @@ export const ssiap1ModuleContent: ModuleContent = {
   audience:
     "Agents de sécurité incendie souhaitant acquérir les bases théoriques du SSIAP1, personnel d'établissements recevant du public (ERP) : hôtels, centres commerciaux, établissements scolaires, hôpitaux, cinémas, salles de spectacle. Également adapté aux chargés de sécurité et responsables de site.",
   certificationNote:
-    "Ce parcours constitue une sensibilisation théorique aux bases du SSIAP1. La certification officielle SSIAP1 est délivrée à l'issue d'une formation habilitée par le CNPP incluant des exercices pratiques (utilisation d'extincteurs sur feu réel, exercices d'évacuation). Ce module prépare à la partie théorique et ne remplace pas la formation certifiante complète.",
+    "Ce parcours constitue une sensibilisation théorique aux bases du SSIAP1. La certification officielle SSIAP1 requiert une formation de 67 heures minimum (environ 10-12 jours) dispensée par un organisme agréé, comprenant théorie, exercices pratiques et un examen final (QCM + épreuve pratique + oral). Un recyclage de 14 heures est obligatoire tous les 3 ans. Ce module e-learning prépare efficacement la partie théorique et ne remplace pas la formation certifiante complète.",
   heroBadge: "Sécurité Incendie ERP",
   finalMessage:
     "La sécurité incendie est l'affaire de tous. Chaque salarié d'un ERP est un acteur de la prévention : connaître les consignes, identifier les sorties de secours, savoir utiliser un extincteur et déclencher l'alarme peuvent sauver des vies. La formation théorique doit être complétée par des exercices pratiques réguliers organisés par l'établissement.",
