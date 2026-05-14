@@ -26,8 +26,8 @@ const formations = [
     href: "/formation-habilitation-electrique",
     badge: "NF C 18-510",
     description: homepageElectricalSummary,
-    image: "/images/armoire-electrique.jpg",
-    imageClass: "object-cover object-[center_48%]",
+    image: "/elearning/commun/habilitation-electrique-accueil.png",
+    imageClass: "object-cover object-center",
   },
   {
     title: "Sécurité incendie",
@@ -35,8 +35,8 @@ const formations = [
     badge: "Extincteurs · EPI",
     description:
       "Manipulation extincteurs, guide-file / serre-file et équipier de première intervention.",
-    image: "/images/alarme-incendie.jpg",
-    imageClass: "object-cover object-[center_42%]",
+    image: "/elearning/commun/secu-incendie-accueil.png",
+    imageClass: "object-cover object-center",
   },
   {
     title: "Formation SSI",
@@ -44,8 +44,8 @@ const formations = [
     badge: "NF S 61",
     description:
       "Exploitation du SSI, logiques SDI / CMSI / UGA / DAS et conduite à tenir en cas d'alarme.",
-    image: "/images/image-ssi.jpg",
-    imageClass: "object-cover object-[center_30%]",
+    image: "/elearning/commun/ssi-accueil.png",
+    imageClass: "object-cover object-center",
   },
   {
     title: "Exploitation sprinkler",
@@ -53,8 +53,8 @@ const formations = [
     badge: "APSAD · NFPA · FM",
     description:
       "Formation sur l'exploitation des installations sprinkler et les principaux référentiels techniques.",
-    image: "/images/installation-spk.jpg",
-    imageClass: "object-cover object-[center_46%]",
+    image: "/elearning/commun/sprinkler-accueil.png",
+    imageClass: "object-cover object-center",
   },
   {
     title: "Formation SST",
@@ -62,8 +62,35 @@ const formations = [
     badge: "Secourisme",
     description:
       "SST initial et MAC SST pour les entreprises et les apprenants souhaitant se former aux premiers secours.",
-    image: "/images/sst.jpg",
-    imageClass: "object-cover object-[center_30%]",
+    image: "/elearning/commun/sst-accueil.png",
+    imageClass: "object-cover object-center",
+  },
+  {
+    title: "Formation ATEX",
+    href: "/formation-atex",
+    badge: "Directive 99/92/CE",
+    description:
+      "Prévention du risque d'explosion en zone ATEX : zonage, équipements certifiés Ex, EPI antistatiques et procédures de travail. Conforme directive 99/92/CE et arrêté du 8 juillet 2003.",
+    image: "/elearning/commun/atex-accueil.png",
+    imageClass: "object-cover object-center",
+  },
+  {
+    title: "Formation SSIAP1",
+    href: "/formation-ssiap1",
+    badge: "Sécurité incendie ERP",
+    description:
+      "Formation initiale SSIAP1 (67h) : mécanisme du feu, extincteurs, SSI, procédures d'évacuation ERP. Conforme arrêté du 25 juin 1980 et arrêté du 2 mai 2005.",
+    image: "/elearning/commun/ssiap1-accueil.png",
+    imageClass: "object-cover object-center",
+  },
+  {
+    title: "Recyclage SSIAP1",
+    href: "/formation-recyclage-ssiap1",
+    badge: "Recyclage obligatoire · 14h / 3 ans",
+    description:
+      "Remise à niveau SSIAP1 obligatoire tous les 3 ans (arrêté du 2 mai 2005). 14 heures hybrides : e-learning théorique + présentiel pratique. À partir de 190 € HT.",
+    image: "/elearning/commun/ssiap1-accueil.png",
+    imageClass: "object-cover object-center",
   },
 ];
 
@@ -233,7 +260,7 @@ export default function Home() {
         <span className="hidden h-3 w-px bg-white/20 sm:block" />
 
         <span className="text-xs font-semibold text-white/70">
-          Habilitation électrique · Incendie · SSI · SST
+          Habilitation électrique · ATEX · SSIAP1 · SSI · SST
         </span>
 
         <span className="hidden h-3 w-px bg-white/20 sm:block" />
@@ -253,7 +280,7 @@ export default function Home() {
     <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
       La sécurité, c’est une compétence qui se forme.
       <span className="mt-2 block text-red-400">
-        Habilitation électrique, incendie, SSI, sprinkler, SST.
+        Habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST.
       </span>
     </h1>
 

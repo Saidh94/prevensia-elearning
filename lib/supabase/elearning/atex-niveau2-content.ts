@@ -1,0 +1,361 @@
+import type { ModuleContent } from "./module-types";
+
+export const atexNiveau2ModuleContent: ModuleContent = {
+  title: "Formation ATEX Niveau 2 — Encadrant et Référent ATEX",
+  shortTitle: "ATEX Niv. 2",
+  subtitle:
+    "Parcours e-learning destiné au personnel encadrant, aux responsables sécurité et aux référents ATEX chargés de piloter la prévention, rédiger le DRPCE, sélectionner les équipements certifiés, organiser les interventions et superviser le personnel en zone classée.",
+  duration: "5 h à 6 h",
+  deliveryFormat: "E-learning autonome + classe virtuelle 2h",
+  level: "Avancé",
+  objective:
+    "Maîtriser les responsabilités légales de l'encadrant ATEX, rédiger et mettre à jour le DRPCE, délimiter les zones par une méthodologie rigoureuse, sélectionner et qualifier les équipements Ex, organiser les interventions et gérer les entreprises extérieures en zone classée, former et sensibiliser les équipes.",
+  audience:
+    "Encadrants et superviseurs (chefs de chantier, chefs d'équipe, chargés d'intervention), responsables HSE/QHSE, responsables techniques et de maintenance, référents sécurité ATEX, ingénieurs d'exploitation, tout professionnel ayant à piloter ou superviser des travaux en zone ATEX.",
+  certificationNote:
+    "Ce parcours constitue la composante théorique d'une habilitation ATEX Niveau 2, conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. À l'issue du e-learning, une classe virtuelle de 2 heures avec un formateur PREVENSIA valide les acquis sur des cas pratiques et permet de délivrer l'avis d'habilitation ATEX Niveau 2, valable 3 ans.",
+  heroBadge: "ATEX Niveau 2",
+  finalMessage:
+    "L'encadrant ATEX est le pivot de la prévention sur le site. Sans DRPCE à jour, sans plan de prévention adapté, sans suivi des équipements Ex et sans formation des équipes, toutes les mesures techniques deviennent inefficaces. La classe virtuelle de 2h vous permettra d'appliquer ces connaissances à des cas concrets issus de votre secteur d'activité.",
+  quizCtaLabel: "Passer au quiz ATEX Niveau 2",
+  sections: [
+    {
+      id: "consolidation-n0-n1",
+      title: "1. Consolidation Niveaux 0 et 1 — Bases essentielles pour l'encadrant",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-hexagone-explosion.svg",
+      chapterImageAlt: "Rappels Niveau 0 et 1 — mécanisme explosion, zones, marquages Ex",
+      intro:
+        "L'encadrant ATEX doit maîtriser tous les éléments des Niveaux 0 et 1 avant d'aborder son rôle spécifique. Ce chapitre effectue une consolidation rapide des points essentiels.",
+      content: [
+        "Rappels mécanisme d'explosion : 6 conditions simultanées (combustible, comburant, concentration dans domaine d'explosivité, mélange homogène, espace, source d'inflammation). Zones gaz : 0 (permanent), 1 (occasionnel), 2 (rare). Zones poussières : 20/21/22. LIE/LSE, CME, point d'éclair, TAI.",
+        "Rappels marquages Ex : groupe II (surface), catégories 1G/2G/3G (gaz) et 1D/2D/3D (poussières), modes de protection (d, e, ia, p, n, t), groupes de gaz IIA/IIB/IIC, classes de température T1→T6. Correspondance zone ↔ catégorie minimum requise.",
+        "Rappels obligations réglementaires clés : directive 99/92/CE (obligations employeur), directive 2014/34/UE (équipements), arrêté du 8 juillet 2003, articles R.4227-42 à R.4227-54 du Code du travail, DRPCE obligatoire. Seuil d'alerte explosimètre = 20 % LIE.",
+        "Ce que l'encadrant doit savoir de plus que l'intervenant : la méthodologie de classement des zones, la rédaction du DRPCE, la sélection et qualification des équipements, l'organisation des interventions, la gestion des entreprises extérieures, la responsabilité pénale.",
+      ],
+      keyPoints: [
+        "Maîtrise des 6 conditions d'explosion et du mécanisme physico-chimique.",
+        "Lecture complète d'un marquage Ex et correspondance catégorie ↔ zone.",
+        "Connaissance des textes réglementaires clés : directive 99/92/CE, arrêté 8 juillet 2003, R.4227-42 à 54.",
+        "DRPCE = document central de la maîtrise du risque ATEX sur le site.",
+      ],
+      legalRefs: [
+        "Directive 99/92/CE : prescriptions minimales pour la protection des travailleurs.",
+        "Arrêté du 8 juillet 2003 : obligations de l'employeur en matière de protection contre les explosions.",
+        "Code du travail - Art. R.4227-42 à R.4227-54 : dispositions spécifiques aux atmosphères explosives.",
+      ],
+    },
+    {
+      id: "responsabilites-legales-encadrant",
+      title: "2. Responsabilités légales de l'encadrant ATEX",
+      estimatedMinutes: 30,
+      chapterImagePath: "/elearning/atex/atex-domaine-ratex.svg",
+      chapterImageAlt: "Responsabilités de l'encadrant ATEX — obligations légales et chaîne de responsabilité",
+      intro:
+        "L'encadrant ATEX assume des responsabilités spécifiques en matière de prévention. En cas d'accident, sa responsabilité pénale peut être engagée s'il n'a pas rempli ses obligations. Ce chapitre clarifie le cadre légal.",
+      content: [
+        "L'employeur est le responsable ultime de la mise en œuvre de la prévention ATEX. Il doit : évaluer les risques d'explosion (Art. R.4227-43), classer et délimiter les zones ATEX (Art. R.4227-44), rédiger et maintenir le DRPCE (Art. R.4227-47), choisir des équipements conformes (Art. R.4321-1), former et informer les travailleurs (Art. R.4227-49), coordonner les entreprises extérieures (Art. R.4515-1 et suivants).",
+        "La délégation de responsabilité : l'employeur peut déléguer ses pouvoirs à un cadre ou responsable technique (délégation de pouvoirs), à condition que la délégation soit explicite, que le délégataire ait les compétences, l'autorité et les moyens nécessaires. L'encadrant désigné assume alors une responsabilité pénale propre en cas de manquement.",
+        "La responsabilité pénale de l'encadrant peut être engagée pour : blessures ou homicide involontaire par manquement à une obligation de sécurité (Art. 221-6 et 222-19 du Code pénal), mise en danger délibérée d'autrui (Art. 223-1 du Code pénal), infractions spécifiques au Code du travail.",
+        "Obligations spécifiques de l'encadrant au quotidien : s'assurer que les travailleurs sous sa responsabilité sont formés et habilités pour les zones ATEX dans lesquelles ils interviennent, vérifier la validité des autorisations de travail et permis de feu, contrôler le port des EPI et la conformité des équipements apportés en zone, signaler toute anomalie à l'employeur.",
+        "Documentation à tenir à jour : DRPCE (zones, équipements, procédures), registre des formations et habilitations ATEX des personnels (propres et sous-traitants), registre de vérification des équipements Ex, plans de prévention et protocoles de sécurité des entreprises extérieures.",
+      ],
+      deepDive: [
+        "Jurisprudence ATEX : plusieurs condamnations pénales d'encadrants ont été prononcées suite à des accidents ATEX pour défaut de formation du personnel, absence de DRPCE, utilisation d'équipements non certifiés ou absence de permis de feu. La démonstration que l'encadrant avait connaissance du risque et n'a pas pris les mesures nécessaires est suffisante pour engager la responsabilité.",
+        "Obligations vis-à-vis des prestataires et intérimaires : l'employeur de l'entreprise d'accueil a l'obligation de former et d'informer les travailleurs extérieurs sur les risques ATEX spécifiques au site, même si ces travailleurs sont employés par une entreprise prestataire. Cette obligation ne peut pas être transférée uniquement à l'entreprise prestataire.",
+        "Rôle de l'inspection du travail et de la DREAL : les agents de contrôle peuvent demander la communication du DRPCE, des registres de vérification des équipements Ex et des documents de formation. L'absence ou l'inadéquation de ces documents peut donner lieu à une mise en demeure ou à des poursuites pénales.",
+      ],
+      keyPoints: [
+        "Employeur = responsable ultime. Encadrant délégué = responsabilité pénale propre.",
+        "6 obligations clés : évaluer, classer, DRPCE, équipements, former, coordonner les extérieurs.",
+        "Responsabilité pénale possible : homicide/blessures involontaires (Code pénal Art. 221-6, 222-19).",
+        "Documentation obligatoire : DRPCE, registre formations/habilitations, registre vérifications équipements.",
+        "Travailleurs extérieurs et intérimaires = même niveau d'information/formation que le personnel interne.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-43 à R.4227-54 : obligations de l'employeur.",
+        "Code pénal - Art. 221-6 et 222-19 : homicide et blessures involontaires.",
+        "Code pénal - Art. 223-1 : mise en danger délibérée d'autrui.",
+        "Code du travail - Art. R.4515-1 et suivants : coordination avec les entreprises extérieures.",
+      ],
+    },
+    {
+      id: "evaluation-risques-methodologie",
+      title: "3. Évaluation des risques ATEX — Méthodologie",
+      estimatedMinutes: 35,
+      chapterImagePath: "/elearning/atex/atex-zones-classification.svg",
+      chapterImageAlt: "Méthodologie d'évaluation des risques ATEX — critères de classement selon l'INERIS",
+      intro:
+        "L'évaluation des risques d'explosion est la première étape obligatoire. Elle conditionne le classement des zones et le contenu du DRPCE. L'encadrant doit maîtriser la méthodologie de l'INERIS.",
+      content: [
+        "La démarche d'évaluation des risques ATEX se déroule en 4 étapes : (1) Identifier les substances inflammables utilisées, produites ou stockées sur le site (gaz, vapeurs, poussières). (2) Évaluer la probabilité de formation d'une atmosphère explosive (fréquence, durée, quantité libérée). (3) Classer les zones selon les critères des normes EN 60079-10-1 (gaz) et EN 60079-10-2 (poussières). (4) Définir les mesures de prévention et de protection adaptées à chaque zone.",
+        "Critères de classement des zones gaz (EN 60079-10-1) : les paramètres à prendre en compte sont la quantité de substance inflammable pouvant se libérer, le taux de ventilation disponible, la densité du gaz (plus léger ou plus lourd que l'air), la température du produit par rapport au point d'éclair, la pression du système (une fuite sous pression augmente la zone).",
+        "Critères spécifiques aux poussières (EN 60079-10-2) : taille des particules (< 500 µm), concentration minimale d'explosion (CME), nature de la poussière (conductrice ou non), probabilité de mise en suspension (manutention, nettoyage, dysfonctionnement), présence de couches de dépôts. Pour les poussières conductrices, utiliser des équipements de catégorie 1D même en zone 21.",
+        "La méthode INERIS (Guide Omega 36, octobre 2025) préconise de considérer les paramètres suivants pour la délimitation : les produits utilisés/émis, les conditions de stockage, la température et la pression du procédé, les réactions exothermiques, les conditions de refroidissement, les systèmes de ventilation, la détection de gaz. La description précise du fonctionnement des équipements (en fonctionnement normal ET en dysfonctionnement) est indispensable.",
+        "Pour les liquides inflammables : l'INERIS recommande de retrancher 15 °C au point d'éclair pour les produits complexes et mélanges, et 5 °C pour les produits purs bien documentés, pour tenir compte des incertitudes de mesure et des variations de composition.",
+      ],
+      deepDive: [
+        "Prise en compte des opérations de maintenance dans le classement : les zones ATEX sont classées pour le fonctionnement normal. Mais certaines opérations de maintenance génèrent des zones temporaires (ouverture de tuyauteries, purge de réservoirs). Ces zones temporaires doivent être identifiées dans le DRPCE (zonage en phase maintenance) et faire l'objet d'un permis de travail spécifique.",
+        "Réduction des zones par mesures organisationnelles : certaines mesures peuvent réduire l'étendue ou la catégorie d'une zone ATEX : amélioration de la ventilation (passage d'une zone 1 à une zone 2), mise sous pression d'atmosphères inertes (azote), confiner les sources d'émission. Ces mesures doivent être documentées dans le DRPCE et leur efficacité vérifiée régulièrement.",
+        "Recours à un expert : pour les sites complexes (ICPE, pétrochimie, pharmacie), l'évaluation des risques ATEX peut nécessiter l'intervention d'un organisme compétent (INERIS, bureau d'études spécialisé). L'employeur reste responsable de la démarche mais peut s'appuyer sur une expertise externe.",
+      ],
+      keyPoints: [
+        "4 étapes : identifier substances → évaluer probabilité → classer zones → définir mesures.",
+        "Critères de classement : quantité libérée, ventilation, densité gaz, température/point d'éclair, pression.",
+        "Poussières conductrices → catégorie 1D même en zone 21.",
+        "Zones temporaires de maintenance = à identifier dans le DRPCE.",
+        "Réduction des zones possible par ventilation, inertisation, confinement — à documenter.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-43 : évaluation des risques d'explosion.",
+        "Normes EN 60079-10-1 et EN 60079-10-2 : classification des zones ATEX.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 3 : démarche de classement des zones.",
+        "Arrêté du 8 juillet 2003 - Art. 2 : définition et classement des emplacements dangereux.",
+      ],
+    },
+    {
+      id: "redaction-drpce",
+      title: "4. Rédaction et mise à jour du DRPCE",
+      estimatedMinutes: 40,
+      chapterImagePath: "/elearning/atex/atex-domaine-explosivite.svg",
+      chapterImageAlt: "Structure du Document Relatif à la Protection Contre les Explosions (DRPCE)",
+      intro:
+        "Le DRPCE est le document central de la maîtrise du risque ATEX. Sa rédaction est obligatoire avant tout travail en zone ATEX. Sa mise à jour est continue. L'encadrant doit en être le garant.",
+      content: [
+        "Contenu obligatoire du DRPCE selon l'arrêté du 8 juillet 2003 : (1) Les résultats de l'évaluation des risques d'explosion. (2) La nature, la probabilité et la durée des atmosphères explosives potentielles. (3) La classification et l'étendue des zones ATEX (avec plans et schémas). (4) Les mesures de prévention et de protection mises en œuvre (techniques et organisationnelles). (5) La liste des équipements certifiés installés dans chaque zone avec leur catégorie. (6) Les mesures destinées à assurer la coopération entre employeurs dans le cas d'entreprises extérieures. (7) Les procédures de travail en zone ATEX.",
+        "Structure recommandée du DRPCE : Partie 1 — Identification du site et des responsables ATEX. Partie 2 — Inventaire des substances inflammables. Partie 3 — Plans de zonage ATEX (gaz et poussières). Partie 4 — Fiches par zone (classification, étendue, équipements Ex présents, mesures de prévention). Partie 5 — Procédures de travail (autorisation de travail, permis de feu). Partie 6 — Liste des équipements Ex avec vérifications périodiques. Partie 7 — Registre des formations et habilitations ATEX du personnel. Partie 8 — Plans de prévention des entreprises extérieures.",
+        "Mise à jour du DRPCE : le DRPCE doit être révisé lorsqu'une modification intervient : changement de procédé ou de produits inflammables, modification des installations, résultats d'un audit ou d'une inspection, suite à un accident ou un incident ATEX, lors de nouveaux travaux (intégration du zonage en phase maintenance), changement des entreprises sous-traitantes intervenant en zone ATEX.",
+        "Validité des équipements antérieurs à 2003 : les matériels électriques mis en service avant le 30 juin 2003, conformes à l'arrêté du 19 décembre 1988, ont pu bénéficier d'une présomption de conformité jusqu'au 30 juin 2006, à condition que le DRPCE les ait validés explicitement avant cette date. Si cette validation n'a pas été faite, ces équipements doivent être remplacés par du matériel certifié 2014/34/UE.",
+        "Accessibilité du DRPCE : le document doit être disponible sur le site et présenté à toute demande des agents de contrôle (inspection du travail, DREAL). Il doit être remis à chaque responsable d'entreprise extérieure intervenant en zone ATEX, au moins pour les parties le concernant (Partie 4 et Partie 5 correspondant aux zones de son intervention).",
+      ],
+      deepDive: [
+        "Plans de zonage : les plans doivent mentionner les zones avec leur classification (0, 1, 2, 20, 21, 22), leur étendue (distances), les équipements Ex présents, les accès et dégagements, les emplacements des détecteurs de gaz fixes, et les points de coupure d'urgence (vannes de barrage, coupures électriques). Ces plans doivent être mis à jour à chaque modification.",
+        "Fiche de zone type : chaque zone ATEX doit faire l'objet d'une fiche individuelle mentionnant : identifiant de zone, localisation (bâtiment, niveau), substance(s) inflammable(s) présente(s), catégorie de zone, étendue, catégorie minimale d'équipement requise, équipements Ex présents (référence, catégorie, mode de protection, date dernière vérification), mesures de prévention spécifiques, procédures d'accès.",
+        "Lien DRPCE et Document Unique d'Évaluation des Risques (DUER) : le DRPCE est un document spécifique au risque ATEX qui complète le DUER. Les deux documents doivent être cohérents. Le DUER fait référence au DRPCE pour les risques d'explosion. Les mises à jour doivent être synchronisées.",
+      ],
+      keyPoints: [
+        "DRPCE obligatoire AVANT le début des travaux en zone ATEX. Document vivant à maintenir à jour.",
+        "8 parties essentielles : identification, inventaire substances, plans zonage, fiches zones, procédures, liste équipements Ex, registre formations, plans de prévention extérieurs.",
+        "Révision obligatoire : modification procédé, nouvel équipement, accident, nouveaux sous-traitants.",
+        "Équipements antérieurs à 2003 : valides uniquement si DRPCE les a validés avant le 1er juillet 2006.",
+        "DRPCE à remettre aux entreprises extérieures pour les zones de leur intervention.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-47 : obligation d'établir le DRPCE.",
+        "Arrêté du 8 juillet 2003 - Art. 6 : contenu du DRPCE.",
+        "Arrêté du 28 juillet 2003 : installations électriques — devenir des matériels existants.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 6 : DRPCE et responsabilités.",
+      ],
+    },
+    {
+      id: "selection-qualification-equipements",
+      title: "5. Sélection et qualification des équipements Ex",
+      estimatedMinutes: 35,
+      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
+      chapterImageAlt: "Sélection des équipements Ex — tableau catégories, modes de protection et documentation",
+      intro:
+        "L'encadrant est responsable du choix des équipements installés et utilisés en zone ATEX. Ce choix doit être documenté et justifié dans le DRPCE. Une erreur de sélection peut rendre l'équipement inutilisable en zone et créer une source d'inflammation.",
+      content: [
+        "Processus de sélection des équipements Ex : (1) Identifier la zone dans laquelle l'équipement sera installé (0, 1, 2 ou 20, 21, 22). (2) Identifier la substance inflammable et son groupe (IIA, IIB, IIC pour les gaz ; catégorie de poussière). (3) Identifier la température d'auto-inflammation (TAI) pour choisir la classe de température. (4) Choisir la catégorie d'équipement correspondante (voir tableau correspondance). (5) Vérifier que le mode de protection est adapté à l'environnement (Ex d = protection robuste, Ex ia = circuits de mesure, Ex e = boîtes à bornes).",
+        "Documentation obligatoire à exiger du fournisseur : déclaration UE de conformité (attestant la conformité à la directive 2014/34/UE), notice d'instructions dans la langue du pays d'utilisation, certificat d'examen de type (pour catégories 1 et 2). Sans ces documents, le matériel ne peut pas être mis en service en zone ATEX.",
+        "Avant l'achat d'un équipement ATEX, l'INERIS recommande de vérifier auprès du fabricant : le marquage CE + Ex, la catégorie de matériel, le groupe de gaz et/ou poussières, la classe de température (TMS), les contraintes d'exploitation et de maintenance (plan de maintenance préventive, fréquence de vérification des sondes thermiques, remplacement des roulements...).",
+        "Cas particulier des matériels anciens : avant la mise en service de tout matériel présent sur site dont l'origine et la certification ne sont pas claires, il faut : vérifier le marquage (présence ou absence du marquage Ex), consulter le DRPCE pour voir s'ils y sont référencés, contacter le fabricant ou un organisme compétent si doute. En l'absence de justification, le matériel ne doit pas être utilisé en zone ATEX.",
+        "Équipements non électriques : les équipements non électriques (vannes, pompes, accouplement...) sont également soumis à la directive 2014/34/UE s'ils peuvent constituer une source d'inflammation (frottement, étincelles mécaniques, surfaces chaudes). Vérifier la certification et le mode de protection (Ex c = construction de sécurité, Ex fr = résistance au feu, Ex k = immersion dans le liquide).",
+      ],
+      deepDive: [
+        "Autocertification pour catégorie 3 : la directive 2014/34/UE autorise les fabricants à procéder eux-mêmes à l'évaluation de conformité pour les équipements de catégorie 3 (zone 2/22) et les équipements non électriques de catégorie 2. Cela signifie qu'aucun organisme notifié indépendant n'a vérifié la conformité — l'utilisateur doit faire preuve de vigilance accrue et exiger une documentation technique complète.",
+        "Maintenance et remplacement de pièces : les pièces de rechange doivent être des pièces d'origine du fabricant ou des pièces certifiées équivalentes. L'utilisation de pièces non certifiées (notamment les joints d'étanchéité, les câble-passages, les vis de fermeture d'enveloppe antidéflagrante) invalide la certification de l'équipement. L'encadrant doit s'assurer que les procédures de maintenance et d'approvisionnement des pièces sont conformes.",
+        "Registre des équipements Ex : l'encadrant doit tenir un registre de tous les équipements Ex présents sur le site avec : référence et numéro de série, catégorie et mode de protection, zone d'installation, date de mise en service, date et résultat des dernières vérifications, travaux de maintenance effectués. Ce registre fait partie intégrante du DRPCE.",
+      ],
+      keyPoints: [
+        "Sélection équipement Ex : zone → groupe gaz/poussière → TAI → catégorie → mode de protection.",
+        "Documents obligatoires fournisseur : déclaration UE conformité + notice + certificat examen de type.",
+        "Autocertification catégorie 3 = vigilance accrue, exiger la documentation technique complète.",
+        "Pièces de rechange = pièces d'origine ou équivalentes certifiées uniquement.",
+        "Tenir un registre des équipements Ex (référence, catégorie, zone, vérifications, maintenance).",
+      ],
+      legalRefs: [
+        "Directive 2014/34/UE : exigences pour la mise sur le marché des appareils ATEX.",
+        "Code du travail - Art. R.4321-1 : responsabilité de l'employeur pour le choix des équipements.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5.1 et 5.2 : sélection et installation.",
+        "Norme EN 60079-17 : vérification et maintenance des installations en zone ATEX.",
+      ],
+    },
+    {
+      id: "organisation-interventions",
+      title: "6. Organisation des interventions en zone ATEX",
+      estimatedMinutes: 30,
+      chapterImagePath: "/elearning/atex/atex-signalisation.svg",
+      chapterImageAlt: "Procédure d'organisation d'une intervention en zone ATEX — autorisation, vérifications, surveillance",
+      intro:
+        "L'encadrant est responsable de l'organisation des interventions en zone ATEX. Il délivre (ou valide) les autorisations de travail, supervise les mesures de prévention et s'assure que toutes les conditions sont réunies avant de laisser les intervenants pénétrer en zone classée.",
+      content: [
+        "Avant toute intervention en zone ATEX, l'encadrant doit : vérifier que les intervenants (propres et extérieurs) sont formés et habilités pour la zone concernée, s'assurer que l'équipement et les outils apportés sont certifiés Ex pour la catégorie de zone, vérifier la disponibilité et l'étalonnage des explosimètres, préparer et signer l'autorisation de travail ou le permis de feu, informer les intervenants des risques spécifiques et des procédures d'urgence.",
+        "L'autorisation de travail (AT) délivrée par l'encadrant doit préciser : le type d'intervention (maintenance, travaux neufs, dépannage), la zone ATEX concernée (classification, étendue), les conditions de travail autorisées (présence ou absence d'ATEX au moment de l'intervention), les mesures de prévention imposées (consignation, ventilation, détection continue), les équipements et EPI à utiliser, la durée de validité de l'AT.",
+        "Gestion des travaux par points chauds : avant de délivrer un permis de feu, l'encadrant doit s'assurer que l'ATEX a été supprimée dans la zone de travail ET dans un rayon de 10 m, que la surveillance de l'atmosphère est organisée (qui surveille, avec quel appareil, à quelle fréquence), que les moyens d'extinction sont disponibles à proximité, et que la procédure d'urgence est connue de tous.",
+        "Surveillance pendant les travaux : l'encadrant ne peut pas être présent en permanence sur le chantier. Il doit désigner un surveillant qualifié pour les travaux à risques élevés (travaux par points chauds en zone 1, interventions de maintenance générant une ATEX). Le surveillant doit être formé ATEX Niveau 1 minimum.",
+        "Clôture de l'intervention : à la fin des travaux, l'encadrant doit : s'assurer que la zone a été laissée en bon état (pas de déchets, dépôts de poussières nettoyés), vérifier que les équipements modifiés ont été remis en état de marche correct, mettre à jour le DRPCE si nécessaire, consigner l'intervention dans le registre.",
+      ],
+      keyPoints: [
+        "Vérifier formations/habilitations des intervenants avant toute AT — propres ET extérieurs.",
+        "AT ou permis de feu = document écrit signé par l'encadrant, à garder pendant toute l'intervention.",
+        "Permis de feu : ATEX supprimée dans zone de travail + 10 m, surveillance continue, extincteurs à portée.",
+        "Désigner un surveillant qualifié (N1 minimum) pour les travaux à risques élevés.",
+        "Clôture = état des lieux + mise à jour DRPCE si modification + consignation registre.",
+      ],
+      legalRefs: [
+        "Arrêté du 8 juillet 2003 - Art. 9 et 11 : mesures organisationnelles.",
+        "Code du travail - Art. R.4512-1 et suivants : plan de prévention.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4 : travaux et entreprises extérieures.",
+      ],
+    },
+    {
+      id: "gestion-entreprises-exterieures",
+      title: "7. Gestion des entreprises extérieures en zone ATEX",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-prevention-3axes.svg",
+      chapterImageAlt: "Obligations vis-à-vis des entreprises extérieures en zone ATEX — plan de prévention et protocole",
+      intro:
+        "Les accidents ATEX impliquant des sous-traitants sont fréquents. L'entreprise d'accueil reste co-responsable de la sécurité des personnels extérieurs intervenant sur son site. Ce chapitre détaille les obligations légales et les bonnes pratiques.",
+      content: [
+        "Le plan de prévention (Art. R.4512-6 du Code du travail) est obligatoire lorsque des travaux sont réalisés par une entreprise extérieure dans l'établissement de l'entreprise d'accueil. Il doit identifier l'ensemble des risques (dont les risques ATEX), définir les mesures de prévention coordonnées, et être signé par les deux entreprises avant le début des travaux.",
+        "Le protocole de sécurité (Art. R.4515-8 du Code du travail) est obligatoire pour les opérations de chargement et déchargement. Si des zones ATEX sont impliquées, l'entreprise d'accueil doit informer le transporteur/prestataire des zones classées et des règles à respecter (équipements Ex, EPI, procédures).",
+        "Obligations de l'entreprise d'accueil vis-à-vis des extérieurs : fournir les informations sur les zones ATEX et les risques du site (extraits du DRPCE pertinents), donner une information/formation sur les risques spécifiques du site avant toute intervention, s'assurer que les équipements et outils apportés par le prestataire sont certifiés Ex pour les zones concernées, vérifier les habilitations ATEX du personnel extérieur, intégrer le prestataire dans les procédures d'urgence.",
+        "Information préalable des prestataires : avant toute intervention en zone ATEX, l'entreprise d'accueil doit organiser une réunion de coordination (ou délivrer un document écrit équivalent) où elle communique : le plan de zonage ATEX, les procédures d'autorisation de travail et permis de feu applicables, les équipements Ex exigés dans les zones concernées, les procédures d'urgence (alarme, évacuation, points de rassemblement).",
+        "Suivi pendant les travaux : l'encadrant de l'entreprise d'accueil doit s'assurer régulièrement que le prestataire respecte les consignes transmises. En cas de non-conformité constatée (équipement non certifié Ex, EPI inadaptés, absence d'explosimètre), il doit faire cesser les travaux immédiatement et notifier le non-respect au responsable de l'entreprise extérieure.",
+      ],
+      deepDive: [
+        "Travailleurs intérimaires : les travailleurs intérimaires mis à disposition d'une entreprise utilisatrice sont soumis aux mêmes obligations de formation ATEX que le personnel de l'entreprise utilisatrice. L'entreprise utilisatrice ne peut pas se décharger sur l'entreprise de travail temporaire pour la formation aux risques spécifiques du site. Elle doit organiser elle-même cette formation avant la mise au travail.",
+        "Cas du transport de matières dangereuses en zone ATEX : la directive TMD (transposée par l'arrêté du 29 mai 2009) impose la désignation d'un conseiller à la sécurité pour les entreprises dont l'activité comporte le transport terrestre de marchandises dangereuses. Cette obligation s'applique même à des opérations de livraison dans une zone ATEX.",
+        "Réception des travaux en zone ATEX : à la fin d'une intervention par une entreprise extérieure, l'encadrant de l'entreprise d'accueil doit réceptionner les travaux. Cette réception inclut : vérification que la zone a été laissée en état correct, contrôle que les équipements Ex modifiés ou remplacés sont conformes, mise à jour du DRPCE si nécessaire.",
+      ],
+      keyPoints: [
+        "Plan de prévention obligatoire pour tout travail d'entreprise extérieure impliquant des zones ATEX.",
+        "Informer AVANT l'intervention : plan de zonage, procédures AT/permis feu, équipements Ex requis, urgences.",
+        "Vérifier les habilitations ATEX du personnel extérieur avant d'autoriser l'accès en zone.",
+        "Non-conformité constatée = arrêt immédiat des travaux, notification écrite.",
+        "Travailleurs intérimaires = même formation aux risques spécifiques du site que le personnel interne.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4512-6 : plan de prévention.",
+        "Code du travail - Art. R.4515-8 et R.4515-10 : protocole de sécurité.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.2 : entreprises extérieures.",
+        "Arrêté du 29 mai 2009 : transport terrestre de marchandises dangereuses (TMD).",
+      ],
+    },
+    {
+      id: "detection-gaz-systemes",
+      title: "8. Systèmes de détection fixe — Choix, installation et maintenance",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-sources-inflammation.svg",
+      chapterImageAlt: "Systèmes de détection de gaz fixes — technologies, implantation et seuils d'alarme",
+      intro:
+        "Les systèmes de détection de gaz fixes sont une mesure de protection technique clé en zone ATEX. L'encadrant doit connaître les technologies disponibles, leurs limites et les exigences de maintenance.",
+      content: [
+        "Technologies de détection disponibles : catalytique (catharométrie) — le plus courant, économique, mais inefficace en atmosphère appauvrie en O₂ (< 10 %) et sensible aux poisons catalytiques (silicones, composés soufrés). Infrarouge (IR) — non sensible à l'appauvrissement en O₂, adapté aux hydrocarbures, mais plus coûteux. Photoionisation (PID) — pour les solvants et composés organiques volatils. Électrochimique — pour les gaz toxiques (H₂S, CO). Choisir la technologie en fonction des gaz présents sur le site.",
+        "Implantation des détecteurs : les détecteurs doivent être positionnés aux points d'accumulation probable (points bas pour les gaz lourds, points hauts pour les gaz légers), à proximité des sources potentielles de fuite (brides de tuyauteries, joints de pompes, soupapes), dans les zones confinées à risque, et à l'extérieur des locaux à risque avec circulation d'air contrainte. L'INERIS recommande de modéliser la dispersion des gaz pour optimiser l'implantation.",
+        "Seuils d'alarme : Premier seuil = 10 % de la LIE → alarme sonore et lumineuse, mise en garde. Deuxième seuil = 25 à 50 % de la LIE (selon le site) → alarme évacuation, coupure automatique des équipements non Ex. Ces seuils doivent être déterminés dans le cadre de l'évaluation des risques et documentés dans le DRPCE.",
+        "Étalonnage et vérification : les détecteurs fixes doivent être vérifiés et étalonnés selon la périodicité définie par le fabricant (généralement 6 mois). L'étalonnage doit être réalisé avec le gaz présent sur le site (ou un gaz étalon approprié). Un registre de maintenance doit être tenu. Les détecteurs défaillants ou en maintenance ne doivent pas laisser de zone non surveillée sans mesure compensatoire.",
+        "Détecteurs portables : en complément des détecteurs fixes, les intervenants doivent porter des détecteurs portables certifiés Ex lors de toute intervention en zone ATEX. L'étalonnage avec le bon gaz est critique (voir Niveau 1 - chapitre 5). Les détecteurs portables doivent faire l'objet d'une vérification avant chaque utilisation.",
+      ],
+      keyPoints: [
+        "Choisir la technologie de détection selon les gaz présents : catalytique (standard), IR (atmosphère pauvre en O₂), PID (solvants).",
+        "Implantation : points bas (gaz lourds) + points hauts (gaz légers) + sources de fuite.",
+        "Seuils : 10 % LIE = alarme 1, 25-50 % LIE = alarme évacuation + coupure équipements non Ex.",
+        "Étalonnage périodique avec le bon gaz étalon — registre obligatoire.",
+        "Détecteur en maintenance = mesure compensatoire obligatoire (détecteur portable, surveillance renforcée).",
+      ],
+      legalRefs: [
+        "Arrêté du 8 juillet 2003 - Art. 8 : mesures de détection et d'alarme.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.3 : détection de la LIE.",
+        "INRS ED 116 : appareils de détection des gaz et vapeurs inflammables.",
+        "Norme EN 60079-29-1 : exigences pour les détecteurs de gaz combustibles.",
+      ],
+    },
+    {
+      id: "formation-sensibilisation-equipes",
+      title: "9. Former et sensibiliser les équipes",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-objectifs.svg",
+      chapterImageAlt: "Programme de formation ATEX par niveau — public cible et objectifs pédagogiques",
+      intro:
+        "L'encadrant est responsable du maintien des compétences ATEX de ses équipes. Il doit organiser les formations initiales, suivre les recyclages, et s'assurer que tout nouveau personnel (propre ou intérimaire) est formé avant d'intervenir en zone classée.",
+      content: [
+        "Cartographie des besoins de formation : l'encadrant doit identifier pour chaque poste : la ou les zones ATEX fréquentées, les tâches réalisées (circulation sans intervention, travaux sur équipements, supervision), le niveau de formation ATEX requis (0, 1 ou 2). Cette cartographie doit être mise à jour à chaque changement de poste, d'organisation ou de zone.",
+        "Niveau 0 (sensibilisation) : tout personnel susceptible de circuler ou travailler en zone ATEX, même sans intervention sur les équipements. Personnel d'entretien général, visiteurs réguliers, personnel administratif visitant les zones. Formation : e-learning 3h + attestation.",
+        "Niveau 1 (intervenant) : tout personnel réalisant des travaux, de la maintenance ou des dépannages en zone ATEX (travaux modifiant l'environnement). Formation : e-learning 4-5h + entretien 30 min + avis d'habilitation ATEX N1 valable 3 ans.",
+        "Niveau 2 (encadrant) : personnel encadrant, responsables sécurité, référents ATEX. Formation : e-learning 5-6h + classe virtuelle 2h + avis d'habilitation ATEX N2 valable 3 ans.",
+        "Recyclage : les habilitations ATEX N1 et N2 sont valables 3 ans. L'encadrant doit mettre en place un système de suivi des dates d'expiration (registre des habilitations) et anticiper les recyclages. Un recyclage doit également être organisé en cas de changement important dans les zones ou les procédés (nouveaux produits, nouvelles zones, modification des équipements).",
+      ],
+      keyPoints: [
+        "Cartographier les besoins : poste → zones fréquentées → tâches → niveau formation requis.",
+        "N0 = circulation sans intervention. N1 = travaux sur équipements. N2 = encadrement/référent.",
+        "Recyclage N1 et N2 : tous les 3 ans. Anticiper avec un registre des habilitations.",
+        "Tout nouveau personnel (y compris intérimaires) = formation avant premier accès en zone.",
+        "Recyclage également requis après changement majeur : nouveaux produits, nouvelles zones, nouvelles procédures.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-49 : obligation de formation initiale et recyclage.",
+        "Code du travail - Art. L6353-1 : obligation de délivrer une attestation de fin de formation.",
+        "Arrêté du 8 juillet 2003 : formation du personnel comme mesure organisationnelle obligatoire.",
+      ],
+    },
+    {
+      id: "retour-experience-accidents",
+      title: "10. Retour d'expérience — Accidents ATEX réels et enseignements",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-processus-accident.svg",
+      chapterImageAlt: "Analyse d'accidents ATEX réels — facteurs contributifs et mesures correctives",
+      intro:
+        "L'analyse des accidents ATEX survenus dans l'industrie est un outil pédagogique puissant. Elle permet de comprendre les mécanismes de défaillance et d'identifier les mesures qui auraient pu éviter l'accident.",
+      content: [
+        "Statistiques accidentelles ATEX en France (source INRS) : les accidents liés aux ATEX surviennent principalement en usine/atelier (43 accidents du travail recensés), lors d'opérations de maintenance ou de réparation (17 AT), et sur chantiers de construction (15 AT). Les secteurs les plus touchés sont la chimie/pétrochimie, l'agroalimentaire (silos, moulins), les stations-service et dépôts de carburant, et la métallurgie.",
+        "Cas type 1 — Explosion lors d'une intervention de maintenance : un technicien réalise une opération de soudage sur une tuyauterie en zone 1 avec un permis de feu. La purge de la tuyauterie n'avait pas été effectuée correctement. Résidu inflammable → inflammation lors du démarrage du poste de soudage → explosion. Enseignement : la consignation des fluides et la vérification de la purgation sont des étapes non négociables avant tout permis de feu.",
+        "Cas type 2 — Explosion dans un silo agroalimentaire : nettoyage à l'air comprimé d'un silo de farine sans mesures de prévention. Le jet d'air a mis en suspension la farine accumulée en couche sur les parois. Un équipement électrique non certifié ATEX (lampe ordinaire) dans le silo a constitué la source d'inflammation. Enseignement : les poussières organiques (farine, sucre, bois) sont des ATEX à risque élevé souvent sous-estimé.",
+        "Cas type 3 — Incendie/explosion lors d'une opération de déchargement : un livreur pénètre dans une zone ATEX avec un véhicule non certifié Ex. Le moteur thermique constitue une source d'inflammation multiple. Résultat : inflammation des vapeurs de solvant lors du déchargement. Enseignement : les véhicules non Ex sont interdits en zone ATEX et le protocole de sécurité (R.4515-8) doit être appliqué pour toute opération de livraison.",
+        "Facteurs communs aux accidents ATEX : absence de formation des intervenants, DRPCE absent ou non consulté, autorisation de travail ou permis de feu non délivré, utilisation d'équipements non certifiés Ex, absence de détection ou détecteur mal étalonné, communication insuffisante entre entreprise d'accueil et sous-traitant.",
+      ],
+      deepDive: [
+        "Base de données ARIA (Analyse, Recherche et Information sur les Accidents) du BARPI : recense les accidents industriels en France incluant les accidents ATEX. Consultable en ligne pour les encadrants et responsables HSE cherchant des cas concrets pour alimenter leurs analyses de risques.",
+        "Méthode d'analyse des accidents ATEX : utiliser la méthode de l'arbre des causes pour identifier les causes immédiates (la source d'inflammation, la présence d'ATEX), les causes intermédiaires (absence de permis de feu, équipement non certifié), et les causes racines (manque de formation, DRPCE non maintenu, culture sécurité insuffisante). C'est sur les causes racines que les actions correctives sont les plus efficaces.",
+      ],
+      keyPoints: [
+        "Secteurs les plus touchés : chimie, agroalimentaire (silos), stations-service, métallurgie.",
+        "Poussières organiques (farine, sucre, bois) = ATEX à risque élevé souvent sous-estimé.",
+        "Facteurs communs : absence formation, DRPCE non consulté, AT/permis feu absent, équipements non Ex.",
+        "Base ARIA (BARPI) = outil de REX pour les encadrants et responsables HSE.",
+        "Analyse des accidents = chercher les causes racines, pas seulement les causes immédiates.",
+      ],
+      legalRefs: [
+        "INRS ED 335 : prévention des risques d'explosion — bilan et statistiques.",
+        "Base de données ARIA (BARPI) : accidents industriels incluant les accidents ATEX.",
+        "Guide INERIS Omega 36 (octobre 2025) : retours d'expérience et bonnes pratiques.",
+      ],
+    },
+    {
+      id: "synthese-classe-virtuelle",
+      title: "11. Synthèse et préparation à la classe virtuelle",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
+      chapterImageAlt: "Synthèse ATEX Niveau 2 — responsabilités encadrant, DRPCE, gestion équipes et urgences",
+      intro:
+        "Ce chapitre final prépare l'encadrant à la classe virtuelle de 2 heures avec le formateur PREVENSIA. Il synthétise les points essentiels et présente les cas pratiques qui seront traités lors de la session.",
+      content: [
+        "Les 8 responsabilités clés de l'encadrant ATEX : (1) Maintenir le DRPCE à jour et accessible. (2) Cartographier les zones ATEX et les communiquer à tous les intervenants. (3) Vérifier les habilitations ATEX de tout personnel avant accès en zone. (4) Délivrer les autorisations de travail et permis de feu. (5) Sélectionner et faire qualifier les équipements Ex. (6) Organiser les formations initiales et les recyclages (3 ans). (7) Intégrer les entreprises extérieures dans les procédures ATEX. (8) Analyser les incidents et mettre à jour les mesures de prévention.",
+        "Préparation à la classe virtuelle : la session de 2 heures avec votre formateur PREVENSIA abordera : un cas pratique de rédaction d'une fiche de zone ATEX (à partir d'un plan de site fourni), un exercice de sélection d'équipements Ex pour différents scénarios, une simulation d'organisation d'une intervention de maintenance en zone ATEX, et les questions spécifiques à votre contexte professionnel.",
+        "L'avis d'habilitation ATEX Niveau 2 qui vous sera remis à l'issue de la classe virtuelle atteste que vous possédez les compétences d'encadrement en zone ATEX. Il est valable 3 ans. Il ne remplace pas la certification ISM-ATEX délivrée par l'INERIS (niveau expert/concepteur), mais couvre pleinement les besoins d'un encadrant de terrain.",
+      ],
+      keyPoints: [
+        "8 responsabilités clés de l'encadrant ATEX — liste de contrôle à appliquer quotidiennement.",
+        "Classe virtuelle 2h : fiche de zone, sélection équipements Ex, simulation intervention maintenance.",
+        "Avis d'habilitation ATEX N2 = valable 3 ans. Différent de la certification ISM-ATEX INERIS (niveau expert).",
+        "Recyclage tous les 3 ans — ou après changement majeur sur le site.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-49 : formation obligatoire et recyclage.",
+        "Arrêté du 8 juillet 2003 : obligations générales de l'employeur.",
+        "Directive 99/92/CE : prescriptions minimales pour la protection des travailleurs.",
+      ],
+    },
+  ],
+};

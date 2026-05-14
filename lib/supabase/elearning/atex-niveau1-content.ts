@@ -1,0 +1,342 @@
+import type { ModuleContent } from "./module-types";
+
+export const atexNiveau1ModuleContent: ModuleContent = {
+  title: "Formation ATEX Niveau 1 — Intervenant en zone ATEX",
+  shortTitle: "ATEX Niv. 1",
+  subtitle:
+    "Parcours e-learning approfondi destiné au personnel intervenant directement sur des appareils ou installations situés en zone ATEX : techniciens de maintenance, électriciens, monteurs, instrumentistes, sous-traitants effectuant des travaux en zone classée.",
+  duration: "4 h à 5 h",
+  deliveryFormat: "E-learning autonome + entretien de validation 30 min",
+  level: "Intermédiaire",
+  objective:
+    "Maîtriser les règles d'intervention en zone ATEX : lire un marquage Ex complet, sélectionner l'équipement adapté à la zone, utiliser correctement l'explosimètre, appliquer les procédures d'autorisation de travail et permis de feu, utiliser les EPI antistatiques et réagir face à une anomalie ou un incident.",
+  audience:
+    "Personnel effectuant des travaux, de la maintenance ou des dépannages en zone ATEX : techniciens de maintenance industrielle, électriciens, instrumentistes, monteurs, chaudronniers, agents de nettoyage industriel, sous-traitants amenés à intervenir sur des équipements ou installations en zone classée.",
+  certificationNote:
+    "Ce parcours constitue la composante théorique d'une habilitation ATEX Niveau 1, conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. À l'issue du e-learning, un entretien de 30 minutes avec un formateur PREVENSIA valide les acquis et permet de délivrer l'avis d'habilitation ATEX Niveau 1, valable 3 ans. La formation pratique terrain et la prise en compte des spécificités du site restent de la responsabilité de l'employeur.",
+  heroBadge: "ATEX Niveau 1",
+  finalMessage:
+    "En zone ATEX, intervenir sans les bons équipements, sans autorisation de travail ou sans vérification préalable de l'atmosphère expose l'intervenant et ses collègues à un risque mortel. Chaque étape — vérification de l'explosimètre, port des EPI antistatiques, respect du permis de feu — est un maillon de la chaîne de prévention. L'entretien avec votre formateur PREVENSIA vous permettra de valider ces acquis appliqués à votre contexte réel.",
+  quizCtaLabel: "Passer au quiz ATEX Niveau 1",
+  sections: [
+    {
+      id: "rappels-approfondissement",
+      title: "1. Rappels et approfondissement — Le mécanisme de l'explosion",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-hexagone-explosion.svg",
+      chapterImageAlt: "Hexagone des 6 conditions simultanées d'une explosion ATEX",
+      intro:
+        "Avant d'intervenir en zone ATEX, il est indispensable de maîtriser parfaitement le mécanisme d'une explosion. Ce chapitre consolide les acquis du Niveau 0 et approfondit les paramètres physico-chimiques essentiels pour un intervenant.",
+      content: [
+        "Une explosion ATEX nécessite la réunion simultanée de 6 conditions : une substance combustible (gaz, vapeur, brouillard ou poussière), un comburant (l'oxygène de l'air), une concentration dans le domaine d'explosivité (entre LIE et LSE), un mélange homogène, un confinement ou un espace suffisant, et une source d'inflammation. Supprimer l'une de ces conditions suffit à éviter l'explosion.",
+        "La Limite Inférieure d'Explosivité (LIE) et la Limite Supérieure d'Explosivité (LSE) définissent le domaine d'explosivité d'un gaz. Exemple : le méthane a une LIE de 5 % et une LSE de 15 % dans l'air. En dehors de ce domaine, pas d'explosion. Pour les interventions, le seuil d'alerte est fixé à 20 % de la LIE par les bonnes pratiques (circulaire du 9 mai 1985).",
+        "Pour les poussières, la Concentration Minimale d'Explosion (CME) joue le rôle de LIE. Une couche de poussières de quelques millimètres d'épaisseur mise en suspension peut générer une ATEX. Les poussières de diamètre supérieur à 0,5 mm (500 µm) ne peuvent généralement pas former d'ATEX, mais ce critère est à vérifier selon la nature et le contexte.",
+        "Le point d'éclair d'un liquide est la température minimale à laquelle il émet suffisamment de vapeurs pour former un mélange inflammable. Pour les calculs de sécurité, l'INERIS recommande de retrancher 15 °C au point d'éclair pour les produits complexes et mélanges, et 5 °C pour les produits purs bien documentés.",
+        "La température d'auto-inflammation (TAI) est la température à laquelle un mélange s'enflamme spontanément sans source d'inflammation externe. Elle est critique pour le choix des équipements Ex (classes de température T1 à T6). Un équipement doit avoir une température maximale de surface inférieure à la TAI du mélange dans lequel il peut être utilisé.",
+      ],
+      deepDive: [
+        "Groupes de gaz selon leur sensibilité à l'inflammation : IIA (propane, butane — les moins dangereux), IIB (éthylène, gaz de ville), IIC (hydrogène, acétylène — les plus dangereux, LIE très basse). Un équipement certifié IIC peut être utilisé pour les groupes IIA et IIB, mais pas l'inverse.",
+        "Classes de température Ex : T1 (450 °C max) → T6 (85 °C max). Plus le numéro est élevé, plus la contrainte est sévère. Exemple : l'acétone a une TAI de 465 °C → équipement T1 suffisant. L'éther diéthylique a une TAI de 160 °C → équipement T4 ou mieux obligatoire.",
+        "Pour les poussières, la norme EN 80079-20-2 donne les paramètres d'explosivité (CME, MIT — Minimum Ignition Temperature en couche et en nuage). La température maximale de surface de l'équipement doit être inférieure à MIT couche − 75 °C, ou à 2/3 × MIT nuage (la valeur la plus basse étant retenue).",
+      ],
+      keyPoints: [
+        "6 conditions simultanées = explosion possible. Supprimer 1 = pas d'explosion.",
+        "LIE / LSE : domaine d'explosivité. Seuil d'alarme explosimètre = 20 % de la LIE.",
+        "CME pour poussières = équivalent de la LIE pour les gaz.",
+        "Point d'éclair : température à partir de laquelle un liquide émet des vapeurs inflammables.",
+        "Classe de température Ex : la température maxi de surface doit être < TAI du mélange.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-42 : évaluation des risques d'explosion.",
+        "Arrêté du 8 juillet 2003 : obligations de l'employeur en matière de protection contre les explosions.",
+        "Norme EN 80079-20-1 : paramètres physico-chimiques des gaz et liquides inflammables.",
+        "Norme EN 80079-20-2 : paramètres d'explosivité des poussières.",
+      ],
+    },
+    {
+      id: "classification-zones-avancee",
+      title: "2. Classification des zones ATEX — Critères et délimitation",
+      estimatedMinutes: 30,
+      chapterImagePath: "/elearning/atex/atex-zones-classification.svg",
+      chapterImageAlt: "Classification des zones ATEX gaz (0/1/2) et poussières (20/21/22) selon l'INERIS",
+      intro:
+        "La classification des zones est la base du choix des équipements. Un intervenant doit savoir lire un plan de zonage, comprendre les critères qui définissent chaque zone et adapter son comportement en conséquence.",
+      content: [
+        "Les zones ATEX gaz/vapeurs : Zone 0 — atmosphère explosive présente en permanence ou pendant de longues périodes (intérieur d'un réservoir, d'une canalisation sous pression de gaz inflammable). Zone 1 — atmosphère explosive présente occasionnellement en fonctionnement normal (proximité d'un évent, d'une bride de tuyauterie). Zone 2 — atmosphère explosive présente rarement et pendant de courtes durées seulement, lors d'un dysfonctionnement ou incident (zone périphérique autour d'une zone 1).",
+        "Les zones ATEX poussières : Zone 20 — nuage de poussières présent en permanence (intérieur d'un silo, d'un filtre à manches). Zone 21 — nuage de poussières présent occasionnellement (proximité d'un point de chargement/déchargement). Zone 22 — nuage de poussières présent rarement et brièvement (accumulation de dépôts pouvant être mis en suspension accidentellement).",
+        "L'étendue de la zone dépend de la quantité de substance inflammable pouvant se libérer, de la densité du gaz par rapport à l'air (gaz plus léger = montée, gaz plus lourd = accumulation en point bas), des conditions de ventilation et de la température ambiante par rapport au point d'éclair.",
+        "En phase de maintenance, des zones temporaires peuvent apparaître. L'INERIS distingue 3 situations : interventions de maintenance EN zone ATEX existante (analyser, consigner les fluides en priorité), interventions de maintenance GÉNÉRANT une zone ATEX (surveillance explosimètre continue), interventions SUR des sources d'inflammation (ouverture d'équipements électriques, travaux par points chauds).",
+        "Le plan de zonage ATEX fait partie du DRPCE. Avant toute intervention, l'intervenant doit consulter ce document ou se renseigner auprès du responsable sécurité pour connaître la classification précise de la zone où il va travailler.",
+      ],
+      deepDive: [
+        "Les zones ATEX doivent être signalées par le panneau triangulaire réglementaire (triangle jaune avec le pictogramme d'éclair et l'inscription 'ATEX'). À l'intérieur de la zone, seuls les équipements certifiés pour la catégorie correspondante sont autorisés.",
+        "La maintenance peut modifier temporairement les zones : l'ouverture d'une vanne ou d'un équipement contenant un fluide inflammable crée une zone temporaire. Ces zones temporaires doivent être identifiées dans le plan de prévention ou le permis de travail.",
+        "En présence de poussières : les couches de dépôts doivent être incluses dans le zonage. Une couche de 1 à 5 mm peut suffire à créer une zone 22 lors d'une mise en suspension (coup de pied, nettoyage à air comprimé). Le nettoyage des dépôts fait partie des mesures préventives obligatoires.",
+      ],
+      keyPoints: [
+        "Zone 0/20 = présence permanente. Zone 1/21 = présence occasionnelle. Zone 2/22 = présence rare.",
+        "La densité du gaz détermine son comportement : plus léger que l'air → monte, plus lourd → s'accumule en point bas.",
+        "3 situations de maintenance selon l'INERIS : EN zone, GÉNÉRANT une zone, SUR des sources d'inflammation.",
+        "En maintenance : consulter le DRPCE et identifier les zones temporaires avant intervention.",
+        "Les couches de poussières doivent être nettoyées régulièrement — elles constituent une zone 22 latente.",
+      ],
+      legalRefs: [
+        "Arrêté du 8 juillet 2003 - Art. 2 : définition et classification des emplacements dangereux.",
+        "Code du travail - Art. R.4227-44 : signalisation des zones ATEX.",
+        "Guide INERIS Omega 36 (octobre 2025) : méthodologie de classification et exemples.",
+        "Normes EN 60079-10-1 (zones gaz) et EN 60079-10-2 (zones poussières).",
+      ],
+    },
+    {
+      id: "marquages-ex",
+      title: "3. Lecture des marquages Ex — Décoder un équipement certifié",
+      estimatedMinutes: 35,
+      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
+      chapterImageAlt: "Tableau de correspondance catégories ATEX / zones et décodage du marquage Ex",
+      intro:
+        "Utiliser un équipement non adapté à la zone classée peut provoquer une explosion. Savoir lire un marquage Ex complet est une compétence fondamentale pour tout intervenant en zone ATEX.",
+      content: [
+        "Le marquage Ex complet se décompose en 5 éléments : (1) Le marquage CE (conformité réglementaire européenne). (2) Le symbole Ex (protection contre les explosions). (3) Le groupe d'appareils : II pour les surfaces, I pour les mines de grisou. (4) La catégorie : 1G/2G/3G (gas) ou 1D/2D/3D (dust — poussières). (5) Le mode de protection : Ex d (enveloppe antidéflagrante), Ex e (sécurité augmentée), Ex ia/ib (sécurité intrinsèque), Ex p (surpression interne), Ex n (non-incendiaire), Ex t (protection par enveloppe).",
+        "Correspondance catégorie ↔ zone : Catégorie 1G → utilisable en zones 0, 1 et 2. Catégorie 2G → utilisable en zones 1 et 2 uniquement. Catégorie 3G → utilisable en zone 2 uniquement. Même logique pour les poussières : 1D → zones 20, 21, 22 / 2D → zones 21 et 22 / 3D → zone 22 uniquement. RÈGLE : la catégorie doit être au moins égale à la zone (1 = plus restrictif, 3 = moins restrictif).",
+        "Le groupe de gaz indique la dangerosité : IIA (propane) → IIB (éthylène) → IIC (hydrogène, acétylène). Un équipement certifié IIC convient à tous les groupes. Un équipement IIA est INTERDIT en zone IIB ou IIC.",
+        "La classe de température indique la température maximale de surface : T1 = 450 °C, T2 = 300 °C, T3 = 200 °C, T4 = 135 °C, T5 = 100 °C, T6 = 85 °C. Elle doit être inférieure à la température d'auto-inflammation du mélange présent dans la zone.",
+        "Exemple de marquage complet : ⓔ Ex d IIB T4 Gb. Décodage : Ex = certifié ATEX, d = enveloppe antidéflagrante, IIB = groupe gaz éthylène, T4 = température max 135 °C, Gb = equipment protection level b (niveau de protection élevé). Ce matériel est utilisable en zone 1 ou 2 pour des atmosphères de gaz/vapeurs du groupe IIB.",
+      ],
+      deepDive: [
+        "Depuis la directive 2014/34/UE (transposée en droit français aux articles R.557-1-1 et suivants du Code de l'environnement), les matériels ATEX doivent être livrés avec la déclaration UE de conformité et la notice d'instructions dans la langue du pays d'utilisation. L'absence de ces documents constitue une non-conformité contrôlable par l'inspection du travail ou la DREAL.",
+        "La directive 2014/34/UE autorise les fabricants à réaliser une autocertification pour les matériels de catégorie 3 et les matériels non électriques de catégorie 2. Pour les matériels électriques de catégorie 1 et 2, l'intervention d'un organisme notifié est obligatoire. L'utilisateur doit toujours vérifier la présence du marquage CE + Ex.",
+        "Cas des matériels anciens (avant 2003) : les équipements mis en service avant le 30 juin 2003 conformes à l'arrêté du 19 décembre 1988 peuvent rester en service si le DRPCE les a validés explicitement avant le 1er juillet 2006. Ces matériels portent des marquages différents (pas de marquage CE Ex) et doivent être identifiés dans le DRPCE.",
+      ],
+      keyPoints: [
+        "Catégorie 1 = zone 0/20/1/21/2/22. Catégorie 2 = zone 1/21/2/22. Catégorie 3 = zone 2/22 uniquement.",
+        "Groupe de gaz : IIA < IIB < IIC (du moins au plus dangereux). Un matériel IIC convient partout.",
+        "Classe de température : T1 (plus permissif) → T6 (le plus restrictif). Temp. surface < TAI mélange.",
+        "Tout équipement ATEX neuf = déclaration UE conformité + notice obligatoires.",
+        "JAMAIS utiliser un équipement non marqué Ex ou de catégorie insuffisante dans une zone classée.",
+      ],
+      legalRefs: [
+        "Directive 2014/34/UE : exigences pour les appareils ATEX destinés aux atmosphères explosibles.",
+        "Code du travail - Art. R.4321-1 : responsabilité de l'employeur pour le choix des équipements.",
+        "Code de l'environnement - Art. R.557-1-1 à R.557-5-5 : transposition de la directive 2014/34/UE.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : sélection et installation des équipements.",
+      ],
+    },
+    {
+      id: "autorisation-travail-permis-feu",
+      title: "4. Autorisation de travail et permis de feu en zone ATEX",
+      estimatedMinutes: 30,
+      chapterImagePath: "/elearning/atex/atex-peas-urgence.svg",
+      chapterImageAlt: "Procédure d'autorisation de travail et permis de feu en zone ATEX",
+      intro:
+        "L'autorisation de travail et le permis de feu sont des outils organisationnels essentiels pour maîtriser les risques lors d'interventions en zone ATEX. Leur non-respect est à l'origine de nombreux accidents graves.",
+      content: [
+        "L'autorisation de travail (AT) est un document écrit délivré par le responsable de l'installation avant toute intervention en zone classée. Elle précise : la nature et le lieu de l'intervention, les conditions de zone (présence ou non d'ATEX), les mesures de prévention à mettre en œuvre (ventilation, consignation, détection), les équipements et EPI à utiliser, et la durée de validité de l'autorisation.",
+        "Le permis de feu est une autorisation de travail spécifique aux travaux générant des points chauds : soudage, découpe, meulage, tronçonnage, perçage, utilisation d'appareils de chauffage. Ces opérations génèrent des étincelles (~1 000 °C) et des surfaces chaudes susceptibles d'enflammer une grande majorité de produits.",
+        "Zone de sécurité pour les travaux par points chauds : l'INERIS préconise une zone de sécurité de 10 mètres autour du point de travail. Cette zone doit être vérifiée au moyen d'un explosimètre AVANT le début des travaux et surveillée en continu PENDANT les travaux. Attention aux travaux en hauteur : les étincelles ou scories peuvent retomber loin de la zone d'intervention.",
+        "Avant de commencer tout travail dans une zone ATEX : (1) Vérifier que l'autorisation de travail ou le permis de feu est signé et valide. (2) Mesurer l'atmosphère avec l'explosimètre (valeur < 20 % de la LIE). (3) Contrôler ses EPI antistatiques. (4) Identifier la sortie de secours la plus proche. (5) S'assurer de la disponibilité d'un moyen de communication avec le PC de sécurité.",
+        "À la fin de l'intervention : restituer le permis de feu, consigner dans le registre, informer le responsable de la fin d'intervention et de l'état des lieux. Si une anomalie a été détectée pendant les travaux, elle doit être signalée immédiatement au responsable sécurité du site.",
+      ],
+      deepDive: [
+        "En présence d'entreprises extérieures, l'article R.4515-8 du Code du travail impose un protocole de sécurité incluant les risques ATEX. L'entreprise d'accueil doit fournir aux prestataires les informations sur les zones classées et les procédures à respecter. Le plan de prévention doit intégrer les risques ATEX dès lors que des travaux sont réalisés en zone classée.",
+        "L'expérience montre que les travaux par points chauds sont systématiquement sous-estimés comme source d'inflammation. Même si les travaux ne se déroulent pas directement en zone ATEX, des projections d'étincelles ou des scories peuvent atteindre une zone classée adjacente. La zone de sécurité de 10 m doit être respectée même en dehors de la zone ATEX délimitée.",
+        "Consignation des fluides avant intervention : en cas de maintenance nécessitant l'ouverture d'un équipement contenant un fluide inflammable, il faut procéder à la consignation du circuit (isolement, dépressurisation, purge, verrouillage) selon la procédure décrite dans l'INRS ED 6109. Tant que la consignation n'est pas effective, la zone ATEX persiste.",
+      ],
+      keyPoints: [
+        "Autorisation de travail = document obligatoire avant toute intervention en zone ATEX.",
+        "Permis de feu = AT spécifique aux travaux générant des points chauds (soudage, meulage, perçage...).",
+        "Zone de sécurité 10 m pour les travaux par points chauds — même hors zone ATEX délimitée.",
+        "Mesure explosimètre obligatoire avant et pendant les travaux (seuil : < 20 % LIE).",
+        "Signaler toute anomalie détectée au responsable sécurité AVANT de continuer les travaux.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4515-8 : protocole de sécurité pour les opérations d'entreprises extérieures.",
+        "Arrêté du 8 juillet 2003 - Art. 11 : mesures organisationnelles de prévention.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4 : travaux et entreprises extérieures.",
+        "INRS ED 6109 : consignation des énergies et des fluides.",
+      ],
+    },
+    {
+      id: "explosimetre-detection",
+      title: "5. L'explosimètre — Utilisation, étalonnage et interprétation",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-sources-inflammation.svg",
+      chapterImageAlt: "Courbes d'étalonnage explosimètre — écart entre valeur lue et valeur réelle selon le gaz",
+      intro:
+        "L'explosimètre est l'outil de détection indispensable avant toute intervention en zone ATEX. Un mauvais étalonnage ou une mauvaise utilisation peut donner une fausse sécurité aux conséquences mortelles.",
+      content: [
+        "L'explosimètre (ou détecteur de gaz combustibles) mesure la concentration de gaz dans l'air en pourcentage de la LIE. Le seuil d'alerte préconisé est de 20 % de la LIE (circulaire du 9 mai 1985). En dessous de ce seuil, le risque est considéré comme maîtrisé. Au-dessus, les travaux doivent être interrompus immédiatement.",
+        "Problème critique d'étalonnage (source INERIS Omega 36) : un explosimètre étalonné au propane utilisé dans une atmosphère de méthane peut donner des lectures faussées. Exemple : lire 10 % sur un appareil étalonné au propane peut correspondre à une concentration réelle de 50 % dans du méthane — l'opérateur est EN DANGER alors qu'il croit être en sécurité. Inversement, un explosimètre étalonné au méthane utilisé dans du méthanol peut surestimer le danger.",
+        "L'étalonnage doit être réalisé avec le gaz présent sur le site (ou un gaz étalon identique). L'INRS (document ED 116) préconise de spécifier le gaz étalon utilisé, les seuils d'alerte choisis et les corrections à appliquer selon les atmosphères potentiellement rencontrées.",
+        "Contrôles avant utilisation : vérifier la date de la dernière vérification périodique (généralement 6 mois à 1 an selon fabricant), tester l'appareil avec un gaz de référence avant utilisation, s'assurer que la batterie est suffisamment chargée, et vérifier que la tête de détection n'est pas obstruée.",
+        "Utilisation pratique : mesurer l'atmosphère dans les points bas (gaz plus lourds que l'air : hydrocarbures, LPG) ET dans les points hauts (gaz plus légers que l'air : hydrogène, méthane). En espace confiné, mesurer à plusieurs niveaux. Surveiller en continu pendant les travaux et déclencher l'évacuation dès l'alarme de premier seuil.",
+      ],
+      deepDive: [
+        "Les détecteurs de gaz à point catalytique (catharométrie) sont les plus courants mais ne fonctionnent pas correctement en atmosphère appauvrie en oxygène (moins de 10 % d'O₂). Dans ce cas, utiliser un détecteur à technologie infrarouge ou photoionisation (PID). Cette limitation est critique en espace confiné.",
+        "Pour les poussières, il n'existe pas d'équivalent portable de l'explosimètre. La prévention repose sur la suppression des sources d'inflammation, la ventilation et le nettoyage régulier des dépôts. En présence de poussières, la surveillance visuelle (nuage visible = danger) et le respect des procédures sont les seuls outils disponibles sur le terrain.",
+        "Déport de mesure : en zone confinée ou difficile d'accès, utiliser un tube de prélèvement (sonde télescopique). Ne jamais pénétrer dans un espace confiné potentiellement ATEX sans mesure préalable depuis l'extérieur et sans équipier observateur à l'entrée.",
+      ],
+      keyPoints: [
+        "Seuil d'alerte explosimètre = 20 % de la LIE. Au-dessus : arrêt immédiat des travaux.",
+        "Étalonnage CRITIQUE : un explosimètre étalonné au mauvais gaz peut indiquer une fausse sécurité.",
+        "Toujours vérifier : date de vérification périodique, batterie, test avec gaz de référence.",
+        "Mesurer en points bas (gaz lourds) ET en points hauts (gaz légers) et en continu pendant les travaux.",
+        "Détecteur catalytique inefficace en atmosphère appauvrie en O₂ — utiliser IR ou PID.",
+      ],
+      legalRefs: [
+        "Circulaire du 9 mai 1985 : seuil d'alerte à 20 % de la LIE pour les détecteurs de gaz.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.3 : détection de la LIE.",
+        "INRS ED 116 : choix et utilisation des détecteurs de gaz et vapeurs inflammables.",
+        "Norme EN 60079-29-1 : exigences pour les détecteurs de gaz inflammables.",
+      ],
+    },
+    {
+      id: "epi-antistatiques",
+      title: "6. EPI antistatiques — Sélection, port et entretien",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-epi-complet.svg",
+      chapterImageAlt: "Équipements de protection individuelle certifiés pour zones ATEX — vêtements, chaussures, gants",
+      intro:
+        "En zone ATEX, les EPI ont une double fonction : protéger l'intervenant et éviter d'être une source d'inflammation. Les décharges électrostatiques générées par des vêtements ou équipements ordinaires peuvent suffire à déclencher une explosion.",
+      content: [
+        "L'électricité statique est l'une des principales sources d'inflammation en zone ATEX. Elle peut être générée par le frottement de vêtements synthétiques, la circulation de fluides dans des tuyaux, le déplacement de personnes sur un sol non antistatique, ou l'utilisation d'outils ou contenants non mis à la terre.",
+        "Vêtements de travail : les vêtements portés en zone ATEX doivent être conformes à la norme EN 1149-5 (dissipation électrostatique). Ils sont fabriqués à partir de fibres conductrices (fibres de carbone ou métal intégrées dans le tissu). Interdiction de porter des vêtements synthétiques non antistatiques (polyester, nylon) sous le vêtement de travail certifié.",
+        "Chaussures de sécurité antistatiques : conformes à la norme EN ISO 20345 avec propriétés ESD (Electrostatic Discharge). Elles permettent l'écoulement des charges vers le sol. À condition que le sol lui-même soit conducteur ou que l'opérateur soit relié à la terre. Résistance requise : 100 kΩ à 1 GΩ (norme EN 61340-4-3).",
+        "Gants : préférer des gants en matériaux naturels (cuir, coton) aux gants synthétiques. Si des gants isolants sont nécessaires pour d'autres risques, évaluer la compatibilité avec le risque ATEX. Pour les manipulations de solvants, utiliser des gants conducteurs mis à la terre.",
+        "Entretien des EPI antistatiques : laver les vêtements selon les instructions du fabricant (certains produits détergents altèrent les propriétés antistatiques). Vérifier après chaque lavage que les propriétés sont toujours conformes. Un vêtement antistatique endommagé (déchirure, réparation avec fil synthétique) perd ses propriétés — ne plus l'utiliser en zone ATEX.",
+      ],
+      deepDive: [
+        "Mise à la terre des équipements : tout équipement conducteur utilisé en zone ATEX (contenants, outils, équipements mobiles) doit être mis à la terre ou lié équipotentiellement au circuit pour éviter l'accumulation de charges électrostatiques. Cette liaison doit être vérifiée avant chaque utilisation.",
+        "Détecteur de gaz certifié Ex : le détecteur personnel de gaz porté en zone ATEX doit lui-même être certifié Ex pour la zone concernée. Un détecteur non certifié peut constituer une source d'inflammation. Vérifier le marquage Ex sur l'appareil.",
+        "Outils antistatiques : en zone 0 et zone 1, utiliser des outils en matériaux non générateurs d'étincelles (alliages bronze-aluminium, outils en plastique certifiés). En zone 2, les outils métalliques ordinaires sont généralement autorisés mais avec précaution (pas de chocs violent).",
+      ],
+      keyPoints: [
+        "Vêtements EN 1149-5 obligatoires en zone ATEX — JAMAIS de vêtements synthétiques non certifiés.",
+        "Chaussures ESD : résistance 100 kΩ à 1 GΩ — sol conducteur nécessaire pour l'efficacité.",
+        "Vérifier l'état des EPI après chaque lavage — les propriétés antistatiques peuvent se dégrader.",
+        "Tout équipement conducteur mobile doit être mis à la terre avant utilisation en zone ATEX.",
+        "Le détecteur de gaz portatif lui-même doit être certifié Ex pour la zone concernée.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4321-4 : obligation de l'employeur de fournir des EPI adaptés.",
+        "Arrêté du 8 juillet 2003 - Art. 7 : mesures de protection contre les sources d'inflammation électrostatiques.",
+        "Norme EN 1149-5 : vêtements de protection antistatiques.",
+        "Norme EN ISO 20345 + EN 61340-4-3 : chaussures de sécurité antistatiques.",
+      ],
+    },
+    {
+      id: "outils-outillage-zone-atex",
+      title: "7. Outils et outillage en zone ATEX",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-prevention-3axes.svg",
+      chapterImageAlt: "Les 3 axes de prévention ATEX : agir sur le combustible, l'inflammation, l'organisation",
+      intro:
+        "Le choix des outils apportés en zone ATEX est aussi critique que le choix des équipements fixes. Un outil inadapté peut provoquer une étincelle mécanique ou électrique fatale.",
+      content: [
+        "Outils manuels : en zone 0 et zone 1, utiliser exclusivement des outils en matériaux non ferreux anti-étincelles (alliages cuivre-béryllium, bronze-aluminium). Ces outils sont marqués 'non incendiaires' ou 'ATEX' par le fabricant. En zone 2, les outils en acier ordinaire sont généralement autorisés sous réserve que le zonage soit confirmé et qu'il n'y ait pas de risque de choc.",
+        "Outillage électrique et électronique : tout équipement électrique apporté en zone ATEX doit être certifié Ex pour la catégorie de zone. Cela inclut les lampes torches, les appareils de mesure (multimètres, pinces ampèremétriques), les perceuses, les radios et talkies-walkies, les téléphones portables, les ordinateurs portables.",
+        "Véhicules et engins de manutention : les chariots élévateurs, engins de chantier et véhicules ne doivent pas pénétrer en zone ATEX sauf s'ils sont certifiés Ex pour la zone concernée. Les moteurs thermiques constituent une source d'inflammation multiple (étincelles d'allumage, surfaces chaudes, pot d'échappement).",
+        "Éclairage de chantier : utiliser exclusivement des luminaires certifiés Ex. Les lampes à incandescence ordinaires (ampoules chaudes), les projecteurs halogènes et les lampes fluorescentes non certifiées sont interdits en zone classée.",
+        "Appareils photos et caméras : les appareils photo et caméras ordinaires sont INTERDITS en zone ATEX (flash électrique, batterie non certifiée). Utiliser des appareils certifiés ATEX ou placer la zone hors ATEX avant toute prise de vue.",
+      ],
+      keyPoints: [
+        "Zone 0 et 1 : outils anti-étincelles exclusivement (alliages cuivre-béryllium ou bronze-aluminium).",
+        "Tout équipement électrique apporté en zone ATEX = certifié Ex obligatoire (même les lampes torches).",
+        "Véhicules et engins : interdits en zone ATEX sauf certification Ex spécifique.",
+        "Appareils photos/caméras ordinaires INTERDITS en zone ATEX.",
+        "En cas de doute sur la certification d'un outil : ne pas l'utiliser, demander au responsable.",
+      ],
+      legalRefs: [
+        "Arrêté du 8 juillet 2003 - Art. 11 : choix et utilisation des équipements de travail en zone ATEX.",
+        "Code du travail - Art. L.4311-2 : définition des équipements de travail.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : appareils ATEX.",
+      ],
+    },
+    {
+      id: "maintenance-verification-equipements",
+      title: "8. Maintenance et vérification des équipements Ex",
+      estimatedMinutes: 25,
+      chapterImagePath: "/elearning/atex/atex-processus-accident.svg",
+      chapterImageAlt: "Processus menant à l'accident ATEX — chaîne de défaillances et points de rupture",
+      intro:
+        "La maintenance des équipements Ex est réglementée et spécifique. Un équipement Ex mal entretenu ou réparé sans les précautions nécessaires perd sa certification et peut devenir une source d'inflammation.",
+      content: [
+        "La maintenance des matériels ATEX doit être effectuée par du personnel formé et qualifié. Toute intervention sur un équipement Ex doit être réalisée conformément à la notice du fabricant. Les pièces de remplacement doivent être des pièces d'origine ou équivalentes certifiées pour le même mode de protection.",
+        "Lors d'une intervention de maintenance EN zone ATEX (1ère situation INERIS) : analyser le risque, mettre en œuvre en priorité des mesures de consignation des fluides pour supprimer l'ATEX ou réduire sa probabilité. Si la zone ATEX persiste malgré la consignation, elle doit être identifiée et faire l'objet de mesures spécifiques (zonage en phase maintenance).",
+        "Lors d'une intervention de maintenance GÉNÉRANT une zone ATEX (2ème situation INERIS) : surveiller l'atmosphère en continu avec des détecteurs portables. L'absence d'ATEX doit être maintenue durant toute la durée des travaux et pendant une période supplémentaire après (temps de refroidissement, purge). Mesure de la LIE par détecteur continu.",
+        "Lors d'interventions SUR des sources d'inflammation (3ème situation INERIS) : ouverture d'équipements électriques, travaux par points chauds. Ces opérations doivent être réalisées avec un permis de feu, la zone ATEX supprimée au préalable, et une surveillance continue de l'atmosphère.",
+        "Vérifications périodiques des équipements Ex : selon la norme EN 60079-17, les équipements doivent faire l'objet de vérifications initiales (avant mise en service), de routine (visuelles régulières), détaillées (périodiques, démontage partiel si nécessaire) et approfondies (complètes). La périodicité dépend de l'environnement et des recommandations du fabricant.",
+      ],
+      deepDive: [
+        "Remplacement de joints d'étanchéité sur un équipement Ex d (enveloppe antidéflagrante) : les joints doivent être remplacés par des joints identiques aux originaux (même matériau, mêmes dimensions, même référence). Un joint de dimensions différentes altère les jeux d'étanchéité qui définissent le mode de protection. L'équipement perd alors son niveau de protection certifié.",
+        "Peinture sur équipement Ex : l'application d'une couche de peinture trop épaisse sur un équipement Ex peut modifier sa température maximale de surface (la peinture isole thermiquement) et le faire sortir de sa classe de température. Vérifier les recommandations du fabricant avant toute opération de peinture.",
+        "Retour en zone après maintenance : avant de remettre un équipement Ex en service après maintenance, vérifier visuellement l'intégrité du mode de protection (absence de fissure, serrage des boulons d'assemblage, présence de tous les composants) et s'assurer que la documentation de maintenance a été mise à jour dans le DRPCE.",
+      ],
+      keyPoints: [
+        "Maintenance Ex = personnel qualifié + pièces d'origine certifiées uniquement.",
+        "3 situations INERIS : maintenance EN zone, maintenance GÉNÉRANT une zone, travaux SUR sources d'inflammation.",
+        "Consignation des fluides EN PRIORITÉ avant toute intervention de maintenance en zone ATEX.",
+        "Vérifications EN 60079-17 : initiales, de routine, détaillées, approfondies.",
+        "Après maintenance : vérification visuelle du mode de protection avant remise en service.",
+      ],
+      legalRefs: [
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.4 : interventions de maintenance.",
+        "Norme EN 60079-17 : vérification et maintenance des installations électriques en zone ATEX.",
+        "INRS ED 6109 : consignation des énergies — mise en sécurité des machines.",
+        "Arrêté du 8 juillet 2003 - Art. 11 : entretien des équipements en zone ATEX.",
+      ],
+    },
+    {
+      id: "conduite-urgence-signalement",
+      title: "9. Conduite à tenir en cas d'anomalie ou d'incident",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
+      chapterImageAlt: "Les réflexes ATEX en cas d'anomalie ou d'incident — PEAS et procédure d'urgence",
+      intro:
+        "Face à une anomalie (odeur suspecte, alarme explosimètre, fuite visible) ou un incident, la réaction de l'intervenant dans les premières secondes est déterminante. Connaître la procédure et ne pas improviser.",
+      content: [
+        "En cas d'alarme de l'explosimètre (dépassement de 20 % de la LIE) : (1) STOPPER immédiatement les travaux. (2) Mettre hors tension les équipements électriques non Ex (ne pas déclencher de disjoncteur si possible — risque d'étincelle). (3) ÉVACUER la zone en remontant contre le vent. (4) ALERTER le PC de sécurité ou le responsable sécurité du site. (5) Ne pas réintégrer la zone sans autorisation et nouvelle vérification explosimètre.",
+        "En cas de fuite de gaz ou vapeur inflammable visible ou olfactive : même procédure que l'alarme explosimètre. Ne pas utiliser de téléphone portable ordinaire (non certifié Ex) dans la zone. Attendre en dehors de la zone les instructions du responsable sécurité.",
+        "En cas d'incendie en zone ATEX : si le feu est petit et ne menace pas de s'étendre à une zone de stockage de matières inflammables, attaquer avec un extincteur adapté (CO₂ pour les zones à risque ATEX — pas d'eau en présence de gaz inflammable). Si le feu implique une zone ATEX ou un équipement sous pression : évacuer immédiatement et appeler les secours (18 ou 112).",
+        "Réflexe PEAS en cas d'accident avec victime : Protéger (supprimer le danger si possible — couper l'alimentation gaz, ventiler), Examiner (état de la victime sans la déplacer si suspicion de fracture), Alerter (18 SAMU, 18 pompiers ou 112 — préciser qu'il s'agit d'une zone ATEX), Secourir (premiers gestes de secourisme en attendant les secours).",
+        "Signalement des anomalies : toute anomalie constatée en zone ATEX (équipement défaillant, fuite, dépôt de poussières anormal, détecteur de gaz en défaut) doit être signalée IMMÉDIATEMENT au responsable sécurité et consignée dans le registre prévu à cet effet. Ne jamais laisser une anomalie non signalée.",
+      ],
+      keyPoints: [
+        "Alarme explosimètre → Stopper → Évacuer (vent dans le dos) → Alerter → Attendre hors zone.",
+        "NE PAS utiliser de téléphone portable non certifié Ex pour alerter depuis la zone.",
+        "Incendie ATEX : CO₂ si feu maîtrisable, ÉVACUER et appeler 18/112 si non maîtrisable.",
+        "PEAS : Protéger, Examiner, Alerter, Secourir — préciser 'zone ATEX' aux secours.",
+        "Toute anomalie = signalement immédiat et consignation dans le registre. Pas de 'bricolage' sur site.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. L.4131-1 : droit de retrait du salarié face au danger grave et imminent.",
+        "Code du travail - Art. R.4227-49 : formation des travailleurs à la conduite à tenir en cas d'explosion.",
+        "Arrêté du 8 juillet 2003 - Art. 9 : consignes de sécurité et signalement des anomalies.",
+      ],
+    },
+    {
+      id: "synthese-quiz-n1",
+      title: "10. Synthèse et préparation à l'évaluation",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
+      chapterImageAlt: "Synthèse des réflexes ATEX Niveau 1 — les 10 règles de l'intervenant",
+      intro:
+        "Ce chapitre final consolide les points essentiels du Niveau 1 et vous prépare au quiz de validation et à l'entretien de 30 minutes avec votre formateur PREVENSIA.",
+      content: [
+        "Les 10 règles de l'intervenant en zone ATEX : (1) Consulter le DRPCE et le plan de zonage avant toute intervention. (2) Obtenir l'autorisation de travail ou le permis de feu signé. (3) Vérifier et tester l'explosimètre (étalonnage, batterie, gaz de référence). (4) Mesurer l'atmosphère avant d'entrer (< 20 % LIE). (5) Porter les EPI antistatiques (vêtements EN 1149-5, chaussures ESD). (6) N'apporter que des équipements et outils certifiés Ex adaptés à la zone. (7) Mettre à la terre tous les équipements conducteurs mobiles. (8) Respecter la zone de sécurité de 10 m pour les travaux par points chauds. (9) Surveiller l'atmosphère en continu pendant les travaux. (10) Signaler toute anomalie immédiatement.",
+        "L'avis d'habilitation ATEX Niveau 1 qui vous sera remis à l'issue de l'entretien atteste que vous possédez les connaissances théoriques nécessaires pour intervenir en zone ATEX de manière sécurisée. Il est valable 3 ans. L'employeur reste responsable de l'autorisation formelle d'intervenir en zone classée.",
+        "L'entretien de 30 minutes avec votre formateur PREVENSIA portera sur : votre compréhension des marquages Ex (décodage d'un marquage complet), votre connaissance des procédures d'autorisation de travail et permis de feu, la conduite à tenir en cas d'anomalie, et les spécificités éventuelles de votre site.",
+      ],
+      keyPoints: [
+        "10 règles de l'intervenant — à mémoriser et appliquer systématiquement.",
+        "Avis d'habilitation ATEX N1 = attestation théorique valable 3 ans. L'employeur autorise formellement.",
+        "L'entretien de validation porte sur les marquages, les procédures et la conduite à tenir.",
+        "Recyclage obligatoire tous les 3 ans pour maintenir l'habilitation.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-49 : formation obligatoire des travailleurs exposés aux risques ATEX.",
+        "Arrêté du 8 juillet 2003 : obligations générales de l'employeur.",
+        "Directive 99/92/CE : prescriptions minimales visant à améliorer la protection des travailleurs.",
+      ],
+    },
+  ],
+};

@@ -2950,6 +2950,76 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le refroidissement à l'eau tempérée (ni froide, ni glacée) pendant au minimum 5 min limite l'extension en profondeur. On ne perce jamais les cloques, on n'applique rien de gras et on ne retire pas les vêtements collés. Pour une brûlure grave, alerter rapidement les secours.",
       timeLimit: 55,
     },
+    {
+      question:
+        "La réaction au feu d'un matériau est classée selon le système européen Euroclass. Quelle classe correspond à un matériau totalement non combustible (équivalent de l'ancien classement M0) ?",
+      choices: [
+        "Classe F (le niveau le plus mauvais — non classé)",
+        "Classe A1 (le meilleur — aucune contribution au feu ni aux fumées)",
+        "Classe B (contribution très limitée — ex-M1)",
+        "Classe E (inflammable mais sans propagation rapide — ex-M3)",
+      ],
+      answer: [1],
+      explanation:
+        "Le système Euroclass remplace les anciens classements M0→M4. Classe A1 = totalement non combustible (béton, acier, briques) — ex-M0. A2 = non combustible avec contribution minime aux fumées. B, C, D = contribution croissante au feu (ex-M1/M2). E = inflammable sans propagation rapide (ex-M3). F = non classé / le plus mauvais (ex-M4). La réaction au feu indique comment un matériau contribue à l'éclosion et à la propagation d'un incendie.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Pour la résistance au feu des éléments de structure et de compartimentage, que signifie la notation 'REI 60' ?",
+      choices: [
+        "Résistance à 60 bars de pression hydraulique pendant 6 heures",
+        "R (stabilité mécanique) + E (étanchéité aux flammes et gaz chauds) + I (isolation thermique) pendant 60 minutes",
+        "Résistance Éprouvée International valable 60 ans",
+        "Refroidissement Effectif Intensif pendant 60 minutes au minimum",
+      ],
+      answer: [1],
+      explanation:
+        "La notation européenne de résistance au feu combine : R = capacité portante (résistance structurelle mécanique), E = étanchéité aux flammes et aux gaz chauds (pas de passage de flamme ni de gaz), I = isolation thermique (la face non exposée ne dépasse pas 140 °C en hausse de température). REI 60 = plancher résistant 60 min aux 3 critères. Les anciens classements français : SF (stabilité au feu) → R ; PF (pare-feu) → REI ; CF (coupe-feu) → EI. Un EI 30 remplace l'ancien PF ½ heure.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quels gaz toxiques produits par la combustion représentent le principal danger des fumées d'incendie pour les personnes ?",
+      choices: [
+        "L'oxygène (O₂) et l'azote (N₂) — asphyxiants par dilution",
+        "Le monoxyde de carbone (CO) et l'acide cyanhydrique (HCN) — toxiques mortels à faible concentration, sans odeur détectable",
+        "Le dioxyde de carbone (CO₂) uniquement — suffocant par déplacement de l'oxygène",
+        "L'acide chlorhydrique (HCl) uniquement — irritant mais non mortel à court terme",
+      ],
+      answer: [1],
+      explanation:
+        "Les fumées contiennent du CO (monoxyde de carbone — incolore, inodore, mortel à 1 000 ppm en 1 heure, se fixe 250 fois mieux sur l'hémoglobine que l'O₂), du HCN (acide cyanhydrique — extrêmement toxique, issu des matières azotées), du CO₂ (asphyxiant à haute concentration), et selon les matériaux brûlés : HCl (PVC — irritant et corrosif), HF (Teflon), acroléine (bois). Le CO est la première cause de décès en incendie, bien avant les flammes.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Qu'est-ce qu'une colonne sèche dans un bâtiment et à partir de quelle hauteur est-elle obligatoire dans les ERP ?",
+      choices: [
+        "Une canalisation sous pression permanente d'eau (réseau humide) alimentant les RIA — obligatoire dès le 1er étage",
+        "Une canalisation fixe rigide non alimentée en eau en temps normal — les pompiers y raccordent leur motopompe depuis l'extérieur — obligatoire si plancher haut > 18 mètres",
+        "Un extracteur de fumées vertical installé dans les cages d'escalier — obligatoire dès 10 mètres de hauteur",
+        "Un réseau de sprinklers à déclenchement manuel — obligatoire dans les ERP de 1re catégorie",
+      ],
+      answer: [1],
+      explanation:
+        "La colonne sèche est une canalisation fixe et rigide installée dans les cages d'escalier et couloirs, non alimentée en eau en exploitation normale. Les pompiers y raccordent leur motopompe depuis une prise d'alimentation en façade (raccord STAUBLI normalisé) pour alimenter des prises d'incendie à chaque niveau, sans devoir monter leurs propres tuyaux. Elle est obligatoire dans les ERP dont le plancher bas du niveau le plus haut est à plus de 18 mètres du sol, et dans tous les IGH.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "En réglementation ERP, qu'est-ce qu'une Unité de Passage (UP) et quelle est la largeur minimale d'un dégagement d'évacuation principal ?",
+      choices: [
+        "1 UP = 0,30 m (largeur d'une épaule) — dégagement minimal : 1 UP (0,30 m)",
+        "1 UP = 0,60 m (largeur de passage d'une file) — dégagement normal minimal : 2 UP (1,20 m)",
+        "1 UP = 0,90 m (largeur porte standard) — dégagement minimal : 1 UP (0,90 m)",
+        "1 UP = 1,00 m (largeur PMR) — dégagement minimal : 2 UP (2,00 m)",
+      ],
+      answer: [1],
+      explanation:
+        "En réglementation ERP, 1 Unité de Passage (UP) = 0,60 mètre. Les dégagements sont dimensionnés en UP en fonction de l'effectif à évacuer. Un dégagement principal doit comporter au minimum 2 UP (1,20 m) pour permettre le passage simultané de deux files de personnes. Une porte de 0,90 m compte pour 1 UP. Une porte de 1,40 m compte pour 2 UP. Le nombre total d'UP requis est calculé selon des tables réglementaires en fonction de l'effectif admis.",
+      timeLimit: 40,
+    },
   ],
   sprinkler: [
     {
@@ -3306,6 +3376,117 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Essais périodiques, registre, coordination avec mainteneur et assureur, signalement des anomalies. Les modifications techniques relèvent de l'installateur ou du mainteneur qualifié.",
+    },
+    {
+      question: "Quelle est la différence entre l'APSAD R1 et l'APSAD R5 ?",
+      choices: [
+        "R1 : installations sprinkler (extinction automatique par eau) — R5 : Robinets d'Incendie Armés (RIA)",
+        "R1 et R5 sont deux versions successives du même référentiel sprinkler (2013 et 2020)",
+        "R1 : risque léger (LH) — R5 : risque élevé (HH) selon la classification EN 12845",
+        "R1 : extincteurs portables — R5 : colonnes sèches et colonnes humides",
+      ],
+      answer: [0],
+      explanation:
+        "L'APSAD R1 est le référentiel d'installation, vérification et maintenance des systèmes sprinkler (extinction automatique par eau). L'APSAD R5 est le référentiel équivalent pour les Robinets d'Incendie Armés (RIA). Ces deux référentiels sont émis par le CNPP (Centre National de Prévention et de Protection) et sont reconnus par les assureurs français. Les deux peuvent coexister sur un même site.",
+      timeLimit: 35,
+    },
+    {
+      question:
+        "Dans la classification APSAD / EN 12845 des modes de stockage, que désignent les types ST1 à ST4 ?",
+      choices: [
+        "ST1 = empilage libre (palettes au sol) · ST2/ST3 = palettes sur racks (rangées simples/multiples) · ST4 = racks à grande hauteur nécessitant des têtes intermédiaires entre niveaux",
+        "ST1 = liquides inflammables · ST2 = solides combustibles · ST3 = gaz comprimés · ST4 = aérosols sous pression",
+        "ST1 à ST4 = catégories de marchandises selon leur combustibilité (I à IV selon EN 12845)",
+        "ST1 = 1 niveau de stockage · ST2 = 2 niveaux · ST3 = 3 niveaux · ST4 = plus de 4 niveaux",
+      ],
+      answer: [0],
+      explanation:
+        "La classification des modes de stockage pour le calcul des besoins sprinkler selon l'APSAD R1 / EN 12845 : ST1 = empilage libre (palettes directement au sol, sans structure métallique) ; ST2 = palettes sur racks à rangées simples (une palette de profondeur) ; ST3 = palettes sur racks à rangées multiples (back-to-back, plusieurs palettes de profondeur) ; ST4 = racks à grande hauteur avec têtes sprinkler intermédiaires obligatoires entre niveaux lorsque l'écart vertical dépasse 1,2 m entre la marchandise et les têtes de plafond.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quelle est la différence entre une tête sprinkler ELO (Élevé Oblique) et une tête SSU (Standard Upright) ?",
+      choices: [
+        "ELO : conçue pour toitures inclinées, température 160 °C, K-factor élevé (K≈141) pour grande surface de couverture — SSU : montage vertical standard, 68-79 °C, K-factor standard (K≈68)",
+        "ELO et SSU sont deux noms commerciaux pour la même tête — seul le fabricant diffère",
+        "ELO : pour zones froides et humides — SSU : pour zones chaudes (au-dessus de 50 °C ambiants)",
+        "ELO : têtes ouvertes (système déluge) — SSU : têtes fermées (système sous eau standard)",
+      ],
+      answer: [0],
+      explanation:
+        "La tête ELO (Élevé Oblique) est conçue pour les toitures inclinées (chais, entrepôts agricoles) : son déflecteur oriente le jet obliquement selon l'angle du plafond. Sa température de déclenchement est élevée (ex. 160 °C pour les zones chaudes comme les chais de vieillissement en fût) et son K-factor élevé (K≈141) assure un grand débit hydraulique couvrant une grande surface. La tête SSU standard est montée verticalement, déclenchement à 68 °C (bulbe rouge, standard) ou 79 °C (bulbe jaune), K≈68. Le choix dépend de la géométrie du bâtiment et de la température ambiante maximale.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quel est le rôle exact de la pompe jockey (pompe de maintien de pression) dans une installation sprinkler ?",
+      choices: [
+        "Elle est la source principale d'eau en cas d'incendie — elle alimente le réseau pendant toute la durée du sinistre",
+        "Elle maintient la pression réseau en compensant les micro-fuites, et son démarrage fréquent signale une fuite ou un déclenchement de tête à investiguer",
+        "Elle remplace le groupe motopompe diesel en cas de coupure de courant secteur",
+        "Elle est dédiée au remplissage des réservoirs pendant les périodes de faible consommation",
+      ],
+      answer: [1],
+      explanation:
+        "La pompe jockey (ou de maintien) est une petite pompe (typiquement 5 m³/h à 110 mCE) dont le seul rôle est de compenser les micro-fuites du réseau et de maintenir la pression nominale entre 0 et 5 m³/h. Si une tête se déclenche ou si une fuite importante survient, la jockey ne peut pas suivre la demande en débit — elle s'épuise et tourne en continu. Ses démarrages fréquents et rapprochés constituent une alarme de type B à investiguer immédiatement. La source principale reste l'électropompe et/ou le groupe motopompe diesel.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Pourquoi une installation sprinkler pour distillerie ou dépôt d'hydrocarbures intègre-t-elle un émulseur plutôt que de l'eau seule ?",
+      choices: [
+        "L'eau est trop lente à activer — l'émulseur accélère chimiquement la réaction d'extinction",
+        "L'eau seule rebondit sur les liquides inflammables sans effet extincteur — l'émulseur AFFF (3 %) ou FFF crée un film étouffant sur la surface du liquide, empêchant les vapeurs de rejoindre les flammes",
+        "L'eau seule n'est pas autorisée en ICPE — l'émulseur est une obligation réglementaire universelle",
+        "L'émulseur remplace entièrement l'eau — le réseau n'est alimenté qu'en émulseur pur",
+      ],
+      answer: [1],
+      explanation:
+        "Pour les risques liquides inflammables (hydrocarbures, alcools, distilleries), l'eau seule provoquerait une vaporisation explosive et l'extension du feu. L'émulseur AFFF (Aqueous Film-Forming Foam) à 3 % crée un film aqueux sur la surface du liquide qui stoppe l'émission de vapeurs inflammables. L'alternative FFF (fluorcompound-free, sans PFAS) offre les mêmes performances sur hydrocarbures et solvants polaires. Le dosage est assuré par une pompe FIREDOS (hydraulique, sans électricité) ou un tank proportionnel. L'autonomie minimale demandée est généralement 30 minutes.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Sur quelle zone hydraulique est calculé le besoin en eau (pression et débit) d'une installation sprinkler ?",
+      choices: [
+        "Sur la zone hydrauliquement la plus favorable — la plus proche de la source où la pression est maximale",
+        "Sur la zone hydrauliquement la plus défavorisée — la plus éloignée ou la plus haute, où la pression disponible est minimale",
+        "Sur la surface totale du bâtiment divisée par le nombre total de têtes",
+        "Sur la zone présentant la plus forte densité de stockage, indépendamment de la pression",
+      ],
+      answer: [1],
+      explanation:
+        "Les besoins hydrauliques sont calculés sur la zone hydrauliquement la plus défavorisée : la portion du réseau où la pression disponible est la plus faible (la zone la plus éloignée de la source ou la plus haute en altitude). Ce calcul détermine le débit requis, la pression minimale à la pompe et le volume de réserve d'eau nécessaire. Si la pression et le débit sont suffisants dans la zone critique, ils seront suffisants partout ailleurs — c'est le principe du dimensionnement par la zone défavorisée.",
+      timeLimit: 35,
+    },
+    {
+      question:
+        "Pourquoi est-il formellement interdit de peindre une tête sprinkler, même pour l'harmoniser esthétiquement avec le plafond ?",
+      choices: [
+        "La peinture peut modifier la couleur du bulbe et créer une confusion sur la température de déclenchement nominale",
+        "La peinture modifie la conductivité thermique de l'ampoule ou du bulbe — elle peut retarder ou empêcher le déclenchement, ou fragiliser le mécanisme de maintien jusqu'à la rupture accidentelle",
+        "C'est uniquement une contrainte contractuelle APSAD sans justification technique démontrée",
+        "La peinture fraîche dégage des vapeurs qui déclenchent les DAI optiques de fumée voisins",
+      ],
+      answer: [1],
+      explanation:
+        "Peindre une tête sprinkler est formellement interdit par tous les référentiels (EN 12845, APSAD R1, NFPA 13). La peinture crée une isolation thermique autour de l'ampoule en verre ou du bulbe à fusible, pouvant retarder le déclenchement (la tête répond trop tard lors d'un incendie réel). À l'inverse, une peinture trop épaisse peut fragiliser le mécanisme de maintien jusqu'à la rupture intempestive. Une tête peinte, heurtée ou visuellement déformée doit être remplacée immédiatement — même si elle n'a pas coulé.",
+      timeLimit: 35,
+    },
+    {
+      question:
+        "Quelle est la différence entre une alarme de type A et une alarme de type B sur une installation sprinkler ?",
+      choices: [
+        "Type A = alarme de zone (partie du réseau) · Type B = alarme générale (tout le bâtiment)",
+        "Type A = débit d'eau dans le réseau ou pompe démarrée (incendie probable → réponse incendie immédiate) · Type B = défaut technique (basse pression, vanne, défaut électrique → appel maintenance)",
+        "Type A = alarme automatique (DAI) · Type B = alarme manuelle (DM)",
+        "Type A = alarme restreinte (PC sécurité) · Type B = alarme générale (évacuation)",
+      ],
+      answer: [1],
+      explanation:
+        "Distinction clé selon la NF EN 12845 : Alarme type A = signal de débit d'eau dans le réseau ou mise en marche d'une pompe → incendie réel ou probable → réponse incendie immédiate (alerte pompiers, évacuation, vérification terrain). Alarme type B = défaut technique : basse pression d'air en système sec, vanne partiellement fermée, défaut secteur, niveau carburant diesel bas → pas d'incendie, mais dégradation de disponibilité → appel technicien maintenance. Confondre ces deux types est une erreur fréquente et potentiellement fatale.",
+      timeLimit: 35,
     },
   ],
   "extinction-automatique-gaz": [
@@ -5897,4 +6078,919 @@ quizContent["ssiap1"] = [
     explanation: "Un IGH est défini par la hauteur du plancher bas du dernier niveau accessible au public : > 28 mètres pour les immeubles d'habitation et > 50 mètres pour les bureaux, hôtels et autres usages. Cette distinction est importante car les IGH sont soumis à une réglementation spécifique plus contraignante que les ERP classiques.",
     timeLimit: 35,
   },
+  {
+    question:
+      "Un établissement de type 'R' selon la classification des ERP accueille quelle activité principale ?",
+    choices: [
+      "Restaurants et débits de boissons",
+      "Établissements d'enseignement, crèches et centres de vacances pour enfants",
+      "Salles de spectacle et de conférence",
+      "Établissements de soins et hôpitaux",
+    ],
+    answer: [1],
+    explanation:
+      "Les ERP sont classés par type selon leur activité : R = Établissements d'enseignement (écoles, collèges, lycées, universités, crèches, centres de vacances). Autres types importants à connaître : J = structures pour personnes âgées/handicapées ; L = salles de spectacle, conférences ; M = magasins et centres commerciaux ; N = restaurants et débits de boissons ; O = hôtels et pensions ; U = établissements de soins (hôpitaux, cliniques) ; W = bureaux ; X = établissements sportifs couverts.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "À partir de quelle hauteur de plancher une colonne sèche devient-elle obligatoire pour faciliter l'intervention des sapeurs-pompiers dans un ERP ?",
+    choices: [
+      "À partir de 8 mètres (dès le 2e étage environ)",
+      "À partir de 18 mètres au-dessus du niveau du sol",
+      "À partir de 28 mètres (seuil IGH pour l'habitation)",
+      "À partir de 50 mètres (seuil IGH pour les bureaux)",
+    ],
+    answer: [1],
+    explanation:
+      "La colonne sèche (canalisation fixe rigide non alimentée en eau en temps normal) est obligatoire dans les ERP dont le plancher bas du niveau le plus haut accessible est à plus de 18 mètres du sol. Les pompiers raccordent leur motopompe à la prise d'alimentation en façade et alimentent les prises d'incendie à chaque niveau. Elle est également obligatoire dans tous les IGH. La colonne humide (sous pression permanente) est réservée aux très grands bâtiments.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "Parmi les 5 catégories de SSI (A à E) selon la norme NF S 61-930, laquelle est la plus complète et comprend SDI complet + SMSI complet ?",
+    choices: [
+      "Catégorie E (le plus élaboré — détection partout + mise en sécurité totale)",
+      "Catégorie A (le plus complet — SDI avec détection automatique dans tout le bâtiment + SMSI complet avec toutes les fonctions)",
+      "Catégorie C (compromis habituel — DM partout + SMSI partiel)",
+      "Catégorie B (SDI partiel + SMSI uniquement pour l'évacuation)",
+    ],
+    answer: [1],
+    explanation:
+      "Les 5 catégories de SSI selon NF S 61-930, du plus complet au plus simple : A = SDI complet (détecteurs automatiques + DM dans tout le bâtiment) + SMSI complet (CMSI commandant évacuation, compartimentage, désenfumage) ; B = SDI partiel + SMSI complet ; C = DM seulement + SMSI complet ; D = DM + SMSI partiel (évacuation seulement) ; E = DAD (Détecteur Autonome Déclencheur) seul, avec alarme intégrée. Le type de SSI requis dépend du type et de la catégorie de l'ERP.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quel est le rôle de l'UGA (Unité de Gestion d'Alarmes) dans le SSI ?",
+    choices: [
+      "L'UGA détecte automatiquement les incendies grâce à des capteurs thermiques et optiques intégrés",
+      "L'UGA collecte les informations des DM et du SDI, les traite et déclenche le processus d'alarme (restreinte puis générale) selon la séquence programmée",
+      "L'UGA pilote uniquement le désenfumage mécanique et la mise en surpression des escaliers",
+      "L'UGA est le tableau répétiteur d'alarme installé à l'entrée principale de l'établissement",
+    ],
+    answer: [1],
+    explanation:
+      "L'UGA (Unité de Gestion d'Alarmes) est un sous-ensemble du CMSI. Elle collecte les informations en provenance des déclencheurs manuels (DM) et du système de détection incendie (SDI), les gère et déclenche la séquence d'alarme : d'abord l'alarme restreinte (signal sonore uniquement au PC sécurité pour levée de doute), puis l'alarme générale (signal sonore et lumineux dans tout le bâtiment — évacuation). Elle fait partie du SMSI avec le CMSI, les dispositifs actionnés de sécurité (DAS) et les équipements d'alarme.",
+    timeLimit: 35,
+  },
+  {
+    question: "Qu'est-ce qu'un BAES et en quoi diffère-t-il d'un BAEH ?",
+    choices: [
+      "BAES = alimenté par panneau solaire · BAEH = alimenté par réseau 230V uniquement",
+      "BAES (Bloc Autonome d'Éclairage de Sécurité) = éclairage de sécurité standard pour ERP (1 h d'autonomie) · BAEH = variante pour établissements d'hébergement types J et U (6 h d'autonomie minimum)",
+      "BAES et BAEH sont identiques — seule la puissance lumineuse (lumens) diffère",
+      "BAES = bloc de signalisation des sorties · BAEH = bloc éclairant les dégagements normaux uniquement",
+    ],
+    answer: [1],
+    explanation:
+      "Les BAES (Blocs Autonomes d'Éclairage de Sécurité) maintiennent l'éclairage des dégagements et issues de secours lors d'une coupure secteur, avec une autonomie standard de 1 heure. Le BAEH est une variante spécifique aux établissements d'hébergement accueillant des personnes non autonomes (types J = personnes âgées/handicapées et U = soins) où l'évacuation prend plus de temps : autonomie minimale de 6 heures. Une alternative aux blocs autonomes est le LSC (Luminaire sur Source Centralisée), alimenté par une batterie centrale commune.",
+    timeLimit: 35,
+  },
+  {
+    question: "Quelle est la différence fondamentale entre désenfumage naturel et désenfumage mécanique dans un ERP ?",
+    choices: [
+      "Naturel = déclenché manuellement par les occupants via une poignée · Mécanique = déclenché uniquement par les pompiers depuis l'extérieur",
+      "Naturel = exutoires en toiture + ouvrants en façade basse (amenée d'air) sans moteur, par tirage thermique · Mécanique = extraction forcée par ventilateurs ou mise en surpression des escaliers via des groupes électriques",
+      "Naturel = efficace uniquement pour les fumées froides (< 200 °C) · Mécanique = uniquement pour les fumées très chaudes (> 500 °C)",
+      "Les deux systèmes sont techniquement identiques — la différence porte uniquement sur la source d'énergie (batterie vs réseau)",
+    ],
+    answer: [1],
+    explanation:
+      "Le désenfumage naturel exploite la différence de densité entre les fumées chaudes (légères, montent) et l'air frais (plus dense, entre par les bas) : exutoires (ouvrants en toiture ou en partie haute des parois) évacuent les fumées par tirage thermique ; des amenées d'air frais (ouvrants façade basse ou gaines) complètent le tirage. Le désenfumage mécanique utilise des extracteurs ou souffleurs électriques commandés par le CMSI — plus efficace par vent contraire ou en l'absence de gradient thermique suffisant. Les cages d'escalier peuvent être mises en surpression pour rester praticables.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "Qu'est-ce qu'un permis de feu dans un ERP ou sur un chantier, et qui est habilité à le délivrer ?",
+    choices: [
+      "Un document administratif délivré par la préfecture avant tout travail en ERP en présence du public",
+      "Un document interne délivré par l'exploitant ou le responsable sécurité du site, autorisant des travaux par points chauds et définissant les mesures de protection à appliquer",
+      "Un formulaire de l'inspection du travail requis pour tout travail de maintenance en présence d'équipements électriques",
+      "Un permis accordé par la commission de sécurité avant toute ouverture de chantier dans un ERP",
+    ],
+    answer: [1],
+    explanation:
+      "Le permis de feu est un document interne établi par l'exploitant ou le responsable sécurité pour autoriser des travaux par points chauds (soudage, meulage, oxycoupage, découpe thermique). Il précise : la zone concernée, la nature des travaux, les risques identifiés (projections de particules incandescentes jusqu'à plus de 10 m), les mesures de protection (moyen d'extinction à portée, mise hors service temporaire des DAI sur la zone, ronde de surveillance post-travaux pendant au moins 2 heures), et les personnes habilitées. Il est établi avant et clôturé après les travaux.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "Quels sont les principaux objectifs d'une ronde de sécurité incendie effectuée par l'agent SSIAP1 ?",
+    choices: [
+      "Remplacer les exercices d'évacuation réglementaires et vérifier les installations de climatisation",
+      "Déceler toute anomalie pouvant affecter la sécurité : dégagements obstrués, portes coupe-feu bloquées, extincteurs inaccessibles ou manquants, travaux non déclarés — et consigner sur la main courante",
+      "Vérifier uniquement que les portes coupe-feu sont fermées à double tour la nuit",
+      "Accueillir les visiteurs et contrôler les badges d'accès au bâtiment",
+    ],
+    answer: [1],
+    explanation:
+      "La ronde de sécurité incendie consiste à parcourir un itinéraire déterminé à l'avance pour vérifier l'absence d'anomalie pouvant affecter la sécurité : libre circulation dans les dégagements (pas d'obstacles), fermeture correcte des portes coupe-feu (sélecteur en position, ferme-porte fonctionnel), état et accessibilité des extincteurs et RIA, absence de stockage inapproprié ou de travaux non déclarés. L'agent est équipé d'un carnet, d'une lampe torche, d'un moyen de communication et d'un contrôleur de ronde. Toutes les constatations sont consignées sur la main courante selon la méthode SOCA.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "Quel niveau minimal de qualification SSIAP est requis pour occuper le poste de chef du PC sécurité d'un ERP ?",
+    choices: [
+      "SSIAP1 — l'agent de base peut diriger le poste s'il justifie de 2 ans d'expérience",
+      "SSIAP2 minimum — seul le chef d'équipe est réglementairement qualifié pour diriger le poste de sécurité en permanence",
+      "SSIAP3 — seul le chef de service peut prendre les décisions au PC sécurité",
+      "Tout personnel ayant suivi la formation SST (Sauveteur Secouriste du Travail) peut occuper le poste",
+    ],
+    answer: [1],
+    explanation:
+      "Le poste central de sécurité (PC sécurité ou PCSI en IGH) doit être occupé en permanence par un chef de poste qualifié SSIAP2 minimum. Le SSIAP2 (chef d'équipe) assure la direction opérationnelle du PC, prend les décisions lors des alarmes (levée de doute, alerte des secours, déclenchement de l'évacuation), coordonne les SSIAP1 et accueille les pompiers. Le SSIAP3 (chef de service) dirige l'ensemble du service sécurité et est l'interlocuteur de la direction de l'établissement et de la commission de sécurité.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "La méthode SOCA est utilisée pour rédiger les comptes rendus sur la main courante SSIAP. Que signifie chaque lettre ?",
+    choices: [
+      "Sécurité · Observation · Contrôle · Alarme",
+      "Situation (temps et espace) · Observation (faits objectifs) · Causes / Conséquences (analyse) · Action (intervention réalisée)",
+      "Secteur · Occupants · Contact · Alerte",
+      "Surveillance · Ordre · Communication · Assistance",
+    ],
+    answer: [1],
+    explanation:
+      "La méthode SOCA structure toute rédaction sur la main courante et tout compte rendu oral : S = Situation (situer dans le temps et l'espace : quand, où, que faisait l'agent ?) ; O = Observation (décrire objectivement les faits constatés sans interprétation) ; C = Causes/Conséquences (analyser les causes probables et évaluer les conséquences potentielles) ; A = Action (décrire l'intervention réalisée ou envisagée). Cette méthode garantit une trace précise, chronologique et exploitable de chaque événement ou anomalie.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "Comment doit être réalisée la coupure d'urgence de l'alimentation électrique générale dans un ERP selon le règlement de sécurité ?",
+    choices: [
+      "Elle nécessite l'intervention simultanée de deux agents de sécurité pour éviter tout déclenchement accidentel",
+      "Elle doit être réalisable en une seule manœuvre à partir d'un organe clairement identifié, signalisé et accessible aux sapeurs-pompiers",
+      "Elle ne peut être activée que sur ordre écrit du SSIAP3 ou de la commission de sécurité",
+      "Elle se déclenche automatiquement dès qu'une alarme générale est émise par le CMSI",
+    ],
+    answer: [1],
+    explanation:
+      "Le règlement de sécurité ERP impose que la coupure d'urgence de l'alimentation électrique générale soit réalisable en une seule manœuvre à partir d'un organe clairement identifié (tableau général basse tension ou disjoncteur général), signalisé par une plaque rouge et accessible aux pompiers. Cette exigence permet une coupure rapide en cas d'incendie pour supprimer les sources d'inflammation et les risques d'électrocution. Les installations de sécurité (éclairage de sécurité BAES/BAEH, CMSI, alarmes) sont alimentées par une source de sécurité indépendante non coupée par cette manœuvre.",
+    timeLimit: 35,
+  },
+  {
+    question:
+      "Que désigne la notation 'EI 60' pour une cloison ou une porte coupe-feu selon la classification européenne ?",
+    choices: [
+      "E (étanchéité aux flammes et gaz chauds) + I (isolation thermique) pendant 60 minutes — équivalent de l'ancien coupe-feu 1 heure (CF 1h)",
+      "Énergie Incombustible sur 60 centimètres d'épaisseur de matériau",
+      "E = élément porteur, I = isolant, 60 = validité en années selon les standards ISO",
+      "Étanchéité Intégrale pendant 60 heures en conditions de laboratoire normalisées",
+    ],
+    answer: [0],
+    explanation:
+      "La notation européenne de résistance au feu pour les éléments séparateurs non porteurs (cloisons, portes, rideaux coupe-feu) : E = étanchéité aux flammes et gaz chauds (pas de flamme ni de gaz passant d'un côté à l'autre) ; I = isolation thermique (la face non exposée au feu ne dépasse pas 140 °C d'élévation). EI 30 = ancien pare-feu ½ heure (PF ½ h) ; EI 60 = ancien coupe-feu 1 heure (CF 1h) ; EI 120 = CF 2h. Pour les éléments porteurs, R s'ajoute : REI 60 = plancher résistance + étanchéité + isolation pendant 60 min.",
+    timeLimit: 35,
+  },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RECYCLAGE SSIAP1 — Remise à niveau 14h / 3 ans
+// ─────────────────────────────────────────────────────────────────────────────
+quizContent["recyclage-ssiap1"] = [
+  {
+    question: "À quelle fréquence le recyclage SSIAP1 est-il obligatoire pour maintenir la qualification ?",
+    choices: [
+      "Tous les 5 ans, avec 7 heures de formation minimum",
+      "Tous les 3 ans, avec 14 heures de formation minimum",
+      "Tous les 2 ans, avec 8 heures de formation minimum",
+      "Tous les 3 ans, avec 7 heures de formation minimum",
+    ],
+    answer: [1],
+    explanation:
+      "L'arrêté du 2 mai 2005 modifié impose un recyclage SSIAP1 de 14 heures minimum tous les 3 ans. Sans recyclage valide, la qualification SSIAP1 est suspendue et l'employeur ne peut plus affecter l'agent à un poste SSIAP1. Le recyclage comprend une partie théorique (dont cet e-learning) et une partie pratique encadrée.",
+    timeLimit: 30,
+  },
+  {
+    question: "Un extincteur portable a-t-il besoin d'être remplacé ou rechargé après un déclenchement partiel (une seconde d'utilisation) ?",
+    choices: [
+      "Non — un déclenchement de moins de 5 secondes ne nécessite pas de recharge",
+      "Oui — tout extincteur déclenché, même partiellement, doit être immédiatement remis en état ou remplacé",
+      "Uniquement si la pression visible sur le manomètre est descendue sous la zone verte",
+      "Seulement pour les extincteurs CO₂ — les extincteurs à poudre peuvent être réutilisés partiellement",
+    ],
+    answer: [1],
+    explanation:
+      "Tout extincteur portable déclenché, même partiellement (une seule seconde d'utilisation), doit être immédiatement remis en état de fonctionnement ou remplacé. Un extincteur partiellement utilisé peut continuer à perdre sa charge (pression de gaz propulseur) et ne sera pas opérationnel lors d'une prochaine utilisation. La norme NF EN 3 et la norme NF S 61-919 (maintenance) l'imposent sans exception.",
+    timeLimit: 30,
+  },
+  {
+    question: "Lors d'une alarme restreinte au PC sécurité, quelle est la durée maximale de levée de doute avant de déclencher obligatoirement l'alarme générale ?",
+    choices: [
+      "Il n'y a pas de durée maximale — l'agent peut prendre le temps nécessaire pour investiguer",
+      "2 minutes maximum selon la norme NF S 61-930",
+      "La durée est fixée par les consignes de l'établissement (généralement 3 à 5 minutes selon la configuration du SSI)",
+      "10 minutes — délai standard reconnu par tous les textes réglementaires",
+    ],
+    answer: [2],
+    explanation:
+      "La norme NF S 61-930 définit que la durée de la temporisation d'alarme restreinte (levée de doute) est fixée dans les consignes de l'établissement et dans la configuration du CMSI, généralement entre 3 et 5 minutes. Au-delà de cette durée sans confirmation d'absence d'incendie, l'alarme générale doit être déclenchée. L'agent SSIAP1 doit connaître la durée de temporisation spécifique à son établissement.",
+    timeLimit: 35,
+  },
+  {
+    question: "Quelle est la catégorie de SSI la plus simple, utilisant uniquement un DAD (Détecteur Autonome Déclencheur) ?",
+    choices: [
+      "Catégorie A — la plus complexe avec SDI complet et SMSI complet",
+      "Catégorie C — déclencheurs manuels plus SMSI complet",
+      "Catégorie E — DAD autonome avec alarme intégrée, sans CMSI ni report au PC sécurité",
+      "Catégorie D — déclencheurs manuels plus SMSI partiel",
+    ],
+    answer: [2],
+    explanation:
+      "La catégorie E est la plus simple des 5 catégories de SSI. Un DAD (Détecteur Autonome Déclencheur) intègre à la fois la détection (généralement optique de fumée) et l'alarme sonore dans un seul appareil autonome. Il n'est pas relié à un CMSI — il n'y a donc pas de report au PC sécurité, pas de levée de doute centralisée et pas de commande de DAS. On le trouve dans les petits ERP de 5e catégorie. Catégorie A = le plus complet (SDI complet + SMSI complet).",
+    timeLimit: 35,
+  },
+  {
+    question: "Qu'est-ce que l'AES (Alimentation Électrique de Sécurité) dans un SSI et quelle autonomie minimale doit-elle assurer ?",
+    choices: [
+      "L'AES alimente uniquement les éclairages de sécurité BAES — autonomie 1 heure",
+      "L'AES garantit l'alimentation du SSI en cas de coupure secteur : 12 heures en veille + durée de fonctionnement en alarme (généralement 1 heure minimum)",
+      "L'AES est un système de redondance réseau uniquement pour les CMSI de catégorie A",
+      "L'AES alimente le réseau sprinkler en cas de coupure — autonomie 30 minutes",
+    ],
+    answer: [1],
+    explanation:
+      "L'AES (Alimentation Électrique de Sécurité) garantit l'alimentation de tous les composants du SSI lors d'une coupure du réseau normal (EDF). Elle comprend des accumulateurs (batteries) ou un groupe électrogène de sécurité. Les exigences minimales sont : autonomie en veille de 12 heures + durée de fonctionnement complète en alarme (généralement 1 heure). Tout défaut d'AES signalé sur le tableau CMSI doit être immédiatement signalé au mainteneur.",
+    timeLimit: 35,
+  },
+  {
+    question: "Quelles sont les dimensions maximales réglementaires d'un compartiment IGH ?",
+    choices: [
+      "Longueur 50 m · Surface 1 500 m² · 1 niveau maximum",
+      "Longueur 75 m · Surface 2 500 m² · 1 à 3 niveaux",
+      "Longueur 100 m · Surface 3 000 m² · 2 niveaux maximum",
+      "Pas de limitation de surface — uniquement une limitation à 2 niveaux par compartiment",
+    ],
+    answer: [1],
+    explanation:
+      "Un compartiment IGH est limité à : 75 mètres de longueur maximale, 2 500 m² de surface maximale, et 1 à 3 niveaux. Les parois de compartimentage doivent résister au feu 2 heures (EI ou REI 120). Le compartimentage IGH permet une évacuation différée : le compartiment sinistré est évacué en premier, les compartiments adjacents sont mis en alerte. Les chaufferies IGH doivent avoir une résistance au feu de 4 heures.",
+    timeLimit: 35,
+  },
+  {
+    question: "Quelle est la différence entre la réaction au feu et la résistance au feu d'un matériau ou d'un élément de construction ?",
+    choices: [
+      "Les deux termes sont synonymes — ils mesurent la même propriété",
+      "Réaction au feu = comportement d'un matériau comme combustible (contribution à l'incendie, classement Euroclass A1→F) · Résistance au feu = durée pendant laquelle un élément de structure maintient ses fonctions sous l'effet du feu (R, E, I en minutes)",
+      "Réaction au feu = durée de résistance avant effondrement · Résistance au feu = contribution aux fumées",
+      "Réaction au feu concerne uniquement les liquides inflammables · Résistance au feu concerne uniquement les structures porteuses",
+    ],
+    answer: [1],
+    explanation:
+      "Distinction fondamentale à maîtriser : la réaction au feu mesure le comportement d'un matériau en tant que combustible — comment il contribue à l'éclosion et à la propagation de l'incendie. Elle est classée selon le système Euroclass : A1 (non combustible, ex-M0) jusqu'à F (non classé, ex-M4). La résistance au feu mesure la durée pendant laquelle un élément de construction (cloison, porte, plancher) maintient ses fonctions de séparation sous l'effet du feu : R (résistance mécanique), E (étanchéité), I (isolation thermique), exprimées en minutes.",
+    timeLimit: 35,
+  },
+  {
+    question: "Lors de travaux par points chauds dans un ERP, qu'est-il OBLIGATOIRE d'effectuer APRÈS la fin des travaux ?",
+    choices: [
+      "Rien — la responsabilité des risques post-travaux incombe uniquement à l'entreprise extérieure",
+      "Réarmer immédiatement les détecteurs inhibés et fermer le permis de feu",
+      "Effectuer une ronde de surveillance pendant au moins 2 heures après la fin des travaux, en cherchant tout signe de combustion (fumée, odeur, chaleur)",
+      "Appeler le 18 pour signaler la fin des travaux à la caserne de pompiers locale",
+    ],
+    answer: [2],
+    explanation:
+      "La ronde post-travaux est une obligation critique souvent sous-estimée. Pendant au moins 2 heures après la fin de travaux par points chauds, une ronde de surveillance doit vérifier l'absence de feu couvant : pas de fumée, pas d'odeur de brûlé, surfaces adjacentes à température normale (tâter les cloisons). Les braises dans une cloison ou une projection de particule incandescente dans un espace caché peuvent déclencher un incendie des heures après la fin des travaux. Le permis de feu n'est clôturé qu'à l'issue de cette ronde de surveillance.",
+    timeLimit: 30,
+  },
+  {
+    question: "Quand une zone du SSI est temporairement mise hors service (détecteur inhibé pour travaux), que doit impérativement faire l'agent SSIAP1 ?",
+    choices: [
+      "Ne rien faire de spécial — l'inhibition est une procédure normale qui n'impose aucune obligation supplémentaire",
+      "Consigner l'inhibition sur la main courante (date, heure, zone, motif) ET assurer une surveillance humaine renforcée de la zone pendant toute la durée de l'inhibition",
+      "Informer uniquement la direction par e-mail et conserver une copie",
+      "Couper également l'alarme de toute la zone contiguë pour éviter une fausse alarme en cascade",
+    ],
+    answer: [1],
+    explanation:
+      "Toute inhibition d'une zone SSI est un événement à risque élevé qui impose deux actions simultanées : 1) Consignation obligatoire sur la main courante (date, heure de début, zone inhibée avec numéro et localisation précise, motif, durée prévue, personne ayant effectué l'inhibition) ; 2) Surveillance humaine renforcée de la zone concernée pendant toute la durée de l'inhibition (rondes plus fréquentes ou présence physique permanente selon le niveau de risque). L'inhibition doit être levée dès que possible et consignée à nouveau lors du réarmement.",
+    timeLimit: 30,
+  },
+  {
+    question: "Un agent découvre une porte coupe-feu maintenue ouverte par un extincteur posé devant elle. Quelle est la bonne conduite à tenir ?",
+    choices: [
+      "Ne rien faire si la porte est ouverte depuis peu de temps — la signaler uniquement lors du prochain rapport mensuel",
+      "Déplacer l'extincteur, laisser la porte se fermer, consigner l'anomalie sur la main courante et en informer la direction",
+      "Laisser la porte ouverte mais noter la zone dans le rapport hebdomadaire",
+      "Appeler immédiatement la commission de sécurité pour constater l'infraction",
+    ],
+    answer: [1],
+    explanation:
+      "Une porte coupe-feu maintenue ouverte constitue une infraction grave au règlement de sécurité ERP. La conduite immédiate : retirer l'obstacle (l'extincteur dans ce cas — qui ne doit jamais servir de cale !), laisser la porte se refermer normalement, vérifier son bon fonctionnement (ferme-porte, joint), consigner l'anomalie sur la main courante avec la méthode SOCA, signaler à la direction pour traitement. Si la porte doit régulièrement rester ouverte pour des raisons d'exploitation, la solution est l'installation d'un dispositif de fermeture automatique (DAS électromagnétique commandé par le SSI).",
+    timeLimit: 30,
+  },
+  {
+    question: "Lors de l'accueil des sapeurs-pompiers en cas d'incendie confirmé, quelle information doit être communiquée EN PREMIER au chef d'intervention ?",
+    choices: [
+      "Le nombre de visiteurs présents dans l'établissement ce jour-là",
+      "La localisation précise du sinistre (niveau, aile, numéro de local) et si des personnes sont potentiellement piégées",
+      "L'identité du propriétaire de l'établissement et les coordonnées de l'assureur",
+      "Le contenu du registre de sécurité depuis la dernière visite de la commission de sécurité",
+    ],
+    answer: [1],
+    explanation:
+      "La priorité absolue lors de l'accueil des sapeurs-pompiers est de leur communiquer la localisation précise du sinistre (niveau, aile, local) et toute information sur des personnes potentiellement piégées ou en difficulté (PMR en EAS, personnes non évacuées confirmées). Les secondes comptent. Ensuite viennent : les plans, les clés, les coupures effectuées (électricité, gaz), le nombre de personnes présentes, les matières dangereuses. L'agent doit rester disponible pendant toute l'intervention et suivre les instructions du chef d'intervention.",
+    timeLimit: 30,
+  },
+  {
+    question: "Quelle est la méthode SOCA utilisée pour rédiger les comptes rendus sur la main courante SSIAP1 ?",
+    choices: [
+      "Sécurité · Observation · Contrôle · Alarme",
+      "Situation · Observation · Causes/Conséquences · Action",
+      "Surveillance · Ordre · Communication · Assistance",
+      "Secteur · Opération · Compétence · Autorisation",
+    ],
+    answer: [1],
+    explanation:
+      "La méthode SOCA structure toute consignation sur la main courante SSIAP : S = Situation (situer dans le temps et l'espace : quand, où, que faisait l'agent) ; O = Observation (décrire objectivement les faits constatés, sans interprétation) ; C = Causes/Conséquences (analyser les causes probables et évaluer les conséquences potentielles) ; A = Action (décrire l'intervention réalisée ou la mesure prise). Ce document peut être requis lors d'enquêtes : il doit être factuel, chronologique et précis.",
+    timeLimit: 25,
+  },
+  {
+    question: "Quel est le seuil de hauteur qui définit un IGH pour un immeuble de bureaux ou d'hôtel ?",
+    choices: [
+      "Plancher bas du dernier niveau accessible > 20 mètres",
+      "Plancher bas du dernier niveau accessible > 28 mètres",
+      "Plancher bas du dernier niveau accessible > 50 mètres",
+      "Hauteur totale du bâtiment > 60 mètres",
+    ],
+    answer: [2],
+    explanation:
+      "L'article R.122-2 du Code de la construction et de l'habitation (CCH) définit les IGH : plancher bas du dernier niveau accessible au public > 28 mètres pour les immeubles d'habitation (GHA), et > 50 mètres pour les bureaux (GHB), hôtels (GHC), hôpitaux (GHD), établissements d'enseignement (GHE), locaux à usage industriel (GHF), établissements mixtes (GHJ), établissements pour personnes âgées (GHR), établissements de soins et chirurgie (GHU), établissements en attente (GHW) et établissements spéciaux (GHZ).",
+    timeLimit: 30,
+  },
+  {
+    question: "Que doit faire l'agent SSIAP1 s'il constate, lors d'une ronde, qu'un BAES (Bloc Autonome d'Éclairage de Sécurité) ne s'allume pas lors de son test d'autocontrôle ?",
+    choices: [
+      "Ne rien faire — les BAES testent automatiquement leur autonomie et un test raté est sans conséquence immédiate",
+      "Consigner le défaut sur la main courante avec l'emplacement précis, signaler au responsable pour remplacement rapide, et si la situation perdure, évaluer si la zone est suffisamment éclairée en cas d'urgence",
+      "Remplacer lui-même la batterie du BAES si elle est disponible dans les réserves techniques",
+      "Débrancher le BAES défectueux et l'amener en maintenance pour ne pas créer de confusion",
+    ],
+    answer: [1],
+    explanation:
+      "Un BAES défectueux constitue une anomalie à traiter. L'agent SSIAP1 : note le défaut sur la main courante (emplacement précis, heure de constat, nature du défaut observé), le signale au responsable technique ou à la maintenance pour remplacement dans les meilleurs délais. Il ne doit pas démonter lui-même le BAES (sauf si habilité à le faire) ni masquer le défaut. Si plusieurs BAES sont défectueux dans un même couloir ou une même zone, la sécurité de l'évacuation est compromise — escalade au responsable sécurité et mesures compensatoires à envisager.",
+    timeLimit: 30,
+  },
+  {
+    question: "Quel document doit obligatoirement être tenu à jour dans tout ERP et consulté lors d'une visite de la commission de sécurité ?",
+    choices: [
+      "Le contrat d'assurance de l'établissement et les polices associées",
+      "Le registre de sécurité : consignes, exercices d'évacuation, vérifications périodiques des équipements, observations des commissions de sécurité",
+      "La main courante uniquement — le registre de sécurité n'est requis que pour les ERP de 1re et 2e catégorie",
+      "Le plan de formation annuel du personnel aux gestes de premiers secours",
+    ],
+    answer: [1],
+    explanation:
+      "Le registre de sécurité est obligatoire dans tout ERP (quelle que soit la catégorie). Il doit mentionner : les consignes générales et particulières de sécurité incendie, les dates et résultats des exercices d'évacuation, les dates des vérifications et entretiens des installations de sécurité (extincteurs, SSI, désenfumage, RIA, colonnes sèches, etc.), les observations faites lors des visites de la commission de sécurité et les suites données. La commission de sécurité peut exiger de le consulter lors de ses visites périodiques ou inopinées.",
+    timeLimit: 30,
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ATEX NIVEAU 1 — Intervenant en zone ATEX
+// ─────────────────────────────────────────────────────────────────────────────
+quizContent["atex-niveau1"] = [
+  {
+    question: "Qu'est-ce que la Concentration Minimale d'Explosivité (CME) pour les poussières ?",
+    choices: [
+      "La concentration maximale en poussières avant étouffement de la flamme",
+      "La plus faible concentration en poussières en suspension dans l'air susceptible de provoquer une explosion — l'équivalent de la LIE pour les gaz",
+      "La concentration de poussières déclenchant l'alarme d'un détecteur de particules",
+      "Le taux d'humidité critique au-delà duquel les poussières ne s'enflamment plus",
+    ],
+    answer: [1],
+    explanation: "La CME (Concentration Minimale d'Explosivité) est la plus faible concentration en poussières combustibles en suspension dans l'air pouvant former une atmosphère explosive — l'équivalent de la LIE (Limite Inférieure d'Explosivité) pour les gaz. En dessous de la CME, le mélange est trop pauvre pour exploser. Au-dessus d'une concentration maximale, la flamme est étouffée.",
+    timeLimit: 35,
+  },
+  {
+    question: "Qu'est-ce que la Température d'Auto-Inflammation (TAI) et pourquoi est-elle critique pour le choix d'un équipement Ex ?",
+    choices: [
+      "La température à laquelle un liquide produit suffisamment de vapeurs pour former une atmosphère explosive avec l'air — elle détermine le point éclair",
+      "La température à laquelle un mélange combustible/air s'enflamme spontanément sans source d'inflammation externe — elle conditionne la classe de température T de l'équipement",
+      "La température de surface maximale autorisée pour les équipements non certifiés",
+      "La température de fusion d'un solide combustible",
+    ],
+    answer: [1],
+    explanation: "La TAI est la température à laquelle un mélange gaz/air s'enflamme spontanément sans source d'inflammation externe. Elle détermine la classe de température T de l'équipement Ex : la température de surface maximale de l'appareil doit être inférieure à la TAI du gaz présent (avec une marge de sécurité). Un équipement T3 (200°C max) ne peut être utilisé avec un gaz ayant une TAI inférieure à 200°C.",
+    timeLimit: 40,
+  },
+  {
+    question: "Selon le guide INERIS Omega 36, pour un liquide inflammable, quelle règle de classification en Zone 1 s'applique en conditions normales d'exploitation ?",
+    choices: [
+      "La zone est classée 1 si le liquide est stocké à une température supérieure à son point éclair",
+      "La zone est classée 1 si la température du liquide dépasse son point éclair moins 15 °C",
+      "La zone est classée 1 uniquement si le point éclair est inférieur à 21 °C",
+      "La zone est classée 1 si le liquide peut atteindre sa TAI",
+    ],
+    answer: [1],
+    explanation: "Selon INERIS Omega 36, pour les liquides inflammables, le critère principal de classification Zone 1 est la température d'exploitation par rapport au point éclair : si la température de stockage ou d'utilisation est supérieure au point éclair moins 15 °C (Tf − 15 °C), une Zone 1 doit être envisagée autour du liquide. Ce critère conduit à classer de nombreuses installations de solvants ou d'hydrocarbures légers.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quel est l'équipement de catégorie 2G requis en Zone 1 (gaz) selon la correspondance ATEX ?",
+    choices: [
+      "Catégorie 1G uniquement pour les zones 0 et 1",
+      "Catégories 1G ou 2G — un équipement de catégorie 2G est adapté à la Zone 1",
+      "Catégorie 3G — valable dans toutes les zones",
+      "Tout équipement certifié CE est acceptable en Zone 1",
+    ],
+    answer: [1],
+    explanation: "La correspondance zones/catégories : Zone 0 → catégorie 1G minimum ; Zone 1 → catégorie 1G ou 2G ; Zone 2 → catégorie 1G, 2G ou 3G. Un équipement 2G offre 2 niveaux de protection indépendants et est conçu pour fonctionner en sécurité même en cas d'anomalie. Il est spécifiquement adapté à la Zone 1.",
+    timeLimit: 35,
+  },
+  {
+    question: "Sur le marquage Ex II 2G Ex d flIIC T5 Gb — que signifie le groupe de gaz 'IIC' ?",
+    choices: [
+      "Le groupe IIC correspond aux gaz les plus difficiles à enflammer — flamme refroidie facilement",
+      "Le groupe IIC correspond aux gaz les plus dangereux (hydrogène, acétylène) — énergie minimale d'inflammation très basse, l'équipement peut être utilisé avec tous les gaz du groupe I, IIA et IIB également",
+      "Le groupe IIC correspond uniquement aux vapeurs de solvants organiques",
+      "Le groupe IIC signifie que l'équipement est certifié pour les poussières combustibles",
+    ],
+    answer: [1],
+    explanation: "Les gaz sont classés en groupes IIA (propane, butane — les moins dangereux), IIB (éthylène) et IIC (hydrogène, acétylène, disulfure de carbone — les plus dangereux, énergie minimale d'inflammation très basse). Un équipement IIC peut être utilisé avec tous les gaz des groupes IIA et IIB. Un équipement IIA ne peut pas être utilisé avec des gaz IIB ou IIC.",
+    timeLimit: 40,
+  },
+  {
+    question: "Selon l'INERIS (Omega 36), quel est le risque majeur lié à l'utilisation d'un explosimètre étalonné au propane pour détecter du méthane ?",
+    choices: [
+      "Le propane et le méthane ont les mêmes caractéristiques — aucun risque de déviation",
+      "L'appareil peut afficher une concentration de 20 % de la LIE alors que le méthane a déjà atteint 40 à 50 % de sa propre LIE — risque d'explosion avant l'alarme",
+      "L'explosimètre s'endommagera définitivement s'il détecte du méthane après étalonnage propane",
+      "La mesure sera légèrement surestimée, ce qui entraîne uniquement des fausses alarmes",
+    ],
+    answer: [1],
+    explanation: "Point critique INERIS Omega 36 : chaque gaz a un facteur de réponse spécifique. Un explosimètre étalonné au propane affichera environ 40-50 % de la LIE méthane réelle pour une lecture de 20 % LIE propane. L'opérateur peut croire être en sécurité alors que la concentration est déjà dangereuse. L'étalonnage doit être réalisé avec le gaz effectivement présent ou avec un gaz de référence dont le facteur de conversion est parfaitement connu.",
+    timeLimit: 45,
+    contextLabel: "Point critique INERIS Omega 36 — Étalonnage explosimètre",
+  },
+  {
+    question: "À quelle fréquence minimale un explosimètre portable doit-il être étalonné selon les bonnes pratiques et les recommandations INERIS ?",
+    choices: [
+      "Tous les 5 ans, lors de la révision générale",
+      "Chaque jour avant utilisation (test au gaz d'étalonnage), avec une vérification métrologique annuelle ou selon la fréquence préconisée par le fabricant",
+      "Seulement après chaque alarme ou incident",
+      "Une fois à l'achat — l'étalonnage d'usine est valable pour toute la durée de vie",
+    ],
+    answer: [1],
+    explanation: "L'INERIS recommande un test fonctionnel quotidien (bump test avec gaz d'étalonnage) avant chaque utilisation en zone ATEX, ainsi qu'un étalonnage métrologique complet selon la fréquence préconisée par le fabricant (généralement annuelle ou semestrielle). Un explosimètre non testé est considéré comme non fiable. Le compte rendu d'étalonnage doit être conservé.",
+    timeLimit: 35,
+  },
+  {
+    question: "Que couvre exactement l'Autorisation de Travail (AT) en zone ATEX selon l'article R.4515-8 du Code du travail ?",
+    choices: [
+      "Elle remplace le plan de prévention pour les petits chantiers",
+      "Elle formalise les conditions d'exécution d'une opération spécifique en zone dangereuse : périmètre, mesures de sécurité, personnes autorisées, durée, vérifications atmosphériques",
+      "Elle est uniquement requise pour les travaux par points chauds (permis de feu)",
+      "Elle est délivrée par l'inspection du travail avant le début des travaux",
+    ],
+    answer: [1],
+    explanation: "L'Autorisation de Travail (AT) est un document formalisant les conditions d'exécution sécurisée d'une opération en zone ATEX : identification de la zone, conditions atmosphériques vérifiées, EPI requis, outillage autorisé, personnes habilitées, durée, mesures de consignation. Elle est délivrée par le responsable de site ou le référent ATEX. Pour les travaux par points chauds, elle est complétée par un permis de feu spécifique.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quelle est la distance de sécurité minimale à respecter entre des travaux par points chauds et une source potentielle de gaz inflammable selon les bonnes pratiques ATEX ?",
+    choices: [
+      "2 mètres",
+      "5 mètres",
+      "10 mètres",
+      "20 mètres",
+    ],
+    answer: [2],
+    explanation: "Le guide INERIS Omega 36 et les bonnes pratiques professionnelles retiennent une distance de sécurité de 10 mètres entre les travaux par points chauds (soudure, meulage, découpe) et toute source potentielle de gaz ou vapeur inflammable. Cette distance peut être réduite si un contrôle atmosphérique continu est mis en place et si les zones voisines sont dégazées ou isolées.",
+    timeLimit: 35,
+    contextLabel: "Guide INERIS Omega 36 — Travaux par points chauds",
+  },
+  {
+    question: "Quelle norme définit les exigences pour les vêtements antistatiques à porter en zone ATEX ?",
+    choices: [
+      "EN ISO 11612 (protection contre la chaleur et les flammes)",
+      "EN 1149-5 (propriétés électrostatiques des vêtements de protection)",
+      "EN 388 (gants de protection contre les risques mécaniques)",
+      "EN 343 (protection contre la pluie)",
+    ],
+    answer: [1],
+    explanation: "La norme EN 1149-5 définit les exigences de performance pour les vêtements de protection antistatiques en zone ATEX. Elle spécifie une résistance superficielle inférieure à 2,5×10⁹ Ω et des critères de dissipation des charges électrostatiques. Ces vêtements doivent être portés avec des chaussures ESD (EN ISO 20345/20347) et des sous-vêtements non synthétiques pour que l'ensemble du système soit antistatique.",
+    timeLimit: 35,
+  },
+  {
+    question: "Pourquoi les chaussures de sécurité standard (non-ESD) sont-elles interdites en zone ATEX ?",
+    choices: [
+      "Elles ne résistent pas à la chaleur produite lors d'une explosion",
+      "Leur semelle en caoutchouc isolant peut accumuler des charges électrostatiques susceptibles de se décharger par étincelle",
+      "Elles ne sont pas certifiées CE",
+      "Elles ne protègent pas contre les projections de liquides inflammables",
+    ],
+    answer: [1],
+    explanation: "Les semelles en caoutchouc isolant des chaussures standard empêchent l'évacuation des charges électrostatiques générées par les mouvements du corps. Ces charges peuvent s'accumuler et se décharger sous forme d'étincelle lors du contact avec un élément conducteur — une source d'inflammation potentielle en zone ATEX. Les chaussures ESD (conformes EN ISO 20345, marquage ESD) permettent la dissipation contrôlée des charges vers la terre.",
+    timeLimit: 35,
+  },
+  {
+    question: "Selon l'INERIS, quelles sont les 3 situations de maintenance des équipements Ex qui nécessitent des procédures spécifiques ?",
+    choices: [
+      "Maintenance préventive, maintenance curative, maintenance prédictive",
+      "Maintenance de base (inspection, nettoyage, graissage), maintenance après défaut ou incident, révision générale de l'équipement",
+      "Maintenance à chaud, maintenance à froid, maintenance mixte",
+      "Maintenance interne, maintenance sous-traitée, maintenance fabricant",
+    ],
+    answer: [1],
+    explanation: "Le guide INERIS Omega 36 distingue 3 situations de maintenance des équipements Ex : (1) la maintenance de base — inspections, nettoyage, vérification du serrage, lubrification, sans modification ; (2) la maintenance après défaut ou incident — réparation suite à une anomalie détectée, avec remise en conformité obligatoire ; (3) la révision générale — démontage complet, remplacement de pièces usées, vérification complète de l'intégrité Ex. Chaque situation exige un niveau de qualification différent.",
+    timeLimit: 40,
+    contextLabel: "Guide INERIS Omega 36 — Maintenance équipements Ex",
+  },
+  {
+    question: "Quelle norme encadre la vérification initiale et périodique des installations électriques en zone ATEX (appareillage Ex) ?",
+    choices: [
+      "NF C 15-100 (installations électriques basse tension)",
+      "EN 60079-17 (installations électriques en zone ATEX — inspection et entretien)",
+      "EN 60079-14 (conception et installation électrique en zone ATEX)",
+      "ISO 9001 (management de la qualité)",
+    ],
+    answer: [1],
+    explanation: "La norme EN 60079-17 (Atmosphères explosives — Partie 17 : Inspection et entretien des installations électriques) définit les exigences pour la vérification initiale, les inspections périodiques et la maintenance des équipements électriques en zone ATEX. Elle distingue 3 niveaux d'inspection : inspection visuelle, inspection rapprochée et inspection détaillée. EN 60079-14 couvre quant à elle la conception et l'installation initiale.",
+    timeLimit: 35,
+  },
+  {
+    question: "Un outil en acier standard (marteau, clé) est-il utilisable en zone ATEX de manière générale ?",
+    choices: [
+      "Oui, si l'utilisateur porte des EPI complets",
+      "Non — les outils en acier peuvent générer des étincelles lors d'un choc ; des outils anti-étincelles (alliage cuivre-béryllium ou cuivre-aluminium) sont requis en zones 1 et 0",
+      "Oui, uniquement pour les interventions de courte durée (< 5 minutes)",
+      "Oui, si l'explosimètre ne détecte aucune concentration supérieure à 10 % LIE",
+    ],
+    answer: [1],
+    explanation: "Les outils en acier peuvent produire des étincelles par choc ou friction, constituant une source d'inflammation en zone ATEX. En Zones 0 et 1, des outils anti-étincelles en alliages cuivre-béryllium ou cuivre-aluminium (ou revêtus) sont requis. En Zone 2, l'évaluation des risques peut permettre les outils en acier dans certaines conditions, avec mesures de contrôle atmosphérique. Les outils doivent être propres et dépourvus de rouille.",
+    timeLimit: 35,
+  },
+  {
+    question: "Quelle est la signification du mode de protection 'd' (boîtier antidéflagrant) dans le marquage Ex d IIC T4 ?",
+    choices: [
+      "L'équipement est entouré d'un gaz inerte sous pression positive",
+      "Le boîtier résiste à une explosion interne et étouffe la flamme avant qu'elle ne se propage à l'atmosphère externe explosive",
+      "L'équipement fonctionne à une énergie électrique inférieure à celle nécessaire pour enflammer le gaz",
+      "L'équipement est immergé dans de l'huile pour isoler les parties actives",
+    ],
+    answer: [1],
+    explanation: "Le mode de protection 'd' (encapsulation antidéflagrante) est basé sur un boîtier robuste capable de résister à une explosion interne du mélange gazeux qui y pénètre, et dont les surfaces d'arrêt et les jeux sont calculés pour que les gaz chauds se refroidissent lors de leur évacuation et ne puissent pas enflammer l'atmosphère externe. Ce mode est courant pour les moteurs, armoires et matériels de commande en zone ATEX.",
+    timeLimit: 40,
+  },
+  {
+    question: "En cas de détection d'une odeur de gaz en zone ATEX, quelle séquence d'actions est correcte ?",
+    choices: [
+      "Chercher la fuite, ventiler puis continuer le travail si l'explosimètre n'alarme pas",
+      "Appeler immédiatement par téléphone portable pour alerter les secours",
+      "Arrêter toute opération, ne pas actionner d'interrupteur électrique, évacuer la zone calmement, alerter par un moyen sécurisé depuis l'extérieur de la zone, interdire l'accès",
+      "Allumer toutes les lumières pour faciliter la recherche de fuite avant évacuation",
+    ],
+    answer: [2],
+    explanation: "La séquence PEAS en cas de détection de gaz : Protéger (arrêt des travaux, ne toucher à aucun équipement électrique), Évacuer (calmement, sans courir, ne pas créer d'étincelles), Alerter (depuis l'extérieur de la zone, téléphone fixe ou point de rassemblement, jamais avec le portable en zone), Secourir (attendre les secours, interdire l'accès). Actionner un interrupteur électrique peut créer une étincelle et déclencher une explosion.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quelle est la durée de validité d'un avis d'habilitation ATEX et quelle action est requise à son échéance ?",
+    choices: [
+      "5 ans — renouvellement automatique si pas d'accident",
+      "3 ans — recyclage et réévaluation des compétences avant reconduction par l'employeur",
+      "1 an — formation annuelle obligatoire",
+      "Illimité si le salarié reste dans le même poste",
+    ],
+    answer: [1],
+    explanation: "L'avis d'habilitation ATEX est valable 3 ans. Son renouvellement exige un recyclage avec réévaluation des compétences, prenant en compte les évolutions réglementaires, technologiques et les retours d'expérience du site. L'employeur reste responsable de la reconduction ou du refus de reconduction selon les résultats de la réévaluation.",
+    timeLimit: 30,
+  },
+  {
+    question: "Pourquoi l'humidité est-elle un paramètre important dans la gestion du risque ATEX lié aux poussières ?",
+    choices: [
+      "L'humidité accélère la réaction chimique d'oxydation des poussières",
+      "Une humidité élevée favorise l'agglomération des poussières et réduit leur capacité à se maintenir en suspension dans l'air, diminuant ainsi le risque d'explosion",
+      "L'humidité n'a aucun impact sur le risque ATEX — seule la concentration volumique compte",
+      "Une humidité élevée augmente la conductivité électrique des poussières, favorisant les étincelles",
+    ],
+    answer: [1],
+    explanation: "L'humidité joue un rôle protecteur vis-à-vis du risque ATEX poussières : des particules humides s'agglomèrent et se déposent plus facilement, réduisant la concentration en suspension dans l'air. C'est pourquoi l'humidification des locaux est parfois utilisée comme mesure de prévention complémentaire dans les moulins et silos. Attention : ce n'est pas une mesure de substitution aux mesures de zonage et d'équipements certifiés.",
+    timeLimit: 35,
+  },
+  {
+    question: "Une mise à la terre est réalisée avant de commencer des travaux de maintenance sur une tuyauterie contenant des hydrocarbures en zone ATEX. Quel risque cette mesure permet-elle d'éliminer ?",
+    choices: [
+      "Le risque de corrosion galvanique entre les différents métaux de la tuyauterie",
+      "Le risque d'étincelle d'électricité statique lors du débranchement des brides ou du remplacement de joints",
+      "Le risque de surtension provoqué par la foudre",
+      "Le risque de choc électrique par contact avec une installation sous tension",
+    ],
+    answer: [1],
+    explanation: "Lors du démontage de tuyauteries d'hydrocarbures, le frottement des liquides peut générer des charges électrostatiques importantes sur les segments de tuyau. Si les segments ne sont pas équipotentiels et mis à la terre, la décharge peut générer une étincelle capable d'enflammer les vapeurs libérées lors de l'ouverture. La mise à la terre et l'équipotentialité des équipements avant toute intervention sont des mesures préventives fondamentales.",
+    timeLimit: 40,
+  },
+  {
+    question: "Parmi ces EPI, lesquels sont OBLIGATOIRES pour un intervenant travaillant en Zone 1 (gaz) lors d'une opération de maintenance ? (plusieurs réponses possibles)",
+    choices: [
+      "Vêtements antistatiques EN 1149-5",
+      "Chaussures ESD certifiées",
+      "Explosimètre portable certifié Ex, étalonné",
+      "Casque de chantier standard (sans certification Ex requise pour le casque)",
+    ],
+    answer: [0, 1, 2, 3],
+    multiple: true,
+    explanation: "En Zone 1 lors d'une opération de maintenance : (1) vêtements antistatiques EN 1149-5 obligatoires pour éviter les étincelles électrostatiques ; (2) chaussures ESD pour dissiper les charges vers la terre ; (3) explosimètre portable calibré pour surveiller l'atmosphère en continu ; (4) le casque de protection des voies respiratoires et de la tête — le casque standard (sans certification Ex spécifique) est acceptable car il ne contient pas de composants électriques. D'autres EPI peuvent s'ajouter selon l'évaluation des risques (gants, lunettes, appareils de protection respiratoire).",
+    timeLimit: 45,
+  },
+  {
+    question: "Quel article du Code du travail fixe l'obligation pour l'employeur d'établir le Document Relatif à la Protection Contre les Explosions (DRPCE) ?",
+    choices: [
+      "Article R.4227-42 du Code du travail",
+      "Article L.4121-3 (évaluation générale des risques) combiné avec l'article R.4227-50 spécifique ATEX",
+      "Article R.4515-8 (autorisation de travail)",
+      "Article L.4131-1 (droit de retrait)",
+    ],
+    answer: [1],
+    explanation: "L'article R.4227-50 du Code du travail (transposant la directive 99/92/CE) exige que l'employeur établisse et tienne à jour le DRPCE (Document Relatif à la Protection Contre les Explosions) pour tout établissement comportant des zones ATEX. Ce document fait partie de l'évaluation des risques de l'article L.4121-3. Il doit être établi avant le début des travaux, mis à jour lors de modifications significatives et accessible aux travailleurs concernés.",
+    timeLimit: 40,
+  },
+  {
+    question: "Vous travaillez en Zone 2 (gaz) sur une opération de nettoyage de routine. Votre collègue propose d'utiliser un aspirateur industriel standard pour nettoyer plus rapidement. Quelle est votre réaction correcte ?",
+    choices: [
+      "Accepter si l'aspirateur a été acheté récemment et possède un filtre HEPA",
+      "Refuser — un aspirateur industriel standard peut générer des étincelles électriques, des décharges électrostatiques et des températures de surface non contrôlées ; seul un aspirateur certifié Ex adapté à la zone est utilisable",
+      "Accepter si le nettoyage dure moins de 10 minutes",
+      "Accepter si l'explosimètre ne détecte aucune concentration de gaz au moment du nettoyage",
+    ],
+    answer: [1],
+    explanation: "Même en Zone 2 (présence d'atmosphère explosive rare), tout équipement électrique non certifié Ex est interdit. Un aspirateur standard peut : (1) générer des étincelles par ses contacts électriques ; (2) créer des décharges électrostatiques dans son sac ou filtre ; (3) présenter des températures de surface non contrôlées sur le moteur. La certification Ex est obligatoire pour tous les appareils électriques en zones 0, 1 et 2.",
+    timeLimit: 40,
+  },
+  {
+    question: "Comment s'appelle la valeur caractéristique d'un liquide inflammable qui correspond à la température minimale à laquelle il produit suffisamment de vapeurs pour former un mélange explosif avec l'air ?",
+    choices: [
+      "La Température d'Auto-Inflammation (TAI)",
+      "La Limite Inférieure d'Explosivité (LIE)",
+      "Le point éclair (ou point d'éclair)",
+      "La Concentration Minimale d'Explosivité (CME)",
+    ],
+    answer: [2],
+    explanation: "Le point éclair (ou température d'éclair) est la température minimale à laquelle un liquide inflammable produit suffisamment de vapeurs pour former un mélange inflammable avec l'air au-dessus de sa surface. Il est fondamental pour la classification des liquides : < 21°C (catégorie 1 — très inflammable, ex. essence), 21-55°C (catégorie 2 — inflammable, ex. gasoil froid), 55-100°C (catégorie 3, ex. fioul domestique). Le point éclair conditionne le zonage ATEX autour des cuves.",
+    timeLimit: 35,
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ATEX NIVEAU 2 — Encadrant et Référent ATEX
+// ─────────────────────────────────────────────────────────────────────────────
+quizContent["atex-niveau2"] = [
+  {
+    question: "En tant qu'encadrant ATEX, quelle est votre responsabilité personnelle si un accident survient en zone ATEX sous votre supervision, indépendamment des délégations de pouvoir en place ?",
+    choices: [
+      "L'encadrant n'est jamais responsable pénalement — seul l'employeur est mis en cause",
+      "L'encadrant peut être mis en cause pour faute inexcusable ou délit de mise en danger de la vie d'autrui (Art. 223-1 Code pénal) si un manquement délibéré aux obligations de sécurité est établi",
+      "L'encadrant est responsable uniquement si la délégation de pouvoir n'a pas été formalisée par écrit",
+      "L'encadrant répond uniquement devant la hiérarchie interne — pas devant les tribunaux",
+    ],
+    answer: [1],
+    explanation: "L'encadrant ATEX peut engager sa responsabilité pénale personnelle au titre de l'article 223-1 du Code pénal (mise en danger de la vie d'autrui par violation manifestement délibérée d'une obligation réglementaire de sécurité), ou de l'article 221-6 (homicide involontaire). Une délégation de pouvoir valide transfère la responsabilité de l'employeur mais n'exonère pas l'encadrant de ses propres obligations de vigilance et de compétence.",
+    timeLimit: 45,
+  },
+  {
+    question: "Quelles sont les 4 conditions cumulatives de validité d'une délégation de pouvoir en matière de sécurité ATEX ?",
+    choices: [
+      "Être écrite, signée par le DRH, déposée aux Prud'hommes, et acceptée par le délégué du personnel",
+      "Être accordée à une personne dotée de l'autorité, des moyens, des compétences et de l'autonomie nécessaires pour exercer la mission de sécurité déléguée",
+      "Être notifiée à l'inspection du travail et validée par le médecin du travail",
+      "Avoir une durée limitée à 1 an, être renouvelée annuellement et mentionner le nom du délégataire",
+    ],
+    answer: [1],
+    explanation: "La jurisprudence française exige 4 conditions cumulatives pour qu'une délégation de pouvoir soit valide en matière de sécurité : (1) autorité — pouvoir réel de donner des instructions ; (2) moyens — ressources humaines et matérielles suffisantes ; (3) compétence — formation et expérience adaptées à la mission ; (4) autonomie — capacité d'agir sans autorisation préalable. Une délégation accordée à une personne sans les moyens nécessaires est inopérante.",
+    timeLimit: 45,
+  },
+  {
+    question: "Quelles normes constituent le cadre principal pour la méthodologie de classification des zones ATEX lors de la rédaction du DRPCE ?",
+    choices: [
+      "EN 60079-14 (installation) et EN 60079-17 (maintenance)",
+      "EN 60079-10-1 (gaz et vapeurs) et EN 60079-10-2 (poussières combustibles)",
+      "ISO 31000 (gestion des risques) et OHSAS 18001",
+      "EN ISO 80079-36 et EN ISO 80079-37 (équipements non électriques)",
+    ],
+    answer: [1],
+    explanation: "La classification des zones ATEX s'appuie sur : EN 60079-10-1 pour les atmosphères gazeuses (méthodologie de détermination des zones 0, 1, 2 autour des sources de dégagement — source primaire, secondaire, continue) et EN 60079-10-2 pour les poussières combustibles (zones 20, 21, 22). Ces normes fournissent la méthodologie et les exemples de calcul pour délimiter les zones et les inclure dans le DRPCE.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quelles sont les 3 catégories de sources de dégagement définies par EN 60079-10-1 qui conditionnent la classification en Zone 0, 1 ou 2 ?",
+    choices: [
+      "Source fixe, source mobile, source temporaire",
+      "Source continue (permanente ou quasi-permanente), source primaire (en fonctionnement normal), source secondaire (en cas d'anomalie)",
+      "Source à risque élevé, moyen et faible",
+      "Source certifiée, source contrôlée, source non contrôlée",
+    ],
+    answer: [1],
+    explanation: "EN 60079-10-1 définit : source continue (dégagement permanent ou sur de longues périodes → Zone 0) ; source primaire (dégagement probable en fonctionnement normal → Zone 1) ; source secondaire (dégagement improbable en fonctionnement normal, uniquement lors d'anomalies rares et brèves → Zone 2). La classification tient compte de la fréquence des dégagements ET de leur étendue (volume de la zone), selon les caractéristiques physico-chimiques du produit et la ventilation disponible.",
+    timeLimit: 45,
+  },
+  {
+    question: "Combien de parties principales doit comporter un DRPCE (Document Relatif à la Protection Contre les Explosions) complet selon l'Arrêté du 8 juillet 2003 ?",
+    choices: [
+      "3 parties : identification des zones, équipements utilisés, plan d'urgence",
+      "5 parties : évaluation des risques, zonage, mesures de prévention, équipements Ex, formation",
+      "8 parties : présentation du site, substances dangereuses, sources de dégagement, classification des zones, sources d'inflammation, mesures préventives, équipements Ex, gestion des interventions",
+      "2 parties : carte des zones ATEX et liste des équipements certifiés",
+    ],
+    answer: [2],
+    explanation: "Un DRPCE complet couvre : (1) présentation de l'établissement et des activités ; (2) identification et caractérisation des substances inflammables utilisées ; (3) identification des sources de dégagement et paramètres de dégazage ; (4) classification des zones ATEX (0/1/2 gaz, 20/21/22 poussières) avec cartographie ; (5) recensement des sources d'inflammation et mesures d'élimination ; (6) mesures organisationnelles et techniques de prévention ; (7) liste des équipements Ex utilisés avec leurs certificats ; (8) procédures de gestion des interventions et de permis de travail.",
+    timeLimit: 40,
+  },
+  {
+    question: "Des équipements installés avant le 30 juin 2003 et n'ayant pas de certification ATEX peuvent-ils rester en service en zone ATEX ?",
+    choices: [
+      "Non — tous les équipements en zone ATEX doivent être certifiés Ex depuis le 1er juillet 2003",
+      "Oui, uniquement s'ils sont en Zone 2 ou 22 (zones de moindre risque)",
+      "Oui, sous conditions — leur maintien est possible si une évaluation documentée démontre qu'ils présentent un niveau de sécurité équivalent, et si cette analyse est intégrée au DRPCE",
+      "Oui, sans condition jusqu'à leur premier remplacement programmé",
+    ],
+    answer: [2],
+    explanation: "L'Arrêté du 8 juillet 2003 (transposant la directive ATEX 94/9/CE) exige la certification Ex des équipements mis sur le marché après le 1er juillet 2003. Pour les équipements antérieurs, le maintien en service est possible à condition que l'employeur réalise une évaluation documentée démontrant qu'ils offrent un niveau de sécurité équivalent (analyse des modes de défaillance, mesures compensatoires) et que cette analyse figure dans le DRPCE. Cette dérogation ne s'applique pas si l'équipement est modifié.",
+    timeLimit: 45,
+    contextLabel: "Arrêté du 8 juillet 2003 — Équipements existants avant 2003",
+  },
+  {
+    question: "Lors de la sélection d'un équipement Ex pour une Zone 1 contenant de l'éthylène (groupe IIB), quel équipement peut-on utiliser ?",
+    choices: [
+      "Uniquement un équipement marqué IIB",
+      "Un équipement marqué IIB ou IIC (catégorie supérieure compatible avec IIB)",
+      "Un équipement marqué IIA, IIB ou IIC — tous sont compatibles avec l'éthylène",
+      "Uniquement un équipement IIC car l'éthylène est un gaz très dangereux",
+    ],
+    answer: [1],
+    explanation: "Le principe de compatibilité des groupes de gaz : IIC (le plus restrictif) ⊃ IIB ⊃ IIA. Un équipement certifié IIB peut être utilisé avec des gaz de groupe IIA ou IIB. Un équipement IIC peut être utilisé avec tous les groupes. Un équipement IIA ne peut PAS être utilisé avec un gaz de groupe IIB ou IIC. Pour l'éthylène (groupe IIB), on peut utiliser un équipement IIB ou IIC, pas IIA.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quels documents obligatoires doit fournir le fabricant d'un équipement Ex certifié pour la mise sur le marché ?",
+    choices: [
+      "Uniquement l'attestation CE de conformité",
+      "Certificat ATEX (délivré par un organisme notifié), déclaration UE de conformité, notice d'instructions en français, et marquage Ex complet sur l'équipement",
+      "Un rapport d'essai interne signé par le responsable qualité du fabricant",
+      "L'approbation de l'inspection du travail et l'accord de l'INRS",
+    ],
+    answer: [1],
+    explanation: "Pour un équipement Ex soumis à la directive 2014/34/UE (catégories 1 et 2, zone intérieure de catégorie 3) : le fabricant doit fournir un certificat ATEX délivré par un organisme notifié accrédité (par ex. INERIS, LNE, TÜV), une déclaration UE de conformité signée par le fabricant, une notice d'instructions complète en français (instructions de mise en service, maintenance, conditions d'utilisation sûre, informations sur les zones), et le marquage Ex complet apposé sur l'équipement.",
+    timeLimit: 40,
+  },
+  {
+    question: "Lors de la planification d'une intervention d'entreprise extérieure en zone ATEX, quels documents sont obligatoires selon les articles R.4512-6 et R.4515-8 du Code du travail ?",
+    choices: [
+      "Uniquement un bon de commande et un devis signé",
+      "Un plan de prévention (R.4512-6) et une autorisation de travail / permis de feu si travaux à risques (R.4515-8) — avec inspection commune préalable obligatoire",
+      "Une attestation d'assurance de l'entreprise extérieure et une copie des habilitations des salariés",
+      "Un protocole de sécurité uniquement pour les opérations de chargement/déchargement",
+    ],
+    answer: [1],
+    explanation: "Pour toute entreprise extérieure intervenant en zone ATEX : (1) Plan de prévention (R.4512-6) — obligatoire dès lors que les travaux présentent des risques particuliers (dont ATEX), après inspection commune préalable des lieux ; il définit les risques liés à l'interférence des activités, les mesures de prévention et les responsabilités ; (2) Autorisation de travail (R.4515-8) — délivrée pour chaque opération spécifique, complétée par un permis de feu pour les travaux par points chauds. Ces deux documents sont distincts et complémentaires.",
+    timeLimit: 45,
+  },
+  {
+    question: "Qu'est-ce qu'un protocole de sécurité ATEX pour les opérations de transport et de manutention et dans quel cas est-il obligatoire ?",
+    choices: [
+      "Un document interne de l'entreprise extérieure — jamais obligatoire pour le donneur d'ordre",
+      "Un document écrit établi entre le donneur d'ordre et l'entreprise de transport lors des opérations de chargement ou déchargement de produits inflammables en zone ATEX, obligatoire selon R.4515-4",
+      "Un équivalent du plan de prévention, utilisé uniquement pour les TMD (transport de matières dangereuses)",
+      "Un protocole volontaire proposé par les organismes de prévention — sans valeur réglementaire",
+    ],
+    answer: [1],
+    explanation: "L'article R.4515-4 du Code du travail rend obligatoire le protocole de sécurité pour toute opération de chargement ou de déchargement réalisée par une entreprise extérieure en zone ATEX. Ce document, établi entre le chef d'établissement et l'entreprise de transport, précise les consignes de sécurité, les zones interdites, les produits manipulés, les équipements requis et les procédures d'urgence. Il complète le plan de prévention.",
+    timeLimit: 40,
+  },
+  {
+    question: "Quelles sont les 3 principales technologies de détection fixe de gaz inflammables utilisées en zone ATEX et leurs limites respectives ?",
+    choices: [
+      "Ultrasonique, infrarouge, chimique — toutes équivalentes",
+      "Catalytique (pellistor), infrarouge (IR), photoionisation (PID) — chacune avec des limites spécifiques d'application",
+      "Électrochimique, pyroélectrique, acoustique — utilisées uniquement en atmosphères confinées",
+      "Thermique, optique, magnétique — adaptées aux gaz lourds uniquement",
+    ],
+    answer: [1],
+    explanation: "Les 3 technologies principales : (1) Catalytique (pellistor) — mesure la chaleur de combustion du gaz, efficace pour la plupart des hydrocarbures mais peut être inhibée (poisonnée) par certains silicones, halogènes ou plomb ; (2) Infrarouge (IR) — basé sur l'absorption du rayonnement IR, résistant aux poisons mais inefficace pour H₂ et certains gaz sans liaison C-H ; (3) PID (Photoionisation) — très sensible aux traces de COV mais ne mesure pas les concentrations explosives (adapté à la détection de traces toxiques, pas aux niveaux LIE). Le choix dépend du gaz présent, des conditions d'environnement et du niveau de concentration à détecter.",
+    timeLimit: 45,
+  },
+  {
+    question: "Quels sont les 2 seuils d'alarme réglementaires typiques pour les détecteurs de gaz fixes en zone ATEX et leurs significations ?",
+    choices: [
+      "5 % LIE (pré-alarme) et 10 % LIE (alarme principale)",
+      "10 % LIE (pré-alarme / alerte) et 25 à 50 % LIE (alarme principale déclenchant l'arrêt d'urgence)",
+      "50 % LIE (pré-alarme) et 100 % LIE (alarme d'urgence)",
+      "20 ppm (pré-alarme) et 100 ppm (alarme principale) — exprimés en parties par million",
+    ],
+    answer: [1],
+    explanation: "Les seuils usuels pour les systèmes de détection fixe : (1) 10 % LIE — pré-alarme (alerte), déclenchant une alarme sonore/visuelle et la mise en alerte du personnel ; (2) 25 à 50 % LIE — alarme principale déclenchant des actions automatiques : mise à l'arrêt des équipements de production, ventilation de secours, alarme générale. Ces seuils permettent une marge de sécurité significative avant d'atteindre le seuil explosive réel. Les valeurs exactes dépendent de l'analyse des risques et sont définies dans le DRPCE.",
+    timeLimit: 40,
+    contextLabel: "Guide INERIS Omega 36 — Systèmes de détection fixe",
+  },
+  {
+    question: "Comment établissez-vous la cartographie des besoins en formation ATEX pour votre site selon les niveaux 0, 1 et 2 ?",
+    choices: [
+      "Tous les salariés présents sur le site reçoivent le même niveau de formation",
+      "En analysant, pour chaque poste, la nature des activités en zone ATEX (circulation, intervention, encadrement) et en associant le niveau de formation correspondant à chaque profil",
+      "En appliquant la formation N2 à tous les cadres et la N0 à tous les opérateurs",
+      "En consultant uniquement les fiches de poste sans analyse des zones ATEX réelles",
+    ],
+    answer: [1],
+    explanation: "La cartographie des besoins en formation ATEX doit être basée sur l'analyse de chaque poste : (N0) personnel circulant en zone ATEX sans intervenir — sensibilisation aux risques et comportements ; (N1) intervenants réalisant des opérations de maintenance, nettoyage, contrôle en zone ATEX — formation complète à la prévention du risque explosion, aux EPI, aux AT/permis de feu ; (N2) encadrants, chefs d'équipe, référents ATEX, concepteurs d'installations — maîtrise complète du zonage, du DRPCE, de la sélection des équipements et de la gestion des entreprises extérieures.",
+    timeLimit: 40,
+  },
+  {
+    question: "Selon les statistiques INRS sur les accidents ATEX, quelle est la principale cause déclenchante des accidents d'explosion en milieu industriel ?",
+    choices: [
+      "Les défaillances techniques des équipements certifiés Ex",
+      "Les travaux par points chauds (soudure, meulage, découpe) réalisés sans permis de feu ou avec une évaluation insuffisante de l'atmosphère",
+      "Les orages et la foudre",
+      "La contamination des produits chimiques par des impuretés",
+    ],
+    answer: [1],
+    explanation: "Selon les données INRS et la base ARIA (BARPI), les travaux par points chauds sont la première cause d'accidents d'explosion en zone ATEX en France — représentant environ 30 à 40 % des accidents. La cause principale est l'absence ou le non-respect du permis de feu, associée à une vérification atmosphérique insuffisante ou réalisée trop tôt avant les travaux. Les autres causes fréquentes : étincelles mécaniques, électricité statique lors d'opérations de vidange ou remplissage, et défaillances de matériels non certifiés Ex.",
+    timeLimit: 40,
+    contextLabel: "REX INRS — Statistiques accidents ATEX",
+  },
+  {
+    question: "Qu'est-ce que la base ARIA du BARPI et quelle est son utilité pour le référent ATEX ?",
+    choices: [
+      "Une base de données des équipements Ex certifiés — utile pour sélectionner le matériel",
+      "L'Analyse, Recherche et Information sur les Accidents — base de données française des accidents technologiques, permet d'identifier les causes récurrentes d'accidents ATEX par secteur et d'alimenter les REX internes",
+      "Un référentiel de formation accrédité par le ministère du Travail",
+      "Un système de surveillance en temps réel des zones ATEX à distance",
+    ],
+    answer: [1],
+    explanation: "La base ARIA (Analyse, Recherche et Information sur les Accidents) est gérée par le BARPI (Bureau d'Analyse des Risques et Pollutions Industriels — DGPR/Ministère de l'Écologie). Elle recense les accidents technologiques survenus en France et dans le monde. Pour le référent ATEX, elle est précieuse pour : identifier les causes et scénarios d'accidents types dans son secteur d'activité, alimenter les analyses de risques et les REX internes, et justifier des mesures de prévention lors de l'élaboration ou de la révision du DRPCE.",
+    timeLimit: 35,
+  },
+  {
+    question: "Lors d'une révision du DRPCE rendue nécessaire par une modification d'installation, quels éléments doivent systématiquement être réexaminés ?",
+    choices: [
+      "Uniquement la liste des équipements Ex — le zonage reste valable indéfiniment",
+      "Les sources de dégagement affectées par la modification, les zones ATEX impactées, les équipements Ex à remplacer ou recertifier, les procédures d'intervention et les besoins de formation",
+      "Uniquement les permis de travail en cours au moment de la modification",
+      "Le DRPCE est validé une fois pour toutes à la mise en service — seul un accident oblige à le réviser",
+    ],
+    answer: [1],
+    explanation: "Toute modification significative d'une installation en zone ATEX (nouveau produit, changement de process, nouvelle source de dégagement, modification des équipements) impose une révision du DRPCE. Les éléments à réexaminer : (1) les sources de dégagement et leurs paramètres après modification ; (2) les zones ATEX : leur étendue peut changer ; (3) la liste des équipements Ex : un équipement adapté à l'ancienne zone peut être insuffisant pour la nouvelle ; (4) les procédures d'intervention (AT/permis de feu) ; (5) les besoins en formation si de nouvelles zones ou de nouveaux risques apparaissent.",
+    timeLimit: 40,
+  },
+  {
+    question: "Comment le référent ATEX organise-t-il le suivi des recyclages (renouvellement des avis d'habilitation ATEX à 3 ans) pour l'ensemble du personnel ?",
+    choices: [
+      "Il attend que les salariés signalent eux-mêmes l'échéance de leur habilitation",
+      "En tenant un tableau de bord des dates de formation et d'échéance pour chaque salarié, avec des alertes anticipées (6 mois avant) pour planifier les recyclages",
+      "En organisant une formation générale annuelle pour tous — sans distinction de niveau ou d'échéance",
+      "En confiant ce suivi exclusivement au service RH sans validation technique",
+    ],
+    answer: [1],
+    explanation: "Le référent ATEX est responsable du maintien des compétences. Il doit tenir un registre des formations ATEX par salarié (nom, niveau, date de formation, date d'échéance à 3 ans), paramétrer des alertes anticipées (généralement 6 mois avant l'échéance) pour planifier les recyclages sans rupture de couverture, valider les contenus de recyclage en tenant compte des évolutions réglementaires et des REX internes, et conserver les attestations de formation accessibles lors des inspections.",
+    timeLimit: 35,
+  },
+  {
+    question: "Un sous-traitant doit intervenir en Zone 1 pour une opération de maintenance sur une pompe. Son chef d'équipe présente une attestation de formation ATEX N1 datée de 4 ans. Quelle action le référent ATEX doit-il prendre ?",
+    choices: [
+      "Accepter l'intervention — l'attestation est valable car il n'y a pas de date limite précisée dans la loi",
+      "Refuser l'accès à la Zone 1 et exiger une preuve de recyclage récent (< 3 ans) avant toute autorisation de travail",
+      "Autoriser l'intervention mais doubler la surveillance",
+      "Contacter le formateur initial pour vérifier si la personne est encore compétente",
+    ],
+    answer: [1],
+    explanation: "L'avis d'habilitation ATEX est valable 3 ans. Une attestation datée de 4 ans est expirée. Le référent ATEX doit refuser l'accès à la Zone 1 et exiger un justificatif de recyclage récent (< 3 ans). Cette obligation s'applique également aux entreprises extérieures. Le plan de prévention et l'autorisation de travail doivent systématiquement vérifier la validité des habilitations ATEX du personnel intervenant. Autoriser une personne sans habilitation valide engage la responsabilité du référent ATEX et du chef d'établissement.",
+    timeLimit: 35,
+  },
+  {
+    question: "Quelle est la différence entre la directive 99/92/CE et la directive 2014/34/UE en matière ATEX ?",
+    choices: [
+      "Ce sont deux versions successives du même texte — la 2014/34/UE remplace intégralement la 99/92/CE",
+      "La 99/92/CE concerne les obligations de l'employeur pour la protection des travailleurs en zone ATEX ; la 2014/34/UE concerne les exigences pour les équipements et systèmes de protection utilisés en zone ATEX",
+      "La 99/92/CE s'applique aux gaz et la 2014/34/UE aux poussières",
+      "La 99/92/CE est une directive française — la 2014/34/UE est la version européenne harmonisée",
+    ],
+    answer: [1],
+    explanation: "Deux directives ATEX complémentaires : (1) Directive 99/92/CE ('ATEX lieux de travail' ou 'ATEX sociale') — impose des obligations à l'EMPLOYEUR : évaluation des risques, DRPCE, zonage, formation des travailleurs, procédures d'autorisation de travail. Transposée en France dans le Code du travail (R.4227-42 à R.4227-54) ; (2) Directive 2014/34/UE ('ATEX équipements', anciennement 94/9/CE) — impose des exigences aux FABRICANTS d'équipements et systèmes de protection destinés à être utilisés en zone ATEX. Ces deux textes sont complémentaires et simultanément applicables.",
+    timeLimit: 40,
+  },
+  {
+    question: "Comment la ventilation d'un local influence-t-elle la classification ATEX selon EN 60079-10-1 ?",
+    choices: [
+      "La ventilation n'a aucun impact sur le zonage — seule la nature du produit compte",
+      "Une ventilation efficace peut réduire l'étendue des zones (ex. Zone 1 réduite à Zone 2) ou même supprimer une zone si elle assure une dilution suffisante pour que la concentration reste toujours sous la LIE",
+      "La ventilation transforme automatiquement toute Zone 0 en Zone 1",
+      "La ventilation est uniquement prise en compte pour les zones poussières (20/21/22) — pas pour les gaz",
+    ],
+    answer: [1],
+    explanation: "EN 60079-10-1 intègre la ventilation comme facteur clé dans la classification des zones : une ventilation naturelle ou mécanique de niveau 'élevé' (high) peut réduire l'étendue d'une zone (Zone 1 → Zone 2) ou même supprimer une zone si elle garantit une dilution permanente maintenant la concentration sous la LIE. À l'inverse, une ventilation faible ou nulle augmente l'étendue des zones. Le niveau de ventilation (élevé, moyen, faible) est évalué selon le débit d'air disponible par rapport au débit de fuite théorique et la disponibilité de la ventilation.",
+    timeLimit: 45,
+  },
+  {
+    question: "Vous êtes référent ATEX et vous découvrez qu'un équipement certifié Ex II 2G T4 est installé dans une zone identifiée Zone 1 contenant du propane (TAI = 470 °C, groupe IIA). Cet équipement est-il correct ? Justifiez.",
+    choices: [
+      "Non — la classe T4 (température surface max. 135 °C) est insuffisante pour le propane dont la TAI est 470 °C",
+      "Oui — la classe T4 (135 °C max) est très inférieure à la TAI du propane (470 °C), la catégorie 2G est adaptée à la Zone 1, et le groupe IIA est approprié pour le propane (groupe IIA). L'équipement est correctement sélectionné.",
+      "Non — le groupe IIA est insuffisant pour le propane qui appartient au groupe IIB",
+      "Non — en Zone 1 avec du propane, seul un équipement de catégorie 1G est autorisé",
+    ],
+    answer: [1],
+    explanation: "Analyse complète : (1) Catégorie 2G → adaptée à la Zone 1 ✓ ; (2) Groupe IIA → propane est groupe IIA ✓ (IIA correspond aux hydrocarbures aliphatiques comme propane, butane, éthane) ; (3) Classe T4 → température de surface max. 135 °C, très inférieure à la TAI du propane (470 °C) → large marge de sécurité ✓. L'équipement est correctement sélectionné. Note : un T5 (100 °C max) ou T6 (85 °C max) serait surdimensionné mais aussi acceptable. Un T1 (450 °C max) serait à la limite et risqué pour le propane.",
+    timeLimit: 50,
+    contextLabel: "Cas pratique — Vérification d'adéquation équipement/zone",
+  },
+];
+

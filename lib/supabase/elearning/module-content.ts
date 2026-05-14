@@ -4,7 +4,10 @@ import { ModuleContent } from "./module-types";
 import { electricalCommercialModuleContent } from "./electrical-commercial-content";
 import { vehiculesModuleContent } from "./vehicules-content";
 import { atexModuleContent } from "./atex-content";
+import { atexNiveau1ModuleContent } from "./atex-niveau1-content";
+import { atexNiveau2ModuleContent } from "./atex-niveau2-content";
 import { ssiap1ModuleContent } from "./ssiap1-content";
+import { recyclageSsiap1ModuleContent } from "./recyclage-ssiap1-content";
 
 export const modulesContent: Record<string, ModuleContent> = {
   ...electricalCommercialModuleContent,
@@ -12,7 +15,10 @@ export const modulesContent: Record<string, ModuleContent> = {
   b1b2brbc: b1b2brbcModuleContent,
   "habilitation-vehicules": vehiculesModuleContent,
   atex: atexModuleContent,
+  "atex-niveau1": atexNiveau1ModuleContent,
+  "atex-niveau2": atexNiveau2ModuleContent,
   ssiap1: ssiap1ModuleContent,
+  "recyclage-ssiap1": recyclageSsiap1ModuleContent,
   h0b0: {
   title: "H0B0 - Exécuter en sécurité des travaux d’ordre non électrique",
   shortTitle: "H0B0",
@@ -1744,7 +1750,8 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "Une installation sprinkler est conçue pour détecter et maîtriser automatiquement un incendie au plus près du foyer grâce au déclenchement thermique des têtes concernées. Selon la NFPA, un système fonctionnel contrôle efficacement près de 97 % des départs de feu.",
           "Elle ne fonctionne pas comme un déversement général : seules les têtes exposées à une chaleur suffisante s'ouvrent. Chaque tête est indépendante — c'est une erreur fréquente de croire que toutes s'activent simultanément.",
-          "Le mécanisme repose sur une ampoule en verre remplie de liquide qui se brise à une température nominale précise, identifiable par sa couleur : orange à 57 °C, rouge à 68 °C (le plus courant pour les installations standard), jaune à 79 °C, vert à 93–100 °C, bleu à 121–141 °C, mauve à 163–182 °C. La température nominale doit être supérieure d'au moins 30 °C à la température ambiante maximale du local.",
+          "Le mécanisme repose sur une ampoule en verre remplie de liquide qui se brise à une température nominale précise, identifiable par sa couleur : orange à 57 °C, rouge à 68 °C (le plus courant pour les installations standard), jaune à 79 °C, vert à 93–100 °C, bleu à 121–141 °C, mauve à 163–182 °C. La température nominale doit être supérieure d'au moins 30 °C à la température ambiante maximale du local. Une autre technologie utilise un fusible métallique plutôt qu'une ampoule en verre — les deux types coexistent sur le marché et sont équivalents fonctionnellement.",
+          "Le type de tête dépend de la géométrie du bâtiment et de l'ambiance. Les têtes SSU (Standard Upright) sont montées en position debout (jet vers le haut puis diffusé par le déflecteur), 68 °C standard, K-factor ≈ 68. Les têtes ELO (Élevé Oblique) sont conçues pour les toitures inclinées (chais, entrepôts agricoles, caves) : leur déflecteur dirige le jet obliquement pour s'adapter à l'angle du plafond ; elles déclenchent à des températures plus élevées (ex. 160 °C pour les zones chaudes comme les chais d'élevage en fûts) et ont un K-factor élevé (K ≈ 141) couvrant de grandes surfaces. Pour les installations protégeant des liquides inflammables (distilleries, dépôts de solvants), de l'émulseur est ajouté à l'eau : l'AFFF (Aqueous Film-Forming Foam) à 3 % crée un film étouffant sur la surface du liquide inflammable ; l'alternative FFF (fluorcompound-free, sans PFAS) offre des performances similaires pour les hydrocarbures et solvants polaires. Le dosage est réalisé par une pompe doseuse de type FIREDOS (hydraulique, sans électricité, débit proportionnel au débit d'eau) ou un tank proportionnel.",
           "Il existe quatre types principaux d'installations. Le système humide — le plus répandu — maintient les canalisations sous eau en permanence pour une réaction immédiate ; il équipe la majorité des ERP, entrepôts chauffés et sites industriels. Le système à préaction combine un réseau sec et une détection préalable : l'eau n'entre dans les canalisations qu'après un signal d'alarme, ce qui évite tout déclenchement accidentel ; il protège les archives, musées et data centers. Le système sec utilise des canalisations remplies d'air sous pression, adapté aux zones exposées au gel comme les parkings couverts ou entrepôts non chauffés. Le système déluge dispose de toutes les têtes ouvertes en permanence et projette massivement l'eau dès l'activation du poste de contrôle ; il est réservé aux sites industriels à haut risque ou aux feux de liquides inflammables.",
           "Le sprinkler est conçu pour contenir, maîtriser ou contrôler un incendie en attendant les autres moyens de secours. Il ne remplace pas l'organisation humaine ni l'intervention des secours."
         ],
@@ -1756,6 +1763,8 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Activation locale uniquement — pas de déversement général.",
           "Codes couleur ampoule : orange 57 °C, rouge 68 °C (standard), jaune 79 °C, vert 93–100 °C, bleu 121–141 °C.",
           "4 types : humide (standard), préaction (zones sensibles), sec (gel), déluge (risque très élevé).",
+          "Têtes SSU (standard, 68 °C) vs ELO (toitures inclinées, 160 °C, K élevé) — ampoule ou fusible.",
+          "Liquides inflammables : émulseur AFFF 3 % (ou FFF sans PFAS) dosé par pompe FIREDOS hydraulique.",
         ],
         visual: {
           title: "Principe sprinkler",
@@ -1779,7 +1788,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "Une installation comprend notamment les têtes sprinkler, un réseau de tuyauteries, des postes de contrôle, une source d'eau et des dispositifs d'alarme.",
           "L'exploitation suppose de savoir reconnaître les organes essentiels, les positions normales d'exploitation et les états anormaux a surveiller.",
-          "La disponibilité de la source d'eau, l'accessibilité des organes, l'état apparent du réseau, la lisibilité des repères, la position normale des vannes et la compréhension des alarmes sont des points de vigilance de premier niveau.",
+          "La disponibilité de la source d'eau, l'accessibilité des organes, l'état apparent du réseau, la lisibilité des repères, la position normale des vannes et la compréhension des alarmes sont des points de vigilance de premier niveau. La source d'eau comprend généralement trois éléments complémentaires : la pompe jockey (ou de maintien de pression — petite pompe, typiquement 5 m³/h, qui compense les micro-fuites et maintient la pression réseau ; son démarrage fréquent signale une anomalie à investiguer), l'électropompe principale (source primaire en cas d'incendie), et le groupe motopompe diesel (GMPD — source de secours à démarrage automatique sur batteries, indispensable en cas de coupure secteur, testé mensuellement). Les besoins hydrauliques sont calculés sur la zone hydrauliquement la plus défavorisée (la plus éloignée ou la plus haute dans le réseau), garantissant une pression et un débit suffisants en tout point de l'installation.",
           "Le niveau attendu n'est pas celui d'un bureau d'études, mais celui d'un professionnel capable de voir immédiatement ce qui n'est pas conforme à l'état normal d'exploitation.",
           "La NF EN 12845 classe les installations selon le niveau de risque du bâtiment ou de l'activité : LH (risque léger — bureaux, hôtels), OH1 à OH4 (risque ordinaire — industrie légère à moyenne), HH / HHP / HHS (risque élevé — stockage de produits combustibles). Cette classe détermine la densité d'eau requise, la pression, le type de têtes et la surface maximale de chaque tête. Un exploitant doit savoir dans quelle classe est son installation, car tout changement d'activité ou de stockage peut exiger une révision de la protection."
         ],
@@ -1789,7 +1798,10 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Réseau de distribution",
           "Têtes sprinkler",
           "Alarme et report",
-          "Classe de risque : LH / OH / HH — à connaître pour son site"
+          "Classe de risque : LH / OH / HH — à connaître pour son site",
+          "Source d'eau : pompe jockey (maintien pression) + électropompe (source principale) + GMPD diesel (secours secteur coupé)",
+          "Besoins hydrauliques calculés sur la zone hydrauliquement la plus défavorisée",
+          "Modes de stockage : ST1 (empilage libre) · ST2/ST3 (racks rangées simples/multiples) · ST4 (racks avec têtes intermédiaires)",
         ],
         chapterImagePath: "/elearning/sprinkler/sprinkler-types.svg",
         chapterImageAlt:

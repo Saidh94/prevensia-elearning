@@ -65,12 +65,12 @@ function DemandeDevisForm() {
         </h1>
 
         <p className="mt-4 text-slate-600">
-          Décrivez votre besoin en formation en habilitation électrique, SST,
-          sécurité incendie, exploitation SSI ou exploitation sprinkler. Nous
-          vous répondrons avec une proposition adaptée à votre activité, à votre
-          effectif, à votre délai souhaité et au bon format PREVENSIA :
-          e-learning seul, e-learning + classe virtuelle, e-learning + entretien
-          30 min ou parcours mixte avec présentiel.
+          Décrivez votre besoin en formation : habilitation électrique, ATEX,
+          SSIAP1, SST, exploitation SSI, sécurité incendie ou exploitation
+          sprinkler. Nous vous répondrons avec une proposition adaptée à votre
+          activité, à votre effectif, à votre délai souhaité et au bon format
+          PREVENSIA : e-learning seul, e-learning + classe virtuelle,
+          e-learning + entretien 30&nbsp;min ou parcours mixte avec présentiel.
         </p>
 
         <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
@@ -144,7 +144,9 @@ function DemandeDevisForm() {
             >
               <option value="">Sélectionnez une famille de formation</option>
               <option value="habilitation">Habilitation électrique</option>
-              <option value="sst">SST</option>
+              <option value="atex">ATEX — Atmosphères Explosives</option>
+              <option value="ssiap1">SSIAP1 — Sécurité Incendie ERP</option>
+              <option value="sst">SST — Sauveteur Secouriste du Travail</option>
               <option value="ssi">Exploitation SSI</option>
               <option value="sprinkler">Exploitation sprinkler</option>
               <option value="incendie">Sécurité incendie</option>
@@ -219,6 +221,58 @@ function DemandeDevisForm() {
             </div>
           )}
 
+          {formationType === "atex" && (
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">
+                Détail formation ATEX
+              </label>
+              <select
+                name="detail_formation"
+                required
+                value={formationDetail}
+                onChange={(event) => setFormationDetail(event.target.value)}
+                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
+              >
+                <option value="">Sélectionnez une formation ATEX</option>
+                <option value="atex-sensibilisation">
+                  Sensibilisation ATEX — Niveau 0 (personnel en zone)
+                </option>
+                <option value="atex-niveau1">
+                  Formation ATEX — Niveau 1 (intervenant sur appareils)
+                </option>
+                <option value="atex-niveau2">
+                  Formation ATEX — Niveau 2 (encadrant / référent)
+                </option>
+                <option value="atex-recyclage">
+                  Recyclage ATEX — Maintien des compétences
+                </option>
+              </select>
+            </div>
+          )}
+
+          {formationType === "ssiap1" && (
+            <div>
+              <label className="mb-2 block text-sm font-semibold text-slate-700">
+                Détail formation SSIAP1
+              </label>
+              <select
+                name="detail_formation"
+                required
+                value={formationDetail}
+                onChange={(event) => setFormationDetail(event.target.value)}
+                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
+              >
+                <option value="">Sélectionnez une formation SSIAP1</option>
+                <option value="ssiap1-initiale">
+                  SSIAP1 — Formation initiale (67h min, max 12 stagiaires)
+                </option>
+                <option value="ssiap1-recyclage">
+                  SSIAP1 — Recyclage (14h / tous les 3 ans)
+                </option>
+              </select>
+            </div>
+          )}
+
           {formationType === "ssi" && (
             <div>
               <label className="mb-2 block text-sm font-semibold text-slate-700">
@@ -233,6 +287,9 @@ function DemandeDevisForm() {
               >
                 <option value="">Sélectionnez une formation SSI</option>
                 <option value="exploitation-ssi">Exploitation SSI</option>
+                <option value="formation-renforcee-ssi">
+                  Formation SSI renforcée (ERP / IGH / ICPE)
+                </option>
               </select>
             </div>
           )}

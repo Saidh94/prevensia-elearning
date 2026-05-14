@@ -324,9 +324,9 @@ const formations = [
     slug: "atex",
     category: "Prévention des risques",
     title: "Prévention des risques ATEX - Atmosphères Explosives",
-    duration: "Duree e-learning : 2 h 30 à 3 h",
-    mode: "E-learning autonome + quiz",
-    price: "129 EUR HT",
+    duration: "Niveau 0 : 3h e-learning · Niveau 1 : e-learning + entretien 30 min · Niveau 2 : e-learning + classe virtuelle 2h",
+    mode: "E-learning autonome + quiz · Avis d'habilitation ATEX valable 3 ans (niveaux 1 et 2)",
+    price: "À partir de 129 EUR HT · Niveau 1 : 490 EUR HT · Niveau 2 : à partir de 790 EUR HT",
     level: "Debutant a intermediaire",
     audience:
       "Tout personnel amene a intervenir, travailler ou circuler dans un environnement susceptible de presenter un risque d'explosion : industrie chimique, petrochimique, agroalimentaire, traitement des eaux, menuiserie, metallurgie.",

@@ -67,10 +67,30 @@ const paymentRules: PaymentRule[] = [
       "Les attributs BE Verification et BE Mesurage doivent etre calibres selon les missions reellement prevues.",
   },
   {
+    envKey: "STRIPE_PRICE_ATEX_NIVEAU1_CENTS",
+    kind: "direct",
+    label: "Formation ATEX Niveau 1 - Intervenant en zone ATEX",
+    anyKeywords: ["atex-niveau1", "atex niveau1", "atex niveau 1"],
+  },
+  {
+    kind: "quote",
+    label: "Formation ATEX Niveau 2 - Encadrant et Referent ATEX",
+    anyKeywords: ["atex-niveau2", "atex niveau2", "atex niveau 2"],
+    reason:
+      "La formation ATEX Niveau 2 est adaptee selon le role, les responsabilites et les installations du site. Tarif a partir de 790 EUR HT.",
+  },
+  {
     envKey: "STRIPE_PRICE_ATEX_ELEARNING_CENTS",
     kind: "direct",
-    label: "Prevention des risques ATEX - Atmospheres Explosives",
+    label: "Prevention des risques ATEX - Atmospheres Explosives - Niveau 0",
     anyKeywords: ["atex", "atmosphere explosive", "atmospheres explosives"],
+  },
+  {
+    kind: "quote",
+    label: "Recyclage SSIAP1 - Remise a niveau Securite Incendie ERP",
+    anyKeywords: ["recyclage-ssiap1", "recyclage ssiap1", "recyclage ssiap 1", "recyclage ssiap"],
+    reason:
+      "Le recyclage SSIAP1 (14 heures obligatoires tous les 3 ans selon l'arrete du 2 mai 2005) comprend une partie pratique encadree. La tarification depend de l'effectif et du format choisi (inter 190 EUR HT ou intra sur devis).",
   },
   {
     kind: "quote",

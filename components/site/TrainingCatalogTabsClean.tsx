@@ -86,6 +86,24 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
   ],
   incendie: [
     {
+      title: "SSIAP1 - Agent de securite incendie (initiale)",
+      duration: "67h (hybride)",
+      price: "690 EUR HT",
+      group: "Sur devis",
+      participants: "12 max",
+      ctaHref: "/formation-ssiap1",
+      ctaLabel: "Voir la formation",
+    },
+    {
+      title: "Recyclage SSIAP1 (14h / 3 ans)",
+      duration: "14h (hybride)",
+      price: "190 EUR HT",
+      group: "Sur devis",
+      participants: "12 max",
+      ctaHref: "/formation-recyclage-ssiap1",
+      ctaLabel: "Voir le recyclage",
+    },
+    {
       title: "Manipulation extincteurs",
       duration: "0,5 jour",
       price: "149 EUR HT",
@@ -163,10 +181,11 @@ const audienceByTab: Record<TabKey, string[]> = {
     "Ingenieurs et bureaux d'etudes pour le module avance",
   ],
   incendie: [
+    "Agents de securite incendie SSIAP1 (initiale et recyclage)",
     "Salaries d'entreprise",
     "Personnel charge de l'evacuation",
     "Equipiers de premiere intervention",
-    "Encadrants et referents securite",
+    "Encadrants et referents securite incendie ERP",
     "Collaborateurs a sensibiliser au risque incendie",
   ],
   sst: [

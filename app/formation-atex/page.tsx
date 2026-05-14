@@ -58,7 +58,7 @@ const faqItems = [
   {
     question: "Quel est le prix de la formation ATEX ?",
     answer:
-      "La formation ATEX e-learning est proposée à 129 € HT par personne en accès individuel. Pour les projets intra-entreprise (plusieurs salariés à former simultanément), des tarifs de groupe sont disponibles sur devis. Le prix inclut l'accès complet au parcours, le quiz de validation et l'attestation de formation.",
+      "PREVENSIA propose trois niveaux : Niveau 0 (sensibilisation e-learning) à 129 € HT — accès immédiat, quiz et attestation inclus. Niveau 1 (intervenant sur équipements) à 490 € HT — e-learning + entretien 30 min + avis d'habilitation ATEX valable 3 ans. Niveau 2 (référent / encadrant) à partir de 790 € HT — e-learning + classe virtuelle 2h + avis d'habilitation ATEX valable 3 ans, sur devis selon l'effectif et le site.",
   },
 ];
 
@@ -201,20 +201,20 @@ export default function FormationAtexPage() {
       <section className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Individuel</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">129 € HT</p>
-              <p className="mt-1 text-sm text-slate-600">Accès complet e-learning + attestation</p>
-            </div>
             <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">Intra-entreprise</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">Sur devis</p>
-              <p className="mt-1 text-sm text-slate-600">Groupe — tarif selon effectif et site</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">Niveau 0 — Sensibilisation</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">129 € HT</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning 3h + quiz + attestation · Accès immédiat</p>
+            </div>
+            <div className="rounded-2xl border border-slate-300 bg-slate-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600">Niveau 1 — Intervenant</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">490 € HT</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning + entretien 30 min · Avis d&apos;habilitation ATEX</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Durée</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">3 h</p>
-              <p className="mt-1 text-sm text-slate-600">12 modules + quiz de validation</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Niveau 2 — Référent / Encadrant</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">790 € HT</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning + classe virtuelle · À partir de · Sur devis</p>
             </div>
           </div>
         </div>
@@ -425,7 +425,7 @@ export default function FormationAtexPage() {
             </div>
 
             {/* Niveau 1 */}
-            <div className="relative rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div className="relative rounded-2xl border border-slate-300 bg-slate-50 p-6">
               <div className="mb-4 flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-lg font-bold text-white">
                   1
@@ -442,12 +442,12 @@ export default function FormationAtexPage() {
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Contenu du niveau 0 + approfondissement</li>
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Lecture des marquages Ex des équipements</li>
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Adéquation équipement / zone classée</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Permis de feu, autorisation de travail</li>
+                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Permis de feu et autorisation de travail</li>
               </ul>
               <div className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-3">
-                <p className="text-xs text-slate-500">Parcours sur mesure adapté au site et aux équipements concernés.</p>
-                <Link href="/demande-devis?type=atex-niveau1" className="mt-1 inline-block text-sm font-semibold text-slate-700 hover:underline">
-                  Demander un devis →
+                <p className="text-xs text-slate-500">E-learning + entretien 30 min · Avis d&apos;habilitation ATEX Niveau 1 valable 3 ans.</p>
+                <Link href="/demande-devis?type=atex&detail=atex-niveau1" className="mt-1 inline-block text-sm font-semibold text-slate-700 hover:underline">
+                  Démarrer — 490 € HT →
                 </Link>
               </div>
             </div>
@@ -472,9 +472,9 @@ export default function FormationAtexPage() {
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Sélection et vérification des équipements Ex</li>
               </ul>
               <div className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-3">
-                <p className="text-xs text-slate-500">Parcours sur mesure adapté au rôle et aux responsabilités de l&apos;encadrant.</p>
-                <Link href="/demande-devis?type=atex-niveau2" className="mt-1 inline-block text-sm font-semibold text-slate-700 hover:underline">
-                  Demander un devis →
+                <p className="text-xs text-slate-500">E-learning + classe virtuelle 2h · Avis d&apos;habilitation ATEX Niveau 2 valable 3 ans.</p>
+                <Link href="/demande-devis?type=atex&detail=atex-niveau2" className="mt-1 inline-block text-sm font-semibold text-slate-700 hover:underline">
+                  À partir de 790 € HT — Devis →
                 </Link>
               </div>
             </div>
@@ -514,20 +514,26 @@ export default function FormationAtexPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Prêt à vous former au risque ATEX ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Accès e-learning immédiat · 12 modules · Vidéo INRS · Quiz de validation · Attestation incluse
+            3 niveaux · Avis d&apos;habilitation ATEX valable 3 ans · Conforme directive 99/92/CE
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/elearning/atex"
               className="rounded-xl bg-amber-500 px-8 py-4 font-semibold text-slate-950 hover:bg-amber-400 transition-colors"
             >
-              Démarrer maintenant — 129 € HT
+              Niveau 0 — Démarrer maintenant · 129 € HT
             </Link>
             <Link
-              href="/demande-devis?type=atex"
+              href="/demande-devis?type=atex&detail=atex-niveau1"
+              className="rounded-xl border border-amber-400/40 bg-amber-400/10 px-8 py-4 font-semibold text-amber-300 hover:bg-amber-400/20 transition-colors"
+            >
+              Niveau 1 — 490 € HT
+            </Link>
+            <Link
+              href="/demande-devis?type=atex&detail=atex-niveau2"
               className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Devis entreprise
+              Niveau 2 — À partir de 790 € HT
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-400">

@@ -65,6 +65,15 @@ const articles = [
     duree: "5 min",
     categorie: "Réglementation",
   },
+  {
+    slug: "formation-ssiap-securite-incendie",
+    titre: "Formation certifiante SSIAP sécurité incendie : guide complet",
+    description:
+      "Guide des formations SSIAP 1, 2 et 3 : niveaux, conditions d'accès, coût, financement CPF et débouchés métiers dans la sécurité incendie ERP.",
+    date: "2026-03-28",
+    duree: "8 min",
+    categorie: "Guide",
+  },
 ];
 
 export default function BlogPage() {
