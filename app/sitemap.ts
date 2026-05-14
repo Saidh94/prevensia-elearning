@@ -6,6 +6,7 @@ const siteUrl =
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
+  // Pages formations principales
   const formationPages = [
     "formation-habilitation-electrique",
     "formation-sst",
@@ -23,14 +24,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  // Pages SEO habilitation électrique (landing pages spécialisées)
+  const habilitationSeoPages = [
+    { slug: "formation-h0b0", priority: 0.92 },
+    { slug: "formation-bs-be-manoeuvre", priority: 0.92 },
+    { slug: "formation-b1-b2-br-bc", priority: 0.92 },
+    { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.88 },
+  ];
+
+  const habilitationSeoEntries: MetadataRoute.Sitemap = habilitationSeoPages.map(
+    ({ slug, priority }) => ({
+      url: `${siteUrl}/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority,
+    })
+  );
+
+  // Articles de blog
+  const blogArticles = [
+    "comment-choisir-son-habilitation-electrique",
+    "duree-validite-habilitation-electrique",
+  ];
+
+  const blogEntries: MetadataRoute.Sitemap = blogArticles.map((slug) => ({
+    url: `${siteUrl}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
+    // Accueil
     {
       url: `${siteUrl}/`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
+    // Formations principales
     ...formationEntries,
+    // Landing pages habilitation SEO
+    ...habilitationSeoEntries,
+    // E-learning & planning
     {
       url: `${siteUrl}/elearning`,
       lastModified: now,
@@ -43,6 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    // Devis & inscription
     {
       url: `${siteUrl}/demande-devis`,
       lastModified: now,
@@ -61,6 +98,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    // Blog
+    {
+      url: `${siteUrl}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.75,
+    },
+    ...blogEntries,
+    // Pages légales
     {
       url: `${siteUrl}/mentions-legales`,
       lastModified: now,

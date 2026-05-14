@@ -2,12 +2,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { electricalCommercialOffers } from "@/lib/electrical-offers";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
+import FaqJsonLd from "@/components/seo/FaqJsonLd";
+import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-habilitation-electrique" },
-  title: "Formation habilitation électrique | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique — H0B0, BS, B1, B2, BR, BC | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique en e-learning, visio et présentiel avec PREVENSIA FORMATION pour particuliers, salariés et entreprises.",
+    "Formation habilitation électrique conforme NF C 18-510 : H0B0/H0V, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Organisme Qualiopi basé en Île-de-France. Devis sous 48h.",
+  keywords: [
+    "formation habilitation électrique",
+    "habilitation électrique NF C 18-510",
+    "formation H0B0",
+    "formation BS BE manœuvre",
+    "formation B1 B2 BR BC",
+    "organisme formation habilitation électrique Qualiopi",
+    "habilitation électrique e-learning",
+  ],
 };
 
 const pointsForts = [
@@ -87,9 +98,44 @@ const offerSections = [
   },
 ] as const;
 
+const faqItemsHabilitation = [
+  {
+    question: "La formation me délivre-t-elle l'habilitation électrique ?",
+    answer:
+      "Non. La formation Prevensia atteste de vos acquis théoriques et pratiques. Le titre d'habilitation est délivré par votre employeur après vérification de l'aptitude médicale, des tâches confiées et de l'environnement de travail (Code du travail R.4544-10, NF C 18-510).",
+  },
+  {
+    question: "Quel symbole choisir pour mes équipes ?",
+    answer:
+      "H0B0/H0V pour les non-électriciens évoluant en environnement électrique. BS/BE Manœuvre pour les interventions élémentaires et manœuvres simples. B1/B1V pour les exécutants travaux. B2/B2V pour les chargés de travaux. BR pour le dépannage. BC pour la consignation. Notre équipe vous oriente sur devis selon les postes réels de vos collaborateurs.",
+  },
+  {
+    question: "Quelle est la durée de validité d'une habilitation électrique ?",
+    answer:
+      "La NF C 18-510 recommande un recyclage tous les 3 ans. L'employeur reste libre d'en demander un plus fréquent si l'environnement de travail le justifie (incident, changement de poste, évolution des installations).",
+  },
+  {
+    question: "Le e-learning H0B0/H0V est-il accepté pour la délivrance de l'habilitation ?",
+    answer:
+      "Oui, dès lors qu'il est complété par un entretien de validation avec le formateur (inclus dans notre formule). Pour les autres symboles (B1, B2, BR, BC, BE), une séquence pratique encadrée est obligatoire en plus du e-learning.",
+  },
+  {
+    question: "Pouvez-vous intervenir directement sur notre site ?",
+    answer:
+      "Oui, en intra-entreprise partout en France. Le devis intègre les frais de déplacement et l'adaptation du contenu à vos installations réelles, vos consignes et vos retours d'expérience.",
+  },
+];
+
 export default function FormationHabilitationElectriquePage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "/" },
+          { name: "Habilitation électrique", url: "/formation-habilitation-electrique" },
+        ]}
+      />
+      <FaqJsonLd items={faqItemsHabilitation} />
       <CourseJsonLd
         name="Formation habilitation électrique (H0B0, BS, B1, B2, BR, BC)"
         description="Formations habilitation électrique conformes NF C 18-510 : H0B0/H0V, BS / BE Manœuvre, B1/B1V, B2/B2V, BR, BC. E-learning, classes virtuelle et présentiel."
