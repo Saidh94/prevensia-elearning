@@ -110,6 +110,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     ...blogEntries,
+    // À propos
+    {
+      url: `${siteUrl}/qui-sommes-nous`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
     // Pages légales
     {
       url: `${siteUrl}/mentions-legales`,

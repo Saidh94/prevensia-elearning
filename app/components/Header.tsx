@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/formation-ssi", label: "SSI" },
   { href: "/formation-sprinkler", label: "Sprinkler" },
   { href: "/planning", label: "Planning" },
+  { href: "/qui-sommes-nous", label: "À propos" },
 ];
 
 export function Header() {
