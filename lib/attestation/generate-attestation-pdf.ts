@@ -46,6 +46,25 @@ type SuggestedRow = {
   notes: string;
 };
 
+/**
+ * Remplace les caractères hors WinAnsiEncoding (le jeu de caractères des polices
+ * standard PDF comme Helvetica) pour éviter les glyphes manquants dans le PDF.
+ * Les accents courants du français (é è ê à ù ô â î û ç…) sont dans WinAnsiEncoding
+ * et n'ont pas besoin d'être remplacés.
+ */
+function sanitizePdfText(text: string): string {
+  return text
+    .replace(/œ/g, "oe")
+    .replace(/Œ/g, "Oe")
+    .replace(/æ/g, "ae")
+    .replace(/Æ/g, "Ae")
+    .replace(/€/g, "EUR")
+    .replace(/[–—]/g, "-")         // tirets longs
+    .replace(/[‘’]/g, "'") // guillemets simples typographiques
+    .replace(/[“”]/g, '"') // guillemets doubles typographiques
+    .replace(/…/g, "...");      // points de suspension
+}
+
 function formatDateFr(value?: string) {
   if (!value) return new Date().toLocaleDateString("fr-FR");
 
@@ -256,10 +275,10 @@ function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
         notes: "Hors tension, sans voisinage, limites NF C 18-510",
       },
       beManoeuvre: {
-        symbol: "BE Manœuvre",
+        symbol: "BE Manoeuvre",
         domain: "BT",
         scope: "Organes de commande identifiés",
-        notes: "Manœuvres uniquement, pas de dépannage",
+        notes: "Manoeuvres uniquement, pas de dépannage",
       },
     };
   }
@@ -310,11 +329,11 @@ function getFormationFrameLabel(formation: string) {
     normalized.includes("bs") &&
     (normalized.includes("be manoeuvre") || normalized.includes("manoeuvre"))
   ) {
-    return "BS et BE Manœuvre";
+    return "BS et BE Manoeuvre";
   }
 
   if (normalized.includes("be manoeuvre") || normalized.includes("manoeuvre")) {
-    return "BE Manœuvre";
+    return "BE Manoeuvre";
   }
 
   if (normalized.includes("bs")) {
@@ -671,7 +690,7 @@ function drawFirstPage(params: {
     { type: "data", key: "chargeChantier", label: "Chargé de chantier" },
     { type: "section", label: "Opérations d'ordre électrique" },
     { type: "data", key: "bs", label: "BS - Intervention BT élémentaire" },
-    { type: "data", key: "beManoeuvre", label: "BE Manœuvre" },
+    { type: "data", key: "beManoeuvre", label: "BE Manoeuvre" },
     { type: "data", key: "executantElectricien", label: "Exécutant électricien" },
     { type: "data", key: "chargeTravaux", label: "Chargé de travaux" },
     { type: "data", key: "chargeIntervention", label: "Chargé d'intervention BT" },
@@ -1163,13 +1182,15 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
     learnerEmail = "",
   } = input;
 
-  const learnerFullName =
+  const learnerFullName = sanitizePdfText(
     [employeeFirstName?.trim(), employeeLastName?.trim()]
       .filter(Boolean)
       .join(" ")
-      .trim() || learnerEmail || "À compléter";
+      .trim() || learnerEmail || "A completer"
+  );
 
-  const employerName = companyName?.trim() || "À compléter";
+  const employerName = sanitizePdfText(companyName?.trim() || "A completer");
+  const sanitizedFormation = sanitizePdfText(formation);
   const validationDate = formatDateFr(date);
   const issueDate = new Date().toLocaleDateString("fr-FR");
   const attestationId = shortAttestationId(userId);
@@ -1251,7 +1272,7 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
     validationDate,
     learnerFullName,
     employerName,
-    formation,
+    formation: sanitizedFormation,
     suggestedRows,
   });
 
@@ -1266,10 +1287,10 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
     validationDate,
     learnerFullName,
     employerName,
-    formation,
+    formation: sanitizedFormation,
     resultText,
     successText,
-    frameText,
+    frameText: sanitizePdfText(frameText),
   });
 
   const pdfBytes = await pdfDoc.save();

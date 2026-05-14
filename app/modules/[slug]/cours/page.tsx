@@ -1405,7 +1405,10 @@ export default function CoursPage() {
                       fill
                       className="object-contain"
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 960px"
-                      unoptimized={currentChapter.image.toLowerCase().endsWith(".svg")}
+                      unoptimized={
+                        currentChapter.image.toLowerCase().endsWith(".svg") ||
+                        currentChapter.image.toLowerCase().endsWith(".gif")
+                      }
                     />
                   </div>
                 </div>
