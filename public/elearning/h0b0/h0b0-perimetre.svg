@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="700" rx="36" fill="#EFF6FF"/>
-  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
 
-  <text x="92" y="112" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="34" font-weight="700">Périmètre du H0B0 — ce qui est autorisé, ce qui est interdit</text>
-  <text x="92" y="148" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18">L'habilitation H0B0 ne permet aucune opération d'ordre électrique. Jamais.</text>
+  <!-- Titre -->
+  <text x="600" y="96" text-anchor="middle" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="36" font-weight="700">Périmètre de l'habilitation H0B0</text>
+  <text x="600" y="132" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="20">Évoluer dans un environnement ≠ Agir sur l'installation</text>
 
-  <!-- Colonne gauche : AUTORISÉ -->
-  <rect x="92" y="172" width="490" height="360" rx="20" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
-  <rect x="92" y="172" width="490" height="56" rx="20" fill="#16A34A"/>
-  <rect x="92" y="208" width="490" height="20" fill="#16A34A"/>
-  <text x="337" y="210" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">✓  AUTORISÉ</text>
+  <!-- Colonne AUTORISÉ -->
+  <rect x="64" y="156" width="508" height="448" rx="20" fill="#F0FDF4" stroke="#22C55E" stroke-width="2.5"/>
+  <rect x="64" y="156" width="508" height="68" rx="20" fill="#16A34A"/>
+  <rect x="64" y="200" width="508" height="24" fill="#16A34A"/>
+  <text x="318" y="200" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="700">✓  AUTORISÉ</text>
 
-  <text x="337" y="260" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="15" font-weight="700">Opérations d'ordre NON électrique</text>
-  <text x="112" y="296" fill="#166534" font-family="Arial, sans-serif" font-size="14">✓  Évoluer dans un environnement avec installations électriques</text>
-  <text x="112" y="322" fill="#166534" font-family="Arial, sans-serif" font-size="14">✓  Réaliser des travaux mécaniques, de nettoyage, de logistique</text>
-  <text x="112" y="348" fill="#166534" font-family="Arial, sans-serif" font-size="14">✓  Surveiller visuellement un équipement sans y toucher</text>
-  <text x="112" y="374" fill="#166534" font-family="Arial, sans-serif" font-size="14">✓  Signaler une anomalie visible à la personne compétente</text>
-  <text x="112" y="400" fill="#166534" font-family="Arial, sans-serif" font-size="14">✓  Utiliser des appareils alimentés (si conformes et intacts)</text>
-  <text x="112" y="426" fill="#166534" font-family="Arial, sans-serif" font-size="14">✓  Arrêter toute action en cas de doute</text>
-  <text x="112" y="464" fill="#15803D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Le titulaire H0B0 peut travailler à proximité</text>
-  <text x="112" y="482" fill="#15803D" font-family="Arial, sans-serif" font-size="13" font-weight="700">d'une installation — pas dessus.</text>
-  <text x="112" y="508" fill="#16A34A" font-family="Arial, sans-serif" font-size="14" font-weight="700">Cadre : NF C 18-510 — opérations d'ordre non électrique</text>
+  <text x="318" y="258" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="18" font-weight="700">Opérations d'ordre NON électrique</text>
 
-  <!-- Colonne droite : INTERDIT -->
-  <rect x="618" y="172" width="530" height="360" rx="20" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
-  <rect x="618" y="172" width="530" height="56" rx="20" fill="#DC2626"/>
-  <rect x="618" y="208" width="530" height="20" fill="#DC2626"/>
-  <text x="883" y="210" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">✗  INTERDIT — SANS EXCEPTION</text>
+  <text x="88" y="304" fill="#166534" font-family="Arial, sans-serif" font-size="22">✔  Évoluer près des installations</text>
+  <text x="88" y="352" fill="#166534" font-family="Arial, sans-serif" font-size="22">✔  Travaux mécaniques, nettoyage</text>
+  <text x="88" y="400" fill="#166534" font-family="Arial, sans-serif" font-size="22">✔  Manutention, logistique</text>
+  <text x="88" y="448" fill="#166534" font-family="Arial, sans-serif" font-size="22">✔  Signaler une anomalie visible</text>
+  <text x="88" y="496" fill="#166534" font-family="Arial, sans-serif" font-size="22">✔  Stopper en cas de doute</text>
 
-  <text x="883" y="260" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="15" font-weight="700">Opérations d'ordre électrique</text>
-  <text x="638" y="296" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">✗  Ouvrir une armoire, un coffret ou un capot électrique</text>
-  <text x="638" y="322" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">✗  Intervenir sur une installation électrique</text>
-  <text x="638" y="348" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">✗  Consigner, mesurer, dépanner</text>
-  <text x="638" y="374" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">✗  Réparer ou bricoler un câble, une prise, une fiche</text>
-  <text x="638" y="400" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">✗  Réarmer un dispositif électrique hors consigne explicite</text>
-  <text x="638" y="426" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">✗  S'approcher sans cadre d'une zone nue sous tension</text>
-  <text x="638" y="464" fill="#B91C1C" font-family="Arial, sans-serif" font-size="13" font-weight="700">Même si l'action paraît simple, rapide</text>
-  <text x="638" y="482" fill="#B91C1C" font-family="Arial, sans-serif" font-size="13" font-weight="700">ou habituelle — la limite ne change pas.</text>
-  <text x="638" y="508" fill="#DC2626" font-family="Arial, sans-serif" font-size="14" font-weight="700">Règle absolue : stop et alerte à la personne compétente</text>
+  <rect x="88" y="528" width="460" height="56" rx="12" fill="#DCFCE7"/>
+  <text x="318" y="553" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="18" font-weight="700">Travailler à proximité — jamais dessus</text>
+  <text x="318" y="573" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="16">NF C 18-510 — opérations non électriques</text>
+
+  <!-- Colonne INTERDIT -->
+  <rect x="628" y="156" width="508" height="448" rx="20" fill="#FEF2F2" stroke="#EF4444" stroke-width="2.5"/>
+  <rect x="628" y="156" width="508" height="68" rx="20" fill="#DC2626"/>
+  <rect x="628" y="200" width="508" height="24" fill="#DC2626"/>
+  <text x="882" y="200" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="700">✗  INTERDIT — TOUJOURS</text>
+
+  <text x="882" y="258" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="18" font-weight="700">Opérations d'ordre électrique</text>
+
+  <text x="652" y="304" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">✘  Ouvrir armoire ou coffret</text>
+  <text x="652" y="352" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">✘  Intervenir sur l'installation</text>
+  <text x="652" y="400" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">✘  Consigner, mesurer, dépanner</text>
+  <text x="652" y="448" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">✘  Réparer câble, prise, fiche</text>
+  <text x="652" y="496" fill="#991B1B" font-family="Arial, sans-serif" font-size="22">✘  Franchir un balisage</text>
+
+  <rect x="652" y="528" width="460" height="56" rx="12" fill="#FEE2E2"/>
+  <text x="882" y="553" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="18" font-weight="700">Même si l'action semble simple ou rapide</text>
+  <text x="882" y="573" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="16">Stop — signaler — laisser la personne compétente</text>
 
   <!-- Barre bas -->
-  <rect x="92" y="554" width="1056" height="54" rx="16" fill="#1E3A5F"/>
-  <text x="600" y="578" text-anchor="middle" fill="#DBEAFE" font-family="Arial, sans-serif" font-size="16" font-weight="700">Formation ≠ Habilitation</text>
-  <text x="600" y="598" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="14">La formation prépare — c'est l'employeur qui délivre l'habilitation après évaluation du poste réel.</text>
+  <rect x="64" y="622" width="1072" height="26" rx="12" fill="#1E3A5F"/>
+  <text x="600" y="640" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="15" font-weight="700">Formation ≠ Habilitation  ·  L'employeur délivre l'habilitation après évaluation du poste réel</text>
 </svg>

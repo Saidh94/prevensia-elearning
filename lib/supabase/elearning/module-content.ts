@@ -728,7 +728,7 @@ export const modulesContent: Record<string, ModuleContent> = {
 }
     },
  {
-  id: "conduct-accident",
+  id: "conduct",
   title: "15. Conduite à tenir en cas d'accident électrique",
   intro:
     "Face à un accident électrique, la priorité est de protéger sans devenir une seconde victime. Le titulaire H0B0 ne se substitue pas aux secours : il sécurise, alerte et applique les gestes formés.",
@@ -793,7 +793,7 @@ export const modulesContent: Record<string, ModuleContent> = {
       "Patienter avec la victime",
     ],
     tone: "red",
-    illustrationKey: "emergency-response" as const,
+    animationKey: "peas-sst" as const,
   },
 },
     {

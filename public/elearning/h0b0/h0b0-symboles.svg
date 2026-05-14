@@ -1,68 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="700" rx="36" fill="#EFF6FF"/>
-  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#BFDBFE" stroke-width="2"/>
 
-  <text x="92" y="112" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="34" font-weight="700">Symboles H0B0 — lire son titre d'habilitation</text>
-  <text x="92" y="148" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18">B = Basse tension · H = Haute tension · 0 = Non électrique · V = Voisinage HT</text>
+  <text x="600" y="96" text-anchor="middle" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="36" font-weight="700">Les 3 symboles — B0 · H0 · H0V</text>
+  <text x="600" y="132" text-anchor="middle" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="20">B = Basse tension · H = Haute tension · 0 = Non électrique · V = Voisinage HT</text>
 
   <!-- B0 -->
-  <rect x="92" y="172" width="320" height="360" rx="20" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
-  <rect x="92" y="172" width="320" height="64" rx="20" fill="#1D4ED8"/>
-  <rect x="92" y="216" width="320" height="20" fill="#1D4ED8"/>
-  <text x="252" y="203" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="46" font-weight="700">B0</text>
-  <text x="252" y="227" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="10">BASSE TENSION — NON ÉLECTRIQUE</text>
+  <rect x="64" y="156" width="330" height="448" rx="20" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
+  <rect x="64" y="156" width="330" height="72" rx="20" fill="#1D4ED8"/>
+  <rect x="64" y="206" width="330" height="22" fill="#1D4ED8"/>
+  <text x="229" y="208" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="52" font-weight="700">B0</text>
 
-  <text x="252" y="270" text-anchor="middle" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="14" font-weight="700">Travaux non électriques en BT</text>
-  <text x="112" y="304" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="13">• Nettoyage, peinture, logistique</text>
-  <text x="112" y="326" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="13">• Maintenance mécanique non électrique</text>
-  <text x="112" y="348" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="13">• Travaux généraux en bâtiment</text>
-  <text x="112" y="380" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13" font-weight="700">Environnement : armoires BT, tableaux,</text>
-  <text x="112" y="398" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13" font-weight="700">machines — aucune action sur</text>
-  <text x="112" y="416" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13" font-weight="700">l'installation</text>
-  <text x="112" y="450" fill="#DC2626" font-family="Arial, sans-serif" font-size="12" font-weight="700">⚠ Il n'existe pas de B0V</text>
-  <text x="112" y="470" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="12">Le voisinage HT n'est pas prévu</text>
-  <text x="112" y="488" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="12">pour le symbole B (basse tension)</text>
-  <text x="112" y="508" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="13" font-weight="700">NF C 18-510 · Domaine BT</text>
+  <text x="229" y="274" text-anchor="middle" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Basse tension</text>
+  <text x="229" y="300" text-anchor="middle" fill="#1E3A5F" font-family="Arial, sans-serif" font-size="20" font-weight="700">Non électrique</text>
+
+  <text x="88" y="342" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="19">→ Nettoyage, logistique</text>
+  <text x="88" y="376" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="19">→ Peinture, manutention</text>
+  <text x="88" y="410" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="19">→ Maintenance mécanique</text>
+
+  <rect x="88" y="444" width="282" height="52" rx="10" fill="#DBEAFE"/>
+  <text x="229" y="464" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="17" font-weight="700">Environnement : armoires BT</text>
+  <text x="229" y="484" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="17" font-weight="700">fermées, tableaux</text>
+
+  <rect x="88" y="516" width="282" height="68" rx="10" fill="#FEE2E2"/>
+  <text x="229" y="540" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="18" font-weight="700">⚠ Il n'existe pas</text>
+  <text x="229" y="562" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="18" font-weight="700">de symbole B0V</text>
 
   <!-- H0 -->
-  <rect x="440" y="172" width="320" height="360" rx="20" fill="#F0FDF4" stroke="#22C55E" stroke-width="2"/>
-  <rect x="440" y="172" width="320" height="64" rx="20" fill="#15803D"/>
-  <rect x="440" y="216" width="320" height="20" fill="#15803D"/>
-  <text x="600" y="203" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="46" font-weight="700">H0</text>
-  <text x="600" y="227" text-anchor="middle" fill="#BBF7D0" font-family="Arial, sans-serif" font-size="10">HAUTE TENSION — NON ÉLECTRIQUE</text>
+  <rect x="434" y="156" width="330" height="448" rx="20" fill="#F0FDF4" stroke="#22C55E" stroke-width="2.5"/>
+  <rect x="434" y="156" width="330" height="72" rx="20" fill="#15803D"/>
+  <rect x="434" y="206" width="330" height="22" fill="#15803D"/>
+  <text x="599" y="208" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="52" font-weight="700">H0</text>
 
-  <text x="600" y="270" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="14" font-weight="700">Travaux non électriques en HT</text>
-  <text x="460" y="304" fill="#166534" font-family="Arial, sans-serif" font-size="13">• Chantiers à proximité de postes HT</text>
-  <text x="460" y="326" fill="#166534" font-family="Arial, sans-serif" font-size="13">• Interventions en locaux HT</text>
-  <text x="460" y="348" fill="#166534" font-family="Arial, sans-serif" font-size="13">  (non électriques, hors voisinage)</text>
-  <text x="460" y="380" fill="#15803D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Environnement : postes, cellules HT</text>
-  <text x="460" y="398" fill="#15803D" font-family="Arial, sans-serif" font-size="13" font-weight="700">Hors zone de voisinage renforcé</text>
-  <text x="460" y="430" fill="#166534" font-family="Arial, sans-serif" font-size="13">Aucun contact ni proximité avec</text>
-  <text x="460" y="448" fill="#166534" font-family="Arial, sans-serif" font-size="13">pièces nues sous tension</text>
-  <text x="460" y="508" fill="#15803D" font-family="Arial, sans-serif" font-size="13" font-weight="700">NF C 18-510 · Domaine HT</text>
+  <text x="599" y="274" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="20" font-weight="700">Haute tension</text>
+  <text x="599" y="300" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="20" font-weight="700">Non électrique</text>
+
+  <text x="458" y="342" fill="#15803D" font-family="Arial, sans-serif" font-size="19">→ Chantiers près de postes HT</text>
+  <text x="458" y="376" fill="#15803D" font-family="Arial, sans-serif" font-size="19">→ Locaux HT (hors voisinage)</text>
+  <text x="458" y="410" fill="#15803D" font-family="Arial, sans-serif" font-size="19">→ Opérations non électriques</text>
+
+  <rect x="458" y="444" width="282" height="52" rx="10" fill="#DCFCE7"/>
+  <text x="599" y="464" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="17" font-weight="700">Hors zone de voisinage</text>
+  <text x="599" y="484" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="17" font-weight="700">renforcé HT</text>
+
+  <rect x="458" y="516" width="282" height="68" rx="10" fill="#DCFCE7"/>
+  <text x="599" y="540" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="17" font-weight="700">Aucun contact ni proximité</text>
+  <text x="599" y="562" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="17" font-weight="700">avec parties sous tension</text>
 
   <!-- H0V -->
-  <rect x="788" y="172" width="360" height="360" rx="20" fill="#FFF7ED" stroke="#F97316" stroke-width="3"/>
-  <rect x="788" y="172" width="360" height="64" rx="20" fill="#C2410C"/>
-  <rect x="788" y="216" width="360" height="20" fill="#C2410C"/>
-  <text x="968" y="203" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="46" font-weight="700">H0V</text>
-  <text x="968" y="227" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="10">HAUTE TENSION — VOISINAGE — NON ÉLECTRIQUE</text>
+  <rect x="804" y="156" width="332" height="448" rx="20" fill="#FFF7ED" stroke="#F97316" stroke-width="3"/>
+  <rect x="804" y="156" width="332" height="72" rx="20" fill="#C2410C"/>
+  <rect x="804" y="206" width="332" height="22" fill="#C2410C"/>
+  <text x="970" y="208" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="44" font-weight="700">H0V</text>
 
-  <text x="968" y="270" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="14" font-weight="700">Travaux non élect. EN voisinage HT</text>
-  <text x="808" y="304" fill="#9A3412" font-family="Arial, sans-serif" font-size="13">• Opérations à proximité de parties nues</text>
-  <text x="808" y="322" fill="#9A3412" font-family="Arial, sans-serif" font-size="13">  sous tension en haute tension</text>
-  <text x="808" y="344" fill="#9A3412" font-family="Arial, sans-serif" font-size="13">• Cadre strict : distances, balisage,</text>
-  <text x="808" y="362" fill="#9A3412" font-family="Arial, sans-serif" font-size="13">  surveillance de sécurité électrique</text>
-  <text x="808" y="394" fill="#C2410C" font-family="Arial, sans-serif" font-size="13" font-weight="700">⚠ Plus contraignant que H0 :</text>
-  <text x="808" y="412" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">risque d'amorçage sans contact</text>
-  <text x="808" y="430" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">direct — distances DLVS / DLVR</text>
-  <text x="808" y="462" fill="#9A3412" font-family="Arial, sans-serif" font-size="13">Ne transforme pas le titulaire en</text>
-  <text x="808" y="480" fill="#9A3412" font-family="Arial, sans-serif" font-size="13">exécutant de travaux électriques</text>
-  <text x="808" y="508" fill="#C2410C" font-family="Arial, sans-serif" font-size="13" font-weight="700">NF C 18-510 · Voisinage HT</text>
+  <text x="970" y="274" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="20" font-weight="700">HT + Voisinage</text>
+  <text x="970" y="300" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="20" font-weight="700">Non électrique</text>
+
+  <text x="828" y="342" fill="#9A3412" font-family="Arial, sans-serif" font-size="19">→ Proximité de pièces HT nues</text>
+  <text x="828" y="376" fill="#9A3412" font-family="Arial, sans-serif" font-size="19">→ Distances DLVS / DLVR</text>
+  <text x="828" y="410" fill="#9A3412" font-family="Arial, sans-serif" font-size="19">→ Surveillance obligatoire</text>
+
+  <rect x="828" y="444" width="284" height="52" rx="10" fill="#FED7AA"/>
+  <text x="970" y="464" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="17" font-weight="700">⚠ Arc possible SANS</text>
+  <text x="970" y="484" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="17" font-weight="700">contact direct</text>
+
+  <rect x="828" y="516" width="284" height="68" rx="10" fill="#FFEDD5"/>
+  <text x="970" y="540" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="17" font-weight="700">Ne donne PAS le droit</text>
+  <text x="970" y="562" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="17" font-weight="700">d'intervenir sur l'install.</text>
 
   <!-- Barre bas -->
-  <rect x="92" y="554" width="1056" height="54" rx="16" fill="#1E3A5F"/>
-  <text x="600" y="576" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="15" font-weight="700">Le symbole détermine ce que le salarié peut faire — pas plus, pas moins.</text>
-  <text x="600" y="597" text-anchor="middle" fill="#93C5FD" font-family="Arial, sans-serif" font-size="13">Raisonner toujours depuis son symbole réel. Ne jamais l'interpréter au-delà de ce qu'il autorise.</text>
+  <rect x="64" y="622" width="1072" height="26" rx="12" fill="#1E3A5F"/>
+  <text x="600" y="640" text-anchor="middle" fill="#BFDBFE" font-family="Arial, sans-serif" font-size="15" font-weight="700">Le symbole détermine ce que le salarié peut faire — jamais plus. Raisonner toujours depuis son symbole réel.</text>
 </svg>

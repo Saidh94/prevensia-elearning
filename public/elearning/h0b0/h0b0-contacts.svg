@@ -1,67 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="700" rx="36" fill="#FFF7ED"/>
-  <rect x="52" y="52" width="1096" height="596" rx="28" fill="white" stroke="#FED7AA" stroke-width="2"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#FED7AA" stroke-width="2"/>
 
-  <text x="92" y="112" fill="#7C2D12" font-family="Arial, sans-serif" font-size="34" font-weight="700">Contacts directs et indirects — mécanismes d'exposition</text>
-  <text x="92" y="148" fill="#C2410C" font-family="Arial, sans-serif" font-size="18">Deux mécanismes distincts — même niveau de gravité potentiel.</text>
+  <text x="600" y="92" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="36" font-weight="700">Contacts directs et indirects</text>
+  <text x="600" y="126" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="20">Deux mécanismes distincts — même niveau de gravité potentiel.</text>
 
   <!-- Contact direct -->
-  <rect x="92" y="172" width="470" height="370" rx="20" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
-  <rect x="92" y="172" width="470" height="58" rx="20" fill="#DC2626"/>
-  <rect x="92" y="210" width="470" height="20" fill="#DC2626"/>
-  <text x="327" y="212" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">CONTACT DIRECT</text>
+  <rect x="64" y="148" width="514" height="400" rx="20" fill="#FEF2F2" stroke="#EF4444" stroke-width="2.5"/>
+  <rect x="64" y="148" width="514" height="64" rx="20" fill="#DC2626"/>
+  <rect x="64" y="192" width="514" height="20" fill="#DC2626"/>
+  <text x="321" y="191" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="700">CONTACT DIRECT</text>
 
-  <text x="327" y="260" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="15" font-weight="700">Toucher une partie active normalement sous tension</text>
+  <text x="321" y="244" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="19" font-weight="700">Toucher une pièce normalement sous tension</text>
 
-  <!-- Schéma contact direct -->
-  <rect x="180" y="278" width="120" height="60" rx="8" fill="#DC2626" opacity="0.15" stroke="#DC2626" stroke-width="2"/>
-  <text x="240" y="305" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="13" font-weight="700">PARTIE ACTIVE</text>
-  <text x="240" y="323" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="11">sous tension</text>
-  <line x1="300" y1="308" x2="360" y2="308" stroke="#DC2626" stroke-width="3" stroke-dasharray="6,4"/>
-  <circle cx="380" cy="308" r="18" fill="#FCA5A5" stroke="#DC2626" stroke-width="2"/>
-  <text x="380" y="314" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="10" font-weight="700">⚡</text>
+  <text x="88" y="292" fill="#991B1B" font-family="Arial, sans-serif" font-size="21">✘  Conducteur nu, borne, pièce interne</text>
+  <text x="88" y="330" fill="#991B1B" font-family="Arial, sans-serif" font-size="21">✘  Coffret ouvert ou tableau non protégé</text>
+  <text x="88" y="368" fill="#991B1B" font-family="Arial, sans-serif" font-size="21">✘  Câble dont la gaine est endommagée</text>
+  <text x="88" y="406" fill="#991B1B" font-family="Arial, sans-serif" font-size="21">✘  Fiche en cours de connexion</text>
 
-  <text x="112" y="376" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">• Conducteur nu, borne, pièce interne</text>
-  <text x="112" y="400" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">• Coffret ouvert, tableau non protégé</text>
-  <text x="112" y="424" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">• Câble dont la gaine est endommagée</text>
-  <text x="112" y="448" fill="#991B1B" font-family="Arial, sans-serif" font-size="14">• Fiche en cours de connexion</text>
-  <text x="112" y="480" fill="#B91C1C" font-family="Arial, sans-serif" font-size="13" font-weight="700">Le danger est VISIBLE</text>
-  <text x="112" y="500" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="13">mais pas toujours reconnu comme tel.</text>
-  <text x="112" y="522" fill="#DC2626" font-family="Arial, sans-serif" font-size="13" font-weight="700">Réflexe : s'éloigner et signaler</text>
+  <rect x="88" y="430" width="466" height="50" rx="10" fill="#FEE2E2"/>
+  <text x="321" y="451" text-anchor="middle" fill="#B91C1C" font-family="Arial, sans-serif" font-size="19" font-weight="700">Le danger est VISIBLE</text>
+  <text x="321" y="471" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="17">mais pas toujours reconnu comme tel</text>
+
+  <text x="321" y="524" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="20" font-weight="700">→ S'éloigner et signaler immédiatement</text>
 
   <!-- Séparateur -->
-  <text x="594" y="370" text-anchor="middle" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="40">≠</text>
-  <text x="594" y="400" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="13">deux</text>
-  <text x="594" y="420" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="13">mécanismes</text>
+  <text x="622" y="368" text-anchor="middle" fill="#D1D5DB" font-family="Arial, sans-serif" font-size="52">≠</text>
 
   <!-- Contact indirect -->
-  <rect x="638" y="172" width="510" height="370" rx="20" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
-  <rect x="638" y="172" width="510" height="58" rx="20" fill="#C2410C"/>
-  <rect x="638" y="210" width="510" height="20" fill="#C2410C"/>
-  <text x="893" y="212" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">CONTACT INDIRECT</text>
+  <rect x="622" y="148" width="514" height="400" rx="20" fill="#FFF7ED" stroke="#F97316" stroke-width="2.5"/>
+  <rect x="622" y="148" width="514" height="64" rx="20" fill="#C2410C"/>
+  <rect x="622" y="192" width="514" height="20" fill="#C2410C"/>
+  <text x="879" y="191" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="700">CONTACT INDIRECT</text>
 
-  <text x="893" y="260" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="15" font-weight="700">Toucher une masse devenue dangereuse par défaut</text>
+  <text x="879" y="244" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19" font-weight="700">Toucher une masse devenue dangereuse par défaut</text>
 
-  <!-- Schéma contact indirect -->
-  <rect x="690" y="278" width="110" height="60" rx="8" fill="#F97316" opacity="0.15" stroke="#F97316" stroke-width="2"/>
-  <text x="745" y="302" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="11" font-weight="700">MASSE</text>
-  <text x="745" y="318" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="11">métallique</text>
-  <text x="745" y="332" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="10">↑ défaut d'isolement</text>
-  <line x1="800" y1="308" x2="860" y2="308" stroke="#C2410C" stroke-width="3" stroke-dasharray="6,4"/>
-  <circle cx="880" cy="308" r="18" fill="#FED7AA" stroke="#C2410C" stroke-width="2"/>
-  <text x="880" y="314" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="10" font-weight="700">⚡</text>
+  <text x="646" y="292" fill="#9A3412" font-family="Arial, sans-serif" font-size="21">✘  Carcasse de machine sous tension</text>
+  <text x="646" y="330" fill="#9A3412" font-family="Arial, sans-serif" font-size="21">✘  Enveloppe métallique défectueuse</text>
+  <text x="646" y="368" fill="#9A3412" font-family="Arial, sans-serif" font-size="21">✘  Châssis ou bâti d'équipement</text>
+  <text x="646" y="406" fill="#9A3412" font-family="Arial, sans-serif" font-size="21">✘  Coffret métallique mal mis à la terre</text>
 
-  <text x="658" y="376" fill="#9A3412" font-family="Arial, sans-serif" font-size="14">• Carcasse de machine sous tension</text>
-  <text x="658" y="400" fill="#9A3412" font-family="Arial, sans-serif" font-size="14">• Enveloppe métallique défectueuse</text>
-  <text x="658" y="424" fill="#9A3412" font-family="Arial, sans-serif" font-size="14">• Châssis ou bâti d'équipement</text>
-  <text x="658" y="448" fill="#9A3412" font-family="Arial, sans-serif" font-size="14">• Coffret métallique mal mis à la terre</text>
-  <text x="658" y="480" fill="#C2410C" font-family="Arial, sans-serif" font-size="13" font-weight="700">Le danger est INVISIBLE</text>
-  <text x="658" y="500" fill="#7C2D12" font-family="Arial, sans-serif" font-size="13">l'équipement semble normal visuellement.</text>
-  <text x="658" y="522" fill="#C2410C" font-family="Arial, sans-serif" font-size="13" font-weight="700">Réflexe : picotement = danger — stop et alerte</text>
+  <rect x="646" y="430" width="466" height="50" rx="10" fill="#FFEDD5"/>
+  <text x="879" y="451" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="19" font-weight="700">Le danger est INVISIBLE</text>
+  <text x="879" y="471" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="17">l'équipement semble normal visuellement</text>
+
+  <text x="879" y="524" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="20" font-weight="700">→ Picotement = danger — stop et alerte</text>
 
   <!-- Barre bas -->
-  <rect x="92" y="562" width="1056" height="56" rx="16" fill="#7C2D12"/>
-  <text x="600" y="585" text-anchor="middle" fill="#FFEDD5" font-family="Arial, sans-serif" font-size="15" font-weight="700">Message clé : un matériel d'apparence normale peut être sous tension à cause d'un défaut d'isolement.</text>
-  <text x="600" y="606" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="13">Le titulaire B0/H0 ne teste JAMAIS lui-même — il signale et s'écarte.</text>
+  <rect x="64" y="566" width="1072" height="52" rx="14" fill="#7C2D12"/>
+  <text x="600" y="589" text-anchor="middle" fill="#FFEDD5" font-family="Arial, sans-serif" font-size="18" font-weight="700">Message clé : un matériel d'apparence normale peut être sous tension à cause d'un défaut d'isolement.</text>
+  <text x="600" y="610" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="16">Le titulaire B0/H0 ne teste JAMAIS lui-même — il signale et s'écarte.</text>
 </svg>
