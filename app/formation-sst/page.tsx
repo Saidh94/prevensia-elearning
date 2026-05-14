@@ -2,9 +2,17 @@ import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sst" },
-  title: "Formation SST et MAC SST | PREVENSIA FORMATION",
+  title: "Formation SST — Sauveteur Secouriste du Travail & MAC SST | PREVENSIA FORMATION",
   description:
-    "Formation SST initiale et MAC SST en présentiel pour entreprises et professionnels. Apprenez les gestes de premiers secours et la prévention des risques avec PREVENSIA FORMATION.",
+    "Formation SST initiale et recyclage MAC SST en présentiel. Gestes de premiers secours, PEAS, défibrillateur. Organisme certifié Qualiopi. Intra-entreprise partout en France. Devis 48h.",
+  keywords: [
+    "formation SST",
+    "sauveteur secouriste du travail",
+    "MAC SST recyclage",
+    "formation premiers secours entreprise",
+    "formation PEAS SST",
+    "organisme formation SST Qualiopi",
+  ],
 };
 
 const inrsSstResources = [

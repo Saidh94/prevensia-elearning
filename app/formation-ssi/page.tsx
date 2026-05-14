@@ -2,9 +2,17 @@ import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-ssi" },
-  title: "Formation exploitation SSI | PREVENSIA FORMATION",
+  title: "Formation Exploitation SSI — Système Sécurité Incendie NF S 61 | PREVENSIA FORMATION",
   description:
-    "Formation exploitation du système de sécurité incendie (SSI) pour entreprises, exploitants et responsables techniques. Comprendre le fonctionnement du SSI, les normes AFNOR série NF S 61 et les cadres ERP, IGH, Code du Travail et ICPE.",
+    "Formation exploitation du SSI : SDI, CMSI, UGA, DAS. Normes NF S 61, cadres ERP / IGH / ICPE / Code du Travail. Pour exploitants et responsables techniques. Qualiopi. Devis 48h.",
+  keywords: [
+    "formation exploitation SSI",
+    "formation système sécurité incendie",
+    "formation NF S 61",
+    "formation CMSI SDI UGA DAS",
+    "formation SSI ERP IGH",
+    "formation responsable technique incendie",
+  ],
 };
 
 export default function FormationSSI() {

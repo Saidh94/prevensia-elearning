@@ -38,17 +38,42 @@ export function Footer() {
           {/* Colonne 2 — Formations */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-white">
-              Formations
+              Habilitation électrique
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
                 <Link href="/formation-habilitation-electrique" className="hover:text-white">
-                  Habilitation électrique
+                  Toutes les habilitations
                 </Link>
               </li>
               <li>
+                <Link href="/formation-h0b0" className="hover:text-white">
+                  Formation H0B0 / H0V
+                </Link>
+              </li>
+              <li>
+                <Link href="/formation-bs-be-manoeuvre" className="hover:text-white">
+                  Formation BS / BE Manœuvre
+                </Link>
+              </li>
+              <li>
+                <Link href="/formation-b1-b2-br-bc" className="hover:text-white">
+                  Formation B1 / B2 / BR / BC
+                </Link>
+              </li>
+              <li>
+                <Link href="/formation-habilitation-electrique-ile-de-france" className="hover:text-white">
+                  Formation IDF
+                </Link>
+              </li>
+            </ul>
+            <h3 className="mt-6 text-sm font-semibold uppercase tracking-widest text-white">
+              Autres formations
+            </h3>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>
                 <Link href="/formation-sst" className="hover:text-white">
-                  SST — Sauveteur Secouriste du Travail
+                  SST — Premiers secours
                 </Link>
               </li>
               <li>
@@ -88,6 +113,11 @@ export function Footer() {
               <li>
                 <Link href="/demande-devis" className="hover:text-white">
                   Demande de devis
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-white">
+                  Blog & Ressources
                 </Link>
               </li>
               <li>

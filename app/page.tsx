@@ -697,6 +697,46 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Section SEO — liens internes vers landing pages */}
+        <section className="bg-slate-50 py-14">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+              Habilitation électrique par symbole
+            </p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+              Trouvez la formation adaptée à votre poste
+            </h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { titre: "H0B0 / H0V", desc: "Non-électriciens, caristes, agents de nettoyage, maintenance mécanique", href: "/formation-h0b0", prix: "dès 220 € HT" },
+                { titre: "BS / BE Manœuvre", desc: "Interventions élémentaires, remplacement de fusibles, manœuvres d'exploitation", href: "/formation-bs-be-manoeuvre", prix: "dès 350 € HT" },
+                { titre: "B1 / B2 / BR / BC", desc: "Électriciens BT : travaux, dépannage, consignation, vérification", href: "/formation-b1-b2-br-bc", prix: "dès 790 € HT" },
+                { titre: "Île-de-France", desc: "Formation intra-entreprise dans vos locaux, 8 départements franciliens", href: "/formation-habilitation-electrique-ile-de-france", prix: "Devis 48h" },
+              ].map((f) => (
+                <Link key={f.titre} href={f.href} className="group rounded-2xl border border-slate-200 bg-white p-5 hover:border-red-200 hover:shadow-md transition-all">
+                  <p className="text-xs font-bold uppercase tracking-widest text-red-600">{f.prix}</p>
+                  <h3 className="mt-2 text-lg font-bold text-slate-900 group-hover:text-red-700">{f.titre}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{f.desc}</p>
+                  <p className="mt-4 text-sm font-semibold text-red-600">Voir la formation →</p>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <p className="text-sm text-slate-500">Ressources :</p>
+              {[
+                { label: "Comment choisir son habilitation ?", href: "/blog/comment-choisir-son-habilitation-electrique" },
+                { label: "Durée de validité de l'habilitation", href: "/blog/duree-validite-habilitation-electrique" },
+                { label: "Blog Sécurité & Prévention", href: "/blog" },
+              ].map((l) => (
+                <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm text-slate-600 hover:border-red-200 hover:text-red-700 transition-colors">
+                  {l.label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="bg-white py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
             <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8">

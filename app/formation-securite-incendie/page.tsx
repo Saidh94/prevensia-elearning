@@ -2,9 +2,17 @@ import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-securite-incendie" },
-  title: "Formation sécurité incendie en entreprise | PREVENSIA FORMATION",
+  title: "Formation Sécurité Incendie — Extincteurs, Guide-File, EPI | PREVENSIA FORMATION",
   description:
-    "Formation sécurité incendie en entreprise : manipulation des extincteurs, guide-file / serre-file et equipier de première intervention. Sessions adaptées aux besoins des entreprises avec PREVENSIA FORMATION.",
+    "Formation sécurité incendie en entreprise : manipulation d'extincteurs, guide-file / serre-file, équipier de 1ère intervention. Qualiopi. Intra-entreprise France entière. Devis sous 48h.",
+  keywords: [
+    "formation sécurité incendie",
+    "formation manipulation extincteur",
+    "formation guide-file serre-file",
+    "équipier première intervention incendie",
+    "formation évacuation incendie entreprise",
+    "organisme formation incendie Qualiopi",
+  ],
 };
 
 const programmes = [

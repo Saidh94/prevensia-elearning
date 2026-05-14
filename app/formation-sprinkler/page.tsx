@@ -2,9 +2,17 @@ import CourseJsonLd from "@/components/seo/CourseJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sprinkler" },
-  title: "Formation exploitation sprinkler et référentiels techniques | PREVENSIA FORMATION",
+  title: "Formation Exploitation Sprinkler — EN 12845, APSAD R1, NFPA 13 | PREVENSIA FORMATION",
   description:
-    "Formation sprinkler pour exploitants, responsables techniques et entreprises : fonctionnement, exploitation, surveillance et référentiels EN 12845, APSAD R1, NFPA 13 et FM Global.",
+    "Formation exploitation sprinkler pour responsables techniques et exploitants : fonctionnement, surveillance, référentiels EN 12845, APSAD R1, NFPA 13 et FM Global. Qualiopi. Intra-entreprise.",
+  keywords: [
+    "formation sprinkler",
+    "formation exploitation sprinkler",
+    "formation EN 12845",
+    "formation APSAD R1",
+    "formation NFPA 13 sprinkler",
+    "formation responsable technique sprinkler",
+  ],
 };
 
 const programme = [
