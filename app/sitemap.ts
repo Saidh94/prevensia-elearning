@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.88 },
     { slug: "formation-habilitation-electrique-paris", priority: 0.85 },
     { slug: "formation-habilitation-electrique-seine-saint-denis", priority: 0.85 },
+    { slug: "formation-atex", priority: 0.9 },
+    { slug: "formation-ssiap1", priority: 0.9 },
   ];
 
   const habilitationSeoEntries: MetadataRoute.Sitemap = habilitationSeoPages.map(

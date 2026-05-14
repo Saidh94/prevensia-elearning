@@ -67,6 +67,18 @@ const paymentRules: PaymentRule[] = [
       "Les attributs BE Verification et BE Mesurage doivent etre calibres selon les missions reellement prevues.",
   },
   {
+    envKey: "STRIPE_PRICE_ATEX_ELEARNING_CENTS",
+    kind: "direct",
+    label: "Prevention des risques ATEX - Atmospheres Explosives",
+    anyKeywords: ["atex", "atmosphere explosive", "atmospheres explosives"],
+  },
+  {
+    envKey: "STRIPE_PRICE_SSIAP1_ELEARNING_CENTS",
+    kind: "direct",
+    label: "Sensibilisation SSIAP1 - Securite Incendie ERP",
+    anyKeywords: ["ssiap1", "ssiap 1", "sensibilisation ssiap", "securite incendie erp"],
+  },
+  {
     envKey: "STRIPE_PRICE_H0B0_RECYCLAGE_CENTS",
     kind: "direct",
     label: "Recyclage H0B0 e-learning",

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 420" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="200" y="28" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">L'HEXAGONE DE L'EXPLOSION</text>
+  <text x="200" y="46" text-anchor="middle" font-size="11" fill="#666">6 conditions requises simultanément</text>
+
+  <!-- Hexagone externe rouge -->
+  <g transform="translate(200,240)">
+    <polygon points="0,-155 134,-77 134,77 0,155 -134,77 -134,-77"
+             fill="none" stroke="#cc2200" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- Triangle interne jaune -->
+    <polygon points="0,-98 85,49 -85,49" fill="#F5C300" stroke="#c9a200" stroke-width="2"/>
+
+    <!-- Texte EX central -->
+    <text x="0" y="12" text-anchor="middle" font-size="42" font-weight="900" fill="#1a1a1a">EX</text>
+
+    <!-- 6 labels aux sommets de l'hexagone -->
+
+    <!-- Haut - Produits combustibles -->
+    <text x="0" y="-166" text-anchor="middle" font-size="13" font-weight="800" fill="#1a1a1a">Produits</text>
+    <text x="0" y="-150" text-anchor="middle" font-size="13" font-weight="800" fill="#1a1a1a">combustibles</text>
+
+    <!-- Haut-droit - Comburant -->
+    <text x="158" y="-86" text-anchor="start" font-size="13" font-weight="800" fill="#1a1a1a">Comburant</text>
+
+    <!-- Bas-droit - Domaine d'explosivité -->
+    <text x="142" y="88" text-anchor="start" font-size="13" font-weight="800" fill="#1a1a1a">Domaine</text>
+    <text x="142" y="104" text-anchor="start" font-size="13" font-weight="800" fill="#1a1a1a">d'explosivité</text>
+
+    <!-- Bas - Produits en suspension -->
+    <text x="0" y="182" text-anchor="middle" font-size="13" font-weight="800" fill="#1a1a1a">Produits en</text>
+    <text x="0" y="198" text-anchor="middle" font-size="13" font-weight="800" fill="#1a1a1a">suspension</text>
+
+    <!-- Bas-gauche - Source d'inflammation -->
+    <text x="-148" y="88" text-anchor="end" font-size="13" font-weight="800" fill="#1a1a1a">Source</text>
+    <text x="-148" y="104" text-anchor="end" font-size="13" font-weight="800" fill="#1a1a1a">d'inflammation</text>
+
+    <!-- Haut-gauche - Confinement suffisant -->
+    <text x="-148" y="-86" text-anchor="end" font-size="13" font-weight="800" fill="#1a1a1a">Confinement</text>
+    <text x="-148" y="-70" text-anchor="end" font-size="13" font-weight="800" fill="#1a1a1a">suffisant</text>
+
+  </g>
+
+  <!-- Encadré bas -->
+  <rect x="30" y="398" width="340" height="16" rx="4" fill="#fff3cd" stroke="#e67e00" stroke-width="1"/>
+  <text x="200" y="410" text-anchor="middle" font-size="10.5" fill="#7a4800" font-weight="600">Supprimer une condition = explosion impossible</text>
+
+</svg>

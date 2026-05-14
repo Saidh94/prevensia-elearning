@@ -3,12 +3,16 @@ import { bsbeModuleContent } from "./bsbe-content";
 import { ModuleContent } from "./module-types";
 import { electricalCommercialModuleContent } from "./electrical-commercial-content";
 import { vehiculesModuleContent } from "./vehicules-content";
+import { atexModuleContent } from "./atex-content";
+import { ssiap1ModuleContent } from "./ssiap1-content";
 
 export const modulesContent: Record<string, ModuleContent> = {
   ...electricalCommercialModuleContent,
   bsbe: bsbeModuleContent,
   b1b2brbc: b1b2brbcModuleContent,
   "habilitation-vehicules": vehiculesModuleContent,
+  atex: atexModuleContent,
+  ssiap1: ssiap1ModuleContent,
   h0b0: {
   title: "H0B0 - Exécuter en sécurité des travaux d’ordre non électrique",
   shortTitle: "H0B0",

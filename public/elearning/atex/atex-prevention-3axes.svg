@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 410" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="300" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">PRÉVENTION ATEX — 3 AXES D'ACTION</text>
+  <text x="300" y="44" text-anchor="middle" font-size="11" fill="#666">Agir sur au moins un axe pour supprimer ou réduire le risque d'explosion</text>
+
+  <!-- ══ AXE 1 : COMBUSTIBLE ══ -->
+  <rect x="10"  y="56" width="185" height="322" rx="10" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="2"/>
+  <!-- Header -->
+  <rect x="10"  y="56" width="185" height="44" rx="10" fill="#1a4e8c"/>
+  <rect x="10"  y="80" width="185" height="20" fill="#1a4e8c"/>
+  <text x="103" y="76" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">COMBUSTIBLE</text>
+  <text x="103" y="92" text-anchor="middle" font-size="10" fill="#9ec8ff">Réduire · supprimer · diluer</text>
+  <!-- Mesures -->
+  <rect x="18"  y="108" width="169" height="30" rx="5" fill="#fff" stroke="#1a4e8c" stroke-width="1"/>
+  <text x="103" y="121" text-anchor="middle" font-size="10" fill="#1a1a1a">Substituer par un produit</text>
+  <text x="103" y="133" text-anchor="middle" font-size="10" fill="#1a1a1a">moins inflammable</text>
+
+  <rect x="18"  y="144" width="169" height="30" rx="5" fill="#fff" stroke="#1a4e8c" stroke-width="1"/>
+  <text x="103" y="157" text-anchor="middle" font-size="10" fill="#1a1a1a">Ventilation / aspiration</text>
+  <text x="103" y="169" text-anchor="middle" font-size="10" fill="#1a1a1a">à la source</text>
+
+  <rect x="18"  y="180" width="169" height="30" rx="5" fill="#fff" stroke="#1a4e8c" stroke-width="1"/>
+  <text x="103" y="193" text-anchor="middle" font-size="10" fill="#1a1a1a">Contrôle des fuites</text>
+  <text x="103" y="205" text-anchor="middle" font-size="10" fill="#1a1a1a">et dépôts de poussières</text>
+
+  <rect x="18"  y="216" width="169" height="30" rx="5" fill="#fff" stroke="#1a4e8c" stroke-width="1"/>
+  <text x="103" y="229" text-anchor="middle" font-size="10" fill="#1a1a1a">Inertage (azote, CO₂)</text>
+  <text x="103" y="241" text-anchor="middle" font-size="10" fill="#1a1a1a">sous la CLO</text>
+
+  <rect x="18"  y="252" width="169" height="30" rx="5" fill="#fff" stroke="#1a4e8c" stroke-width="1"/>
+  <text x="103" y="265" text-anchor="middle" font-size="10" fill="#1a1a1a">Nettoyage régulier</text>
+  <text x="103" y="277" text-anchor="middle" font-size="10" fill="#1a1a1a">des locaux et équipements</text>
+
+  <!-- Mesure clé -->
+  <rect x="18"  y="288" width="169" height="34" rx="5" fill="#dbeafe" stroke="#1a4e8c" stroke-width="1.5"/>
+  <text x="103" y="303" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">Explosimètre portable</text>
+  <text x="103" y="316" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">Alarme à 20 % LIE</text>
+  <text x="103" y="329" text-anchor="middle" font-size="9" fill="#1a4e8c" font-style="italic">Contrôle avant et pendant</text>
+
+  <!-- Icône discrète -->
+  <text x="176" y="346" text-anchor="middle" font-size="18" opacity="0.4">💨</text>
+
+  <!-- ══ AXE 2 : SOURCES D'INFLAMMATION ══ -->
+  <rect x="207" y="56" width="186" height="322" rx="10" fill="#fff8ed" stroke="#e67e00" stroke-width="2"/>
+  <rect x="207" y="56" width="186" height="44" rx="10" fill="#e67e00"/>
+  <rect x="207" y="80" width="186" height="20" fill="#e67e00"/>
+  <text x="300" y="76" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">SOURCES D'INFLAM.</text>
+  <text x="300" y="92" text-anchor="middle" font-size="10" fill="#ffe4b0">Identifier · éliminer · contrôler</text>
+
+  <rect x="215" y="108" width="170" height="30" rx="5" fill="#fff" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="121" text-anchor="middle" font-size="10" fill="#1a1a1a">Équipements certifiés Ex</text>
+  <text x="300" y="133" text-anchor="middle" font-size="10" fill="#1a1a1a">adaptés à la zone</text>
+
+  <rect x="215" y="144" width="170" height="30" rx="5" fill="#fff" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="157" text-anchor="middle" font-size="10" fill="#1a1a1a">Permis de feu pour</text>
+  <text x="300" y="169" text-anchor="middle" font-size="10" fill="#1a1a1a">travaux par points chauds</text>
+
+  <rect x="215" y="180" width="170" height="30" rx="5" fill="#fff" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="193" text-anchor="middle" font-size="10" fill="#1a1a1a">Liaison équipotentielle</text>
+  <text x="300" y="205" text-anchor="middle" font-size="10" fill="#1a1a1a">et mise à la terre</text>
+
+  <rect x="215" y="216" width="170" height="30" rx="5" fill="#fff" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="229" text-anchor="middle" font-size="10" fill="#1a1a1a">Vêtements antistatiques</text>
+  <text x="300" y="241" text-anchor="middle" font-size="10" fill="#1a1a1a">EN 1149-5 obligatoires</text>
+
+  <rect x="215" y="252" width="170" height="30" rx="5" fill="#fff" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="265" text-anchor="middle" font-size="10" fill="#1a1a1a">Interdire appareils</text>
+  <text x="300" y="277" text-anchor="middle" font-size="10" fill="#1a1a1a">non certifiés ATEX</text>
+
+  <rect x="215" y="288" width="170" height="34" rx="5" fill="#fff3cd" stroke="#e67e00" stroke-width="1.5"/>
+  <text x="300" y="303" text-anchor="middle" font-size="10" fill="#8b5e00" font-weight="700">Contrôle des surfaces</text>
+  <text x="300" y="316" text-anchor="middle" font-size="10" fill="#8b5e00" font-weight="700">chaudes — classe T</text>
+  <text x="300" y="329" text-anchor="middle" font-size="9" fill="#8b5e00" font-style="italic">T surface &lt; T auto-inflammation</text>
+
+  <text x="375" y="346" text-anchor="middle" font-size="18" opacity="0.4">⚡</text>
+
+  <!-- ══ AXE 3 : ORGANISATION ══ -->
+  <rect x="405" y="56" width="185" height="322" rx="10" fill="#f0fff4" stroke="#1a5c1a" stroke-width="2"/>
+  <rect x="405" y="56" width="185" height="44" rx="10" fill="#1a5c1a"/>
+  <rect x="405" y="80" width="185" height="20" fill="#1a5c1a"/>
+  <text x="497" y="76" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">ORGANISATION</text>
+  <text x="497" y="92" text-anchor="middle" font-size="10" fill="#9effc0">Procédures · formation · DRPE</text>
+
+  <rect x="413" y="108" width="169" height="30" rx="5" fill="#fff" stroke="#1a5c1a" stroke-width="1"/>
+  <text x="497" y="121" text-anchor="middle" font-size="10" fill="#1a1a1a">DRPE à jour</text>
+  <text x="497" y="133" text-anchor="middle" font-size="10" fill="#1a1a1a">et accessible sur site</text>
+
+  <rect x="413" y="144" width="169" height="30" rx="5" fill="#fff" stroke="#1a5c1a" stroke-width="1"/>
+  <text x="497" y="157" text-anchor="middle" font-size="10" fill="#1a1a1a">Autorisation de travail</text>
+  <text x="497" y="169" text-anchor="middle" font-size="10" fill="#1a1a1a">avant toute intervention</text>
+
+  <rect x="413" y="180" width="169" height="30" rx="5" fill="#fff" stroke="#1a5c1a" stroke-width="1"/>
+  <text x="497" y="193" text-anchor="middle" font-size="10" fill="#1a1a1a">Plan de prévention pour</text>
+  <text x="497" y="205" text-anchor="middle" font-size="10" fill="#1a1a1a">entreprises extérieures</text>
+
+  <rect x="413" y="216" width="169" height="30" rx="5" fill="#fff" stroke="#1a5c1a" stroke-width="1"/>
+  <text x="497" y="229" text-anchor="middle" font-size="10" fill="#1a1a1a">Formation de tout</text>
+  <text x="497" y="241" text-anchor="middle" font-size="10" fill="#1a1a1a">le personnel exposé</text>
+
+  <rect x="413" y="252" width="169" height="30" rx="5" fill="#fff" stroke="#1a5c1a" stroke-width="1"/>
+  <text x="497" y="265" text-anchor="middle" font-size="10" fill="#1a1a1a">Signalisation ATEX</text>
+  <text x="497" y="277" text-anchor="middle" font-size="10" fill="#1a1a1a">à tous les accès de zone</text>
+
+  <rect x="413" y="288" width="169" height="34" rx="5" fill="#d1fae5" stroke="#1a5c1a" stroke-width="1.5"/>
+  <text x="497" y="303" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Exercices et retours</text>
+  <text x="497" y="316" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">d'expérience accidents</text>
+  <text x="497" y="329" text-anchor="middle" font-size="9" fill="#1a5c1a" font-style="italic">Analyse systématique AT ATEX</text>
+
+  <text x="572" y="346" text-anchor="middle" font-size="18" opacity="0.4">📋</text>
+
+  <!-- Pied de page -->
+  <rect x="10" y="388" width="580" height="18" rx="4" fill="#fff3cd" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="401" text-anchor="middle" font-size="10.5" fill="#7a4800" font-weight="600">Priorité aux mesures COLLECTIVES (ventilation, zonage, équipements certifiés) avant les EPI</text>
+
+</svg>

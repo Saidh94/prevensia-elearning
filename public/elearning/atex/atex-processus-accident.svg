@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 382" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">PROCESSUS MENANT À L'ACCIDENT ATEX</text>
+  <text x="320" y="44" text-anchor="middle" font-size="11" fill="#666">Interrompre la chaîne à n'importe quel maillon = accident évité</text>
+
+  <!-- ── Maillon 1 : Phénomène dangereux ── -->
+  <rect x="10" y="62" width="128" height="80" rx="8" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="2"/>
+  <rect x="10" y="62" width="128" height="28" rx="8" fill="#1a4e8c"/>
+  <rect x="10" y="80" width="128" height="10" fill="#1a4e8c"/>
+  <text x="74" y="82" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">PHÉNOMÈNE</text>
+  <text x="74" y="93" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">DANGEREUX</text>
+  <text x="74" y="112" text-anchor="middle" font-size="10" fill="#333">ATEX présente</text>
+  <text x="74" y="126" text-anchor="middle" font-size="10" fill="#333">gaz · vapeur · poussière</text>
+
+  <!-- Flèche 1 -->
+  <line x1="138" y1="102" x2="158" y2="102" stroke="#666" stroke-width="2"/>
+  <polygon points="160,102 154,97 154,107" fill="#666"/>
+
+  <!-- Bouclier de prévention 1 -->
+  <line x1="149" y1="52" x2="149" y2="120" stroke="#1a5c1a" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <rect x="110" y="38" width="78" height="18" rx="4" fill="#1a5c1a"/>
+  <text x="149" y="51" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">✂  Ventilation / inertage</text>
+
+  <!-- ── Maillon 2 : Situation dangereuse ── -->
+  <rect x="162" y="62" width="128" height="80" rx="8" fill="#fff8ed" stroke="#e67e00" stroke-width="2"/>
+  <rect x="162" y="62" width="128" height="28" rx="8" fill="#e67e00"/>
+  <rect x="162" y="80" width="128" height="10" fill="#e67e00"/>
+  <text x="226" y="82" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">SITUATION</text>
+  <text x="226" y="93" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">DANGEREUSE</text>
+  <text x="226" y="112" text-anchor="middle" font-size="10" fill="#333">Personnel exposé</text>
+  <text x="226" y="126" text-anchor="middle" font-size="10" fill="#333">en zone sans protection</text>
+
+  <!-- Flèche 2 -->
+  <line x1="290" y1="102" x2="310" y2="102" stroke="#666" stroke-width="2"/>
+  <polygon points="312,102 306,97 306,107" fill="#666"/>
+
+  <!-- Bouclier 2 -->
+  <line x1="301" y1="52" x2="301" y2="120" stroke="#1a5c1a" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <rect x="255" y="38" width="92" height="18" rx="4" fill="#1a5c1a"/>
+  <text x="301" y="51" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">✂  EPI + zonage + DRPE</text>
+
+  <!-- ── Maillon 3 : Événement déclencheur ── -->
+  <rect x="314" y="62" width="128" height="80" rx="8" fill="#ffefdf" stroke="#cc4400" stroke-width="2"/>
+  <rect x="314" y="62" width="128" height="28" rx="8" fill="#cc4400"/>
+  <rect x="314" y="80" width="128" height="10" fill="#cc4400"/>
+  <text x="378" y="82" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">ÉVÉNEMENT</text>
+  <text x="378" y="93" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">DÉCLENCHEUR</text>
+  <text x="378" y="112" text-anchor="middle" font-size="10" fill="#333">Source d'inflammation</text>
+  <text x="378" y="126" text-anchor="middle" font-size="10" fill="#333">étincelle · chaleur · foudre</text>
+
+  <!-- Flèche 3 -->
+  <line x1="442" y1="102" x2="462" y2="102" stroke="#666" stroke-width="2"/>
+  <polygon points="464,102 458,97 458,107" fill="#666"/>
+
+  <!-- Bouclier 3 -->
+  <line x1="453" y1="52" x2="453" y2="120" stroke="#1a5c1a" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <rect x="404" y="38" width="98" height="18" rx="4" fill="#1a5c1a"/>
+  <text x="453" y="51" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">✂  Équipements certifiés Ex</text>
+
+  <!-- ── Maillon 4 : Accident / Explosion ── -->
+  <rect x="466" y="56" width="164" height="88" rx="8" fill="#1a0800"/>
+  <!-- Explosion animée -->
+  <circle cx="548" cy="100" r="40" fill="#b31a00" opacity="0.22">
+    <animate attributeName="r" values="32;50;32" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.22;0.42;0.22" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="548" cy="100" r="26" fill="#e65c00" opacity="0.48">
+    <animate attributeName="r" values="20;34;20" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="548" cy="100" r="12" fill="#ffaa00" opacity="0.92">
+    <animate attributeName="r" values="8;18;8" dur="0.9s" repeatCount="indefinite"/>
+  </circle>
+  <text x="548" y="96" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">ACCIDENT</text>
+  <text x="548" y="112" text-anchor="middle" font-size="11" font-weight="700" fill="#ffcc00">EXPLOSION</text>
+
+  <!-- Bouclier 4 (atténuation) -->
+  <rect x="468" y="38" width="160" height="18" rx="4" fill="#8b5e00"/>
+  <text x="548" y="51" text-anchor="middle" font-size="9" font-weight="700" fill="#fff">✂  Cloisonnement / suppresseurs</text>
+
+  <!-- ══ 9 principes généraux ══ -->
+  <rect x="10" y="158" width="620" height="26" rx="6" fill="#1a2e6e"/>
+  <text x="320" y="175" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">9 PRINCIPES GÉNÉRAUX DE PRÉVENTION — Code du travail Art. L4121-2</text>
+
+  <!-- Colonne 1 -->
+  <rect x="10" y="188" width="196" height="184" rx="8" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="1"/>
+  <text x="108" y="206" text-anchor="middle" font-size="10" font-weight="800" fill="#1a4e8c">SUPPRIMER / RÉDUIRE</text>
+  <text x="108" y="224" text-anchor="middle" font-size="10" fill="#333">① Éviter les risques</text>
+  <text x="108" y="240" text-anchor="middle" font-size="10" fill="#333">② Évaluer les risques inévitables</text>
+  <text x="108" y="256" text-anchor="middle" font-size="10" fill="#333">③ Combattre les risques à la source</text>
+  <line x1="20" y1="266" x2="196" y2="266" stroke="#1a4e8c" stroke-width="0.5" opacity="0.4"/>
+  <text x="108" y="282" text-anchor="middle" font-size="9" fill="#555" font-style="italic">En ATEX :</text>
+  <text x="108" y="298" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Supprimer l'ATEX (ventiler)</text>
+  <text x="108" y="314" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Substituer le produit</text>
+  <text x="108" y="330" text-anchor="middle" font-size="9" fill="#555" font-style="italic">inflammable par un ininflammable</text>
+  <text x="108" y="346" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Contrôle des fuites</text>
+  <text x="108" y="362" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Explosimètre à 20% LIE</text>
+
+  <!-- Colonne 2 -->
+  <rect x="216" y="188" width="196" height="184" rx="8" fill="#fff8ed" stroke="#e67e00" stroke-width="1"/>
+  <text x="314" y="206" text-anchor="middle" font-size="10" font-weight="800" fill="#8b5e00">ADAPTER / REMPLACER</text>
+  <text x="314" y="224" text-anchor="middle" font-size="10" fill="#333">④ Adapter le travail à l'homme</text>
+  <text x="314" y="240" text-anchor="middle" font-size="10" fill="#333">⑤ Tenir compte de l'évolution</text>
+  <text x="314" y="256" text-anchor="middle" font-size="10" fill="#333">⑥ Remplacer ce qui est dangereux</text>
+  <line x1="226" y1="266" x2="402" y2="266" stroke="#e67e00" stroke-width="0.5" opacity="0.4"/>
+  <text x="314" y="282" text-anchor="middle" font-size="9" fill="#555" font-style="italic">En ATEX :</text>
+  <text x="314" y="298" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Équipements certifiés Ex</text>
+  <text x="314" y="314" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Outillage non-producteur</text>
+  <text x="314" y="330" text-anchor="middle" font-size="9" fill="#555" font-style="italic">d'étincelles</text>
+  <text x="314" y="346" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Procédures adaptées</text>
+  <text x="314" y="362" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ DRPE à jour</text>
+
+  <!-- Colonne 3 -->
+  <rect x="422" y="188" width="208" height="184" rx="8" fill="#f0fff4" stroke="#1a5c1a" stroke-width="1"/>
+  <text x="526" y="206" text-anchor="middle" font-size="10" font-weight="800" fill="#1a5c1a">ORGANISER / FORMER</text>
+  <text x="526" y="224" text-anchor="middle" font-size="10" fill="#333">⑦ Planifier la prévention</text>
+  <text x="526" y="240" text-anchor="middle" font-size="10" fill="#333">⑧ Privilégier mesures collectives</text>
+  <text x="526" y="256" text-anchor="middle" font-size="10" fill="#333">⑨ Former et informer les travailleurs</text>
+  <line x1="432" y1="266" x2="620" y2="266" stroke="#1a5c1a" stroke-width="0.5" opacity="0.4"/>
+  <text x="526" y="282" text-anchor="middle" font-size="9" fill="#555" font-style="italic">En ATEX :</text>
+  <text x="526" y="298" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Formation ATEX obligatoire</text>
+  <text x="526" y="314" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Plan de prévention</text>
+  <text x="526" y="330" text-anchor="middle" font-size="9" fill="#555" font-style="italic">(entreprises extérieures)</text>
+  <text x="526" y="346" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Autorisation de travail</text>
+  <text x="526" y="362" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Exercices et REX accidents</text>
+
+</svg>

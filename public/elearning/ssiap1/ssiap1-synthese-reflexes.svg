@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 500" width="620" height="500">
+  <defs>
+    <linearGradient id="bg-ref" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f6f8fc"/>
+      <stop offset="100%" stop-color="#edf0f8"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a4e8c"/>
+      <stop offset="100%" stop-color="#1e60aa"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a83000"/>
+      <stop offset="100%" stop-color="#cc4400"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a2e5a"/>
+      <stop offset="100%" stop-color="#243870"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="620" height="500" fill="url(#bg-ref)" rx="12"/>
+
+  <!-- Title -->
+  <text x="310" y="28" text-anchor="middle" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">LES 10 RÉFLEXES SSIAP1</text>
+  <text x="310" y="44" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#4060a0">Mémo opérationnel — À appliquer chaque jour et en cas d'urgence</text>
+  <line x1="30" y1="52" x2="590" y2="52" stroke="#c0cce0" stroke-width="1"/>
+
+  <!-- ══ GROUP 1 — AVANT ET AU QUOTIDIEN (bleu) ══ -->
+  <rect x="20" y="60" width="580" height="28" rx="6" fill="url(#g1)"/>
+  <text x="310" y="79" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white" letter-spacing="2">AVANT ET AU QUOTIDIEN — Prévention</text>
+
+  <!-- Items 1-5 -->
+  <rect x="20" y="91" width="580" height="34" rx="0" fill="#e8f0fc"/>
+  <rect x="20" y="91" width="38" height="34" fill="#1a4e8c"/>
+  <text x="39" y="114" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">1</text>
+  <text x="68" y="107" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">Connaître le plan d'évacuation</text>
+  <text x="68" y="120" font-size="9.5" font-family="Arial,sans-serif" fill="#4060a0">Identifier l'emplacement de toutes les sorties de secours de l'établissement</text>
+
+  <rect x="20" y="127" width="580" height="34" rx="0" fill="#f0f5ff"/>
+  <rect x="20" y="127" width="38" height="34" fill="#1a4e8c"/>
+  <text x="39" y="150" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">2</text>
+  <text x="68" y="143" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">Identifier les équipements de sécurité</text>
+  <text x="68" y="156" font-size="9.5" font-family="Arial,sans-serif" fill="#4060a0">Extincteurs · RIA · Déclencheurs manuels · DAS · Sorties de secours</text>
+
+  <rect x="20" y="163" width="580" height="34" rx="0" fill="#e8f0fc"/>
+  <rect x="20" y="163" width="38" height="34" fill="#1a4e8c"/>
+  <text x="39" y="186" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">3</text>
+  <text x="68" y="179" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">Connaître le bon extincteur par zone</text>
+  <text x="68" y="192" font-size="9.5" font-family="Arial,sans-serif" fill="#4060a0">Cuisines → agent F · Électrique → CO₂ · Général → eau pulv. ou poudre ABC</text>
+
+  <rect x="20" y="199" width="580" height="34" rx="0" fill="#f0f5ff"/>
+  <rect x="20" y="199" width="38" height="34" fill="#1a4e8c"/>
+  <text x="39" y="222" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">4</text>
+  <text x="68" y="215" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">Effectuer les rondes et tenir la main courante</text>
+  <text x="68" y="228" font-size="9.5" font-family="Arial,sans-serif" fill="#4060a0">Consigner chaque ronde, anomalie et événement dans le registre de sécurité</text>
+
+  <rect x="20" y="235" width="580" height="34" rx="0" fill="#e8f0fc"/>
+  <rect x="20" y="235" width="38" height="34" fill="#1a4e8c"/>
+  <text x="39" y="258" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">5</text>
+  <text x="68" y="251" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">Maintenir les dégagements libres et les portes CF fermées</text>
+  <text x="68" y="264" font-size="9.5" font-family="Arial,sans-serif" fill="#4060a0">Un dégagement obstrué ou une porte CF bloquée = infraction au règlement de sécurité ERP</text>
+
+  <!-- ══ GROUP 2 — FACE À L'INCENDIE (rouge) ══ -->
+  <rect x="20" y="278" width="580" height="28" rx="6" fill="url(#g2)"/>
+  <text x="310" y="297" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white" letter-spacing="2">FACE À L'INCENDIE — Réflexes d'urgence</text>
+  <!-- Animated urgency pulse on group 2 header -->
+  <rect x="20" y="278" width="580" height="28" rx="6" fill="none" stroke="#ff6644" stroke-width="3">
+    <animate attributeName="opacity" values="1;0.1;1" dur="2s" repeatCount="indefinite"/>
+  </rect>
+
+  <rect x="20" y="308" width="580" height="34" rx="0" fill="#fff0ec"/>
+  <rect x="20" y="308" width="38" height="34" fill="#a83000"/>
+  <text x="39" y="331" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">6</text>
+  <text x="68" y="324" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#5a1000">Ne jamais inhiber un détecteur sans en informer le PC</text>
+  <text x="68" y="337" font-size="9.5" font-family="Arial,sans-serif" fill="#804020">Signalement obligatoire au registre · Remettre en service dès la fin des travaux</text>
+
+  <rect x="20" y="344" width="580" height="34" rx="0" fill="#fef5f2"/>
+  <rect x="20" y="344" width="38" height="34" fill="#a83000"/>
+  <text x="39" y="367" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">7</text>
+  <text x="68" y="360" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#5a1000">ALARMER en premier — avant d'attaquer ou d'évacuer</text>
+  <text x="68" y="373" font-size="9.5" font-family="Arial,sans-serif" fill="#804020">Actionner le DM le plus proche ou informer le PC sécurité immédiatement</text>
+
+  <rect x="20" y="380" width="580" height="34" rx="0" fill="#fff0ec"/>
+  <rect x="20" y="380" width="38" height="34" fill="#a83000"/>
+  <text x="39" y="403" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">8</text>
+  <text x="68" y="396" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#5a1000">Alerter les secours (18 / 112) avec informations complètes</text>
+  <text x="68" y="409" font-size="9.5" font-family="Arial,sans-serif" fill="#804020">Adresse précise · Nature du sinistre · Localisation · Personnes présentes</text>
+
+  <rect x="20" y="416" width="580" height="34" rx="0" fill="#fef5f2"/>
+  <rect x="20" y="416" width="38" height="34" fill="#a83000"/>
+  <text x="39" y="439" text-anchor="middle" font-size="16" font-weight="bold" font-family="Arial,sans-serif" fill="white">9</text>
+  <text x="68" y="432" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#5a1000">N'attaquer qu'avec retraite dégagée et extincteur adapté</text>
+  <text x="68" y="445" font-size="9.5" font-family="Arial,sans-serif" fill="#804020">Fumée dense ou sortie bloquée → Évacuer sans prendre de risques</text>
+
+  <!-- ══ GROUP 3 — AVEC LES SECOURS (marine) ══ -->
+  <rect x="20" y="454" width="580" height="28" rx="6" fill="url(#g3)"/>
+  <text x="310" y="473" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white" letter-spacing="2">AVEC LES SECOURS — Coordination</text>
+
+  <rect x="20" y="482" width="580" height="15" rx="0" fill="#e8ecf8"/>
+  <rect x="20" y="482" width="38" height="15" fill="#1a2e5a"/>
+  <text x="39" y="493" text-anchor="middle" font-size="12" font-weight="bold" font-family="Arial,sans-serif" fill="white">10</text>
+  <text x="68" y="493" font-size="9.5" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">Accueillir les pompiers · Remettre les plans · Rester à leur disposition jusqu'à la fin de l'intervention</text>
+</svg>

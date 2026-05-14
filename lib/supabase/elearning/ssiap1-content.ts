@@ -1,0 +1,297 @@
+import type { ModuleContent } from "./module-types";
+
+export const ssiap1ModuleContent: ModuleContent = {
+  title: "Sensibilisation SSIAP1 — Sécurité Incendie en ERP",
+  shortTitle: "SSIAP1",
+  subtitle:
+    "Parcours e-learning de sensibilisation à la sécurité incendie destiné aux agents de service, salariés d'ERP et toute personne souhaitant acquérir les bases théoriques du rôle d'agent SSIAP1 (Service de Sécurité Incendie et d'Assistance à Personnes).",
+  duration: "2 h 30 à 3 h",
+  deliveryFormat: "E-learning autonome + quiz de validation",
+  level: "Débutant à intermédiaire",
+  objective:
+    "Comprendre le cadre réglementaire ERP/IGH et le rôle du SSIAP1, maîtriser les classes de feux et les agents extincteurs, appliquer la méthode DAPS pour utiliser un extincteur, connaître les composants du Système de Sécurité Incendie, appliquer les procédures d'évacuation et adopter les bons réflexes en cas d'incendie.",
+  audience:
+    "Agents de sécurité incendie souhaitant acquérir les bases théoriques du SSIAP1, personnel d'établissements recevant du public (ERP) : hôtels, centres commerciaux, établissements scolaires, hôpitaux, cinémas, salles de spectacle. Également adapté aux chargés de sécurité et responsables de site.",
+  certificationNote:
+    "Ce parcours constitue une sensibilisation théorique aux bases du SSIAP1. La certification officielle SSIAP1 est délivrée à l'issue d'une formation habilitée par le CNPP incluant des exercices pratiques (utilisation d'extincteurs sur feu réel, exercices d'évacuation). Ce module prépare à la partie théorique et ne remplace pas la formation certifiante complète.",
+  heroBadge: "Sécurité Incendie ERP",
+  finalMessage:
+    "La sécurité incendie est l'affaire de tous. Chaque salarié d'un ERP est un acteur de la prévention : connaître les consignes, identifier les sorties de secours, savoir utiliser un extincteur et déclencher l'alarme peuvent sauver des vies. La formation théorique doit être complétée par des exercices pratiques réguliers organisés par l'établissement.",
+  quizCtaLabel: "Passer au quiz SSIAP1",
+  sections: [
+    {
+      id: "introduction-ssiap",
+      title: "1. Le SSIAP — Service de Sécurité Incendie et d'Assistance aux Personnes",
+      estimatedMinutes: 15,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-organisation.svg",
+      chapterImageAlt: "Organisation SSIAP — Niveaux 1 (agent), 2 (chef d'équipe), 3 (chef de service)",
+      intro:
+        "Le SSIAP structure la sécurité incendie dans les établissements recevant du public. Comprendre son organisation, ses niveaux et ses missions est la première étape pour tout agent ou salarié d'ERP.",
+      content: [
+        "Le Service de Sécurité Incendie et d'Assistance aux Personnes (SSIAP) est organisé en trois niveaux réglementés par l'arrêté du 2 mai 2005 modifié : SSIAP1 (agent de service), SSIAP2 (chef d'équipe) et SSIAP3 (chef de service). Chaque niveau dispose d'un périmètre de responsabilités distinct et requiert une formation certifiante.",
+        "L'agent SSIAP1 est présent dans tous les ERP de catégorie 1 à 4. Ses missions incluent : la surveillance de l'établissement, les rondes de prévention, la gestion du poste de sécurité, la mise en œuvre des premiers moyens de lutte contre l'incendie, l'assistance aux personnes, l'accueil et le guidage des secours publics.",
+        "Les établissements concernés par la réglementation SSIAP sont les ERP (Établissements Recevant du Public) de première à quatrième catégorie et les IGH (Immeubles de Grande Hauteur de plus de 28 mètres pour l'habitation ou 50 mètres pour les bureaux). Parmi les secteurs les plus concernés : hôtels, centres commerciaux, établissements scolaires, hôpitaux, cinémas, théâtres, musées.",
+        "La sécurité incendie dans les ERP repose sur cinq objectifs fondamentaux : permettre aux occupants d'évacuer, alerter les pompiers rapidement, faciliter l'accès des secours, limiter la propagation du feu, et assurer la résistance au feu des structures. L'agent SSIAP1 contribue directement à ces cinq objectifs.",
+        "La prévention incendie distingue deux types d'actions : les actions de prévention (réduire les risques d'éclosion d'un incendie : contrôle des sources de chaleur, entretien des installations, suivi des travaux) et les actions de protection (limiter les conséquences si un incendie se déclare malgré tout : détection, alarme, compartimentage, désenfumage, extinction).",
+      ],
+      keyPoints: [
+        "SSIAP1 = agent de service · SSIAP2 = chef d'équipe · SSIAP3 = chef de service.",
+        "Obligatoire dans les ERP de 1re à 4e catégorie selon l'arrêté du 2 mai 2005.",
+        "5 objectifs fondamentaux : évacuer, alerter, faciliter l'accès, limiter la propagation, résistance au feu.",
+        "Deux volets : prévention (avant l'incendie) et protection (pendant l'incendie).",
+      ],
+      legalRefs: [
+        "Arrêté du 2 mai 2005 modifié — organisation et missions du SSIAP.",
+        "Règlement de sécurité ERP — arrêté du 25 juin 1980 modifié.",
+        "Code du travail Art. R4227-28 à R4227-41 — consignes de sécurité incendie.",
+      ],
+    },
+    {
+      id: "reglementation-erp",
+      title: "2. Réglementation ERP et IGH — cadre légal",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-erp-classification.svg",
+      chapterImageAlt: "Classification des ERP — Types (M,N,O,R,U,W…) et Catégories (1re à 5e) avec capacités d'accueil",
+      intro:
+        "La réglementation incendie dans les ERP est l'une des plus strictes du droit français. Elle définit les obligations en matière de construction, d'équipements et d'organisation de la sécurité.",
+      content: [
+        "Les ERP sont classés par type selon leur activité principale : type J (structures d'accueil personnes âgées/handicapées), L (salles de spectacles), M (magasins), N (restaurants), O (hôtels), P (salles de danse), R (établissements d'enseignement), S (bibliothèques), T (expositions), U (établissements de soins), V (culte), W (bureaux), X (sports couverts), Y (musées).",
+        "Les ERP sont aussi classés par catégorie selon leur capacité d'accueil : 1re catégorie (plus de 1 500 personnes), 2e catégorie (de 701 à 1 500 personnes), 3e catégorie (de 301 à 700 personnes), 4e catégorie (jusqu'à 300 personnes, au-delà des seuils d'assujettissement selon le type), 5e catégorie (en-dessous des seuils : pas d'obligation SSIAP mais consignes incendie obligatoires).",
+        "Les Immeubles de Grande Hauteur (IGH) sont soumis à une réglementation spécifique encore plus exigeante. Un immeuble est classé IGH quand son plancher bas du dernier niveau accessible est à plus de 28 mètres pour l'habitation ou plus de 50 mètres pour les bureaux, hôtels et autres usages. Les IGH sont divisés en 8 classes (GHA, GHB, GHC, GHD, GHE, GHF, GHJ, GHR, GHU, GHW, GHZ).",
+        "L'employeur est responsable de la sécurité incendie. Le Code du travail impose : une consigne générale de sécurité incendie affichée dans chaque local, des exercices d'évacuation (au moins une fois par an, deux fois dans les établissements comportant des locaux à sommeil), des installations électriques conformes aux normes NFC 15-100 et NFC 15-200, et l'entretien régulier des moyens de secours.",
+        "La commission de sécurité est l'autorité de contrôle des ERP. Elle vérifie la conformité de l'établissement avant ouverture et lors de visites périodiques. Tout événement susceptible d'affecter la sécurité incendie doit lui être signalé. Un avis défavorable de la commission de sécurité peut entraîner la fermeture administrative de l'établissement.",
+      ],
+      keyPoints: [
+        "ERP classés par type (activité : M, N, O, R, U...) ET par catégorie (capacité : 1re à 5e cat.).",
+        "IGH = plancher dernier niveau > 28 m (habitation) ou > 50 m (bureaux/hôtels).",
+        "Exercice d'évacuation obligatoire : ≥ 1 fois/an · ≥ 2 fois/an pour locaux à sommeil.",
+        "Commission de sécurité : contrôle avant ouverture + visites périodiques.",
+        "Consigne incendie obligatoirement affichée dans chaque local.",
+      ],
+      legalRefs: [
+        "Règlement de sécurité ERP — arrêté du 25 juin 1980 et modificatifs.",
+        "Règlement de sécurité IGH — décret 76-1060 du 14 novembre 1976.",
+        "Code du travail Art. R4227-37 à R4227-41 — exercices d'évacuation.",
+        "Code de la construction et de l'habitation (CCH) Art. L123-1 et suivants.",
+      ],
+    },
+    {
+      id: "mecanisme-feu",
+      title: "3. Le feu — mécanisme, tétraèdre et modes de propagation",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-tetraedre-feu.svg",
+      chapterImageAlt: "Le tétraèdre du feu — 4 conditions et 4 méthodes d'extinction",
+      intro:
+        "Pour éteindre efficacement un feu, il faut comprendre ce qu'il est. Le feu est une réaction chimique d'oxydation dont le maintien nécessite quatre conditions simultanées — le tétraèdre du feu.",
+      content: [
+        "Le tétraèdre du feu remplace l'ancien triangle du feu en ajoutant une quatrième condition : la réaction en chaîne (propagation des radicaux libres). Les 4 conditions sont : un combustible (ce qui brûle), un comburant (l'oxygène de l'air — le feu s'éteint si la teneur en O₂ descend en-dessous de 14 %), une énergie d'activation (source de chaleur permettant d'atteindre la température d'inflammation), et la réaction en chaîne (entretien autonome de la combustion par les radicaux libres).",
+        "Les quatre méthodes d'extinction correspondent à la suppression d'une face du tétraèdre : le refroidissement (abaisser la température sous le point d'inflammation — eau), l'étouffement (priver le feu d'oxygène — mousse, couverture anti-feu, CO₂), la soustraction du combustible (isoler ou supprimer le combustible — coupure gaz, déblaiement), et l'inhibition (interrompre la réaction en chaîne — poudre BC ou ABC).",
+        "La propagation du feu s'effectue selon quatre modes : la conduction (transmission de chaleur par contact direct dans les matériaux solides — tuyaux, éléments métalliques), la convection (transport de chaleur par les gaz chauds et fumées qui montent — principal mode de propagation verticale), le rayonnement thermique (émission de chaleur dans toutes les directions par rayonnement infrarouge, sans contact), et la projection directe (déplacement de corps en ignition — flammèches, braises).",
+        "La cinétique d'un incendie évolue selon quatre phases : l'éclosion (début discret — détectable par détecteurs automatiques), le développement (extension rapide — fumées, flammes visibles), la plénitude (feu généralisé — température extrême, feu de volume), et l'extinction (refroidissement, feu tombant). L'intervention est efficace et sûre uniquement en phase d'éclosion ou de début de développement.",
+        "Le point d'éclair est la température minimale à laquelle un liquide inflammable émet des vapeurs suffisantes pour former un mélange inflammable avec l'air. La température d'inflammation (ou d'auto-inflammation) est la température à laquelle ce mélange s'enflamme spontanément sans apport de flamme extérieure.",
+      ],
+      deepDive: [
+        "Les fumées représentent le danger majeur dans un incendie : elles contiennent du CO (monoxyde de carbone), du HCN (cyanure d'hydrogène), du CO₂ et de nombreux autres gaz toxiques. La majorité des décès en incendie est due à l'intoxication par les fumées, non aux flammes. Rester au sol permet de bénéficier d'une teneur en oxygène légèrement plus élevée.",
+        "Le phénomène de backdraft (retour de flamme) survient lorsqu'un local enfumé et mal alimenté en O₂ est brutalement ouvert : l'afflux soudain d'air provoque une déflagration explosive. Pour ouvrir une porte sur un local en feu, toujours la tâter d'abord (poignée, surface) — si elle est chaude, ne pas l'ouvrir.",
+        "Le flashover est l'embrasement généralisé soudain d'un local : lorsque la température atteint 500-600°C, tous les matériaux combustibles du local s'enflamment simultanément. Ce phénomène marque la fin de la phase de développement et le début de la plénitude — il est alors impossible d'intervenir sans équipement spécialisé.",
+      ],
+      keyPoints: [
+        "Tétraèdre : combustible + comburant + énergie d'activation + réaction en chaîne.",
+        "4 méthodes : refroidir (eau) · étouffer (CO₂, mousse) · soustraire · inhiber (poudre).",
+        "4 modes de propagation : conduction · convection · rayonnement · projection.",
+        "Intervenir UNIQUEMENT en phase d'éclosion ou début de développement.",
+        "Fumées = danger n°1 : toxiques, opaques, asphyxiantes — rester bas.",
+      ],
+    },
+    {
+      id: "classes-feux",
+      title: "4. Les 5 classes de feux — A, B, C, D, F",
+      estimatedMinutes: 15,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-classes-feux.svg",
+      chapterImageAlt: "Les 5 classes de feux : A (solides), B (liquides), C (gaz), D (métaux), F (graisses alimentaires)",
+      intro:
+        "Chaque classe de feu correspond à un type de combustible spécifique. Identifier correctement la classe est indispensable pour choisir le bon agent extincteur — une erreur peut aggraver l'incendie.",
+      content: [
+        "Classe A — Feux de solides laissant des braises : bois, papier, carton, tissu, plastiques, caoutchouc, paille. Le feu brûle en surface et en profondeur. Agents adaptés : eau pulvérisée (meilleure efficacité par refroidissement), mousse AFFF, poudre polyvalente ABC. Le CO₂ est peu efficace sur les feux de classe A (pas d'effet de refroidissement suffisant).",
+        "Classe B — Feux de liquides et de solides liquéfiables : essence, fuel, alcool, huile de machine, solvants organiques, peintures, bitume, paraffine. Risque de reprises d'incendie. Agents adaptés : mousse AFFF (étouffement par écran), CO₂, poudre ABC. L'eau seule est interdite : elle se vaporise violemment et peut projeter des liquides enflammés (risque de brûlures graves et d'extension du feu).",
+        "Classe C — Feux de gaz inflammables sous pression : propane, butane, méthane (gaz naturel), acétylène, hydrogène. La règle absolue est de COUPER L'ALIMENTATION EN GAZ avant tout autre action. Un feu de gaz qui continue à être alimenté ne doit pas être éteint — le gaz qui s'accumule sans brûler risque de former une atmosphère explosive. La poudre ABC peut être utilisée si la coupure est impossible, uniquement pour des raisons impérieuses.",
+        "Classe D — Feux de métaux combustibles : magnésium, sodium, lithium, potassium, aluminium en poudre, titane. Ces feux atteignent des températures extrêmes (jusqu'à 3 000°C pour le magnésium). Seule la poudre D spéciale est adaptée. L'eau, la mousse, le CO₂ sont extrêmement dangereux sur les métaux : réaction explosive avec le sodium et le potassium, production d'hydrogène avec l'aluminium.",
+        "Classe F — Feux de graisses et huiles alimentaires (friteuses industrielles, bains de friture) : températures de combustion pouvant dépasser 350°C, très élevées. L'agent F est le seul adapté : il agit par saponification en créant un film isolant. L'eau provoque une explosion par flash de vapeur (risk de projections à haute température). Le CO₂ crée un risque de flash thermique dangereux. Les cuisines professionnelles sont équipées de systèmes d'extinction automatique dédiés.",
+      ],
+      keyPoints: [
+        "A : solides (bois, papier) → eau, mousse, poudre ABC.",
+        "B : liquides inflammables → mousse AFFF, CO₂, poudre. JAMAIS d'eau seule.",
+        "C : gaz → couper l'alimentation en priorité absolue.",
+        "D : métaux → poudre D spéciale uniquement. Eau et CO₂ explosifs.",
+        "F : graisses alimentaires → agent F uniquement. Eau = explosion de vapeur.",
+      ],
+    },
+    {
+      id: "agents-extincteurs",
+      title: "5. Agents extincteurs et moyens de lutte — extincteurs et RIA",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-extincteurs.svg",
+      chapterImageAlt: "Types d'extincteurs et adéquation aux classes de feux — méthode DAPS",
+      intro:
+        "Choisir le bon extincteur est la première décision critique. Chaque type d'extincteur correspond à des classes de feux précises. Un extincteur mal choisi peut aggraver l'incendie.",
+      content: [
+        "L'extincteur à eau pulvérisée (rouge, bande verte) est le plus courant et le plus efficace sur les feux de classe A (solides). Il existe avec ou sans additif moussant : l'additif permet d'étendre son efficacité aux feux de classe B. Il ne doit jamais être utilisé sur des équipements électriques sous tension ni sur des feux de classe C, D ou F.",
+        "L'extincteur à mousse AFFF (Aqueous Film-Forming Foam — rouge, bande crème) est très efficace sur les feux de classes A et B. La mousse crée un film étouffant qui empêche les vapeurs de remonter. Il ne doit pas être utilisé sur des équipements électriques sous tension (risque d'électrocution) ni sur les classes C, D ou F.",
+        "L'extincteur au CO₂ (rouge, bande noire) est préconisé pour les feux de classe B et les équipements électriques sous tension. Il n'est pas conducteur d'électricité et ne laisse aucun résidu. Son action est étouffante (déplacement de l'O₂). Attention : à utiliser dans des espaces ventilés — en espace clos, le CO₂ est asphyxiant. Ne pas saisir le diffuseur pendant l'utilisation (froid intense : -78°C).",
+        "L'extincteur à poudre polyvalente ABC (rouge) est le plus polyvalent : il permet d'attaquer simultanément des feux A, B et C. Son action est basée sur l'inhibition de la réaction en chaîne. Inconvénient majeur : les résidus de poudre sont très corrosifs et endommagent irrémédiablement les équipements électroniques, archives, matériels délicats. À réserver aux incendies importants ou mixtes où la rapidité prime.",
+        "Le Robinet d'Incendie Armé (RIA) est un moyen de lutte fixe alimenté en eau par le réseau d'eau incendie. Il comprend un dévidoir tubulaire ou à plat, un robinet d'arrêt, et une lance réglable (jet diffusé ou jet droit). Le RIA offre un débit continu contrairement à un extincteur portable. Il est efficace sur les feux de classe A et B. Avant utilisation : vérifier que le tuyau est totalement déroulé, ouvrir l'eau, ne jamais avancer seul sans sécurité.",
+      ],
+      deepDive: [
+        "La distance d'attaque avec un extincteur est de 3 à 4 mètres de la base des flammes. Se positionner dos au vent ou à la ventilation. Ne jamais se placer entre le feu et la sortie. Utiliser la méthode DAPS : Dégoupiller (retirer la goupille de sécurité) · Acheminer (approcher à 3-4 m) · Pointer (diriger vers la base des flammes) · Supprimer (balayer en faisant des mouvements de gauche à droite).",
+        "La durée d'action d'un extincteur portable est très courte : 8 à 60 secondes selon la capacité. Si le feu n'est pas maîtrisé après utilisation d'un extincteur, évacuer immédiatement sans prendre de risques supplémentaires.",
+        "L'entretien des extincteurs est obligatoire : vérification annuelle par un technicien habilité, révision partielle tous les 5 ans, révision totale tous les 10 ans. Un extincteur déclenché même partiellement doit être immédiatement remplacé. Les contrôles visuels mensuels (pression, scellé, accessibilité) incombent à l'exploitant.",
+      ],
+      keyPoints: [
+        "Eau (rouge/vert) → A et B avec additif. Jamais sur électrique sous tension.",
+        "Mousse AFFF (rouge/crème) → A et B. Jamais sur électrique ni C/D/F.",
+        "CO₂ (rouge/noir) → B et électrique. Aucun résidu. Attention froid / espace confiné.",
+        "Poudre ABC (rouge) → A+B+C. Résidus corrosifs : éviter sur équipements sensibles.",
+        "RIA : moyen fixe, débit continu, classe A et B — tuyau entièrement déroulé avant ouverture.",
+        "DAPS : Dégoupiller · Acheminer (3-4 m) · Pointer (base des flammes) · Supprimer (balayer).",
+      ],
+      legalRefs: [
+        "Norme NF EN 3 — extincteurs portables : exigences de performance et construction.",
+        "Norme NF S 61-919 — maintenance des extincteurs.",
+        "Arrêté du 31 janvier 1986 (habitations) et règlement ERP : implantation des moyens de secours.",
+      ],
+    },
+    {
+      id: "ssi-detection-alarme",
+      title: "6. Système de Sécurité Incendie (SSI) — détection et alarme",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-ssi-schema.svg",
+      chapterImageAlt: "Schéma SSI — DAI et DM → SDI → CMSI → DAS (portes CF, désenfumage, issues) — Alarme restreinte → générale",
+      intro:
+        "Le SSI est le cerveau de la sécurité incendie d'un bâtiment. Il regroupe tous les équipements qui détectent, signalent et déclenchent les actions de mise en sécurité en cas d'incendie.",
+      content: [
+        "Le Système de Sécurité Incendie (SSI) est composé de deux sous-systèmes : le Système de Détection Incendie (SDI) qui détecte le sinistre et le Système de Mise en Sécurité Incendie (SMSI) qui déclenche les actions de protection. Le SSI est classé de A (le plus complet) à E (le plus simple) selon le niveau de protection requis.",
+        "Les détecteurs automatiques d'incendie (DAI) détectent les premiers signes d'un incendie avant que les flammes ne soient visibles ou que l'alarme manuelle ne soit déclenchée. Il en existe plusieurs types : détecteur optique de fumée (mesure l'opacité de l'air — très courant dans les bureaux et logements), détecteur ionique (détecte les micro-particules de combustion — adapté aux feux rapides et propres), détecteur thermique (seuil de température ou vitesse d'élévation — adapté aux cuisines et garages), et détecteur de flammes (rayonnement UV ou IR — adapté aux grands espaces).",
+        "Les Déclencheurs Manuels (DM) sont les boîtiers à bris de glace rouges installés aux accès des escaliers et sorties. Ils permettent à tout occupant de déclencher manuellement l'alarme. La procédure est simple : briser la vitre protectrice et appuyer sur le déclencheur. Les DM doivent être accessibles à moins de 40 mètres de tout point du bâtiment.",
+        "La Centrale de Mise en Sécurité Incendie (CMSI) reçoit les signaux des détecteurs et des DM, les traite et commande automatiquement les Dispositifs Actionnés de Sécurité (DAS) : fermeture des portes coupe-feu, déclenchement du désenfumage (ouvrants en façade, extracteurs mécaniques), mise hors tension de certains équipements, déverrouillage des issues de secours.",
+        "Les niveaux d'alarme distinguent l'alarme restreinte (signal sonore au seul PC sécurité — permet une levée de doute avant l'évacuation générale) et l'alarme générale (signal sonore et lumineux dans tout l'établissement — déclenche l'évacuation). L'alarme générale sélective peut être programmée pour évacuer zone par zone (ex. : dans les hôpitaux pour ne pas perturber les soins).",
+      ],
+      keyPoints: [
+        "SSI = SDI (détection) + SMSI (mise en sécurité). Classé A à E.",
+        "Détecteurs automatiques : optique (fumées), ionique (combustion), thermique, flammes.",
+        "DM (boîtiers rouges) : à moins de 40 m de tout point — briser la vitre + appuyer.",
+        "CMSI : commande les DAS — portes CF, désenfumage, déverrouillage issues.",
+        "Alarme restreinte (PC sécurité) → levée de doute → Alarme générale → évacuation.",
+      ],
+      legalRefs: [
+        "Norme NF S 61-930 à NF S 61-940 — Systèmes de Sécurité Incendie.",
+        "NF EN 54 — composants des systèmes de détection et d'alarme incendie.",
+        "Règlement de sécurité ERP — articles MS dédiés aux SSI.",
+      ],
+    },
+    {
+      id: "evacuation",
+      title: "7. Procédures d'évacuation — organisation et rôles",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-evacuation.svg",
+      chapterImageAlt: "Procédure d'évacuation incendie — déclenchement, rôles guide-file et serre-file, rassemblement",
+      intro:
+        "Une évacuation réussie est une évacuation préparée. La connaissance des rôles, des dégagements et des procédures est indispensable pour agir efficacement et sans panique.",
+      content: [
+        "Les dégagements d'un ERP comprennent les dégagements normaux (portes et couloirs utilisés en fonctionnement habituel) et les dégagements de secours (uniquement accessibles en cas d'urgence, signalés par la signalétique verte). Tout dégagement doit être maintenu libre en permanence. Un dégagement obstrué constitue une infraction grave au règlement de sécurité.",
+        "La signalisation de sécurité (panneaux verts avec pictogramme de personne courant vers une sortie) guide les occupants vers les sorties de secours. Elle doit être visible depuis tout point du bâtiment, à une hauteur de 2 à 2,5 mètres pour ne pas être obstruée par les fumées. L'éclairage de sécurité (blocs autonomes) maintient la visibilité en cas de coupure de courant.",
+        "Le guide-file prend place en tête de groupe pour guider l'évacuation vers la sortie désignée. Il est responsable : d'indiquer la direction à suivre, d'ouvrir les portes coupe-feu sur son passage et de s'assurer que le groupe reste groupé. Le serre-file prend place en queue de groupe. Il est responsable : de s'assurer qu'il ne reste personne derrière lui, de fermer les portes après son passage (pour limiter la propagation du feu et des fumées) et de signaler toute personne ne pouvant pas évacuer seule.",
+        "Le point de rassemblement est le lieu de rendez-vous des occupants après évacuation. Il doit être suffisamment éloigné du bâtiment (au moins 50 mètres pour éviter les zones d'effets des fumées et des projections) et accessible aux véhicules de secours. L'appel nominal permet de s'assurer que tout le monde est sorti. Les manquants doivent être immédiatement signalés aux pompiers.",
+        "Les personnes à mobilité réduite (PMR) et les personnes non autonomes nécessitent une prise en charge spécifique. Des espaces d'attente sécurisés (EAS) équipés de moyens de communication avec le PC sécurité sont prévus aux niveaux ne comportant pas d'issue de plain-pied. Le personnel doit être formé à la prise en charge des PMR dans le cadre du plan de mise en sécurité.",
+      ],
+      deepDive: [
+        "Les exercices d'évacuation ne sont pas uniquement des obligations légales — ils révèlent les dysfonctionnements avant qu'un incendie réel ne les expose. Après chaque exercice, un compte-rendu doit être établi et les axes d'amélioration identifiés et traités.",
+        "La résistance au feu des éléments de structure et de compartimentage s'exprime en minutes : R (résistance mécanique), E (étanchéité aux flammes et gaz chauds), I (isolation thermique). Un plancher REI 60 résiste au feu pendant 60 minutes. Ce temps est calculé pour permettre l'évacuation complète et l'intervention des secours.",
+      ],
+      keyPoints: [
+        "Dégagements normaux + de secours : toujours libres — obstruction = infraction.",
+        "Guide-file = en tête, ouvre les portes CF. Serre-file = en queue, ferme les portes.",
+        "Point de rassemblement ≥ 50 m du bâtiment. Appel nominal obligatoire.",
+        "PMR : espaces d'attente sécurisés (EAS) avec communication PC sécurité.",
+        "Exercice = 1 fois/an minimum · 2 fois/an si locaux à sommeil.",
+      ],
+      legalRefs: [
+        "Règlement de sécurité ERP — articles CO (construction), dégagements.",
+        "Code du travail Art. R4227-39 — exercices d'évacuation.",
+        "Arrêté du 14 novembre 2003 modifié — accessibilité des ERP aux PMR.",
+      ],
+    },
+    {
+      id: "role-agent-ssiap1",
+      title: "8. Le rôle de l'agent SSIAP1 en poste",
+      estimatedMinutes: 15,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-role-agent.svg",
+      chapterImageAlt: "Missions de l'agent SSIAP1 — Prévention (rondes) · PC Sécurité (CMSI, alarmes) · Intervention (extinction, évacuation, secours)",
+      intro:
+        "L'agent SSIAP1 est le premier maillon de la chaîne de sécurité incendie. Son travail quotidien de prévention, de surveillance et de réactivité est la condition du bon fonctionnement du dispositif global.",
+      content: [
+        "Le poste central de sécurité (PCS) est le cœur opérationnel de la sécurité incendie. L'agent SSIAP1 y assure : la surveillance des tableaux de signalisation (CMSI, ECS, tableau répétiteur), la gestion des alarmes (levée de doute, investigation, déclenchement procédures), et la tenue de la main courante (registre de sécurité) dans laquelle sont consignées toutes les événements, rondes et interventions.",
+        "Les rondes de prévention sont effectuées régulièrement selon un planning défini. Elles permettent de vérifier : la libre circulation dans les dégagements (absence d'obstacles), la fermeture des portes coupe-feu, l'état des équipements de sécurité (extincteurs, RIA, balisage), l'absence de stockages inappropriés ou de sources de danger, et l'état général des installations techniques.",
+        "La gestion des travaux et des entreprises extérieures est une responsabilité importante. L'agent SSIAP1 doit signaler toute mise hors service temporaire d'un équipement de sécurité (détecteur inhibé pour travaux, porte CF bloquée ouverte), demander un permis de feu pour tout travail par points chauds et s'assurer que le registre de sécurité est renseigné.",
+        "L'accueil et le guidage des secours publics fait partie intégrante des missions SSIAP1. Lors de l'arrivée des pompiers : accueillir le chef d'intervention et l'accompagner au PC sécurité, remettre les plans de l'établissement et indiquer l'emplacement du sinistre, donner toutes les informations utiles (personnes présentes, matières dangereuses, zones condamnées), rester à disposition pour assister les secours.",
+        "L'assistance aux personnes inclut : guider les occupants vers les sorties de secours, apporter une aide aux personnes en difficulté (personnes âgées, PMR, personnes désorientées), pratiquer les gestes de premiers secours jusqu'à l'arrivée du SMUR, gérer les situations de stress et maintenir le calme.",
+      ],
+      keyPoints: [
+        "PC sécurité : surveillance CMSI/ECS, gestion alarmes, tenue main courante.",
+        "Rondes : dégagements libres, portes CF fermées, extincteurs accessibles.",
+        "Travaux : permis de feu obligatoire + signalement mise hors service équipements.",
+        "Accueil secours : plans, informations, assistance jusqu'à la fin de l'intervention.",
+        "Assistance personnes : guidage, aide PMR, premiers secours.",
+      ],
+    },
+    {
+      id: "conduite-tenir-incendie",
+      title: "9. Conduite à tenir en cas d'incendie",
+      estimatedMinutes: 15,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-conduite-tenir.svg",
+      chapterImageAlt: "Conduite à tenir incendie — Séquence ALARMER (DM) → ALERTER (18/112) → ATTAQUER (si conditions GO)",
+      intro:
+        "Face à un début d'incendie, l'ordre des actions est critique. Un seul réflexe hors séquence peut mettre des vies en danger. La règle : alarmer avant d'attaquer, évacuer avant de retarder.",
+      content: [
+        "Dès la découverte d'un début d'incendie, la séquence obligatoire est : (1) DONNER L'ALARME — activer le déclencheur manuel le plus proche, ou informer le PC sécurité par téléphone. Ne jamais tenter d'éteindre avant d'avoir donné l'alarme. (2) ALERTER LES SECOURS — 18 (pompiers), 15 (SAMU si victimes), 112 (numéro d'urgence européen). Donner l'adresse précise, la nature du sinistre, le nombre de victimes éventuelles. (3) ATTAQUER si possible — utiliser l'extincteur ou le RIA adapté si le feu est naissant, si la sortie de retraite est dégagée, et si la fumée ne gêne pas l'intervention.",
+        "Les conditions d'intervention avec un extincteur sont strictes : intervenir uniquement si le feu est découvert dans ses premières minutes (extincteur au plein, feu de faible superficie), si la voie de retraite est libre et que l'on peut sortir sans risque si le feu s'emballe, si l'on a identifié la classe du feu et dispose de l'extincteur adapté, et si l'on n'est pas seul (avoir prévenu et avoir quelqu'un derrière soi).",
+        "En cas de fumées importantes, se déplacer en se baissant au maximum : la fumée s'accumule en hauteur, l'air plus respirable se trouve en partie basse. Si une pièce est enfumée, ramper. Avant d'ouvrir une porte fermée, placer la main sur la porte (pas la poignée) : si elle est chaude, ne pas l'ouvrir. Si une sortie est bloquée par les flammes, se réfugier dans un local, fermer la porte, signaler sa présence à une fenêtre.",
+        "Ne jamais utiliser les ascenseurs en cas d'incendie. Ne jamais retourner dans un bâtiment en feu, même pour récupérer des affaires. Ne jamais ouvrir une fenêtre dans une pièce en feu (alimentation en oxygène). Ne jamais tenter de traverser un couloir enfumé sans protection respiratoire adaptée.",
+        "La protection des tiers est primordiale : interdire l'accès à la zone, éloigner les personnes, guider vers le point de rassemblement. Signaler aux pompiers toute information utile : présence de personnes non évacuées, matières dangereuses, zones techniques, coupures effectuées.",
+      ],
+      keyPoints: [
+        "Séquence : ALARMER → ALERTER (18/112) → ATTAQUER (si conditions remplies).",
+        "N'attaquer qu'avec la voie de retraite dégagée et l'extincteur adapté.",
+        "Fumées : se baisser / ramper — porte chaude = ne pas ouvrir.",
+        "Jamais l'ascenseur. Jamais retourner dans le bâtiment.",
+        "Signaler aux pompiers : personnes, matières dangereuses, coupures.",
+      ],
+    },
+    {
+      id: "synthese-ssiap",
+      title: "10. Synthèse — Les 10 réflexes SSIAP1",
+      estimatedMinutes: 10,
+      chapterImagePath: "/elearning/ssiap1/ssiap1-synthese-reflexes.svg",
+      chapterImageAlt: "10 réflexes SSIAP1 — Avant/quotidien (1-5) · Face à l'incendie (6-9) · Avec les secours (10)",
+      intro:
+        "Mémo des comportements essentiels à retenir et à appliquer pour assurer la sécurité incendie dans un ERP.",
+      content: [
+        "1. Connaître le plan d'évacuation et l'emplacement de toutes les sorties de secours.",
+        "2. Identifier les équipements de sécurité incendie : extincteurs, RIA, déclencheurs manuels, DAS.",
+        "3. Connaître le type d'extincteur adapté à chaque zone de l'établissement.",
+        "4. Effectuer les rondes de prévention selon le planning et consigner sur la main courante.",
+        "5. S'assurer en permanence que les dégagements sont libres et les portes coupe-feu fermées.",
+        "6. Ne jamais inhiber un détecteur automatique sans en informer le PC sécurité et le registre.",
+        "7. Dès un début d'incendie : ALARMER en premier, avant d'attaquer ou d'évacuer.",
+        "8. Alerter les secours (18) avec les informations complètes : lieu précis, nature, personnes.",
+        "9. N'attaquer le feu qu'avec la voie de retraite dégagée et l'extincteur adapté à la classe.",
+        "10. Accueillir les pompiers, remettre les plans et rester à leur disposition.",
+      ],
+      keyPoints: [
+        "Prévention = rondes + main courante + dégagements libres + portes CF fermées.",
+        "Réflexe : Alarmer → Alerter → Attaquer (si possible).",
+        "Accueil des secours : plans, informations, assistance.",
+        "La sécurité incendie est l'affaire de tous — pas uniquement du SSIAP1.",
+      ],
+    },
+  ],
+};

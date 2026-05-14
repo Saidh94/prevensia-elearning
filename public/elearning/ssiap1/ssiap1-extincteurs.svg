@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">EXTINCTEURS — TYPES ET ADÉQUATION AUX CLASSES DE FEUX</text>
+  <text x="320" y="44" text-anchor="middle" font-size="11" fill="#666">Choisir le bon extincteur est aussi important que savoir l'utiliser</text>
+
+  <!-- En-têtes -->
+  <rect x="10"  y="54" width="168" height="32" rx="4" fill="#1a2e6e"/>
+  <text x="94"  y="75" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Type d'extincteur</text>
+
+  <rect x="182" y="54" width="52"  height="32" rx="4" fill="#e67e00"/>
+  <text x="208" y="75" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">A</text>
+
+  <rect x="238" y="54" width="52"  height="32" rx="4" fill="#1a4e8c"/>
+  <text x="264" y="75" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">B</text>
+
+  <rect x="294" y="54" width="52"  height="32" rx="4" fill="#1a5c1a"/>
+  <text x="320" y="75" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">C</text>
+
+  <rect x="350" y="54" width="52"  height="32" rx="4" fill="#5a1a8c"/>
+  <text x="376" y="75" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">D</text>
+
+  <rect x="406" y="54" width="52"  height="32" rx="4" fill="#8b1a3a"/>
+  <text x="432" y="75" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">F</text>
+
+  <rect x="462" y="54" width="82"  height="32" rx="4" fill="#3a3a3a"/>
+  <text x="503" y="68" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Équipements</text>
+  <text x="503" y="80" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">électriques</text>
+
+  <rect x="548" y="54" width="82"  height="32" rx="4" fill="#3a3a3a"/>
+  <text x="589" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Remarque clé</text>
+
+  <!-- ── Eau pulvérisée ── -->
+  <rect x="10"  y="90" width="168" height="44" fill="#e8faff" stroke="#ddd" stroke-width="1"/>
+  <rect x="10"  y="90" width="8"   height="44" fill="#0088cc"/>
+  <text x="25"  y="108" font-size="11" font-weight="700" fill="#0055aa">Eau pulvérisée</text>
+  <text x="25"  y="124" font-size="10" fill="#555">Robinet d'Incendie Armé (RIA)</text>
+
+  <rect x="182" y="90" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="208" y="117" text-anchor="middle" font-size="18">✅</text>
+  <rect x="238" y="90" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="264" y="117" text-anchor="middle" font-size="14" fill="#1a5c1a">✓ (additif)</text>
+  <rect x="294" y="90" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="320" y="117" text-anchor="middle" font-size="18">❌</text>
+  <rect x="350" y="90" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="376" y="117" text-anchor="middle" font-size="18">❌</text>
+  <rect x="406" y="90" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="432" y="117" text-anchor="middle" font-size="18">❌</text>
+  <rect x="462" y="90" width="82" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="503" y="117" text-anchor="middle" font-size="18">❌</text>
+  <rect x="548" y="90" width="82" height="44" fill="#e8faff" stroke="#ddd" stroke-width="1"/>
+  <text x="589" y="108" text-anchor="middle" font-size="9" fill="#0055aa">Meilleur pour</text>
+  <text x="589" y="122" text-anchor="middle" font-size="9" fill="#0055aa">feux A solides</text>
+
+  <!-- ── Mousse AFFF ── -->
+  <rect x="10"  y="136" width="168" height="44" fill="#fff8e8" stroke="#ddd" stroke-width="1"/>
+  <rect x="10"  y="136" width="8"   height="44" fill="#e6a800"/>
+  <text x="25"  y="154" font-size="11" font-weight="700" fill="#8b6200">Mousse AFFF</text>
+  <text x="25"  y="170" font-size="10" fill="#555">Jaune · Pour feux de liquides</text>
+
+  <rect x="182" y="136" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="208" y="163" text-anchor="middle" font-size="18">✅</text>
+  <rect x="238" y="136" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="264" y="163" text-anchor="middle" font-size="18">✅</text>
+  <rect x="294" y="136" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="320" y="163" text-anchor="middle" font-size="18">❌</text>
+  <rect x="350" y="136" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="376" y="163" text-anchor="middle" font-size="18">❌</text>
+  <rect x="406" y="136" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="432" y="163" text-anchor="middle" font-size="18">❌</text>
+  <rect x="462" y="136" width="82" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="503" y="163" text-anchor="middle" font-size="18">❌</text>
+  <rect x="548" y="136" width="82" height="44" fill="#fff8e8" stroke="#ddd" stroke-width="1"/>
+  <text x="589" y="154" text-anchor="middle" font-size="9" fill="#8b6200">Idéal feux</text>
+  <text x="589" y="168" text-anchor="middle" font-size="9" fill="#8b6200">de liquides</text>
+
+  <!-- ── CO2 ── -->
+  <rect x="10"  y="182" width="168" height="44" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <rect x="10"  y="182" width="8"   height="44" fill="#666"/>
+  <text x="25"  y="200" font-size="11" font-weight="700" fill="#333">CO₂ (dioxyde de carbone)</text>
+  <text x="25"  y="216" font-size="10" fill="#555">Gris · Propre · Sans résidu</text>
+
+  <rect x="182" y="182" width="52" height="44" fill="#ffe8d4" stroke="#ddd" stroke-width="1"/>
+  <text x="208" y="209" text-anchor="middle" font-size="13" fill="#8b5e00">✓ limité</text>
+  <rect x="238" y="182" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="264" y="209" text-anchor="middle" font-size="18">✅</text>
+  <rect x="294" y="182" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="320" y="209" text-anchor="middle" font-size="18">❌</text>
+  <rect x="350" y="182" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="376" y="209" text-anchor="middle" font-size="18">❌</text>
+  <rect x="406" y="182" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="432" y="209" text-anchor="middle" font-size="18">❌</text>
+  <rect x="462" y="182" width="82" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="503" y="209" text-anchor="middle" font-size="18">✅</text>
+  <rect x="548" y="182" width="82" height="44" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="589" y="200" text-anchor="middle" font-size="9" fill="#333">Idéal archives</text>
+  <text x="589" y="214" text-anchor="middle" font-size="9" fill="#333">et locaux élec.</text>
+
+  <!-- ── Poudre ABC ── -->
+  <rect x="10"  y="228" width="168" height="44" fill="#fff8f0" stroke="#ddd" stroke-width="1"/>
+  <rect x="10"  y="228" width="8"   height="44" fill="#cc4400"/>
+  <text x="25"  y="246" font-size="11" font-weight="700" fill="#8b2200">Poudre polyvalente ABC</text>
+  <text x="25"  y="262" font-size="10" fill="#555">Rouge · Polyvalent · Résidu poudre</text>
+
+  <rect x="182" y="228" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="208" y="255" text-anchor="middle" font-size="18">✅</text>
+  <rect x="238" y="228" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="264" y="255" text-anchor="middle" font-size="18">✅</text>
+  <rect x="294" y="228" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="320" y="255" text-anchor="middle" font-size="18">✅</text>
+  <rect x="350" y="228" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="376" y="255" text-anchor="middle" font-size="18">❌</text>
+  <rect x="406" y="228" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="432" y="255" text-anchor="middle" font-size="18">❌</text>
+  <rect x="462" y="228" width="82" height="44" fill="#ffe8d4" stroke="#ddd" stroke-width="1"/>
+  <text x="503" y="248" text-anchor="middle" font-size="9" fill="#8b2200">⚠ éviter</text>
+  <text x="503" y="262" text-anchor="middle" font-size="9" fill="#8b2200">(résidus)</text>
+  <rect x="548" y="228" width="82" height="44" fill="#fff8f0" stroke="#ddd" stroke-width="1"/>
+  <text x="589" y="246" text-anchor="middle" font-size="9" fill="#8b2200">Le plus polyvalent</text>
+  <text x="589" y="260" text-anchor="middle" font-size="9" fill="#8b2200">A+B+C simultanés</text>
+
+  <!-- ── Agent F ── -->
+  <rect x="10"  y="274" width="168" height="44" fill="#fff0f5" stroke="#ddd" stroke-width="1"/>
+  <rect x="10"  y="274" width="8"   height="44" fill="#8b1a3a"/>
+  <text x="25"  y="292" font-size="11" font-weight="700" fill="#8b1a3a">Agent F — huiles alimentaires</text>
+  <text x="25"  y="308" font-size="10" fill="#555">Vert/jaune · Cuisines · Friteuses</text>
+
+  <rect x="182" y="274" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="208" y="301" text-anchor="middle" font-size="18">❌</text>
+  <rect x="238" y="274" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="264" y="301" text-anchor="middle" font-size="18">❌</text>
+  <rect x="294" y="274" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="320" y="301" text-anchor="middle" font-size="18">❌</text>
+  <rect x="350" y="274" width="52" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="376" y="301" text-anchor="middle" font-size="18">❌</text>
+  <rect x="406" y="274" width="52" height="44" fill="#d4fcd4" stroke="#ddd" stroke-width="1"/>
+  <text x="432" y="301" text-anchor="middle" font-size="18">✅</text>
+  <rect x="462" y="274" width="82" height="44" fill="#ffdcdc" stroke="#ddd" stroke-width="1"/>
+  <text x="503" y="301" text-anchor="middle" font-size="18">❌</text>
+  <rect x="548" y="274" width="82" height="44" fill="#fff0f5" stroke="#ddd" stroke-width="1"/>
+  <text x="589" y="292" text-anchor="middle" font-size="9" fill="#8b1a3a">Unique pour</text>
+  <text x="589" y="306" text-anchor="middle" font-size="9" fill="#8b1a3a">feux de cuisine</text>
+
+  <!-- Méthode DAPS -->
+  <rect x="10" y="328" width="620" height="56" rx="8" fill="#1a2e6e"/>
+  <text x="320" y="346" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">MÉTHODE DAPS — Utilisation d'un extincteur</text>
+  <text x="80"  y="368" text-anchor="middle" font-size="13" fill="#ffcc00" font-weight="900">D</text>
+  <text x="80"  y="380" text-anchor="middle" font-size="10" fill="#9ec8ff">Dégoupiller</text>
+  <line x1="140" y1="342" x2="140" y2="382" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <text x="214" y="368" text-anchor="middle" font-size="13" fill="#ffcc00" font-weight="900">A</text>
+  <text x="214" y="380" text-anchor="middle" font-size="10" fill="#9ec8ff">Acheminer (3-4 m)</text>
+  <line x1="285" y1="342" x2="285" y2="382" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <text x="360" y="368" text-anchor="middle" font-size="13" fill="#ffcc00" font-weight="900">P</text>
+  <text x="360" y="380" text-anchor="middle" font-size="10" fill="#9ec8ff">Pointer vers la base</text>
+  <line x1="434" y1="342" x2="434" y2="382" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
+  <text x="534" y="368" text-anchor="middle" font-size="13" fill="#ffcc00" font-weight="900">S</text>
+  <text x="534" y="380" text-anchor="middle" font-size="10" fill="#9ec8ff">Supprimer en balayant</text>
+
+</svg>

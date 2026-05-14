@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" width="640" height="430">
+  <defs>
+    <linearGradient id="bg-erp" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f6ff"/>
+      <stop offset="100%" stop-color="#eeeaf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="430" fill="url(#bg-erp)" rx="12"/>
+
+  <!-- Title -->
+  <text x="320" y="28" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2040" letter-spacing="0.5">CLASSIFICATION DES ERP — Types et Catégories</text>
+  <line x1="40" y1="36" x2="600" y2="36" stroke="#c0c8e0" stroke-width="1"/>
+
+  <!-- ═══ LEFT PANEL — TYPES ERP ═══ -->
+  <text x="162" y="54" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a" letter-spacing="1">TYPES — par activité principale</text>
+
+  <!-- Type cells — 3 columns × 5 rows -->
+  <!-- Colors: Commerces=blue, Restauration=orange, Hébergement=teal, Education=green, Santé=red, Admin=gray -->
+  <!-- Row 1 -->
+  <rect x="28" y="62" width="90" height="48" rx="6" fill="#1a5496"/>
+  <text x="73" y="82" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">M</text>
+  <text x="73" y="98" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#cce0ff">Magasins, commerces</text>
+
+  <rect x="126" y="62" width="90" height="48" rx="6" fill="#c05a00"/>
+  <text x="171" y="82" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">N</text>
+  <text x="171" y="98" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#ffd8b0">Restaurants, débits</text>
+
+  <rect x="224" y="62" width="90" height="48" rx="6" fill="#0e7070"/>
+  <text x="269" y="82" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">O</text>
+  <text x="269" y="98" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#b0f0f0">Hôtels, résidences</text>
+
+  <!-- Row 2 -->
+  <rect x="28" y="118" width="90" height="48" rx="6" fill="#2a8a28"/>
+  <text x="73" y="138" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">R</text>
+  <text x="73" y="154" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#c8f0c8">Enseignement, crèches</text>
+
+  <rect x="126" y="118" width="90" height="48" rx="6" fill="#b81a00"/>
+  <text x="171" y="138" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">U</text>
+  <text x="171" y="154" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#ffc8b8">Soins médicaux, hôpitaux</text>
+
+  <rect x="224" y="118" width="90" height="48" rx="6" fill="#4a5070"/>
+  <text x="269" y="138" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">W</text>
+  <text x="269" y="154" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#c8d0f0">Bureaux administratifs</text>
+
+  <!-- Row 3 -->
+  <rect x="28" y="174" width="90" height="48" rx="6" fill="#6030a0"/>
+  <text x="73" y="194" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">L</text>
+  <text x="73" y="210" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#d8c0ff">Salles de spectacles</text>
+
+  <rect x="126" y="174" width="90" height="48" rx="6" fill="#8a6000"/>
+  <text x="171" y="194" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">P</text>
+  <text x="171" y="210" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#ffe0a0">Danse, jeux, bals</text>
+
+  <rect x="224" y="174" width="90" height="48" rx="6" fill="#105888"/>
+  <text x="269" y="194" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">X</text>
+  <text x="269" y="210" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#b0d8ff">Sports couverts</text>
+
+  <!-- Row 4 -->
+  <rect x="28" y="230" width="90" height="48" rx="6" fill="#7a3050"/>
+  <text x="73" y="250" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">J</text>
+  <text x="73" y="266" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#f0c0d8">Pers. âgées, handicapées</text>
+
+  <rect x="126" y="230" width="90" height="48" rx="6" fill="#306870"/>
+  <text x="171" y="250" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">Y</text>
+  <text x="171" y="266" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#b0e8f0">Musées, expositions</text>
+
+  <rect x="224" y="230" width="90" height="48" rx="6" fill="#505050"/>
+  <text x="269" y="250" text-anchor="middle" font-size="18" font-weight="bold" font-family="Arial,sans-serif" fill="white">T</text>
+  <text x="269" y="266" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#d0d0d0">Foires, salons</text>
+
+  <!-- + autres -->
+  <rect x="28" y="286" width="286" height="34" rx="6" fill="white" fill-opacity="0.6" stroke="#c0c8d8"/>
+  <text x="171" y="308" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#506080">Également : S (bibliothèques) · V (culte) · CTS (chapiteaux) · PA (plein air) · REF…</text>
+
+  <!-- ═══ RIGHT PANEL — CATÉGORIES ═══ -->
+  <line x1="334" y1="42" x2="334" y2="410" stroke="#c8d0e8" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="492" y="54" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a" letter-spacing="1">CATÉGORIES — par capacité d'accueil</text>
+
+  <!-- Category rows -->
+  <!-- 1re cat -->
+  <rect x="346" y="62" width="276" height="56" rx="7" fill="#8b1a00"/>
+  <text x="382" y="84" text-anchor="start" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white">1re catégorie</text>
+  <text x="382" y="100" text-anchor="start" font-size="10" font-family="Arial,sans-serif" fill="#ffccb8">&gt; 1 500 personnes</text>
+  <rect x="528" y="70" width="82" height="28" rx="5" fill="white" fill-opacity="0.15"/>
+  <text x="569" y="88" text-anchor="middle" font-size="8.5" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700">SSIAP obligatoire</text>
+
+  <!-- 2e cat -->
+  <rect x="346" y="126" width="276" height="52" rx="7" fill="#b83000"/>
+  <text x="382" y="147" text-anchor="start" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white">2e catégorie</text>
+  <text x="382" y="163" text-anchor="start" font-size="10" font-family="Arial,sans-serif" fill="#ffd0b8">701 à 1 500 personnes</text>
+  <rect x="528" y="133" width="82" height="28" rx="5" fill="white" fill-opacity="0.15"/>
+  <text x="569" y="151" text-anchor="middle" font-size="8.5" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700">SSIAP obligatoire</text>
+
+  <!-- 3e cat -->
+  <rect x="346" y="186" width="276" height="52" rx="7" fill="#c86000"/>
+  <text x="382" y="207" text-anchor="start" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white">3e catégorie</text>
+  <text x="382" y="223" text-anchor="start" font-size="10" font-family="Arial,sans-serif" fill="#ffecc0">301 à 700 personnes</text>
+  <rect x="528" y="193" width="82" height="28" rx="5" fill="white" fill-opacity="0.15"/>
+  <text x="569" y="211" text-anchor="middle" font-size="8.5" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700">SSIAP obligatoire</text>
+
+  <!-- 4e cat -->
+  <rect x="346" y="246" width="276" height="52" rx="7" fill="#b88000"/>
+  <text x="382" y="267" text-anchor="start" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white">4e catégorie</text>
+  <text x="382" y="283" text-anchor="start" font-size="10" font-family="Arial,sans-serif" fill="#fff0c0">Jusqu'à 300 pers. (seuil type)</text>
+  <rect x="528" y="253" width="82" height="28" rx="5" fill="white" fill-opacity="0.15"/>
+  <text x="569" y="271" text-anchor="middle" font-size="8.5" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700">SSIAP obligatoire</text>
+
+  <!-- 5e cat -->
+  <rect x="346" y="306" width="276" height="52" rx="7" fill="#2a6828"/>
+  <text x="382" y="327" text-anchor="start" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="white">5e catégorie</text>
+  <text x="382" y="343" text-anchor="start" font-size="10" font-family="Arial,sans-serif" fill="#c8f0c0">En dessous des seuils</text>
+  <rect x="528" y="313" width="82" height="28" rx="5" fill="white" fill-opacity="0.12"/>
+  <text x="569" y="331" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#c8f8c0">Consignes incendie</text>
+
+  <!-- IGH note bottom -->
+  <rect x="346" y="368" width="276" height="42" rx="7" fill="#1a2e5a"/>
+  <text x="484" y="384" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700">IGH — Immeuble de Grande Hauteur</text>
+  <text x="484" y="400" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#b8ccff">Plancher dernier niveau : &gt; 28 m (habitation) · &gt; 50 m (bureaux, hôtels)</text>
+
+  <!-- Left bottom ref -->
+  <text x="171" y="370" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#7080a0">Règlement de sécurité ERP</text>
+  <text x="171" y="383" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#7080a0">Arrêté du 25 juin 1980 modifié</text>
+  <text x="171" y="396" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#7080a0">+ instructions techniques GN, CO, MS, DF…</text>
+</svg>

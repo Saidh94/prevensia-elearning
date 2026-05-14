@@ -321,6 +321,65 @@ const formations = [
       "Support e-learning inclus avec la formation extinction gaz encadrée. Il ne remplace pas une étude de conception ni une maintenance spécialisée.",
   },
   {
+    slug: "atex",
+    category: "Prévention des risques",
+    title: "Prévention des risques ATEX - Atmosphères Explosives",
+    duration: "Duree e-learning : 2 h 30 à 3 h",
+    mode: "E-learning autonome + quiz",
+    price: "129 EUR HT",
+    level: "Debutant a intermediaire",
+    audience:
+      "Tout personnel amene a intervenir, travailler ou circuler dans un environnement susceptible de presenter un risque d'explosion : industrie chimique, petrochimique, agroalimentaire, traitement des eaux, menuiserie, metallurgie.",
+    description:
+      "Parcours de sensibilisation aux atmospheres explosives conforme à la directive 99/92/CE. Le module couvre le mecanisme des explosions, la classification des zones ATEX (gaz et poussieres), les mesures de prevention, les EPI requis et la signalisation reglementaire.",
+    objectifs: [
+      "Comprendre ce qu'est une atmosphere explosive et le mecanisme d'une explosion",
+      "Identifier les zones ATEX (0, 1, 2 gaz et 20, 21, 22 poussieres) et leurs contraintes",
+      "Appliquer les mesures de prevention adaptees et utiliser les EPI certifies Ex",
+    ],
+    programme: [
+      "Definition et contexte des atmospheres explosives",
+      "Reglementation : directive 99/92/CE et Code du travail",
+      "Mecanisme d'une explosion — les 6 conditions",
+      "Classification des zones ATEX gaz et poussieres",
+      "Sources d'inflammation et mesures de prevention",
+      "Equipements certifies Ex, EPI antistatiques et signalisation",
+      "Conduite a tenir en cas d'alarme ou d'accident",
+    ],
+    note:
+      "Module e-learning autonome de sensibilisation. La classification des zones specifiques au site et les procedures internes restent a la charge de l'employeur.",
+  },
+  {
+    slug: "ssiap1",
+    category: "Prévention des risques",
+    title: "Sensibilisation SSIAP1 — Sécurité Incendie ERP",
+    duration: "Duree e-learning : 2 h 30 à 3 h",
+    mode: "E-learning autonome + quiz",
+    price: "119 EUR HT",
+    level: "Debutant a intermediaire",
+    audience:
+      "Agents de sécurité incendie, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux), chargés de sécurité souhaitant acquérir les bases théoriques du SSIAP1.",
+    description:
+      "Parcours de sensibilisation aux bases théoriques du SSIAP1 : classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation et rôle de l'agent de sécurité incendie en ERP.",
+    objectifs: [
+      "Identifier les classes de feux et choisir l'agent extincteur adapté",
+      "Appliquer la méthode DAPS pour utiliser un extincteur en sécurité",
+      "Connaître les composants du SSI et les procédures d'évacuation en ERP",
+    ],
+    programme: [
+      "Le SSIAP : rôles, niveaux et cadre réglementaire",
+      "Réglementation ERP / IGH — obligations employeur",
+      "Le feu : tétraèdre, propagation et méthodes d'extinction",
+      "Les 5 classes de feux A, B, C, D, F",
+      "Extincteurs et RIA — types, adéquation et méthode DAPS",
+      "Système de Sécurité Incendie (SSI) — détection et alarme",
+      "Procédures d'évacuation : guide-file, serre-file, rassemblement",
+      "Conduite à tenir en cas d'incendie — séquence Alarmer/Alerter/Attaquer",
+    ],
+    note:
+      "Sensibilisation théorique aux bases du SSIAP1. La certification officielle SSIAP1 requiert une formation pratique habilitée par le CNPP incluant des exercices sur feu réel.",
+  },
+  {
     slug: "sst",
     category: "Secours au travail",
     title: "SST - Sauveteur Secouriste du Travail",
@@ -362,6 +421,7 @@ const catégories = [
   "Prévention incendie",
   "SSI",
   "Protection incendie",
+  "Prévention des risques",
   "Secours au travail",
 ];
 

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 370" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="310" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">LES 5 CLASSES DE FEUX</text>
+  <text x="310" y="44" text-anchor="middle" font-size="11" fill="#666">Identifier la classe du feu avant de choisir l'agent extincteur</text>
+
+  <!-- En-têtes colonnes -->
+  <rect x="10"  y="54" width="64"  height="32" rx="4" fill="#1a2e6e"/>
+  <text x="42"  y="75" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Classe</text>
+
+  <rect x="78"  y="54" width="174" height="32" rx="4" fill="#1a2e6e"/>
+  <text x="165" y="75" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Type de feux</text>
+
+  <rect x="256" y="54" width="192" height="32" rx="4" fill="#1a2e6e"/>
+  <text x="352" y="75" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Exemples concrets</text>
+
+  <rect x="452" y="54" width="158" height="32" rx="4" fill="#1a2e6e"/>
+  <text x="531" y="75" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Agents extincteurs</text>
+
+  <!-- ── Classe A ── -->
+  <rect x="10"  y="90" width="64"  height="50" fill="#fff3cd" stroke="#e67e00" stroke-width="1"/>
+  <circle cx="42" cy="115" r="18" fill="#e67e00"/>
+  <text x="42" y="121" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">A</text>
+
+  <rect x="78"  y="90" width="174" height="50" fill="#fff3cd" stroke="#ddd" stroke-width="1"/>
+  <text x="165" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Feux de solides</text>
+  <text x="165" y="128" text-anchor="middle" font-size="10" fill="#555">laissant des braises</text>
+
+  <rect x="256" y="90" width="192" height="50" fill="#fff3cd" stroke="#ddd" stroke-width="1"/>
+  <text x="352" y="110" text-anchor="middle" font-size="10" fill="#333">Bois, papier, carton, tissu,</text>
+  <text x="352" y="126" text-anchor="middle" font-size="10" fill="#333">plastiques, paille, caoutchouc</text>
+
+  <rect x="452" y="90" width="158" height="50" fill="#fff3cd" stroke="#ddd" stroke-width="1"/>
+  <text x="531" y="108" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Eau pulvérisée ✓✓</text>
+  <text x="531" y="122" text-anchor="middle" font-size="10" fill="#333">Mousse · Poudre ABC</text>
+  <text x="531" y="136" text-anchor="middle" font-size="10" fill="#333">CO₂ (limité)</text>
+
+  <!-- ── Classe B ── -->
+  <rect x="10"  y="142" width="64"  height="50" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="1"/>
+  <circle cx="42" cy="167" r="18" fill="#1a4e8c"/>
+  <text x="42" y="173" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">B</text>
+
+  <rect x="78"  y="142" width="174" height="50" fill="#e8f4ff" stroke="#ddd" stroke-width="1"/>
+  <text x="165" y="162" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Feux de liquides</text>
+  <text x="165" y="178" text-anchor="middle" font-size="10" fill="#555">et solides liquéfiables</text>
+
+  <rect x="256" y="142" width="192" height="50" fill="#e8f4ff" stroke="#ddd" stroke-width="1"/>
+  <text x="352" y="162" text-anchor="middle" font-size="10" fill="#333">Essence, fuel, alcool, huile,</text>
+  <text x="352" y="178" text-anchor="middle" font-size="10" fill="#333">solvants, peintures, bitume</text>
+
+  <rect x="452" y="142" width="158" height="50" fill="#e8f4ff" stroke="#ddd" stroke-width="1"/>
+  <text x="531" y="160" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Mousse AFFF ✓✓</text>
+  <text x="531" y="174" text-anchor="middle" font-size="10" fill="#333">CO₂ · Poudre ABC</text>
+  <text x="531" y="188" text-anchor="middle" font-size="10" fill="#cc2200">Eau seule ✗ INTERDIT</text>
+
+  <!-- ── Classe C ── -->
+  <rect x="10"  y="194" width="64"  height="50" fill="#f0fff0" stroke="#1a5c1a" stroke-width="1"/>
+  <circle cx="42" cy="219" r="18" fill="#1a5c1a"/>
+  <text x="42" y="225" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">C</text>
+
+  <rect x="78"  y="194" width="174" height="50" fill="#f0fff0" stroke="#ddd" stroke-width="1"/>
+  <text x="165" y="214" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Feux de gaz inflammables</text>
+  <text x="165" y="230" text-anchor="middle" font-size="10" fill="#555">(gaz sous pression)</text>
+
+  <rect x="256" y="194" width="192" height="50" fill="#f0fff0" stroke="#ddd" stroke-width="1"/>
+  <text x="352" y="214" text-anchor="middle" font-size="10" fill="#333">Propane, butane, méthane,</text>
+  <text x="352" y="230" text-anchor="middle" font-size="10" fill="#333">acétylène, gaz naturel, hydrogène</text>
+
+  <rect x="452" y="194" width="158" height="50" fill="#f0fff0" stroke="#ddd" stroke-width="1"/>
+  <text x="531" y="212" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Couper l'alimentation gaz !</text>
+  <text x="531" y="226" text-anchor="middle" font-size="10" fill="#333">Poudre ABC (si inévitable)</text>
+  <text x="531" y="240" text-anchor="middle" font-size="10" fill="#cc2200">Eau ✗ — CO₂ ✗</text>
+
+  <!-- ── Classe D ── -->
+  <rect x="10"  y="246" width="64"  height="50" fill="#f5f0ff" stroke="#5a1a8c" stroke-width="1"/>
+  <circle cx="42" cy="271" r="18" fill="#5a1a8c"/>
+  <text x="42" y="277" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">D</text>
+
+  <rect x="78"  y="246" width="174" height="50" fill="#f5f0ff" stroke="#ddd" stroke-width="1"/>
+  <text x="165" y="266" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Feux de métaux combustibles</text>
+  <text x="165" y="282" text-anchor="middle" font-size="10" fill="#555">(métaux spéciaux)</text>
+
+  <rect x="256" y="246" width="192" height="50" fill="#f5f0ff" stroke="#ddd" stroke-width="1"/>
+  <text x="352" y="266" text-anchor="middle" font-size="10" fill="#333">Magnésium, sodium, lithium,</text>
+  <text x="352" y="282" text-anchor="middle" font-size="10" fill="#333">potassium, aluminium en poudre</text>
+
+  <rect x="452" y="246" width="158" height="50" fill="#f5f0ff" stroke="#ddd" stroke-width="1"/>
+  <text x="531" y="264" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Poudre D spéciale ✓✓</text>
+  <text x="531" y="278" text-anchor="middle" font-size="10" fill="#cc2200">Eau ✗✗ — CO₂ ✗✗</text>
+  <text x="531" y="292" text-anchor="middle" font-size="10" fill="#cc2200">Mousse ✗✗ DANGEREUX</text>
+
+  <!-- ── Classe F ── -->
+  <rect x="10"  y="298" width="64"  height="50" fill="#fff0f5" stroke="#8b1a3a" stroke-width="1"/>
+  <circle cx="42" cy="323" r="18" fill="#8b1a3a"/>
+  <text x="42" y="329" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">F</text>
+
+  <rect x="78"  y="298" width="174" height="50" fill="#fff0f5" stroke="#ddd" stroke-width="1"/>
+  <text x="165" y="318" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Feux de graisses alimentaires</text>
+  <text x="165" y="334" text-anchor="middle" font-size="10" fill="#555">(très hautes températures)</text>
+
+  <rect x="256" y="298" width="192" height="50" fill="#fff0f5" stroke="#ddd" stroke-width="1"/>
+  <text x="352" y="318" text-anchor="middle" font-size="10" fill="#333">Huiles et graisses de cuisson,</text>
+  <text x="352" y="334" text-anchor="middle" font-size="10" fill="#333">friteuses industrielles, woks</text>
+
+  <rect x="452" y="298" width="158" height="50" fill="#fff0f5" stroke="#ddd" stroke-width="1"/>
+  <text x="531" y="316" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Agent F spécifique ✓✓</text>
+  <text x="531" y="330" text-anchor="middle" font-size="10" fill="#cc2200">Eau ✗✗ EXPLOSION</text>
+  <text x="531" y="344" text-anchor="middle" font-size="10" fill="#cc2200">CO₂ dangereux par flash</text>
+
+  <!-- Note -->
+  <text x="310" y="362" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Un même feu peut relever de plusieurs classes · Toujours évaluer avant d'intervenir</text>
+
+</svg>

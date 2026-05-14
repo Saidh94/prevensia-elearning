@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 406" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="300" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">EPI OBLIGATOIRES EN ZONE ATEX</text>
+  <text x="300" y="44" text-anchor="middle" font-size="11" fill="#666">À vérifier et porter intégralement avant toute entrée en zone classée</text>
+
+  <!-- ── Ligne 1 ── -->
+
+  <!-- Vêtements antistatiques -->
+  <rect x="10"  y="56" width="184" height="104" rx="8" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="2"/>
+  <rect x="10"  y="56" width="184" height="36" rx="8" fill="#1a4e8c"/>
+  <rect x="10"  y="74" width="184" height="18" fill="#1a4e8c"/>
+  <text x="32"  y="82" font-size="22">👕</text>
+  <text x="62"  y="80" font-size="12" font-weight="800" fill="#fff">Vêtements</text>
+  <text x="62"  y="94" font-size="12" font-weight="800" fill="#fff">antistatiques</text>
+  <text x="16"  y="114" font-size="10" fill="#333">Norme EN 1149-5</text>
+  <text x="16"  y="128" font-size="10" fill="#333">Résistance superficielle &lt; 10⁹ Ω</text>
+  <text x="16"  y="142" font-size="10" fill="#333">Aucun vêtement synthétique</text>
+
+  <!-- Chaussures ESD -->
+  <rect x="208" y="56" width="184" height="104" rx="8" fill="#fff3cd" stroke="#e67e00" stroke-width="2"/>
+  <rect x="208" y="56" width="184" height="36" rx="8" fill="#e67e00"/>
+  <rect x="208" y="74" width="184" height="18" fill="#e67e00"/>
+  <text x="230" y="82" font-size="22">👟</text>
+  <text x="262" y="80" font-size="12" font-weight="800" fill="#fff">Chaussures ESD</text>
+  <text x="262" y="94" font-size="12" font-weight="800" fill="#fff">antistatiques</text>
+  <text x="214" y="114" font-size="10" fill="#333">Norme EN 20345 propriété ESD</text>
+  <text x="214" y="128" font-size="10" fill="#333">Résistantes aux hydrocarbures</text>
+  <text x="214" y="142" font-size="10" fill="#333">si produits chimiques présents</text>
+
+  <!-- Gants -->
+  <rect x="406" y="56" width="184" height="104" rx="8" fill="#f0fff4" stroke="#1a5c1a" stroke-width="2"/>
+  <rect x="406" y="56" width="184" height="36" rx="8" fill="#1a5c1a"/>
+  <rect x="406" y="74" width="184" height="18" fill="#1a5c1a"/>
+  <text x="428" y="82" font-size="22">🧤</text>
+  <text x="460" y="80" font-size="12" font-weight="800" fill="#fff">Gants de protection</text>
+  <text x="460" y="94" font-size="12" font-weight="800" fill="#fff">antistatiques</text>
+  <text x="412" y="114" font-size="10" fill="#333">Résistants aux produits chimiques</text>
+  <text x="412" y="128" font-size="10" fill="#333">présents en zone</text>
+  <text x="412" y="142" font-size="10" fill="#333">Pas de latex si hydrocarbures</text>
+
+  <!-- ── Ligne 2 ── -->
+
+  <!-- Explosimètre — avec clignotant animé -->
+  <rect x="10"  y="172" width="184" height="104" rx="8" fill="#ffefdf" stroke="#cc2200" stroke-width="2"/>
+  <rect x="10"  y="172" width="184" height="36" rx="8" fill="#cc2200"/>
+  <rect x="10"  y="190" width="184" height="18" fill="#cc2200"/>
+  <!-- Voyant animé -->
+  <circle cx="186" cy="179" r="7" fill="#ff6600">
+    <animate attributeName="opacity" values="1;0.1;1" dur="0.9s" repeatCount="indefinite"/>
+  </circle>
+  <text x="32"  y="198" font-size="22">📟</text>
+  <text x="62"  y="196" font-size="12" font-weight="800" fill="#fff">Explosimètre</text>
+  <text x="62"  y="210" font-size="12" font-weight="800" fill="#fff">certifié Ex</text>
+  <text x="16"  y="230" font-size="10" fill="#333">Alarme réglée à 20 % LIE</text>
+  <text x="16"  y="244" font-size="10" fill="#333">Étalonné — testé avant usage</text>
+  <text x="16"  y="258" font-size="10" fill="#cc2200" font-weight="700">Alarme = évacuation immédiate</text>
+
+  <!-- Protection respiratoire -->
+  <rect x="208" y="172" width="184" height="104" rx="8" fill="#f5f0ff" stroke="#5a1a8c" stroke-width="2"/>
+  <rect x="208" y="172" width="184" height="36" rx="8" fill="#5a1a8c"/>
+  <rect x="208" y="190" width="184" height="18" fill="#5a1a8c"/>
+  <text x="230" y="198" font-size="22">😷</text>
+  <text x="260" y="196" font-size="12" font-weight="800" fill="#fff">Protection</text>
+  <text x="260" y="210" font-size="12" font-weight="800" fill="#fff">respiratoire</text>
+  <text x="214" y="230" font-size="10" fill="#333">Masque + filtre adapté</text>
+  <text x="214" y="244" font-size="10" fill="#333">au produit présent</text>
+  <text x="214" y="258" font-size="10" fill="#333">ARI autonome si atmo IDLH</text>
+
+  <!-- Protection tête / auditive -->
+  <rect x="406" y="172" width="184" height="104" rx="8" fill="#f0f0ff" stroke="#3a3a7a" stroke-width="2"/>
+  <rect x="406" y="172" width="184" height="36" rx="8" fill="#3a3a7a"/>
+  <rect x="406" y="190" width="184" height="18" fill="#3a3a7a"/>
+  <text x="428" y="198" font-size="22">⛑</text>
+  <text x="460" y="196" font-size="12" font-weight="800" fill="#fff">Protection tête</text>
+  <text x="460" y="210" font-size="12" font-weight="800" fill="#fff">et auditive</text>
+  <text x="412" y="230" font-size="10" fill="#333">Casque antistatique certifié</text>
+  <text x="412" y="244" font-size="10" fill="#333">Lunettes si projections</text>
+  <text x="412" y="258" font-size="10" fill="#333">Protège-oreilles si bruit ≥ 80 dB</text>
+
+  <!-- ── Règle d'or ── -->
+  <rect x="10" y="288" width="580" height="46" rx="8" fill="#1a1a1a"/>
+  <text x="300" y="307" text-anchor="middle" font-size="13" font-weight="900" fill="#ffcc00">RÈGLE D'OR : EPI COMPLET AVANT D'ENTRER</text>
+  <text x="300" y="326" text-anchor="middle" font-size="11" fill="#ddd">Vérifier l'état de chaque EPI. Ne jamais entrer en zone avec un EPI défectueux ou manquant.</text>
+
+  <!-- Note bas -->
+  <rect x="10" y="344" width="580" height="56" rx="8" fill="#fff3cd" stroke="#e67e00" stroke-width="1"/>
+  <text x="300" y="362" text-anchor="middle" font-size="10.5" fill="#7a4800" font-weight="600">Les EPI sont la DERNIÈRE barrière de protection individuelle.</text>
+  <text x="300" y="378" text-anchor="middle" font-size="10.5" fill="#7a4800">Ils ne remplacent pas les mesures collectives : ventilation, zonage, équipements certifiés Ex.</text>
+  <text x="300" y="394" text-anchor="middle" font-size="10" fill="#7a4800" font-style="italic">Tous les EPI doivent être entretenus et remplacés selon les prescriptions du fabricant.</text>
+
+</svg>

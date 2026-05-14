@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 435" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="300" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">LES 6 CONDITIONS DE L'EXPLOSION</text>
+  <text x="300" y="44" text-anchor="middle" font-size="11" fill="#666">Supprimer une seule condition = explosion impossible</text>
+
+  <!-- Fond sombre circulaire -->
+  <circle cx="300" cy="222" r="158" fill="#1a0800"/>
+
+  <!-- Anneaux animés — explosion pulsante -->
+  <circle cx="300" cy="222" r="112" fill="#b31a00" opacity="0.18">
+    <animate attributeName="r" values="95;125;95" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.18;0.32;0.18" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="222" r="80" fill="#e03a00" opacity="0.32">
+    <animate attributeName="r" values="66;92;66" dur="1.7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.32;0.52;0.32" dur="1.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="222" r="52" fill="#ff6600" opacity="0.58">
+    <animate attributeName="r" values="42;62;42" dur="1.3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.58;0.82;0.58" dur="1.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="222" r="30" fill="#ffaa00" opacity="0.88">
+    <animate attributeName="r" values="22;37;22" dur="0.95s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="222" r="13" fill="#fff5aa" opacity="0.97">
+    <animate attributeName="r" values="10;17;10" dur="0.7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Texte EX central -->
+  <text x="300" y="232" text-anchor="middle" font-size="30" font-weight="900" fill="#1a0800" opacity="0.9">EX</text>
+
+  <!-- ── 6 conditions ── -->
+
+  <!-- TOP : Produit combustible -->
+  <line x1="300" y1="90" x2="300" y2="137" stroke="#cc2200" stroke-width="2" stroke-dasharray="5,3" opacity="0.85"/>
+  <rect x="212" y="52" width="176" height="38" rx="8" fill="#cc2200"/>
+  <text x="300" y="68" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Produit combustible</text>
+  <text x="300" y="83" text-anchor="middle" font-size="10" fill="#ffd" font-style="italic">gaz · vapeur · poussière</text>
+
+  <!-- TOP-RIGHT : Comburant -->
+  <line x1="438" y1="145" x2="393" y2="185" stroke="#1a5c1a" stroke-width="2" stroke-dasharray="5,3" opacity="0.85"/>
+  <rect x="442" y="112" width="148" height="38" rx="8" fill="#1a5c1a"/>
+  <text x="516" y="128" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Comburant (O₂)</text>
+  <text x="516" y="143" text-anchor="middle" font-size="10" fill="#cfc" font-style="italic">oxygène de l'air ≥ 10 %</text>
+
+  <!-- BOTTOM-RIGHT : Domaine d'explosivité -->
+  <line x1="438" y1="300" x2="393" y2="259" stroke="#8b5e00" stroke-width="2" stroke-dasharray="5,3" opacity="0.85"/>
+  <rect x="442" y="300" width="148" height="38" rx="8" fill="#8b5e00"/>
+  <text x="516" y="316" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Domaine explosif</text>
+  <text x="516" y="331" text-anchor="middle" font-size="10" fill="#fed" font-style="italic">entre LIE et LSE</text>
+
+  <!-- BOTTOM : Produits en suspension -->
+  <line x1="300" y1="380" x2="300" y2="323" stroke="#5a1a8c" stroke-width="2" stroke-dasharray="5,3" opacity="0.85"/>
+  <rect x="188" y="381" width="224" height="38" rx="8" fill="#5a1a8c"/>
+  <text x="300" y="397" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Produits en suspension</text>
+  <text x="300" y="412" text-anchor="middle" font-size="10" fill="#ddf" font-style="italic">volume et mélange suffisants</text>
+
+  <!-- BOTTOM-LEFT : Source d'inflammation -->
+  <line x1="162" y1="300" x2="207" y2="259" stroke="#b31a00" stroke-width="2" stroke-dasharray="5,3" opacity="0.85"/>
+  <rect x="10" y="300" width="148" height="38" rx="8" fill="#b31a00"/>
+  <text x="84" y="316" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Source d'inflammation</text>
+  <text x="84" y="331" text-anchor="middle" font-size="10" fill="#ffd" font-style="italic">étincelle · chaleur · flamme</text>
+
+  <!-- TOP-LEFT : Confinement -->
+  <line x1="162" y1="145" x2="207" y2="185" stroke="#3a3a7a" stroke-width="2" stroke-dasharray="5,3" opacity="0.85"/>
+  <rect x="10" y="112" width="148" height="38" rx="8" fill="#3a3a7a"/>
+  <text x="84" y="128" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">Confinement</text>
+  <text x="84" y="143" text-anchor="middle" font-size="10" fill="#ccf" font-style="italic">espace clos ou semi-clos</text>
+
+</svg>

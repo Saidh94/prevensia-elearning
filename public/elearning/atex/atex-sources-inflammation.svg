@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 390" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="300" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">SOURCES D'INFLAMMATION EN ZONE ATEX</text>
+  <text x="300" y="44" text-anchor="middle" font-size="11" fill="#666">6 familles à identifier et éliminer avant toute intervention</text>
+
+  <!-- ── Ligne 1 ── -->
+
+  <!-- Électrique -->
+  <rect x="10" y="56" width="182" height="96" rx="8" fill="#fff3cd" stroke="#e67e00" stroke-width="1.5"/>
+  <rect x="10" y="56" width="182" height="34" rx="8" fill="#e67e00"/>
+  <rect x="10" y="76" width="182" height="14" fill="#e67e00"/>
+  <text x="34" y="80" font-size="18">⚡</text>
+  <text x="60" y="80" font-size="12" font-weight="800" fill="#fff">Électrique</text>
+  <text x="16" y="106" font-size="10" fill="#444">Étincelles, courts-circuits,</text>
+  <text x="16" y="120" font-size="10" fill="#444">arcs électriques, mauvais</text>
+  <text x="16" y="134" font-size="10" fill="#444">contacts, moteurs défaillants</text>
+
+  <!-- Mécanique -->
+  <rect x="209" y="56" width="182" height="96" rx="8" fill="#fff0f0" stroke="#cc2200" stroke-width="1.5"/>
+  <rect x="209" y="56" width="182" height="34" rx="8" fill="#cc2200"/>
+  <rect x="209" y="76" width="182" height="14" fill="#cc2200"/>
+  <text x="233" y="80" font-size="18">⚙</text>
+  <text x="258" y="80" font-size="12" font-weight="800" fill="#fff">Mécanique</text>
+  <text x="215" y="106" font-size="10" fill="#444">Frictions, chocs entre</text>
+  <text x="215" y="120" font-size="10" fill="#444">pièces métalliques, échauffements</text>
+  <text x="215" y="134" font-size="10" fill="#444">par défaut de lubrification</text>
+
+  <!-- Thermique -->
+  <rect x="408" y="56" width="182" height="96" rx="8" fill="#ffefdf" stroke="#e65c00" stroke-width="1.5"/>
+  <rect x="408" y="56" width="182" height="34" rx="8" fill="#e65c00"/>
+  <rect x="408" y="76" width="182" height="14" fill="#e65c00"/>
+  <text x="432" y="80" font-size="18">🌡</text>
+  <text x="458" y="80" font-size="12" font-weight="800" fill="#fff">Thermique</text>
+  <text x="414" y="106" font-size="10" fill="#444">Surfaces chaudes, brûleurs,</text>
+  <text x="414" y="120" font-size="10" fill="#444">tuyauteries vapeur, lampes</text>
+  <text x="414" y="134" font-size="10" fill="#444">incandescentes, fours</text>
+
+  <!-- ── Ligne 2 ── -->
+
+  <!-- Électrostatique -->
+  <rect x="10" y="164" width="182" height="96" rx="8" fill="#f0f0ff" stroke="#3a3a7a" stroke-width="1.5"/>
+  <rect x="10" y="164" width="182" height="34" rx="8" fill="#3a3a7a"/>
+  <rect x="10" y="184" width="182" height="14" fill="#3a3a7a"/>
+  <text x="34" y="188" font-size="18">〰</text>
+  <text x="58" y="188" font-size="12" font-weight="800" fill="#fff">Électrostatique</text>
+  <text x="16" y="214" font-size="10" fill="#444">Charges par frottement,</text>
+  <text x="16" y="228" font-size="10" fill="#444">remplissage cuves, transport</text>
+  <text x="16" y="242" font-size="10" fill="#444">poudres, vêtements synthétiques</text>
+
+  <!-- Points chauds — avec clignotant animé -->
+  <rect x="209" y="164" width="182" height="96" rx="8" fill="#fff0f0" stroke="#b31a00" stroke-width="2"/>
+  <rect x="209" y="164" width="182" height="34" rx="8" fill="#b31a00"/>
+  <rect x="209" y="184" width="182" height="14" fill="#b31a00"/>
+  <!-- indicateur clignotant -->
+  <circle cx="382" cy="171" r="7" fill="#ff4d00">
+    <animate attributeName="opacity" values="1;0.15;1" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="233" y="188" font-size="18">🔧</text>
+  <text x="258" y="188" font-size="11" font-weight="800" fill="#fff">Travaux par points chauds</text>
+  <text x="215" y="214" font-size="10" fill="#444">Soudage, meulage, découpe,</text>
+  <text x="215" y="228" font-size="10" fill="#444">perçage, oxycoupage</text>
+  <text x="215" y="242" font-size="10" fill="#b31a00" font-weight="700">→ PERMIS DE FEU obligatoire</text>
+
+  <!-- Climatique -->
+  <rect x="408" y="164" width="182" height="96" rx="8" fill="#f0f8ff" stroke="#1a4e8c" stroke-width="1.5"/>
+  <rect x="408" y="164" width="182" height="34" rx="8" fill="#1a4e8c"/>
+  <rect x="408" y="184" width="182" height="14" fill="#1a4e8c"/>
+  <text x="432" y="188" font-size="18">☁</text>
+  <text x="458" y="188" font-size="12" font-weight="800" fill="#fff">Climatique</text>
+  <text x="414" y="214" font-size="10" fill="#444">Foudre directe ou courants</text>
+  <text x="414" y="228" font-size="10" fill="#444">induits, décharges atmosphé-</text>
+  <text x="414" y="242" font-size="10" fill="#444">riques → protection parafoudre</text>
+
+  <!-- ── Bannière interdictions ── -->
+  <rect x="10" y="272" width="580" height="110" rx="8" fill="#1a1a1a"/>
+  <text x="300" y="294" text-anchor="middle" font-size="13" font-weight="900" fill="#ff4d00">⚠  INTERDICTIONS ABSOLUES EN ZONE ATEX</text>
+
+  <!-- Pictogrammes interdiction — ligne 1 -->
+  <rect x="24"  y="304" width="104" height="34" rx="6" fill="#cc2200" opacity="0.85"/>
+  <text x="76"  y="326" text-anchor="middle" font-size="11" fill="#fff">🚬  Fumer</text>
+
+  <rect x="138" y="304" width="140" height="34" rx="6" fill="#cc2200" opacity="0.85"/>
+  <text x="208" y="326" text-anchor="middle" font-size="11" fill="#fff">📱  Téléphone standard</text>
+
+  <rect x="288" y="304" width="156" height="34" rx="6" fill="#cc2200" opacity="0.85"/>
+  <text x="366" y="326" text-anchor="middle" font-size="11" fill="#fff">🔧  Outillage non certifié</text>
+
+  <rect x="454" y="304" width="136" height="34" rx="6" fill="#cc2200" opacity="0.85"/>
+  <text x="522" y="326" text-anchor="middle" font-size="11" fill="#fff">💡  Lampe non Ex</text>
+
+  <text x="300" y="364" text-anchor="middle" font-size="10" fill="#aaa" font-style="italic">Tout appareil non certifié ATEX est une source d'inflammation potentielle — signaler immédiatement toute anomalie</text>
+
+</svg>

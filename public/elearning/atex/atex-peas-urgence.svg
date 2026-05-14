@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 310" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="320" y="26" text-anchor="middle" font-size="17" font-weight="900" fill="#1a1a1a">CONDUITE À TENIR EN CAS D'URGENCE ATEX</text>
+  <text x="320" y="44" text-anchor="middle" font-size="11" fill="#666">4 réflexes dans l'ordre — appliquer sans délai</text>
+
+  <!-- ══ P — PROTÉGER ══ -->
+  <rect x="10"  y="56" width="138" height="212" rx="10" fill="#fff8ed" stroke="#e67e00" stroke-width="2.5"/>
+  <rect x="10"  y="56" width="138" height="48" rx="10" fill="#e67e00"/>
+  <rect x="10"  y="84" width="138" height="20" fill="#e67e00"/>
+  <text x="79"  y="84" text-anchor="middle" font-size="32" font-weight="900" fill="#fff">P</text>
+  <text x="79"  y="98" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">PROTÉGER</text>
+  <text x="79" y="122" text-anchor="middle" font-size="10" fill="#555">Identifier les risques</text>
+  <text x="79" y="136" text-anchor="middle" font-size="10" fill="#555">persistants</text>
+  <text x="79" y="154" text-anchor="middle" font-size="10" fill="#555">Éloigner les personnes</text>
+  <text x="79" y="168" text-anchor="middle" font-size="10" fill="#555">de la zone dangereuse</text>
+  <text x="79" y="186" text-anchor="middle" font-size="10" fill="#555">Baliser et condamner</text>
+  <text x="79" y="200" text-anchor="middle" font-size="10" fill="#555">l'accès à la zone</text>
+  <text x="79" y="220" text-anchor="middle" font-size="10" fill="#e67e00" font-weight="700">Supprimer les sources</text>
+  <text x="79" y="234" text-anchor="middle" font-size="10" fill="#e67e00" font-weight="700">d'inflammation si possible</text>
+  <text x="79" y="252" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">sans créer d'étincelles</text>
+
+  <!-- Flèche P → E -->
+  <line x1="148" y1="162" x2="164" y2="162" stroke="#cc2200" stroke-width="3"/>
+  <polygon points="166,162 156,156 156,168" fill="#cc2200"/>
+
+  <!-- ══ E — EXAMINER ══ -->
+  <rect x="166" y="56" width="138" height="212" rx="10" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="2.5"/>
+  <rect x="166" y="56" width="138" height="48" rx="10" fill="#1a4e8c"/>
+  <rect x="166" y="84" width="138" height="20" fill="#1a4e8c"/>
+  <text x="235" y="84" text-anchor="middle" font-size="32" font-weight="900" fill="#fff">E</text>
+  <text x="235" y="98" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">EXAMINER</text>
+  <text x="235" y="122" text-anchor="middle" font-size="10" fill="#555">La victime est-elle</text>
+  <text x="235" y="136" text-anchor="middle" font-size="10" fill="#555">consciente ?</text>
+  <text x="235" y="154" text-anchor="middle" font-size="10" fill="#555">Répond-elle ?</text>
+  <text x="235" y="168" text-anchor="middle" font-size="10" fill="#555">Respire-t-elle normalement ?</text>
+  <text x="235" y="186" text-anchor="middle" font-size="10" fill="#555">Brûlures, intoxication ?</text>
+  <text x="235" y="206" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">NE PAS entrer dans</text>
+  <text x="235" y="220" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">une atmosphère explosive</text>
+  <text x="235" y="234" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">sans EPI adaptés</text>
+  <text x="235" y="252" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">risque de sur-accident</text>
+
+  <!-- Flèche E → A -->
+  <line x1="304" y1="162" x2="320" y2="162" stroke="#cc2200" stroke-width="3"/>
+  <polygon points="322,162 312,156 312,168" fill="#cc2200"/>
+
+  <!-- ══ A — ALERTER ══ -->
+  <rect x="322" y="56" width="138" height="212" rx="10" fill="#f0fff4" stroke="#1a5c1a" stroke-width="2.5"/>
+  <rect x="322" y="56" width="138" height="48" rx="10" fill="#1a5c1a"/>
+  <rect x="322" y="84" width="138" height="20" fill="#1a5c1a"/>
+  <text x="391" y="84" text-anchor="middle" font-size="32" font-weight="900" fill="#fff">A</text>
+  <text x="391" y="98" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">ALERTER</text>
+  <text x="391" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#cc2200">15 — SAMU</text>
+  <text x="391" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#cc2200">18 — Pompiers</text>
+  <text x="391" y="154" text-anchor="middle" font-size="12" font-weight="700" fill="#cc2200">112 — Urgences EU</text>
+  <text x="391" y="172" text-anchor="middle" font-size="10" fill="#555">Localisation précise</text>
+  <text x="391" y="186" text-anchor="middle" font-size="10" fill="#555">Nature des produits</text>
+  <text x="391" y="200" text-anchor="middle" font-size="10" fill="#555">Nombre de victimes</text>
+  <text x="391" y="214" text-anchor="middle" font-size="10" fill="#555">État des victimes</text>
+  <text x="391" y="232" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Rester en ligne</text>
+  <text x="391" y="246" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">avec les secours</text>
+  <text x="391" y="260" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">jusqu'à leur arrivée</text>
+
+  <!-- Flèche A → S -->
+  <line x1="460" y1="162" x2="476" y2="162" stroke="#cc2200" stroke-width="3"/>
+  <polygon points="478,162 468,156 468,168" fill="#cc2200"/>
+
+  <!-- ══ S — SECOURIR ══ -->
+  <rect x="478" y="56" width="152" height="212" rx="10" fill="#fff0f0" stroke="#cc2200" stroke-width="2.5"/>
+  <rect x="478" y="56" width="152" height="48" rx="10" fill="#cc2200"/>
+  <rect x="478" y="84" width="152" height="20" fill="#cc2200"/>
+  <text x="554" y="84" text-anchor="middle" font-size="32" font-weight="900" fill="#fff">S</text>
+  <text x="554" y="98" text-anchor="middle" font-size="13" font-weight="900" fill="#fff">SECOURIR</text>
+  <!-- clignotant animé -->
+  <circle cx="622" cy="64" r="7" fill="#ff6600">
+    <animate attributeName="opacity" values="1;0.1;1" dur="1.1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="554" y="120" text-anchor="middle" font-size="10" fill="#555">PLS si inconscient</text>
+  <text x="554" y="134" text-anchor="middle" font-size="10" fill="#555">qui respire</text>
+  <text x="554" y="150" text-anchor="middle" font-size="10" fill="#555">MCE si absence de pouls</text>
+  <text x="554" y="164" text-anchor="middle" font-size="10" fill="#555">Défibrillateur (DSA)</text>
+  <text x="554" y="178" text-anchor="middle" font-size="10" fill="#555">si disponible</text>
+  <text x="554" y="196" text-anchor="middle" font-size="10" fill="#cc2200" font-weight="700">Centre antipoison :</text>
+  <text x="554" y="210" text-anchor="middle" font-size="10" fill="#cc2200" font-weight="700">09 74 75 67 50</text>
+  <text x="554" y="228" text-anchor="middle" font-size="10" fill="#cc2200" font-weight="700">Rester avec la victime</text>
+  <text x="554" y="244" text-anchor="middle" font-size="10" fill="#cc2200" font-weight="700">jusqu'aux secours</text>
+
+  <!-- Bannière de bas -->
+  <rect x="10" y="278" width="620" height="28" rx="6" fill="#1a1a1a"/>
+  <text x="320" y="297" text-anchor="middle" font-size="11" font-weight="700" fill="#ff4d00">⚠  NE JAMAIS entrer dans une atmosphère explosive sans EPI adaptés pour porter secours — risque de sur-accident mortel</text>
+
+</svg>

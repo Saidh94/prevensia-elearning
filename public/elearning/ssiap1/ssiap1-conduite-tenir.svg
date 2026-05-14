@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bg-ct" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf4f2"/>
+      <stop offset="100%" stop-color="#f8ece8"/>
+    </linearGradient>
+    <linearGradient id="step1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8b0000"/>
+      <stop offset="100%" stop-color="#b81800"/>
+    </linearGradient>
+    <linearGradient id="step2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a84000"/>
+      <stop offset="100%" stop-color="#d06000"/>
+    </linearGradient>
+    <linearGradient id="step3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a6400"/>
+      <stop offset="100%" stop-color="#b88000"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg-ct)" rx="12"/>
+
+  <!-- Title -->
+  <text x="320" y="28" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#5a1000">CONDUITE À TENIR EN CAS D'INCENDIE</text>
+  <text x="320" y="44" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#804030">Séquence obligatoire — Ne jamais inverser l'ordre des priorités</text>
+  <line x1="40" y1="52" x2="600" y2="52" stroke="#d0a898" stroke-width="1"/>
+
+  <!-- ══ STEP 1 — ALARMER ══ -->
+  <rect x="22" y="62" width="176" height="188" rx="9" fill="url(#step1)"/>
+  <!-- Pulse ring — urgency indicator -->
+  <rect x="22" y="62" width="176" height="188" rx="9" fill="none" stroke="#ff4422" stroke-width="5">
+    <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="5;12;5" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="110" y="87" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="#ffccb8" letter-spacing="2">ÉTAPE 1</text>
+  <text x="110" y="108" text-anchor="middle" font-size="22" font-weight="bold" font-family="Arial,sans-serif" fill="white">ALARMER</text>
+  <line x1="36" y1="116" x2="184" y2="116" stroke="white" stroke-opacity="0.25"/>
+  <text x="110" y="135" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#ffccb8">Activer le DM le plus proche</text>
+  <text x="110" y="151" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#ffccb8">OU informer le PC sécurité</text>
+  <text x="110" y="174" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="white">AVANT TOUTE AUTRE ACTION</text>
+  <text x="110" y="193" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffccb8">Ne jamais tenter d'éteindre</text>
+  <text x="110" y="207" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffccb8">avant d'avoir donné l'alarme</text>
+  <!-- Bell icon (simplified) -->
+  <ellipse cx="110" cy="232" rx="18" ry="15" fill="white" fill-opacity="0.2"/>
+  <text x="110" y="238" text-anchor="middle" font-size="20" font-family="Arial,sans-serif" fill="white">🔔</text>
+
+  <!-- Arrow 1→2 -->
+  <polygon points="206,145 224,155 206,165" fill="#c06040"/>
+  <line x1="198" y1="155" x2="222" y2="155" stroke="#c06040" stroke-width="3"/>
+
+  <!-- ══ STEP 2 — ALERTER ══ -->
+  <rect x="232" y="62" width="176" height="188" rx="9" fill="url(#step2)"/>
+  <text x="320" y="87" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="#ffecd8" letter-spacing="2">ÉTAPE 2</text>
+  <text x="320" y="108" text-anchor="middle" font-size="22" font-weight="bold" font-family="Arial,sans-serif" fill="white">ALERTER</text>
+  <line x1="245" y1="116" x2="395" y2="116" stroke="white" stroke-opacity="0.25"/>
+  <text x="320" y="135" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#ffecd8">Appeler les secours</text>
+
+  <!-- Phone numbers badges -->
+  <rect x="256" y="144" width="40" height="26" rx="5" fill="white" fill-opacity="0.25"/>
+  <text x="276" y="162" text-anchor="middle" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="white">18</text>
+
+  <rect x="300" y="144" width="40" height="26" rx="5" fill="white" fill-opacity="0.25"/>
+  <text x="320" y="162" text-anchor="middle" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="white">15</text>
+
+  <rect x="344" y="144" width="44" height="26" rx="5" fill="white" fill-opacity="0.25"/>
+  <text x="366" y="162" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="white">112</text>
+
+  <text x="320" y="186" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffecd8">Adresse précise</text>
+  <text x="320" y="200" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffecd8">Nature et localisation du sinistre</text>
+  <text x="320" y="214" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffecd8">Nombre de victimes éventuelles</text>
+  <text x="320" y="238" text-anchor="middle" font-size="20" font-family="Arial,sans-serif" fill="white">📞</text>
+
+  <!-- Arrow 2→3 -->
+  <polygon points="416,145 434,155 416,165" fill="#806020"/>
+  <line x1="408" y1="155" x2="432" y2="155" stroke="#806020" stroke-width="3"/>
+
+  <!-- ══ STEP 3 — ATTAQUER ══ -->
+  <rect x="442" y="62" width="176" height="188" rx="9" fill="url(#step3)"/>
+  <text x="530" y="87" text-anchor="middle" font-size="11" font-weight="bold" font-family="Arial,sans-serif" fill="#fff0c8" letter-spacing="2">ÉTAPE 3</text>
+  <text x="530" y="108" text-anchor="middle" font-size="22" font-weight="bold" font-family="Arial,sans-serif" fill="white">ATTAQUER</text>
+  <line x1="456" y1="116" x2="604" y2="116" stroke="white" stroke-opacity="0.25"/>
+  <text x="530" y="134" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ffecc8">SI conditions remplies</text>
+  <text x="530" y="150" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#fff0d8">Extincteur ou RIA adapté</text>
+  <text x="530" y="165" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#fff0d8">Feu naissant seulement</text>
+  <text x="530" y="180" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#fff0d8">Retraite dégagée</text>
+  <text x="530" y="195" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#fff0d8">Ne jamais seul</text>
+  <text x="530" y="238" text-anchor="middle" font-size="20" font-family="Arial,sans-serif" fill="white">🧯</text>
+
+  <!-- ══ GO / NO-GO box ══ -->
+  <rect x="22" y="262" width="596" height="80" rx="8" fill="#1a1a2a"/>
+
+  <!-- GO conditions -->
+  <rect x="32" y="272" width="280" height="60" rx="6" fill="#1a4a1a"/>
+  <text x="172" y="291" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#44ff44">✅ GO — Intervenir si TOUTES ces conditions :</text>
+  <text x="172" y="308" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#a8f8a8">Feu découvert dans ses premières minutes</text>
+  <text x="172" y="322" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#a8f8a8">Voie de retraite libre · Extincteur adapté · Pas seul</text>
+
+  <!-- NO-GO conditions -->
+  <rect x="324" y="272" width="284" height="60" rx="6" fill="#4a1a1a"/>
+  <text x="466" y="291" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ff5555">❌ NO-GO — Ne pas attaquer si :</text>
+  <text x="466" y="308" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#f8a8a8">Fumée dense · Sortie bloquée · Feu important</text>
+  <text x="466" y="322" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#f8a8a8">→ Évacuer immédiatement sans risque supplémentaire</text>
+
+  <!-- Bottom note -->
+  <text x="320" y="352" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#907060">Règle absolue : NE JAMAIS utiliser l'ascenseur · NE JAMAIS retourner dans un bâtiment en feu</text>
+</svg>

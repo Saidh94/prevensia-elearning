@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 390" width="600" height="390">
+  <defs>
+    <linearGradient id="bg-org" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0f4ff"/>
+      <stop offset="100%" stop-color="#e4eaf8"/>
+    </linearGradient>
+    <linearGradient id="s3g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a2e5a"/>
+      <stop offset="100%" stop-color="#243872"/>
+    </linearGradient>
+    <linearGradient id="s2g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a5496"/>
+      <stop offset="100%" stop-color="#2069c2"/>
+    </linearGradient>
+    <linearGradient id="s1g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#b81a00"/>
+      <stop offset="100%" stop-color="#e03300"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="390" fill="url(#bg-org)" rx="12"/>
+
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a" letter-spacing="0.5">ORGANISATION DU SERVICE DE SÉCURITÉ INCENDIE</text>
+  <text x="300" y="46" text-anchor="middle" font-size="11" font-family="Arial,sans-serif" fill="#4060a0">Arrêté du 2 mai 2005 modifié — Trois niveaux de qualification</text>
+  <line x1="40" y1="54" x2="560" y2="54" stroke="#c0cce0" stroke-width="1"/>
+
+  <!-- SSIAP 3 — top -->
+  <rect x="190" y="64" width="220" height="76" rx="8" fill="url(#s3g)"/>
+  <text x="300" y="84" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700" letter-spacing="3">SSIAP 3</text>
+  <text x="300" y="100" text-anchor="middle" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="white">Chef de service</text>
+  <text x="300" y="116" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#b8ccff">Gestion opérationnelle · Plannings</text>
+  <text x="300" y="130" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#b8ccff">Responsabilité réglementaire ERP</text>
+
+  <!-- Arrow 3→2 -->
+  <line x1="300" y1="140" x2="300" y2="162" stroke="#7090c8" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="294,160 306,160 300,170" fill="#7090c8"/>
+
+  <!-- SSIAP 2 — middle -->
+  <rect x="120" y="172" width="360" height="76" rx="8" fill="url(#s2g)"/>
+  <text x="300" y="192" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#cce0ff" letter-spacing="3">SSIAP 2</text>
+  <text x="300" y="208" text-anchor="middle" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="white">Chef d'équipe</text>
+  <text x="300" y="224" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#b8ccff">Encadrement des agents SSIAP1 · PC de sécurité</text>
+  <text x="300" y="238" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#b8ccff">Coordination des secours · Rondes de vérification</text>
+
+  <!-- Arrow 2→1 -->
+  <line x1="300" y1="248" x2="300" y2="270" stroke="#7090c8" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="294,268 306,268 300,278" fill="#7090c8"/>
+
+  <!-- SSIAP 1 — bottom, highlighted, animated -->
+  <rect x="40" y="280" width="520" height="84" rx="8" fill="url(#s1g)"/>
+  <rect x="40" y="280" width="520" height="84" rx="8" fill="none" stroke="#ff7755" stroke-width="4">
+    <animate attributeName="opacity" values="1;0.15;1" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="4;9;4" dur="2.5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="300" y="300" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ffccbb" letter-spacing="3">SSIAP 1 — CE PARCOURS E-LEARNING</text>
+  <text x="300" y="316" text-anchor="middle" font-size="14" font-weight="bold" font-family="Arial,sans-serif" fill="white">Agent de service incendie</text>
+  <text x="300" y="332" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffccb8">Surveillance · Rondes de prévention · Premiers secours aux personnes</text>
+  <text x="300" y="348" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffccb8">Utilisation des extincteurs et RIA · Accueil et guidage des pompiers</text>
+
+  <!-- Badge right: obligatoire -->
+  <rect x="428" y="72" width="155" height="42" rx="6" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.2"/>
+  <text x="506" y="89" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#ddeeff">Obligatoire dans les ERP</text>
+  <text x="506" y="103" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700">catégories 1re à 4e</text>
+
+  <!-- Bottom note -->
+  <text x="300" y="378" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#7080a0">ERP = Établissement Recevant du Public · IGH = Immeuble de Grande Hauteur (> 28 m habitation · > 50 m bureaux)</text>
+</svg>

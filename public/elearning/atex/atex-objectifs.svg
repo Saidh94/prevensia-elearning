@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 380" font-family="Arial, sans-serif">
+
+  <!-- Titre -->
+  <text x="270" y="30" text-anchor="middle" font-size="18" font-weight="900" fill="#1a4e8c">OBJECTIFS DE LA FORMATION ATEX</text>
+
+  <!-- Objectif 1 -->
+  <rect x="20" y="48" width="500" height="56" rx="8" fill="#e8f4ff" stroke="#1a4e8c" stroke-width="1.5"/>
+  <rect x="20" y="48" width="56" height="56" rx="8" fill="#1a4e8c"/>
+  <!-- Icône danger -->
+  <polygon points="48,58 62,78 34,78" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="48" y="75" text-anchor="middle" font-size="14" font-weight="900" fill="#fff">!</text>
+  <text x="90" y="70" font-size="13" font-weight="800" fill="#1a4e8c">ÉVALUER LES RISQUES</text>
+  <text x="90" y="88" font-size="12" fill="#444">pour mettre en œuvre une démarche ATEX adaptée</text>
+
+  <!-- Objectif 2 -->
+  <rect x="20" y="116" width="500" height="56" rx="8" fill="#fff8e6" stroke="#e67e00" stroke-width="1.5"/>
+  <rect x="20" y="116" width="56" height="56" rx="8" fill="#e67e00"/>
+  <!-- Icône cible -->
+  <circle cx="48" cy="144" r="14" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <circle cx="48" cy="144" r="7" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <circle cx="48" cy="144" r="2" fill="#fff"/>
+  <text x="90" y="138" font-size="13" font-weight="800" fill="#c05a00">IDENTIFIER LES ZONES ATEX</text>
+  <text x="90" y="156" font-size="12" fill="#444">pour délimiter et matérialiser le risque explosif</text>
+
+  <!-- Objectif 3 -->
+  <rect x="20" y="184" width="500" height="56" rx="8" fill="#f0fff0" stroke="#2d7a2d" stroke-width="1.5"/>
+  <rect x="20" y="184" width="56" height="56" rx="8" fill="#2d7a2d"/>
+  <!-- Icône ampoule -->
+  <ellipse cx="48" cy="206" rx="11" ry="12" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <line x1="42" y1="220" x2="54" y2="220" stroke="#fff" stroke-width="2"/>
+  <line x1="44" y1="224" x2="52" y2="224" stroke="#fff" stroke-width="2"/>
+  <text x="90" y="206" font-size="13" font-weight="800" fill="#2d7a2d">CONNAÎTRE LES SUBSTANCES EXPLOSIVES</text>
+  <text x="90" y="224" font-size="12" fill="#444">gaz, vapeurs, brouillards et poussières combustibles</text>
+
+  <!-- Objectif 4 -->
+  <rect x="20" y="252" width="500" height="56" rx="8" fill="#fff0f5" stroke="#8b1a4e" stroke-width="1.5"/>
+  <rect x="20" y="252" width="56" height="56" rx="8" fill="#8b1a4e"/>
+  <!-- Icône document + coche -->
+  <rect x="36" y="261" width="24" height="30" rx="3" fill="none" stroke="#fff" stroke-width="2"/>
+  <line x1="40" y1="270" x2="56" y2="270" stroke="#fff" stroke-width="1.5"/>
+  <line x1="40" y1="276" x2="52" y2="276" stroke="#fff" stroke-width="1.5"/>
+  <polyline points="38,284 44,290 58,277" fill="none" stroke="#f5c300" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="90" y="274" font-size="13" font-weight="800" fill="#8b1a4e">INTERVENIR DANS LE RESPECT DE LA RÉGLEMENTATION</text>
+  <text x="90" y="292" font-size="12" fill="#444">directive 99/92/CE, DRPE, permis de feu, matériel certifié Ex</text>
+
+  <!-- Objectif 5 -->
+  <rect x="20" y="320" width="500" height="52" rx="8" fill="#fff0e6" stroke="#cc2200" stroke-width="1.5"/>
+  <rect x="20" y="320" width="56" height="52" rx="8" fill="#cc2200"/>
+  <!-- Icône téléphone secours -->
+  <path d="M36,330 Q36,326 40,326 L44,330 L42,336 Q48,342 54,344 L58,342 Q62,340 62,344 L62,348 Q62,352 58,352 Q40,352 36,334 Z" fill="#fff"/>
+  <text x="90" y="342" font-size="13" font-weight="800" fill="#cc2200">GÉRER L'URGENCE ET ALERTER LES SECOURS</text>
+  <text x="90" y="360" font-size="12" fill="#444">réflexes PEAS, conduite à tenir en cas d'explosion ou de fuite</text>
+
+</svg>

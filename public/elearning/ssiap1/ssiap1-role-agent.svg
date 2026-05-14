@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380" width="620" height="380">
+  <defs>
+    <linearGradient id="bg-role" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2f4f8"/>
+      <stop offset="100%" stop-color="#e8ecf4"/>
+    </linearGradient>
+    <linearGradient id="prev-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a5496"/>
+      <stop offset="100%" stop-color="#1266b8"/>
+    </linearGradient>
+    <linearGradient id="pc-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e5a"/>
+      <stop offset="100%" stop-color="#243870"/>
+    </linearGradient>
+    <linearGradient id="inter-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b81a00"/>
+      <stop offset="100%" stop-color="#e03300"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="620" height="380" fill="url(#bg-role)" rx="12"/>
+
+  <!-- Title -->
+  <text x="310" y="28" text-anchor="middle" font-size="13" font-weight="bold" font-family="Arial,sans-serif" fill="#1a2e5a">RÔLE ET MISSIONS DE L'AGENT SSIAP1</text>
+  <text x="310" y="44" text-anchor="middle" font-size="10" font-family="Arial,sans-serif" fill="#4060a0">Trois axes complémentaires — du quotidien à l'urgence</text>
+  <line x1="40" y1="52" x2="580" y2="52" stroke="#c0cce0" stroke-width="1"/>
+
+  <!-- ══ COL 1: PRÉVENTION ══ -->
+  <rect x="22" y="62" width="180" height="284" rx="9" fill="url(#prev-g)"/>
+  <text x="112" y="84" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700" letter-spacing="1.5">PRÉVENTION</text>
+  <text x="112" y="100" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#b8d0ff">Au quotidien</text>
+  <line x1="36" y1="108" x2="188" y2="108" stroke="white" stroke-opacity="0.2"/>
+
+  <!-- Items -->
+  <circle cx="42" cy="126" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="42" y="130" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">1</text>
+  <text x="60" y="121" font-size="9.5" font-family="Arial,sans-serif" fill="white">Rondes de surveillance</text>
+  <text x="60" y="134" font-size="9" font-family="Arial,sans-serif" fill="#b8d0ff">planifiées selon consignes</text>
+
+  <circle cx="42" cy="158" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="42" y="162" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">2</text>
+  <text x="60" y="153" font-size="9.5" font-family="Arial,sans-serif" fill="white">Vérification équipements</text>
+  <text x="60" y="166" font-size="9" font-family="Arial,sans-serif" fill="#b8d0ff">extincteurs, RIA, balisage</text>
+
+  <circle cx="42" cy="190" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="42" y="194" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">3</text>
+  <text x="60" y="185" font-size="9.5" font-family="Arial,sans-serif" fill="white">Dégagements libres</text>
+  <text x="60" y="198" font-size="9" font-family="Arial,sans-serif" fill="#b8d0ff">portes CF fermées</text>
+
+  <circle cx="42" cy="222" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="42" y="226" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">4</text>
+  <text x="60" y="217" font-size="9.5" font-family="Arial,sans-serif" fill="white">Main courante</text>
+  <text x="60" y="230" font-size="9" font-family="Arial,sans-serif" fill="#b8d0ff">consignation événements</text>
+
+  <circle cx="42" cy="254" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="42" y="258" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">5</text>
+  <text x="60" y="249" font-size="9.5" font-family="Arial,sans-serif" fill="white">Gestion des travaux</text>
+  <text x="60" y="262" font-size="9" font-family="Arial,sans-serif" fill="#b8d0ff">permis de feu, signalement</text>
+
+  <rect x="36" y="274" width="152" height="56" rx="6" fill="white" fill-opacity="0.1"/>
+  <text x="112" y="292" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#cce0ff">Objectif : réduire</text>
+  <text x="112" y="306" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#cce0ff">les risques d'éclosion</text>
+  <text x="112" y="318" text-anchor="middle" font-size="9.5" font-weight="bold" font-family="Arial,sans-serif" fill="white">d'un incendie</text>
+
+  <!-- ══ COL 2: PC SÉCURITÉ (center, highlighted) ══ -->
+  <rect x="218" y="62" width="184" height="284" rx="9" fill="url(#pc-g)"/>
+  <rect x="218" y="62" width="184" height="284" rx="9" fill="none" stroke="#6080c0" stroke-width="2.5">
+    <animate attributeName="opacity" values="1;0.2;1" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="310" y="84" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700" letter-spacing="1.5">PC SÉCURITÉ</text>
+  <text x="310" y="100" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#b8ccff">Poste central · Coordination</text>
+  <line x1="228" y1="108" x2="392" y2="108" stroke="white" stroke-opacity="0.2"/>
+
+  <circle cx="236" cy="132" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="236" y="136" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">A</text>
+  <text x="255" y="127" font-size="9.5" font-family="Arial,sans-serif" fill="white">Surveillance CMSI/ECS</text>
+  <text x="255" y="140" font-size="9" font-family="Arial,sans-serif" fill="#b8ccff">tableaux de signalisation</text>
+
+  <circle cx="236" cy="163" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="236" y="167" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">B</text>
+  <text x="255" y="158" font-size="9.5" font-family="Arial,sans-serif" fill="white">Levée de doute</text>
+  <text x="255" y="171" font-size="9" font-family="Arial,sans-serif" fill="#b8ccff">investigation sur alarme</text>
+
+  <circle cx="236" cy="194" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="236" y="198" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">C</text>
+  <text x="255" y="189" font-size="9.5" font-family="Arial,sans-serif" fill="white">Déclenchement procédures</text>
+  <text x="255" y="202" font-size="9" font-family="Arial,sans-serif" fill="#b8ccff">alarme générale, évacuation</text>
+
+  <circle cx="236" cy="225" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="236" y="229" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">D</text>
+  <text x="255" y="220" font-size="9.5" font-family="Arial,sans-serif" fill="white">Tenue registre sécurité</text>
+  <text x="255" y="233" font-size="9" font-family="Arial,sans-serif" fill="#b8ccff">consignation + rapports</text>
+
+  <circle cx="236" cy="256" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="236" y="260" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">E</text>
+  <text x="255" y="251" font-size="9.5" font-family="Arial,sans-serif" fill="white">Communication</text>
+  <text x="255" y="264" font-size="9" font-family="Arial,sans-serif" fill="#b8ccff">SSIAP2, direction, secours</text>
+
+  <rect x="230" y="276" width="160" height="56" rx="6" fill="white" fill-opacity="0.1"/>
+  <text x="310" y="294" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#ccd8ff">Cœur opérationnel</text>
+  <text x="310" y="308" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#ccd8ff">de la sécurité incendie</text>
+  <text x="310" y="322" text-anchor="middle" font-size="9.5" font-weight="bold" font-family="Arial,sans-serif" fill="white">24h/24 dans ERP 1re cat.</text>
+
+  <!-- ══ COL 3: INTERVENTION ══ -->
+  <rect x="418" y="62" width="180" height="284" rx="9" fill="url(#inter-g)"/>
+  <text x="508" y="84" text-anchor="middle" font-size="10" font-weight="bold" font-family="Arial,sans-serif" fill="#ffd700" letter-spacing="1.5">INTERVENTION</text>
+  <text x="508" y="100" text-anchor="middle" font-size="9.5" font-family="Arial,sans-serif" fill="#ffccb8">En cas d'incident</text>
+  <line x1="428" y1="108" x2="588" y2="108" stroke="white" stroke-opacity="0.2"/>
+
+  <circle cx="438" cy="126" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="438" y="130" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">1</text>
+  <text x="456" y="121" font-size="9.5" font-family="Arial,sans-serif" fill="white">Premier maillon incendie</text>
+  <text x="456" y="134" font-size="9" font-family="Arial,sans-serif" fill="#ffccb8">extinction feu naissant</text>
+
+  <circle cx="438" cy="158" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="438" y="162" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">2</text>
+  <text x="456" y="153" font-size="9.5" font-family="Arial,sans-serif" fill="white">Guidage évacuation</text>
+  <text x="456" y="166" font-size="9" font-family="Arial,sans-serif" fill="#ffccb8">guide-file, serre-file</text>
+
+  <circle cx="438" cy="190" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="438" y="194" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">3</text>
+  <text x="456" y="185" font-size="9.5" font-family="Arial,sans-serif" fill="white">Assistance aux personnes</text>
+  <text x="456" y="198" font-size="9" font-family="Arial,sans-serif" fill="#ffccb8">PMR, premiers secours</text>
+
+  <circle cx="438" cy="222" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="438" y="226" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">4</text>
+  <text x="456" y="217" font-size="9.5" font-family="Arial,sans-serif" fill="white">Accueil des pompiers</text>
+  <text x="456" y="230" font-size="9" font-family="Arial,sans-serif" fill="#ffccb8">plans, info, assistance</text>
+
+  <circle cx="438" cy="254" r="10" fill="white" fill-opacity="0.15"/>
+  <text x="438" y="258" text-anchor="middle" font-size="9" font-weight="bold" font-family="Arial,sans-serif" fill="white">5</text>
+  <text x="456" y="249" font-size="9.5" font-family="Arial,sans-serif" fill="white">Rapport d'incident</text>
+  <text x="456" y="262" font-size="9" font-family="Arial,sans-serif" fill="#ffccb8">registre + compte-rendu</text>
+
+  <rect x="430" y="274" width="154" height="56" rx="6" fill="white" fill-opacity="0.1"/>
+  <text x="508" y="292" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#ffd8cc">N'intervenir QUE si</text>
+  <text x="508" y="306" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#ffd8cc">retraite dégagée</text>
+  <text x="508" y="320" text-anchor="middle" font-size="9.5" font-weight="bold" font-family="Arial,sans-serif" fill="white">+ extincteur adapté</text>
+
+  <!-- Bottom ref -->
+  <text x="310" y="365" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#7080a0">Arrêté du 2 mai 2005 modifié — Code du travail Art. R4227-28 à R4227-41</text>
+</svg>
