@@ -97,7 +97,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Recyclage SSIAP1 (14h / 3 ans)",
       duration: "14h (hybride)",
-      price: "190 EUR HT",
+      price: "250 EUR HT",
       group: "Sur devis",
       participants: "12 max",
       ctaHref: "/formation-recyclage-ssiap1",

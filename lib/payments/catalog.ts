@@ -90,7 +90,7 @@ const paymentRules: PaymentRule[] = [
     label: "Recyclage SSIAP1 - Remise a niveau Securite Incendie ERP",
     anyKeywords: ["recyclage-ssiap1", "recyclage ssiap1", "recyclage ssiap 1", "recyclage ssiap"],
     reason:
-      "Le recyclage SSIAP1 (14 heures obligatoires tous les 3 ans selon l'arrete du 2 mai 2005) comprend une partie pratique encadree. La tarification depend de l'effectif et du format choisi (inter 190 EUR HT ou intra sur devis).",
+      "Le recyclage SSIAP1 (14 heures obligatoires tous les 3 ans selon l'arrete du 2 mai 2005) comprend une partie pratique encadree. La tarification depend de l'effectif et du format choisi (inter 250 EUR HT ou intra sur devis).",
   },
   {
     kind: "quote",

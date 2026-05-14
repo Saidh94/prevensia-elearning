@@ -201,7 +201,7 @@ export default function FormationSsiap1Page() {
             </div>
             <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Recyclage (tous les 3 ans)</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-orange-600">190 € HT</span></p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-orange-600">250 € HT</span></p>
               <p className="mt-1 text-sm text-slate-600">14h · E-learning inclus · Remise à niveau</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">

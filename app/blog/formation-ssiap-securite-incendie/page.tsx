@@ -6,7 +6,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata: Metadata = {
   title: "Formation SSIAP : guide complet SSIAP 1, 2 et 3 | PREVENSIA",
   description:
-    "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), coût (dès 190 € pour le recyclage), financement CPF, débouchés et salaires 2025-2026.",
+    "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), coût (dès 250 € HT pour le recyclage), financement CPF, débouchés et salaires 2025-2026.",
   alternates: {
     canonical: "https://prevensia-formation.fr/blog/formation-ssiap-securite-incendie",
   },
@@ -131,7 +131,7 @@ export default function ArticleFormationSSIAPPage() {
           <p className="font-bold text-red-800 text-lg">L&apos;essentiel en un coup d&apos;œil</p>
           <ul className="mt-3 space-y-1 text-sm text-red-700 leading-7">
             <li>✓ <strong>SSIAP 1</strong> : agent terrain ERP, 70 h, dès 690 € HT, accessible sans expérience préalable</li>
-            <li>✓ <strong>Recyclage obligatoire</strong> tous les 3 ans (arrêté du 2 mai 2005) — 14 h, dès 190 € HT</li>
+            <li>✓ <strong>Recyclage obligatoire</strong> tous les 3 ans (arrêté du 2 mai 2005) — 14 h, dès 250 € HT</li>
             <li>✓ <strong>Éligible CPF</strong> via Mon Compte Formation (organisme Qualiopi requis)</li>
             <li>✓ <strong>Débouchés solides</strong> : hôpitaux, centres commerciaux, hôtels, gares, IGH</li>
             <li>✓ <strong>Salaires</strong> : 1 600 €/mois (SSIAP 1 débutant) → 3 800 €/mois (SSIAP 3)</li>
@@ -197,7 +197,7 @@ export default function ArticleFormationSSIAPPage() {
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-bold text-slate-900">Recyclage SSIAP 1 (14h / 3 ans)</p>
-              <p className="mt-1 text-2xl font-bold text-red-700">190 € HT</p>
+              <p className="mt-1 text-2xl font-bold text-red-700">250 € HT</p>
               <p className="text-sm text-slate-500">14 heures · hybride</p>
             </div>
           </div>

@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Recyclage SSIAP1 — Remise à niveau Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "Recyclage SSIAP1 obligatoire (14h/3 ans) : e-learning + présentiel. Remise à niveau réglementaire, SSI catégories A→E, IGH, gestion des travaux. À partir de 190 € HT. Attestation incluse.",
+    "Recyclage SSIAP1 obligatoire (14h/3 ans) : e-learning + présentiel. Remise à niveau réglementaire, SSI catégories A→E, IGH, gestion des travaux. À partir de 250 € HT. Attestation incluse.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-recyclage-ssiap1",
   },
@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Recyclage SSIAP1 — Remise à niveau 14h Sécurité Incendie ERP",
     description:
-      "Recyclage SSIAP1 obligatoire tous les 3 ans. E-learning (théorie) + présentiel (pratique). SSI catégories A→E, IGH, gestion travaux. À partir de 190 € HT.",
+      "Recyclage SSIAP1 obligatoire tous les 3 ans. E-learning (théorie) + présentiel (pratique). SSI catégories A→E, IGH, gestion travaux. À partir de 250 € HT.",
     url: "https://prevensia-formation.fr/formation-recyclage-ssiap1",
   },
 };
@@ -52,7 +52,7 @@ const faqItems = [
   {
     question: "Quel est le prix du recyclage SSIAP1 chez PREVENSIA ?",
     answer:
-      "Le recyclage SSIAP1 est proposé à partir de 190 € HT par personne en inter-entreprises. Pour les formations intra-entreprises (formateur PREVENSIA chez vous), le tarif est établi sur devis selon l'effectif et la localisation. L'accès e-learning est inclus dans le tarif du recyclage.",
+      "Le recyclage SSIAP1 est proposé à partir de 250 € HT par personne en inter-entreprises. Pour les formations intra-entreprises (formateur PREVENSIA chez vous), le tarif est établi sur devis selon l'effectif et la localisation. L'accès e-learning est inclus dans le tarif du recyclage.",
   },
   {
     question: "Peut-on faire le recyclage SSIAP1 entièrement en e-learning ?",
@@ -177,7 +177,7 @@ export default function FormationRecyclageSsiap1Page() {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Inter-entreprises</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-orange-600">190 € HT</span></p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-orange-600">250 € HT</span></p>
               <p className="mt-1 text-sm text-slate-600">Par personne · E-learning inclus · Attestation</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -314,7 +314,7 @@ export default function FormationRecyclageSsiap1Page() {
               <div className="mt-4 flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
                 <div>
                   <p className="text-xs text-slate-500">À partir de / personne</p>
-                  <p className="text-2xl font-bold text-slate-900">190 € HT</p>
+                  <p className="text-2xl font-bold text-slate-900">250 € HT</p>
                 </div>
                 <Link href="/demande-devis?type=recyclage-ssiap1" className="rounded-lg bg-slate-700 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-600 transition-colors">
                   Demander →
@@ -357,7 +357,7 @@ export default function FormationRecyclageSsiap1Page() {
                 <tr>
                   <td className="px-4 py-3 font-medium text-slate-900">Tarif indicatif</td>
                   <td className="px-4 py-3 text-center text-slate-700">À partir de 690 € HT</td>
-                  <td className="px-4 py-3 text-center text-orange-700 font-semibold">À partir de 190 € HT</td>
+                  <td className="px-4 py-3 text-center text-orange-700 font-semibold">À partir de 250 € HT</td>
                 </tr>
               </tbody>
             </table>
@@ -390,7 +390,7 @@ export default function FormationRecyclageSsiap1Page() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Recyclage SSIAP1 — Votre qualification à jour</h2>
           <p className="mt-4 text-lg text-slate-300">
-            14h réglementaires · E-learning inclus · Exercices pratiques · Attestation de recyclage · À partir de 190 € HT
+            14h réglementaires · E-learning inclus · Exercices pratiques · Attestation de recyclage · À partir de 250 € HT
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link

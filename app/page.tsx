@@ -88,7 +88,7 @@ const formations = [
     href: "/formation-recyclage-ssiap1",
     badge: "Recyclage obligatoire · 14h / 3 ans",
     description:
-      "Remise à niveau SSIAP1 obligatoire tous les 3 ans (arrêté du 2 mai 2005). 14 heures hybrides : e-learning théorique + présentiel pratique. À partir de 190 € HT.",
+      "Remise à niveau SSIAP1 obligatoire tous les 3 ans (arrêté du 2 mai 2005). 14 heures hybrides : e-learning théorique + présentiel pratique. À partir de 250 € HT.",
     image: "/elearning/commun/ssiap1-accueil.png",
     imageClass: "object-cover object-center",
   },
