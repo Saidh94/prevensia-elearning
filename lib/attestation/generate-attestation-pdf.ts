@@ -771,9 +771,9 @@ function drawFirstPage(params: {
   const signCenter = 248;
   const signRight = contentWidth - signLeft - signCenter;
 
-  const sigContentY = 36;            // bottom of content row (58pt tall)
-  const sigHeaderY  = sigContentY + 58;   // = 94  — bottom of header row
-  const discBottomY = sigHeaderY + 18 + 10; // = 122 — bottom of disclaimer box
+  const sigContentY = 58;            // bottom of content row (58pt tall) — décalé vers le haut pour dégager le footer
+  const sigHeaderY  = sigContentY + 58;   // = 116 — bottom of header row
+  const discBottomY = sigHeaderY + 18 + 10; // = 144 — bottom of disclaimer box
   const discHeight  = 54;
 
   // Disclaimer anchored just above signatures
