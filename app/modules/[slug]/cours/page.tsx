@@ -260,6 +260,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Identifier les zones à risque, comprendre le voisinage et respecter strictement les limites d’approche",
     minSeconds: 300,
+    image: "/images/modules/electricite/zones-voisinage-bt.jpg",
+    imageAlt:
+      "Schéma des zones de voisinage et des limites d’approche autour d’un conducteur nu en basse tension",
     highlights: [
       "Le danger commence avant le contact.",
       "Le voisinage d’une pièce nue sous tension constitue déjà un risque.",
