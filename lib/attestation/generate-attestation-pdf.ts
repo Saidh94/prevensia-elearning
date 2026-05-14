@@ -935,20 +935,21 @@ function drawSuccessPage(params: {
     color: colors.brand,
   });
 
-  // Logo centré horizontalement dans la bande navy, fond blanc arrondi
+  // Logo centré horizontalement dans la bande navy, fond blanc ajusté
   if (logoImage) {
     try {
       const dims = logoImage.scale(1);
-      const maxLogoW = 200;
-      const maxLogoH = 56;
+      const maxLogoW = 190;
+      const maxLogoH = 66;   // plus grand pour mieux remplir la bande
       const scale = Math.min(maxLogoW / dims.width, maxLogoH / dims.height);
       const imageWidth = dims.width * scale;
       const imageHeight = dims.height * scale;
       const bandCenterX = margin + (pageWidth - margin * 2) / 2;
       const bandCenterY = pageHeight - 126 + 45; // centre vertical de la bande (h=90)
 
-      const padX = 14;
-      const padY = 8;
+      // Padding réduit : fond blanc serré autour du logo
+      const padX = 8;
+      const padY = 5;
       page.drawRectangle({
         x: bandCenterX - imageWidth / 2 - padX,
         y: bandCenterY - imageHeight / 2 - padY,
@@ -976,13 +977,18 @@ function drawSuccessPage(params: {
     color: rgb(1, 1, 1),
   });
 
+  // Boîte de référence — flush avec le bord droit de la bande
+  const refBoxWidth = 144;
+  const refBoxX = pageWidth - margin - refBoxWidth;
+  const refBoxH = 58;
+  const refBoxY = pageHeight - 126 + (90 - refBoxH) / 2; // centré dans la bande
   drawCell(
     page,
     `Référence : ${attestationId}\nDate de réussite : ${validationDate}`,
-    pageWidth - margin - 144,
-    pageHeight - 109,
-    110,
-    58,
+    refBoxX,
+    refBoxY,
+    refBoxWidth,
+    refBoxH,
     {
       font: fontRegular,
       size: 7.8,
