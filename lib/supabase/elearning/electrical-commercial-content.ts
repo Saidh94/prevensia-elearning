@@ -264,10 +264,20 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       "Tenir correctement un role d'exécutant B1 ou B1V, reconnaître les limites du voisinage, appliquer les consignes sans improvisation et signaler immédiatement tout écart ou doute.",
     audience:
       "Electriciens exécutants, techniciens batiment et personnels charges d'executer des travaux electriques en basse tension dans un cadre prepare par un chargé de travaux.",
+    resourceFiles: [
+      {
+        title: "Formation Habilitations Électriques B1–B2V — Support de formation",
+        description: "Support complet B1 / B1V / B2 / B2V : rôles, périmètres, voisinage, organisation des travaux, consignes et conduite à tenir.",
+        url: "/downloads/b1-b2v-habilitation-electrique.pdf",
+        fileType: "PDF",
+        ctaLabel: "Télécharger le support de formation",
+      },
+    ],
     sections: [
       section("cadre-general", { chapterImagePath: IMG.b1b2Roles }),
       section("roles-responsabilites", {
         chapterImagePath: IMG.b1b2Chaine,
+
         intro:
           "Le B1 ou B1V est un exécutant. Son role consiste a appliquer une consigne de travail, dans un perimetre defini, sans se substituer au chargé de travaux ni decider seul d'un changement de methode.",
         content: [
@@ -382,6 +392,15 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       "Preparer et diriger des travaux electriques en basse tension, organiser le briefing, controler la zone et stopper l'operation des qu'un écart remet en cause le cadre de securite.",
     audience:
       "Charges de travaux, chefs d'equipe et techniciens amenes a organiser et diriger des travaux electriques en basse tension avec ou sans voisinage.",
+    resourceFiles: [
+      {
+        title: "Formation Habilitations Électriques B1–B2V — Support de formation",
+        description: "Support complet B1 / B1V / B2 / B2V : rôles, périmètres, voisinage, organisation des travaux, consignes et conduite à tenir.",
+        url: "/downloads/b1-b2v-habilitation-electrique.pdf",
+        fileType: "PDF",
+        ctaLabel: "Télécharger le support de formation",
+      },
+    ],
     sections: [
       section("cadre-general", { chapterImagePath: IMG.b1b2Roles, estimatedMinutes: 18 }),
       section("roles-responsabilites", {
@@ -537,6 +556,15 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       "Preparer et conduire une intervention generale BR, tenir les limites du depannage, mesurer sans deriver vers les travaux et remettre en service de facon controlee.",
     audience:
       "Techniciens de maintenance, electriciens de depannage et personnels amenes a conduire des interventions generales en basse tension dans un cadre maitrise.",
+    resourceFiles: [
+      {
+        title: "Formation Habilitation Électrique BR — Présentation Professionnelle",
+        description: "Support complet BR : interventions générales, diagnostic, dépannage, remplacement, mesures et remise en service contrôlée dans les limites du BR.",
+        url: "/downloads/br-habilitation-electrique.pdf",
+        fileType: "PDF",
+        ctaLabel: "Télécharger le support de formation",
+      },
+    ],
     sections: [
       section("cadre-general", { chapterImagePath: IMG.b1b2Roles }),
       section("roles-responsabilites", {

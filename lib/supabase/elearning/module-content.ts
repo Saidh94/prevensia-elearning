@@ -917,6 +917,15 @@ export const modulesContent: Record<string, ModuleContent> = {
     finalMessage:
       "Ce parcours vous prépare aux fondamentaux BS / BE Manœuvre. La validation opérationnelle passe ensuite par la mise en situation pratique et l’évaluation encadrée.",
     quizCtaLabel: "Passer au quiz BS / BE Manœuvre",
+    resourceFiles: [
+      {
+        title: "Habilitation Électrique BSBE Manœuvre — Support de formation Prevensia",
+        description: "Support complet BS / BE Manœuvre : périmètre d'intervention, opérations autorisées, manœuvres simples, conduite à tenir en cas d'anomalie.",
+        url: "/downloads/bsbe-manoeuvre-habilitation-electrique.pdf",
+        fileType: "PDF",
+        ctaLabel: "Télécharger le support de formation",
+      },
+    ],
     sections: [
       {
         id: "cadre",
