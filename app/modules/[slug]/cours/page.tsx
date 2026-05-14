@@ -331,9 +331,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre que la sécurité ne repose pas seulement sur la mémoire du cours, mais aussi sur les consignes et dispositifs du site",
     minSeconds: 240,
-    image: "/elearning/references/document-chantier.jpg",
+    image: "/elearning/h0b0/h0b0-consignes.svg",
     imageAlt:
-      "Exemple de document technique ou administratif associe a une installation electrique",
+      "Signalisation, consignes et documents applicables en environnement H0B0",
     highlights: [
       "Le balisage et la signalisation doivent être respectés sans interprétation personnelle.",
       "Les consignes du site complètent la formation générale.",
