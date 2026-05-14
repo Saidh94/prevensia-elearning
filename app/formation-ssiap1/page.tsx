@@ -167,25 +167,25 @@ export default function FormationSsiap1Page() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/elearning/ssiap1"
+              href="/demande-devis?type=ssiap1-initial"
               className="rounded-xl bg-red-500 px-6 py-3 font-semibold text-white hover:bg-red-400 transition-colors"
             >
-              Démarrer la formation — 119 € HT
+              Demander la formation initiale SSIAP1
             </Link>
             <Link
-              href="/demande-devis?type=ssiap1"
+              href="/demande-devis?type=ssiap1-recyclage"
               className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Devis intra-entreprise
+              Recyclage SSIAP1 (14h / 3 ans)
             </Link>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
-            <span>✓ Conforme réglementation ERP</span>
-            <span>✓ Accès e-learning immédiat</span>
-            <span>✓ 3 heures de formation</span>
-            <span>✓ Attestation incluse</span>
-            <span>✓ 10 modules structurés</span>
+            <span>✓ E-learning inclus dans la formation</span>
+            <span>✓ Formation initiale 67h min</span>
+            <span>✓ Recyclage 14h tous les 3 ans</span>
+            <span>✓ Attestation + rapport employeur</span>
+            <span>✓ Max 12 stagiaires par session</span>
           </div>
         </div>
       </section>
@@ -194,20 +194,20 @@ export default function FormationSsiap1Page() {
       <section className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Individuel</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">119 € HT</p>
-              <p className="mt-1 text-sm text-slate-600">Accès complet e-learning + attestation</p>
-            </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-red-700">Intra-entreprise</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-red-700">Formation initiale</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">Sur devis</p>
-              <p className="mt-1 text-sm text-slate-600">Groupe — tarif selon effectif et établissement</p>
+              <p className="mt-1 text-sm text-slate-600">67h min · E-learning inclus · Attestation</p>
+            </div>
+            <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Recyclage (3 ans)</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">Sur devis</p>
+              <p className="mt-1 text-sm text-slate-600">14h · E-learning inclus · Remise à niveau</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Durée</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">E-learning inclus</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">3 h</p>
-              <p className="mt-1 text-sm text-slate-600">10 modules + quiz de validation</p>
+              <p className="mt-1 text-sm text-slate-600">10 modules · Quiz · Accès stagiaires</p>
             </div>
           </div>
         </div>
@@ -316,32 +316,26 @@ export default function FormationSsiap1Page() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
 
-            {/* E-learning individuel */}
-            <div className="rounded-2xl border-2 border-red-200 bg-white p-6">
+            {/* E-learning inclus */}
+            <div className="rounded-2xl border-2 border-slate-200 bg-slate-50 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red-500 text-white text-lg font-bold">1</span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-400 text-white text-lg font-bold">✓</span>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-red-600">E-learning autonome</p>
-                  <p className="font-bold text-slate-900 text-lg">Formation individuelle en ligne</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Inclus dans chaque formation</p>
+                  <p className="font-bold text-slate-900 text-lg">Accès e-learning pour chaque stagiaire</p>
                 </div>
               </div>
               <div className="space-y-2 text-sm text-slate-600">
-                <p>Accès immédiat après paiement, depuis n&apos;importe quel poste connecté. Le stagiaire progresse à son rythme, en solo, sans date ni lieu imposé.</p>
+                <p>L&apos;accès aux 10 modules e-learning est <strong>systématiquement inclus</strong> pour chaque stagiaire inscrit à une formation SSIAP1 (initiale ou recyclage). Il sert de support théorique avant et pendant la formation encadrée.</p>
                 <ul className="mt-3 space-y-1">
-                  <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>10 modules théoriques avec schémas SVG animés</li>
-                  <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>Quiz de validation 20 questions</li>
-                  <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>Attestation de formation nominative</li>
-                  <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>Accessible 24h/24 depuis PC, tablette ou mobile</li>
+                  <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Accès individuel activé à l&apos;inscription</li>
+                  <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>10 modules + quiz de validation</li>
+                  <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Accessible 24h/24 depuis PC, tablette ou mobile</li>
+                  <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Non vendu séparément</li>
                 </ul>
               </div>
-              <div className="mt-4 flex items-center justify-between rounded-xl bg-red-50 border border-red-200 px-4 py-3">
-                <div>
-                  <p className="text-xs text-slate-500">Tarif individuel</p>
-                  <p className="text-2xl font-bold text-slate-900">119 € HT</p>
-                </div>
-                <Link href="/elearning/ssiap1" className="rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white hover:bg-red-400 transition-colors">
-                  Démarrer →
-                </Link>
+              <div className="mt-4 rounded-xl bg-white border border-slate-200 px-4 py-3">
+                <p className="text-sm text-slate-600">Pour accéder au e-learning, inscrivez-vous à une formation initiale ou un recyclage SSIAP1 chez PREVENSIA.</p>
               </div>
             </div>
 
@@ -665,22 +659,22 @@ export default function FormationSsiap1Page() {
       {/* CTA final */}
       <section className="bg-slate-950 py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold">Prêt à vous former à la sécurité incendie ERP ?</h2>
+          <h2 className="text-3xl font-bold">Former vos agents à la sécurité incendie ERP ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Accès e-learning immédiat · 10 modules · Quiz de validation · Attestation incluse
+            Formation initiale 67h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Attestation + rapport employeur
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/elearning/ssiap1"
+              href="/demande-devis?type=ssiap1-initial"
               className="rounded-xl bg-red-500 px-8 py-4 font-semibold text-white hover:bg-red-400 transition-colors"
             >
-              Démarrer maintenant — 119 € HT
+              Formation initiale SSIAP1 — Devis
             </Link>
             <Link
-              href="/demande-devis?type=ssiap1"
+              href="/demande-devis?type=ssiap1-recyclage"
               className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Devis entreprise
+              Recyclage SSIAP1 — Devis
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-400">

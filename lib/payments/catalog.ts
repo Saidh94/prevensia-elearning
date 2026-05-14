@@ -73,10 +73,11 @@ const paymentRules: PaymentRule[] = [
     anyKeywords: ["atex", "atmosphere explosive", "atmospheres explosives"],
   },
   {
-    envKey: "STRIPE_PRICE_SSIAP1_ELEARNING_CENTS",
-    kind: "direct",
+    kind: "quote",
     label: "Sensibilisation SSIAP1 - Securite Incendie ERP",
     anyKeywords: ["ssiap1", "ssiap 1", "sensibilisation ssiap", "securite incendie erp"],
+    reason:
+      "L'acces e-learning SSIAP1 est inclus avec la formation initiale (67h) ou le recyclage (14h/3 ans). Il n'est pas vendu separement.",
   },
   {
     envKey: "STRIPE_PRICE_H0B0_RECYCLAGE_CENTS",
