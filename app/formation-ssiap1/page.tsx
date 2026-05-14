@@ -196,12 +196,12 @@ export default function FormationSsiap1Page() {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-red-700">Formation initiale</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">Sur devis</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-red-600">690 € HT</span></p>
               <p className="mt-1 text-sm text-slate-600">67h min · E-learning inclus · Attestation</p>
             </div>
             <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Recyclage (3 ans)</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">Sur devis</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Recyclage (tous les 3 ans)</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-orange-600">190 € HT</span></p>
               <p className="mt-1 text-sm text-slate-600">14h · E-learning inclus · Remise à niveau</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -360,8 +360,8 @@ export default function FormationSsiap1Page() {
               </div>
               <div className="mt-4 flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
                 <div>
-                  <p className="text-xs text-slate-500">Tarif groupe</p>
-                  <p className="text-2xl font-bold text-slate-900">Sur devis</p>
+                  <p className="text-xs text-slate-500">À partir de / personne</p>
+                  <p className="text-2xl font-bold text-slate-900">690 € HT</p>
                 </div>
                 <Link href="/demande-devis?type=ssiap1-intra" className="rounded-lg bg-slate-700 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-600 transition-colors">
                   Demander →
@@ -389,8 +389,8 @@ export default function FormationSsiap1Page() {
               </div>
               <div className="mt-4 flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
                 <div>
-                  <p className="text-xs text-slate-500">Tarif par personne</p>
-                  <p className="text-2xl font-bold text-slate-900">Sur devis</p>
+                  <p className="text-xs text-slate-500">À partir de / personne</p>
+                  <p className="text-2xl font-bold text-slate-900">690 € HT</p>
                 </div>
                 <Link href="/planning" className="rounded-lg bg-slate-700 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-600 transition-colors">
                   Voir les dates →
@@ -419,8 +419,8 @@ export default function FormationSsiap1Page() {
               </div>
               <div className="mt-4 flex items-center justify-between rounded-xl bg-white border border-orange-200 px-4 py-3">
                 <div>
-                  <p className="text-xs text-slate-500">Tarif selon effectif</p>
-                  <p className="text-2xl font-bold text-slate-900">Sur devis</p>
+                  <p className="text-xs text-slate-500">À partir de / personne</p>
+                  <p className="text-2xl font-bold text-slate-900">690 € HT</p>
                 </div>
                 <Link href="/demande-devis?type=ssiap1-hybride" className="rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400 transition-colors">
                   Demander →

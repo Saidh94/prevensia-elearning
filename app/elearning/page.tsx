@@ -355,7 +355,7 @@ const formations = [
     title: "Sensibilisation SSIAP1 — Sécurité Incendie ERP",
     duration: "Duree e-learning : 2 h 30 à 3 h",
     mode: "E-learning inclus dans la formation initiale (67h) ou le recyclage (14h)",
-    price: "Inclus avec la formation initiale ou le recyclage",
+    price: "À partir de 690 EUR HT (initiale) · 190 EUR HT (recyclage)",
     level: "Debutant a intermediaire",
     audience:
       "Agents de sécurité incendie, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux), chargés de sécurité souhaitant acquérir les bases théoriques du SSIAP1.",
