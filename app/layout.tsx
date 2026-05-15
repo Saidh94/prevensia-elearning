@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ChatWidget from "@/components/site/ChatWidget";
 import CookieBanner from "@/components/site/CookieBanner";
+import BackToTop from "@/components/site/BackToTop";
 import { Footer } from "@/components/site/Footer";
 
 const SITE_URL = "https://prevensia-formation.fr";
@@ -158,6 +159,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <BackToTop />
         <ChatWidget />
         <CookieBanner />
       </body>
