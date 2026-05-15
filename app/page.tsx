@@ -1,23 +1,24 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
 import TrainingCatalogTabsClean from "@/components/site/TrainingCatalogTabsClean";
 import FloatingContactButtons from "@/components/site/FloatingContactButtons";
 import LocationCoverageSection from "@/components/site/LocationCoverageSection";
 import { homepageElectricalSummary } from "@/lib/electrical-offers";
 import { Header } from "@/app/components/Header";
+import HomeSessionsList from "@/app/components/HomeSessionsList";
 
-type HomeSession = {
-  id: string;
-  title: string;
-  date_start: string;
-  format?: string | null;
-  places_total: number;
-  places_taken: number;
-  places_restantes?: number;
+export const metadata: Metadata = {
+  title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSIAP1, SSI",
+  description:
+    "Organisme certifié Qualiopi. Formations habilitation électrique NF C 18-510, ATEX, SSIAP1 agréé préfecture, SSI, sprinkler, SST. Présentiel, e-learning, intra-entreprise.",
+  alternates: { canonical: "https://prevensia-formation.fr" },
+  openGraph: {
+    title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSIAP1, SSI",
+    description:
+      "Organisme certifié Qualiopi. Habilitation électrique NF C 18-510, ATEX, SSIAP1 agréé préfecture, SSI, sprinkler, SST. Présentiel, e-learning, intra.",
+    url: "https://prevensia-formation.fr",
+  },
 };
 
 const formations = [
@@ -127,94 +128,6 @@ const inrsVideoResources = [
 ];
 
 export default function Home() {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
-  const [homeSessions, setHomeSessions] = useState<HomeSession[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadSessions = async () => {
-      try {
-        const res = await fetch("/api/sessions", { cache: "no-store" });
-
-        if (!res.ok) {
-          console.error("Erreur API /api/sessions :", res.status);
-          if (isMounted) setHomeSessions([]);
-          return;
-        }
-
-        const text = await res.text();
-        let data: unknown;
-
-        try {
-          data = JSON.parse(text);
-        } catch {
-          console.error("Réponse non JSON /api/sessions :", text);
-          if (isMounted) setHomeSessions([]);
-          return;
-        }
-
-        if (!Array.isArray(data)) {
-          if (isMounted) setHomeSessions([]);
-          return;
-        }
-
-        const filtered = (data as HomeSession[])
-          .filter((s) => {
-            const format = (s.format ?? "").toLowerCase();
-            const title = (s.title ?? "").toLowerCase();
-
-            return (
-              !format.includes("e-learning") &&
-              !format.includes("elearning") &&
-              !title.includes("e-learning") &&
-              !title.includes("elearning")
-            );
-          })
-          .sort(
-            (a, b) =>
-              new Date(a.date_start).getTime() -
-              new Date(b.date_start).getTime()
-          )
-          .slice(0, 6);
-
-        if (isMounted) {
-          setHomeSessions(filtered);
-        }
-      } catch (err) {
-        console.error("Erreur chargement sessions Home :", err);
-        if (isMounted) setHomeSessions([]);
-      } finally {
-        if (isMounted) setLoading(false);
-      }
-    };
-
-    loadSessions();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTopButton(window.scrollY > 300);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const goTo = (path: string) => {
-    router.push(path);
-  };
-
   return (
     <div id="top" className="min-h-screen bg-slate-50 text-slate-900">
       <Header />
@@ -354,13 +267,12 @@ export default function Home() {
           >
             Demander un devis
           </Link>
-          <button
-            type="button"
-            onClick={() => goTo("/planning")}
+          <Link
+            href="/planning"
             className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/10"
           >
             Voir le planning
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -503,7 +415,7 @@ export default function Home() {
                 <h3 className="mt-5 text-xl font-bold">Souplesse de format</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   E-learning encadré pour H0B0/H0V et BS/BE Manœuvre. Présentiel et
-                  classes virtuelle pour les habilitations B1, B2, BR, BC. Intra-entreprise
+                  classe virtuelle pour les habilitations B1, B2, BR, BC. Intra-entreprise
                   pour les groupes. Vous choisissez ce qui colle à votre organisation.
                 </p>
               </div>
@@ -690,7 +602,7 @@ export default function Home() {
               <p className="mt-4 text-slate-600">
                 PREVENSIA s'appuie sur ses propres parcours, mais recommande
                 aussi des ressources officielles INRS pour consolider les
-                reperes reglementaires, le choix des symboles et la logique de
+                repères réglementaires, le choix des symboles et la logique de
                 prévention.
               </p>
             </div>
@@ -885,70 +797,7 @@ export default function Home() {
               </p>
             </div>
 
-            {loading ? (
-              <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 text-slate-600 shadow-sm">
-                Chargement des sessions...
-              </div>
-            ) : homeSessions.length === 0 ? (
-              <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 text-slate-600 shadow-sm">
-                Aucune session disponible pour le moment.
-              </div>
-            ) : (
-              <div className="mt-8 grid gap-4">
-                {homeSessions.map((s) => {
-                  const places =
-                    s.places_restantes ?? s.places_total - s.places_taken;
-
-                  return (
-                    <div
-                      key={s.id}
-                      className="grid gap-4 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6 shadow-sm md:grid-cols-[180px_1fr_180px] md:items-center"
-                    >
-                      <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-                          Date
-                        </p>
-                        <p className="mt-1 text-lg font-bold">
-                          {new Date(s.date_start).toLocaleDateString("fr-FR", {
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric",
-                          })}
-                        </p>
-                      </div>
-
-                      <div>
-                        <p className="text-xl font-semibold">{s.title}</p>
-                        <p className="mt-1 text-sm text-slate-600">
-                          {s.format || "Présentiel"}
-                        </p>
-                        <p className="mt-2 text-sm font-medium text-slate-700">
-                          Places restantes :{" "}
-                          <span className="font-bold text-red-700">
-                            {places}
-                          </span>
-                        </p>
-                      </div>
-
-                      <div className="flex justify-start md:justify-end">
-                        <Link
-                          href={`/inscription?sessionId=${s.id}&formation=${encodeURIComponent(
-                            s.title
-                          )}&date=${encodeURIComponent(
-                            s.date_start
-                          )}&format=${encodeURIComponent(
-                            s.format ?? "Présentiel"
-                          )}`}
-                          className="rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                        >
-                          Réserver
-                        </Link>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
+            <HomeSessionsList />
 
             <div className="mt-8">
               <Link
