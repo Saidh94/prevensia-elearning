@@ -92,12 +92,19 @@ export async function GET() {
       (a, b) => b.enrollmentCount - a.enrollmentCount
     );
 
+    // ── Tickets support ──────────────────────────────────────────────────────────
+    const { data: tickets } = await adminClient
+      .from("support_tickets")
+      .select("id, user_email, user_name, issue_type, message, status, admin_note, created_at, updated_at")
+      .order("created_at", { ascending: false });
+
     return NextResponse.json({
       profiles: profiles ?? [],
       enrollments: enrollments ?? [],
       chapterProgress: chapterProgress ?? [],
       quizAttempts: quizAttempts ?? [],
       clients,
+      tickets: tickets ?? [],
     });
   } catch (error) {
     console.error("[Support API] Erreur :", error);

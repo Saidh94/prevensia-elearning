@@ -97,7 +97,7 @@ export default function LocationCoverageSection() {
             <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-slate-100">
               <iframe
                 title="Localisation PREVENSIA FORMATION — 38 rue des Mathurins, Paris 8e"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=2.3128%2C48.8645%2C2.3328%2C48.8845&layer=mapnik&marker=48.8745%2C2.3228"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=2.3034%2C48.8709%2C2.3434%2C48.8809&layer=mapnik&marker=48.8759%2C2.3234"
                 className="h-[420px] w-full border-0"
                 loading="lazy"
                 allowFullScreen

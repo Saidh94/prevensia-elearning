@@ -56,15 +56,28 @@ type Client = {
   enrollmentCount: number;
 };
 
+type SupportTicket = {
+  id: string;
+  user_email: string;
+  user_name: string | null;
+  issue_type: string;
+  message: string | null;
+  status: "open" | "in_progress" | "resolved";
+  admin_note: string | null;
+  created_at: string | null;
+  updated_at: string | null;
+};
+
 type SupportData = {
   profiles: Profile[];
   enrollments: Enrollment[];
   chapterProgress: ChapterProgress[];
   quizAttempts: QuizAttempt[];
   clients: Client[];
+  tickets: SupportTicket[];
 };
 
-type TabKey = "apprenants" | "commandes" | "clients" | "parcours";
+type TabKey = "apprenants" | "commandes" | "clients" | "parcours" | "tickets";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -195,11 +208,23 @@ export default function SupportPage() {
       });
   }, [data, q]);
 
-  const tabs: { key: TabKey; label: string; count?: number }[] = [
+  const ISSUE_LABELS: Record<string, string> = {
+    no_access_course:  "Pas d'accès au cours",
+    pdf_not_generated: "PDF non généré",
+    no_account_access: "Pas d'accès au compte",
+    broken_link:       "Lien cassé",
+    password_reset:    "Mot de passe oublié",
+    other:             "Autre",
+  };
+
+  const openTickets = data?.tickets.filter((t) => t.status === "open").length ?? 0;
+
+  const tabs: { key: TabKey; label: string; count?: number; alert?: boolean }[] = [
     { key: "apprenants", label: "Apprenants", count: data?.profiles.length },
-    { key: "commandes", label: "Commandes", count: data?.enrollments.length },
-    { key: "clients", label: "Clients / Entreprises", count: data?.clients.length },
-    { key: "parcours", label: "Suivi des parcours" },
+    { key: "commandes",  label: "Commandes",  count: data?.enrollments.length },
+    { key: "clients",    label: "Clients / Entreprises", count: data?.clients.length },
+    { key: "parcours",   label: "Suivi des parcours" },
+    { key: "tickets",    label: "Tickets Support", count: data?.tickets.length, alert: openTickets > 0 },
   ];
 
   if (loading) {
@@ -275,9 +300,12 @@ export default function SupportPage() {
           >
             {t.label}
             {t.count !== undefined && (
-              <span className={`ml-2 rounded-full px-2 py-0.5 text-xs ${tab === t.key ? "bg-white/20" : "bg-slate-100"}`}>
+              <span className={`ml-2 rounded-full px-2 py-0.5 text-xs ${tab === t.key ? "bg-white/20" : t.alert ? "bg-red-100 text-red-700" : "bg-slate-100"}`}>
                 {t.count}
               </span>
+            )}
+            {t.alert && tab !== t.key && (
+              <span className="ml-1 inline-block h-2 w-2 rounded-full bg-red-500" />
             )}
           </button>
         ))}
@@ -512,6 +540,98 @@ export default function SupportPage() {
               Aucun résultat
             </div>
           )}
+        </div>
+      )}
+
+      {/* ── Onglet Tickets Support ── */}
+      {tab === "tickets" && (
+        <div className="space-y-4">
+          {/* Résumé statuts */}
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { label: "Ouverts", status: "open",        color: "text-red-700",   bg: "bg-red-50 border-red-200" },
+              { label: "En cours", status: "in_progress", color: "text-amber-700", bg: "bg-amber-50 border-amber-200" },
+              { label: "Résolus",  status: "resolved",    color: "text-emerald-700", bg: "bg-emerald-50 border-emerald-200" },
+            ].map((s) => (
+              <div key={s.status} className={`rounded-2xl border p-4 ${s.bg}`}>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{s.label}</p>
+                <p className={`mt-1 text-2xl font-bold ${s.color}`}>
+                  {data?.tickets.filter((t) => t.status === s.status).length ?? 0}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Liste des tickets */}
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm">
+                <thead className="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
+                  <tr>
+                    <th className="px-4 py-3">Date</th>
+                    <th className="px-4 py-3">Nom</th>
+                    <th className="px-4 py-3">Email</th>
+                    <th className="px-4 py-3">Problème</th>
+                    <th className="px-4 py-3">Message</th>
+                    <th className="px-4 py-3">Statut</th>
+                    <th className="px-4 py-3">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(data?.tickets ?? [])
+                    .filter((t) => {
+                      if (!q) return true;
+                      return (
+                        (t.user_email ?? "").toLowerCase().includes(q) ||
+                        (t.user_name ?? "").toLowerCase().includes(q) ||
+                        (ISSUE_LABELS[t.issue_type] ?? t.issue_type).toLowerCase().includes(q)
+                      );
+                    })
+                    .map((t) => (
+                      <tr key={t.id} className="border-t border-slate-100 hover:bg-slate-50">
+                        <td className="px-4 py-3 text-slate-500 whitespace-nowrap">{fmt(t.created_at)}</td>
+                        <td className="px-4 py-3 font-medium text-slate-900">{t.user_name || "—"}</td>
+                        <td className="px-4 py-3 text-slate-600">{t.user_email}</td>
+                        <td className="px-4 py-3">
+                          <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                            {ISSUE_LABELS[t.issue_type] ?? t.issue_type}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-slate-500 max-w-[200px] truncate" title={t.message ?? ""}>
+                          {t.message || "—"}
+                        </td>
+                        <td className="px-4 py-3">
+                          {t.status === "open" && (
+                            <span className="inline-block rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">Ouvert</span>
+                          )}
+                          {t.status === "in_progress" && (
+                            <span className="inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">En cours</span>
+                          )}
+                          {t.status === "resolved" && (
+                            <span className="inline-block rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">Résolu</span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3">
+                          <a
+                            href={`mailto:${t.user_email}?subject=Re: ${ISSUE_LABELS[t.issue_type] ?? t.issue_type} — PREVENSIA Support`}
+                            className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                          >
+                            Répondre
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  {(data?.tickets ?? []).length === 0 && (
+                    <tr>
+                      <td colSpan={7} className="px-4 py-8 text-center text-slate-400">
+                        Aucun ticket de support pour le moment.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       )}
     </main>
