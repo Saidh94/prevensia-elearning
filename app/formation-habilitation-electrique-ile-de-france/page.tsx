@@ -5,7 +5,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique Île-de-France — Présentiel & Intra | PREVENSIA",
   description:
-    "Formation habilitation électrique en Île-de-France : présentiel, intra-entreprise et e-learning. Organisme certifié Qualiopi basé à Noisy-le-Grand (93). H0B0, BS/BE, B1, B2, BR, BC. Devis rapide.",
+    "Formation habilitation électrique en Île-de-France : présentiel, intra-entreprise et e-learning. Organisme certifié Qualiopi basé à Paris. H0B0, BS/BE, B1, B2, BR, BC. Devis rapide.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-habilitation-electrique-ile-de-france",
   },
@@ -14,7 +14,7 @@ export const metadata = {
     "habilitation électrique Paris",
     "formation habilitation électrique 93",
     "formation habilitation électrique Seine-Saint-Denis",
-    "organisme formation habilitation électrique Noisy-le-Grand",
+    "organisme formation habilitation électrique Paris",
     "formation habilitation électrique intra-entreprise IDF",
   ],
 };
@@ -23,7 +23,7 @@ const faqItems = [
   {
     question: "PREVENSIA FORMATION intervient-il partout en Île-de-France ?",
     answer:
-      "Oui. PREVENSIA FORMATION est basé à Noisy-le-Grand (93160) et intervient dans toute l'Île-de-France pour les formations intra-entreprise : Paris, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne, Essonne, Seine-et-Marne, Yvelines et Val-d'Oise.",
+      "Oui. PREVENSIA FORMATION est basé à Paris et intervient dans toute l'Île-de-France pour les formations intra-entreprise : Paris, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne, Essonne, Seine-et-Marne, Yvelines et Val-d'Oise.",
   },
   {
     question: "Comment fonctionne une formation intra-entreprise en Île-de-France ?",
@@ -77,7 +77,7 @@ export default function FormationHabilitationIleDeFrancePage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Île-de-France · Noisy-le-Grand (93)
+            Île-de-France · Paris (75)
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -86,7 +86,7 @@ export default function FormationHabilitationIleDeFrancePage() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Organisme de formation Qualiopi basé à Noisy-le-Grand (93160), PREVENSIA FORMATION
+            Organisme de formation Qualiopi basé à Paris, PREVENSIA FORMATION
             accompagne les entreprises d&apos;Île-de-France dans leurs obligations réglementaires
             en habilitation électrique. Présentiel sur site, visio ou e-learning selon votre organisation.
           </p>

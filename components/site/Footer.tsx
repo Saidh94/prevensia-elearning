@@ -156,11 +156,9 @@ export function Footer() {
               </li>
             </ul>
             <p className="mt-6 text-xs leading-5 text-slate-500">
-              PREVENSIA FORMATION est une marque de<br />
-              <span className="font-medium text-slate-300">FORMACENTRE SAS</span><br />
-              SIRET 933 761 363 00029<br />
-              85 rue du Docteur Sureau<br />
-              93160 Noisy-le-Grand
+              PREVENSIA FORMATION est une marque du<br />
+              <span className="font-medium text-slate-300">Groupe PREVENSIA SAS</span><br />
+              38, rue des Mathurins — 75008 Paris
             </p>
           </div>
         </div>

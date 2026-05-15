@@ -5,7 +5,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique Paris (75) — Intra & Inter | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique à Paris (75) et en petite couronne. Organisme Qualiopi basé à Noisy-le-Grand. H0B0, BS/BE, B1/B2/BR/BC. Intra-entreprise sur site. Devis 48h.",
+    "Formation habilitation électrique à Paris (75) et en petite couronne. Organisme Qualiopi basé à Paris. H0B0, BS/BE, B1/B2/BR/BC. Intra-entreprise sur site. Devis 48h.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-habilitation-electrique-paris",
   },
@@ -22,7 +22,7 @@ const faqItems = [
   {
     question: "PREVENSIA FORMATION intervient-il à Paris intramuros ?",
     answer:
-      "Oui. PREVENSIA FORMATION est basé à Noisy-le-Grand (93160) et intervient dans tous les arrondissements de Paris pour les formations intra-entreprise. Le formateur se déplace dans vos locaux avec le matériel pédagogique nécessaire.",
+      "Oui. PREVENSIA FORMATION est basé à Paris et intervient dans tous les arrondissements de Paris pour les formations intra-entreprise. Le formateur se déplace dans vos locaux avec le matériel pédagogique nécessaire.",
   },
   {
     question: "Quel délai pour organiser une formation à Paris ?",
@@ -32,7 +32,7 @@ const faqItems = [
   {
     question: "Peut-on s'inscrire en inter depuis Paris ?",
     answer:
-      "Oui. Les sessions inter-entreprises sont accessibles depuis Paris. Certaines se tiennent à Noisy-le-Grand (accessible RER A) ou en visioconférence pour la partie théorique. Consultez notre planning pour les prochaines dates.",
+      "Oui. Les sessions inter-entreprises sont accessibles depuis Paris. Certaines se tiennent à Paris ou en Île-de-France ou en visioconférence pour la partie théorique. Consultez notre planning pour les prochaines dates.",
   },
   {
     question: "Les formations sont-elles finançables par un OPCO ?",

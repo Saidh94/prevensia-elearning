@@ -11,13 +11,13 @@ export default function LocationCoverageSection() {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-              Basé à Noisy-le-Grand, interventions rapides en Île-de-France et partout en France
+              Basé à Paris, interventions rapides en Île-de-France et partout en France
             </h2>
 
             <p className="mt-5 text-base leading-8 text-slate-700">
               PREVENSIA FORMATION est implanté à{" "}
               <span className="font-semibold text-slate-900">
-                Noisy-le-Grand
+                Paris
               </span>
               , avec une organisation adaptée aux environnements tertiaires,
               industriels et logistiques.
@@ -35,7 +35,7 @@ export default function LocationCoverageSection() {
                   Bureau
                 </p>
                 <p className="mt-3 text-xl font-bold text-slate-900">
-                  Noisy-le-Grand
+                  Paris (75)
                 </p>
                 <p className="mt-2 text-sm text-slate-600">
                   Organisation, coordination et pilotage des formations.
@@ -102,7 +102,7 @@ export default function LocationCoverageSection() {
               >
                 <img
                   src="/images/carte-noisy-le-grand.jpg"
-                  alt="Localisation Prevensia Formation à Noisy-le-Grand"
+                  alt="Localisation Prevensia Formation à Paris"
                   className="h-[420px] w-full object-cover"
                 />
               </a>
@@ -113,7 +113,7 @@ export default function LocationCoverageSection() {
                 Localisation
               </p>
               <p className="mt-2 text-sm text-slate-600">
-                Basé à Noisy-le-Grand — déplacements sur toute la France selon les projets.
+                Basé à Paris — déplacements sur toute la France selon les projets.
               </p>
             </div>
           </div>

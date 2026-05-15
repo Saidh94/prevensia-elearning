@@ -5,14 +5,14 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique Seine-Saint-Denis (93) | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique en Seine-Saint-Denis (93). Organisme Qualiopi basé à Noisy-le-Grand (93160). H0B0, BS/BE, B1/B2/BR/BC. Intra sur site. Devis 48h.",
+    "Formation habilitation électrique en Seine-Saint-Denis (93). Organisme Qualiopi basé à Paris. H0B0, BS/BE, B1/B2/BR/BC. Intra sur site. Devis 48h.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-habilitation-electrique-seine-saint-denis",
   },
   keywords: [
     "formation habilitation électrique Seine-Saint-Denis",
     "formation habilitation électrique 93",
-    "habilitation électrique Noisy-le-Grand",
+    "habilitation électrique Paris",
     "formation électrique Bobigny",
     "formation habilitation électrique Saint-Denis",
     "organisme formation habilitation 93",
@@ -23,7 +23,7 @@ const faqItems = [
   {
     question: "PREVENSIA FORMATION est-il basé en Seine-Saint-Denis ?",
     answer:
-      "Oui. PREVENSIA FORMATION est implanté à Noisy-le-Grand (93160), au cœur de la Seine-Saint-Denis. Nous connaissons bien le tissu économique du 93 : industrie, logistique, BTP, tertiaire. Nous intervenons dans toutes les communes du département.",
+      "Oui. PREVENSIA FORMATION est basé à Paris et intervenant en Seine-Saint-Denis. Nous connaissons bien le tissu économique du 93 : industrie, logistique, BTP, tertiaire. Nous intervenons dans toutes les communes du département.",
   },
   {
     question: "Quels délais pour une formation intra en Seine-Saint-Denis ?",
@@ -33,7 +33,7 @@ const faqItems = [
   {
     question: "Proposez-vous des sessions inter en présentiel dans le 93 ?",
     answer:
-      "Oui. Certaines sessions inter-entreprises se tiennent dans nos locaux à Noisy-le-Grand, accessibles depuis Saint-Denis, Bobigny, Montreuil, Pantin, Rosny-sous-Bois et toute la Seine-Saint-Denis. Consultez notre planning.",
+      "Oui. Certaines sessions inter-entreprises se tiennent à Paris ou en Île-de-France, accessibles depuis Saint-Denis, Bobigny, Montreuil, Pantin, Rosny-sous-Bois et toute la Seine-Saint-Denis. Consultez notre planning.",
   },
   {
     question: "L'e-learning est-il disponible sans déplacement pour les salariés du 93 ?",
@@ -43,7 +43,7 @@ const faqItems = [
 ];
 
 const communes = [
-  "Noisy-le-Grand", "Montreuil", "Saint-Denis", "Bobigny", "Aubervilliers",
+  "Paris", "Montreuil", "Saint-Denis", "Bobigny", "Aubervilliers",
   "Pantin", "Rosny-sous-Bois", "Bondy", "Aulnay-sous-Bois", "Villepinte",
   "Le Blanc-Mesnil", "Tremblay-en-France",
 ];
@@ -75,7 +75,7 @@ export default function FormationHabilitation93() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Seine-Saint-Denis · Noisy-le-Grand (93160)
+            Seine-Saint-Denis · Paris (75)
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -84,7 +84,7 @@ export default function FormationHabilitation93() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            PREVENSIA FORMATION est implanté à Noisy-le-Grand au cœur du 93. Nous intervenons
+            PREVENSIA FORMATION est basé à Paris, intervenant au cœur du 93. Nous intervenons
             dans toutes les communes de Seine-Saint-Denis pour les formations intra-entreprise
             habilitation électrique. Certifié Qualiopi, devis en 48h.
           </p>
@@ -105,7 +105,7 @@ export default function FormationHabilitation93() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900">Communes couvertes en Seine-Saint-Denis</h2>
           <p className="mt-4 text-lg text-slate-600">
-            Basés à Noisy-le-Grand, nous intervenons dans toute la Seine-Saint-Denis sans
+            Basés à Paris, nous intervenons dans toute la Seine-Saint-Denis sans
             frais de déplacement supplémentaires pour les communes proches.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">

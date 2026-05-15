@@ -3,18 +3,18 @@ import Image from "next/image";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Qui sommes-nous — PREVENSIA FORMATION, organisme Qualiopi | Noisy-le-Grand",
+  title: "Qui sommes-nous — PREVENSIA FORMATION, organisme Qualiopi | Paris",
   description:
-    "PREVENSIA FORMATION est un organisme de formation certifié Qualiopi, basé à Noisy-le-Grand (93). Habilitation électrique NF C 18-510, SST, sécurité incendie, SSI, sprinkler. FORMACENTRE SAS.",
+    "PREVENSIA FORMATION est un organisme de formation certifié Qualiopi, basé à Paris, marque du Groupe PREVENSIA SAS. Habilitation électrique NF C 18-510, SST, sécurité incendie, SSI, sprinkler.",
   alternates: {
     canonical: "https://prevensia-formation.fr/qui-sommes-nous",
   },
   keywords: [
     "PREVENSIA FORMATION",
-    "organisme formation Qualiopi Noisy-le-Grand",
-    "FORMACENTRE SAS",
+    "organisme formation Qualiopi Paris",
+    "Groupe PREVENSIA SAS",
     "formation habilitation électrique Île-de-France",
-    "organisme formation certifié 93",
+    "organisme formation certifié Paris",
   ],
 };
 
@@ -85,7 +85,7 @@ export default function QuiSommesNousPage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Organisme certifié Qualiopi · Noisy-le-Grand (93)
+            Organisme certifié Qualiopi · Paris (75)
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -94,7 +94,7 @@ export default function QuiSommesNousPage() {
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Organisme de formation spécialisé en prévention des risques professionnels,
-            certifié Qualiopi et basé à Noisy-le-Grand en Île-de-France. Nous accompagnons
+            certifié Qualiopi et basé à Paris, marque du Groupe PREVENSIA SAS. Nous accompagnons
             les entreprises et leurs équipes dans leurs obligations réglementaires
             en habilitation électrique, sécurité incendie, SST, SSI et sprinkler.
           </p>
@@ -112,9 +112,9 @@ export default function QuiSommesNousPage() {
                 Un organisme ancré dans les réalités terrain
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
-                PREVENSIA FORMATION est une marque de <strong>FORMACENTRE SAS</strong>,
+                PREVENSIA FORMATION est une marque du <strong>Groupe PREVENSIA SAS</strong>,
                 organisme de formation professionnel certifié Qualiopi pour les actions
-                de formation. Nous intervenons principalement en Île-de-France, avec
+                de formation. Basé à Paris, nous intervenons principalement en Île-de-France, avec
                 des déplacements sur toute la France pour les formations intra-entreprise.
               </p>
               <p className="mt-4 text-lg leading-8 text-slate-600">
@@ -149,10 +149,10 @@ export default function QuiSommesNousPage() {
 
               <dl className="space-y-4 text-sm">
                 {[
-                  { label: "Raison sociale", value: "FORMACENTRE SAS" },
+                  { label: "Raison sociale", value: "Groupe PREVENSIA SAS" },
                   { label: "Marque", value: "PREVENSIA FORMATION" },
-                  { label: "SIRET", value: "933 761 363 00029" },
-                  { label: "Adresse", value: "85 rue du Docteur Sureau\n93160 Noisy-le-Grand" },
+                  { label: "SIRET", value: "En cours d'immatriculation" },
+                  { label: "Adresse", value: "38, rue des Mathurins\n75008 Paris" },
                   { label: "Téléphone", value: "01 89 62 94 92", href: "tel:+33189629492" },
                   { label: "Email", value: "contact@prevensia-formation.fr", href: "mailto:contact@prevensia-formation.fr" },
                   { label: "Zone d'intervention", value: "Île-de-France et France entière" },
@@ -279,7 +279,7 @@ export default function QuiSommesNousPage() {
             </div>
             <div>
               <p className="font-semibold text-slate-900">Adresse</p>
-              <p className="mt-1">85 rue du Docteur Sureau<br />93160 Noisy-le-Grand</p>
+              <p className="mt-1">38, rue des Mathurins<br />75008 Paris</p>
             </div>
           </div>
         </div>
