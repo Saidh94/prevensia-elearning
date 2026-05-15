@@ -793,7 +793,32 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
     audience:
       "Techniciens de contrôle, de maintenance, de mise au point ou d'essais amenes a effectuer des verifications et mesurages en basse tension dans un cadre formalise.",
     sections: [
-      section("cadre-general", { chapterImagePath: IMG.b1b2Roles }),
+      section("cadre-general", {
+        chapterImagePath: IMG.b1b2Roles,
+        title: "1. Cadre des habilitations BE Vérification et BE Mesurage",
+        intro:
+          "Les habilitations BE Vérification et BE Mesurage (NF C 18-510 §11.5) définissent un cadre d'action précis : contrôler et mesurer sans intervenir, sans dépanner et sans consigner hors du périmètre autorisé.",
+        content: [
+          "Le symbole BE désigne des opérations particulières en basse tension. La lettre E ne signifie pas 'électricien général' : elle renvoie à une catégorie d'opérations spécifiques encadrées par le §11 de la NF C 18-510.",
+          "BE Vérification (§11.5.2) : vérifier l'état d'une installation ou d'un matériel, contrôler la présence ou l'absence de tension, apprécier un état sans intervention corrective.",
+          "BE Mesurage (§11.5.3) : mesurer des grandeurs électriques (tension, courant, résistance, puissance, énergie) dans un cadre préparé, avec des instruments adaptés au domaine de tension rencontré.",
+          "La frontière entre vérification, mesurage et intervention est la limite centrale du rôle BE. Constater une anomalie n'autorise pas à la corriger. Mesurer une valeur n'autorise pas à modifier l'installation.",
+          "Le titulaire BE Vérification / BE Mesurage ne tient pas le rôle de chargé de travaux B2, d'intervenant général BR, ni de chargé de consignation BC. Si le contrôle révèle une anomalie qui appelle une action corrective, la situation doit être requalifiée avant toute intervention.",
+          "L'habilitation est toujours délivrée par l'employeur, après vérification de l'adéquation entre les opérations réelles et le symbole retenu.",
+        ],
+        keyPoints: [
+          "BE Vérification = contrôler l'état d'une installation (NF C 18-510 §11.5.2).",
+          "BE Mesurage = mesurer des grandeurs électriques (NF C 18-510 §11.5.3).",
+          "Constater ≠ Intervenir : une anomalie détectée impose une requalification.",
+          "Le BE n'est ni B2, ni BR, ni BC.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §11.5 — Opérations particulières : vérification, mesurage et essais",
+          "NF C 18-510 §11.5.2 — Opérations de vérification",
+          "NF C 18-510 §11.5.3 — Opérations de mesurage",
+          "Code du travail Art. R4544-9 — Obligation d'habilitation pour les opérations d'ordre électrique",
+        ],
+      }),
       section("roles-responsabilites", {
         chapterImagePath: IMG.b1b2Moyens,
         intro:
@@ -812,6 +837,26 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("symboles-attributions", {
         chapterImagePath: IMG.symbolesTravaux,
         resourceVideos: [VIDEO.symboles],
+        intro:
+          "Le symbole BE précise à la fois la nature et les limites de l'opération. Comprendre sa signification évite la dérive la plus courante : se croire autorisé à agir au-delà du contrôle ou de la mesure.",
+        content: [
+          "La lettre B désigne le domaine basse tension. La lettre E renvoie aux opérations particulières encadrées par le §11 de la NF C 18-510.",
+          "BE Vérification : l'opérateur peut contrôler l'état d'une installation, vérifier la présence ou l'absence de tension, apprécier un état sans intervention corrective.",
+          "BE Mesurage : l'opérateur peut mesurer des grandeurs électriques (U, I, R, P, W) en utilisant des instruments adaptés à la catégorie de l'installation.",
+          "BE Essais (§11.5.4) est un symbole distinct qui couvre les opérations d'essai sous tension. Il ne se confond ni avec BE Vérification ni avec BE Mesurage.",
+          "Le symbole BE ne donne pas accès aux opérations de travaux (B1/B2), d'interventions générales (BR) ou de consignation (BC). Ces rôles restent séparés et ne se déduisent pas du BE.",
+          "Sur un titre d'habilitation, un opérateur peut cumuler plusieurs symboles (ex. BR + BE Mesurage) si ses missions le justifient. Mais chaque symbole garde ses limites propres : cumuler des titres ne signifie pas mélanger les rôles en cours d'opération.",
+        ],
+        keyPoints: [
+          "BE = opération particulière en BT, pas un rôle généraliste.",
+          "BE Vérification ≠ BE Mesurage ≠ BE Essais : trois symboles distincts.",
+          "BE ne couvre ni travaux (B1/B2), ni intervention générale (BR), ni consignation (BC).",
+          "Cumuler BR + BE est possible si les missions le justifient, sans mélanger les rôles.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §11.5 — Opérations particulières et symboles BE",
+          "NF C 18-510 §11.5.2 / §11.5.3 / §11.5.4 — Vérification, mesurage, essais",
+        ],
       }),
       section("domaines-zones-pnst", {
         chapterImagePath: IMG.zonesBt,
@@ -835,16 +880,26 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("mesurages-essais-connexions", {
         chapterImagePath: IMG.unVat,
         intro:
-          "Le BE vérification / BE Mesurage doit savoir realiser l'acte technique utile sans deriver vers le depannage, le travail electrique ou la remise en service hors cadre.",
+          "Le cœur du rôle BE est ici : mesurer ou vérifier avec la méthode correcte, l'instrument adapté et la catégorie d'appareil conforme au point de mesure.",
         content: [
-          "Mesurer, c'est obtenir une information exploitable sur un point identifie, avec une methode adaptee et un instrument compatible avec le domaine de tension et l'environnement.",
-          "Verifier, c'est confronter l'etat observe a un attendu technique ou documentaire. Cela suppose de savoir interpreter sans extrapoler. Un resultat anormal n'autorise pas automatiquement une action corrective.",
-          "Si le contrôle revele une anomalie qui appelle un depannage, une modification, une consignation ou un travail dirige, l'opérateur BE sort de son cadre et transmet pour requalification.",
+          "Mesurer, c'est obtenir une information exploitable sur un point identifié, avec une méthode adaptée et un instrument compatible avec le domaine de tension et l'environnement.",
+          "Vérifier, c'est confronter l'état observé à un attendu technique ou documentaire. Un résultat anormal n'autorise pas automatiquement une action corrective — il déclenche une requalification.",
+          "Les instruments de mesure sont classés selon leur catégorie de surtension (NF EN 61010-1) : CAT I pour les circuits électroniques protégés (équipements de laboratoire en aval de protections), CAT II pour les appareils raccordés en aval d'une prise (230 V terminaux, électroménager), CAT III pour les installations fixes (tableaux, disjoncteurs, départs industriels), CAT IV pour l'origine de l'installation (compteur, TGBT principal, branchement réseau).",
+          "Utiliser un instrument de catégorie inférieure au point de mesure expose à un claquage de l'appareil et à un arc électrique en cas de transitoire de tension. Un CAT II ne doit jamais être utilisé sur un tableau industriel : CAT III minimum est requis. Pour des mesures à l'origine (compteur, réseau), CAT IV est nécessaire.",
+          "Les cordons de mesure (sondes, pinces, accessoires) doivent correspondre à la même catégorie que l'appareil. La norme NF EN 61010-031 définit leurs exigences : double isolation, catégorie de surtension identique à l'instrument, absence de dégradation visible (fissure, gaine décollée, pointe exposée). Un cordon dégradé invalide la sécurité de l'ensemble.",
+          "Si le contrôle révèle une anomalie qui appelle un dépannage, une modification, une consignation ou un travail dirigé, l'opérateur BE sort de son cadre et transmet pour requalification.",
         ],
         keyPoints: [
-          "Je mesure pour comprendre un etat, pas pour improviser une reparation.",
-          "Un resultat anormal declenche souvent une requalification.",
-          "Le mesurage est un acte technique encadre, pas un geste anodin.",
+          "CAT III minimum pour toute mesure sur tableau fixe industriel.",
+          "CAT IV pour mesures à l'origine de l'installation (compteur, réseau).",
+          "Cordons NF EN 61010-031 : même catégorie que l'appareil, aucune dégradation tolérée.",
+          "Un résultat anormal déclenche une requalification, pas une intervention spontanée.",
+          "Je mesure pour comprendre un état, pas pour improviser une réparation.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §11.5.3 — Opérations de mesurage en basse tension",
+          "NF EN 61010-1 — Règles de sécurité pour appareils de mesure : catégories CAT I à CAT IV",
+          "NF EN 61010-031 — Règles de sécurité pour les sondes et cordons de mesure",
         ],
       }),
       section("outils-protections", {
@@ -877,7 +932,43 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
           "Documenter et alerter font partie du role.",
         ],
       }),
-      section("synthese", { chapterImagePath: IMG.b1b2Synthese }),
+      section("retour-experience", {
+        chapterImagePath: IMG.b1b2RetourExperience,
+        intro:
+          "Le retour d'expérience en BE Vérification / BE Mesurage sert à identifier les situations où la frontière entre contrôle et intervention a été difficile à tenir.",
+        content: [
+          "Les principaux écarts observés en contexte BE concernent : mesure réalisée avec un instrument de mauvaise catégorie (CAT II sur tableau industriel), cordon dégradé utilisé faute de mieux, anomalie détectée suivie d'une intervention spontanée hors cadre, dérive progressive vers le dépannage.",
+          "L'analyse de ces situations permet d'améliorer la préparation : choix de l'instrument adapté en amont, vérification systématique des cordons avant déplacement, procédure de signalement en cas d'anomalie, clarification du rôle BE dans l'organisation du site.",
+        ],
+        keyPoints: [
+          "Écart le plus courant : constater une anomalie et tenter de la corriger sans requalification.",
+          "L'instrument de mauvaise catégorie est souvent choisi par défaut, faute d'anticipation.",
+          "Le retour d'expérience améliore la préparation, pas seulement la réaction.",
+        ],
+      }),
+      section("synthese", {
+        chapterImagePath: IMG.b1b2Synthese,
+        intro:
+          "Avant le quiz, voici les points essentiels du rôle BE Vérification / BE Mesurage.",
+        content: [
+          "Le BE Vérification contrôle l'état d'une installation. Le BE Mesurage mesure des grandeurs électriques. Ces deux rôles se tiennent dans un cadre défini : analyser sans modifier, mesurer sans intervenir, signaler sans corriger hors cadre.",
+          "Le choix de l'instrument est une décision de sécurité : la catégorie CAT (CAT II, CAT III, CAT IV) doit correspondre au point de mesure. Les cordons (NF EN 61010-031) doivent être de même catégorie et en bon état apparent.",
+          "Une anomalie détectée lors d'un contrôle BE ne donne pas automatiquement le droit d'intervenir. Elle impose une requalification vers le symbole adapté (BR, B2, BC selon le besoin).",
+          "Les documents, le repérage et la coordination sont aussi des éléments de sécurité : mesurer sur le mauvais point, dans le mauvais contexte ou avec un instrument mal choisi peut être aussi dangereux qu'une intervention directe.",
+        ],
+        keyPoints: [
+          "BE Vérification : §11.5.2 NF C 18-510 — contrôler l'état.",
+          "BE Mesurage : §11.5.3 NF C 18-510 — mesurer les grandeurs.",
+          "CAT III pour tableau fixe industriel, CAT IV pour l'origine de l'installation.",
+          "Cordons NF EN 61010-031 : même catégorie que l'appareil.",
+          "Anomalie détectée → requalification, pas intervention spontanée.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §11.5 — Opérations particulières : vérification, mesurage",
+          "NF EN 61010-1 — Catégories de surtension CAT I à CAT IV",
+          "NF EN 61010-031 — Cordons et sondes de mesure",
+        ],
+      }),
       section("documents-coordination", {
         chapterImagePath: IMG.b1b2Coordination,
       }),
