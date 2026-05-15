@@ -101,6 +101,7 @@ const IMG = {
   reflexes:
     "/elearning/b1-b1v-b2-b2v-br-bc/danger-armoires-électriques.jpg",
   epi: "/elearning/b1-b1v-b2-b2v-br-bc/epi-intervention.jpg",
+  unVat: "/elearning/b1-b1v-b2-b2v-br-bc/un-vat.jpg",
 };
 
 const VIDEO = {
@@ -794,7 +795,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
     sections: [
       section("cadre-general", { chapterImagePath: IMG.b1b2Roles }),
       section("roles-responsabilites", {
-        chapterImagePath: IMG.b1b2Symboles,
+        chapterImagePath: IMG.b1b2Moyens,
         intro:
           "Le BE vérification / BE Mesurage agit pour controler, mesurer et interpreter dans un cadre defini. Son role n'est ni de conduire des travaux, ni de depanner librement, ni de consigner hors de son perimetre.",
         content: [
@@ -817,7 +818,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         resourceVideos: [VIDEO.zonesDistances],
       }),
       section("preparation-travaux", {
-        chapterImagePath: IMG.tableau,
+        chapterImagePath: IMG.distancesLocaux,
         intro:
           "Une operation BE se prepare comme une operation de contrôle: point de mesure identifie, methode connue, instrument adapte, limites de zone comprises et possibilite de repli si l'environnement n'est pas conforme.",
         content: [
@@ -832,7 +833,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         ],
       }),
       section("mesurages-essais-connexions", {
-        chapterImagePath: IMG.maintenance,
+        chapterImagePath: IMG.unVat,
         intro:
           "Le BE vérification / BE Mesurage doit savoir realiser l'acte technique utile sans deriver vers le depannage, le travail electrique ou la remise en service hors cadre.",
         content: [
@@ -862,7 +863,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         ],
       }),
       section("anomalies-urgence", {
-        chapterImagePath: IMG.tableau,
+        chapterImagePath: IMG.armoireDanger,
         resourceVideos: [VIDEO.chocElectrique],
         intro:
           "En BE vérification / Mesurage, une anomalie peut être decouverte a l'occasion d'un contrôle. Elle n'autorise pas une correction immediate hors cadre.",
@@ -878,7 +879,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       }),
       section("synthese", { chapterImagePath: IMG.b1b2Synthese }),
       section("documents-coordination", {
-        chapterImagePath: IMG.document,
+        chapterImagePath: IMG.b1b2Coordination,
       }),
     ],
   },
