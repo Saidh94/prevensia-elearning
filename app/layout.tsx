@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieBanner from "@/components/site/CookieBanner";
 import { Footer } from "@/components/site/Footer";
 
 const SITE_URL = "https://prevensia-formation.fr";
@@ -156,6 +157,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );
