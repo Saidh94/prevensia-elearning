@@ -162,7 +162,7 @@ const loadSig = () => loadAsset([
 
 // ─── Configuration par niveau ATEX ────────────────────────────────────────────
 
-export type AtexLevel = 1 | 2 | 3;
+export type AtexLevel = 0 | 1 | 2 | 3;
 
 export function isAtexFormation(formation: string): boolean {
   return formation.toLowerCase()
@@ -183,7 +183,13 @@ export function detectAtexLevel(formation: string): AtexLevel {
     n.includes("niv2") || n.includes("niv. 2") ||
     n.includes("travailleur") || n.includes("expose")
   ) return 2;
-  return 1;
+  if (
+    n.includes("niveau1") || n.includes("niveau 1") || n.includes("niveau-1") ||
+    n.includes("niv1") || n.includes("niv. 1") ||
+    n.includes("sensibilisation")
+  ) return 1;
+  // "ATEX" sans numéro de niveau → Level 0 (initiation)
+  return 0;
 }
 
 type ZoneLine  = { cat: string; zones: string };
@@ -200,6 +206,32 @@ type LevelCfg = {
 };
 
 const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
+  0: {
+    badge: "N0",
+    title: "ATEX NIVEAU 0",
+    subtitle: "Initiation — Personnel non exposé",
+    description:
+      "Initiation aux risques liés aux atmosphères explosives. " +
+      "Personnel amené à traverser occasionnellement des zones ATEX " +
+      "sans y réaliser de travaux. Sensibilisation aux risques et aux " +
+      "comportements à adopter en présence de zones classées " +
+      "(industrie chimique, pétrochimique, agroalimentaire, logistique...).",
+    validityYears: 3,
+    zones: [
+      { cat: "Gaz / vapeurs inflammables",  zones: "Zone 2 uniquement" },
+      { cat: "Poussières combustibles",     zones: "Zone 22 uniquement" },
+    ],
+    interventions: [
+      { label: "Identifier la signalisation réglementaire ATEX",              ok: true  },
+      { label: "Traverser ponctuellement une zone ATEX (Zone 2 / Zone 22)",   ok: true  },
+      { label: "Respecter les consignes de comportement en zone ATEX",        ok: true  },
+      { label: "Circuler de manière prolongée en zones ATEX classées",        ok: false },
+      { label: "Utiliser des EPI antistatiques certifiés Ex",                 ok: false },
+      { label: "Exécuter des travaux sur équipements en zone classée",        ok: false },
+      { label: "Appliquer des permis de travail ou autorisations ATEX",       ok: false },
+      { label: "Diriger ou superviser des interventions en zone ATEX",        ok: false },
+    ],
+  },
   1: {
     badge: "N1",
     title: "ATEX NIVEAU 1",
@@ -696,7 +728,7 @@ export async function generateAtexAttestationPdf(input: AttestationPdfInput) {
   const pdfBytes   = await pdfDoc.save();
   const pdfBuffer  = Buffer.from(pdfBytes);
   const safeFileName = sanitizeAtexFileName(
-    `attestation-formation-atex-${cfg.badge}-${learner || "apprenant"}`
+    `attestation-formation-atex-n${level}-${learner || "apprenant"}`
   );
 
   return { pdfBuffer, safeFileName, learner, ref };
