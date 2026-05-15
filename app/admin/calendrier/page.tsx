@@ -1,18 +1,13 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import {
-  cloneDefaultSlots,
-  ReservationSlot,
-  readSlots,
-  writeSlots,
-} from "../../reservation/slots";
+import { type ReservationSlot } from "../../reservation/slots";
 
 const formatOptions = [
   { value: "virtual", label: "Classe virtuelle" },
   { value: "onsite", label: "En entreprise" },
-  { value: "in_person", label: "Salle / presentiel" },
+  { value: "in_person", label: "Salle / présentiel" },
 ] as const;
 
 const audienceOptions = [
@@ -35,64 +30,117 @@ function formatSlotType(slot: ReservationSlot) {
     slot.format === "virtual"
       ? "Classe virtuelle"
       : slot.format === "onsite"
-      ? "En entreprise"
-      : "Salle / presentiel";
+        ? "En entreprise"
+        : "Salle / présentiel";
 
   const audienceLabel =
     slot.audience === "individual"
       ? "Individuel"
       : slot.audience === "group"
-      ? "Groupe / entreprise"
-      : "Individuel ou groupe";
+        ? "Groupe / entreprise"
+        : "Individuel ou groupe";
 
   return `${formatLabel} - ${audienceLabel}`;
 }
 
+function compareSlots(a: ReservationSlot, b: ReservationSlot) {
+  return `${a.date}-${a.startTime}`.localeCompare(`${b.date}-${b.startTime}`);
+}
+
 export default function AdminCalendrierPage() {
-  const [slots, setSlots] = useState<ReservationSlot[]>(() => readSlots());
+  const [slots, setSlots] = useState<ReservationSlot[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    writeSlots(slots);
-  }, [slots]);
+  const loadSlots = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/api/virtual-sessions", { cache: "no-store" });
+      if (res.ok) {
+        const data: unknown = await res.json();
+        if (Array.isArray(data)) {
+          setSlots((data as ReservationSlot[]).slice().sort(compareSlots));
+        }
+      } else {
+        setMessage("Erreur lors du chargement des sessions.");
+      }
+    } catch {
+      setMessage("Impossible de contacter le serveur.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-  const handleAddSlot = (event: FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    void loadSlots();
+  }, [loadSlots]);
+
+  const handleAddSlot = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSaving(true);
+    setMessage("");
+
     const formData = new FormData(event.currentTarget);
 
-    const newSlot: ReservationSlot = {
-      id: crypto.randomUUID(),
+    const payload = {
       formation: String(formData.get("formation") ?? ""),
       date: String(formData.get("date") ?? ""),
       startTime: String(formData.get("startTime") ?? ""),
       endTime: String(formData.get("endTime") ?? ""),
       location: String(formData.get("location") ?? ""),
-      seats: Number(formData.get("seats") ?? 0),
-      format: String(formData.get("format") ?? "in_person") as ReservationSlot["format"],
-      audience: String(formData.get("audience") ?? "both") as ReservationSlot["audience"],
-      category: String(formData.get("category") ?? "other") as ReservationSlot["category"],
+      seats: Number(formData.get("seats") ?? 1),
+      format: String(formData.get("format") ?? "in_person"),
+      audience: String(formData.get("audience") ?? "both"),
+      category: String(formData.get("category") ?? "other"),
       minParticipants: Number(formData.get("minParticipants") ?? 1),
       note: String(formData.get("note") ?? ""),
+      meetingUrl: String(formData.get("meetingUrl") ?? ""),
     };
 
-    const nextSlots = [...slots, newSlot].sort((a, b) =>
-      `${a.date}-${a.startTime}`.localeCompare(`${b.date}-${b.startTime}`)
-    );
+    try {
+      const res = await fetch("/api/virtual-sessions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    setSlots(nextSlots);
-    setMessage("Session ajoutee au calendrier.");
-    event.currentTarget.reset();
+      if (res.ok) {
+        setMessage("Session ajoutée au calendrier.");
+        event.currentTarget.reset();
+        await loadSlots();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setMessage(`Erreur : ${(data as { error?: string }).error ?? res.statusText}`);
+      }
+    } catch {
+      setMessage("Erreur réseau lors de l'ajout.");
+    } finally {
+      setSaving(false);
+    }
   };
 
-  const handleDeleteSlot = (id: string) => {
-    const nextSlots = slots.filter((slot) => slot.id !== id);
-    setSlots(nextSlots);
-    setMessage("Session supprimee.");
-  };
+  const handleDeleteSlot = async (id: string) => {
+    setSaving(true);
+    setMessage("");
 
-  const handleReset = () => {
-    setSlots(cloneDefaultSlots());
-    setMessage("Calendrier reinitialise avec les sessions par defaut.");
+    try {
+      const res = await fetch(`/api/virtual-sessions?id=${encodeURIComponent(id)}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        setMessage("Session supprimée.");
+        setSlots((prev) => prev.filter((s) => s.id !== id));
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setMessage(`Erreur : ${(data as { error?: string }).error ?? res.statusText}`);
+      }
+    } catch {
+      setMessage("Erreur réseau lors de la suppression.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -103,25 +151,27 @@ export default function AdminCalendrierPage() {
             Administration planning
           </p>
           <h1 className="mt-2 text-3xl font-bold text-slate-900">
-            Gerer les validations et classes virtuelles
+            Gérer les validations et classes virtuelles
           </h1>
           <p className="mt-3 text-slate-600">
             Ajoutez ici les entretiens H0B0, les classes virtuelles BS / BE,
-            les recyclages ou les sessions en entreprise afin de rendre la
-            reservation plus lisible cote client.
+            les recyclages ou les sessions en entreprise. Les créneaux sont
+            enregistrés dans Supabase et visibles par tous les apprenants en
+            temps réel.
           </p>
           <p className="mt-3 text-sm text-slate-500">
-            Voir cote client :{" "}
+            Voir côté client :{" "}
             <Link
               href="/reservation-formation"
               className="font-semibold text-red-700 underline underline-offset-2"
             >
-              page reservation
+              page réservation
             </Link>
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
+          {/* ── Formulaire d'ajout ──────────────────────────────────────── */}
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-slate-900">
               Ajouter une session
@@ -134,12 +184,12 @@ export default function AdminCalendrierPage() {
                   name="formation"
                   required
                   className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                  placeholder="Ex : BS / BE Manoeuvre - Initial groupe"
+                  placeholder="Ex : BS / BE Manœuvre — Initial groupe"
                 />
               </label>
 
               <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-                Categorie
+                Catégorie
                 <select
                   name="category"
                   defaultValue="other"
@@ -209,7 +259,7 @@ export default function AdminCalendrierPage() {
 
               <div className="grid gap-4 sm:grid-cols-4">
                 <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-                  Debut
+                  Début
                   <input
                     name="startTime"
                     type="time"
@@ -253,59 +303,87 @@ export default function AdminCalendrierPage() {
               </div>
 
               <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-                Note operationnelle
+                Lien de connexion virtuelle
+                <input
+                  name="meetingUrl"
+                  type="url"
+                  className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
+                  placeholder="https://meet.google.com/... ou https://zoom.us/..."
+                />
+                <span className="text-xs text-slate-500">
+                  Facultatif — visible uniquement dans l&apos;espace admin. À communiquer manuellement aux inscrits.
+                </span>
+              </label>
+
+              <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
+                Note opérationnelle
                 <textarea
                   name="note"
                   rows={3}
                   className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                  placeholder="Ex : Classe virtuelle initiale reservee aux groupes, ouverture aux individuels a partir de 4 apprenants."
+                  placeholder="Ex : Classe virtuelle initiale, ouverture à partir de 4 apprenants."
                 />
               </label>
 
               <div className="flex flex-wrap gap-3">
                 <button
                   type="submit"
-                  className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
+                  disabled={saving}
+                  className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800 disabled:opacity-60"
                 >
-                  Ajouter la session
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleReset}
-                  className="inline-flex rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400"
-                >
-                  Reinitialiser planning
+                  {saving ? "Enregistrement…" : "Ajouter la session"}
                 </button>
               </div>
             </form>
           </section>
 
+          {/* ── Liste des sessions ──────────────────────────────────────── */}
           <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-slate-900">
               Sessions actuelles
             </h2>
 
             <div className="mt-5 space-y-3">
-              {slots.length === 0 ? (
+              {loading ? (
                 <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
-                  Aucune session enregistree.
+                  Chargement…
+                </p>
+              ) : slots.length === 0 ? (
+                <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+                  Aucune session enregistrée.
                 </p>
               ) : (
                 slots.map((slot) => (
-                  <div key={slot.id} className="rounded-2xl border border-slate-200 p-4">
+                  <div
+                    key={slot.id}
+                    className="rounded-2xl border border-slate-200 p-4"
+                  >
                     <p className="text-sm font-semibold uppercase tracking-[0.1em] text-red-700">
                       {slot.formation}
                     </p>
                     <p className="mt-2 text-sm text-slate-700">
-                      {new Date(slot.date).toLocaleDateString("fr-FR")} · {slot.startTime} - {slot.endTime}
+                      {new Date(`${slot.date}T12:00:00`).toLocaleDateString("fr-FR")} ·{" "}
+                      {slot.startTime} - {slot.endTime}
                     </p>
                     <p className="mt-1 text-sm text-slate-600">
-                      {slot.location} · {slot.seats} places
+                      {slot.location} · {slot.seats} place{slot.seats > 1 ? "s" : ""}
                     </p>
                     <p className="mt-1 text-sm text-slate-600">
                       {formatSlotType(slot)} · Minimum : {slot.minParticipants ?? 1}
                     </p>
+                    {slot.meetingUrl ? (
+                      <p className="mt-2 text-sm text-slate-600">
+                        Lien :{" "}
+                        <a
+                          href={slot.meetingUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-blue-700 underline underline-offset-2"
+                        >
+                          {slot.meetingUrl}
+                        </a>
+                      </p>
+                    ) : null}
                     {slot.note ? (
                       <p className="mt-2 rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-600">
                         {slot.note}
@@ -313,8 +391,9 @@ export default function AdminCalendrierPage() {
                     ) : null}
                     <button
                       type="button"
-                      onClick={() => handleDeleteSlot(slot.id)}
-                      className="mt-3 text-sm font-semibold text-red-700 underline underline-offset-2"
+                      disabled={saving}
+                      onClick={() => void handleDeleteSlot(slot.id)}
+                      className="mt-3 text-sm font-semibold text-red-700 underline underline-offset-2 disabled:opacity-60"
                     >
                       Supprimer cette session
                     </button>
@@ -324,7 +403,13 @@ export default function AdminCalendrierPage() {
             </div>
 
             {message ? (
-              <p className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+              <p
+                className={`mt-4 rounded-xl border px-4 py-3 text-sm ${
+                  message.startsWith("Erreur") || message.startsWith("Impossible")
+                    ? "border-red-200 bg-red-50 text-red-800"
+                    : "border-emerald-200 bg-emerald-50 text-emerald-800"
+                }`}
+              >
                 {message}
               </p>
             ) : null}

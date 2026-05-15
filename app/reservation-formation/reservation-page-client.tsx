@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   type ReservationSlot,
   type SlotAudience,
   type SlotCategory,
   type SlotFormat,
-  readSlots,
 } from "../reservation/slots";
 
 type ReservationPageClientProps = {
+  initialSlots: ReservationSlot[];
   selectedAudience: SlotAudience | "all";
   selectedCategory: SlotCategory | "all";
   selectedFormat: SlotFormat | "all";
@@ -28,7 +28,7 @@ const categoryLabels: Record<SlotCategory, string> = {
 const formatLabels: Record<SlotFormat, string> = {
   virtual: "Classe virtuelle",
   onsite: "En entreprise",
-  in_person: "Salle / presentiel",
+  in_person: "Salle / présentiel",
 };
 
 const audienceLabels: Record<SlotAudience, string> = {
@@ -44,7 +44,7 @@ const canonicalFormationsByCategory: Record<SlotCategory, string> = {
   b1b2brbc_initial: "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles",
   b1b2brbc_recyclage:
     "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
-  other: "Habilitation electrique - accompagnement sur mesure",
+  other: "Habilitation électrique - accompagnement sur mesure",
 };
 
 function formatDate(value: string) {
@@ -139,12 +139,14 @@ function getPrimaryAction(slot: ReservationSlot) {
 }
 
 export default function ReservationPageClient({
+  initialSlots,
   selectedAudience,
   selectedCategory,
   selectedFormat,
 }: ReservationPageClientProps) {
-  const [slots] = useState<ReservationSlot[]>(() =>
-    readSlots().slice().sort(compareSlots)
+  const slots = useMemo(
+    () => initialSlots.slice().sort(compareSlots),
+    [initialSlots]
   );
 
   const filteredSlots = useMemo(() => {
@@ -167,18 +169,18 @@ export default function ReservationPageClient({
           <div className="grid gap-8 px-6 py-8 lg:grid-cols-[1.4fr_1fr] lg:px-10">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-700">
-                Reservation formation
+                Réservation formation
               </p>
               <h1 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-                Entretiens, classes virtuelles et journees terrain PREVENSIA
+                Entretiens, classes virtuelles et journées terrain PREVENSIA
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-                PREVENSIA distingue la theorie e-learning, le quiz puis la
-                sequence finale avec formateur. Selon le parcours, vous pouvez
+                PREVENSIA distingue la théorie e-learning, le quiz puis la
+                séquence finale avec formateur. Selon le parcours, vous pouvez
                 organiser un entretien H0B0 / H0V, une classe virtuelle BS /
-                BE Manoeuvre ou une journee presentielle BT electricien pour
-                B1 / B1V, B2 / B2V, BR, BC ou parcours multi-symboles, avec une lecture
-                claire entre besoins individuels, groupes et entreprises.
+                BE Manoeuvre ou une journée présentielle BT électricien pour
+                B1 / B1V, B2 / B2V, BR, BC ou parcours multi-symboles, avec une
+                lecture claire entre besoins individuels, groupes et entreprises.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -204,20 +206,20 @@ export default function ReservationPageClient({
                 </p>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
                   Pour les groupes et entreprises, PREVENSIA peut proposer une
-                  classe virtuelle planifiee, une organisation en entreprise ou
-                  une journee terrain selon le nombre d&apos;apprenants et le
-                  niveau vise.
+                  classe virtuelle planifiée, une organisation en entreprise ou
+                  une journée terrain selon le nombre d&apos;apprenants et le
+                  niveau visé.
                 </p>
               </article>
 
               <article className="rounded-[1.5rem] border border-amber-200 bg-amber-50 p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-amber-700">
-                  Individuels / salaries seuls
+                  Individuels / salariés seuls
                 </p>
                 <p className="mt-3 text-sm leading-7 text-slate-700">
-                  Les apprenants seuls sont orientes vers l&apos;entretien H0B0 /
+                  Les apprenants seuls sont orientés vers l&apos;entretien H0B0 /
                   H0V, les classes virtuelles BS / BE Manoeuvre disponibles ou
-                  les sessions BT programmees. Certaines sessions BS / BE
+                  les sessions BT programmées. Certaines sessions BS / BE
                   Manoeuvre initiales s&apos;ouvrent lorsque le nombre minimal de
                   participants est atteint.
                 </p>
@@ -308,13 +310,13 @@ export default function ReservationPageClient({
           {filteredSlots.length === 0 ? (
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-center shadow-sm">
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">
-                Aucun creneau visible
+                Aucun créneau visible
               </p>
               <h2 className="mt-3 text-2xl font-bold text-slate-900">
-                Aucun creneau ne correspond a ce filtre
+                Aucun créneau ne correspond à ce filtre
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                Vous pouvez reinitialiser les filtres ou demander une
+                Vous pouvez réinitialiser les filtres ou demander une
                 organisation sur mesure pour votre entreprise.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -322,7 +324,7 @@ export default function ReservationPageClient({
                   href="/reservation-formation"
                   className="inline-flex items-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
-                  Reinitialiser
+                  Réinitialiser
                 </Link>
                 <Link
                   href="/demande-devis"
@@ -351,7 +353,7 @@ export default function ReservationPageClient({
                       </h2>
                       <p className="mt-4 text-sm leading-7 text-slate-600">
                         {slot.note ||
-                          "Session organisee pour finaliser la sequence encadree dans un cadre clair et professionnel."}
+                          "Session organisée pour finaliser la séquence encadrée dans un cadre clair et professionnel."}
                       </p>
 
                       <div className="mt-5 flex flex-wrap gap-2">
@@ -404,7 +406,7 @@ export default function ReservationPageClient({
                         <p className="mt-2 text-sm leading-7 text-slate-700">
                           Minimum {slot.minParticipants ?? 1} apprenant
                           {(slot.minParticipants ?? 1) > 1 ? "s" : ""} pour
-                          confirmer ce creneau.
+                          confirmer ce créneau.
                         </p>
                       </div>
 
@@ -419,7 +421,7 @@ export default function ReservationPageClient({
                           href="/booking"
                           className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                         >
-                          Acceder au parcours apprenant
+                          Accéder au parcours apprenant
                         </Link>
                       </div>
                     </div>
