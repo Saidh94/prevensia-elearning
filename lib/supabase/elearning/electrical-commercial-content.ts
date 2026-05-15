@@ -146,29 +146,31 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       "B1 / B1V / B2 / B2V / BR / BC / BE - Parcours multi-symboles en basse tension",
     shortTitle: "BT multi-symboles",
     subtitle:
-      "Parcours e-learning structure pour les techniciens et electriciens devant executer, diriger, intervenir, consigner ou verifier en basse tension selon la logique de la NF C 18-510.",
-    duration: "8 h 00 a 11 h 00 de theorie guidee",
+      "Parcours e-learning structuré pour les techniciens et électriciens devant exécuter, diriger, intervenir, consigner ou vérifier en basse tension selon la logique de la NF C 18-510.",
+    duration: "8 h 00 à 11 h 00 de théorie guidée",
     deliveryFormat:
-      "E-learning guide + quiz + journee presentielle d'application selon les symboles retenus",
+      "E-learning guidé + quiz + journée présentielle d'application selon les symboles retenus",
     objective:
-      "Comprendre les frontieres entre B1, B1V, B2, B2V, BR, BC et BE, preparer une operation en securite, tenir son role sans derive et reconnaître les situations qui imposent l'arret ou la requalification.",
+      "Comprendre les frontières entre B1, B1V, B2, B2V, BR, BC et BE, préparer une opération en sécurité, tenir son rôle sans dérive et reconnaître les situations qui imposent l'arrêt ou la requalification.",
     audience:
-      "Electriciens, techniciens de maintenance, responsables techniques et personnels amenes a intervenir sur des installations basse tension avec plusieurs symboles possibles selon les missions confiees.",
+      "Électriciens, techniciens de maintenance, responsables techniques et personnels amenés à intervenir sur des installations basse tension avec plusieurs symboles possibles selon les missions confiées.",
     sections: [
       section("cadre-general", { chapterImagePath: IMG.b1b2Roles }),
       section("roles-responsabilites", {
         chapterImagePath: IMG.b1b2Roles,
         intro:
-          "Un titulaire multi-symboles ne devient pas un technicien universel. Il doit distinguer les roles B1, B1V, B2, B2V, BR, BC et BE pour ne jamais glisser d'une mission a l'autre sans requalification.",
+          "Un titulaire multi-symboles ne devient pas un technicien universel. Il doit distinguer les rôles B1, B1V, B2, B2V, BR, BC et BE pour ne jamais glisser d'une mission à l'autre sans requalification.",
         content: [
-          "Un même professionnel peut être executeur, chargé de travaux, intervenant general, chargé de consignation ou opérateur de vérification selon la mission confiee. La securite depend donc de la clarte du role reel tenu a chaque etape.",
-          "Ces frontieres doivent rester visibles sur le terrain: executer sans improviser, diriger sans banaliser, intervenir sans deriver, consigner sans ambiguite et controler sans se transformer en depanneur.",
-          "La valeur du multi-symboles n'est pas de tout melanger. Elle est de savoir quel cadre s'applique, avec quelles limites, pour quelle operation et sous quelle responsabilite.",
+          "Un même professionnel peut être exécutant (B1), chargé de travaux (B2), intervenant général (BR), chargé de consignation (BC) ou opérateur de vérification/mesurage (BE) selon la mission confiée. La sécurité dépend donc de la clarté du rôle réel tenu à chaque étape.",
+          "Ces frontières doivent rester visibles sur le terrain : exécuter sans improviser (B1), diriger sans banaliser (B2), intervenir sans dériver (BR), consigner sans ambiguïté (BC), contrôler sans se transformer en dépanneur (BE).",
+          "Le BE Vérification / BE Mesurage est un rôle distinct de BR, B2 et BC : il observe et mesure dans un cadre défini, sans intervenir ni consigner. Un titulaire BR ne glisse pas vers le BE Mesurage sans porter explicitement ce symbole sur son titre d'habilitation.",
+          "La valeur du multi-symboles n'est pas de tout mélanger. Elle est de savoir quel cadre s'applique, avec quelles limites, pour quelle opération et sous quelle responsabilité.",
         ],
         keyPoints: [
-          "Plusieurs symboles n'autorisent pas plusieurs roles en même temps.",
-          "Chaque mission garde son propre cadre de securite.",
-          "La requalification reste un reflexe central.",
+          "Plusieurs symboles n'autorisent pas plusieurs rôles simultanément.",
+          "BE = contrôler/mesurer sans intervenir — distinct de BR, B2, BC.",
+          "Chaque mission garde son propre cadre de sécurité.",
+          "La requalification reste un réflexe central.",
         ],
       }),
       section("symboles-attributions", {
@@ -190,15 +192,17 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("interventions-br", {
         chapterImagePath: IMG.maintenance,
         intro:
-          "L'intervention BR commence par un diagnostic cadre, continue par une action proportionnee, puis se termine par une vérification et une remise en service controlee si le contexte le permet.",
+          "L'intervention BR commence par un diagnostic cadré, continue par une action proportionnée, puis se termine par une vérification et une remise en service contrôlée si le contexte le permet.",
         content: [
-          "Le BR sait distinguer un remplacement, un raccordement, une recherche simple de defaut, une mesure utile et une remise en service. Cette lecture de l'action evite de transformer un depannage en chantier improvise.",
-          "Pendant l'intervention, il vérifie l'etat du materiel, l'absence de derive vers plusieurs circuits, la cohérence du repère et la possibilite de revenir a un etat sur. Si ces conditions ne sont plus reunies, il suspend et requalifie.",
-          "La remise en service n'est pas un automatisme. Elle suppose que la cause de l'anomalie soit comprise, que le materiel soit remis en etat et que le contexte ne presente plus de signal d'alerte.",
+          "Le BR sait distinguer un remplacement, un raccordement, une recherche simple de défaut, une mesure utile et une remise en service. Cette lecture de l'action évite de transformer un dépannage en chantier improvisé.",
+          "Pendant l'intervention, il vérifie l'état du matériel, l'absence de dérive vers plusieurs circuits, la cohérence du repère et la possibilité de revenir à un état sûr. Si ces conditions ne sont plus réunies, il suspend et requalifie.",
+          "La remise en service n'est pas un automatisme. Elle suppose que la cause de l'anomalie soit comprise, que le matériel soit remis en état et que le contexte ne présente plus de signal d'alerte.",
+          "Le BR peut réaliser des mesures dans le cadre de son intervention (mésurages utiles au dépannage), mais ce n'est pas la même chose que le rôle BE Mesurage. Le BE mesure dans un cadre d'habilitation défini, sans réaliser de dépannage ni de remise en service. Si le titulaire BR est également habilité BE Mesurage, il doit garder ces deux rôles distincts selon la mission du moment.",
         ],
         keyPoints: [
           "Diagnostiquer avant d'agir.",
-          "Intervenir sans deriver vers des travaux hors cadre.",
+          "Intervenir sans dériver vers des travaux hors cadre.",
+          "BR ≠ BE Mesurage : deux cadres distincts, même si les deux symboles sont sur le même titre.",
           "Remettre en service seulement si la situation est redevenue fiable.",
         ],
       }),
@@ -208,31 +212,35 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("outils-protections", {
         chapterImagePath: IMG.epiTerrain,
         intro:
-          "Les protections se lisent d'abord au regard du role tenu. Les moyens utiles a un exécutant ne couvrent pas automatiquement ceux du chargé de travaux, du BR ou du BC.",
+          "Les protections se lisent d'abord au regard du rôle tenu. Les moyens utiles à un exécutant ne couvrent pas automatiquement ceux du chargé de travaux, du BR ou du BC.",
         content: [
-          "Le professionnel vérifie les protections collectives de la zone, puis les EPI et l'outillage associes a la mission du moment. Il ne transpose pas automatiquement un equipement d'un role a un autre.",
-          "Cette logique evite deux erreurs classiques: croire qu'un EPI autorise tout, ou penser qu'un outillage disponible suffit a changer de mission.",
-          "Le bon niveau multi-symboles consiste a savoir quel moyen utiliser, pourquoi, et surtout quand l'absence d'un moyen impose l'arret ou la requalification.",
+          "Le professionnel vérifie les protections collectives de la zone, puis les EPI et l'outillage associés à la mission du moment. Il ne transpose pas automatiquement un équipement d'un rôle à un autre.",
+          "Cette logique évite deux erreurs classiques : croire qu'un EPI autorise tout, ou penser qu'un outillage disponible suffit à changer de mission.",
+          "Pour le rôle BE, l'outillage est spécifique : instruments de mesure de catégorie CAT adaptée (NF EN 61010-1), cordons conformes NF EN 61010-031, VAT pour confirmer l'absence de tension. Disposer d'un multimètre ne signifie pas être habilité BE Mesurage.",
+          "Le bon niveau multi-symboles consiste à savoir quel moyen utiliser, pourquoi, et surtout quand l'absence d'un moyen impose l'arrêt ou la requalification.",
         ],
         keyPoints: [
-          "Le role tenu conditionne les moyens a verifier.",
+          "Le rôle tenu conditionne les moyens à vérifier.",
           "Protection collective avant protection individuelle.",
-          "Un equipement disponible n'autorise pas un changement de mission.",
+          "BE : instrument CAT adapté + cordons NF EN 61010-031 — pas de substitution.",
+          "Un équipement disponible n'autorise pas un changement de mission.",
         ],
       }),
       section("anomalies-urgence", {
         chapterImagePath: IMG.armoireDanger,
         resourceVideos: [VIDEO.chocElectrique],
         intro:
-          "Une anomalie revele souvent une erreur de lecture du role, du circuit ou du cadre. Le bon reflexe est d'arreter et de relire la situation avant toute reprise.",
+          "Une anomalie révèle souvent une erreur de lecture du rôle, du circuit ou du cadre. Le bon réflexe est d'arrêter et de relire la situation avant toute reprise.",
         content: [
-          "Une odeur, un echauffement, un arc, une incohérence documentaire ou un doute sur la consignation imposent de stopper l'action et d'identifier quel cadre est encore applicable.",
-          "L'urgence ne transforme pas un exécutant en BR, un BR en BC ou un B2 en depanneur sans preparation. Elle impose au contraire plus de discipline.",
+          "Une odeur, un échauffement, un arc, une incohérence documentaire ou un doute sur la consignation imposent de stopper l'action et d'identifier quel cadre est encore applicable.",
+          "L'urgence ne transforme pas un exécutant en BR, un BR en BC ou un B2 en dépanneur sans préparation. Elle impose au contraire plus de discipline.",
+          "Pour le rôle BE, une anomalie détectée lors d'un contrôle ou d'un mesurage ne donne pas le droit d'intervenir : elle impose l'arrêt, la protection de zone, la documentation et le signalement pour requalification vers le symbole adapté (BR, B2 ou BC selon la nature de l'action requise).",
         ],
         keyPoints: [
-          "Anomalie = arret et relecture du cadre.",
-          "L'urgence ne change pas le symbole detenu.",
-          "Le bon role doit être reconfirme avant reprise.",
+          "Anomalie = arrêt et relecture du cadre.",
+          "L'urgence ne change pas le symbole détenu.",
+          "BE : anomalie détectée → signalement, jamais intervention spontanée.",
+          "Le bon rôle doit être reconfirmé avant reprise.",
         ],
       }),
       section("retour-experience", {

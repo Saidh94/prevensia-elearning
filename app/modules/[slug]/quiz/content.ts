@@ -614,16 +614,16 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 50,
     },
     {
-      question: "Quelle zone d'environnement est réservée aux opérations électriques en basse tension (zone 4) ?",
+      question: "En NF C 18-510, comment se définit la zone de voisinage simple en basse tension (BT) ?",
       choices: [
-        "Zone accessible à tout le monde sans restriction",
-        "Zone réservée au personnel habilité, où le matériel IP2X ne doit pas être considéré comme sous tension",
-        "Zone uniquement accessible en haute tension",
-        "Zone d'investigation sans restriction pour le personnel non habilité",
+        "Zone au-delà de 3 m des pièces nues sous tension — aucune contrainte particulière",
+        "Zone entre la Distance Minimale d'Approche (DMA = 0,30 m) et 3 m des pièces nues sous tension BT — accès habilité requis",
+        "Zone réservée exclusivement à la haute tension",
+        "Zone sans limite fixe, définie librement par le chargé de travaux",
       ],
       answer: [1],
       explanation:
-        "La zone 4 est réservée au personnel habilité pour les opérations électriques en BT. Tout matériel de degré IP2X n'y est pas considéré comme sous tension accessible.",
+        "La NF C 18-510 définit une zone de voisinage simple BT entre la DMA (0,30 m) et 3 m des pièces nues sous tension. Dans cette zone, un personnel habilité est requis et des précautions spécifiques s'appliquent. En deçà de 0,30 m (DMA), on entre dans la zone de travail sous tension qui exige une habilitation et des équipements adaptés.",
       timeLimit: 55,
     },
     {
@@ -702,12 +702,12 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 35,
     },
     {
-      question: "Quelle est la Distance Limite d'Investigation (DLI) à respecter autour d'une pièce nue sous tension en basse tension ?",
-      choices: ["3 m", "10 m", "50 m", "100 m"],
-      answer: [2],
+      question: "Quelle est la Distance Minimale d'Approche (DMA) autour d'une pièce nue sous tension en basse tension (BT) ?",
+      choices: ["0,05 m", "0,30 m", "1 m", "3 m"],
+      answer: [1],
       explanation:
-        "La DLI en BT est de 50 m. C'est la distance à partir de laquelle on commence à prendre en compte l'environnement électrique lors d'une analyse de risques avant travaux.",
-      timeLimit: 45,
+        "La DMA en basse tension est fixée à 0,30 m par la NF C 18-510. En deçà de cette limite, on entre dans la zone de travail sous tension : des habilitations spécifiques, des EPI adaptés et des protections contre les pièces nues sont obligatoires. Cette distance ne se présume pas, elle se mesure physiquement sur le terrain avant toute opération.",
+      timeLimit: 40,
     },
     {
       question: "Quel est le rôle du surveillant de sécurité électrique dans le cadre d'une opération impliquant du personnel non habilité ?",
@@ -794,6 +794,35 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "Le schéma IT est choisi pour garantir la continuité de service : un premier défaut ne coupe pas l'alimentation. Il est donc utilisé dans les blocs opératoires (NF C 15-211), les unités de réanimation, les industries de process où une coupure entraînerait des conséquences graves, et certains datacenters critiques.",
       timeLimit: 45,
+    },
+    // ── Questions BE Vérification / BE Mesurage dans contexte multi-symboles ─
+    {
+      question:
+        "Un technicien titulaire des symboles BR et BE Mesurage est appelé pour dépanner une armoire BT. En cours d'intervention, on lui demande de mesurer les tensions de départ pour établir un bilan. Comment doit-il gérer ces deux missions ?",
+      choices: [
+        "Il peut enchaîner les deux missions librement puisque les deux symboles sont sur son titre",
+        "Il réalise d'abord l'intervention BR, puis effectue les mesures dans le cadre BE Mesurage, en distinguant clairement les deux périmètres",
+        "Le symbole BR inclut automatiquement le droit de mesurer — le BE Mesurage est superflu",
+        "Il doit choisir l'une des deux missions et renoncer à l'autre",
+      ],
+      answer: [1],
+      explanation:
+        "Cumuler BR et BE Mesurage sur un titre d'habilitation est possible si les missions le justifient. Mais les deux rôles gardent leurs périmètres propres : le BR intervient et dépanne, le BE Mesurage mesure dans un cadre préparé sans intervenir. Passer de l'un à l'autre sans distinction revient à mélanger les rôles — ce qui est interdit. Chaque basculement doit être conscient, documenté et cohérent avec le titre.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Quelle est la différence fondamentale entre le rôle BR et le rôle BE Vérification / BE Mesurage ?",
+      choices: [
+        "Le BR peut mesurer et vérifier ; le BE peut aussi dépanner si l'anomalie est mineure",
+        "Le BR intervient et peut corriger une anomalie dans son cadre ; le BE observe et mesure sans jamais modifier l'installation",
+        "Les deux rôles sont équivalents mais le BE nécessite plus d'expérience",
+        "Le BR est limité aux installations domestiques ; le BE couvre les installations industrielles",
+      ],
+      answer: [1],
+      explanation:
+        "C'est la frontière la plus importante à retenir : le BR (intervenant général) peut diagnostiquer et corriger une anomalie dans son cadre d'habilitation. Le BE Vérification / BE Mesurage observe, contrôle et mesure — sans jamais modifier, réparer ni consigner. Une anomalie détectée par le BE ne lui donne pas le droit d'agir : elle impose de signaler et de transmettre pour requalification vers BR, B2 ou BC selon le besoin. NF C 18-510 §11.5.2 et §11.5.3.",
+      timeLimit: 50,
     },
   ],
     bsbe: [
