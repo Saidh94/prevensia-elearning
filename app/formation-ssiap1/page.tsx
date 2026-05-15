@@ -182,11 +182,11 @@ export default function FormationSsiap1Page() {
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <span>✓ Organisme agréé préfecture</span>
-            <span>✓ Formation initiale certifiante 67h</span>
-            <span>✓ Recyclage 14h tous les 3 ans</span>
-            <span>✓ E-learning inclus pour chaque stagiaire</span>
-            <span>✓ Max 12 stagiaires par session</span>
-            <span>✓ Attestation + rapport employeur</span>
+            <span>✓ 93 % de réussite à l&apos;examen</span>
+            <span>✓ Formation certifiante 67h</span>
+            <span>✓ Recyclage 14h / 3 ans</span>
+            <span>✓ E-learning inclus</span>
+            <span>✓ Max 12 stagiaires · Suivi individuel</span>
           </div>
         </div>
       </section>
@@ -226,6 +226,9 @@ export default function FormationSsiap1Page() {
                 théorie, exercices pratiques sur matériel réel et examen final devant jury. Nos stagiaires
                 repartent avec la{" "}<strong>qualification officielle SSIAP1</strong>{" "}reconnue par
                 le Ministère de l&apos;Intérieur — exigée dans tous les ERP de catégorie 1 à 4.
+              </p>
+              <p className="mt-3 text-red-200 text-sm font-semibold">
+                ✓ 93 % de taux de réussite à l&apos;examen SSIAP1 — sessions 2023/2024
               </p>
             </div>
             <Link
