@@ -883,6 +883,93 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("domaines-zones-pnst", {
         chapterImagePath: IMG.zonesBt,
         resourceVideos: [VIDEO.zonesDistances],
+        title: "4. Domaines de tension, zones d'environnement et voisinage — lecture BE",
+        intro:
+          "Le titulaire BE Vérification / BE Mesurage travaille souvent à proximité de pièces nues sous tension (PNST). La maîtrise des zones d'environnement et des distances de sécurité conditionne directement la sécurité de chaque mesure ou contrôle.",
+        content: [
+          "La basse tension n'est pas une zone de confort. Un conducteur BT à 230 V ou 400 V est dangereux dans tous les environnements et potentiellement mortel en conditions humides. Le titulaire BE qui réalise des mesures sur une installation en service est exposé à ce risque à chaque approche d'un point de mesure.",
+          "La NF C 18-510 définit des zones d'environnement autour des pièces nues sous tension. En basse tension : la Distance Minimale d'Approche (DMA) est de 0,30 m — c'est la limite à ne jamais franchir sans protection adaptée. Entre la DMA et 3 m : zone de voisinage simple BT, accès habilité requis. Au-delà : zone accessible au personnel non habilité encadré.",
+          "Pour le BE Mesurage, l'approche du point de mesure implique souvent de travailler en voisinage immédiat de conducteurs ou de jeux de barres sous tension. La catégorie CAT de l'instrument est dimensionnée pour tenir les transitoires de tension de cette zone — c'est la traduction instrumentale de la DMA.",
+          "La présence de PNST doit être analysée avant toute approche. Un capot manquant, un bornier accessible ou une enveloppe retirée peuvent faire basculer l'opération BE vers une exposition non prévue dans le titre d'habilitation. Dans ce cas, l'opération s'arrête : le BE ne repose pas le capot, ne protège pas la PNST lui-même — il signale et attend une décision du chargé d'exploitation.",
+          "Les seuils de tension dangereuse varient selon l'environnement. En courant alternatif : 50 V en milieu sec, 25 V en milieu humide, 12 V en milieu mouillé. En courant continu : 120 V sec, 60 V humide, 30 V mouillé. Un circuit BT de 230 V dépasse ces seuils dans tous les environnements rencontrés en industrie ou en tertiaire.",
+          "Le titulaire BE doit aussi connaître les domaines de tension : TBT (< 50 V AC, < 120 V DC), BT (50 V à 1 000 V AC), HTA (1 kV à 50 kV), HTB (> 50 kV). Son habilitation BE couvre la basse tension. Toute installation présentant de la haute tension nécessite une habilitation HE spécifique — le BE ne mesure pas en HT sans ce titre complémentaire.",
+        ],
+        deepDive: [
+          "Le voisinage n'est pas une simple définition normative. Sur le terrain, il conditionne chaque geste de mesure : angle d'approche des sondes, longueur des cordons, position du corps, stabilité de la posture. Un BE Mesurage rigoureux intègre ces paramètres dans sa préparation avant même d'ouvrir son instrument.",
+          "En pratique, un titulaire BE Mesurage sur un TGBT industriel travaille régulièrement à moins de 30 cm de jeux de barres sous tension. C'est précisément pour ce contexte que les catégories CAT III et CAT IV ont été définies — la zone d'environnement et la catégorie d'instrument sont deux faces du même dispositif de sécurité.",
+        ],
+        keyPoints: [
+          "DMA BT = 0,30 m — limite à ne jamais franchir sans protection adaptée.",
+          "Zone de voisinage simple BT : entre 0,30 m et 3 m des PNST — accès habilité requis.",
+          "PNST inattendue (capot manquant, bornier ouvert) → arrêt BE, signalement.",
+          "Tensions dangereuses BT : 50 V sec / 25 V humide / 12 V mouillé (AC).",
+          "Habilitation BE limitée à la BT — HT exige un titre HE complémentaire.",
+          "Catégorie CAT de l'instrument = traduction instrumentale de la DMA.",
+        ],
+        forbiddenPoints: [
+          "S'approcher d'une PNST non prévue dans le titre d'habilitation sans protection adaptée.",
+          "Remettre soi-même en place un capot ou protéger une PNST découverte — ce n'est pas dans le périmètre BE.",
+          "Mesurer sur une installation HT avec un titre BE BT uniquement.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §4.3 — zones d'environnement, DMA, PNST en basse tension",
+          "NF C 18-510 §11.5.2 et §11.5.3 — périmètre BE Vérification et BE Mesurage",
+          "NF EN 61010-1 — catégories CAT et zones de mesure : lien DMA / catégorie instrument",
+        ],
+        practicalCase:
+          "Exemple : un titulaire BE Mesurage s'apprête à mesurer les tensions sur un TGBT industriel. En ouvrant la porte du tableau, il constate qu'un déflecteur de câbles a été retiré, laissant un bornier 400 V accessible à moins de 15 cm de sa trajectoire de mesure. Il suspend immédiatement l'opération, referme la porte du tableau, et signale l'anomalie au chargé d'exploitation avant toute reprise.",
+        scenarios: [
+          {
+            situation:
+              "Vous réalisez des mesures BE sur un tableau de distribution BT. En approchant votre pince ampèremétrique, vous réalisez que vous êtes à moins de 20 cm d'un jeu de barres nu sous tension 400 V. Votre pince est CAT III.",
+            question:
+              "Êtes-vous dans une situation conforme pour poursuivre la mesure ?",
+            wrongActions: [
+              "Poursuivre rapidement la mesure pour réduire le temps d'exposition.",
+              "Utiliser un outil non isolant pour maintenir la pince en position stable.",
+              "Considérer que la pince CAT III protège entièrement, quelle que soit la posture.",
+            ],
+            correctActions: [
+              "Vérifier que des protections physiques (nappe isolante, écran) séparent la trajectoire de mesure du jeu de barres nu.",
+              "Ajuster la position d'approche pour respecter la DMA (0,30 m) entre votre corps et la PNST.",
+              "Si la zone ne permet pas de travailler dans les conditions prévues, signaler et suspendre l'opération.",
+            ],
+            explanation:
+              "La catégorie CAT III de l'instrument protège contre les transitoires de tension — elle ne remplace pas le respect de la DMA (0,30 m) ni des protections collectives de zone. La pince ne protège pas l'opérateur d'un contact direct avec le jeu de barres. Les deux dispositifs — catégorie CAT et DMA — sont complémentaires, pas substituables.",
+            normRef:
+              "NF C 18-510 §4.3 — DMA 0,30 m en BT ; NF EN 61010-1 — catégorie CAT : protection contre transitoires, pas contre contact direct",
+          },
+          {
+            situation:
+              "Lors d'une vérification BE dans un local électrique, vous constatez qu'un capot d'armoire a été retiré par une équipe de maintenance qui a travaillé là la veille. Des borniers 230 V sont visibles et accessibles.",
+            question:
+              "Que faites-vous face à cette PNST non prévue dans le cadre de votre opération BE ?",
+            wrongActions: [
+              "Remettre le capot vous-même pour sécuriser la zone et poursuivre la vérification.",
+              "Travailler en faisant attention de ne pas toucher les borniers.",
+              "Continuer la vérification sur les autres équipements du local sans tenir compte de cette anomalie.",
+            ],
+            correctActions: [
+              "Cesser toute opération dans ce local.",
+              "Délimiter la zone si possible (ne pas toucher au tableau).",
+              "Signaler l'anomalie au chargé d'exploitation pour décision : remise en place du capot par un habilité, consignation ou sécurisation physique.",
+            ],
+            explanation:
+              "Un capot retiré crée une PNST non prévue dans le titre BE. Le titulaire BE n'est pas habilité à intervenir sur le tableau ni à remettre le capot — c'est une action corrective qui relève d'un BR ou B1/B2. Il doit signaler et attendre. Poursuivre la vérification dans ce contexte revient à opérer hors du périmètre prévu dans le titre d'habilitation.",
+            normRef:
+              "NF C 18-510 §11.5.2 — périmètre BE Vérification : contrôle sans intervention ; §4.3 — PNST et zones d'environnement",
+          },
+        ],
+        chapterImageAlt:
+          "Schéma des zones d'environnement BT autour d'un conducteur nu avec DMA 0,30 m et zone de voisinage simple jusqu'à 3 m",
+        visual: {
+          title: "Zones BE : mesurer près des PNST",
+          subtitle: "DMA 0,30 m, voisinage, CAT instrument — même dispositif de sécurité.",
+          items: ["DMA 0,30 m", "CAT III/IV", "PNST inattendue → arrêt", "HT → HE requis"],
+          tone: "amber",
+          imagePath: "/images/modules/electricite/distances-locaux-acces.jpg",
+          imageAlt: "Distances de sécurité et zones d'approche autour des pièces nues sous tension en basse tension",
+        },
       }),
       section("preparation-travaux", {
         chapterImagePath: IMG.distancesLocaux,
