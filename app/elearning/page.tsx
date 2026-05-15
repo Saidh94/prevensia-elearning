@@ -425,13 +425,13 @@ const formations = [
     category: "Prévention des risques",
     title: "SSIAP1 Initial — Module e-learning inclus dans la formation certifiante",
     duration: "Durée e-learning : 2 h 30 à 3 h",
-    mode: "Support e-learning inclus dans la formation initiale (67h)",
+    mode: "Support e-learning inclus dans la formation initiale (70h)",
     price: "À partir de 690 EUR HT",
     level: "Débutant",
     audience:
-      "Agents de sécurité incendie débutants, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux) souhaitant obtenir la qualification SSIAP1 via la formation certifiante complète (67h).",
+      "Agents de sécurité incendie débutants, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux) souhaitant obtenir la qualification SSIAP1 via la formation certifiante complète (70h).",
     description:
-      "Module e-learning théorique inclus dans la formation SSIAP1 certifiante (67h) dispensée par PREVENSIA FORMATION, organisme agréé préfecture. Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation et rôle de l'agent SSIAP1 en ERP.",
+      "Module e-learning théorique inclus dans la formation SSIAP1 certifiante (70h) dispensée par PREVENSIA FORMATION, organisme agréé préfecture. Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation et rôle de l'agent SSIAP1 en ERP.",
     objectifs: [
       "Identifier les classes de feux et choisir l'agent extincteur adapté",
       "Appliquer la méthode DAPS pour utiliser un extincteur en sécurité",
@@ -448,7 +448,7 @@ const formations = [
       "Conduite à tenir en cas d'incendie — séquence Alarmer/Alerter/Attaquer",
     ],
     note:
-      "Support e-learning inclus pour chaque stagiaire inscrit à la formation SSIAP1 (67h). PREVENSIA FORMATION est organisme agréé préfecture et délivre la qualification officielle SSIAP1 à l'issue de l'examen.",
+      "Support e-learning inclus pour chaque stagiaire inscrit à la formation SSIAP1 (70h). PREVENSIA FORMATION est organisme agréé préfecture et délivre la qualification officielle SSIAP1 à l'issue de l'examen.",
   },
   {
     slug: "recyclage-ssiap1",

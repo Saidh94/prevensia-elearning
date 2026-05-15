@@ -80,7 +80,7 @@ const formations = [
     href: "/formation-ssiap1",
     badge: "Sécurité incendie ERP",
     description:
-      "Formation initiale SSIAP1 (67h) : mécanisme du feu, extincteurs, SSI, procédures d'évacuation ERP. Conforme arrêté du 25 juin 1980 et arrêté du 2 mai 2005.",
+      "Formation initiale SSIAP1 (70h) : mécanisme du feu, extincteurs, SSI, procédures d'évacuation ERP. Conforme arrêté du 25 juin 1980 et arrêté du 2 mai 2005.",
     image: "/elearning/commun/ssiap1-accueil.png",
     imageClass: "object-cover object-center",
   },

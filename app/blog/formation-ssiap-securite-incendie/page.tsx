@@ -193,7 +193,7 @@ export default function ArticleFormationSSIAPPage() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-bold text-slate-900">Formation initiale SSIAP 1</p>
               <p className="mt-1 text-2xl font-bold text-red-700">690 € HT</p>
-              <p className="text-sm text-slate-500">67 heures · hybride</p>
+              <p className="text-sm text-slate-500">70 heures · hybride</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-bold text-slate-900">Recyclage SSIAP 1 (14h / 3 ans)</p>

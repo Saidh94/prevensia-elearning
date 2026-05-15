@@ -264,7 +264,7 @@ function DemandeDevisForm() {
               >
                 <option value="">Sélectionnez une formation SSIAP1</option>
                 <option value="ssiap1-initiale">
-                  SSIAP1 — Formation initiale (67h min, max 12 stagiaires)
+                  SSIAP1 — Formation initiale (70h min, max 12 stagiaires)
                 </option>
                 <option value="ssiap1-recyclage">
                   SSIAP1 — Recyclage (14h / tous les 3 ans)

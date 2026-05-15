@@ -42,7 +42,7 @@ const faqItems = [
   {
     question: "Quelle est la différence entre le recyclage SSIAP1 et la formation initiale ?",
     answer:
-      "La formation initiale SSIAP1 dure 67 heures minimum et aboutit à la certification initiale après examen (QCM + épreuve pratique + oral). Le recyclage dure 14 heures et vise à maintenir la qualification existante par une remise à niveau théorique et pratique. Le recyclage ne comprend pas d'examen de certification mais une évaluation des acquis.",
+      "La formation initiale SSIAP1 dure 70 heures et aboutit à la certification initiale après examen (QCM + épreuve pratique + oral). Le recyclage dure 14 heures et vise à maintenir la qualification existante par une remise à niveau théorique et pratique. Le recyclage ne comprend pas d'examen de certification mais une évaluation des acquis.",
   },
   {
     question: "Comment se déroule le recyclage SSIAP1 chez PREVENSIA ?",
@@ -336,7 +336,7 @@ export default function FormationRecyclageSsiap1Page() {
               <tbody className="divide-y divide-slate-100">
                 <tr>
                   <td className="px-4 py-3 font-medium text-slate-900">Durée</td>
-                  <td className="px-4 py-3 text-center text-slate-700">67h minimum</td>
+                  <td className="px-4 py-3 text-center text-slate-700">70h</td>
                   <td className="px-4 py-3 text-center text-slate-700">14h minimum</td>
                 </tr>
                 <tr className="bg-slate-50">

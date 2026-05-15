@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation SSIAP1 Certifiante — Agent Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "Formation SSIAP1 certifiante (67h) par organisme agréé préfecture. Recyclage 14h / 3 ans. E-learning inclus. 93 % de réussite. À partir de 690 € HT.",
+    "Formation SSIAP1 certifiante (70h) par organisme agréé préfecture. Recyclage 14h / 3 ans. E-learning inclus. 93 % de réussite. À partir de 690 € HT.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },
@@ -14,7 +14,7 @@ export const metadata = {
     "formation SSIAP1 certifiante",
     "formation agent sécurité incendie ERP",
     "organisme agréé SSIAP1",
-    "formation SSIAP1 67 heures",
+    "formation SSIAP1 70 heures",
     "recyclage SSIAP1 14h",
     "certification SSIAP1",
     "formation sécurité incendie ERP",
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Formation SSIAP1 Certifiante — Organisme agréé préfecture | PREVENSIA",
     description:
-      "Formation SSIAP1 complète et certifiante : 67h initiale + recyclage 14h. Organisme agréé préfecture. E-learning inclus. À partir de 690 € HT. Devis 48h.",
+      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Organisme agréé préfecture. E-learning inclus. À partir de 690 € HT. Devis 48h.",
     url: "https://prevensia-formation.fr/formation-ssiap1",
   },
 };
@@ -36,9 +36,9 @@ const faqItems = [
       "Oui. PREVENSIA FORMATION est un organisme de formation agréé par la préfecture pour dispenser la formation SSIAP1 (initiale et recyclage), conformément à l'arrêté du 2 mai 2005 modifié. Nos formations conduisent à la qualification officielle SSIAP1 reconnue par l'État.",
   },
   {
-    question: "En quoi consiste la formation initiale SSIAP1 (67h) ?",
+    question: "En quoi consiste la formation initiale SSIAP1 (70h) ?",
     answer:
-      "La formation initiale SSIAP1 dure 67 heures minimum (environ 10 à 12 jours ouvrés), pour 12 stagiaires maximum par session. Elle comprend : le module e-learning théorique (inclus pour chaque stagiaire), des apports théoriques en salle, des exercices pratiques (manipulation d'extincteurs, désenfumage, gestes professionnels, mises en situation ERP) et un examen final composé d'une épreuve écrite (QCM), d'une épreuve pratique d'identification d'anomalies et d'un oral devant jury. La qualification SSIAP1 est délivrée aux stagiaires ayant validé l'examen.",
+      "La formation initiale SSIAP1 dure 70 heures (environ 10 à 12 jours ouvrés), pour 12 stagiaires maximum par session. Elle comprend : le module e-learning théorique (inclus pour chaque stagiaire), des apports théoriques en salle, des exercices pratiques (manipulation d'extincteurs, désenfumage, gestes professionnels, mises en situation ERP) et un examen final composé d'une épreuve écrite (QCM), d'une épreuve pratique d'identification d'anomalies et d'un oral devant jury. La qualification SSIAP1 est délivrée aux stagiaires ayant validé l'examen.",
   },
   {
     question: "Qu'est-ce que le recyclage SSIAP1 et pourquoi est-il obligatoire ?",
@@ -58,7 +58,7 @@ const faqItems = [
   {
     question: "Quel est le tarif de la formation SSIAP1 ?",
     answer:
-      "La formation initiale SSIAP1 (67h, hybride e-learning + présentiel, examen inclus) est proposée à partir de 690 € HT par personne. Le recyclage SSIAP1 (14h obligatoire tous les 3 ans, e-learning inclus) est disponible à partir de 250 € HT. Ces tarifs s'entendent pour des sessions inter-entreprise. Des tarifs intra-entreprise et groupe sont disponibles sur devis sous 48h.",
+      "La formation initiale SSIAP1 (70h, hybride e-learning + présentiel, examen inclus) est proposée à partir de 690 € HT par personne. Le recyclage SSIAP1 (14h obligatoire tous les 3 ans, e-learning inclus) est disponible à partir de 250 € HT. Ces tarifs s'entendent pour des sessions inter-entreprise. Des tarifs intra-entreprise et groupe sont disponibles sur devis sous 48h.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function FormationSsiap1Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation SSIAP1 Certifiante — Agent de Sécurité Incendie ERP"
-        description="Formation SSIAP1 complète et certifiante (67h) dispensée par PREVENSIA FORMATION, organisme agréé préfecture. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
+        description="Formation SSIAP1 complète et certifiante (70h) dispensée par PREVENSIA FORMATION, organisme agréé préfecture. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
         courseCode="SSIAP1"
         url="/formation-ssiap1"
         timeRequired="P10D"
@@ -160,7 +160,7 @@ export default function FormationSsiap1Page() {
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Obtenez la qualification SSIAP1 reconnue par le Ministère de l&apos;Intérieur, exigée
-            dans tous les ERP de catégorie 1 à 4. Formation complète en 67h : théorie, pratique sur
+            dans tous les ERP de catégorie 1 à 4. Formation complète en 70h : théorie, pratique sur
             matériel réel, examen devant jury. Module e-learning inclus pour chaque stagiaire.
             Recyclage obligatoire (14h / 3 ans) également disponible.
           </p>
@@ -183,7 +183,7 @@ export default function FormationSsiap1Page() {
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <span>✓ Organisme agréé préfecture</span>
             <span>✓ 93 % de réussite à l&apos;examen</span>
-            <span>✓ Formation certifiante 67h</span>
+            <span>✓ Formation certifiante 70h</span>
             <span>✓ Recyclage 14h / 3 ans</span>
             <span>✓ E-learning inclus</span>
             <span>✓ Max 12 stagiaires · Suivi individuel</span>
@@ -198,7 +198,7 @@ export default function FormationSsiap1Page() {
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-red-700">Formation initiale certifiante</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-red-600">690 € HT</span></p>
-              <p className="mt-1 text-sm text-slate-600">67h · E-learning inclus · Examen + qualification</p>
+              <p className="mt-1 text-sm text-slate-600">70h · E-learning inclus · Examen + qualification</p>
             </div>
             <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Recyclage obligatoire (tous les 3 ans)</p>
@@ -603,7 +603,7 @@ export default function FormationSsiap1Page() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Former vos agents à la sécurité incendie ERP ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Formation certifiante 67h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Organisme agréé préfecture
+            Formation certifiante 70h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Organisme agréé préfecture
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
