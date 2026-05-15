@@ -5,7 +5,7 @@ import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 const formationsParCategorie = {
-  "Habilitations electriques": [
+  "Habilitations électriques": [
     "H0B0 / H0V - E-learning + entretien 30 min",
     "BS / BE Manoeuvre - E-learning + classe virtuelle",
     "BS / BE Manoeuvre - E-learning + session entreprise",
@@ -13,12 +13,12 @@ const formationsParCategorie = {
     "BS / BE Manoeuvre - E-learning + visio de recyclage",
     "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
   ],
-  "Securite incendie": [
+  "Sécurité incendie": [
     "Manipulation extincteurs",
     "Guide-file / Serre-file",
-    "Equipier de Premiere Intervention (EPI)",
+    "Équipier de Première Intervention (EPI)",
     "Exploitation SSI",
-    "Exploitation sprinkler et referentiels techniques",
+    "Exploitation sprinkler et référentiels techniques",
   ],
   SST: ["SST - Formation initiale", "MAC SST"],
 } as const;
@@ -223,7 +223,7 @@ function InscriptionForm() {
       }
 
       setSuccess(
-        "Votre inscription a bien ete enregistree. Vous allez recevoir par email vos acces PREVENSIA ou la confirmation de reutilisation de votre compte existant."
+        "Votre inscription a bien été enregistrée. Vous allez recevoir par email vos accès PREVENSIA ou la confirmation de réutilisation de votre compte existant."
       );
 
       setForm((prev) => ({
@@ -254,18 +254,18 @@ function InscriptionForm() {
           </p>
 
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Inscription a une formation
+            Inscription à une formation
           </h1>
 
           <p className="mt-4 text-slate-600">
             Remplissez le formulaire ci-dessous pour demander votre inscription
-            a une session de formation.
+            à une session de formation.
           </p>
 
           {formationDepuisUrl || dateDepuisUrl || formatDepuisUrl ? (
             <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4">
               <p className="text-sm font-semibold text-green-800">
-                Session selectionnee
+                Session sélectionnée
               </p>
 
               {formationDepuisUrl ? (
@@ -308,7 +308,7 @@ function InscriptionForm() {
 
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
-                  Prenom
+                  Prénom
                 </label>
                 <input
                   type="text"
@@ -336,7 +336,7 @@ function InscriptionForm() {
 
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
-                  Telephone
+                  Téléphone
                 </label>
                 <input
                   type="text"
@@ -364,7 +364,7 @@ function InscriptionForm() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700">
-                  Categorie de formation
+                  Catégorie de formation
                 </label>
                 <select
                   name="categorie"
@@ -372,7 +372,7 @@ function InscriptionForm() {
                   onChange={handleCategorieChange}
                   className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-red-600"
                 >
-                  <option value="">Choisir une categorie</option>
+                  <option value="">Choisir une catégorie</option>
                   {Object.keys(formationsParCategorie).map((categorie) => (
                     <option key={categorie} value={categorie}>
                       {categorie}
@@ -395,7 +395,7 @@ function InscriptionForm() {
                   <option value="">
                     {form.categorie
                       ? "Choisir une formation"
-                      : "Selectionnez d'abord une categorie"}
+                      : "Sélectionnez d'abord une catégorie"}
                   </option>
 
                   {optionsFormation.map((item) => (

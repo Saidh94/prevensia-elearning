@@ -135,11 +135,11 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
         "Parcours e-learning suivi, puis entretien individuel de validation avec un formateur.",
       duration: "30 min",
       audience: "Individuel",
-      ctaLabel: "Reserver l'entretien H0B0 / H0V",
+      ctaLabel: "Réserver l'entretien H0B0 / H0V",
       ctaHref: "https://calendly.com/prevensia-formation-kq6l/30min",
       ctaExternal: true,
       variant: "green",
-      note: "L'entretien complete le module theorique et prepare la validation finale du parcours.",
+      note: "L'entretien complète le module théorique et prépare la validation finale du parcours.",
     };
   }
 
@@ -147,13 +147,13 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
     return {
       title: "Recyclage BS et BE Manoeuvre",
       summary:
-        "Parcours de recyclage avec rappel theorique, quiz puis visio de validation avec le formateur.",
-      duration: "45 min a 1 h",
+        "Parcours de recyclage avec rappel théorique, quiz puis visio de validation avec le formateur.",
+      duration: "45 min à 1 h",
       audience: isEmployerFlow ? "Entreprise / groupe ou individuel" : "Individuel ou petit groupe",
-      ctaLabel: "Choisir un creneau de recyclage",
+      ctaLabel: "Choisir un créneau de recyclage",
       ctaHref: "/reservation-formation?category=bsbe_recyclage&format=virtual",
       variant: "blue",
-      note: "La visio de recyclage reste courte, mais encadree, pour verifier les acquis et les limites d'autorisation.",
+      note: "La visio de recyclage reste courte, mais encadrée, pour vérifier les acquis et les limites d'autorisation.",
     };
   }
 
@@ -162,8 +162,8 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
       ? {
           title: "Initial BS et BE Manoeuvre - entreprise",
           summary:
-            "Votre entreprise peut choisir une classe virtuelle de 3 h a 4 h avec formateur ou organiser une session en entreprise selon l'effectif.",
-          duration: "3 h a 4 h",
+            "Votre entreprise peut choisir une classe virtuelle de 3 h à 4 h avec formateur ou organiser une session en entreprise selon l'effectif.",
+          duration: "3 h à 4 h",
           audience: "Groupe / entreprise",
           ctaLabel: "Voir les options BS et BE Manoeuvre",
           ctaHref:
@@ -174,14 +174,14 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
       : {
           title: "Initial BS et BE Manoeuvre - classe virtuelle",
           summary:
-            "Les particuliers ou salaries seuls sont orientes vers une classe virtuelle avec formateur, ouverte lorsque le nombre minimal d'apprenants est atteint.",
-          duration: "3 h a 4 h",
+            "Les particuliers ou salariés seuls sont orientés vers une classe virtuelle avec formateur, ouverte lorsque le nombre minimal d'apprenants est atteint.",
+          duration: "3 h à 4 h",
           audience: "Individuel",
           ctaLabel: "Voir les classes virtuelles BS et BE Manoeuvre",
           ctaHref:
             "/reservation-formation?category=bsbe_initial&format=virtual",
           variant: "amber",
-          note: "Ouverture sous reserve de quorum minimal pour garantir la qualite pedagogique et la rentabilite du groupe.",
+          note: "Ouverture sous réserve de quorum minimal pour garantir la qualité pédagogique et la rentabilité du groupe.",
         };
   }
 
@@ -226,26 +226,26 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
             : "B1 / B1V / B2 / B2V / BR / BC";
 
     return {
-      title: `${specificLabel} - parcours BT avec presentiel`,
+      title: `${specificLabel} - parcours BT avec présentiel`,
       summary:
-        "Ce niveau impose une vraie articulation entre e-learning, quiz et sequence presentielle ou organisation terrain avec formateur.",
-      duration: "1 journee presentielle",
+        "Ce niveau impose une vraie articulation entre e-learning, quiz et séquence présentielle ou organisation terrain avec formateur.",
+      duration: "1 journée présentielle",
       audience: isEmployerFlow ? "Entreprise / groupe" : "Individuel ou groupe",
       ctaLabel: isEmployerFlow
-        ? "Voir l'organisation presentielle"
+        ? "Voir l'organisation présentielle"
         : "Voir les prochaines sessions BT",
       ctaHref: isEmployerFlow
         ? "/reservation-formation?category=b1b2brbc_initial&audience=group"
         : "/reservation-formation?category=b1b2brbc_initial",
       variant: "blue",
-      note: `Le presentiel reste essentiel pour les mises en situation, l'echange et l'evaluation appliquee du parcours ${specificLabel}.`,
+      note: `Le présentiel reste essentiel pour les mises en situation, l'échange et l'évaluation appliquée du parcours ${specificLabel}.`,
     };
   }
 
   return {
-    title: "Validation pedagogique",
+    title: "Validation pédagogique",
     summary:
-      "Votre parcours ouvre l'acces a une sequence de validation organisee avec l'equipe pedagogique.",
+      "Votre parcours ouvre l'accès à une séquence de validation organisée avec l'équipe pédagogique.",
     duration: "Selon la formation",
     audience: "Selon le profil",
     ctaLabel: "Contacter PREVENSIA",
@@ -303,14 +303,14 @@ export default async function BookingPage() {
             Booking
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Impossible de verifier votre acces
+            Impossible de vérifier votre accès
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Une erreur est survenue lors de la verification de vos droits pour
-            acceder a la planification.
+            Une erreur est survenue lors de la vérification de vos droits pour
+            accéder à la planification.
           </p>
           <p className="mt-3 text-sm text-slate-500">
-            Detail technique : {error.message}
+            Détail technique : {error.message}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -366,14 +366,14 @@ export default async function BookingPage() {
       <main className="min-h-screen bg-slate-50 px-4 py-10">
         <div className="mx-auto max-w-3xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
-            Acces reserve
+            Accès réservé
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Vous n&apos;avez pas encore acces a la planification
+            Vous n&apos;avez pas encore accès à la planification
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            La prise de rendez-vous est reservee aux apprenants disposant d&apos;un
-            acces actif a une formation.
+            La prise de rendez-vous est réservée aux apprenants disposant d&apos;un
+            accès actif à une formation.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -402,11 +402,11 @@ export default async function BookingPage() {
             Parcours en cours
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            La planification s&apos;ouvre apres validation du quiz
+            La planification s&apos;ouvre après validation du quiz
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Vous disposez bien d&apos;un acces actif, mais la sequence formateur ne
-            s&apos;ouvre qu&apos;apres validation du parcours theorique et du quiz.
+            Vous disposez bien d&apos;un accès actif, mais la séquence formateur ne
+            s&apos;ouvre qu&apos;après validation du parcours théorique et du quiz.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -435,17 +435,17 @@ export default async function BookingPage() {
     <div className="min-h-screen bg-slate-50 px-4 py-16">
       <div className="mx-auto max-w-5xl">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-green-700">
-          Acces autorise
+          Accès autorisé
         </p>
 
         <h1 className="mt-3 text-3xl font-bold text-slate-900">
-          Planifier la sequence finale
+          Planifier la séquence finale
         </h1>
 
         <p className="mt-4 max-w-4xl leading-7 text-slate-600">
-          PREVENSIA distingue la theorie e-learning, le quiz et la sequence
-          finale encadree. Selon la formation, il peut s&apos;agir d&apos;un entretien
-          H0B0 / H0V, d&apos;une classe virtuelle BS et BE Manoeuvre, d&apos;un
+          PREVENSIA distingue la théorie e-learning, le quiz et la séquence
+          finale encadrée. Selon la formation, il peut s&apos;agir d&apos;un entretien
+          H0B0 / H0V, d&apos;une classe virtuelle BS et BE Manœuvre, d&apos;un
           recyclage en visio ou d&apos;une organisation en entreprise.
         </p>
 
@@ -460,7 +460,7 @@ export default async function BookingPage() {
               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                    Formation concernee
+                    Formation concernée
                   </p>
                   <h2 className="mt-2 text-2xl font-bold text-slate-900">
                     {formationTitle}
@@ -477,7 +477,7 @@ export default async function BookingPage() {
                     </div>
                     <div className="rounded-2xl border border-white/60 bg-white/70 p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                        Duree
+                        Durée
                       </p>
                       <p className="mt-2 text-sm font-semibold text-slate-900">
                         {scenario.duration}
@@ -485,7 +485,7 @@ export default async function BookingPage() {
                     </div>
                     <div className="rounded-2xl border border-white/60 bg-white/70 p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                        Public vise
+                        Public visé
                       </p>
                       <p className="mt-2 text-sm font-semibold text-slate-900">
                         {scenario.audience}
@@ -505,7 +505,7 @@ export default async function BookingPage() {
 
                   {completed ? (
                     <p className="mt-4 text-sm font-semibold text-green-800">
-                      Parcours deja finalise : cette fiche reste visible pour reference.
+                      Parcours déjà finalisé : cette fiche reste visible pour référence.
                     </p>
                   ) : null}
                 </div>
@@ -533,7 +533,7 @@ export default async function BookingPage() {
                     href="/demande-devis"
                     className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                   >
-                    Besoin d&apos;un format sur mesure
+                    Besoin d&apos;un format sur mesure ?
                   </Link>
                 </div>
               </div>

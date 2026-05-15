@@ -696,27 +696,27 @@ export async function POST(request: Request) {
       ${logoHtml}
       <h2>Nouvelle inscription PREVENSIA</h2>
       <p><strong>Nom :</strong> ${escapeHtml(lastName)}</p>
-      <p><strong>Prenom :</strong> ${escapeHtml(firstName)}</p>
+      <p><strong>Prénom :</strong> ${escapeHtml(firstName)}</p>
       <p><strong>Email :</strong> ${escapeHtml(email)}</p>
-      <p><strong>Telephone :</strong> ${escapeHtml(phone || "Non renseigne")}</p>
-      <p><strong>Entreprise :</strong> ${escapeHtml(company || "Non renseignee")}</p>
-      <p><strong>Catégorie :</strong> ${escapeHtml(catégorie || "Non renseignee")}</p>
-      <p><strong>Formation demandee :</strong> ${escapeHtml(formation)}</p>
+      <p><strong>Téléphone :</strong> ${escapeHtml(phone || "Non renseigné")}</p>
+      <p><strong>Entreprise :</strong> ${escapeHtml(company || "Non renseignée")}</p>
+      <p><strong>Catégorie :</strong> ${escapeHtml(catégorie || "Non renseignée")}</p>
+      <p><strong>Formation demandée :</strong> ${escapeHtml(formation)}</p>
       <p><strong>Formation rattachee :</strong> ${escapeHtml(
         formationRecord.title || formationRecord.slug || "Formation"
       )}</p>
-      <p><strong>Date de session :</strong> ${escapeHtml(dateSession || "Non renseignee")}</p>
-      <p><strong>Format :</strong> ${escapeHtml(format || "Non renseigne")}</p>
-      <p><strong>ID session :</strong> ${escapeHtml(sessionId || "Non renseigne")}</p>
+      <p><strong>Date de session :</strong> ${escapeHtml(dateSession || "Non renseignée")}</p>
+      <p><strong>Format :</strong> ${escapeHtml(format || "Non renseigné")}</p>
+      <p><strong>ID session :</strong> ${escapeHtml(sessionId || "Non renseigné")}</p>
       <p><strong>Compte PREVENSIA :</strong> ${
         userAccount.accountState === "created"
-          ? "Compte cree et email d'acces envoye"
-          : "Compte existant reutilise"
+          ? "Compte créé et email d'accès envoyé"
+          : "Compte existant réutilisé"
       }</p>
       <p><strong>Inscription :</strong> ${
         enrollment.enrollmentState === "created"
-          ? "Nouvelle inscription creee"
-          : "Inscription existante reutilisee"
+          ? "Nouvelle inscription créée"
+          : "Inscription existante réutilisée"
       }</p>
       <p><strong>ID inscription :</strong> ${escapeHtml(enrollment.enrollmentId)}</p>
     `;
@@ -745,7 +745,7 @@ export async function POST(request: Request) {
 
     const userSubject =
       userAccount.accountState === "created"
-        ? "Vos acces PREVENSIA FORMATION"
+        ? "Vos accès PREVENSIA FORMATION"
         : "Confirmation de votre inscription PREVENSIA";
 
     const userHtml =
@@ -754,11 +754,11 @@ export async function POST(request: Request) {
           ${logoHtml}
           <p>Bonjour ${escapeHtml(firstName)},</p>
           <p>
-            Votre inscription a bien ete enregistree pour
+            Votre inscription a bien été enregistrée pour
             <strong>${escapeHtml(formation)}</strong>.
           </p>
           <p>
-            Votre compte PREVENSIA a ete cree. Voici vos acces de premiere connexion :
+            Votre compte PREVENSIA a été créé. Voici vos accès de première connexion :
           </p>
           <p><strong>Identifiant :</strong> ${escapeHtml(email)}</p>
           <p><strong>Mot de passe provisoire :</strong> ${escapeHtml(
@@ -766,7 +766,7 @@ export async function POST(request: Request) {
           )}</p>
           ${
             dateSession
-              ? `<p><strong>Date de session reperee :</strong> ${escapeHtml(dateSession)}</p>`
+              ? `<p><strong>Date de session repérée :</strong> ${escapeHtml(dateSession)}</p>`
               : ""
           }
           ${
@@ -775,11 +775,11 @@ export async function POST(request: Request) {
               : ""
           }
           <p>
-            Premiere connexion :
+            Première connexion :
             <a href="${loginUrl}">${loginUrl}</a>
           </p>
           <p>
-            Important : apres votre premiere connexion, remplacez votre mot de passe
+            Important : après votre première connexion, remplacez votre mot de passe
             provisoire par un mot de passe personnel ici :
             <a href="${passwordUrl}">${passwordUrl}</a>
           </p>
@@ -793,17 +793,17 @@ export async function POST(request: Request) {
           ${logoHtml}
           <p>Bonjour ${escapeHtml(firstName)},</p>
           <p>
-            Votre inscription a bien ete enregistree pour
+            Votre inscription a bien été enregistrée pour
             <strong>${escapeHtml(formation)}</strong>.
           </p>
           <p>
-            Un compte PREVENSIA existe deja avec cette adresse email. Vous pouvez vous
+            Un compte PREVENSIA existe déjà avec cette adresse email. Vous pouvez vous
             connecter avec vos identifiants habituels ici :
             <a href="${loginUrl}">${loginUrl}</a>
           </p>
           ${
             dateSession
-              ? `<p><strong>Date de session reperee :</strong> ${escapeHtml(dateSession)}</p>`
+              ? `<p><strong>Date de session repérée :</strong> ${escapeHtml(dateSession)}</p>`
               : ""
           }
           ${
