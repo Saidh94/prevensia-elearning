@@ -28,6 +28,8 @@ type EnrollmentRow = {
   payment_status: string | null;
   access_start: string | null;
   access_end: string | null;
+  stripe_invoice_url: string | null;
+  stripe_invoice_pdf: string | null;
   formation: FormationRow | FormationRow[] | null;
 };
 
@@ -85,6 +87,8 @@ export async function GET() {
         payment_status,
         access_start,
         access_end,
+        stripe_invoice_url,
+        stripe_invoice_pdf,
         formation:formations (
           id,
           slug,
@@ -210,6 +214,8 @@ export async function GET() {
         updated_at: latestUpdatedAt,
         access_start: enrollment.access_start,
         access_end: enrollment.access_end,
+        stripe_invoice_url: enrollment.stripe_invoice_url ?? null,
+        stripe_invoice_pdf: enrollment.stripe_invoice_pdf ?? null,
       };
     });
 

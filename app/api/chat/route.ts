@@ -1,4 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
+import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -71,17 +74,182 @@ SST (Sauveteur Secouriste du Travail)
 • Prise en charge employeur : facture disponible
 • Paiement CB sécurisé en ligne via Stripe
 
+─── SUPPORT — COMMENT UTILISER LES OUTILS ───────────────────
+Tu as accès à deux outils pour aider les utilisateurs en difficulté :
+
+OUTIL 1 — create_support_ticket
+Utilise cet outil quand l'utilisateur décrit un problème technique (pas d'accès à son cours, PDF non généré, problème de compte, lien cassé, autre problème).
+Étapes à suivre :
+1. Identifie le type de problème parmi : no_access_course, pdf_not_generated, no_account_access, broken_link, other
+2. Si tu n'as pas encore son nom et email, demande-les poliment : "Pour créer votre ticket de support, pouvez-vous m'indiquer votre nom complet et votre adresse email ?"
+3. Une fois que tu as nom + email + description, appelle l'outil create_support_ticket
+4. Après confirmation de l'outil, informe l'utilisateur que son ticket a été créé et qu'il recevra un email de confirmation
+
+OUTIL 2 — reset_password
+Utilise cet outil quand l'utilisateur dit avoir oublié son mot de passe ou ne plus pouvoir se connecter.
+1. Demande son adresse email si tu ne l'as pas
+2. Appelle l'outil reset_password avec l'email
+3. Informe l'utilisateur qu'un email de réinitialisation lui a été envoyé (sans confirmer si le compte existe ou non)
+
 ─── CE QUE TU NE DOIS PAS FAIRE ──────────────────────────────
 • Ne jamais inventer un tarif ou une date qui n'est pas listée ci-dessus
 • Ne jamais promettre qu'une formation est CPF sans confirmation
 • Pour toute question sur un compte, une commande ou un accès spécifique,
-  rediriger vers contact@prevensia-formation.fr ou 01 89 62 94 92`;
+  utiliser les outils ou rediriger vers contact@prevensia-formation.fr ou 01 89 62 94 92`;
 
+// ── Définition des outils ─────────────────────────────────────────────────
+const TOOLS: Anthropic.Tool[] = [
+  {
+    name: "create_support_ticket",
+    description:
+      "Crée un ticket de support dans le système PREVENSIA et envoie un email de confirmation à l'utilisateur. À utiliser quand l'utilisateur a un problème technique et a fourni son nom et email.",
+    input_schema: {
+      type: "object" as const,
+      properties: {
+        user_name: {
+          type: "string",
+          description: "Nom complet de l'utilisateur",
+        },
+        user_email: {
+          type: "string",
+          description: "Adresse email de l'utilisateur",
+        },
+        issue_type: {
+          type: "string",
+          enum: [
+            "no_access_course",
+            "pdf_not_generated",
+            "no_account_access",
+            "broken_link",
+            "other",
+          ],
+          description:
+            "Type de problème : no_access_course (pas d'accès au cours), pdf_not_generated (PDF non généré), no_account_access (problème de compte), broken_link (lien cassé), other (autre)",
+        },
+        message: {
+          type: "string",
+          description: "Description complète du problème signalé par l'utilisateur",
+        },
+      },
+      required: ["user_name", "user_email", "issue_type", "message"],
+    },
+  },
+  {
+    name: "reset_password",
+    description:
+      "Envoie un email de réinitialisation de mot de passe à l'utilisateur via Supabase.",
+    input_schema: {
+      type: "object" as const,
+      properties: {
+        email: {
+          type: "string",
+          description: "Adresse email du compte à réinitialiser",
+        },
+      },
+      required: ["email"],
+    },
+  },
+];
+
+const ISSUE_LABELS: Record<string, string> = {
+  no_access_course: "Pas d'accès à mon cours",
+  pdf_not_generated: "Attestation PDF non générée",
+  no_account_access: "Pas d'accès à mon compte",
+  broken_link: "Lien qui ne fonctionne pas",
+  other: "Autre problème",
+};
+
+// ── Exécution des outils ──────────────────────────────────────────────────
+async function executeTool(
+  toolName: string,
+  toolInput: Record<string, string>
+): Promise<string> {
+  if (toolName === "create_support_ticket") {
+    const { user_name, user_email, issue_type, message } = toolInput;
+
+    try {
+      const adminClient = createAdminClient();
+      if (adminClient) {
+        await adminClient.from("support_tickets").insert({
+          user_email,
+          user_name: user_name || null,
+          issue_type,
+          message: message || null,
+          status: "open",
+        });
+      }
+
+      const issueLabel = ISSUE_LABELS[issue_type] ?? issue_type;
+      const resendKey = process.env.RESEND_API_KEY?.trim();
+
+      if (resendKey) {
+        const resend = new Resend(resendKey);
+
+        await Promise.allSettled([
+          resend.emails.send({
+            from: "PREVENSIA Support <contact@prevensia-formation.fr>",
+            to: ["contact@prevensia-formation.fr"],
+            subject: `[Support Chat] ${issueLabel} — ${user_name || user_email}`,
+            html: `
+              <h2>Ticket créé depuis le chat</h2>
+              <p><strong>Problème :</strong> ${issueLabel}</p>
+              <p><strong>Nom :</strong> ${user_name || "Non renseigné"}</p>
+              <p><strong>Email :</strong> ${user_email}</p>
+              <p><strong>Message :</strong></p>
+              <blockquote style="border-left:3px solid #ccc;padding-left:12px;color:#444">
+                ${message || "(Aucun message)"}
+              </blockquote>
+              <p><a href="https://prevensia-formation.fr/admin/support">Voir le dashboard support</a></p>
+            `,
+          }),
+          resend.emails.send({
+            from: "PREVENSIA Formation <contact@prevensia-formation.fr>",
+            to: [user_email],
+            subject: "Votre demande de support a bien été reçue — PREVENSIA FORMATION",
+            html: `
+              <p>Bonjour ${user_name || ""},</p>
+              <p>Nous avons bien reçu votre demande concernant : <strong>${issueLabel}</strong>.</p>
+              <p>Notre équipe vous répondra dans les meilleurs délais (généralement sous 24h ouvrées).</p>
+              <p>Si votre problème est urgent, appelez-nous au <strong>01 89 62 94 92</strong>.</p>
+              <br/>
+              <p>Cordialement,<br/>L'équipe PREVENSIA FORMATION<br/>38, rue des Mathurins — 75008 Paris</p>
+            `,
+          }),
+        ]);
+      }
+
+      return JSON.stringify({ success: true, message: "Ticket créé avec succès. Email de confirmation envoyé à " + user_email });
+    } catch (err) {
+      console.error("[Tool] create_support_ticket erreur :", err);
+      return JSON.stringify({ success: false, message: "Erreur lors de la création du ticket." });
+    }
+  }
+
+  if (toolName === "reset_password") {
+    const { email } = toolInput;
+
+    try {
+      const supabase = await createClient();
+      await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr"}/connexion?reset=1`,
+      });
+      return JSON.stringify({ success: true, message: "Email de réinitialisation envoyé si le compte existe." });
+    } catch (err) {
+      console.error("[Tool] reset_password erreur :", err);
+      return JSON.stringify({ success: true, message: "Email de réinitialisation envoyé si le compte existe." });
+    }
+  }
+
+  return JSON.stringify({ error: "Outil inconnu" });
+}
+
+// ── Types ─────────────────────────────────────────────────────────────────
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
 
+// ── Route POST ────────────────────────────────────────────────────────────
 export async function POST(request: Request) {
   try {
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -103,23 +271,69 @@ export async function POST(request: Request) {
       );
     }
 
-    // Limite à 20 messages pour éviter les abus
     const trimmedMessages = messages.slice(-20);
-
     const client = new Anthropic({ apiKey });
 
-    const response = await client.messages.create({
+    // ── Premier appel ────────────────────────────────────────────────────
+    let response = await client.messages.create({
       model: "claude-haiku-4-5",
-      max_tokens: 400,
+      max_tokens: 600,
       system: SYSTEM_PROMPT,
+      tools: TOOLS,
       messages: trimmedMessages.map((m) => ({
         role: m.role,
         content: m.content,
       })),
     });
 
+    // ── Boucle tool use ──────────────────────────────────────────────────
+    while (response.stop_reason === "tool_use") {
+      const toolUseBlock = response.content.find(
+        (b): b is Anthropic.ToolUseBlock => b.type === "tool_use"
+      );
+
+      if (!toolUseBlock) break;
+
+      const toolResult = await executeTool(
+        toolUseBlock.name,
+        toolUseBlock.input as Record<string, string>
+      );
+
+      // Renvoyer le résultat de l'outil à Claude
+      const messagesWithTool: Anthropic.MessageParam[] = [
+        ...trimmedMessages.map((m) => ({
+          role: m.role as "user" | "assistant",
+          content: m.content,
+        })),
+        {
+          role: "assistant" as const,
+          content: response.content,
+        },
+        {
+          role: "user" as const,
+          content: [
+            {
+              type: "tool_result" as const,
+              tool_use_id: toolUseBlock.id,
+              content: toolResult,
+            },
+          ],
+        },
+      ];
+
+      response = await client.messages.create({
+        model: "claude-haiku-4-5",
+        max_tokens: 600,
+        system: SYSTEM_PROMPT,
+        tools: TOOLS,
+        messages: messagesWithTool,
+      });
+    }
+
+    // ── Réponse finale ────────────────────────────────────────────────────
     const text =
-      response.content[0]?.type === "text" ? response.content[0].text : "";
+      response.content.find((b): b is Anthropic.TextBlock => b.type === "text")
+        ?.text ?? "";
 
     return NextResponse.json({ reply: text });
   } catch (error) {

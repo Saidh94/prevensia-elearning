@@ -10,7 +10,7 @@ type Message = {
 const WELCOME: Message = {
   role: "assistant",
   content:
-    "Bonjour ! Je suis l'assistant PREVENSIA. Je peux vous renseigner sur nos formations, tarifs et processus e-learning. Comment puis-je vous aider ?",
+    "Bonjour ! Je suis l'assistant PREVENSIA. Je peux vous renseigner sur nos formations et tarifs, mais aussi vous aider si vous avez un problème technique (accès à un cours, mot de passe oublié, attestation PDF…). Comment puis-je vous aider ?",
 };
 
 export default function ChatWidget() {

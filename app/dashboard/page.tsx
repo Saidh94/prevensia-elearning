@@ -21,6 +21,8 @@ type DashboardFormation = {
   updated_at: string | null;
   access_start: string | null;
   access_end: string | null;
+  stripe_invoice_url: string | null;
+  stripe_invoice_pdf: string | null;
 };
 
 type DashboardResponse = {
@@ -393,6 +395,17 @@ export default function DashboardPage() {
                         >
                           Voir l’attestation
                         </Link>
+                      ) : null}
+
+                      {formation.payment_status === "paid" && formation.stripe_invoice_url ? (
+                        <a
+                          href={formation.stripe_invoice_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                        >
+                          🧾 Télécharger la facture
+                        </a>
                       ) : null}
                     </div>
                   </div>

@@ -208,6 +208,18 @@ export async function POST(request: Request) {
           },
         },
       ],
+      invoice_creation: {
+        enabled: true,
+        invoice_data: {
+          description: `Formation : ${paymentOption.label}`,
+          footer:
+            "PREVENSIA FORMATION — Groupe PREVENSIA SAS — 38, rue des Mathurins, 75008 Paris — Organisme certifié Qualiopi — contact@prevensia-formation.fr",
+          metadata: {
+            enrollmentId: enrollment.id,
+            formationSlug: formation?.slug ?? "",
+          },
+        },
+      },
       metadata: {
         enrollmentId: enrollment.id,
         formationSlug: formation?.slug ?? "",
