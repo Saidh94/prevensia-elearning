@@ -109,7 +109,7 @@ export async function POST(request: Request) {
     const client = new Anthropic({ apiKey });
 
     const response = await client.messages.create({
-      model: "claude-3-5-haiku-20241022",
+      model: "claude-3-5-sonnet-20241022",
       max_tokens: 400,
       system: SYSTEM_PROMPT,
       messages: trimmedMessages.map((m) => ({
@@ -123,7 +123,35 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ reply: text });
   } catch (error) {
-    console.error("[Chat API] Erreur :", error);
+    const message = error instanceof Error ? error.message : String(error);
+    const status = (error as { status?: number })?.status;
+    console.error("[Chat API] Erreur:", { message, status });
+
+    if (status === 401) {
+      return NextResponse.json(
+        { error: "Clé API invalide. Contactez l'administrateur." },
+        { status: 500 }
+      );
+    }
+    if (status === 403) {
+      return NextResponse.json(
+        { error: "Accès API refusé. Vérifiez les crédits Anthropic." },
+        { status: 500 }
+      );
+    }
+    if (status === 404) {
+      return NextResponse.json(
+        { error: "Modèle IA indisponible. Contactez l'administrateur." },
+        { status: 500 }
+      );
+    }
+    if (status === 429) {
+      return NextResponse.json(
+        { error: "Trop de requêtes. Réessayez dans quelques secondes." },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
       { error: "Erreur lors de la réponse du bot. Réessayez dans un instant." },
       { status: 500 }
