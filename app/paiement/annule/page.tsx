@@ -23,9 +23,9 @@ export default async function PaiementAnnulePage({
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
           Paiement
         </p>
-        <h1 className="mt-3 text-3xl font-bold">Paiement annule</h1>
+        <h1 className="mt-3 text-3xl font-bold">Paiement annulé</h1>
         <p className="mt-4 text-base leading-7 text-slate-600">
-          Aucun debit n&apos;a ete confirme. Tu peux revenir a l&apos;espace precedent
+          Aucun débit n&apos;a été confirmé. Tu peux revenir à l&apos;espace précédent
           et relancer le paiement quand tu veux.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -33,7 +33,7 @@ export default async function PaiementAnnulePage({
             href={returnPath}
             className="inline-flex rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
-            Revenir a l&apos;espace precedent
+            Revenir à l&apos;espace précédent
           </Link>
           <Link
             href="/dashboard"

@@ -416,7 +416,7 @@ export default async function AdminPage({
                               type="button"
                               disabled
                               className="cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
-                              title="Activation reservee aux dossiers payes"
+                              title="Activation réservée aux dossiers payés"
                             >
                               Paiement requis
                             </button>

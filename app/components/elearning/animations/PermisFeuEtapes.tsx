@@ -74,7 +74,7 @@ export default function PermisFeuEtapes() {
         <circle cx="375" cy="103" r="5" fill="#16a34a" />
         <circle cx="377" cy="101" r="2" fill="white" />
         <text x="375" y="126" textAnchor="middle" fontSize="10" fontWeight="700" fill="#14532d">Surveiller</text>
-        <text x="375" y="138" textAnchor="middle" fontSize="9" fill="#14532d">apres travaux</text>
+        <text x="375" y="138" textAnchor="middle" fontSize="9" fill="#14532d">après travaux</text>
       </g>
     </svg>
   );

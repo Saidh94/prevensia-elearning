@@ -102,7 +102,7 @@ export default function AttestationPage() {
         } = await supabase.auth.getUser();
 
         if (userError || !user) {
-          setAccessError("Utilisateur non authentifie.");
+          setAccessError("Utilisateur non authentifié.");
           return;
         }
 
@@ -169,7 +169,7 @@ export default function AttestationPage() {
 
         // Admins can access the attestation even without an enrollment record
         if (!matchedEnrollment && !isAdmin) {
-          setAccessError("Aucune inscription trouvee pour cette formation.");
+          setAccessError("Aucune inscription trouvée pour cette formation.");
           return;
         }
 
@@ -202,7 +202,7 @@ export default function AttestationPage() {
           formation:
             matchedFormation?.title ||
             (slug === "h0b0"
-              ? "Habilitation electrique H0B0"
+              ? "Habilitation électrique H0B0"
               : slug.toUpperCase()),
           date: completedAt,
           score:
@@ -229,7 +229,7 @@ export default function AttestationPage() {
       } catch (error) {
         console.error("Erreur chargement attestation :", error);
         setAccessError(
-          "Impossible de preparer l'attestation de reussite pour cette formation."
+          "Impossible de préparer l'attestation de réussite pour cette formation."
         );
       } finally {
         setLoading(false);
@@ -260,10 +260,10 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Preparation du document PDF
+            Préparation du document PDF
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Verification de votre validation finale et preparation du titre
+            Vérification de votre validation finale et préparation du titre
             d&apos;habilitation en cours...
           </p>
         </div>
@@ -279,7 +279,7 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Impossible de preparer votre attestation
+            Impossible de préparer votre attestation
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">{accessError}</p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -300,13 +300,13 @@ export default function AttestationPage() {
       <main className="min-h-screen bg-slate-50 px-4 py-10">
         <div className="mx-auto max-w-4xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
-            Attestation verrouillee
+            Attestation verrouillée
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
             Validation finale requise
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Le PDF de reussite n&apos;est disponible qu&apos;apres validation finale du
+            Le PDF de réussite n&apos;est disponible qu&apos;après validation finale du
             parcours.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -330,7 +330,7 @@ export default function AttestationPage() {
             Attestation
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Preparation du PDF en cours
+            Préparation du PDF en cours
           </h1>
         </div>
       </main>
@@ -341,7 +341,7 @@ export default function AttestationPage() {
     <main className="min-h-screen bg-slate-50 px-4 py-10">
       <div className="mx-auto max-w-4xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
-          Attestation de reussite
+          Attestation de réussite
         </p>
 
         <h1 className="mt-3 text-3xl font-bold text-slate-900">
@@ -349,8 +349,8 @@ export default function AttestationPage() {
         </h1>
 
         <p className="mt-4 text-base leading-7 text-slate-600">
-          Le document PDF 2 pages est prepare avec le titre d&apos;habilitation en
-          page 1 et l&apos;attestation de reussite en page 2.
+          Le document PDF 2 pages est préparé avec le titre d&apos;habilitation en
+          page 1 et l&apos;attestation de réussite en page 2.
         </p>
 
         <form ref={formRef} action="/api/attestation" method="POST" className="hidden">
