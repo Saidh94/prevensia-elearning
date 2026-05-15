@@ -503,10 +503,18 @@ export async function POST(request: Request) {
     const completionDate =
       enrollment.validated_at ?? payload.date ?? enrollment.access_end ?? undefined;
 
-    const formationTitle =
+    // Le titre DB est prioritaire, mais on conserve le payload.formation
+    // comme source de vérité pour la détection ATEX :
+    // si le frontend envoie un slug/titre contenant "atex", c'est toujours
+    // une formation ATEX même si l'enrollment pointe vers une autre formation.
+    const dbFormationTitle =
       normalizeText(formation?.title) ||
-      normalizeText(formation?.slug) ||
-      normalizeText(payload.formation, "Formation");
+      normalizeText(formation?.slug);
+
+    const payloadFormation = normalizeText(payload.formation);
+
+    const formationTitle =
+      dbFormationTitle || payloadFormation || "Formation";
 
     const companyName =
       normalizeText(enrollment.company_name) ||
@@ -523,9 +531,16 @@ export async function POST(request: Request) {
     const orderedByEmployer =
       enrollment.ordered_by_employer ?? payload.orderedByEmployer ?? false;
 
+    // Pour ATEX, si le titre DB est générique (ex: "Formation"), on préfère
+    // le payload qui contient le slug précis ("ATEX Niveau 1", "atex", etc.)
+    const resolvedFormationTitle =
+      isAtexFormation(payloadFormation) && !isAtexFormation(dbFormationTitle)
+        ? payloadFormation
+        : formationTitle;
+
     const pdfInput = {
       userId: enrollment.user_id,
-      formation: formationTitle,
+      formation: resolvedFormationTitle,
       date: completionDate,
       score,
       total,
@@ -539,7 +554,13 @@ export async function POST(request: Request) {
       learnerEmail: normalizeText(learnerProfile?.email) || user.email || "",
     };
 
-    const { pdfBuffer, safeFileName } = isAtexFormation(formationTitle)
+    // Détection ATEX : on vérifie le titre DB ET le payload.formation
+    // pour éviter qu'un enrollment mal lié à une formation électrique
+    // ne fasse passer une formation ATEX dans le générateur standard.
+    const isAtex =
+      isAtexFormation(formationTitle) || isAtexFormation(payloadFormation);
+
+    const { pdfBuffer, safeFileName } = isAtex
       ? await generateAtexAttestationPdf(pdfInput)
       : await generateAttestationPdf(pdfInput);
 
