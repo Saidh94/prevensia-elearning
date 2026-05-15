@@ -9,6 +9,7 @@ type TabKey =
   | "ssi"
   | "sprinkler"
   | "incendie"
+  | "atex"
   | "sst";
 
 type TableRow = {
@@ -25,7 +26,8 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "habilitations", label: "Habilitations" },
   { key: "ssi", label: "SSI" },
   { key: "sprinkler", label: "Sprinkler" },
-  { key: "incendie", label: "Securite incendie" },
+  { key: "incendie", label: "Sécurité incendie" },
+  { key: "atex", label: "ATEX" },
   { key: "sst", label: "SST" },
 ];
 
@@ -33,7 +35,7 @@ const electricalTableRows: TableRow[] = electricalCommercialOffers.map((offer) =
   title:
     offer.availability === "direct"
       ? `${offer.shortTitle} - ${offer.delivery}`
-      : `${offer.shortTitle} - parcours cible`,
+      : `${offer.shortTitle} - parcours ciblé`,
   duration: offer.initialDuration,
   price: offer.interPrice,
   group: offer.intraPrice,
@@ -49,16 +51,16 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       title: "Exploitation SSI",
       duration: "1 jour",
       price: "350 EUR HT",
-      group: "A partir de 1 800 EUR HT",
+      group: "À partir de 1 800 EUR HT",
       participants: "12 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
     },
     {
-      title: "SSI avance : architecture, reglementation et normes",
+      title: "SSI avancé : architecture, réglementation et normes",
       duration: "2 jours",
       price: "690 EUR HT",
-      group: "A partir de 2 800 EUR HT",
+      group: "À partir de 2 800 EUR HT",
       participants: "10 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
@@ -69,7 +71,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       title: "Exploitation sprinkler",
       duration: "1 jour",
       price: "490 EUR HT",
-      group: "A partir de 1 800 EUR HT",
+      group: "À partir de 1 800 EUR HT",
       participants: "6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
@@ -78,31 +80,13 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       title: "Sprinkler technique + visite terrain",
       duration: "2 jours",
       price: "990 EUR HT",
-      group: "A partir de 3 200 EUR HT",
+      group: "À partir de 3 200 EUR HT",
       participants: "6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
     },
   ],
   incendie: [
-    {
-      title: "SSIAP1 - Agent de securite incendie (initiale)",
-      duration: "67h (hybride)",
-      price: "690 EUR HT",
-      group: "Sur devis",
-      participants: "12 max",
-      ctaHref: "/formation-ssiap1",
-      ctaLabel: "Voir la formation",
-    },
-    {
-      title: "Recyclage SSIAP1 (14h / 3 ans)",
-      duration: "14h (hybride)",
-      price: "250 EUR HT",
-      group: "Sur devis",
-      participants: "12 max",
-      ctaHref: "/formation-recyclage-ssiap1",
-      ctaLabel: "Voir le recyclage",
-    },
     {
       title: "Manipulation extincteurs",
       duration: "0,5 jour",
@@ -122,7 +106,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       ctaLabel: "Voir la formation",
     },
     {
-      title: "Equipier de Premiere Intervention (EPI)",
+      title: "Équipier de Première Intervention (EPI)",
       duration: "1 jour",
       price: "220 EUR HT",
       group: "Sur devis",
@@ -131,13 +115,42 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       ctaLabel: "Voir la formation",
     },
   ],
+  atex: [
+    {
+      title: "ATEX Niveau 1 — Sensibilisation atmosphères explosives",
+      duration: "3 h e-learning",
+      price: "129 EUR HT",
+      group: "Non applicable",
+      participants: "Individuel",
+      ctaHref: "/modules/atex",
+      ctaLabel: "Accéder au module",
+    },
+    {
+      title: "ATEX Niveau 2 — Travailleur exposé en zone classée",
+      duration: "E-learning 3 h + entretien 30 min",
+      price: "490 EUR HT",
+      group: "Sur devis",
+      participants: "Individuel",
+      ctaHref: "/formation-atex",
+      ctaLabel: "Voir la formation",
+    },
+    {
+      title: "ATEX Niveau 3 — Chargé de travaux / Responsable",
+      duration: "E-learning 3 h + classe virtuelle 2 h",
+      price: "À partir de 790 EUR HT",
+      group: "Sur devis",
+      participants: "Jusqu'à 8",
+      ctaHref: "/formation-atex",
+      ctaLabel: "Voir la formation",
+    },
+  ],
   sst: [
     {
       title: "SST initial",
       duration: "2 jours",
       price: "240 EUR HT",
-      group: "A partir de 1 190 EUR HT",
-      participants: "4 a 10",
+      group: "À partir de 1 190 EUR HT",
+      participants: "4 à 10",
       ctaHref: "/formation-sst",
       ctaLabel: "Voir la formation",
     },
@@ -145,8 +158,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       title: "MAC SST",
       duration: "1 jour",
       price: "130 EUR HT",
-      group: "A partir de 690 EUR HT",
-      participants: "4 a 10",
+      group: "À partir de 690 EUR HT",
+      participants: "4 à 10",
       ctaHref: "/formation-sst",
       ctaLabel: "Voir la formation",
     },
@@ -155,13 +168,13 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
 
 const audienceByTab: Record<TabKey, string[]> = {
   habilitations: [
-    "Personnel non electricien H0B0 / H0V",
-    "Personnel charge d'operations elementaires BS et BE Manoeuvre",
-    "Executants electriciens B1 / B1V",
-    "Charges de travaux B2 / B2V",
-    "Charges d'intervention generale BR",
-    "Charges de consignation BC",
-    "Personnel a multi-symboles BT selon organisation",
+    "Personnel non électricien H0B0 / H0V",
+    "Personnel chargé d'opérations élémentaires BS et BE Manœuvre",
+    "Exécutants électriciens B1 / B1V",
+    "Chargés de travaux B2 / B2V",
+    "Chargés d'intervention générale BR",
+    "Chargés de consignation BC",
+    "Personnel à multi-symboles BT selon organisation",
     "Agents de maintenance",
     "Techniciens d'intervention",
     "Encadrants techniques",
@@ -169,30 +182,37 @@ const audienceByTab: Record<TabKey, string[]> = {
   ssi: [
     "Responsables techniques",
     "Services maintenance",
-    "Responsables QHSE / securite",
+    "Responsables QHSE / sécurité",
     "Exploitants ERP, BUP, ICPE, IGH",
-    "Personnel charge de l'exploitation du SSI",
+    "Personnel chargé de l'exploitation du SSI",
   ],
   sprinkler: [
     "Responsables maintenance",
-    "Responsables securite incendie",
+    "Responsables sécurité incendie",
     "Exploitants logistiques et industriels",
     "Techniciens d'exploitation",
-    "Ingenieurs et bureaux d'etudes pour le module avance",
+    "Ingénieurs et bureaux d'études pour le module avancé",
   ],
   incendie: [
-    "Agents de securite incendie SSIAP1 (initiale et recyclage)",
-    "Salaries d'entreprise",
-    "Personnel charge de l'evacuation",
-    "Equipiers de premiere intervention",
-    "Encadrants et referents securite incendie ERP",
-    "Collaborateurs a sensibiliser au risque incendie",
+    "Salariés d'entreprise soumis à exercice d'évacuation",
+    "Personnel chargé de l'évacuation (guide-file, serre-file)",
+    "Équipiers de première intervention",
+    "Encadrants et référents sécurité incendie ERP",
+    "Collaborateurs à sensibiliser au risque incendie",
+  ],
+  atex: [
+    "Tout personnel circulant en zone ATEX (Niveau 1)",
+    "Travailleurs intervenant régulièrement en zone classée (Niveau 2)",
+    "Responsables de travaux et chargés de chantier en zone ATEX (Niveau 3)",
+    "Techniciens de maintenance, opérateurs, électriciens, mécaniciens",
+    "Responsables sécurité et coordinateurs ATEX",
+    "Sous-traitants et intervenants extérieurs en site classé",
   ],
   sst: [
-    "Salaries de tout secteur",
-    "Personnel designe secouriste",
+    "Salariés de tout secteur",
+    "Personnel désigné secouriste",
     "Collaborateurs devant porter assistance en cas d'accident",
-    "Titulaires SST a recycler pour le MAC SST",
+    "Titulaires SST à recycler pour le MAC SST",
   ],
 };
 
@@ -210,7 +230,7 @@ export default function TrainingCatalogTabsClean() {
             Tarifs des formations
           </p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-            Des formations structurees par domaine
+            Des formations structurées par domaine
           </h2>
           <p className="mt-4 text-slate-600">
             Tarifs indicatifs en inter-entreprises par participant et en
@@ -245,8 +265,8 @@ export default function TrainingCatalogTabsClean() {
         </div>
 
         <p className="mt-6 text-sm text-slate-500">
-          Les tarifs intra-entreprise sont indiques a partir de et peuvent
-          varier selon le lieu d'intervention, les contraintes du site et le
+          Les tarifs intra-entreprise sont indiqués à partir de et peuvent
+          varier selon le lieu d&apos;intervention, les contraintes du site et le
           nombre de participants.
         </p>
       </div>
@@ -326,11 +346,11 @@ function Table({
             <thead className="bg-slate-100 text-left">
               <tr>
                 <th className="px-4 py-3 whitespace-nowrap">Formation</th>
-                <th className="px-4 py-3 whitespace-nowrap">Duree</th>
+                <th className="px-4 py-3 whitespace-nowrap">Durée</th>
                 <th className="px-4 py-3 whitespace-nowrap">Inter / pers</th>
                 <th className="px-4 py-3 whitespace-nowrap">Intra / groupe</th>
                 <th className="px-4 py-3 whitespace-nowrap">Participants</th>
-                <th className="px-4 py-3 whitespace-nowrap">Acces</th>
+                <th className="px-4 py-3 whitespace-nowrap">Accès</th>
               </tr>
             </thead>
             <tbody>
@@ -376,7 +396,7 @@ function AudienceBox({ items }: { items: string[] }) {
   return (
     <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
       <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-        Public concerne
+        Public concerné
       </p>
       <ul className="mt-3 grid gap-2 text-sm leading-7 text-slate-700 sm:grid-cols-2">
         {items.map((item) => (

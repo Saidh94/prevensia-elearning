@@ -1,4 +1,8 @@
 import { generateAttestationPdf } from "@/lib/attestation/generate-attestation-pdf";
+import {
+  generateAtexAttestationPdf,
+  isAtexFormation,
+} from "@/lib/attestation/generate-atex-attestation-pdf";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
@@ -519,7 +523,7 @@ export async function POST(request: Request) {
     const orderedByEmployer =
       enrollment.ordered_by_employer ?? payload.orderedByEmployer ?? false;
 
-    const { pdfBuffer, safeFileName } = await generateAttestationPdf({
+    const pdfInput = {
       userId: enrollment.user_id,
       formation: formationTitle,
       date: completionDate,
@@ -533,7 +537,11 @@ export async function POST(request: Request) {
       employeeLastName,
       orderedByEmployer,
       learnerEmail: normalizeText(learnerProfile?.email) || user.email || "",
-    });
+    };
+
+    const { pdfBuffer, safeFileName } = isAtexFormation(formationTitle)
+      ? await generateAtexAttestationPdf(pdfInput)
+      : await generateAttestationPdf(pdfInput);
 
     return new NextResponse(pdfBuffer, {
       status: 200,
