@@ -95,25 +95,24 @@ export default function LocationCoverageSection() {
           {/* CARTE */}
           <div className="rounded-[1.75rem] border border-slate-200 bg-white p-4 shadow-sm">
             <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-slate-100">
-              <a
-                href="https://www.openstreetmap.org/?mlat=48.8498&mlon=2.5627#map=12/48.8498/2.5627"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="/images/carte-noisy-le-grand.jpg"
-                  alt="Localisation Prevensia Formation à Paris"
-                  className="h-[420px] w-full object-cover"
-                />
-              </a>
+              <iframe
+                title="Localisation PREVENSIA FORMATION — 38 rue des Mathurins, Paris 8e"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=2.3128%2C48.8645%2C2.3328%2C48.8845&layer=mapnik&marker=48.8745%2C2.3228"
+                className="h-[420px] w-full border-0"
+                loading="lazy"
+                allowFullScreen
+              />
             </div>
 
             <div className="mt-4 rounded-[1.25rem] bg-slate-50 p-4">
               <p className="text-sm font-semibold text-slate-900">
-                Localisation
+                Siège social — Groupe PREVENSIA SAS
               </p>
-              <p className="mt-2 text-sm text-slate-600">
-                Basé à Paris — déplacements sur toute la France selon les projets.
+              <p className="mt-1 text-sm font-medium text-slate-800">
+                38, rue des Mathurins<br />75008 Paris
+              </p>
+              <p className="mt-2 text-sm text-slate-500">
+                Déplacements sur toute la France selon les projets.
               </p>
             </div>
           </div>
