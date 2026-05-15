@@ -106,6 +106,22 @@ function isBCOnly(title: string) {
   return normalized.includes("bc") && !normalized.includes("b1") && !normalized.includes("b2") && !normalized.includes("br");
 }
 
+function isAtex(title: string) {
+  return title.toLowerCase().includes("atex");
+}
+
+function isAtexNiveau0(title: string) {
+  const normalized = title.toLowerCase();
+  return (
+    isAtex(title) &&
+    (normalized.includes("niveau 0") ||
+      normalized.includes("niveau0") ||
+      normalized.includes("n0") ||
+      normalized.includes("niv 0") ||
+      normalized.includes("niv0"))
+  );
+}
+
 function buildScenario(enrollment: BookingEnrollment): BookingScenario {
   const formation = normalizeFormation(enrollment.formation);
   const title = formation?.title ?? formation?.slug ?? "Formation PREVENSIA";
@@ -167,6 +183,35 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
           variant: "amber",
           note: "Ouverture sous reserve de quorum minimal pour garantir la qualite pedagogique et la rentabilite du groupe.",
         };
+  }
+
+  if (isAtex(title)) {
+    if (isAtexNiveau0(title)) {
+      return {
+        title: "ATEX Niveau 0 — Module e-learning",
+        summary:
+          "Votre parcours ATEX Niveau 0 est entièrement dématérialisé. Après validation du quiz, votre attestation de formation est générée automatiquement depuis votre espace apprenant.",
+        duration: "Auto-validation",
+        audience: "Individuel",
+        ctaLabel: "Accéder au module ATEX",
+        ctaHref: "/modules/atex",
+        variant: "green" as const,
+        note: "Aucune séquence présentielle ni entretien n'est requis pour le Niveau 0. L'attestation ATEX est disponible dans votre espace apprenant dès la réussite du quiz.",
+      };
+    }
+
+    return {
+      title: "Entretien de validation ATEX",
+      summary:
+        "Parcours e-learning ATEX suivi, puis entretien individuel de validation avec un formateur spécialisé. L'entretien est obligatoire pour les niveaux 1 et 2.",
+      duration: "30 min",
+      audience: "Individuel",
+      ctaLabel: "Réserver l'entretien ATEX",
+      ctaHref: "https://calendly.com/prevensia-formation-kq6l/30min",
+      ctaExternal: true,
+      variant: "amber" as const,
+      note: "L'entretien valide la compréhension du zonage ATEX, des EPI requis et des procédures de travail en zone explosive.",
+    };
   }
 
   if (isB1B2(title)) {

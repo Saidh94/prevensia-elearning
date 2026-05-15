@@ -24,6 +24,7 @@ type FormationRow = {
 type EnrollmentRow = {
   id: string;
   status: string | null;
+  payment_status: string | null;
   access_start: string | null;
   access_end: string | null;
   formation: FormationRow | FormationRow[] | null;
@@ -42,6 +43,17 @@ function normalizeStatus(value: string | null | undefined): string {
     .trim()
     .toLowerCase()
     .replace(/[\s-]+/g, "_");
+}
+
+/**
+ * Vérifie que le paiement est valide.
+ * - null  → inscription manuelle/admin, on autorise (pas de suivi Stripe)
+ * - "paid" → paiement confirmé par Stripe → autorisé
+ * - tout autre valeur ("pending", "failed", …) → bloqué
+ */
+function isPaymentValid(paymentStatus: string | null): boolean {
+  if (!paymentStatus) return true;
+  return paymentStatus === "paid";
 }
 
 function isAllowedStatus(status: string): boolean {
@@ -102,6 +114,7 @@ export default async function ModuleLayout({
     .select(`
       id,
       status,
+      payment_status,
       access_start,
       access_end,
       formation:formations (
@@ -161,6 +174,7 @@ export default async function ModuleLayout({
       !!formation &&
       canFormationAccessModule(normalizedFormationSlug, normalizedRouteSlug) &&
       isAllowedStatus(currentStatus) &&
+      isPaymentValid(enrollment.payment_status) &&
       isDateStarted(enrollment.access_start) &&
       isDateNotExpired(enrollment.access_end));
 
