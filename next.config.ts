@@ -19,6 +19,32 @@ const nextConfig: NextConfig = {
         destination: "/modules/bsbe/:path*",
         permanent: false,
       },
+      // Variantes d'URL courantes → URLs canoniques
+      {
+        source: "/e-learning",
+        destination: "/elearning",
+        permanent: true,
+      },
+      {
+        source: "/demande-de-devis",
+        destination: "/demande-devis",
+        permanent: true,
+      },
+      {
+        source: "/habilitation-electrique",
+        destination: "/formation-habilitation-electrique",
+        permanent: true,
+      },
+      {
+        source: "/formations",
+        destination: "/#catalogue",
+        permanent: false,
+      },
+      {
+        source: "/catalogue",
+        destination: "/#catalogue",
+        permanent: false,
+      },
     ];
   },
   async headers() {
