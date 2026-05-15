@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ChatWidget from "@/components/site/ChatWidget";
 import CookieBanner from "@/components/site/CookieBanner";
 import { Footer } from "@/components/site/Footer";
 
@@ -157,6 +158,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <ChatWidget />
         <CookieBanner />
       </body>
     </html>
