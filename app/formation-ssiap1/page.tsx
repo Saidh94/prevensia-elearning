@@ -159,10 +159,10 @@ export default function FormationSsiap1Page() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            PREVENSIA FORMATION, organisme agréé par la préfecture, dispense la formation SSIAP1
-            certifiante complète (67h initiale) et le recyclage obligatoire (14h tous les 3 ans).
-            Le module e-learning est inclus pour chaque stagiaire. Qualification officielle délivrée
-            après examen.
+            Obtenez la qualification SSIAP1 reconnue par le Ministère de l&apos;Intérieur, exigée
+            dans tous les ERP de catégorie 1 à 4. Formation complète en 67h : théorie, pratique sur
+            matériel réel, examen devant jury. Module e-learning inclus pour chaque stagiaire.
+            Recyclage obligatoire (14h / 3 ans) également disponible.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -220,12 +220,12 @@ export default function FormationSsiap1Page() {
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-200 mb-2">Pourquoi choisir PREVENSIA FORMATION</p>
-              <h2 className="text-2xl font-bold">Organisme agréé préfecture — nous délivrons la formation certifiante complète</h2>
+              <h2 className="text-2xl font-bold">Agréés préfecture — formation complète, qualification officielle</h2>
               <p className="mt-3 text-red-100 leading-7">
-                PREVENSIA FORMATION n&apos;est pas un simple prestataire e-learning : nous sommes habilités
-                à dispenser la formation SSIAP1 dans son intégralité — théorie, pratique et examen.
-                Nos stagiaires obtiennent la <strong>qualification officielle SSIAP1</strong> reconnue
-                par l&apos;État à l&apos;issue de la formation.
+                Agréés par la préfecture, nous organisons la formation SSIAP1 dans son intégralité :
+                théorie, exercices pratiques sur matériel réel et examen final devant jury. Nos stagiaires
+                repartent avec la{" "}<strong>qualification officielle SSIAP1</strong>{" "}reconnue par
+                le Ministère de l&apos;Intérieur — exigée dans tous les ERP de catégorie 1 à 4.
               </p>
             </div>
             <Link
