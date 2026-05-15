@@ -2373,6 +2373,36 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 90,
     },
 
+    // === RÉSEAUX ENTERRÉS & DISTANCES HT (H0B0) ===
+    {
+      question:
+        "Lors d’un terrassement, vous découvrez un grillage avertisseur. De quelle couleur est-il s’il signale la présence d’une canalisation électrique enterrée ?",
+      choices: [
+        "Jaune",
+        "Vert",
+        "Rouge",
+        "Bleu",
+      ],
+      answer: [2],
+      explanation:
+        "Le grillage avertisseur rouge signale les canalisations électriques enterrées. Jaune = gaz, vert = eau potable, bleu = eau non potable, blanc = télécommunications. Découvrir ce grillage lors d’un terrassement impose l’arrêt immédiat des travaux mécaniques et l’information du responsable de chantier.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quelle est la Distance Limite de Voisinage Simple (DLVS) en Haute Tension A (1 kV à 50 kV) autour d’une pièce nue sous tension ?",
+      choices: [
+        "0,30 m",
+        "1 m",
+        "3 m",
+        "5 m",
+      ],
+      answer: [2],
+      explanation:
+        "La DLVS en HTA (1 kV à 50 kV) est de 3 m. La Distance Limite de Voisinage Renforcé (DLVR) en HTA est de 2 m. En HTB (> 50 kV), la DLVS monte à 5 m. Un titulaire H0V ne peut pénétrer en zone de voisinage HT que dans un cadre strictement organisé avec autorisation et surveillance appropriées.",
+      timeLimit: 45,
+    },
+
     // === CLASSES MATÉRIELS (H0B0) ===
     {
       question:

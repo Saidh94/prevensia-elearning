@@ -456,6 +456,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "La VAT n'est pas une formalite annexe. C'est le point de bascule entre une coupure supposée et un etat électrique vérifié. Le professionnel fiable sait expliquer sa méthode, son matériel et ses points de contrôle.",
         "La méthode de vérification doit inclure le contrôle du bon fonctionnement du dispositif avant et après la VAT, l'identification certaine du point de mesure et la cohérence avec le dossier de consignation. Se fier a un voyant, a une habitude ou a une indication orale expose directement l'équipe.",
         "L'apprenant doit aussi comprendre la difference entre la simple mise hors tension, la mise en sécurité électrique et la consignation complete. Ce vocabulaire n'est pas decoratif: il conditionne le niveau de fiabilité attendu avant le debut des travaux ou de l'intervention.",
+        "La mise à la terre et en court-circuit (MALT/CCT) n'est pas systématiquement obligatoire en Basse Tension, mais elle devient impérative dans plusieurs situations : câbles de grande longueur présentant un risque de tension induite (à proximité d'ouvrages HT), risque de réalimentation accidentelle depuis une source de secours ou un groupe électrogène, ou encore lorsque la configuration de l'installation l'impose. En Haute Tension, la MALT/CCT est toujours obligatoire (NF C 18-510 §6.3.4). Ne pas effectuer la MALT/CCT quand elle est requise expose les travailleurs à un risque mortel de tension résiduelle ou de réalimentation inattendue.",
       ],
       deepDive: [
         "Une consignation inexacte cree une illusion de sécurité. C'est l'une des situations les plus dangereuses car l'équipe pense être protegee alors que le risque persiste.",
@@ -465,11 +466,13 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Consigner = plusieurs étapes indissociables.",
         "La VAT doit être reelle et méthodique.",
         "Le BC structure la fiabilité du processus.",
+        "MALT/CCT : obligatoire en HT, obligatoire en BT si câbles longs, risque de tension induite ou de réalimentation (NF C 18-510 §6.3.4).",
       ],
       forbiddenPoints: [
         "Se fier a une supposition de coupure.",
         "Omettre l'identification ou la condamnation.",
         "Faire la VAT sur un point douteux.",
+        "Omettre la MALT/CCT en HT ou en BT lorsque les conditions l'imposent.",
       ],
       legalRefs: [
         "NF C 18-510 - consignation et vérification d'absence de tension.",

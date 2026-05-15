@@ -1,4 +1,4 @@
-﻿import { b1b2brbcModuleContent } from "./b1b2brbc-content";
+import { b1b2brbcModuleContent } from "./b1b2brbc-content";
 import { bsbeModuleContent } from "./bsbe-content";
 import { ModuleContent } from "./module-types";
 import { electricalCommercialModuleContent } from "./electrical-commercial-content";
@@ -259,11 +259,14 @@ export const modulesContent: Record<string, ModuleContent> = {
       keyPoints: [
         "Les distances structurent la prévention.",
         "La consignation et le travail hors tension restent à privilégier quand ils relèvent des opérations autorisées.",
-        "DMA BT = 0,30 m — ne jamais franchir cette limite.",
+        "DMA BT = 0,30 m — ne jamais franchir cette limite sans mise hors tension.",
         "DLI BT = 50 m — zone d'investigation.",
         "DLAP = 0,50 m pour les canalisations enterrées.",
         "Grillage avertisseur rouge = réseau électrique enterré.",
-        "En HT, les distances sont nettement plus importantes."
+        "DLVS HTA = 3 m — zone de voisinage simple haute tension A (1 kV à 50 kV).",
+        "DLVR HTA = 2 m — zone de danger renforcé haute tension A.",
+        "DLVS HTB = 5 m — zone de voisinage simple haute tension B (> 50 kV).",
+        "En HT, le risque d'amorçage existe à distance, même sans contact physique."
       ],
       forbiddenPoints: [
         "Franchir une limite de balisage.",
@@ -855,157 +858,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     }
   ]
 },
-  "bs-be-manoeuvre": {
-    title: "BS / BE Manœuvre - Interventions élémentaires et manœuvres",
-    shortTitle: "BS / BE Manœuvre",
-    subtitle:
-      "Parcours e-learning préparatoire aux interventions élémentaires et aux manœuvres simples dans le respect des limites fixées par la NF C 18-510.",
-    duration: "45 à 60 minutes",
-    level: "Intermédiaire",
-    objective:
-      "Comprendre le périmètre d’une intervention élémentaire, sécuriser son intervention, réaliser une manœuvre simple et appliquer la conduite adaptée en cas d’anomalie.",
-    audience:
-      "Personnel amené à effectuer des remplacements simples, réarmements, manœuvres d’exploitation ou opérations limitées prévues dans le cadre de son habilitation.",
-    certificationNote:
-      "La formation doit être complétée par une partie pratique avec formateur et une évaluation adaptée au poste de travail.",
-    heroBadge: "Habilitation électrique",
-    finalMessage:
-      "Ce parcours vous prépare aux fondamentaux BS / BE Manœuvre. La validation opérationnelle passe ensuite par la mise en situation pratique et l’évaluation encadrée.",
-    quizCtaLabel: "Passer au quiz BS / BE Manœuvre",
-    resourceFiles: [
-      {
-        title: "Habilitation Électrique BSBE Manœuvre — Support de formation Prevensia",
-        description: "Support complet BS / BE Manœuvre : périmètre d'intervention, opérations autorisées, manœuvres simples, conduite à tenir en cas d'anomalie.",
-        url: "/downloads/bsbe-manoeuvre-habilitation-electrique.pdf",
-        fileType: "PDF",
-        ctaLabel: "Télécharger le support de formation",
-      },
-    ],
-    sections: [
-      {
-        id: "cadre",
-        title: "1. Cadre d’intervention",
-        content: [
-          "BS et BE Manœuvre ne donnent pas un droit général d’intervenir sur toute installation électrique. Ces habilitations correspondent à des opérations limitées, encadrées, prévues et connues à l’avance.",
-          "L’habilitation BS concerne des interventions élémentaires simples et limitées, réalisées selon des procédures connues, sur des circuits ou équipements clairement identifiés.",
-          "L’habilitation BE Manœuvre concerne les manœuvres d’exploitation telles que mise en marche, arrêt, réarmement ou action autorisée sur un appareillage défini."
-        ],
-        keyPoints: [
-          "Intervention limitée, identifiée, encadrée.",
-          "Pas d’improvisation ni d’élargissement de périmètre.",
-          "La procédure et l’environnement priment sur l’habitude."
-        ],
-        visual: {
-          title: "Périmètre BS / BE Manœuvre",
-          subtitle: "Intervenir uniquement dans le cadre défini.",
-          items: [
-            "Opération autorisée et identifiée",
-            "Procédure connue à l’avance",
-            "Matériel et environnement adaptés",
-            "Arrêt immédiat en cas d’écart"
-          ],
-          tone: "blue",
-        },
-      },
-      {
-        id: "preparation",
-        title: "2. Préparation de l’intervention",
-        content: [
-          "Avant toute intervention, il faut identifier clairement l’équipement concerné, analyser les risques, vérifier l’état apparent du matériel, préparer l’outillage et s’assurer de disposer des équipements de protection nécessaires.",
-          "Toute incohérence, absence d’identification, doute sur le circuit ou présence d’un défaut visible doit conduire à l’arrêt de l’intervention et à l’alerte d’un référent compétent."
-        ],
-        keyPoints: [
-          "Identifier avant d’agir.",
-          "Vérifier matériel, outillage et environnement.",
-          "S’arrêter immédiatement en cas de doute."
-        ],
-        visual: {
-          title: "Préparer avant d’intervenir",
-          subtitle: "Une intervention simple reste une intervention à risque.",
-          items: [
-            "Identifier l’équipement",
-            "Vérifier l’état apparent",
-            "Préparer l’outillage et les EPI",
-            "Confirmer le cadre autorisé"
-          ],
-          tone: "amber",
-        },
-      },
-      {
-        id: "limites",
-        title: "3. Limites à respecter",
-        content: [
-          "Le titulaire BS / BE Manœuvre ne doit pas sortir du champ prévu. Une opération simple qui se complique doit être interrompue.",
-          "Dès qu’un défaut non prévu, un accès incertain, une absence de repérage ou une dégradation importante est constaté, l’opération doit être stoppée."
-        ],
-        forbiddenPoints: [
-          "Intervenir hors procédure.",
-          "Poursuivre malgré un doute.",
-          "Modifier un appareillage non prévu.",
-          "Intervenir sur un matériel dégradé ou non identifié."
-        ],
-        visual: {
-          title: "Quand faut-il s’arrêter ?",
-          subtitle: "Le doute impose l’arrêt.",
-          items: [
-            "Équipement non identifié",
-            "Défaut inattendu",
-            "Matériel dégradé",
-            "Procédure incomplète ou absente"
-          ],
-          tone: "red",
-        },
-      },
-      {
-        id: "manoeuvres",
-        title: "4. Manœuvres et opérations courantes",
-        content: [
-          "Les manœuvres simples doivent être réalisées avec méthode, dans le respect des consignes, sans précipitation et après vérification de l’environnement.",
-          "Le réarmement d’un dispositif de protection n’est jamais un geste anodin. Il doit être autorisé, compris et réalisé uniquement si le cadre le permet."
-        ],
-        keyPoints: [
-          "Procéder avec méthode.",
-          "Ne jamais banaliser un déclenchement.",
-          "Documenter ou signaler toute anomalie constatée."
-        ],
-        visual: {
-          title: "Réaliser une manœuvre en sécurité",
-          subtitle: "Méthode, contrôle, retour d’information.",
-          items: [
-            "Vérifier le contexte",
-            "Agir selon la consigne",
-            "Contrôler le résultat",
-            "Signaler toute anomalie"
-          ],
-          tone: "green",
-        },
-      },
-      {
-        id: "synthese",
-        title: "5. Synthèse",
-        content: [
-          "BS / BE Manœuvre exige de la rigueur. Une opération simple n’est sûre que si elle est préparée, comprise, autorisée et réalisée dans un environnement maîtrisé.",
-          "L’arrêt en cas de doute est une preuve de professionnalisme, pas un frein à l’exploitation."
-        ],
-        keyPoints: [
-          "Je respecte ma mission.",
-          "Je n’élargis jamais mon périmètre.",
-          "Je signale toute situation anormale."
-        ],
-        visual: {
-          title: "Réflexes BS / BE Manœuvre",
-          subtitle: "Préparer, exécuter, contrôler.",
-          items: [
-            "Identifier",
-            "Exécuter selon consigne",
-            "Contrôler",
-            "Tracer ou signaler"
-          ],
-          tone: "blue",
-        },
-      },
-    ],
-  },
+  "bs-be-manoeuvre": bsbeModuleContent,
 
   "b1-b1v-b2-b2v-br-bc": {
     title: "B1 B1V B2 B2V BR BC - Travaux, interventions et consignation",
