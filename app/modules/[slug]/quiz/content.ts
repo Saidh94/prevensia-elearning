@@ -5045,6 +5045,175 @@ const beVerificationMesurageDedicatedQuiz: QuizQuestion[] = [
       "NF C 18-510 §11.5 couvre les opérations particulières en basse tension : BE Vérification (§11.5.2), BE Mesurage (§11.5.3) et BE Essais (§11.5.4). Ce sont trois symboles distincts aux périmètres différents. La NF EN 61010-1 concerne quant à elle les instruments de mesure eux-mêmes (catégories CAT).",
     timeLimit: 45,
   },
+  // ── Q9–Q20 : physiologie, accident, incendie, acteurs, matériels ─────────
+  {
+    question:
+      "À partir de quelle intensité de courant alternatif le risque de fibrillation ventriculaire devient-il critique pour un être humain ?",
+    choices: [
+      "1 mA — seuil de perception",
+      "10 mA — seuil de tétanisation",
+      "30 mA — risque de fibrillation ventriculaire",
+      "500 mA — arrêt cardiaque quasi immédiat",
+    ],
+    answer: [2],
+    explanation:
+      "Le courant de 30 mA en courant alternatif, s'il traverse le corps pendant plus de 200 ms, peut déclencher une fibrillation ventriculaire potentiellement mortelle. C'est pour cette raison que les disjoncteurs différentiels 30 mA sont obligatoires dans les circuits domestiques. En dessous : 1 mA picotement, 10 mA tétanisation possible. Au-dessus de 500 mA, l'arrêt cardiaque est quasi immédiat.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "En cas de contact électrique, pourquoi ne faut-il pas toucher directement la victime avant toute autre action ?",
+    choices: [
+      "Pour respecter le protocole légal avant d'intervenir",
+      "Parce que la victime peut être toujours en contact avec la source électrique et électriser le secouriste",
+      "Pour attendre l'autorisation du chargé d'exploitation",
+      "Parce que le contact aggrave les brûlures cutanées",
+    ],
+    answer: [1],
+    explanation:
+      "Tant qu'une victime est en contact avec une source électrique sous tension, toucher directement la victime expose le secouriste à être électrisé à son tour. La première action est de couper l'alimentation électrique. Si la coupure est impossible, utiliser un matériau isolant sec (manche en bois, plastique rigide) pour éloigner la source ou la victime. Jamais à mains nues.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Une victime d'électrisation est inconsciente mais respire normalement. Quelle est la conduite à tenir en attendant les secours ?",
+    choices: [
+      "La laisser en position allongée sur le dos pour surveiller sa respiration",
+      "La placer en position latérale de sécurité (PLS) et alerter les secours",
+      "Commencer immédiatement les compressions thoraciques",
+      "Verser de l'eau froide sur les zones de contact pour limiter les brûlures",
+    ],
+    answer: [1],
+    explanation:
+      "En cas d'inconscience avec respiration présente, la Position Latérale de Sécurité (PLS) maintient les voies aériennes libres et prévient l'asphyxie par chute de la langue ou vomissements. Les compressions thoraciques ne sont indiquées qu'en l'absence de respiration. Ne jamais verser d'eau sur une victime d'électrisation en environnement électrique.",
+    timeLimit: 55,
+  },
+  {
+    question:
+      "Un incendie se déclare sur une armoire électrique BT toujours sous tension. Quel extincteur utiliser en priorité ?",
+    choices: [
+      "Extincteur eau pulvérisée — plus efficace sur les feux de matériels",
+      "Extincteur poudre ABC — polyvalent et disponible partout",
+      "Extincteur CO2 (dioxyde de carbone) — non conducteur, adapté aux feux électriques",
+      "N'importe quel extincteur disponible — l'urgence prime",
+    ],
+    answer: [2],
+    explanation:
+      "En présence de matériels électriques sous tension, seul l'extincteur CO2 est sûr : il est non conducteur et ne risque pas d'électriser l'utilisateur. L'eau conduit le courant — son utilisation sur un circuit sous tension est mortelle. La poudre est diélectrique mais endommage les matériels et peut asphyxier en espace confiné. Si possible, couper l'alimentation avant toute intervention.",
+    timeLimit: 45,
+  },
+  {
+    question:
+      "Dans la chaîne des habilitations électriques, qui autorise un titulaire BE à accéder à une zone électrique pour effectuer une mesure ou une vérification ?",
+    choices: [
+      "Le formateur qui a dispensé la formation BE",
+      "Le chef d'équipe de production du site",
+      "Le chargé d'exploitation électrique, via une instruction de sécurité ou une autorisation de travail",
+      "L'inspecteur du travail après déclaration d'intention",
+    ],
+    answer: [2],
+    explanation:
+      "Le chargé d'exploitation électrique est responsable de l'installation et de son état électrique. C'est lui qui autorise l'accès BE, fournit les instructions de sécurité ou l'autorisation de travail, et coordonne l'opération avec l'exploitation en cours. Sans ce document, le titulaire BE ne peut pas commencer son opération — opérer sans autorisation revient à agir hors cadre.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Quelle est la différence entre une instruction de sécurité et une autorisation de travail dans le cadre d'une opération BE ?",
+    choices: [
+      "Ce sont deux noms différents pour le même document",
+      "L'instruction de sécurité précise les consignes techniques à respecter ; l'autorisation de travail délimite formellement le périmètre d'accès et les conditions de l'opération",
+      "L'autorisation de travail est délivrée par le formateur, l'instruction de sécurité par l'employeur",
+      "L'instruction de sécurité est obligatoire uniquement pour les opérations en haute tension",
+    ],
+    answer: [1],
+    explanation:
+      "Dans la NF C 18-510 : l'instruction de sécurité précise les consignes spécifiques à respecter pendant l'opération (points de mesure autorisés, tensions présentes, équipements à ne pas toucher). L'autorisation de travail délimite formellement la zone d'accès, les conditions et les limites de l'opération. Les deux documents sont complémentaires et doivent être consultés avant toute opération BE.",
+    timeLimit: 55,
+  },
+  {
+    question:
+      "Avant de mesurer dans une zone supposée hors tension, que doit vérifier le titulaire BE Mesurage ?",
+    choices: [
+      "Que le disjoncteur principal est ouvert en position visible",
+      "Que personne ne travaille dans le local au même moment",
+      "Que la consignation a été réalisée et que l'attestation de consignation est disponible avant toute mesure",
+      "Que l'installation est ancienne et donc probablement hors tension",
+    ],
+    answer: [2],
+    explanation:
+      "Une installation 'supposée hors tension' n'est pas une installation hors tension confirmée. Avant toute mesure dans une zone consignée, le BE doit s'assurer que la consignation complète a été effectuée (séparation, condamnation, identification, VAT, balisage) et que l'attestation de consignation est disponible. L'état visible d'un disjoncteur ne garantit pas l'absence de toute tension sur l'installation.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Pour quelle opération le mégohmmètre est-il spécifiquement utilisé en BE Vérification ?",
+    choices: [
+      "Mesurer la valeur de tension d'un circuit alternatif 230 V",
+      "Mesurer la résistance d'isolement d'un câble ou d'un équipement électrique",
+      "Vérifier l'absence de tension sur un conducteur avant intervention",
+      "Mesurer l'intensité du courant de court-circuit d'un tableau",
+    ],
+    answer: [1],
+    explanation:
+      "Le mégohmmètre applique une tension DC élevée (500 V, 1 000 V ou 2 500 V selon l'application) pour mesurer la résistance d'isolement entre conducteurs et entre conducteurs et la terre. Il détecte les dégradations d'isolant des câbles, moteurs ou transformateurs. ATTENTION : il ne s'utilise QUE sur une installation hors tension, déchargée et déconnectée. Toute utilisation sur un circuit sous tension est dangereuse.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Quel est l'avantage principal de la pince ampèremétrique pour le BE Mesurage ?",
+    choices: [
+      "Elle mesure des tensions plus élevées qu'un multimètre classique",
+      "Elle permet de mesurer le courant sans ouvrir le circuit ni interrompre l'alimentation",
+      "Elle intègre automatiquement la catégorie CAT IV quel que soit le point de mesure",
+      "Elle est plus précise que tout autre instrument pour les courants inférieurs à 1 A",
+    ],
+    answer: [1],
+    explanation:
+      "La pince ampèremétrique mesure le courant par induction électromagnétique ou effet Hall autour d'un conducteur, sans ouvrir le circuit ni déconnecter l'alimentation. C'est un avantage majeur en BE Mesurage : on peut mesurer un courant en service normal sans perturber l'installation ni risquer d'arc lors de la déconnexion. Elle doit néanmoins porter la catégorie CAT adaptée au point de mesure.",
+    timeLimit: 45,
+  },
+  {
+    question:
+      "Le vérificateur d'absence de tension (VAT) a pour fonction principale de :",
+    choices: [
+      "Mesurer précisément la valeur de la tension sur un conducteur",
+      "Confirmer de manière fiable l'absence de tension avant tout accès ou mesure dans une zone supposée hors tension",
+      "Mesurer la résistance d'isolement entre deux conducteurs",
+      "Détecter les courants de défaut à la terre sur un tableau BT",
+    ],
+    answer: [1],
+    explanation:
+      "Le VAT est un instrument de sécurité, pas un instrument de mesure précise. Sa fonction est de confirmer l'absence de tension sur chaque conducteur actif et par rapport à la terre, avant tout accès à une zone supposée hors tension. Selon NF C 18-510 §5, il doit être testé sur une source de tension connue avant ET après utilisation pour vérifier son bon fonctionnement.",
+    timeLimit: 45,
+  },
+  {
+    question:
+      "Dans quel ordre de priorité les mesures de prévention doivent-elles être appliquées lors d'une opération BE ?",
+    choices: [
+      "EPI en premier (gants, lunettes), puis EPC si nécessaire",
+      "Protections collectives (EPC : balisage, écrans, barrières) en premier, protections individuelles (EPI) en complément",
+      "EPI et EPC sont équivalents — l'ordre n'a pas d'importance pour des opérations courtes",
+      "L'EPC n'est requis que pour les opérations en haute tension",
+    ],
+    answer: [1],
+    explanation:
+      "Le Code du travail (Art. L. 4121-2) impose la priorité des protections collectives sur les protections individuelles. En environnement électrique BE : balisage de zone, écrans isolants, nappes de protection (EPC) doivent être mis en place en priorité. Les gants isolants, lunettes et vêtements de protection (EPI) complètent la protection mais ne remplacent jamais l'EPC. Un instrument de mesure n'autorise pas non plus une approche hors cadre.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Lors d'une opération BE Vérification, vous constatez une odeur de brûlé et une légère fumée provenant d'un départ d'un tableau BT. Quelle est la conduite correcte ?",
+    choices: [
+      "Ouvrir immédiatement le disjoncteur du départ pour couper l'alimentation",
+      "Continuer la vérification en notant l'anomalie pour le rapport final",
+      "Arrêter le contrôle, protéger la zone, alerter le chargé d'exploitation sans toucher au tableau",
+      "Identifier la cause de la fumée en ouvrant le capot du tableau pour inspecter",
+    ],
+    answer: [2],
+    explanation:
+      "Une fumée ou odeur de brûlé sur un tableau BT en service indique un défaut potentiellement grave. Le titulaire BE n'est pas habilité à intervenir sur le tableau (ouvrir un disjoncteur = action corrective hors périmètre BE). La conduite correcte : arrêter le contrôle, sécuriser la zone (balisage si nécessaire), alerter immédiatement le chargé d'exploitation pour décision. Documenter l'anomalie avec précision (repère du départ, heure, nature).",
+    timeLimit: 55,
+  },
 ];
 
 quizContent["bt-multi-symboles"] = baseBtMultiSymbolesQuiz;
