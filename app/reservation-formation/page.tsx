@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import ReservationPageClient from "./reservation-page-client";
 import {
   type ReservationSlot,
@@ -5,6 +6,15 @@ import {
   type SlotCategory,
   type SlotFormat,
 } from "../reservation/slots";
+
+export const metadata: Metadata = {
+  title: "Réserver une formation | PREVENSIA FORMATION",
+  description:
+    "Choisissez votre session de formation et réservez votre place en quelques clics. Habilitation électrique, ATEX, SSI, sécurité incendie, SST — présentiel et distanciel.",
+  alternates: {
+    canonical: "https://prevensia-formation.fr/reservation-formation",
+  },
+};
 
 type ReservationFormationPageProps = {
   searchParams?: Promise<{
