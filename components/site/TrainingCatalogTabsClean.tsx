@@ -9,6 +9,7 @@ type TabKey =
   | "ssi"
   | "sprinkler"
   | "incendie"
+  | "ssiap1"
   | "atex"
   | "sst";
 
@@ -27,6 +28,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "ssi", label: "SSI" },
   { key: "sprinkler", label: "Sprinkler" },
   { key: "incendie", label: "Sécurité incendie" },
+  { key: "ssiap1", label: "SSIAP1" },
   { key: "atex", label: "ATEX" },
   { key: "sst", label: "SST" },
 ];
@@ -115,6 +117,26 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       ctaLabel: "Voir la formation",
     },
   ],
+  ssiap1: [
+    {
+      title: "SSIAP1 initial — Agent de sécurité incendie",
+      duration: "105 h (e-learning + présentiel)",
+      price: "À partir de 1 490 EUR HT",
+      group: "Sur devis",
+      participants: "6 à 12",
+      ctaHref: "/formation-ssiap1",
+      ctaLabel: "Voir la formation",
+    },
+    {
+      title: "Recyclage SSIAP1 — Remise à niveau (MAC)",
+      duration: "14 h (e-learning + présentiel)",
+      price: "À partir de 250 EUR HT",
+      group: "Sur devis",
+      participants: "6 à 12",
+      ctaHref: "/formation-recyclage-ssiap1",
+      ctaLabel: "Voir la formation",
+    },
+  ],
   atex: [
     {
       title: "ATEX Niveau 1 — Sensibilisation atmosphères explosives",
@@ -200,6 +222,13 @@ const audienceByTab: Record<TabKey, string[]> = {
     "Encadrants et référents sécurité incendie ERP",
     "Collaborateurs à sensibiliser au risque incendie",
   ],
+  ssiap1: [
+    "Agents de sécurité incendie souhaitant obtenir la qualification SSIAP1",
+    "Personnel de surveillance en ERP, IGH, ICPE",
+    "Titulaires SSIAP1 devant effectuer leur recyclage obligatoire (MAC)",
+    "Agents en reconversion professionnelle vers la sécurité incendie",
+    "Salariés désignés par leur employeur pour assurer la fonction d'agent SSIAP",
+  ],
   atex: [
     "Tout personnel circulant en zone ATEX (Niveau 1)",
     "Travailleurs intervenant régulièrement en zone classée (Niveau 2)",
@@ -216,11 +245,14 @@ const audienceByTab: Record<TabKey, string[]> = {
   ],
 };
 
-const MOBILE_INITIAL_COUNT = 3;
-
 export default function TrainingCatalogTabsClean() {
   const [active, setActive] = useState<TabKey>("habilitations");
-  const [expanded, setExpanded] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  function handleTabChange(key: TabKey) {
+    setActive(key);
+    setOpenIndex(0);
+  }
 
   return (
     <section className="bg-white py-16">
@@ -238,12 +270,13 @@ export default function TrainingCatalogTabsClean() {
           </p>
         </div>
 
+        {/* Onglets */}
         <div className="mt-8 flex flex-wrap gap-2">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               type="button"
-              onClick={() => { setActive(tab.key); setExpanded(false); }}
+              onClick={() => handleTabChange(tab.key)}
               className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
                 active === tab.key
                   ? "bg-red-700 text-white"
@@ -255,14 +288,63 @@ export default function TrainingCatalogTabsClean() {
           ))}
         </div>
 
-        <div className="mt-8">
-          <Table
-            rows={tableRowsByTab[active]}
-            expanded={expanded}
-            onToggleExpand={() => setExpanded((v) => !v)}
-          />
-          <AudienceBox items={audienceByTab[active]} />
+        {/* Accordéon */}
+        <div className="mt-8 space-y-3">
+          {tableRowsByTab[active].map((row, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={row.title}
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+              >
+                {/* En-tête cliquable */}
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex min-w-0 flex-wrap items-center gap-3">
+                    <span className="font-semibold text-slate-900">
+                      {row.title}
+                    </span>
+                    <span className="rounded-full bg-slate-900 px-2.5 py-1 text-xs font-medium text-white whitespace-nowrap">
+                      {row.duration}
+                    </span>
+                  </div>
+                  <ChevronIcon open={isOpen} />
+                </button>
+
+                {/* Contenu déplié */}
+                {isOpen && (
+                  <div className="border-t border-slate-100 px-5 pb-5 pt-4">
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <InfoTile label="Inter / participant" value={row.price} />
+                      <InfoTile label="Intra / groupe" value={row.group} />
+                      <InfoTile label="Participants" value={row.participants} />
+                    </div>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <Link
+                        href={row.ctaHref ?? "/demande-devis"}
+                        className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700"
+                      >
+                        {row.ctaLabel ?? "Voir la formation"}
+                      </Link>
+                      <Link
+                        href="/demande-devis"
+                        className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                      >
+                        Demander un devis
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
+
+        <AudienceBox items={audienceByTab[active]} />
 
         <p className="mt-6 text-sm text-slate-500">
           Les tarifs intra-entreprise sont indiqués à partir de et peuvent
@@ -274,112 +356,25 @@ export default function TrainingCatalogTabsClean() {
   );
 }
 
-function Table({
-  rows,
-  expanded,
-  onToggleExpand,
-}: {
-  rows: TableRow[];
-  expanded: boolean;
-  onToggleExpand: () => void;
-}) {
-  const mobileRows = expanded ? rows : rows.slice(0, MOBILE_INITIAL_COUNT);
-  const hasMore = rows.length > MOBILE_INITIAL_COUNT;
-
+function ChevronIcon({ open }: { open: boolean }) {
   return (
-    <>
-      <div className="space-y-4 md:hidden">
-        {mobileRows.map((row) => (
-          <article
-            key={row.title}
-            className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
-          >
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="text-base font-semibold text-slate-900">
-                {row.title}
-              </h3>
-              <span className="rounded-full bg-slate-900 px-2.5 py-1 text-xs font-medium text-white">
-                {row.duration}
-              </span>
-            </div>
-
-            <div className="mt-4 grid gap-3">
-              <InfoTile label="Inter / participant" value={row.price} />
-              <InfoTile label="Intra / groupe" value={row.group} />
-              <InfoTile label="Participants" value={row.participants} />
-            </div>
-
-            <div className="mt-4 flex flex-col gap-3">
-              <Link
-                href={row.ctaHref ?? "/demande-devis"}
-                className="inline-flex w-full items-center justify-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-              >
-                {row.ctaLabel ?? "Voir la formation"}
-              </Link>
-
-              <Link
-                href="/demande-devis"
-                className="inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-900 transition hover:bg-slate-100"
-              >
-                Demander un devis
-              </Link>
-            </div>
-          </article>
-        ))}
-
-        {hasMore && (
-          <button
-            type="button"
-            onClick={onToggleExpand}
-            className="mt-2 w-full rounded-2xl border border-slate-300 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-          >
-            {expanded
-              ? "Voir moins"
-              : `Voir les ${rows.length - MOBILE_INITIAL_COUNT} autres formations`}
-          </button>
-        )}
-      </div>
-
-      <div className="hidden overflow-hidden rounded-2xl border border-slate-200 md:block">
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead className="bg-slate-100 text-left">
-              <tr>
-                <th className="px-4 py-3 whitespace-nowrap">Formation</th>
-                <th className="px-4 py-3 whitespace-nowrap">Durée</th>
-                <th className="px-4 py-3 whitespace-nowrap">Inter / pers</th>
-                <th className="px-4 py-3 whitespace-nowrap">Intra / groupe</th>
-                <th className="px-4 py-3 whitespace-nowrap">Participants</th>
-                <th className="px-4 py-3 whitespace-nowrap">Accès</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => (
-                <tr key={row.title} className="border-t">
-                  <td className="px-4 py-3 font-semibold text-slate-900">
-                    {row.title}
-                  </td>
-                  <td className="px-4 py-3 text-slate-700">{row.duration}</td>
-                  <td className="px-4 py-3 text-slate-700">{row.price}</td>
-                  <td className="px-4 py-3 text-slate-700">{row.group}</td>
-                  <td className="px-4 py-3 text-slate-700">
-                    {row.participants}
-                  </td>
-                  <td className="px-4 py-3">
-                    <Link
-                      href={row.ctaHref ?? "/demande-devis"}
-                      className="inline-flex rounded-xl bg-slate-900 px-3 py-2 text-xs font-medium text-white transition hover:bg-slate-800"
-                    >
-                      {row.ctaLabel ?? "Voir la formation"}
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`shrink-0 text-slate-400 transition-transform duration-200 ${
+        open ? "rotate-180" : ""
+      }`}
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
   );
 }
 
