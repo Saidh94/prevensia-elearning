@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "formation-securite-incendie",
     "formation-sprinkler",
     "formation-ssi",
+    "formation-atex",
+    "formation-recyclage-ssiap1",
   ];
 
   const formationEntries: MetadataRoute.Sitemap = formationPages.map(
@@ -32,7 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.88 },
     { slug: "formation-habilitation-electrique-paris", priority: 0.85 },
     { slug: "formation-habilitation-electrique-seine-saint-denis", priority: 0.85 },
-    { slug: "formation-atex", priority: 0.9 },
     { slug: "formation-ssiap1", priority: 0.9 },
   ];
 
@@ -86,6 +87,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
+    },
+    // Modules e-learning
+    {
+      url: `${siteUrl}/modules/atex`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    // Réservation entretien
+    {
+      url: `${siteUrl}/booking`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.65,
     },
     // Devis & inscription
     {

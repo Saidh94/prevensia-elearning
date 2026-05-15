@@ -72,6 +72,12 @@ export default function AttestationPage() {
   const [payload, setPayload] = useState<PdfPayload | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
+  const isBlockedFormation =
+    slug === "ssiap1" ||
+    slug === "recyclage-ssiap1" ||
+    slug === "formation-ssiap1" ||
+    slug === "formation-recyclage-ssiap1";
+
   useEffect(() => {
     if (!slug) {
       setLoading(false);
@@ -251,6 +257,50 @@ export default function AttestationPage() {
 
     return () => window.clearTimeout(timeout);
   }, [enrollmentStatus, loading, payload, submitted]);
+
+  if (isBlockedFormation) {
+    return (
+      <main className="min-h-screen bg-slate-50 px-4 py-10">
+        <div className="mx-auto max-w-4xl rounded-[2rem] border border-blue-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">
+            Attestation SSIAP1
+          </p>
+          <h1 className="mt-3 text-3xl font-bold text-slate-900">
+            Certificat officiel SSIAP1
+          </h1>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            L&apos;attestation SSIAP1 officielle est délivrée après examen devant
+            jury agréé préfecture. PREVENSIA vous contactera pour les dates et
+            modalités de passage.
+          </p>
+          <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5">
+            <p className="text-sm font-semibold text-blue-800">
+              Votre module e-learning est bien validé.
+            </p>
+            <p className="mt-2 text-sm text-blue-700">
+              L&apos;équipe PREVENSIA prend en charge l&apos;organisation de votre
+              examen. Vous recevrez une convocation par e-mail avec les
+              informations nécessaires.
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Retour au dashboard
+            </Link>
+            <Link
+              href="/booking"
+              className="inline-flex items-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+            >
+              Planifier mon entretien
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   if (loading) {
     return (

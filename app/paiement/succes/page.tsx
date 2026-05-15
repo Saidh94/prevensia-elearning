@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Paiement confirmé | PREVENSIA FORMATION",
+  description: "Votre paiement a bien été enregistré. Votre accès à la formation PREVENSIA est en cours d'activation.",
+  robots: { index: false, follow: false },
+};
 
 type SuccessPageProps = {
   searchParams?: Promise<{

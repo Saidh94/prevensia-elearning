@@ -14,6 +14,7 @@ type DashboardFormation = {
   elearning_duration: string | null;
   mode: string | null;
   status: "not_started" | "in_progress" | "completed" | string;
+  payment_status: "pending" | "paid" | "failed" | "refunded" | null;
   completion_percent: number;
   completed: boolean;
   last_module_slug: string | null;
@@ -280,6 +281,19 @@ export default function DashboardPage() {
                         <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
                           {getStatusLabel(formation.status, progress)}
                         </span>
+                        {formation.payment_status === "paid" ? (
+                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                            Payé
+                          </span>
+                        ) : formation.payment_status === "pending" ? (
+                          <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+                            Paiement en attente
+                          </span>
+                        ) : formation.payment_status === "failed" ? (
+                          <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">
+                            Paiement échoué
+                          </span>
+                        ) : null}
                         {durationLabel ? (
                           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                             {durationLabel}

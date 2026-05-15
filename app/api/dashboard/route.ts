@@ -25,6 +25,7 @@ type FormationRow = {
 type EnrollmentRow = {
   id: string;
   status: string | null;
+  payment_status: string | null;
   access_start: string | null;
   access_end: string | null;
   formation: FormationRow | FormationRow[] | null;
@@ -81,6 +82,7 @@ export async function GET() {
         `
         id,
         status,
+        payment_status,
         access_start,
         access_end,
         formation:formations (
@@ -201,6 +203,7 @@ export async function GET() {
         elearning_duration: formation?.elearning_duration ?? null,
         mode: formation?.mode ?? null,
         status: derivedStatus,
+        payment_status: enrollment.payment_status ?? null,
         completion_percent: completionPercent,
         completed,
         last_module_slug: lastCompletedChapter?.chapter_key ?? null,
