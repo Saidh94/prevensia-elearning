@@ -28,6 +28,7 @@ type EnrollmentRecord = {
 type PdfPayload = {
   enrollmentId?: string;
   formation: string;
+  moduleSlug?: string;
   date: string;
   score?: string;
   total?: string;
@@ -210,6 +211,7 @@ export default function AttestationPage() {
             (slug === "h0b0"
               ? "Habilitation électrique H0B0"
               : slug.toUpperCase()),
+          moduleSlug: slug,
           date: completedAt,
           score:
             typeof quizResult?.score === "number"
@@ -406,6 +408,7 @@ export default function AttestationPage() {
         <form ref={formRef} action="/api/attestation" method="POST" className="hidden">
           {payload.enrollmentId ? <input type="hidden" name="enrollmentId" value={payload.enrollmentId} /> : null}
           <input type="hidden" name="formation" value={payload.formation} />
+          {payload.moduleSlug ? <input type="hidden" name="moduleSlug" value={payload.moduleSlug} /> : null}
           <input type="hidden" name="date" value={payload.date} />
           {payload.score ? <input type="hidden" name="score" value={payload.score} /> : null}
           {payload.total ? <input type="hidden" name="total" value={payload.total} /> : null}

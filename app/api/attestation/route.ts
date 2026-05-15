@@ -48,6 +48,7 @@ type AttestationPayload = {
   enrollmentId?: string;
   forceAdminCompletion?: boolean;
   formation?: string;
+  moduleSlug?: string;
   date?: string;
   score?: number;
   total?: number;
@@ -124,6 +125,7 @@ async function readPayload(request: Request): Promise<AttestationPayload> {
       enrollmentId: normalizeString(body.enrollmentId) || undefined,
       forceAdminCompletion: readOptionalBoolean(body.forceAdminCompletion),
       formation: normalizeString(body.formation) || undefined,
+      moduleSlug: normalizeString(body.moduleSlug) || undefined,
       date: normalizeString(body.date) || undefined,
       score: readOptionalNumber(body.score),
       total: readOptionalNumber(body.total),
@@ -145,6 +147,7 @@ async function readPayload(request: Request): Promise<AttestationPayload> {
       formData.get("forceAdminCompletion")
     ),
     formation: normalizeString(formData.get("formation")) || undefined,
+    moduleSlug: normalizeString(formData.get("moduleSlug")) || undefined,
     date: normalizeString(formData.get("date")) || undefined,
     score: readOptionalNumber(formData.get("score")),
     total: readOptionalNumber(formData.get("total")),
@@ -541,6 +544,7 @@ export async function POST(request: Request) {
     const pdfInput = {
       userId: enrollment.user_id,
       formation: resolvedFormationTitle,
+      moduleSlug: payload.moduleSlug || undefined,
       date: completionDate,
       score,
       total,

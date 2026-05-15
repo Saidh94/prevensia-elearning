@@ -12,6 +12,7 @@ import path from "path";
 export type AttestationPdfInput = {
   userId: string;
   formation: string;
+  moduleSlug?: string;
   date?: string;
   score?: number;
   total?: number;
@@ -246,6 +247,183 @@ async function loadSignatureBuffer() {
     "public/images/signature-prevensia.png",
     "public/images/signature-prevensia.jpg",
   ]);
+}
+
+/**
+ * Résout le symbole d'habilitation à partir du slug canonique du MODULE
+ * (ex: "br" → BR, "b1-b1v" → B1/B1V, "bsbe" → BS + BE Manoeuvre).
+ * Retourne null si le slug n'est pas reconnu (fallback vers la détection par titre).
+ */
+function getSuggestedRowsBySlug(
+  moduleSlug: string
+): Record<string, SuggestedRow> | null {
+  const s = moduleSlug.toLowerCase().trim();
+
+  // H0B0 / H0V
+  if (s === "h0b0") {
+    return {
+      executant: {
+        symbol: "B0 / H0 / H0V",
+        domain: "BT / HT",
+        scope: "Environnement electrique",
+        notes: "Operations non electriques uniquement",
+      },
+    };
+  }
+
+  // BS / BE Manoeuvre
+  if (
+    s === "bsbe" ||
+    s === "bs-be" ||
+    s === "bsbe-manoeuvre" ||
+    s === "bs-be-manoeuvre"
+  ) {
+    return {
+      bs: {
+        symbol: "BS",
+        domain: "BT",
+        scope: "Circuits terminaux identifies",
+        notes: "Hors tension, sans voisinage, limites NF C 18-510",
+      },
+      beManoeuvre: {
+        symbol: "BE Manoeuvre",
+        domain: "BT",
+        scope: "Organes de commande identifies",
+        notes: "Manoeuvres uniquement, pas de depannage",
+      },
+    };
+  }
+
+  // B1/B2/BR/BC combiné (module tout-en-un)
+  if (
+    s === "b1b2brbc" ||
+    s === "bt-multi-symboles" ||
+    s === "b1-b2-br-bc" ||
+    s === "b1-b1v-b2-b2v-br-bc"
+  ) {
+    return {
+      executantElectricien: {
+        symbol: "B1V / B2V",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+      chargeIntervention: {
+        symbol: "BR",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+      chargeConsignation: {
+        symbol: "BC",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+    };
+  }
+
+  // B1 / B1V seul
+  if (s === "b1-b1v" || s === "b1" || s === "b1v") {
+    return {
+      executantElectricien: {
+        symbol: "B1 / B1V",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+    };
+  }
+
+  // B2 / B2V seul
+  if (s === "b2-b2v" || s === "b2" || s === "b2v") {
+    return {
+      chargeTravaux: {
+        symbol: "B2 / B2V",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+    };
+  }
+
+  // BR seul
+  if (s === "br") {
+    return {
+      chargeIntervention: {
+        symbol: "BR",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+    };
+  }
+
+  // BC seul
+  if (s === "bc") {
+    return {
+      chargeConsignation: {
+        symbol: "BC",
+        domain: "BT",
+        scope: "Installation client",
+        notes: "A preciser selon mission",
+      },
+    };
+  }
+
+  // BE Vérification / Mesurage
+  if (
+    s === "be-verification-mesurage" ||
+    s === "be-verification" ||
+    s === "be-mesurage" ||
+    s === "be"
+  ) {
+    return {
+      chargeSpecifique: {
+        symbol: "BE Verification\nBE Mesurage",
+        domain: "BT / HT",
+        scope: "Mesurages et verifications",
+        notes: "A preciser selon mission",
+      },
+    };
+  }
+
+  return null; // slug non reconnu → fallback titre
+}
+
+/**
+ * Libellé du cadre formation à afficher dans la case "Cadre formation"
+ * basé sur le slug canonique du module.
+ * Retourne null si non reconnu (fallback vers getFormationFrameLabel).
+ */
+function getFormationFrameLabelBySlug(moduleSlug: string): string | null {
+  const s = moduleSlug.toLowerCase().trim();
+
+  const labels: Record<string, string> = {
+    h0b0: "H0B0 / H0V",
+    bsbe: "BS / BE Manoeuvre",
+    "bs-be": "BS / BE Manoeuvre",
+    "bsbe-manoeuvre": "BS / BE Manoeuvre",
+    "bs-be-manoeuvre": "BS / BE Manoeuvre",
+    b1b2brbc: "B1 / B1V / B2 / B2V / BR / BC",
+    "bt-multi-symboles": "B1 / B1V / B2 / B2V / BR / BC",
+    "b1-b2-br-bc": "B1 / B1V / B2 / B2V / BR / BC",
+    "b1-b1v-b2-b2v-br-bc": "B1 / B1V / B2 / B2V / BR / BC",
+    "b1-b1v": "B1 / B1V",
+    b1: "B1 / B1V",
+    b1v: "B1 / B1V",
+    "b2-b2v": "B2 / B2V",
+    b2: "B2 / B2V",
+    b2v: "B2 / B2V",
+    br: "BR",
+    bc: "BC",
+    "be-verification-mesurage": "BE Verification / BE Mesurage",
+    "be-verification": "BE Verification",
+    "be-mesurage": "BE Mesurage",
+    be: "BE Verification / BE Mesurage",
+  };
+
+  return labels[s] ?? null;
 }
 
 function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
@@ -1176,6 +1354,7 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
   const {
     userId,
     formation,
+    moduleSlug,
     date = new Date().toISOString(),
     score = 0,
     total = 0,
@@ -1200,8 +1379,17 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
   const validationDate = formatDateFr(date);
   const issueDate = new Date().toLocaleDateString("fr-FR");
   const attestationId = shortAttestationId(userId);
-  const suggestedRows = getSuggestedRows(formation);
-  const frameText = getFormationFrameLabel(formation);
+
+  // Priorité au slug du MODULE pour la détection des symboles d'habilitation.
+  // Le titre de la formation (formation) peut appartenir à un pack couvrant plusieurs
+  // modules (ex: "H0B0" pour un pack) → il ne reflète pas le module consulté.
+  const suggestedRows =
+    (moduleSlug ? getSuggestedRowsBySlug(moduleSlug) : null) ??
+    getSuggestedRows(formation);
+
+  const frameText =
+    (moduleSlug ? getFormationFrameLabelBySlug(moduleSlug) : null) ??
+    getFormationFrameLabel(formation);
   const hasQuizResult = Number.isFinite(total) && total > 0;
   const effectivePassingScore =
     typeof passingScore === "number" && Number.isFinite(passingScore)
