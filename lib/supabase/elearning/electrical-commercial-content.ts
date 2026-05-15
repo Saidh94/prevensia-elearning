@@ -265,14 +265,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
 
   "b1-b1v": {
     ...b1b2brbcModuleContent,
-    title: "B1 / B1V - Executer des travaux electriques en basse tension",
+    title: "B1 / B1V - Exécuter des travaux électriques en basse tension",
     shortTitle: "B1 / B1V",
     subtitle:
-      "Parcours centre sur le role d'exécutant electricien, le respect des consignes, le voisinage et la maitrise du perimetre d'action en basse tension.",
+      "Parcours centré sur le rôle d'exécutant électricien, le respect des consignes, le voisinage et la maîtrise du périmètre d'action en basse tension.",
     objective:
-      "Tenir correctement un role d'exécutant B1 ou B1V, reconnaître les limites du voisinage, appliquer les consignes sans improvisation et signaler immédiatement tout écart ou doute.",
+      "Tenir correctement un rôle d'exécutant B1 ou B1V, reconnaître les limites du voisinage, appliquer les consignes sans improvisation et signaler immédiatement tout écart ou doute.",
     audience:
-      "Electriciens exécutants, techniciens batiment et personnels charges d'executer des travaux electriques en basse tension dans un cadre prepare par un chargé de travaux.",
+      "Électriciens exécutants, techniciens bâtiment et personnels chargés d'exécuter des travaux électriques en basse tension dans un cadre préparé par un chargé de travaux.",
     resourceFiles: [
       {
         title: "Formation Habilitations Électriques B1–B2V — Support de formation",
@@ -288,21 +288,21 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.b1b2Chaine,
 
         intro:
-          "Le B1 ou B1V est un exécutant. Son role consiste a appliquer une consigne de travail, dans un perimetre defini, sans se substituer au chargé de travaux ni decider seul d'un changement de methode.",
+          "Le B1 ou B1V est un exécutant. Son rôle consiste à appliquer une consigne de travail, dans un périmètre défini, sans se substituer au chargé de travaux ni décider seul d'un changement de méthode.",
         content: [
-          "L'exécutant B1 intervient sur des travaux electriques en basse tension dans un cadre prepare. Il ne choisit pas seul le circuit, la methode, la zone ou le niveau de protection. Il applique ce qui a ete defini et s'assure de l'avoir compris avant de commencer.",
-          "Le B1V ajoute la contrainte du voisinage renforce. Il doit donc connaitre la limite physique de sa zone, les parties nues sous tension presentes a proximite et les conditions qui rendent l'approche interdite.",
-          "L'exécutant B1/B1V tient son role sans glissement: il execute, signale, s'arrete et fait clarifier. Si la situation change, si le dossier ne correspond plus ou si une piece voisine devient exposante, il n'improvise pas: il stoppe et alerte.",
-          "Le chargé de travaux B2 prepare, balise, brief l'equipe et garde la maitrise d'ensemble. Le B1 ne prend pas la main sur l'organisation. Cette distinction protege autant la personne que le chantier.",
+          "L'exécutant B1 intervient sur des travaux électriques en basse tension dans un cadre préparé. Il ne choisit pas seul le circuit, la méthode, la zone ou le niveau de protection. Il applique ce qui a été défini et s'assure de l'avoir compris avant de commencer.",
+          "Le B1V ajoute la contrainte du voisinage renforcé. Il doit donc connaître la limite physique de sa zone, les parties nues sous tension présentes à proximité et les conditions qui rendent l'approche interdite.",
+          "L'exécutant B1/B1V tient son rôle sans glissement : il exécute, signale, s'arrête et fait clarifier. Si la situation change, si le dossier ne correspond plus ou si une pièce voisine devient exposante, il n'improvise pas : il stoppe et alerte.",
+          "Le chargé de travaux B2 prépare, balise, brief l'équipe et garde la maîtrise d'ensemble. Le B1 ne prend pas la main sur l'organisation. Cette distinction protège autant la personne que le chantier.",
         ],
         keyPoints: [
-          "B1 execute dans un cadre defini.",
-          "B1V execute en tenant compte du voisinage renforce.",
-          "L'exécutant n'etend pas seul sa mission.",
-          "Au moindre doute: stop et remontee d'information.",
+          "B1 exécute dans un cadre défini.",
+          "B1V exécute en tenant compte du voisinage renforcé.",
+          "L'exécutant n'étend pas seul sa mission.",
+          "Au moindre doute : stop et remontée d'information.",
         ],
         practicalCase:
-          "Exemple : un exécutant B1 constate qu'un coffret voisin reste accessible et que le balisage ne correspond plus au dossier du matin. Il suspend sa tache et demande la revalidation du cadre avant reprise.",
+          "Exemple : un exécutant B1 constate qu'un coffret voisin reste accessible et que le balisage ne correspond plus au dossier du matin. Il suspend sa tâche et demande la revalidation du cadre avant reprise.",
       }),
       section("symboles-attributions", {
         chapterImagePath: IMG.symbolesTravaux,
@@ -315,59 +315,59 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("preparation-travaux", {
         chapterImagePath: IMG.tableau,
         intro:
-          "Pour un B1 ou B1V, la preparation ne sert pas a organiser le chantier: elle sert a comprendre exactement ce qui lui est demande, sur quel materiel et dans quelles limites.",
+          "Pour un B1 ou B1V, la préparation ne sert pas à organiser le chantier : elle sert à comprendre exactement ce qui lui est demandé, sur quel matériel et dans quelles limites.",
         content: [
-          "Avant d'executer, le B1 doit savoir identifier le materiel concerne, reconnaître le point de travail, comprendre le balisage mis en place et verifier que la consigne orale ou ecrite est coherente avec le terrain.",
-          "Il vérifie aussi ses moyens immédiats: outillage prevu, EPI utiles, accessibilite, eclairage, absence d'obstacle et possibilite de se retirer rapidement si la situation change.",
-          "Cette preparation d'exécutant n'a pas pour but de redessiner l'organisation. Elle a pour but de s'assurer que l'ordre donne est clair, faisable et compris sans interpretation personnelle.",
+          "Avant d'exécuter, le B1 doit savoir identifier le matériel concerné, reconnaître le point de travail, comprendre le balisage mis en place et vérifier que la consigne orale ou écrite est cohérente avec le terrain.",
+          "Il vérifie aussi ses moyens immédiats : outillage prévu, EPI utiles, accessibilité, éclairage, absence d'obstacle et possibilité de se retirer rapidement si la situation change.",
+          "Cette préparation d'exécutant n'a pas pour but de redessiner l'organisation. Elle a pour but de s'assurer que l'ordre donné est clair, faisable et compris sans interprétation personnelle.",
         ],
         keyPoints: [
           "Je sais sur quoi j'agis.",
           "Je connais ma limite de zone.",
-          "Je n'extrapole pas une consigne incomplete.",
+          "Je n'extrapole pas une consigne incomplète.",
         ],
       }),
       section("travaux-b1-b2", {
         chapterImagePath: IMG.b1b2Travaux,
         intro:
-          "Le travail B1/B1V est un travail execute sous conduite. La securite repose autant sur le geste que sur la discipline d'execution.",
+          "Le travail B1/B1V est un travail exécuté sous conduite. La sécurité repose autant sur le geste que sur la discipline d'exécution.",
         content: [
-          "L'exécutant B1 applique les consignes du chargé de travaux, respecte la zone delimitee, utilise les moyens prevus et signale tout écart sans chercher a le compenser seul.",
-          "Il ne depose pas un balisage, ne deplace pas un ecran ou une protection collective, ne modifie pas le choix du point de travail et ne poursuit pas une tache si le contexte s'est degrade.",
-          "Si une partie voisine apparait sous tension, si le materiel ne correspond pas a ce qui etait annonce ou si l'operation demande finalement une initiative technique non prevue, l'action s'arrete. C'est justement un comportement attendu d'un bon exécutant.",
+          "L'exécutant B1 applique les consignes du chargé de travaux, respecte la zone délimitée, utilise les moyens prévus et signale tout écart sans chercher à le compenser seul.",
+          "Il ne dépose pas un balisage, ne déplace pas un écran ou une protection collective, ne modifie pas le choix du point de travail et ne poursuit pas une tâche si le contexte s'est dégradé.",
+          "Si une partie voisine apparaît sous tension, si le matériel ne correspond pas à ce qui était annoncé ou si l'opération demande finalement une initiative technique non prévue, l'action s'arrête. C'est justement un comportement attendu d'un bon exécutant.",
         ],
         keyPoints: [
-          "Consigne claire avant execution.",
-          "Respect strict du perimetre.",
-          "Arret immédiat si le cadre change.",
+          "Consigne claire avant exécution.",
+          "Respect strict du périmètre.",
+          "Arrêt immédiat si le cadre change.",
         ],
       }),
       section("outils-protections", {
         chapterImagePath: IMG.epiTerrain,
         intro:
-          "Pour un exécutant B1 ou B1V, les protections ne rendent pas le travail possible par magie. Elles viennent completer un cadre deja prepare, balise et maintenu par l'organisation du chantier.",
+          "Pour un exécutant B1 ou B1V, les protections ne rendent pas le travail possible par magie. Elles viennent compléter un cadre déjà préparé, balisé et maintenu par l'organisation du chantier.",
         content: [
-          "Le B1 ou B1V vérifie d'abord la présence des protections collectives : balisage, ecrans, capotage, delimitation de zone et maitrise du voisinage. Il n'entame pas le travail si ce cadre n'est pas clairement en place.",
-          "Les EPI viennent ensuite en complement. Ils ne remplacent jamais une zone mal tenue, un capot retire ou une consigne devenue floue. L'exécutant ne compense pas seul une protection absente.",
-          "Si une protection est deplacee, endommagee ou incoherente avec la mission, l'exécutant s'arrete et remonte l'information au chargé de travaux avant toute reprise.",
+          "Le B1 ou B1V vérifie d'abord la présence des protections collectives : balisage, écrans, capotage, délimitation de zone et maîtrise du voisinage. Il n'entame pas le travail si ce cadre n'est pas clairement en place.",
+          "Les EPI viennent ensuite en complément. Ils ne remplacent jamais une zone mal tenue, un capot retiré ou une consigne devenue floue. L'exécutant ne compense pas seul une protection absente.",
+          "Si une protection est déplacée, endommagée ou incohérente avec la mission, l'exécutant s'arrête et remonte l'information au chargé de travaux avant toute reprise.",
         ],
         keyPoints: [
           "Protection collective d'abord, protection individuelle ensuite.",
           "Le B1/B1V ne banalise pas une protection manquante.",
-          "Le bon reflexe reste l'arret, pas l'improvisation.",
+          "Le bon réflexe reste l'arrêt, pas l'improvisation.",
         ],
       }),
       section("anomalies-urgence", {
         chapterImagePath: IMG.reflexes,
         resourceVideos: [VIDEO.chocElectrique],
         content: [
-          "Un exécutant B1/B1V n'a pas a gerer seul une anomalie electrique. Son premier role est d'interrompre l'action, de se proteger, d'eviter l'exposition d'un tiers et d'alerter selon l'organisation prevue.",
-          "En cas de doute sur l'etat electrique, de bruit anormal, d'odeur, d'echauffement, d'arc ou de présence inattendue de tension, il ne touche plus, ne teste pas au hasard et ne cherche pas a terminer vite.",
-          "Si une personne est victime, la conduite a tenir reste organisee: suppression ou isolement du danger si c'est possible sans s'exposer, alerte des secours, protection de la zone et application des gestes de secours dans le cadre de ses competences.",
+          "Un exécutant B1/B1V n'a pas à gérer seul une anomalie électrique. Son premier rôle est d'interrompre l'action, de se protéger, d'éviter l'exposition d'un tiers et d'alerter selon l'organisation prévue.",
+          "En cas de doute sur l'état électrique, de bruit anormal, d'odeur, d'échauffement, d'arc ou de présence inattendue de tension, il ne touche plus, ne teste pas au hasard et ne cherche pas à terminer vite.",
+          "Si une personne est victime, la conduite à tenir reste organisée : suppression ou isolement du danger si c'est possible sans s'exposer, alerte des secours, protection de la zone et application des gestes de secours dans le cadre de ses compétences.",
         ],
         keyPoints: [
-          "J'arrete, je me protege, j'alerte.",
-          "Je ne termine jamais vite fait une tache devenue douteuse.",
+          "J'arrête, je me protège, j'alerte.",
+          "Je ne termine jamais vite fait une tâche devenue douteuse.",
           "Le secours commence par la suppression du danger sans surexposition.",
         ],
       }),
@@ -378,14 +378,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("documents-coordination", {
         chapterImagePath: IMG.document,
         content: [
-          "Pour un exécutant B1 ou B1V, les documents servent d'abord a comprendre le bon materiel, la bonne zone et la bonne consigne. Il ne travaille pas sur une interpretation personnelle d'un ordre incomplet.",
-          "Le B1/B1V doit savoir lire un repérage, une consigne ecrite, un plan simple et un briefing de chantier. Si ces informations sont contradictoires avec le terrain, il suspend et demande clarification.",
-          "La coordination le concerne aussi: il doit faire remonter sans delai tout écart, toute anomalie et toute situation qui ferait sortir l'action du cadre prepare.",
+          "Pour un exécutant B1 ou B1V, les documents servent d'abord à comprendre le bon matériel, la bonne zone et la bonne consigne. Il ne travaille pas sur une interprétation personnelle d'un ordre incomplet.",
+          "Le B1/B1V doit savoir lire un repérage, une consigne écrite, un plan simple et un briefing de chantier. Si ces informations sont contradictoires avec le terrain, il suspend et demande clarification.",
+          "La coordination le concerne aussi : il doit faire remonter sans délai tout écart, toute anomalie et toute situation qui ferait sortir l'action du cadre préparé.",
         ],
         keyPoints: [
-          "Le bon document evite le mauvais geste.",
+          "Le bon document évite le mauvais geste.",
           "Une incohérence se traite avant la reprise.",
-          "Le B1/B1V signale, il n'interprete pas seul.",
+          "Le B1/B1V signale, il n'interprète pas seul.",
         ],
       }),
     ],
@@ -393,14 +393,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
 
   "b2-b2v": {
     ...b1b2brbcModuleContent,
-    title: "B2 / B2V - Diriger des travaux electriques en basse tension",
+    title: "B2 / B2V - Diriger des travaux électriques en basse tension",
     shortTitle: "B2 / B2V",
     subtitle:
-      "Parcours centre sur le role de chargé de travaux : preparation, briefing, surveillance d'equipe et arret de l'operation si le cadre n'est plus maitrise.",
+      "Parcours centré sur le rôle de chargé de travaux : préparation, briefing, surveillance d'équipe et arrêt de l'opération si le cadre n'est plus maîtrisé.",
     objective:
-      "Preparer et diriger des travaux electriques en basse tension, organiser le briefing, controler la zone et stopper l'operation des qu'un écart remet en cause le cadre de securite.",
+      "Préparer et diriger des travaux électriques en basse tension, organiser le briefing, contrôler la zone et stopper l'opération dès qu'un écart remet en cause le cadre de sécurité.",
     audience:
-      "Charges de travaux, chefs d'equipe et techniciens amenes a organiser et diriger des travaux electriques en basse tension avec ou sans voisinage.",
+      "Chargés de travaux, chefs d'équipe et techniciens amenés à organiser et diriger des travaux électriques en basse tension avec ou sans voisinage.",
     resourceFiles: [
       {
         title: "Formation Habilitations Électriques B1–B2V — Support de formation",
@@ -416,19 +416,19 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.b1b2Coordination,
         estimatedMinutes: 16,
         intro:
-          "Le B2 ou B2V dirige des travaux. Sa responsabilite principale n'est pas de faire a la place de l'equipe, mais de preparer, coordonner, surveiller et interrompre si le cadre de securite n'est plus tenu.",
+          "Le B2 ou B2V dirige des travaux. Sa responsabilité principale n'est pas de faire à la place de l'équipe, mais de préparer, coordonner, surveiller et interrompre si le cadre de sécurité n'est plus tenu.",
         content: [
-          "Le chargé de travaux B2 definit le cadre d'execution, vérifie la cohérence des informations, precise la zone, les limites, les moyens et les interfaces. Il garde une vision d'ensemble que l'exécutant n'a pas a assumer seul.",
-          "Le B2V doit integrer en plus la maitrise du voisinage renforce. Il decide si le balisage, les ecrans, la delimitation et l'organisation sont suffisants pour maintenir l'equipe hors de la zone dangereuse.",
-          "Une partie essentielle du role B2 consiste a dire non a une reprise prematuree, a une consigne floue ou a une adaptation improvisee du travail. Sa valeur se mesure autant a l'arret qu'a la conduite du chantier.",
+          "Le chargé de travaux B2 définit le cadre d'exécution, vérifie la cohérence des informations, précise la zone, les limites, les moyens et les interfaces. Il garde une vision d'ensemble que l'exécutant n'a pas à assumer seul.",
+          "Le B2V doit intégrer en plus la maîtrise du voisinage renforcé. Il décide si le balisage, les écrans, la délimitation et l'organisation sont suffisants pour maintenir l'équipe hors de la zone dangereuse.",
+          "Une partie essentielle du rôle B2 consiste à dire non à une reprise prématurée, à une consigne floue ou à une adaptation improvisée du travail. Sa valeur se mesure autant à l'arrêt qu'à la conduite du chantier.",
         ],
         keyPoints: [
-          "Le B2 prepare, dirige et surveille.",
-          "Le B2V tient aussi la maitrise du voisinage renforce.",
+          "Le B2 prépare, dirige et surveille.",
+          "Le B2V tient aussi la maîtrise du voisinage renforcé.",
           "Diriger, c'est aussi savoir suspendre.",
         ],
         practicalCase:
-          "Exemple : un chargé de travaux B2V constate que la zone delimitee ne couvre plus correctement une partie nue voisine apres deplacement d'un materiel. Il suspend le travail, refait le balisage et rebrief l'equipe.",
+          "Exemple : un chargé de travaux B2V constate que la zone délimitée ne couvre plus correctement une partie nue voisine après déplacement d'un matériel. Il suspend le travail, refait le balisage et rebrief l'équipe.",
       }),
       section("symboles-attributions", {
         chapterImagePath: IMG.symbolesTravaux,
@@ -444,14 +444,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.document,
         estimatedMinutes: 18,
         intro:
-          "Pour un B2 ou B2V, la preparation ne se limite pas a avoir le plan. Elle consiste a construire un cadre de travail clair, partage et tenable jusqu'a la fin de l'operation.",
+          "Pour un B2 ou B2V, la préparation ne se limite pas à avoir le plan. Elle consiste à construire un cadre de travail clair, partagé et tenable jusqu'à la fin de l'opération.",
         content: [
-          "Le chargé de travaux identifie le materiel, vérifie les documents, choisit les moyens de prevention, fixe les points d'arret, anticipe les interfaces et prepare le briefing de debut d'operation.",
-          "Il precise qui fait quoi, dans quelle zone, avec quels outils, sous quelle consigne et dans quelles conditions on suspend l'action. Cette clarification en amont evite que l'equipe improvise sur place.",
-          "En voisinage, la preparation doit aussi traiter explicitement les distances, les parties exposees, les protections collectives et la compatibilite entre la mission confiee et le symbole reellement detenu par chaque intervenant.",
+          "Le chargé de travaux identifie le matériel, vérifie les documents, choisit les moyens de prévention, fixe les points d'arrêt, anticipe les interfaces et prépare le briefing de début d'opération.",
+          "Il précise qui fait quoi, dans quelle zone, avec quels outils, sous quelle consigne et dans quelles conditions on suspend l'action. Cette clarification en amont évite que l'équipe improvise sur place.",
+          "En voisinage, la préparation doit aussi traiter explicitement les distances, les parties exposées, les protections collectives et la compatibilité entre la mission confiée et le symbole réellement détenu par chaque intervenant.",
         ],
         keyPoints: [
-          "Un chantier bien prepare limite l'exposition.",
+          "Un chantier bien préparé limite l'exposition.",
           "Le briefing fait partie du travail.",
           "Le voisinage se traite avant le premier geste.",
         ],
@@ -460,96 +460,96 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.b1b2Coordination,
         estimatedMinutes: 18,
         intro:
-          "Le B2/B2V tient la maitrise du chantier pendant l'execution. Il coordonne, observe, ajuste le cadre et stoppe des que la situation sort du scenario prepare.",
+          "Le B2/B2V tient la maîtrise du chantier pendant l'exécution. Il coordonne, observe, ajuste le cadre et stoppe dès que la situation sort du scénario préparé.",
         content: [
-          "Diriger des travaux signifie garder la lecture du risque pendant toute l'execution: surveillance de la zone, discipline des acces, maintien des protections, cohérence des gestes et gestion des interfaces.",
-          "Le B2 veille a ce qu'aucun exécutant ne se retrouve seul face a une decision qui depasse son role. Si une difficulte technique apparait, il reprend la main, fait suspendre et requalifie si necessaire.",
-          "Le B2V garde un point d'attention supplémentaire sur les distances et les parties nues voisines. Une modification d'environnement, même mineure en apparence, peut imposer un arret immédiat.",
+          "Diriger des travaux signifie garder la lecture du risque pendant toute l'exécution : surveillance de la zone, discipline des accès, maintien des protections, cohérence des gestes et gestion des interfaces.",
+          "Le B2 veille à ce qu'aucun exécutant ne se retrouve seul face à une décision qui dépasse son rôle. Si une difficulté technique apparaît, il reprend la main, fait suspendre et requalifie si nécessaire.",
+          "Le B2V garde un point d'attention supplémentaire sur les distances et les parties nues voisines. Une modification d'environnement, même mineure en apparence, peut imposer un arrêt immédiat.",
         ],
         keyPoints: [
           "Le B2 garde la vision d'ensemble.",
-          "Aucun écart ne doit être banalise.",
-          "Le cadre se maintient jusqu'a la cloture du travail.",
+          "Aucun écart ne doit être banalisé.",
+          "Le cadre se maintient jusqu'à la clôture du travail.",
         ],
       }),
       section("outils-protections", {
         chapterImagePath: IMG.epi,
         estimatedMinutes: 14,
         intro:
-          "Pour un B2 ou B2V, les protections sont d'abord un sujet d'organisation du chantier. Il doit verifier que les moyens collectifs, les moyens individuels et la tenue de zone restent coherents avec la mission reelle.",
+          "Pour un B2 ou B2V, les protections sont d'abord un sujet d'organisation du chantier. Il doit vérifier que les moyens collectifs, les moyens individuels et la tenue de zone restent cohérents avec la mission réelle.",
         content: [
-          "Le chargé de travaux contrôle la présence des protections collectives avant le premier geste : balisage, ecrans, capotages, delimitations, acces, maintien du voisinage et prevention des franchissements.",
-          "Il vérifie aussi que les exécutants disposent des EPI utiles et qu'ils savent dans quel cadre ils s'emploient. Un EPI ne corrige jamais une preparation insuffisante ni un balisage incoherent.",
-          "Si une protection est absente, deplacee, degradee ou devenue inadaptee apres modification de l'environnement, le B2 ou B2V suspend, fait remettre le cadre en conformite puis rebrief l'equipe.",
+          "Le chargé de travaux contrôle la présence des protections collectives avant le premier geste : balisage, écrans, capotages, délimitations, accès, maintien du voisinage et prévention des franchissements.",
+          "Il vérifie aussi que les exécutants disposent des EPI utiles et qu'ils savent dans quel cadre ils s'emploient. Un EPI ne corrige jamais une préparation insuffisante ni un balisage incohérent.",
+          "Si une protection est absente, déplacée, dégradée ou devenue inadaptée après modification de l'environnement, le B2 ou B2V suspend, fait remettre le cadre en conformité puis rebrief l'équipe.",
         ],
         keyPoints: [
           "Le B2 vérifie d'abord les protections collectives.",
-          "Les EPI completent le cadre, ils ne l'autorisent pas.",
-          "Une protection douteuse impose une suspension immediate.",
+          "Les EPI complètent le cadre, ils ne l'autorisent pas.",
+          "Une protection douteuse impose une suspension immédiate.",
         ],
         practicalCase:
-          "Exemple : en cours de chantier, une barriere est deplacee pour faire passer du materiel. Le B2V interrompt l'operation, remet la delimitation en etat et ne reprend qu'apres vérification du voisinage.",
+          "Exemple : en cours de chantier, une barrière est déplacée pour faire passer du matériel. Le B2V interrompt l'opération, remet la délimitation en état et ne reprend qu'après vérification du voisinage.",
       }),
       section("anomalies-urgence", {
         chapterImagePath: IMG.maintenance,
         estimatedMinutes: 12,
         resourceVideos: [VIDEO.chocElectrique],
         intro:
-          "Pour un B2 ou B2V, une anomalie ne se gere pas dans la precipitation. Son role est de faire stopper, de proteger l'equipe, de figer la situation utile et d'engager la bonne chaine d'alerte.",
+          "Pour un B2 ou B2V, une anomalie ne se gère pas dans la précipitation. Son rôle est de faire stopper, de protéger l'équipe, de figer la situation utile et d'engager la bonne chaîne d'alerte.",
         content: [
-          "Un bruit anormal, un echauffement, une odeur, un arc, une incohérence documentaire ou une evolution du voisinage imposent d'arreter l'execution puis de reprendre une lecture globale de la scene.",
-          "Le B2 ou B2V s'assure qu'aucun exécutant ne reste expose, maintient ou reconstitue la zone, interdit toute improvisation corrective et vérifie si l'operation doit être simplement suspendue ou completement requalifiée.",
-          "En cas d'urgence humaine, il articule protection, alerte et secours sans ajouter un risque electrique supplémentaire. Il ne banalise ni le doute sur l'etat electrique, ni la pression de remise en service.",
+          "Un bruit anormal, un échauffement, une odeur, un arc, une incohérence documentaire ou une évolution du voisinage imposent d'arrêter l'exécution puis de reprendre une lecture globale de la scène.",
+          "Le B2 ou B2V s'assure qu'aucun exécutant ne reste exposé, maintient ou reconstitue la zone, interdit toute improvisation corrective et vérifie si l'opération doit être simplement suspendue ou complètement requalifiée.",
+          "En cas d'urgence humaine, il articule protection, alerte et secours sans ajouter un risque électrique supplémentaire. Il ne banalise ni le doute sur l'état électrique, ni la pression de remise en service.",
         ],
         keyPoints: [
-          "Anomalie visible = arret et reprise de lecture du risque.",
+          "Anomalie visible = arrêt et reprise de lecture du risque.",
           "Le doute sur le voisinage ou la consignation impose la suspension.",
-          "L'urgence ne justifie jamais une reprise improvisee.",
+          "L'urgence ne justifie jamais une reprise improvisée.",
         ],
         practicalCase:
-          "Exemple : pendant les travaux, une odeur d'echauffement apparait sur un depart voisin non concerne. Le B2V fait cesser l'action, interdit toute poursuite locale et fait requalifier la situation avant reprise.",
+          "Exemple : pendant les travaux, une odeur d'échauffement apparaît sur un départ voisin non concerné. Le B2V fait cesser l'action, interdit toute poursuite locale et fait requalifier la situation avant reprise.",
       }),
       section("retour-experience", {
         chapterImagePath: IMG.b1b2RetourExperience,
         estimatedMinutes: 10,
         intro:
-          "Le retour d'experience fait partie du role B2. Il sert a consolider l'organisation, pas seulement a clore le chantier.",
+          "Le retour d'expérience fait partie du rôle B2. Il sert à consolider l'organisation, pas seulement à clore le chantier.",
         content: [
-          "Le chargé de travaux releve les écarts observes, les points de fragilite du balisage, les difficultes de coordination, les ambiguities documentaires et les signaux faibles qui auraient pu faire sortir l'equipe du cadre prevu.",
-          "Ce retour permet d'ajuster les futures preparations, d'ameliorer les consignes et de renforcer la culture de suspension lorsque le terrain ne correspond plus au scenario annonce.",
+          "Le chargé de travaux relève les écarts observés, les points de fragilité du balisage, les difficultés de coordination, les ambiguïtés documentaires et les signaux faibles qui auraient pu faire sortir l'équipe du cadre prévu.",
+          "Ce retour permet d'ajuster les futures préparations, d'améliorer les consignes et de renforcer la culture de suspension lorsque le terrain ne correspond plus au scénario annoncé.",
         ],
         keyPoints: [
-          "Le retour d'experience nourrit la prevention.",
-          "Un écart analyse aujourd'hui evite un accident demain.",
+          "Le retour d'expérience nourrit la prévention.",
+          "Un écart analysé aujourd'hui évite un accident demain.",
         ],
       }),
       section("synthese", {
         chapterImagePath: IMG.b1b2Synthese,
         estimatedMinutes: 10,
         content: [
-          "Le B2 ou B2V tient le cadre: il prepare, brief, delimite, surveille, suspend et fait clarifier avant toute reprise.",
-          "Sa performance ne se mesure pas a la vitesse d'execution mais a la capacite de garder l'equipe dans une situation lisible, maitrisee et conforme au symbole detenu par chacun.",
+          "Le B2 ou B2V tient le cadre : il prépare, brief, délimite, surveille, suspend et fait clarifier avant toute reprise.",
+          "Sa performance ne se mesure pas à la vitesse d'exécution mais à la capacité de garder l'équipe dans une situation lisible, maîtrisée et conforme au symbole détenu par chacun.",
         ],
         keyPoints: [
-          "Diriger, c'est preparer et surveiller jusqu'au bout.",
-          "Le B2V ajoute la maitrise du voisinage renforce.",
-          "Un bon chargé de travaux sait arreter a temps.",
+          "Diriger, c'est préparer et surveiller jusqu'au bout.",
+          "Le B2V ajoute la maîtrise du voisinage renforcé.",
+          "Un bon chargé de travaux sait arrêter à temps.",
         ],
       }),
       section("documents-coordination", {
         chapterImagePath: IMG.document,
         estimatedMinutes: 14,
         intro:
-          "Pour un B2 ou B2V, les documents et la coordination ne sont pas un habillage administratif. Ils sont une partie directe du dispositif de securite.",
+          "Pour un B2 ou B2V, les documents et la coordination ne sont pas un habillage administratif. Ils sont une partie directe du dispositif de sécurité.",
         content: [
-          "Consignes, repérage, analyse de risque, autorisation, briefing, point d'arret, compte rendu et conditions de remise a disposition doivent raconter la même operation sans contradiction.",
-          "Le chargé de travaux veille a ce que chaque exécutant travaille sur la bonne information, au bon endroit et avec les bons points de reprise. Une incohérence documentaire doit être traitee avant l'action, pas pendant.",
-          "La coordination consiste aussi a gerer les interfaces : exploitant, autres corps d'etat, maintenance voisine, energie annexe, acces, verrouillage de zone et reprise d'activite apres chantier.",
+          "Consignes, repérage, analyse de risque, autorisation, briefing, point d'arrêt, compte rendu et conditions de remise à disposition doivent raconter la même opération sans contradiction.",
+          "Le chargé de travaux veille à ce que chaque exécutant travaille sur la bonne information, au bon endroit et avec les bons points de reprise. Une incohérence documentaire doit être traitée avant l'action, pas pendant.",
+          "La coordination consiste aussi à gérer les interfaces : exploitant, autres corps d'état, maintenance voisine, énergie annexe, accès, verrouillage de zone et reprise d'activité après chantier.",
         ],
         keyPoints: [
-          "Une information incoherente bloque la reprise.",
-          "Le briefing et le compte rendu font partie de la securite.",
-          "La coordination protege autant que le geste technique.",
+          "Une information incohérente bloque la reprise.",
+          "Le briefing et le compte rendu font partie de la sécurité.",
+          "La coordination protège autant que le geste technique.",
         ],
       }),
     ],
@@ -557,14 +557,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
 
   br: {
     ...b1b2brbcModuleContent,
-    title: "BR - Interventions generales en basse tension",
+    title: "BR - Interventions générales en basse tension",
     shortTitle: "BR",
     subtitle:
-      "Parcours centre sur l'intervention generale : diagnostic, depannage, remplacement, mesure et remise en service controlee dans les limites du BR.",
+      "Parcours centré sur l'intervention générale : diagnostic, dépannage, remplacement, mesure et remise en service contrôlée dans les limites du BR.",
     objective:
-      "Preparer et conduire une intervention generale BR, tenir les limites du depannage, mesurer sans deriver vers les travaux et remettre en service de facon controlee.",
+      "Préparer et conduire une intervention générale BR, tenir les limites du dépannage, mesurer sans dériver vers les travaux et remettre en service de façon contrôlée.",
     audience:
-      "Techniciens de maintenance, electriciens de depannage et personnels amenes a conduire des interventions generales en basse tension dans un cadre maitrise.",
+      "Techniciens de maintenance, électriciens de dépannage et personnels amenés à conduire des interventions générales en basse tension dans un cadre maîtrisé.",
     resourceFiles: [
       {
         title: "Formation Habilitation Électrique BR — Présentation Professionnelle",
@@ -579,16 +579,16 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("roles-responsabilites", {
         chapterImagePath: IMG.b1b2Br,
         intro:
-          "Le BR conduit des interventions generales en basse tension. Il depanne, remplace, raccorde, mesure ou remet en service dans un cadre strictement defini, sans glisser vers des travaux ou une consignation complete hors de son role.",
+          "Le BR conduit des interventions générales en basse tension. Il dépanne, remplace, raccorde, mesure ou remet en service dans un cadre strictement défini, sans glisser vers des travaux ou une consignation complète hors de son rôle.",
         content: [
-          "Le BR tient une autonomie technique plus forte qu'un exécutant B1, mais cette autonomie reste encadrée. Il sait diagnostiquer, choisir une action proportionnee et reconnaître le moment ou l'intervention doit être suspendue ou requalifiée.",
-          "Son role n'est ni celui du chargé de travaux B2, ni celui du chargé de consignation BC. Il doit donc eviter les glissements de mission : un depannage qui devient chantier, une mesure qui devient modification, une remise sous tension qui devient prise de risque.",
-          "La competence BR se voit dans la maitrise du perimetre: agir juste, agir sobrement et savoir dire stop quand la situation sort du cadre prevu.",
+          "Le BR tient une autonomie technique plus forte qu'un exécutant B1, mais cette autonomie reste encadrée. Il sait diagnostiquer, choisir une action proportionnée et reconnaître le moment où l'intervention doit être suspendue ou requalifiée.",
+          "Son rôle n'est ni celui du chargé de travaux B2, ni celui du chargé de consignation BC. Il doit donc éviter les glissements de mission : un dépannage qui devient chantier, une mesure qui devient modification, une remise sous tension qui devient prise de risque.",
+          "La compétence BR se voit dans la maîtrise du périmètre : agir juste, agir sobrement et savoir dire stop quand la situation sort du cadre prévu.",
         ],
         keyPoints: [
-          "Le BR intervient dans les limites de l'intervention generale.",
+          "Le BR intervient dans les limites de l'intervention générale.",
           "Le BR ne se substitue ni au B2 ni au BC.",
-          "Requalifier fait partie du role.",
+          "Requalifier fait partie du rôle.",
         ],
       }),
       section("symboles-attributions", {
@@ -602,30 +602,30 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("preparation-travaux", {
         chapterImagePath: IMG.maintenance,
         intro:
-          "Une intervention BR se prepare comme une action ciblee: bon equipement, bon circuit, bonne hypothese de defaut, bonne limite d'action et bonne issue possible de remise en service.",
+          "Une intervention BR se prépare comme une action ciblée : bon équipement, bon circuit, bonne hypothèse de défaut, bonne limite d'action et bonne issue possible de remise en service.",
         content: [
-          "Avant d'intervenir, le BR identifie le materiel concerne, la fonction attendue, le symptome reel, le contexte de tension, les interfaces voisines et les conditions de retrait si la situation se degrade.",
-          "Il vérifie la cohérence entre la demande, le repérage local, l'etat apparent du materiel et la possibilite d'une action proportionnee. Si l'intervention suppose plusieurs circuits, des travaux plus larges ou une consignation complete, elle doit être requalifiée.",
-          "Cette preparation evite de transformer un depannage en chantier improvise. Le BR agit dans un cadre lisible, pas dans l'urgence mal analysee.",
+          "Avant d'intervenir, le BR identifie le matériel concerné, la fonction attendue, le symptôme réel, le contexte de tension, les interfaces voisines et les conditions de retrait si la situation se dégrade.",
+          "Il vérifie la cohérence entre la demande, le repérage local, l'état apparent du matériel et la possibilité d'une action proportionnée. Si l'intervention suppose plusieurs circuits, des travaux plus larges ou une consignation complète, elle doit être requalifiée.",
+          "Cette préparation évite de transformer un dépannage en chantier improvisé. Le BR agit dans un cadre lisible, pas dans l'urgence mal analysée.",
         ],
         keyPoints: [
           "Diagnostiquer avant d'agir.",
-          "Verifier que l'intervention reste dans le cadre BR.",
-          "Requalifier si le perimetre devient plus large que prevu.",
+          "Vérifier que l'intervention reste dans le cadre BR.",
+          "Requalifier si le périmètre devient plus large que prévu.",
         ],
       }),
       section("consignation", {
         chapterImagePath: IMG.consignationTerrain,
         resourceVideos: [VIDEO.consignation],
         content: [
-          "Dans le cadre BR, la mise en securite doit rester strictement proportionnee au besoin de l'intervention et aux procedures prevues. L'intervenant ne s'invente pas chargé de consignation s'il n'a ni le role ni l'organisation adaptee.",
-          "La separation, la condamnation visible, l'identification et la VAT doivent être lues comme des barrieres de fiabilite. Si l'une d'elles n'est pas tenable ou pas claire, l'intervention doit être revue ou requalifiée.",
-          "L'intervention generale BR devient dangereuse lorsqu'elle glisse vers une exploration de plusieurs departs, une remise sous tension concurrente ou une confusion sur le circuit reel. C'est la que la discipline de consignation protege l'opérateur.",
+          "Dans le cadre BR, la mise en sécurité doit rester strictement proportionnée au besoin de l'intervention et aux procédures prévues. L'intervenant ne s'invente pas chargé de consignation s'il n'a ni le rôle ni l'organisation adaptée.",
+          "La séparation, la condamnation visible, l'identification et la VAT doivent être lues comme des barrières de fiabilité. Si l'une d'elles n'est pas tenable ou pas claire, l'intervention doit être revue ou requalifiée.",
+          "L'intervention générale BR devient dangereuse lorsqu'elle glisse vers une exploration de plusieurs départs, une remise sous tension concurrente ou une confusion sur le circuit réel. C'est là que la discipline de consignation protège l'opérateur.",
         ],
         keyPoints: [
-          "Le BR securise dans son cadre, il ne banalise pas la consignation.",
-          "Une consignation floue impose l'arret ou la requalification.",
-          "Pas de confiance aveugle dans un simple voyant d'etat.",
+          "Le BR sécurise dans son cadre, il ne banalise pas la consignation.",
+          "Une consignation floue impose l'arrêt ou la requalification.",
+          "Pas de confiance aveugle dans un simple voyant d'état.",
         ],
       }),
       section("interventions-br", { chapterImagePath: IMG.maintenance }),
@@ -635,14 +635,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("outils-protections", {
         chapterImagePath: IMG.outilsElectricien,
         intro:
-          "Pour le BR, les outils et protections doivent rester proportionnes a l'intervention generale. Le bon materiel permet d'agir juste; le mauvais materiel pousse a improviser.",
+          "Pour le BR, les outils et protections doivent rester proportionnés à l'intervention générale. Le bon matériel permet d'agir juste ; le mauvais matériel pousse à improviser.",
         content: [
-          "Le BR contrôle l'etat de son outillage, la cohérence de ses moyens de mesure, la compatibilite des accessoires et la présence des protections collectives utiles avant d'engager l'intervention.",
-          "Les EPI et EPC gardent la même hierarchie que partout ailleurs: la zone et les protections collectives d'abord, les EPI ensuite. Un gant, un ecran facial ou un outillage isole ne legitimisent jamais une situation mal maitrisee.",
-          "Si l'outillage est douteux, si la zone n'est plus lisible ou si la protection prevue manque, l'intervention s'arrete. Le BR n'improvise pas avec un materiel de fortune.",
+          "Le BR contrôle l'état de son outillage, la cohérence de ses moyens de mesure, la compatibilité des accessoires et la présence des protections collectives utiles avant d'engager l'intervention.",
+          "Les EPI et EPC gardent la même hiérarchie que partout ailleurs : la zone et les protections collectives d'abord, les EPI ensuite. Un gant, un écran facial ou un outillage isolé ne légitimisent jamais une situation mal maîtrisée.",
+          "Si l'outillage est douteux, si la zone n'est plus lisible ou si la protection prévue manque, l'intervention s'arrête. Le BR n'improvise pas avec un matériel de fortune.",
         ],
         keyPoints: [
-          "Le bon outillage limite les derives de geste.",
+          "Le bon outillage limite les dérives de geste.",
           "Protection collective d'abord, protection individuelle ensuite.",
           "Pas d'intervention BR avec des moyens douteux.",
         ],
@@ -651,16 +651,16 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.armoireDanger,
         resourceVideos: [VIDEO.chocElectrique],
         intro:
-          "Pour le BR, une anomalie n'appelle pas une reaction rapide au hasard. Elle impose une suspension, une relecture du risque et une decision de poursuite, de retrait ou de requalification.",
+          "Pour le BR, une anomalie n'appelle pas une réaction rapide au hasard. Elle impose une suspension, une relecture du risque et une décision de poursuite, de retrait ou de requalification.",
         content: [
-          "Un echauffement, une odeur, un bruit, un arc, une mesure incoherente ou un comportement inhabituel du materiel doivent être lus comme des signaux d'arret. Le BR ne force pas une remise en service douteuse.",
-          "En cas d'urgence, il protege d'abord les personnes, evite toute surexposition electrique, alerte et maintient la zone dans un etat lisible pour les secours et les autres intervenants.",
-          "Si l'anomalie depasse le cadre de l'intervention generale, la situation est requalifiée sans chercher a finir vite.",
+          "Un échauffement, une odeur, un bruit, un arc, une mesure incohérente ou un comportement inhabituel du matériel doivent être lus comme des signaux d'arrêt. Le BR ne force pas une remise en service douteuse.",
+          "En cas d'urgence, il protège d'abord les personnes, évite toute surexposition électrique, alerte et maintient la zone dans un état lisible pour les secours et les autres intervenants.",
+          "Si l'anomalie dépasse le cadre de l'intervention générale, la situation est requalifiée sans chercher à finir vite.",
         ],
         keyPoints: [
           "Anomalie = suspension et reprise de lecture du risque.",
           "Urgence ne veut pas dire improvisation.",
-          "Le BR sait renoncer a une remise en service prematuree.",
+          "Le BR sait renoncer à une remise en service prématurée.",
         ],
       }),
       section("retour-experience", {
@@ -670,16 +670,16 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("documents-coordination", {
         chapterImagePath: IMG.document,
         intro:
-          "Une intervention BR tient aussi par sa trace. Le diagnostic, la cause retenue, l'action realisee, les limites du depannage et les conditions de remise en service doivent être comprenables par le suivant.",
+          "Une intervention BR tient aussi par sa trace. Le diagnostic, la cause retenue, l'action réalisée, les limites du dépannage et les conditions de remise en service doivent être compréhensibles par le suivant.",
         content: [
-          "Le BR renseigne ce qui a ete observe, ce qui a ete fait, sur quel materiel, avec quel resultat et dans quelles limites. Cette tracabilite evite les reprises en aveugle et les interpretations hasardeuses.",
-          "La coordination concerne aussi les interfaces: exploitant, maintenance voisine, utilisateur du materiel et eventuel chargé de travaux. Une information mal transmise peut recreer le risque juste apres l'intervention.",
-          "Une remise a disposition n'est credible que si l'information restituee est exploitable.",
+          "Le BR renseigne ce qui a été observé, ce qui a été fait, sur quel matériel, avec quel résultat et dans quelles limites. Cette traçabilité évite les reprises en aveugle et les interprétations hasardeuses.",
+          "La coordination concerne aussi les interfaces : exploitant, maintenance voisine, utilisateur du matériel et éventuel chargé de travaux. Une information mal transmise peut recréer le risque juste après l'intervention.",
+          "Une remise à disposition n'est crédible que si l'information restituée est exploitable.",
         ],
         keyPoints: [
-          "Tracer le depannage, pas seulement le finir.",
+          "Tracer le dépannage, pas seulement le finir.",
           "Restituer une information exploitable.",
-          "Une mauvaise coordination recree le danger.",
+          "Une mauvaise coordination recrée le danger.",
         ],
       }),
     ],
@@ -690,26 +690,26 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
     title: "BC - Consignation en basse tension",
     shortTitle: "BC",
     subtitle:
-      "Parcours centre sur la chaine de consignation : separation, condamnation, identification, VAT, documents et securisation fiable de l'installation.",
+      "Parcours centré sur la chaîne de consignation : séparation, condamnation, identification, VAT, documents et sécurisation fiable de l'installation.",
     objective:
-      "Realiser ou piloter une consignation basse tension fiable, tracer les etapes documentaires et empecher toute remise sous tension intempestive ou erreur d'identification.",
+      "Réaliser ou piloter une consignation basse tension fiable, tracer les étapes documentaires et empêcher toute remise sous tension intempestive ou erreur d'identification.",
     audience:
-      "Charges de consignation, responsables techniques et personnels amenes a securiser une installation avant travaux ou intervention.",
+      "Chargés de consignation, responsables techniques et personnels amenés à sécuriser une installation avant travaux ou intervention.",
     sections: [
       section("cadre-general", { chapterImagePath: IMG.b1b2Roles }),
       section("roles-responsabilites", {
         chapterImagePath: IMG.consignationSteps,
         intro:
-          "Le BC tient la chaine de consignation. Son role est de rendre l'installation indisponible de facon fiable, verifiee et tracable avant toute mise a disposition pour travaux ou intervention.",
+          "Le BC tient la chaîne de consignation. Son rôle est de rendre l'installation indisponible de façon fiable, vérifiée et traçable avant toute mise à disposition pour travaux ou intervention.",
         content: [
-          "Le BC organise la separation, la condamnation, l'identification, la VAT et, selon le cas, la mise a la terre et en court-circuit. Il ne travaille jamais sur une coupure supposee ou une habitude d'exploitation.",
-          "Sa responsabilite est autant technique que documentaire: ce qui est consigne doit être identifiable, protege contre toute manoeuvre intempestive et restituable sans ambiguite en fin d'operation.",
-          "Le BC refuse toute levee implicite, tout doute sur le materiel reel et toute acceleration qui affaiblirait la fiabilite de la chaine.",
+          "Le BC organise la séparation, la condamnation, l'identification, la VAT et, selon le cas, la mise à la terre et en court-circuit. Il ne travaille jamais sur une coupure supposée ou une habitude d'exploitation.",
+          "Sa responsabilité est autant technique que documentaire : ce qui est consigné doit être identifiable, protégé contre toute manœuvre intempestive et restituable sans ambiguïté en fin d'opération.",
+          "Le BC refuse toute levée implicite, tout doute sur le matériel réel et toute accélération qui affaiblirait la fiabilité de la chaîne.",
         ],
         keyPoints: [
-          "Le BC fiabilise l'etat de l'installation.",
+          "Le BC fiabilise l'état de l'installation.",
           "La consignation se prouve et se trace.",
-          "Aucune restitution sans reprise formelle de la chaine.",
+          "Aucune restitution sans reprise formelle de la chaîne.",
         ],
       }),
       section("symboles-attributions", {
@@ -725,48 +725,48 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         chapterImagePath: IMG.consignationTerrain,
         resourceVideos: [VIDEO.consignation],
         intro:
-          "Le coeur du role BC est ici: rendre une installation indisponible de facon fiable, verifiable et tracable jusqu'a sa restitution.",
+          "Le cœur du rôle BC est ici : rendre une installation indisponible de façon fiable, vérifiable et traçable jusqu'à sa restitution.",
         content: [
-          "Le BC enchaine les etapes de consignation sans raccourci: separation, condamnation, identification, vérification d'absence de tension et, selon le cas, mise a la terre et en court-circuit. Chacune de ces etapes sert a enlever une source d'illusion de securite.",
-          "La valeur du BC ne se mesure pas a la vitesse mais a la fiabilite du resultat. Un cadenas visible, un repérage sans ambiguite, une attestation exploitable et une VAT methodee sont plus importants qu'une execution rapide.",
-          "La consignation n'est pas seulement une operation technique. C'est une chaine de responsabilite entre chargé de consignation, chargé de travaux, exploitant et equipe, avec restitution claire a la fin.",
+          "Le BC enchaîne les étapes de consignation sans raccourci : séparation, condamnation, identification, vérification d'absence de tension et, selon le cas, mise à la terre et en court-circuit. Chacune de ces étapes sert à enlever une source d'illusion de sécurité.",
+          "La valeur du BC ne se mesure pas à la vitesse mais à la fiabilité du résultat. Un cadenas visible, un repérage sans ambiguïté, une attestation exploitable et une VAT méthodée sont plus importants qu'une exécution rapide.",
+          "La consignation n'est pas seulement une opération technique. C'est une chaîne de responsabilité entre chargé de consignation, chargé de travaux, exploitant et équipe, avec restitution claire à la fin.",
         ],
         keyPoints: [
-          "Separer, condamner, identifier, verifier.",
-          "La VAT bascule d'une coupure supposee a un etat vérifie.",
-          "Une consignation n'est finie qu'une fois restituee et tracee.",
+          "Séparer, condamner, identifier, vérifier.",
+          "La VAT bascule d'une coupure supposée à un état vérifié.",
+          "Une consignation n'est finie qu'une fois restituée et tracée.",
         ],
         practicalCase:
-          "Exemple : deux departs proches portent un repérage ancien et partiellement efface. Le BC suspend la consignation, fait clarifier l'identification et refuse toute levee de doute par simple habitude d'exploitation.",
+          "Exemple : deux départs proches portent un repérage ancien et partiellement effacé. Le BC suspend la consignation, fait clarifier l'identification et refuse toute levée de doute par simple habitude d'exploitation.",
       }),
       section("outils-protections", {
         chapterImagePath: IMG.consignationSteps,
         intro:
-          "Pour le BC, les moyens utiles ne sont pas accessoires. Ils constituent la matiere concrete de la consignation: separation visible, condamnation fiable, identification claire, VAT et supports documentaires.",
+          "Pour le BC, les moyens utiles ne sont pas accessoires. Ils constituent la matière concrète de la consignation : séparation visible, condamnation fiable, identification claire, VAT et supports documentaires.",
         content: [
-          "Le BC prepare et contrôle les cadenas, dispositifs de condamnation, etiquettes, repères, VAT adaptee, EPI/EPC utiles et documents de suivi avant d'engager la chaine de consignation.",
-          "Il vérifie la compatibilite de ces moyens avec l'installation et leur usage dans le bon ordre. Un moyen absent, mal choisi ou douteux fragilise tout l'etat de securite obtenu.",
-          "Aucun outil ou dispositif de fortune ne doit être accepte dans une consignation qui se veut fiable et restituable.",
+          "Le BC prépare et contrôle les cadenas, dispositifs de condamnation, étiquettes, repères, VAT adaptée, EPI/EPC utiles et documents de suivi avant d'engager la chaîne de consignation.",
+          "Il vérifie la compatibilité de ces moyens avec l'installation et leur usage dans le bon ordre. Un moyen absent, mal choisi ou douteux fragilise tout l'état de sécurité obtenu.",
+          "Aucun outil ou dispositif de fortune ne doit être accepté dans une consignation qui se veut fiable et restituable.",
         ],
         keyPoints: [
-          "La fiabilite des moyens conditionne la fiabilite de la consignation.",
+          "La fiabilité des moyens conditionne la fiabilité de la consignation.",
           "La VAT et la condamnation ne sont pas optionnelles.",
-          "Pas de consignation credible avec des moyens impropres ou incomplets.",
+          "Pas de consignation crédible avec des moyens impropres ou incomplets.",
         ],
       }),
       section("anomalies-urgence", {
         chapterImagePath: IMG.consignationPhoto,
         resourceVideos: [VIDEO.chocElectrique],
         intro:
-          "Pour le BC, une anomalie pendant la consignation ou avant restitution remet en cause la fiabilite de toute la chaine. Le bon reflexe n'est pas de passer outre, mais de reprendre l'etat de securite a la bonne etape.",
+          "Pour le BC, une anomalie pendant la consignation ou avant restitution remet en cause la fiabilité de toute la chaîne. Le bon réflexe n'est pas de passer outre, mais de reprendre l'état de sécurité à la bonne étape.",
         content: [
-          "Un doute sur l'identification, une condamnation qui ne tient pas, une VAT ambigue, un organe inaccessible ou une information contradictoire imposent de suspendre la chaine et de reprendre la vérification necessaire.",
-          "En cas d'urgence, le BC protege les personnes, empeche toute manoeuvre intempestive et maintient la lisibilite documentaire de la situation pour les autres acteurs et les secours.",
-          "La pression de remise a disposition ne doit jamais detruire la rigueur de consignation.",
+          "Un doute sur l'identification, une condamnation qui ne tient pas, une VAT ambiguë, un organe inaccessible ou une information contradictoire imposent de suspendre la chaîne et de reprendre la vérification nécessaire.",
+          "En cas d'urgence, le BC protège les personnes, empêche toute manœuvre intempestive et maintient la lisibilité documentaire de la situation pour les autres acteurs et les secours.",
+          "La pression de remise à disposition ne doit jamais détruire la rigueur de consignation.",
         ],
         keyPoints: [
-          "Un doute sur une etape de consignation impose la reprise du contrôle.",
-          "Pas de restitution tant que la chaine n'est pas redevenue fiable.",
+          "Un doute sur une étape de consignation impose la reprise du contrôle.",
+          "Pas de restitution tant que la chaîne n'est pas redevenue fiable.",
           "L'urgence ne supprime pas la rigueur documentaire.",
         ],
       }),
@@ -777,14 +777,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       section("documents-coordination", {
         chapterImagePath: IMG.document,
         content: [
-          "Pour le BC, la documentation ne sert pas seulement a preparer. Elle sert a tracer la chaine de consignation, a formaliser les etapes realisees et a permettre une restitution sans ambiguite.",
-          "Attestation de consignation, information au chargé de travaux, point de remise a disposition, levee de condamnation et retour d'etat doivent être coherents. Une consignation techniquement juste mais documentairement floue reste une situation a risque.",
-          "La coordination prend ici une forme particuliere: personne ne reenergise, ne retire un cadenas ou ne requalifie seul un etat d'installation sans reprise formelle de la chaine d'information.",
+          "Pour le BC, la documentation ne sert pas seulement à préparer. Elle sert à tracer la chaîne de consignation, à formaliser les étapes réalisées et à permettre une restitution sans ambiguïté.",
+          "Attestation de consignation, information au chargé de travaux, point de remise à disposition, levée de condamnation et retour d'état doivent être cohérents. Une consignation techniquement juste mais documentairement floue reste une situation à risque.",
+          "La coordination prend ici une forme particulière : personne ne ré-énergise, ne retire un cadenas ou ne requalifie seul un état d'installation sans reprise formelle de la chaîne d'information.",
         ],
         keyPoints: [
-          "Tracer la consignation du debut a la restitution.",
-          "Pas de levee implicite ou supposee.",
-          "La documentation complete fait partie de la securite.",
+          "Tracer la consignation du début à la restitution.",
+          "Pas de levée implicite ou supposée.",
+          "La documentation complète fait partie de la sécurité.",
         ],
       }),
     ],
@@ -792,14 +792,14 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
 
   "be-verification-mesurage": {
     ...b1b2brbcModuleContent,
-    title: "BE vérification / BE Mesurage - Verifier et mesurer en basse tension",
+    title: "BE vérification / BE Mesurage - Vérifier et mesurer en basse tension",
     shortTitle: "BE vérification / BE Mesurage",
     subtitle:
-      "Parcours centre sur l'usage des instruments, la vérification, le mesurage, l'environnement de travail et les limites entre contrôle, intervention et travaux.",
+      "Parcours centré sur l'usage des instruments, la vérification, le mesurage, l'environnement de travail et les limites entre contrôle, intervention et travaux.",
     objective:
-      "Preparer une operation de vérification ou de mesurage en basse tension, utiliser les instruments adaptes et tenir les limites qui separent le contrôle des travaux ou interventions.",
+      "Préparer une opération de vérification ou de mesurage en basse tension, utiliser les instruments adaptés et tenir les limites qui séparent le contrôle des travaux ou interventions.",
     audience:
-      "Techniciens de contrôle, de maintenance, de mise au point ou d'essais amenes a effectuer des verifications et mesurages en basse tension dans un cadre formalise.",
+      "Techniciens de contrôle, de maintenance, de mise au point ou d'essais amenés à effectuer des vérifications et mesurages en basse tension dans un cadre formalisé.",
     sections: [
       section("cadre-general", {
         chapterImagePath: IMG.b1b2Roles,
