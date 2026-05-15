@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation ATEX — Atmosphères Explosives E-learning | PREVENSIA FORMATION",
   description:
-    "Formation ATEX en ligne : sensibilisation aux risques d'explosion, zonage ATEX, marquage équipements, EPI et réglementation 99/92/CE. Parcours e-learning 3h — Attestation incluse. 129 € HT.",
+    "Formation ATEX e-learning : zonage, marquage équipements Ex, EPI, directive 99/92/CE. Niveaux 0, 1 et 2. À partir de 129 € HT — Attestation incluse. Qualiopi.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-atex",
   },
@@ -135,7 +135,7 @@ export default function FormationAtexPage() {
         timeRequired="PT3H"
         educationalLevel="Beginner"
         audience="Personnel industriel exposé au risque ATEX : opérateurs, techniciens de maintenance, sous-traitants"
-        educationalCredentialAwarded="Attestation de sensibilisation ATEX — PREVENSIA FORMATION"
+        educationalCredentialAwarded="Attestation de formation ATEX Niveau 0 — PREVENSIA FORMATION"
       />
       <FaqJsonLd items={faqItems} />
       <BreadcrumbJsonLd
@@ -174,7 +174,7 @@ export default function FormationAtexPage() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/elearning/atex"
+              href="/modules/atex"
               className="rounded-xl bg-amber-500 px-6 py-3 font-semibold text-slate-950 hover:bg-amber-400 transition-colors"
             >
               Démarrer la formation — 129 € HT
@@ -418,7 +418,7 @@ export default function FormationAtexPage() {
               </ul>
               <div className="mt-5 rounded-xl border border-amber-300 bg-white px-4 py-3">
                 <p className="text-xs text-slate-500">Notre parcours e-learning ATEX couvre intégralement ce niveau.</p>
-                <Link href="/elearning/atex" className="mt-1 inline-block text-sm font-semibold text-amber-600 hover:underline">
+                <Link href="/modules/atex" className="mt-1 inline-block text-sm font-semibold text-amber-600 hover:underline">
                   Démarrer — 129 € HT →
                 </Link>
               </div>
@@ -518,7 +518,7 @@ export default function FormationAtexPage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/elearning/atex"
+              href="/modules/atex"
               className="rounded-xl bg-amber-500 px-8 py-4 font-semibold text-slate-950 hover:bg-amber-400 transition-colors"
             >
               Niveau 0 — Démarrer maintenant · 129 € HT

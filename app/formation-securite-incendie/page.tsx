@@ -4,9 +4,15 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-securite-incendie" },
-  title: "Formation Sécurité Incendie — Extincteurs, Guide-File, EPI | PREVENSIA FORMATION",
+  title: "Formation Sécurité Incendie Entreprise — Extincteurs EPI | PREVENSIA",
   description:
-    "Formation sécurité incendie en entreprise : manipulation d'extincteurs, guide-file / serre-file, équipier de 1ère intervention. Qualiopi. Intra-entreprise France entière. Devis sous 48h.",
+    "Formation incendie en entreprise : extincteurs, guide-file, serre-file, équipier 1ère intervention. Intra partout en France. Qualiopi. Devis 48h.",
+  openGraph: {
+    title: "Formation Sécurité Incendie — Extincteurs, Guide-File, EPI",
+    description:
+      "Formation incendie entreprise : extincteurs, guide-file, serre-file, équipier 1ère intervention. Qualiopi. Intra France entière. Devis 48h.",
+    url: "https://prevensia-formation.fr/formation-securite-incendie",
+  },
   keywords: [
     "formation sécurité incendie",
     "formation manipulation extincteur",
@@ -219,7 +225,7 @@ export default function FormationSecuriteIncendie() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-700">
-              PREVENSIA FORMATION adapté les sessions au contexte de
+              PREVENSIA FORMATION adapte les sessions au contexte de
               l'etablissement, au type de public, a l'effectif concerne et aux
               objectifs de l'employeur en matiere de prévention incendie.
             </p>

@@ -7,9 +7,15 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-habilitation-electrique" },
-  title: "Formation Habilitation Électrique — H0B0, BS, B1, B2, BR, BC | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique NF C 18-510 | PREVENSIA",
   description:
-    "Formation habilitation électrique conforme NF C 18-510 : H0B0/H0V, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Organisme Qualiopi basé en Île-de-France. Devis sous 48h.",
+    "Habilitation électrique NF C 18-510 : H0B0, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Qualiopi. Île-de-France. Devis 48h.",
+  openGraph: {
+    title: "Formation Habilitation Électrique — H0B0, BS, B1, B2, BR, BC",
+    description:
+      "Formation habilitation électrique NF C 18-510 : H0B0/H0V, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Qualiopi. Devis 48h.",
+    url: "https://prevensia-formation.fr/formation-habilitation-electrique",
+  },
   keywords: [
     "formation habilitation électrique",
     "habilitation électrique NF C 18-510",
@@ -34,14 +40,14 @@ const formats = [
   {
     title: "E-learning encadré",
     description:
-      "Format disponible en achat direct pour H0B0 / H0V et BS / BE Manœuvre, avec entretien, visio ou classes virtuelle selon le parcours. Pour les autres symboles, l'e-learning accompagné la formation encadrée.",
+      "Format disponible en achat direct pour H0B0 / H0V et BS / BE Manœuvre, avec entretien, visio ou classe virtuelle selon le parcours. Pour les autres symboles, l'e-learning accompagne la formation encadrée.",
     ctaLabel: "Accéder a l'espace apprenant",
     href: "/elearning",
   },
   {
     title: "Présentiel ou visio selon le symbole",
     description:
-      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manœuvre ajoute une classes virtuelle ou une session entreprise. Les symboles B1, B2, BR, BC et BE demandent une séquence encadrée, avec accès e-learning inclus pour préparer et réviser.",
+      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manœuvre ajoute une classe virtuelle ou une session entreprise. Les symboles B1, B2, BR, BC et BE demandent une séquence encadrée, avec accès e-learning inclus pour préparer et réviser.",
     ctaLabel: "Voir le planning présentiel",
     href: "/planning",
   },
@@ -472,7 +478,7 @@ export default function FormationHabilitationElectriquePage() {
             </h2>
 
             <p className="mt-4 max-w-4xl leading-8 text-slate-600">
-              PREVENSIA FORMATION vous accompagné selon votre situation :
+              PREVENSIA FORMATION vous accompagne selon votre situation :
               inscription individuelle, besoin entreprise, symbole cible, ou
               parcours e-learning déjà ouvert. Accedez rapidement a la solution
               la plus adaptée a vos contraintes et a votre organisation.

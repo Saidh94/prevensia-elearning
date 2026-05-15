@@ -4,9 +4,15 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-ssi" },
-  title: "Formation Exploitation SSI — Système Sécurité Incendie NF S 61 | PREVENSIA FORMATION",
+  title: "Formation Exploitation SSI — SDI, CMSI, DAS, NF S 61 | PREVENSIA",
   description:
-    "Formation exploitation du SSI : SDI, CMSI, UGA, DAS. Normes NF S 61, cadres ERP / IGH / ICPE / Code du Travail. Pour exploitants et responsables techniques. Qualiopi. Devis 48h.",
+    "Formation SSI pour exploitants et responsables techniques : SDI, CMSI, UGA, DAS, normes NF S 61. ERP / IGH / ICPE. Qualiopi. Devis sous 48h.",
+  openGraph: {
+    title: "Formation Exploitation SSI — SDI, CMSI, DAS, NF S 61 | PREVENSIA",
+    description:
+      "Formation exploitation SSI pour responsables techniques : SDI, CMSI, UGA, DAS, normes NF S 61. ERP / IGH. Qualiopi. Devis 48h.",
+    url: "https://prevensia-formation.fr/formation-ssi",
+  },
   keywords: [
     "formation exploitation SSI",
     "formation système sécurité incendie",
@@ -375,10 +381,10 @@ export default function FormationSSI() {
     </a>
 
     <a
-      href="/formation-ssi"
+      href="/formation-ssiap1"
       className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
     >
-      Formation exploitation SSI
+      Formation SSIAP1 — Agent sécurité incendie
     </a>
 
     <a

@@ -1,4 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Modules E-learning Sécurité & Prévention — Catalogue | PREVENSIA",
+  description:
+    "Catalogue e-learning Prevensia : habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST. Modules certifiants ou inclus dans la formation. Qualiopi.",
+  alternates: { canonical: "https://prevensia-formation.fr/elearning" },
+  openGraph: {
+    title: "Modules E-learning Sécurité & Prévention — PREVENSIA FORMATION",
+    description:
+      "Habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST. Modules e-learning certifiants ou inclus dans la formation présentielle. Qualiopi.",
+    url: "https://prevensia-formation.fr/elearning",
+  },
+};
 
 const formations = [
   {

@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation SSIAP1 Certifiante — Agent Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "PREVENSIA FORMATION, organisme agréé préfecture, délivre la formation SSIAP1 certifiante complète (67h) et le recyclage (14h / 3 ans). Module e-learning inclus. Formation initiale à partir de 690 € HT. Attestation + rapport employeur.",
+    "Formation SSIAP1 certifiante (67h) par organisme agréé préfecture. Recyclage 14h / 3 ans. E-learning inclus. 93 % de réussite. À partir de 690 € HT.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },

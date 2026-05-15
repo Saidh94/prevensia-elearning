@@ -4,9 +4,15 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sprinkler" },
-  title: "Formation Exploitation Sprinkler — EN 12845, APSAD R1, NFPA 13 | PREVENSIA FORMATION",
+  title: "Formation Exploitation Sprinkler — EN 12845, APSAD R1 | PREVENSIA",
   description:
-    "Formation exploitation sprinkler pour responsables techniques et exploitants : fonctionnement, surveillance, référentiels EN 12845, APSAD R1, NFPA 13 et FM Global. Qualiopi. Intra-entreprise.",
+    "Formation sprinkler pour responsables techniques : fonctionnement, surveillance, EN 12845, APSAD R1, NFPA 13. Qualiopi. Intra-entreprise. Devis 48h.",
+  openGraph: {
+    title: "Formation Exploitation Sprinkler — EN 12845, APSAD R1, NFPA 13",
+    description:
+      "Formation sprinkler pour responsables techniques : EN 12845, APSAD R1, NFPA 13. Visite installation incluse (version 2 jours). Qualiopi.",
+    url: "https://prevensia-formation.fr/formation-sprinkler",
+  },
   keywords: [
     "formation sprinkler",
     "formation exploitation sprinkler",
@@ -113,7 +119,7 @@ export default function FormationSprinkler() {
           </h1>
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            PREVENSIA FORMATION accompagné les exploitants, responsables techniques,
+            PREVENSIA FORMATION accompagne les exploitants, responsables techniques,
             responsables sécurité et gestionnaires de sites équipés d'installations
             sprinkler. La formation est encadrée en présentiel sur 1 ou 2 jours.
             La version 2 jours renforcée inclut une visite encadrée d'une

@@ -4,9 +4,15 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sst" },
-  title: "Formation SST — Sauveteur Secouriste du Travail & MAC SST | PREVENSIA FORMATION",
+  title: "Formation SST — Sauveteur Secouriste du Travail | PREVENSIA",
   description:
-    "Formation SST initiale et recyclage MAC SST en présentiel. Gestes de premiers secours, PEAS, défibrillateur. Organisme certifié Qualiopi. Intra-entreprise partout en France. Devis 48h.",
+    "Formation SST initiale et recyclage MAC SST : premiers secours, PEAS, défibrillateur. Qualiopi. Intra-entreprise France entière. Devis 48h.",
+  openGraph: {
+    title: "Formation SST — Sauveteur Secouriste du Travail & MAC SST",
+    description:
+      "Formation SST initiale et recyclage MAC SST : gestes de premiers secours, PEAS, défibrillateur. Qualiopi. Intra partout en France.",
+    url: "https://prevensia-formation.fr/formation-sst",
+  },
   keywords: [
     "formation SST",
     "sauveteur secouriste du travail",
