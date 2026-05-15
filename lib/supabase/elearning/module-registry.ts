@@ -38,6 +38,15 @@ const MODULE_ALIASES: Record<string, string[]> = {
     "be-verification-be-mesurage",
     "be-mesure",
   ],
+  ssiap1: [
+    "ssiap1",
+    "ssiap-1",
+    "ssiap_1",
+    "ssiap1-initial",
+    "ssiap1-formation",
+    "formation-ssiap1",
+    "agent-securite-incendie",
+  ],
   "recyclage-ssiap1": [
     "recyclage-ssiap1",
     "recyclage_ssiap1",
@@ -47,9 +56,10 @@ const MODULE_ALIASES: Record<string, string[]> = {
     "recyclage-ssiap-1",
     "ssiap1-mac",
   ],
-  atex: ["atex", "atex-niveau0", "atex-n0", "atex-level-0"],
+  atex: ["atex", "atex-niveau0", "atex-niveau-0", "atex-n0", "atex-level-0"],
   "atex-niveau1": [
     "atex-niveau1",
+    "atex-niveau-1",
     "atex_niveau1",
     "atex-n1",
     "atex-level-1",
@@ -57,6 +67,7 @@ const MODULE_ALIASES: Record<string, string[]> = {
   ],
   "atex-niveau2": [
     "atex-niveau2",
+    "atex-niveau-2",
     "atex_niveau2",
     "atex-n2",
     "atex-level-2",

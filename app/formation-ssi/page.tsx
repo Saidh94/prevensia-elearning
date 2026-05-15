@@ -239,7 +239,7 @@ export default function FormationSSI() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-700">
-              PREVENSIA FORMATION adapté le contenu en fonction du profil des
+              PREVENSIA FORMATION adapte le contenu en fonction du profil des
               participants, du système installé sur site et du niveau
               d’exploitation attendu dans l’établissement.
             </p>
@@ -271,6 +271,48 @@ export default function FormationSSI() {
               Réponse rapide pour les demandes de devis et l’organisation des sessions
             </li>
           </ul>
+        </section>
+
+        {/* Module e-learning extinction gaz */}
+        <section className="mt-10 rounded-[2rem] border border-amber-200 bg-amber-50 p-8 shadow-sm sm:p-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.15em] text-amber-700">
+            MODULE E-LEARNING INCLUS
+          </p>
+          <h2 className="mt-3 text-2xl font-bold">
+            Extinction automatique à gaz — exploitation et référentiels
+          </h2>
+          <p className="mt-4 leading-7 text-slate-700">
+            Ce module e-learning de <strong>4 à 6 heures</strong> est inclus avec le module SSI exploitation renforcé. Il est dédié aux installations fixes d'extinction à gaz : sécurité des personnes, intégrité du local protégé, repères APSAD R13 et NF EN 15004-1.
+          </p>
+          <ul className="mt-5 space-y-2 text-sm text-slate-700">
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-amber-600">✓</span>
+              Comprendre la logique d'un système d'extinction automatique à gaz
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-amber-600">✓</span>
+              Distinguer l'extinction à gaz d'une installation sprinkler
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-amber-600">✓</span>
+              Identifier les contraintes de local protégé, d'alarme, de temporisation et de réaccès
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-amber-600">✓</span>
+              Repères APSAD R13 et NF EN 15004-1
+            </li>
+          </ul>
+          <p className="mt-5 text-sm text-slate-500 italic">
+            Public : personnel d'exploitation, maintenance, encadrement technique ou responsables de locaux protégés par extinction automatique à gaz.
+          </p>
+          <div className="mt-6">
+            <a
+              href="/elearning"
+              className="inline-flex rounded-xl border border-amber-400 bg-white px-4 py-2 text-sm font-semibold text-amber-700 transition hover:bg-amber-100"
+            >
+              Voir tous les modules e-learning →
+            </a>
+          </div>
         </section>
 
         <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">

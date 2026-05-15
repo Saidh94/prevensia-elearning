@@ -10,6 +10,6 @@ export default function OGImage() {
     title: "Formation SSIAP1",
     subtitle:
       "Sécurité incendie ERP. Tétraèdre du feu, extincteurs, SSI, évacuation. Conforme arrêté du 25 juin 1980.",
-    badge: "SSIAP1 · 3h · 119 € HT",
+    badge: "Formation certifiante · Agréé préfecture · À partir de 690 € HT",
   });
 }

@@ -114,7 +114,7 @@ export const recyclageSsiap1ModuleContent: ModuleContent = {
       id: "ssi-igh-specificites",
       title: "4. Spécificités IGH — compartimentage et désenfumage avancé",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-evacuation.svg",
+      chapterImagePath: "/elearning/recyclage-ssiap1/recyclage-igh-compartimentage.svg",
       chapterImageAlt: "Spécificités IGH — compartimentage 75m/2500m², désenfumage, PCSI, ascenseurs pompiers",
       intro:
         "Les IGH présentent des contraintes spécifiques qui dépassent la réglementation ERP classique. Un agent SSIAP1 affecté dans un IGH ou dans un ERP associé doit en maîtriser les particularités.",
@@ -144,7 +144,7 @@ export const recyclageSsiap1ModuleContent: ModuleContent = {
       id: "gestion-travaux-permis-feu",
       title: "5. Gestion des travaux — permis de feu et mesures compensatoires",
       estimatedMinutes: 18,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-role-agent.svg",
+      chapterImagePath: "/elearning/recyclage-ssiap1/recyclage-permis-feu.svg",
       chapterImageAlt: "Gestion des travaux en ERP/IGH — permis de feu, mise hors service SSI, rondes post-travaux",
       intro:
         "La gestion des travaux en exploitation est l'une des situations les plus à risque pour un agent SSIAP1. Un faux pas — détecteur inhibé oublié, permis de feu non signé, ronde post-travaux non effectuée — peut avoir des conséquences dramatiques.",

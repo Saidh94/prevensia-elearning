@@ -114,7 +114,7 @@ export default function FormationRecyclageSsiap1Page() {
       <BreadcrumbJsonLd
         items={[
           { name: "Accueil", url: "/" },
-          { name: "E-learning", url: "/elearning" },
+          { name: "Nos formations", url: "/" },
           { name: "Formation SSIAP1", url: "/formation-ssiap1" },
           { name: "Recyclage SSIAP1", url: "/formation-recyclage-ssiap1" },
         ]}
