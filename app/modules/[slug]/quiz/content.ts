@@ -4965,6 +4965,86 @@ const beVerificationMesurageDedicatedQuiz: QuizQuestion[] = [
       "Le mesurage produit une information technique. Il ne transforme pas automatiquement l'opérateur en BR, B1/B2 ou BC.",
     timeLimit: 55,
   },
+  // ── Questions spécifiques BE Vérification / BE Mesurage ──────────────────
+  {
+    question:
+      "Pour mesurer la tension sur un tableau de distribution BT fixe industriel (TGBT), quelle catégorie de surtension minimum doit porter l'instrument de mesure ?",
+    choices: ["CAT I", "CAT II", "CAT III", "CAT IV"],
+    answer: [2],
+    explanation:
+      "NF EN 61010-1 classe les instruments en 4 catégories : CAT I (circuits électroniques protégés), CAT II (prises 230 V terminaux), CAT III (installations fixes, TGBT, disjoncteurs industriels), CAT IV (origine de l'installation, compteur, réseau). Un TGBT industriel exige CAT III minimum. Utiliser un CAT II sur ce point expose à un arc électrique en cas de transitoire.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Pour effectuer des mesures directement sur le branchement réseau ou le compteur d'un bâtiment, quelle catégorie d'instrument est nécessaire ?",
+    choices: [
+      "CAT II — suffisant pour toute mesure BT",
+      "CAT III — adapté aux installations fixes",
+      "CAT IV — requis pour l'origine de l'installation",
+      "CAT I avec protection renforcée",
+    ],
+    answer: [2],
+    explanation:
+      "CAT IV est requis pour les mesures à l'origine de l'installation électrique (compteur, branchement réseau, entrée de service). Ces points exposent à des transitoires de tension très élevés. Un instrument sous-catégorisé peut claquer et provoquer un arc électrique grave.",
+    timeLimit: 45,
+  },
+  {
+    question:
+      "Un cordon de mesure présente une fissure de 2 cm sur sa gaine isolante. Quelle est la conduite correcte du BE Mesurage ?",
+    choices: [
+      "L'utiliser en faisant attention de ne pas toucher la fissure",
+      "Réparer la fissure avec du ruban isolant avant utilisation",
+      "Mettre le cordon hors service : tout cordon dégradé invalide la sécurité de l'ensemble",
+      "Vérifier uniquement que la résistance du cordon est correcte au multimètre",
+    ],
+    answer: [2],
+    explanation:
+      "La norme NF EN 61010-031 impose que les cordons de mesure soient en bon état apparent, sans dégradation de l'isolation. Une fissure compromet la catégorie de protection. Un cordon dégradé invalide la sécurité de l'ensemble instrument + cordons, quelle que soit la catégorie de l'appareil. Il doit être mis hors service immédiatement.",
+    timeLimit: 45,
+  },
+  {
+    question:
+      "Avec une habilitation BE Vérification / BE Mesurage, peut-on réaliser des essais sous tension ?",
+    choices: [
+      "Oui, les essais sont inclus dans le périmètre BE Vérification",
+      "Oui, à condition que l'installation soit en basse tension",
+      "Non — les essais sous tension relèvent du symbole BE Essais (§11.5.4), qui est distinct",
+      "Oui, si la durée de l'essai ne dépasse pas 5 minutes",
+    ],
+    answer: [2],
+    explanation:
+      "La NF C 18-510 §11.5 distingue trois opérations particulières : BE Vérification (§11.5.2), BE Mesurage (§11.5.3) et BE Essais (§11.5.4). Les essais sous tension ne sont couverts que par le symbole BE Essais, distinct des deux autres. Sans ce symbole, les essais sous tension sont interdits.",
+    timeLimit: 50,
+  },
+  {
+    question:
+      "Lors d'une vérification, le titulaire BE constate qu'un câble est anormalement chaud et présente un défaut d'isolement apparent. Quelle est la bonne conduite ?",
+    choices: [
+      "Couper le circuit en urgence et remplacer le câble",
+      "Signaler l'anomalie, protéger la zone si nécessaire, et transmettre pour requalification (BR ou B2)",
+      "Remplacer le câble puisqu'il a identifié le défaut",
+      "Poursuivre la vérification et noter l'anomalie uniquement dans le rapport final",
+    ],
+    answer: [1],
+    explanation:
+      "Le BE Vérification contrôle l'état sans intervenir. Un défaut détecté ne donne pas le droit de réparer ou modifier l'installation. La conduite correcte est de documenter l'anomalie, protéger la zone si nécessaire, et transmettre pour requalification vers le symbole adapté : BR (dépannage), B1/B2 (travaux), BC (consignation).",
+    timeLimit: 55,
+  },
+  {
+    question:
+      "Quel paragraphe de la NF C 18-510 définit spécifiquement les habilitations BE Vérification et BE Mesurage ?",
+    choices: [
+      "§5 — Formation et habilitation",
+      "§10.4 — Interventions BT élémentaires",
+      "§11.5 — Opérations particulières",
+      "§4.3 — Zones d'environnement électrique",
+    ],
+    answer: [2],
+    explanation:
+      "NF C 18-510 §11.5 couvre les opérations particulières en basse tension : BE Vérification (§11.5.2), BE Mesurage (§11.5.3) et BE Essais (§11.5.4). Ce sont trois symboles distincts aux périmètres différents. La NF EN 61010-1 concerne quant à elle les instruments de mesure eux-mêmes (catégories CAT).",
+    timeLimit: 45,
+  },
 ];
 
 quizContent["bt-multi-symboles"] = baseBtMultiSymbolesQuiz;
