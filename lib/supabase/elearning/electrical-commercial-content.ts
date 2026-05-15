@@ -934,43 +934,284 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
       }),
       section("retour-experience", {
         chapterImagePath: IMG.b1b2RetourExperience,
+        title: "9. Retour d'expérience et maintien des compétences BE",
         intro:
-          "Le retour d'expérience en BE Vérification / BE Mesurage sert à identifier les situations où la frontière entre contrôle et intervention a été difficile à tenir.",
+          "Le retour d'expérience en BE Vérification / BE Mesurage sert à identifier les situations où la frontière entre contrôle et intervention a été difficile à tenir, afin de fiabiliser les opérations suivantes.",
         content: [
-          "Les principaux écarts observés en contexte BE concernent : mesure réalisée avec un instrument de mauvaise catégorie (CAT II sur tableau industriel), cordon dégradé utilisé faute de mieux, anomalie détectée suivie d'une intervention spontanée hors cadre, dérive progressive vers le dépannage.",
-          "L'analyse de ces situations permet d'améliorer la préparation : choix de l'instrument adapté en amont, vérification systématique des cordons avant déplacement, procédure de signalement en cas d'anomalie, clarification du rôle BE dans l'organisation du site.",
+          "Les principaux écarts observés en contexte BE concernent : mesure réalisée avec un instrument de mauvaise catégorie (CAT II sur un tableau industriel TGBT qui exige CAT III), cordon de mesure dégradé utilisé faute d'anticipation, anomalie détectée suivie d'une intervention spontanée hors cadre, dérive progressive de la vérification vers le dépannage.",
+          "L'analyse de ces situations permet d'améliorer la préparation : choix de l'instrument adapté à la catégorie du point de mesure en amont de l'opération, vérification systématique de l'état des cordons (NF EN 61010-031) avant chaque déplacement, procédure de signalement documentée en cas d'anomalie, clarification écrite du rôle BE dans l'organisation du site.",
+          "Le maintien des compétences BE implique de conserver la discipline du périmètre défini dans le titre d'habilitation : contrôler sans modifier, mesurer sans intervenir, signaler sans corriger hors cadre. Ces réflexes s'érodent avec le temps si le professionnel ne les pratique pas activement.",
+          "Les statistiques nationales rappellent l'enjeu : environ 428 accidents du travail d'origine électrique en 2021, dont 46 mortels. Le mode opératoire inapproprié représente 31 % des facteurs causaux. Pour le titulaire BE, cela signifie qu'un instrument mal choisi, un cordon fissuré ou une vérification transformée en dépannage spontané peuvent être à l'origine d'un accident grave.",
+        ],
+        deepDive: [
+          "Les organisations qui capitalisent sur les retours d'expérience BE réduisent les écarts instrumentaux, les ambiguïtés de rôle et les débordements vers des opérations non prévues. Le retour d'expérience est un levier de sécurité aussi important que la maîtrise technique.",
+          "Le maintien des compétences BE doit rester cohérent avec les missions réelles du titulaire. Si le type d'installation évolue (haute tension, DC, ATEX), si de nouveaux équipements de mesure sont introduits, ou si les exigences de catégorie CAT changent avec les nouvelles architectures, le besoin de formation complémentaire ou de requalification doit être réexaminé.",
         ],
         keyPoints: [
-          "Écart le plus courant : constater une anomalie et tenter de la corriger sans requalification.",
-          "L'instrument de mauvaise catégorie est souvent choisi par défaut, faute d'anticipation.",
-          "Le retour d'expérience améliore la préparation, pas seulement la réaction.",
+          "Écart le plus fréquent : détecter une anomalie et tenter de la corriger sans requalification.",
+          "L'instrument de mauvaise catégorie est souvent choisi par défaut, faute d'anticipation en amont.",
+          "Cordons dégradés : une fissure sur la gaine suffit à mettre hors service le cordon (NF EN 61010-031).",
+          "Le retour d'expérience améliore la préparation, pas seulement la réaction après coup.",
         ],
+        forbiddenPoints: [
+          "Clore un contrôle BE sans signaler une anomalie ou un écart documentaire identifié.",
+          "Utiliser un instrument de catégorie inférieure au point de mesure en invoquant l'urgence ou la disponibilité.",
+          "Supposer qu'une habilitation BE initiale suffit indéfiniment sans actualisation des pratiques.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §11.5 — opérations particulières : BE Vérification (§11.5.2), BE Mesurage (§11.5.3).",
+          "NF EN 61010-1 — catégories de surtension CAT I à CAT IV pour les instruments de mesure.",
+          "NF EN 61010-031 — cordons et sondes de mesure : état, catégorie et maintenance.",
+          "Code du travail — prévention et amélioration continue des conditions de travail.",
+        ],
+        practicalCase:
+          "Exemple : après une campagne de mesures sur un TGBT industriel, le titulaire BE signale que son multimètre CAT III a présenté une surtension momentanée non prévue lors d'une mesure sur un départ moteur 400 V. L'organisation formalise un rappel sur le choix des instruments et la vérification des cordons avant chaque déplacement terrain.",
+        scenarios: [
+          {
+            situation:
+              "Vous effectuez une vérification BE sur un tableau de distribution industriel. En mesurant la tension sur un départ, votre multimètre affiche une valeur anormale et émet un bip d'alarme de surtension. Vous disposez d'un second multimètre CAT II dans votre sacoche.",
+            question:
+              "Que faites-vous face à une surtension détectée sur un point de mesure industriel ?",
+            wrongActions: [
+              "Utiliser le multimètre CAT II de remplacement pour confirmer la mesure sur ce même point.",
+              "Continuer la vérification en considérant que la surtension était passagère.",
+              "Ouvrir le tableau pour inspecter visuellement les connexions du départ concerné.",
+            ],
+            correctActions: [
+              "Cesser immédiatement toute mesure sur ce point et écarter la zone.",
+              "Documenter l'anomalie : repère du départ, valeur observée, heure, comportement du multimètre.",
+              "Signaler l'anomalie au responsable et demander une requalification vers le symbole adapté (BR ou B2) avant toute investigation complémentaire.",
+            ],
+            explanation:
+              "Un multimètre CAT III signalant une surtension indique que le niveau de tension dépasse les limites sûres de la mesure en cours. Utiliser un instrument CAT II sur le même point serait encore plus dangereux car sa tenue aux chocs de tension est inférieure. Le rôle BE impose de signaler, pas d'intervenir.",
+            normRef:
+              "NF EN 61010-1 — catégorie de mesure adaptée au point de mesure ; NF C 18-510 §11.5.2 et §11.5.3 — périmètre BE",
+          },
+          {
+            situation:
+              "Lors d'une vérification BE de routine, vous constatez qu'un câble de départ présente un échauffement anormal au toucher. Ce câble alimente une machine de production. Vous êtes seul sur site, et la maintenance est joignable.",
+            question:
+              "Une anomalie thermique détectée lors d'une vérification BE vous autorise-t-elle à intervenir sur le câble ?",
+            wrongActions: [
+              "Ouvrir le disjoncteur du départ pour protéger le câble et noter l'action dans votre rapport.",
+              "Déconnecter provisoirement le câble pour inspecter la connexion.",
+              "Attendre la fin de la campagne de vérification pour signaler l'anomalie globalement.",
+            ],
+            correctActions: [
+              "Cesser la vérification sur cette zone et ne pas toucher le câble.",
+              "Signaler immédiatement l'anomalie au responsable d'exploitation pour décision.",
+              "Documenter précisément : repère du câble, machine alimentée, nature de l'anomalie, heure.",
+            ],
+            explanation:
+              "Le titulaire BE n'est pas habilité à réaliser des interventions correctives. La découverte d'une anomalie lors d'une vérification impose de signaler et de laisser la décision d'intervention à un habilité disposant du symbole adapté (BR, B2). Agir au-delà du périmètre BE engage la responsabilité individuelle et contredit la NF C 18-510.",
+            normRef:
+              "NF C 18-510 §11.5.2 — BE Vérification : périmètre et interdictions ; §4.3 — principe de non-intervention spontanée",
+          },
+        ],
+        chapterImageAlt:
+          "Tableau de bord de retour d'expérience BE avec fiches d'écarts instrumentaux et procédures de signalement d'anomalies",
+        visual: {
+          title: "Apprendre de chaque opération BE",
+          subtitle: "Écarts, instruments, cordons et signalement.",
+          items: [
+            "Écart identifié",
+            "Signalement documenté",
+            "Instrument revu",
+            "Pratiques actualisées",
+          ],
+          tone: "slate",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-retour-experience.svg",
+        },
       }),
       section("synthese", {
         chapterImagePath: IMG.b1b2Synthese,
+        title: "10. Synthèse — Points clés du rôle BE Vérification / BE Mesurage",
         intro:
-          "Avant le quiz, voici les points essentiels du rôle BE Vérification / BE Mesurage.",
+          "Avant le quiz, voici les points essentiels du rôle BE Vérification / BE Mesurage. Ces deux habilitations partagent un même principe fondateur : observer et mesurer dans un cadre défini, sans jamais franchir la frontière vers l'intervention.",
         content: [
-          "Le BE Vérification contrôle l'état d'une installation. Le BE Mesurage mesure des grandeurs électriques. Ces deux rôles se tiennent dans un cadre défini : analyser sans modifier, mesurer sans intervenir, signaler sans corriger hors cadre.",
-          "Le choix de l'instrument est une décision de sécurité : la catégorie CAT (CAT II, CAT III, CAT IV) doit correspondre au point de mesure. Les cordons (NF EN 61010-031) doivent être de même catégorie et en bon état apparent.",
-          "Une anomalie détectée lors d'un contrôle BE ne donne pas automatiquement le droit d'intervenir. Elle impose une requalification vers le symbole adapté (BR, B2, BC selon le besoin).",
-          "Les documents, le repérage et la coordination sont aussi des éléments de sécurité : mesurer sur le mauvais point, dans le mauvais contexte ou avec un instrument mal choisi peut être aussi dangereux qu'une intervention directe.",
+          "Le BE Vérification (§11.5.2 NF C 18-510) contrôle l'état d'une installation électrique : conformité visuelle, contrôle de continuité, contrôle de mise à la terre, vérification de l'état des équipements. Il n'effectue aucune modification, même mineure.",
+          "Le BE Mesurage (§11.5.3 NF C 18-510) mesure des grandeurs électriques sur une installation en service : tension, courant, puissance, résistance, isolement. Ces mesures sont réalisées sur des pièces nues ou accessibles sous tension — le choix de l'instrument est donc une décision de sécurité à part entière.",
+          "La catégorie de mesure CAT (NF EN 61010-1) doit correspondre au point de mesure : CAT II pour prises et appareils domestiques, CAT III pour tableaux fixes et circuits industriels, CAT IV pour l'origine de l'installation (compteur, TGBT principal, réseau de distribution). Utiliser un instrument de catégorie insuffisante expose à un risque d'arc électrique en cas de transitoire de tension.",
+          "Les cordons et sondes de mesure (NF EN 61010-031) doivent être de même catégorie que l'instrument. Tout cordon fissuré, écrasé, dont l'isolation est dégradée ou dont le repère de catégorie est illisible doit être mis hors service immédiatement.",
+          "Une anomalie détectée lors d'un contrôle BE ne donne pas le droit d'intervenir. Elle impose de cesser l'opération, de sécuriser la zone, de documenter et de signaler pour requalification vers le symbole adapté (BR pour dépannage, B2 pour travaux, BC pour consignation).",
+          "Les documents, le repérage et la coordination constituent aussi des éléments de sécurité : mesurer au mauvais point, avec un instrument mal choisi, ou dans un contexte non défini dans le titre d'habilitation peut être aussi dangereux qu'une intervention directe.",
+        ],
+        deepDive: [
+          "La maîtrise du rôle BE n'est pas seulement une question de technique de mesure. Elle repose sur la capacité à lire le contexte électrique, à choisir l'instrument adapté, à maintenir la discipline du périmètre et à signaler sans hésitation dès que la situation sort du cadre prévu.",
+          "Dans l'esprit de la NF C 18-510, l'habilitation BE n'est pas une autorisation générale d'accès aux installations électriques. Elle est attachée à une mission précise, un environnement défini, des instruments adaptés et une organisation formalisée. Toute dérive hors de ce cadre engage la responsabilité individuelle du titulaire.",
         ],
         keyPoints: [
-          "BE Vérification : §11.5.2 NF C 18-510 — contrôler l'état.",
-          "BE Mesurage : §11.5.3 NF C 18-510 — mesurer les grandeurs.",
-          "CAT III pour tableau fixe industriel, CAT IV pour l'origine de l'installation.",
-          "Cordons NF EN 61010-031 : même catégorie que l'appareil.",
-          "Anomalie détectée → requalification, pas intervention spontanée.",
+          "BE Vérification §11.5.2 : contrôler l'état sans modifier.",
+          "BE Mesurage §11.5.3 : mesurer les grandeurs sur installation en service.",
+          "CAT III minimum pour tableau fixe industriel (TGBT), CAT IV pour l'origine de l'installation.",
+          "Cordons NF EN 61010-031 : même catégorie que l'instrument, aucune dégradation tolérée.",
+          "Anomalie détectée → arrêt, documentation, signalement, requalification.",
+        ],
+        forbiddenPoints: [
+          "Utiliser un instrument de catégorie inférieure au point de mesure en invoquant l'urgence ou la disponibilité.",
+          "Transformer une vérification ou un mesurage en intervention corrective spontanée.",
+          "Poursuivre une opération BE lorsque le titre d'habilitation ne couvre pas le contexte rencontré.",
+          "Négliger l'état des cordons avant une campagne de mesures.",
         ],
         legalRefs: [
-          "NF C 18-510 §11.5 — Opérations particulières : vérification, mesurage",
-          "NF EN 61010-1 — Catégories de surtension CAT I à CAT IV",
-          "NF EN 61010-031 — Cordons et sondes de mesure",
+          "NF C 18-510 §11.5 — Opérations particulières : BE Vérification (§11.5.2), BE Mesurage (§11.5.3), BE Essais (§11.5.4)",
+          "NF EN 61010-1 — Catégories de surtension CAT I à CAT IV pour instruments de mesure",
+          "NF EN 61010-031 — Cordons et sondes de mesure : exigences de sécurité",
+          "Code du travail — prévention du risque électrique lors d'opérations de vérification et mesurage",
         ],
+        practicalCase:
+          "Exemple : un titulaire BE Mesurage est chargé de relever les niveaux de tension sur un TGBT industriel 400 V. Il vérifie que son multimètre est bien classé CAT III 600 V, contrôle visuellement ses cordons avant la campagne, consigne ses mesures sur la fiche d'opération et, en découvrant un déséquilibre de phases anormal, suspend la campagne et signale l'anomalie au responsable technique sans toucher au tableau.",
+        scenarios: [
+          {
+            situation:
+              "Vous êtes titulaire BE Mesurage. Votre responsable vous demande de mesurer l'intensité sur les départs d'un TGBT industriel 400 V. En arrivant sur place, vous constatez que votre pince ampèremétrique est classée CAT II 600 V.",
+            question:
+              "Pouvez-vous utiliser cette pince ampèremétrique CAT II sur ce TGBT industriel ?",
+            wrongActions: [
+              "Utiliser la pince CAT II car la tension nominale 600 V dépasse bien le 400 V du réseau.",
+              "Utiliser la pince en prenant des précautions supplémentaires, car la mesure sera rapide.",
+              "Demander à un collègue de surveiller pendant la mesure pour pallier le risque.",
+            ],
+            correctActions: [
+              "Refuser d'utiliser la pince CAT II sur ce point de mesure industriel.",
+              "Informer le responsable que l'instrument ne correspond pas à la catégorie requise (CAT III minimum pour un TGBT fixe industriel).",
+              "Suspendre l'opération jusqu'à mise à disposition d'une pince ampèremétrique CAT III adaptée.",
+            ],
+            explanation:
+              "La catégorie CAT définit la tenue aux chocs de tension transitoires, pas seulement à la tension nominale. Un TGBT industriel fixe exige CAT III car les transitoires de tension y sont bien supérieurs à ceux d'un circuit domestique. Utiliser un instrument CAT II expose au risque d'arc électrique en cas de transitoire, indépendamment de la tension nominale mesurée.",
+            normRef:
+              "NF EN 61010-1 §6.7 — catégories de mesure ; NF C 18-510 §11.5.3 — BE Mesurage",
+          },
+          {
+            situation:
+              "En fin de formation BE Vérification / BE Mesurage, un stagiaire résume ainsi sa compréhension : 'L'essentiel, c'est d'utiliser un bon multimètre et de ne pas toucher les fils sous tension.'",
+            question:
+              "Cette compréhension est-elle complète pour exercer le rôle BE en sécurité ?",
+            wrongActions: [
+              "Valider cette compréhension car elle couvre les deux risques principaux.",
+              "Ajouter juste la règle de distance pour compléter.",
+              "Considérer que les EPI suffisent à compléter la protection.",
+            ],
+            correctActions: [
+              "Reformuler : le rôle BE repose sur un cadre d'habilitation précis, un périmètre défini, un instrument adapté à la catégorie du point de mesure, des cordons conformes NF EN 61010-031, et la discipline de signalement sans intervention.",
+              "Rappeler que la vérification débute par la lecture du titre et la préparation documentaire, pas par la mesure.",
+              "Insister sur la frontière entre contrôle et intervention : la franchir expose à une responsabilité pénale et à un risque électrique non maîtrisé.",
+            ],
+            explanation:
+              "La sécurité en BE ne se réduit pas à la technique de mesure. Elle repose sur l'adéquation instrument/point de mesure (CAT), l'état des cordons, la lecture du contexte, le respect du périmètre d'habilitation et la capacité à signaler sans agir hors cadre. La NF C 18-510 §11.5 définit un système cohérent, pas une liste de gestes.",
+            normRef:
+              "NF C 18-510 §11.5 — opérations particulières BE ; NF EN 61010-1 — classification des instruments",
+          },
+        ],
+        chapterImageAlt:
+          "Schéma de synthèse des réflexes essentiels du titulaire BE : périmètre d'habilitation, catégorie d'instrument, cordons conformes et signalement d'anomalie",
+        visual: {
+          title: "Les 4 réflexes du titulaire BE",
+          subtitle: "Cadre, instrument, cordons, signalement.",
+          items: [
+            "Respecter le périmètre BE",
+            "Instrument CAT adapté",
+            "Cordons NF EN 61010-031",
+            "Signaler sans intervenir",
+          ],
+          tone: "blue",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
+        },
       }),
       section("documents-coordination", {
         chapterImagePath: IMG.b1b2Coordination,
+        title: "11. Documents, traçabilité et coordination pour le BE",
+        intro:
+          "Le rôle BE Vérification / BE Mesurage s'inscrit toujours dans un cadre documentaire. Le titre d'habilitation, la fiche d'opération, le repérage des points de mesure et le compte rendu d'anomalie sont les supports indispensables de toute opération BE sécurisée.",
+        content: [
+          "Avant toute opération, le titulaire BE doit disposer de son titre d'habilitation à jour, d'une description précise des points à vérifier ou à mesurer, du repérage des équipements concernés et des consignes locales d'exploitation. Une opération BE sans base documentaire est une opération à risque.",
+          "Le titre d'habilitation BE précise le périmètre autorisé : type d'opération (vérification, mesurage ou essais), domaine de tension (BT, HT), environnement et conditions particulières. Toute opération hors périmètre nécessite une requalification formelle avant d'agir.",
+          "La fiche d'opération ou ordre de vérification doit indiquer : les équipements concernés avec leurs repères, les grandeurs à mesurer ou les points à contrôler, les instruments requis avec leur catégorie CAT, les conditions d'accès et les consignes de sécurité locales.",
+          "Le compte rendu d'opération est obligatoire. Il doit être factuel : points vérifiés ou mesurés, valeurs relevées, anomalies constatées, instruments utilisés (marque, modèle, numéro de série, date de dernière vérification), date et heure de l'opération, signature du titulaire BE.",
+          "En cas d'anomalie détectée, le compte rendu doit permettre une traçabilité complète : nature de l'anomalie, repère précis de l'équipement ou du circuit concerné, circonstance de découverte, décision prise (arrêt, signalement, demande de requalification) et action restante à prendre par un habilité compétent.",
+          "La coordination avec les autres intervenants du site est un point de sécurité à part entière. Une campagne de vérification ou de mesurage réalisée pendant qu'un autre opérateur effectue des modifications sur l'installation peut créer des situations dangereuses non prévues dans le titre BE. La coordination préalable évite ces interférences.",
+        ],
+        deepDive: [
+          "Un titre d'habilitation BE bien rédigé est aussi un outil de coordination : il permet au responsable électrique, au chargé d'exploitation et aux autres intervenants de comprendre ce que le titulaire peut faire, dans quel périmètre et sous quelles conditions. L'ambiguïté documentaire est une source d'accidents.",
+          "La traçabilité des instruments de mesure (étalonnage, vérification périodique, catégorie CAT) fait partie de la documentation BE. Un instrument sans traçabilité de vérification ne garantit pas la fiabilité des mesures et peut ne pas tenir ses performances de protection dans les cas extrêmes.",
+        ],
+        keyPoints: [
+          "Disposer d'un titre d'habilitation à jour avant toute opération BE.",
+          "Fiche d'opération : repères, grandeurs, instruments requis, consignes locales.",
+          "Compte rendu factuel : valeurs, anomalies, instruments, date, signature.",
+          "Toute anomalie documentée permet une requalification rapide et sécurisée.",
+          "Coordonner avec les autres intervenants avant de démarrer une campagne BE.",
+        ],
+        forbiddenPoints: [
+          "Réaliser une opération BE sans titre d'habilitation à jour ni fiche d'opération.",
+          "Clore une campagne sans compte rendu, même en l'absence d'anomalie.",
+          "Démarrer une campagne de mesurage sans vérifier que personne ne travaille simultanément sur l'installation.",
+          "Utiliser un instrument dont la vérification métrologique ou l'étalonnage est inconnu.",
+        ],
+        legalRefs: [
+          "NF C 18-510 §4 — titre d'habilitation, périmètre et responsabilités du titulaire BE.",
+          "NF C 18-510 §11.5.2 et §11.5.3 — documents requis pour les opérations BE Vérification et BE Mesurage.",
+          "NF EN 61010-1 — traçabilité des instruments de mesure et catégories de surtension.",
+          "Code du travail — traçabilité des opérations et obligation documentaire en prévention du risque électrique.",
+        ],
+        practicalCase:
+          "Exemple : un titulaire BE Mesurage réalise une campagne de relevés de tensions sur un tableau tertiaire. Avant de commencer, il vérifie son titre d'habilitation, consulte le plan de repérage des départs, note les numéros de série et la date de vérification de son multimètre CAT III, et informe le responsable de l'installation de la durée prévisible de la campagne. À la fin, il remet un compte rendu signé avec toutes les valeurs relevées et signale un départ présentant un déséquilibre de 15 % entre phases.",
+        scenarios: [
+          {
+            situation:
+              "Vous êtes titulaire BE Vérification. On vous remet un plan de repérage de tableau datant de 2 ans. Visiblement, deux départs ont été ajoutés depuis. On vous demande de vérifier l'état de tous les départs du tableau.",
+            question:
+              "Pouvez-vous réaliser la vérification BE sur la base de ce plan non mis à jour ?",
+            wrongActions: [
+              "Réaliser la vérification en adaptant le plan de mémoire.",
+              "Vérifier uniquement les départs référencés sur l'ancien plan en ignorant les nouveaux.",
+              "Demander une mise à jour du plan à la fin de la vérification.",
+            ],
+            correctActions: [
+              "Refuser de commencer la vérification sur un plan documentaire non à jour.",
+              "Demander au responsable technique un plan de repérage actualisé ou une liste exhaustive des départs.",
+              "Si le plan ne peut être obtenu dans les délais, différer la vérification jusqu'à mise à jour documentaire.",
+            ],
+            explanation:
+              "Un plan de repérage non à jour fait courir le risque de vérifier un circuit erroné ou d'en oublier un. En BE Vérification, l'exhaustivité et la fiabilité du repérage sont des conditions de sécurité : une installation partiellement vérifiée sur une base documentaire fausse ne garantit pas la conformité de l'ensemble.",
+            normRef:
+              "NF C 18-510 §4 — titre et conditions d'habilitation ; §11.5.2 — BE Vérification : base documentaire requise",
+          },
+          {
+            situation:
+              "Vous terminez une campagne de mesurage BE sur un TGBT tertiaire. Toutes les mesures sont dans les limites normales. Le responsable vous dit que le compte rendu n'est pas nécessaire car tout va bien.",
+            question:
+              "Le compte rendu d'opération BE est-il obligatoire même en l'absence d'anomalie ?",
+            wrongActions: [
+              "Accepter de ne pas rédiger de compte rendu car aucune anomalie n'a été détectée.",
+              "Rédiger juste une note informelle sans valeurs ni signature.",
+              "Reporter la rédaction du compte rendu à la prochaine campagne.",
+            ],
+            correctActions: [
+              "Rédiger un compte rendu complet même en l'absence d'anomalie.",
+              "Y consigner toutes les valeurs relevées, les instruments utilisés avec leur numéro de série, la date et votre signature.",
+              "Remettre le compte rendu au responsable désigné et en conserver une copie.",
+            ],
+            explanation:
+              "Le compte rendu d'opération BE est une obligation documentaire, quelle que soit l'issue. Il constitue la preuve de l'opération réalisée, la traçabilité des mesures effectuées et le point de référence pour les comparaisons futures. Il permet également de détecter des dérives progressives entre deux campagnes, même si aucune valeur n'est alarmante lors d'une seule mesure.",
+            normRef:
+              "NF C 18-510 §11.5 — traçabilité des opérations particulières BE ; Code du travail — obligations documentaires en prévention",
+          },
+        ],
+        chapterImageAlt:
+          "Titre d'habilitation BE, fiche d'opération de mesurage et compte rendu d'anomalie posés sur un tableau de distribution tertiaire",
+        visual: {
+          title: "Le chantier BE se documente",
+          subtitle: "Titre, fiche d'opération, compte rendu et coordination.",
+          items: [
+            "Titre à jour",
+            "Fiche d'opération",
+            "Compte rendu signé",
+            "Coordination préalable",
+          ],
+          tone: "slate",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-coordination.svg",
+        },
       }),
     ],
   },
