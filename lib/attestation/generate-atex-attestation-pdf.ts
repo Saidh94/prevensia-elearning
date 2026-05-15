@@ -370,7 +370,7 @@ function drawPage1(p: {
     { font: B, size: 11, border: C.line, va: "middle" });
   cell(page, employer, m + col1, y - valH, col2, valH,
     { font: B, size: 9.5, border: C.line, va: "middle" });
-  cell(page, sp(`${validationDate}  →  ${validityDate}`), m + col1 + col2, y - valH, col3, valH,
+  cell(page, sp(`${validationDate}  au  ${validityDate}`), m + col1 + col2, y - valH, col3, valH,
     { font: B, size: 8.2, border: C.line, va: "middle" });
   y -= valH;
 
