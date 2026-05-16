@@ -154,13 +154,19 @@ export default function SupportPage() {
 
   const filteredProfiles = useMemo(() => {
     if (!data) return [];
-    return data.profiles.filter((p) => {
+    const filtered = data.profiles.filter((p) => {
       if (!q) return true;
       return (
         fullName(p).toLowerCase().includes(q) ||
         (p.email ?? "").toLowerCase().includes(q) ||
         (p.company ?? "").toLowerCase().includes(q)
       );
+    });
+    // Admins toujours en premier
+    return [...filtered].sort((a, b) => {
+      const aAdmin = a.role === "admin" ? 0 : 1;
+      const bAdmin = b.role === "admin" ? 0 : 1;
+      return aAdmin - bAdmin;
     });
   }, [data, q]);
 
@@ -338,27 +344,57 @@ export default function SupportPage() {
                 </tr>
               </thead>
               <tbody>
-                {filteredProfiles.map((p) => (
-                  <tr key={p.id} className="border-t border-slate-100 hover:bg-slate-50">
-                    <td className="px-4 py-3 font-medium text-slate-900">{fullName(p)}</td>
-                    <td className="px-4 py-3 text-slate-600">{p.email ?? "—"}</td>
-                    <td className="px-4 py-3 text-slate-600">{p.company ?? "—"}</td>
-                    <td className="px-4 py-3">
-                      <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium capitalize text-slate-700">
-                        {p.role ?? "apprenant"}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-slate-500">{fmt(p.created_at)}</td>
-                    <td className="px-4 py-3">
-                      <a
-                        href={`mailto:${p.email}`}
-                        className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                {filteredProfiles.map((p, i) => {
+                  const isAdmin = p.role === "admin";
+                  const prevIsAdmin = i > 0 && filteredProfiles[i - 1].role === "admin";
+                  const showSeparator = !isAdmin && prevIsAdmin;
+                  return (
+                    <>
+                      {showSeparator && (
+                        <tr key={`sep-${p.id}`}>
+                          <td colSpan={6} className="bg-slate-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                            Apprenants
+                          </td>
+                        </tr>
+                      )}
+                      {i === 0 && isAdmin && (
+                        <tr key="sep-admin">
+                          <td colSpan={6} className="bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                            Équipe PREVENSIA
+                          </td>
+                        </tr>
+                      )}
+                      <tr
+                        key={p.id}
+                        className={`border-t ${isAdmin ? "border-slate-200 bg-slate-950/[0.03] hover:bg-slate-950/[0.06]" : "border-slate-100 hover:bg-slate-50"}`}
                       >
-                        Contacter
-                      </a>
-                    </td>
-                  </tr>
-                ))}
+                        <td className="px-4 py-3 font-semibold text-slate-900">{fullName(p)}</td>
+                        <td className="px-4 py-3 text-slate-600">{p.email ?? "—"}</td>
+                        <td className="px-4 py-3 text-slate-600">{p.company ?? "—"}</td>
+                        <td className="px-4 py-3">
+                          {isAdmin ? (
+                            <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">
+                              Admin
+                            </span>
+                          ) : (
+                            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                              Apprenant
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3 text-slate-500">{fmt(p.created_at)}</td>
+                        <td className="px-4 py-3">
+                          <a
+                            href={`mailto:${p.email}`}
+                            className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                          >
+                            Contacter
+                          </a>
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
                 {filteredProfiles.length === 0 && (
                   <tr><td colSpan={6} className="px-4 py-8 text-center text-slate-400">Aucun résultat</td></tr>
                 )}
