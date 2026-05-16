@@ -641,6 +641,11 @@ export default function ElearningPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.22),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(34,197,94,0.16),transparent_30%)]" />
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="max-w-4xl">
+            <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-slate-400">
+              <Link href="/" className="hover:text-white">Accueil</Link>
+              <span className="mx-2">›</span>
+              <span className="text-white">E-learning</span>
+            </nav>
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-red-400">
               PREVENSIA FORMATION
             </p>
