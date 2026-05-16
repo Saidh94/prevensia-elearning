@@ -190,6 +190,7 @@ export async function POST(request: Request) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+      payment_method_types: ["card", "sepa_debit"],
       billing_address_collection: "auto",
       client_reference_id: enrollment.id,
       customer_email:
