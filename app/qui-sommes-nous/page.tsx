@@ -5,14 +5,14 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Qui sommes-nous — PREVENSIA FORMATION, organisme Qualiopi | Paris",
   description:
-    "PREVENSIA FORMATION est un organisme de formation certifié Qualiopi, basé à Paris, marque du Groupe PREVENSIA SAS. Habilitation électrique NF C 18-510, SST, sécurité incendie, SSI, sprinkler.",
+    "PREVENSIA FORMATION est un organisme de formation certifié Qualiopi, basé à Paris, marque du PREVENSIA Groupe SAS. Habilitation électrique NF C 18-510, SST, sécurité incendie, SSI, sprinkler.",
   alternates: {
     canonical: "https://prevensia-formation.fr/qui-sommes-nous",
   },
   keywords: [
     "PREVENSIA FORMATION",
     "organisme formation Qualiopi Paris",
-    "Groupe PREVENSIA SAS",
+    "PREVENSIA Groupe SAS",
     "formation habilitation électrique Île-de-France",
     "organisme formation certifié Paris",
   ],
@@ -94,7 +94,7 @@ export default function QuiSommesNousPage() {
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Organisme de formation spécialisé en prévention des risques professionnels,
-            certifié Qualiopi et basé à Paris, marque du Groupe PREVENSIA SAS. Nous accompagnons
+            certifié Qualiopi et basé à Paris, marque du PREVENSIA Groupe SAS. Nous accompagnons
             les entreprises et leurs équipes dans leurs obligations réglementaires
             en habilitation électrique, sécurité incendie, SST, SSI et sprinkler.
           </p>
@@ -112,7 +112,7 @@ export default function QuiSommesNousPage() {
                 Un organisme ancré dans les réalités terrain
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
-                PREVENSIA FORMATION est une marque du <strong>Groupe PREVENSIA SAS</strong>,
+                PREVENSIA FORMATION est une marque du <strong>PREVENSIA Groupe SAS</strong>,
                 organisme de formation professionnel certifié Qualiopi pour les actions
                 de formation. Basé à Paris, nous intervenons principalement en Île-de-France, avec
                 des déplacements sur toute la France pour les formations intra-entreprise.
@@ -149,7 +149,7 @@ export default function QuiSommesNousPage() {
 
               <dl className="space-y-4 text-sm">
                 {[
-                  { label: "Raison sociale", value: "Groupe PREVENSIA SAS" },
+                  { label: "Raison sociale", value: "PREVENSIA Groupe SAS" },
                   { label: "Marque", value: "PREVENSIA FORMATION" },
                   { label: "SIRET", value: "En cours d'immatriculation" },
                   { label: "Adresse", value: "38, rue des Mathurins\n75008 Paris" },

@@ -106,7 +106,7 @@ export default function LocationCoverageSection() {
 
             <div className="mt-4 rounded-[1.25rem] bg-slate-50 p-4">
               <p className="text-sm font-semibold text-slate-900">
-                Siège social — Groupe PREVENSIA SAS
+                Siège social — PREVENSIA Groupe SAS
               </p>
               <p className="mt-1 text-sm font-medium text-slate-800">
                 38, rue des Mathurins<br />75008 Paris

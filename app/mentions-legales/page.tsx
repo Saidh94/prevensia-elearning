@@ -16,10 +16,10 @@ export default function MentionsLegalesPage() {
       <section className="mt-10 space-y-2 text-sm text-slate-700">
         <h2 className="text-lg font-semibold text-slate-900">1. Éditeur du site</h2>
         <p>
-          Le site <strong>prevensia-formation.fr</strong> est édité par la société <strong>GROUPE PREVENSIA SAS</strong>,
+          Le site <strong>prevensia-formation.fr</strong> est édité par la société <strong>PREVENSIA Groupe SAS</strong>,
           dont <strong>PREVENSIA FORMATION</strong> est la marque commerciale.
         </p>
-        <p><strong>Raison sociale :</strong> GROUPE PREVENSIA SAS</p>
+        <p><strong>Raison sociale :</strong> PREVENSIA Groupe SAS</p>
         <p><strong>Forme juridique :</strong> SAS — Société par actions simplifiée</p>
         <p><strong>SIRET :</strong> En cours d'immatriculation</p>
         <p><strong>Code NAF / APE :</strong> 85.59A — Formation continue d'adultes</p>
@@ -47,7 +47,7 @@ export default function MentionsLegalesPage() {
         <h2 className="text-lg font-semibold text-slate-900">3. Propriété intellectuelle</h2>
         <p>
           L'ensemble du contenu de ce site (textes, images, logos, vidéos, documents pédagogiques) est la propriété exclusive de
-          GROUPE PREVENSIA SAS / PREVENSIA FORMATION ou de ses partenaires, et est protégé par les lois françaises et internationales relatives
+          PREVENSIA Groupe SAS / PREVENSIA FORMATION ou de ses partenaires, et est protégé par les lois françaises et internationales relatives
           à la propriété intellectuelle. Toute reproduction, représentation, modification ou diffusion, totale ou partielle, sans
           autorisation préalable écrite est interdite.
         </p>
@@ -56,7 +56,7 @@ export default function MentionsLegalesPage() {
       <section className="mt-10 space-y-2 text-sm text-slate-700">
         <h2 className="text-lg font-semibold text-slate-900">4. Données personnelles</h2>
         <p>
-          Dans le cadre de l'utilisation de ce site et de nos formations, GROUPE PREVENSIA SAS peut être amenée à collecter des données
+          Dans le cadre de l'utilisation de ce site et de nos formations, PREVENSIA Groupe SAS peut être amenée à collecter des données
           personnelles. Les traitements sont réalisés conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
           Pour toute demande relative à vos données, consultez notre{" "}
           <Link href="/politique-confidentialite" className="text-red-700 hover:underline">
