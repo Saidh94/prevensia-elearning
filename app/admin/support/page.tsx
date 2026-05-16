@@ -874,12 +874,14 @@ export default function SupportPage() {
       )}
 
       {/* KPIs */}
-      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {[
-          { label: "Apprenants", value: data?.profiles.length ?? 0, color: "text-slate-900" },
+          { label: "Apprenants", value: data?.profiles.filter(p => p.role !== "admin").length ?? 0, color: "text-slate-900" },
           { label: "Inscriptions totales", value: data?.enrollments.length ?? 0, color: "text-slate-900" },
-          { label: "Formations terminées", value: data?.enrollments.filter((e) => e.status === "completed").length ?? 0, color: "text-emerald-700" },
-          { label: "Clients entreprises", value: data?.clients.length ?? 0, color: "text-blue-700" },
+          { label: "Inscriptions payées", value: data?.enrollments.filter(e => e.payment_status === "paid").length ?? 0, color: "text-emerald-700" },
+          { label: "Formations terminées", value: data?.enrollments.filter(e => e.status === "completed").length ?? 0, color: "text-blue-700" },
+          { label: "Clients entreprises", value: data?.clients.length ?? 0, color: "text-violet-700" },
+          { label: "Tickets ouverts", value: openTickets, color: openTickets > 0 ? "text-red-600" : "text-slate-400" },
         ].map((kpi) => (
           <div key={kpi.label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <p className="text-sm text-slate-500">{kpi.label}</p>
