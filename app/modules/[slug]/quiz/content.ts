@@ -4,6 +4,8 @@
   answer: number[];
   multiple?: boolean;
   explanation?: string;
+  /** Courte étiquette du chapitre de cours correspondant (ex: "Consignation", "EPI") */
+  chapterLabel?: string;
   timeLimit?: number;
   contextLabel?: string;
   imagePath?: string;

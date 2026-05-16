@@ -273,6 +273,29 @@ export default function QuizPage() {
     });
   }, [answers, shuffledQuiz]);
 
+  /**
+   * Groupement des mauvaises réponses par chapitre (item 5).
+   * Quand chapterLabel est présent, on groupe ; sinon, on liste simplement les questions.
+   */
+  const chaptersToReview = useMemo(() => {
+    if (success || !finished) return [];
+    const wrong = reviewItems.filter((item) => !item.correct);
+    if (!wrong.length) return [];
+
+    const groups: Map<string, { label: string; questionNumbers: number[] }> =
+      new Map();
+
+    wrong.forEach((item) => {
+      const label = item.question.chapterLabel ?? "Cours général";
+      if (!groups.has(label)) {
+        groups.set(label, { label, questionNumbers: [] });
+      }
+      groups.get(label)!.questionNumbers.push(item.index + 1);
+    });
+
+    return Array.from(groups.values());
+  }, [reviewItems, success, finished]);
+
   useEffect(() => {
     if (!canonicalSlug || !progressStorageKey || quiz.length === 0) return;
 
@@ -1112,6 +1135,42 @@ export default function QuizPage() {
                 )}
               </div>
 
+              {/* Item 5 — Chapitres à consolider (visible uniquement en cas d'échec) */}
+              {!success && chaptersToReview.length > 0 && (
+                <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
+                    Chapitres à consolider
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">
+                    Avant de retenter le quiz, reprenez les sections suivantes du cours :
+                  </p>
+                  <ul className="mt-4 space-y-2">
+                    {chaptersToReview.map((group) => (
+                      <li
+                        key={group.label}
+                        className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-100 bg-white px-4 py-3"
+                      >
+                        <div>
+                          <p className="text-sm font-semibold text-slate-900">
+                            {group.label}
+                          </p>
+                          <p className="mt-0.5 text-xs text-slate-500">
+                            Question{group.questionNumbers.length > 1 ? "s" : ""}{" "}
+                            {group.questionNumbers.join(", ")}
+                          </p>
+                        </div>
+                        <Link
+                          href={`/modules/${slug}/cours`}
+                          className="inline-flex items-center rounded-lg border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-800 transition hover:bg-amber-100"
+                        >
+                          Revoir →
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
                   Débrief pédagogique
@@ -1148,31 +1207,62 @@ export default function QuizPage() {
                       </p>
 
                       <div className="mt-4 space-y-2 text-sm leading-6 text-slate-700">
-                        <p>
-                          <span className="font-semibold text-slate-900">
-                            Votre réponse :
-                          </span>{" "}
-                          {item.selectedChoices.length
-                            ? item.selectedChoices
+                        {!item.correct && item.selectedChoices.length > 0 && (
+                          <p>
+                            <span className="font-semibold text-red-700">
+                              Votre réponse :
+                            </span>{" "}
+                            <span className="text-red-700 line-through">
+                              {item.selectedChoices
                                 .map((choice) => formatFrenchDisplayText(choice))
-                                .join(" | ")
-                            : "Aucune réponse enregistrée"}
-                        </p>
+                                .join(" | ")}
+                            </span>
+                          </p>
+                        )}
+                        {!item.correct && !item.selectedChoices.length && (
+                          <p className="text-slate-500 italic">
+                            Aucune réponse enregistrée (temps écoulé)
+                          </p>
+                        )}
+                        {item.correct && (
+                          <p>
+                            <span className="font-semibold text-slate-900">
+                              Votre réponse :
+                            </span>{" "}
+                            {item.selectedChoices
+                              .map((choice) => formatFrenchDisplayText(choice))
+                              .join(" | ")}
+                          </p>
+                        )}
                         <p>
                           <span className="font-semibold text-slate-900">
-                            Réponse attendue :
+                            {item.correct ? "Réponse correcte :" : "Réponse attendue :"}
                           </span>{" "}
-                          {item.correctChoices
-                            .map((choice) => formatFrenchDisplayText(choice))
-                            .join(" | ")}
+                          <span className={item.correct ? "" : "font-medium text-green-700"}>
+                            {item.correctChoices
+                              .map((choice) => formatFrenchDisplayText(choice))
+                              .join(" | ")}
+                          </span>
                         </p>
                         {item.question.explanation ? (
-                          <p className="rounded-xl border border-white/70 bg-white/80 px-4 py-3">
-                            <span className="font-semibold text-slate-900">
-                              À retenir :
-                            </span>{" "}
-                            {formatFrenchDisplayText(item.question.explanation)}
-                          </p>
+                          /* Item 4 — style alerte sur les mauvaises réponses */
+                          item.correct ? (
+                            <p className="rounded-xl border border-white/70 bg-white/80 px-4 py-3">
+                              <span className="font-semibold text-slate-900">
+                                À retenir :
+                              </span>{" "}
+                              {formatFrenchDisplayText(item.question.explanation)}
+                            </p>
+                          ) : (
+                            <p className="rounded-xl border border-orange-200 bg-orange-50 px-4 py-3">
+                              <span className="font-semibold text-orange-800">
+                                ⚠ Point de sécurité critique :
+                              </span>{" "}
+                              <span className="text-orange-900">
+                                {formatFrenchDisplayText(item.question.explanation)}
+                              </span>
+                            </p>
+                          )
                         ) : null}
                       </div>
                     </li>
