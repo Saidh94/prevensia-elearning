@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
@@ -50,7 +51,7 @@ const inrsSstResources = [
   {
     title: "INRS - Vidéo SST et secourisme au travail",
     description:
-      "Ressource INRS utile pour renforcer la culture de prévention, la logique proteger / examiner / alerter / secourir et la place du SST dans l'entreprise.",
+      "Ressource INRS utile pour renforcer la culture de prévention, la logique protéger / examiner / alerter / secourir et la place du SST dans l'entreprise.",
     href: "https://www.inrs.fr/media.html?refINRS=Anim-049",
     badge: "INRS",
     cta: "Voir la vidéo INRS",
@@ -67,7 +68,7 @@ const inrsSstResources = [
 
 export default function FormationSST() {
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-slate-50 text-slate-900">
       <BreadcrumbJsonLd
         items={[
           { name: "Accueil", url: "/" },
@@ -85,17 +86,26 @@ export default function FormationSST() {
         audience="Salariés, encadrants, agents de prévention"
         educationalCredentialAwarded="Certificat SST INRS"
       />
-      <div className="mx-auto max-w-5xl">
-        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-            PREVENSIA FORMATION
+
+      {/* Hero */}
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-slate-400">
+            <Link href="/" className="hover:text-white">Accueil</Link>
+            <span className="mx-2">›</span>
+            <span className="text-white">Formation SST</span>
+          </nav>
+
+          <p className="inline-flex rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-300">
+            Secourisme au travail · Certification INRS
           </p>
 
-          <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Formation SST – Sauveteur Secouriste du Travail
+          <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Formation SST —{" "}
+            <span className="text-red-400">Sauveteur Secouriste du Travail</span>
           </h1>
 
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             PREVENSIA FORMATION propose des formations SST initiales et MAC SST
             pour les entreprises et les professionnels souhaitant renforcer la
             sécurité au travail, développer les réflexes de premiers secours et
@@ -103,89 +113,104 @@ export default function FormationSST() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/demande-devis"
-              className="rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+            <Link
+              href="/demande-devis?type=sst"
+              className="rounded-xl bg-red-700 px-6 py-3 font-semibold text-white hover:bg-red-800 transition-colors"
             >
               Demander un devis
-            </a>
-
-            <a
+            </Link>
+            <Link
               href="#programmes"
-              className="rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-red-300 hover:text-red-700"
+              className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-colors"
             >
               Voir les programmes
-            </a>
-          </div>
-        </section>
-
-        <section className="mt-10 grid gap-6 md:grid-cols-3">
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Modalités
-            </p>
-            <p className="mt-3 text-lg font-semibold">Présentiel</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Sessions organisées en entreprise ou dans un cadre adapté aux
-              exercices pratiques et aux mises en situation.
-            </p>
+            </Link>
           </div>
 
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Public
-            </p>
-            <p className="mt-3 text-lg font-semibold">Salariés et entreprises</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Formation destinée aux salariés amenés à intervenir en cas
-              d’accident du travail et à participer à la prévention.
-            </p>
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
+            <span>✓ Certifié INRS</span>
+            <span>✓ SST initial 14h</span>
+            <span>✓ MAC SST 7h</span>
+            <span>✓ Intra-entreprise France entière</span>
+            <span>✓ Qualiopi</span>
           </div>
+        </div>
+      </section>
 
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Objectif
-            </p>
-            <p className="mt-3 text-lg font-semibold">Secourir et prévenir</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Acquérir les bons gestes face à une urgence et contribuer à la
-              réduction des risques dans l’entreprise.
-            </p>
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+                Modalités
+              </p>
+              <p className="mt-3 text-lg font-semibold">Présentiel</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Sessions organisées en entreprise ou dans un cadre adapté aux
+                exercices pratiques et aux mises en situation.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+                Public
+              </p>
+              <p className="mt-3 text-lg font-semibold">Salariés et entreprises</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Formation destinée aux salariés amenés à intervenir en cas
+                d&apos;accident du travail et à participer à la prévention.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
+                Objectif
+              </p>
+              <p className="mt-3 text-lg font-semibold">Secourir et prévenir</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Acquérir les bons gestes face à une urgence et contribuer à la
+                réduction des risques dans l&apos;entreprise.
+              </p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">
             Pourquoi suivre une formation SST ?
           </h2>
 
           <p className="mt-5 leading-8 text-slate-700">
             La formation Sauveteur Secouriste du Travail permet aux salariés
-            d’intervenir rapidement en cas d’accident, de malaise ou de situation
-            d’urgence sur le lieu de travail. Elle contribue également à
-            développer une culture de prévention au sein de l’entreprise.
+            d&apos;intervenir rapidement en cas d&apos;accident, de malaise ou de situation
+            d&apos;urgence sur le lieu de travail. Elle contribue également à
+            développer une culture de prévention au sein de l&apos;entreprise.
           </p>
 
           <p className="mt-4 leading-8 text-slate-700">
             Cette formation répond à un besoin concret de sécurité des personnes,
-            tout en renforçant l’organisation interne des entreprises face aux
+            tout en renforçant l&apos;organisation interne des entreprises face aux
             risques professionnels.
           </p>
-        </section>
+        </div>
+      </section>
 
-        <section
-          id="programmes"
-          className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10"
-        >
+      <section
+        id="programmes"
+        className="bg-white py-16"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">Programmes proposés</h2>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <h3 className="text-xl font-semibold">SST initial</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Formation complète permettant d’apprendre à protéger, examiner,
+                Formation complète permettant d&apos;apprendre à protéger, examiner,
                 alerter, secourir et participer à la prévention des risques
-                professionnels dans l’entreprise.
+                professionnels dans l&apos;entreprise.
               </p>
             </div>
 
@@ -198,49 +223,55 @@ export default function FormationSST() {
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold">
-              Une formation orientée terrain
-            </h2>
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8">
+              <h2 className="text-2xl font-bold">
+                Une formation orientée terrain
+              </h2>
 
-            <p className="mt-5 leading-8 text-slate-700">
-              La formation SST repose sur des mises en situation concrètes, des
-              cas pratiques et un apprentissage opérationnel des gestes de
-              premiers secours. Elle favorise l’acquisition de réflexes simples,
-              efficaces et adaptés au contexte professionnel.
-            </p>
+              <p className="mt-5 leading-8 text-slate-700">
+                La formation SST repose sur des mises en situation concrètes, des
+                cas pratiques et un apprentissage opérationnel des gestes de
+                premiers secours. Elle favorise l&apos;acquisition de réflexes simples,
+                efficaces et adaptés au contexte professionnel.
+              </p>
 
-            <p className="mt-4 leading-8 text-slate-700">
-              Elle convient particulièrement aux entreprises souhaitant former
-              leurs équipes sur site avec une approche réaliste et applicable
-              immédiatement.
-            </p>
+              <p className="mt-4 leading-8 text-slate-700">
+                Elle convient particulièrement aux entreprises souhaitant former
+                leurs équipes sur site avec une approche réaliste et applicable
+                immédiatement.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8">
+              <h2 className="text-2xl font-bold">
+                Un levier de prévention pour l&apos;entreprise
+              </h2>
+
+              <p className="mt-5 leading-8 text-slate-700">
+                Au-delà des gestes de secours, la formation SST permet aussi
+                d&apos;identifier les situations à risque et de participer à la
+                prévention au quotidien. Elle s&apos;inscrit pleinement dans une
+                démarche de sécurité et de protection des salariés.
+              </p>
+
+              <p className="mt-4 leading-8 text-slate-700">
+                C&apos;est une formation particulièrement utile pour les structures
+                souhaitant renforcer leur organisation face aux accidents du
+                travail et améliorer la sécurité globale de leurs équipes.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold">
-              Un levier de prévention pour l’entreprise
-            </h2>
-
-            <p className="mt-5 leading-8 text-slate-700">
-              Au-delà des gestes de secours, la formation SST permet aussi
-              d’identifier les situations à risque et de participer à la
-              prévention au quotidien. Elle s’inscrit pleinement dans une
-              démarche de sécurité et de protection des salariés.
-            </p>
-
-            <p className="mt-4 leading-8 text-slate-700">
-              C’est une formation particulièrement utile pour les structures
-              souhaitant renforcer leur organisation face aux accidents du
-              travail et améliorer la sécurité globale de leurs équipes.
-            </p>
-          </div>
-        </section>
-
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">Pourquoi choisir PREVENSIA FORMATION ?</h2>
 
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
@@ -257,9 +288,11 @@ export default function FormationSST() {
               Réponse claire et rapide pour les demandes de devis et de planification
             </li>
           </ul>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
             Ressources INRS
           </p>
@@ -267,14 +300,14 @@ export default function FormationSST() {
             Ressources INRS pour compléter la formation SST
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            PREVENSIA recommande aussi des ressources officielles INRS pour renforcer la culture de prévention, la lecture de la situation d'accident et les bons réflexes de secourisme au travail.
+            PREVENSIA recommande aussi des ressources officielles INRS pour renforcer la culture de prévention, la lecture de la situation d&apos;accident et les bons réflexes de secourisme au travail.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {inrsSstResources.map((item) => (
               <article
                 key={item.href}
-                className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6"
+                className="rounded-[1.5rem] border border-slate-200 bg-white p-6"
               >
                 <span className="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
                   {item.badge}
@@ -294,9 +327,11 @@ export default function FormationSST() {
               </article>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">
             Questions fréquentes sur la formation SST
           </h2>
@@ -304,11 +339,11 @@ export default function FormationSST() {
           <div className="mt-6">
             <details className="mb-4 rounded-xl border border-slate-200 p-4">
               <summary className="cursor-pointer font-semibold">
-                À qui s'adresse la formation SST ?
+                À qui s&apos;adresse la formation SST ?
               </summary>
               <p className="mt-3 text-slate-700">
-                La formation SST s'adresse aux salariés, agents, techniciens et
-                personnels d’entreprise souhaitant apprendre les gestes de
+                La formation SST s&apos;adresse aux salariés, agents, techniciens et
+                personnels d&apos;entreprise souhaitant apprendre les gestes de
                 premiers secours et contribuer à la prévention des risques
                 professionnels.
               </p>
@@ -319,8 +354,8 @@ export default function FormationSST() {
                 Quelle différence entre SST initiale et MAC SST ?
               </summary>
               <p className="mt-3 text-slate-700">
-                La formation SST initiale permet d’acquérir les bases, tandis que
-                le MAC SST correspond au maintien et à l’actualisation des
+                La formation SST initiale permet d&apos;acquérir les bases, tandis que
+                le MAC SST correspond au maintien et à l&apos;actualisation des
                 compétences du sauveteur secouriste du travail.
               </p>
             </details>
@@ -330,44 +365,50 @@ export default function FormationSST() {
                 La formation SST est-elle obligatoire ?
               </summary>
               <p className="mt-3 text-slate-700">
-                Selon l’activité et les risques de l’entreprise, la présence de
+                Selon l&apos;activité et les risques de l&apos;entreprise, la présence de
                 salariés formés au secourisme peut être nécessaire pour répondre
                 aux obligations de prévention et de sécurité au travail.
               </p>
             </details>
           </div>
-        </section>
-<section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-  <h2 className="text-2xl font-bold">
-    Découvrir nos autres formations professionnelles
-  </h2>
+        </div>
+      </section>
 
-  <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-    PREVENSIA FORMATION propose également des formations en habilitation électrique,
-    sécurité incendie, exploitation du système de sécurité incendie (SSI) et
-    exploitation sprinkler pour les entreprises et collectivités.
-  </p>
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold">
+            Découvrir nos autres formations professionnelles
+          </h2>
 
-  <div className="mt-6 flex flex-wrap gap-4">
-    <a href="/formation-habilitation-electrique" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
-      Habilitation électrique
-    </a>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+            PREVENSIA FORMATION propose également des formations en habilitation électrique,
+            sécurité incendie, exploitation du système de sécurité incendie (SSI) et
+            exploitation sprinkler pour les entreprises et collectivités.
+          </p>
 
-    <a href="/formation-ssi" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
-      Formation SSI
-    </a>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <a href="/formation-habilitation-electrique" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+              Habilitation électrique
+            </a>
 
-    <a href="/formation-securite-incendie" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
-      Sécurité incendie
-    </a>
+            <a href="/formation-ssi" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+              Formation SSI
+            </a>
 
-    <a href="/formation-sprinkler" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
-      Exploitation sprinkler
-    </a>
-  </div>
-</section>
-        <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
-          <h2 className="text-2xl font-bold">Besoin d'un devis rapide ?</h2>
+            <a href="/formation-securite-incendie" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+              Sécurité incendie
+            </a>
+
+            <a href="/formation-sprinkler" className="rounded-xl border px-4 py-2 hover:border-red-600 hover:text-red-600">
+              Exploitation sprinkler
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-red-50 border-y border-red-200 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold">Besoin d&apos;un devis rapide ?</h2>
 
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
             Indiquez votre besoin, le nombre de participants, vos
@@ -376,15 +417,15 @@ export default function FormationSST() {
           </p>
 
           <div className="mt-6">
-            <a
+            <Link
               href="/demande-devis?type=sst"
               className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
             >
               Demander un devis SST
-            </a>
+            </Link>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }

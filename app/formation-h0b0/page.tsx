@@ -140,7 +140,7 @@ export default function FormationH0B0Page() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Non-électriciens · NF C 18-510
+            Habilitation électrique · NF C 18-510
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">

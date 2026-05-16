@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
@@ -48,7 +49,7 @@ const faqItemsSsi = [
 
 export default function FormationSSI() {
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-14 text-slate-900 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-slate-50 text-slate-900">
       <BreadcrumbJsonLd
         items={[
           { name: "Accueil", url: "/" },
@@ -66,18 +67,27 @@ export default function FormationSSI() {
         audience="Exploitants, responsables techniques, équipes maintenance"
         educationalCredentialAwarded="Attestation de formation Prevensia"
       />
-      <div className="mx-auto max-w-5xl">
-        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-            PREVENSIA FORMATION
+
+      {/* Hero */}
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-slate-400">
+            <Link href="/" className="hover:text-white">Accueil</Link>
+            <span className="mx-2">›</span>
+            <span className="text-white">Formation SSI</span>
+          </nav>
+
+          <p className="inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-blue-300">
+            Exploitation SSI · NF S 61-931
           </p>
 
-          <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Formation exploitation du SSI
+          <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            Formation{" "}
+            <span className="text-blue-400">Exploitation du SSI</span>
           </h1>
 
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-            PREVENSIA FORMATION propose des formations à l’exploitation du
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            PREVENSIA FORMATION propose des formations à l&apos;exploitation du
             système de sécurité incendie pour les exploitants, responsables
             techniques, équipes maintenance et personnels amenés à utiliser ou
             surveiller un SSI dans un bâtiment tertiaire, industriel ou
@@ -85,67 +95,80 @@ export default function FormationSSI() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/demande-devis"
-              className="rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
+            <Link
+              href="/demande-devis?type=ssi"
+              className="rounded-xl bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800 transition-colors"
             >
               Demander un devis
-            </a>
-
-            <a
-              href="#programmes"
-              className="rounded-2xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-red-300 hover:text-red-700"
+            </Link>
+            <Link
+              href="/elearning"
+              className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Voir les programmes
-            </a>
-          </div>
-        </section>
-
-        <section className="mt-10 grid gap-6 md:grid-cols-3">
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Modalités
-            </p>
-            <p className="mt-3 text-lg font-semibold">Présentiel</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Sessions organisées sur site ou dans un cadre adapté à la
-              compréhension des installations et des consignes de sécurité.
-            </p>
+              Accéder à l&apos;e-learning
+            </Link>
           </div>
 
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Public
-            </p>
-            <p className="mt-3 text-lg font-semibold">
-              Exploitants et équipes techniques
-            </p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Formation destinée aux personnels amenés à exploiter un SSI au
-              quotidien ou à intervenir en cas d’alarme incendie.
-            </p>
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
+            <span>✓ SDI / CMSI / UGA / DAS</span>
+            <span>✓ Normes NF S 61</span>
+            <span>✓ ERP / IGH / ICPE</span>
+            <span>✓ E-learning inclus</span>
+            <span>✓ Qualiopi</span>
           </div>
+        </div>
+      </section>
 
-          <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-red-700">
-              Objectif
-            </p>
-            <p className="mt-3 text-lg font-semibold">Comprendre et exploiter</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">
-              Savoir lire les informations du SSI, comprendre son rôle et
-              appliquer les bons réflexes en situation normale ou dégradée.
-            </p>
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Modalités
+              </p>
+              <p className="mt-3 text-lg font-semibold">Présentiel</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Sessions organisées sur site ou dans un cadre adapté à la
+                compréhension des installations et des consignes de sécurité.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Public
+              </p>
+              <p className="mt-3 text-lg font-semibold">
+                Exploitants et équipes techniques
+              </p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Formation destinée aux personnels amenés à exploiter un SSI au
+                quotidien ou à intervenir en cas d&apos;alarme incendie.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Objectif
+              </p>
+              <p className="mt-3 text-lg font-semibold">Comprendre et exploiter</p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Savoir lire les informations du SSI, comprendre son rôle et
+                appliquer les bons réflexes en situation normale ou dégradée.
+              </p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">
-            Pourquoi suivre une formation à l’exploitation du SSI ?
+            Pourquoi suivre une formation à l&apos;exploitation du SSI ?
           </h2>
 
           <p className="mt-5 leading-8 text-slate-700">
             Le système de sécurité incendie joue un rôle central dans la
-            détection incendie, l’alarme, la mise en sécurité et la gestion des
+            détection incendie, l&apos;alarme, la mise en sécurité et la gestion des
             informations techniques liées au feu. Une bonne compréhension du SSI
             permet aux exploitants et aux équipes de réagir de manière plus
             efficace et plus sûre.
@@ -154,14 +177,16 @@ export default function FormationSSI() {
           <p className="mt-4 leading-8 text-slate-700">
             Cette formation aide les participants à mieux identifier les
             équipements, comprendre les signalisations et adopter les bonnes
-            pratiques d’exploitation au quotidien.
+            pratiques d&apos;exploitation au quotidien.
           </p>
-        </section>
+        </div>
+      </section>
 
-        <section
-          id="programmes"
-          className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10"
-        >
+      <section
+        id="programmes"
+        className="bg-white py-16"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">
             Programme de la formation exploitation SSI
           </h2>
@@ -172,7 +197,7 @@ export default function FormationSSI() {
                 Architecture et fonctionnement du SSI
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Compréhension des principes de détection incendie, d’alarme, de
+                Compréhension des principes de détection incendie, d&apos;alarme, de
                 compartimentage, de désenfumage et de mise en sécurité.
                 Identification des différents équipements du système de sécurité
                 incendie et lecture des informations issues des ECS et CMSI.
@@ -186,7 +211,7 @@ export default function FormationSSI() {
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 Lecture des signalisations, distinction entre alarmes feu,
                 défauts et dérangements techniques, conduite à tenir en cas de
-                déclenchement, levée de doute et consignes d’exploitation
+                déclenchement, levée de doute et consignes d&apos;exploitation
                 adaptées au site.
               </p>
             </div>
@@ -198,73 +223,79 @@ export default function FormationSSI() {
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 Présentation des principales normes AFNOR de la série NF S 61
                 relatives aux systèmes de sécurité incendie, notamment les
-                règles générales d’installation, d’exploitation et de
-                maintenance des équipements de détection, d’alarme et de mise en
+                règles générales d&apos;installation, d&apos;exploitation et de
+                maintenance des équipements de détection, d&apos;alarme et de mise en
                 sécurité.
               </p>
             </div>
 
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <h3 className="text-xl font-semibold">
-                Réglementation applicable selon le type d’établissement
+                Réglementation applicable selon le type d&apos;établissement
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 Présentation des exigences réglementaires liées aux
                 établissements recevant du public (ERP), aux immeubles de grande
                 hauteur (IGH), aux bâtiments à usage professionnel au sens du
-                Code du Travail (BUP) ainsi qu’aux installations classées pour
-                la protection de l’environnement (ICPE).
+                Code du Travail (BUP) ainsi qu&apos;aux installations classées pour
+                la protection de l&apos;environnement (ICPE).
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold">
-              Une formation utile pour les sites exploités
-            </h2>
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8">
+              <h2 className="text-2xl font-bold">
+                Une formation utile pour les sites exploités
+              </h2>
 
-            <p className="mt-5 leading-8 text-slate-700">
-              La formation SSI est particulièrement pertinente pour les ERP,
-              bâtiments tertiaires, plateformes logistiques, sites industriels
-              et établissements disposant d'un système de sécurité incendie
-              exploité en routine.
-            </p>
+              <p className="mt-5 leading-8 text-slate-700">
+                La formation SSI est particulièrement pertinente pour les ERP,
+                bâtiments tertiaires, plateformes logistiques, sites industriels
+                et établissements disposant d&apos;un système de sécurité incendie
+                exploité en routine.
+              </p>
 
-            <p className="mt-4 leading-8 text-slate-700">
-              Elle permet de mieux structurer les réactions du personnel face à
-              un événement feu ou à un défaut technique signalé par
-              l’installation.
-            </p>
+              <p className="mt-4 leading-8 text-slate-700">
+                Elle permet de mieux structurer les réactions du personnel face à
+                un événement feu ou à un défaut technique signalé par
+                l&apos;installation.
+              </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-8">
+              <h2 className="text-2xl font-bold">
+                Une approche adaptée au niveau des participants
+              </h2>
+
+              <p className="mt-5 leading-8 text-slate-700">
+                PREVENSIA FORMATION adapte le contenu en fonction du profil des
+                participants, du système installé sur site et du niveau
+                d&apos;exploitation attendu dans l&apos;établissement.
+              </p>
+
+              <p className="mt-4 leading-8 text-slate-700">
+                L&apos;objectif est de proposer une formation claire, utile et
+                immédiatement applicable dans le contexte réel du client.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="text-2xl font-bold">
-              Une approche adaptée au niveau des participants
-            </h2>
-
-            <p className="mt-5 leading-8 text-slate-700">
-              PREVENSIA FORMATION adapte le contenu en fonction du profil des
-              participants, du système installé sur site et du niveau
-              d’exploitation attendu dans l’établissement.
-            </p>
-
-            <p className="mt-4 leading-8 text-slate-700">
-              L’objectif est de proposer une formation claire, utile et
-              immédiatement applicable dans le contexte réel du client.
-            </p>
-          </div>
-        </section>
-
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">
             Pourquoi choisir PREVENSIA FORMATION ?
           </h2>
 
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
             <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
-              Formation SSI pensée pour les besoins d’exploitation réels des sites
+              Formation SSI pensée pour les besoins d&apos;exploitation réels des sites
             </li>
             <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
               Contenu clair orienté lecture du système, conduite à tenir et sécurité
@@ -274,13 +305,15 @@ export default function FormationSSI() {
               exigences réglementaires applicables
             </li>
             <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
-              Réponse rapide pour les demandes de devis et l’organisation des sessions
+              Réponse rapide pour les demandes de devis et l&apos;organisation des sessions
             </li>
           </ul>
-        </section>
+        </div>
+      </section>
 
-        {/* Module e-learning extinction gaz */}
-        <section className="mt-10 rounded-[2rem] border border-amber-200 bg-amber-50 p-8 shadow-sm sm:p-10">
+      {/* Module e-learning extinction gaz */}
+      <section className="bg-amber-50 border-y border-amber-200 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.15em] text-amber-700">
             MODULE E-LEARNING INCLUS
           </p>
@@ -288,20 +321,20 @@ export default function FormationSSI() {
             Extinction automatique à gaz — exploitation et référentiels
           </h2>
           <p className="mt-4 leading-7 text-slate-700">
-            Ce module e-learning de <strong>4 à 6 heures</strong> est inclus avec le module SSI exploitation renforcé. Il est dédié aux installations fixes d'extinction à gaz : sécurité des personnes, intégrité du local protégé, repères APSAD R13 et NF EN 15004-1.
+            Ce module e-learning de <strong>4 à 6 heures</strong> est inclus avec le module SSI exploitation renforcé. Il est dédié aux installations fixes d&apos;extinction à gaz : sécurité des personnes, intégrité du local protégé, repères APSAD R13 et NF EN 15004-1.
           </p>
           <ul className="mt-5 space-y-2 text-sm text-slate-700">
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-amber-600">✓</span>
-              Comprendre la logique d'un système d'extinction automatique à gaz
+              Comprendre la logique d&apos;un système d&apos;extinction automatique à gaz
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-amber-600">✓</span>
-              Distinguer l'extinction à gaz d'une installation sprinkler
+              Distinguer l&apos;extinction à gaz d&apos;une installation sprinkler
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-amber-600">✓</span>
-              Identifier les contraintes de local protégé, d'alarme, de temporisation et de réaccès
+              Identifier les contraintes de local protégé, d&apos;alarme, de temporisation et de réaccès
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-amber-600">✓</span>
@@ -309,7 +342,7 @@ export default function FormationSSI() {
             </li>
           </ul>
           <p className="mt-5 text-sm text-slate-500 italic">
-            Public : personnel d'exploitation, maintenance, encadrement technique ou responsables de locaux protégés par extinction automatique à gaz.
+            Public : personnel d&apos;exploitation, maintenance, encadrement technique ou responsables de locaux protégés par extinction automatique à gaz.
           </p>
           <div className="mt-6">
             <a
@@ -319,9 +352,11 @@ export default function FormationSSI() {
               Voir tous les modules e-learning →
             </a>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">
             Questions fréquentes sur la formation SSI
           </h2>
@@ -329,10 +364,10 @@ export default function FormationSSI() {
           <div className="mt-6">
             <details className="mb-4 rounded-xl border border-slate-200 p-4">
               <summary className="cursor-pointer font-semibold">
-                À qui s'adresse la formation SSI ?
+                À qui s&apos;adresse la formation SSI ?
               </summary>
               <p className="mt-3 text-slate-700">
-                Elle s'adresse aux exploitants, responsables techniques,
+                Elle s&apos;adresse aux exploitants, responsables techniques,
                 équipes maintenance, services généraux et personnels amenés à
                 utiliser ou surveiller un système de sécurité incendie.
               </p>
@@ -343,16 +378,16 @@ export default function FormationSSI() {
                 Que permet de comprendre la formation SSI ?
               </summary>
               <p className="mt-3 text-slate-700">
-                Elle permet de comprendre le rôle du SSI, l’architecture du
+                Elle permet de comprendre le rôle du SSI, l&apos;architecture du
                 système, les signaux courants, les normes applicables et les
-                réactions attendues en cas d’alarme, de défaut ou de
+                réactions attendues en cas d&apos;alarme, de défaut ou de
                 dérangement.
               </p>
             </details>
 
             <details className="mb-4 rounded-xl border border-slate-200 p-4">
               <summary className="cursor-pointer font-semibold">
-                Peut-on adapter la formation au site de l’entreprise ?
+                Peut-on adapter la formation au site de l&apos;entreprise ?
               </summary>
               <p className="mt-3 text-slate-700">
                 Oui, PREVENSIA FORMATION peut adapter la session au système
@@ -361,42 +396,48 @@ export default function FormationSSI() {
               </p>
             </details>
           </div>
-        </section>
-<section className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-  <h2 className="text-2xl font-bold">Découvrir nos autres formations</h2>
+        </div>
+      </section>
 
-  <div className="mt-6 grid gap-4 md:grid-cols-2">
-    <a
-      href="/formation-habilitation-electrique"
-      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
-    >
-      Formation habilitation électrique
-    </a>
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold">Découvrir nos autres formations</h2>
 
-    <a
-      href="/formation-sst"
-      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
-    >
-      Formation SST – Sauveteur Secouriste du Travail
-    </a>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <a
+              href="/formation-habilitation-electrique"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Formation habilitation électrique
+            </a>
 
-    <a
-      href="/formation-ssiap1"
-      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
-    >
-      Formation SSIAP1 — Agent sécurité incendie
-    </a>
+            <a
+              href="/formation-sst"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Formation SST – Sauveteur Secouriste du Travail
+            </a>
 
-    <a
-      href="/formation-sprinkler"
-      className="rounded-2xl border border-slate-200 p-5 transition hover:border-red-300 hover:shadow-sm"
-    >
-      Formation exploitation sprinkler
-    </a>
-  </div>
-</section>
-        <section className="mt-10 rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm sm:p-10">
-          <h2 className="text-2xl font-bold">Besoin d'un devis rapide ?</h2>
+            <a
+              href="/formation-ssiap1"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Formation SSIAP1 — Agent sécurité incendie
+            </a>
+
+            <a
+              href="/formation-sprinkler"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Formation exploitation sprinkler
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-blue-50 border-y border-blue-200 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold">Besoin d&apos;un devis rapide ?</h2>
 
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
             Indiquez votre besoin, le nombre de participants, vos contraintes
@@ -405,15 +446,15 @@ export default function FormationSSI() {
           </p>
 
           <div className="mt-6">
-            <a
+            <Link
               href="/demande-devis?type=ssi"
-              className="inline-flex rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800"
+              className="inline-flex rounded-2xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
             >
               Demander un devis SSI
-            </a>
+            </Link>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }
