@@ -604,6 +604,12 @@ export default function SupportPage() {
   const [search, setSearch] = useState("");
   const [actionMsg, setActionMsg] = useState<{ text: string; ok: boolean } | null>(null);
 
+  // ── États pour la gestion des tickets ──────────────────────────────────────
+  const [expandedTicket, setExpandedTicket] = useState<string | null>(null);
+  const [ticketReplies, setTicketReplies] = useState<Record<string, string>>({});
+  const [ticketNotes, setTicketNotes] = useState<Record<string, string>>({});
+  const [ticketLoading, setTicketLoading] = useState<Record<string, boolean>>({});
+
   useEffect(() => {
     fetch("/api/admin/support")
       .then((r) => r.json())
@@ -618,6 +624,42 @@ export default function SupportPage() {
   function showMsg(text: string, ok: boolean) {
     setActionMsg({ text, ok });
     setTimeout(() => setActionMsg(null), 3000);
+  }
+
+  async function ticketAction(
+    ticketId: string,
+    action: string,
+    payload: Record<string, string>
+  ) {
+    setTicketLoading((prev) => ({ ...prev, [ticketId]: true }));
+    try {
+      const res = await fetch(`/api/admin/support/tickets/${ticketId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action, ...payload }),
+      });
+      if (!res.ok) throw new Error();
+      showMsg(
+        action === "reset_password"
+          ? "Email de réinitialisation envoyé ✓"
+          : action === "reply"
+          ? "Réponse envoyée ✓"
+          : action === "note"
+          ? "Note sauvegardée ✓"
+          : "Statut mis à jour ✓",
+        true
+      );
+      // Rafraîchir les données
+      const r = await fetch("/api/admin/support");
+      if (r.ok) {
+        const d = await r.json();
+        setData(d);
+      }
+    } catch {
+      showMsg("Erreur lors de l'action.", false);
+    } finally {
+      setTicketLoading((prev) => ({ ...prev, [ticketId]: false }));
+    }
   }
 
   async function handleBlockToggle(profileId: string, currentlyBlocked: boolean) {
@@ -1300,38 +1342,130 @@ export default function SupportPage() {
                       );
                     })
                     .map((t) => (
-                      <tr key={t.id} className="border-t border-slate-100 hover:bg-slate-50">
-                        <td className="px-4 py-3 text-slate-500 whitespace-nowrap">{fmt(t.created_at)}</td>
-                        <td className="px-4 py-3 font-medium text-slate-900">{t.user_name || "—"}</td>
-                        <td className="px-4 py-3 text-slate-600">{t.user_email}</td>
-                        <td className="px-4 py-3">
-                          <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
-                            {ISSUE_LABELS[t.issue_type] ?? t.issue_type}
-                          </span>
-                        </td>
-                        <td className="px-4 py-3 text-slate-500 max-w-[200px] truncate" title={t.message ?? ""}>
-                          {t.message || "—"}
-                        </td>
-                        <td className="px-4 py-3">
-                          {t.status === "open" && (
-                            <span className="inline-block rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">Ouvert</span>
-                          )}
-                          {t.status === "in_progress" && (
-                            <span className="inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">En cours</span>
-                          )}
-                          {t.status === "resolved" && (
-                            <span className="inline-block rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">Résolu</span>
-                          )}
-                        </td>
-                        <td className="px-4 py-3">
-                          <a
-                            href={`mailto:${t.user_email}?subject=Re: ${ISSUE_LABELS[t.issue_type] ?? t.issue_type} — PREVENSIA Support`}
-                            className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
-                          >
-                            Répondre
-                          </a>
-                        </td>
-                      </tr>
+                      <>
+                        <tr key={t.id} className="border-t border-slate-100 hover:bg-slate-50">
+                          <td className="px-4 py-3 text-slate-500 whitespace-nowrap">{fmt(t.created_at)}</td>
+                          <td className="px-4 py-3 font-medium text-slate-900">{t.user_name || "—"}</td>
+                          <td className="px-4 py-3 text-slate-600">{t.user_email}</td>
+                          <td className="px-4 py-3">
+                            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                              {ISSUE_LABELS[t.issue_type] ?? t.issue_type}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3 text-slate-500 max-w-[200px] truncate" title={t.message ?? ""}>
+                            {t.message || "—"}
+                          </td>
+                          <td className="px-4 py-3">
+                            {t.status === "open" && (
+                              <span className="inline-block rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">Ouvert</span>
+                            )}
+                            {t.status === "in_progress" && (
+                              <span className="inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">En cours</span>
+                            )}
+                            {t.status === "resolved" && (
+                              <span className="inline-block rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">Résolu</span>
+                            )}
+                          </td>
+                          <td className="px-4 py-3">
+                            <button
+                              type="button"
+                              onClick={() => setExpandedTicket(expandedTicket === t.id ? null : t.id)}
+                              className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                            >
+                              {expandedTicket === t.id ? "Fermer ▲" : "Gérer ▼"}
+                            </button>
+                          </td>
+                        </tr>
+                        {expandedTicket === t.id && (
+                          <tr key={`${t.id}-expanded`}>
+                            <td colSpan={7} className="bg-slate-50 px-4 py-4">
+                              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+                                {/* 1. Reset mot de passe */}
+                                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Réinitialiser le mot de passe</p>
+                                  <p className="text-xs text-slate-500 mb-3">Envoie un email de reset à <strong>{t.user_email}</strong></p>
+                                  <button
+                                    type="button"
+                                    disabled={ticketLoading[t.id]}
+                                    onClick={() => ticketAction(t.id, "reset_password", { email: t.user_email })}
+                                    className="w-full rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-slate-700 disabled:opacity-50"
+                                  >
+                                    {ticketLoading[t.id] ? "Envoi..." : "Envoyer le lien de reset"}
+                                  </button>
+                                </div>
+
+                                {/* 2. Répondre par email */}
+                                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Répondre par email</p>
+                                  <textarea
+                                    rows={3}
+                                    placeholder="Votre réponse..."
+                                    value={ticketReplies[t.id] ?? ""}
+                                    onChange={(e) => setTicketReplies((prev) => ({ ...prev, [t.id]: e.target.value }))}
+                                    className="w-full rounded-lg border border-slate-200 px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-slate-400 resize-none"
+                                  />
+                                  <button
+                                    type="button"
+                                    disabled={ticketLoading[t.id] || !(ticketReplies[t.id]?.trim())}
+                                    onClick={() => ticketAction(t.id, "reply", {
+                                      email: t.user_email,
+                                      message: ticketReplies[t.id] ?? "",
+                                      issueLabel: ISSUE_LABELS[t.issue_type] ?? t.issue_type,
+                                    })}
+                                    className="mt-2 w-full rounded-lg bg-blue-700 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-800 disabled:opacity-50"
+                                  >
+                                    {ticketLoading[t.id] ? "Envoi..." : "Envoyer la réponse"}
+                                  </button>
+                                </div>
+
+                                {/* 3. Note interne */}
+                                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Note interne</p>
+                                  <textarea
+                                    rows={3}
+                                    placeholder={t.admin_note ?? "Note visible uniquement par les admins..."}
+                                    value={ticketNotes[t.id] ?? t.admin_note ?? ""}
+                                    onChange={(e) => setTicketNotes((prev) => ({ ...prev, [t.id]: e.target.value }))}
+                                    className="w-full rounded-lg border border-slate-200 px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-slate-400 resize-none"
+                                  />
+                                  <button
+                                    type="button"
+                                    disabled={ticketLoading[t.id]}
+                                    onClick={() => ticketAction(t.id, "note", { note: ticketNotes[t.id] ?? "" })}
+                                    className="mt-2 w-full rounded-lg bg-amber-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-amber-700 disabled:opacity-50"
+                                  >
+                                    {ticketLoading[t.id] ? "Sauvegarde..." : "Sauvegarder la note"}
+                                  </button>
+                                </div>
+
+                                {/* 4. Changer le statut */}
+                                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-3">Changer le statut</p>
+                                  <div className="flex flex-col gap-2">
+                                    {[
+                                      { value: "open", label: "Ouvert", color: "bg-red-100 text-red-700 hover:bg-red-200" },
+                                      { value: "in_progress", label: "En cours", color: "bg-amber-100 text-amber-700 hover:bg-amber-200" },
+                                      { value: "resolved", label: "Résolu ✓", color: "bg-emerald-100 text-emerald-700 hover:bg-emerald-200" },
+                                    ].map((s) => (
+                                      <button
+                                        key={s.value}
+                                        type="button"
+                                        disabled={ticketLoading[t.id] || t.status === s.value}
+                                        onClick={() => ticketAction(t.id, "status", { status: s.value })}
+                                        className={`w-full rounded-lg px-3 py-2 text-xs font-semibold transition disabled:opacity-40 ${s.color} ${t.status === s.value ? "ring-2 ring-offset-1 ring-slate-400" : ""}`}
+                                      >
+                                        {s.label}
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </>
                     ))}
                   {(data?.tickets ?? []).length === 0 && (
                     <tr>
