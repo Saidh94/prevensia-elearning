@@ -213,7 +213,7 @@ export async function POST(request: Request) {
         invoice_data: {
           description: `Formation : ${paymentOption.label}`,
           footer:
-            "PREVENSIA FORMATION — Groupe PREVENSIA SAS — 38, rue des Mathurins, 75008 Paris — Organisme certifié Qualiopi — contact@prevensia-formation.fr",
+            "PREVENSIA FORMATION — Groupe PREVENSIA SAS — 33, avenue Philippe Auguste, 75011 Paris — Organisme certifié Qualiopi — contact@prevensia-formation.fr",
           metadata: {
             enrollmentId: enrollment.id,
             formationSlug: formation?.slug ?? "",

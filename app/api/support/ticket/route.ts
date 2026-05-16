@@ -78,7 +78,7 @@ export async function POST(request: Request) {
           <p>Notre équipe vous répondra dans les meilleurs délais (généralement sous 24h ouvrées).</p>
           <p>Si votre problème est urgent, vous pouvez nous appeler au <strong>01 89 62 94 92</strong>.</p>
           <br/>
-          <p>Cordialement,<br/>L'équipe PREVENSIA FORMATION<br/>38, rue des Mathurins — 75008 Paris</p>
+          <p>Cordialement,<br/>L'équipe PREVENSIA FORMATION<br/>33, avenue Philippe Auguste — 75011 Paris</p>
         `,
       });
     }

@@ -109,7 +109,7 @@ export default function LocationCoverageSection() {
                 Siège social — PREVENSIA Groupe SAS
               </p>
               <p className="mt-1 text-sm font-medium text-slate-800">
-                38, rue des Mathurins<br />75008 Paris
+                33, avenue Philippe Auguste<br />75011 Paris
               </p>
               <p className="mt-2 text-sm text-slate-500">
                 Déplacements sur toute la France selon les projets.

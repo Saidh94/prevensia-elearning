@@ -108,9 +108,9 @@ const organizationJsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "38, rue des Mathurins",
+    streetAddress: "33, avenue Philippe Auguste",
     addressLocality: "Paris",
-    postalCode: "75008",
+    postalCode: "75011",
     addressRegion: "Île-de-France",
     addressCountry: "FR",
   },
