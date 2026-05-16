@@ -894,7 +894,7 @@ export default function SupportPage() {
           <button
             key={t.key}
             type="button"
-            onClick={() => { setTab(t.key); setSearch(""); }}
+            onClick={() => { setTab(t.key === tab && t.key === "outils" ? "apprenants" : t.key); setSearch(""); }}
             className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
               tab === t.key
                 ? "bg-slate-900 text-white"
@@ -1241,7 +1241,16 @@ export default function SupportPage() {
 
       {/* ── Onglet Outils ── */}
       {tab === "outils" && (
-        <OutilsTab data={data} showMsg={showMsg} />
+        <div>
+          <button
+            type="button"
+            onClick={() => setTab("apprenants")}
+            className="mb-4 flex items-center gap-1 text-sm text-slate-500 hover:text-slate-900 transition"
+          >
+            ← Retour au tableau de bord
+          </button>
+          <OutilsTab data={data} showMsg={showMsg} />
+        </div>
       )}
 
       {/* ── Onglet Tickets Support ── */}

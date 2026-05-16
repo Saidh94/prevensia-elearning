@@ -82,6 +82,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/formation-ssiap1" className="hover:text-white">
+                  SSIAP1
+                </Link>
+              </li>
+              <li>
                 <Link href="/formation-ssi" className="hover:text-white">
                   Exploitation SSI
                 </Link>
@@ -89,6 +94,11 @@ export function Footer() {
               <li>
                 <Link href="/formation-sprinkler" className="hover:text-white">
                   Exploitation sprinkler
+                </Link>
+              </li>
+              <li>
+                <Link href="/formation-atex" className="hover:text-white">
+                  ATEX — Atmosphères explosives
                 </Link>
               </li>
             </ul>
