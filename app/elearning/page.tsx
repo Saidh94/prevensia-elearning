@@ -19,78 +19,78 @@ const formations = [
     slug: "h0b0",
     category: "Habilitation électrique",
     title: "Habilitation électrique H0B0 / H0V",
-    duration: "Duree e-learning : 3 h a 4 h",
+    duration: "Durée e-learning : 3 h à 4 h",
     mode: "E-learning + entretien 30 min",
     price: "150 EUR HT",
-    level: "Debutant",
+    level: "Débutant",
     audience:
-      "Personnel non électricien amene a evoluer dans un environnement presentant un risque électrique.",
+      "Personnel non électricien amené à évoluer dans un environnement présentant un risque électrique.",
     description:
-      "Parcours de sensibilisation au risque électrique destine aux personnels non électriciens. Le module pose les bases de la prévention, des comportements adaptés et de la conduite a tenir.",
+      "Parcours de sensibilisation au risque électrique destiné aux personnels non électriciens. Le module pose les bases de la prévention, des comportements adaptés et de la conduite à tenir.",
     objectifs: [
-      "Identifier les risques lies a l'électricité dans son environnement de travail",
+      "Identifier les risques liés à l'électricité dans son environnement de travail",
       "Comprendre les prescriptions de sécurité applicables aux opérations d'ordre non électrique",
-      "Adopter les bons comportements pour prevenir l'accident d'origine électrique",
+      "Adopter les bons comportements pour prévenir l'accident d'origine électrique",
     ],
     programme: [
       "Notions élémentaires sur le risque électrique",
       "Effets du courant électrique sur le corps humain",
-      "Environnement de travail et zones a risque",
-      "Limites des opérations autorisees en H0B0 / H0V",
-      "Conduite a tenir en cas d'incident ou d'accident",
+      "Environnement de travail et zones à risque",
+      "Limites des opérations autorisées en H0B0 / H0V",
+      "Conduite à tenir en cas d'incident ou d'accident",
     ],
     note:
-      "Module théorique de sensibilisation complète par un entretien de validation de 30 minutes.",
+      "Module théorique de sensibilisation complété par un entretien de validation de 30 minutes.",
   },
   {
     slug: "bs-be-manœuvre",
     category: "Habilitation électrique",
     title: "Habilitation électrique BS et BE Manœuvre",
     duration: "E-learning : 5 h à 7 h + séquence encadrée : 45 min à 4 h",
-    mode: "E-learning + classes virtuelle / visio",
+    mode: "E-learning + classe virtuelle / visio",
     price: "320 EUR HT",
-    level: "Intermediaire",
+    level: "Intermédiaire",
     audience:
-      "Personnel realisant des interventions élémentaires ou des manœuvres d'exploitation dans le respect des prescriptions de sécurité.",
+      "Personnel réalisant des interventions élémentaires ou des manœuvres d'exploitation dans le respect des prescriptions de sécurité.",
     description:
-      "Parcours preparatoire aux interventions élémentaires et manœuvres simples, avec un accent sur les limites d'intervention, la préparation et la sécurité opérationnelle.",
+      "Parcours préparatoire aux interventions élémentaires et manœuvres simples, avec un accent sur les limites d'intervention, la préparation et la sécurité opérationnelle.",
     objectifs: [
-      "Comprendre les limites d'intervention liees aux symboles BS et BE Manœuvre",
+      "Comprendre les limites d'intervention liées aux symboles BS et BE Manœuvre",
       "Appliquer les prescriptions de sécurité avant, pendant et après l'opération",
-      "Identifier les situations necessitant l'arrêt de l'intervention ou l'appel a un personnel habilite adapté",
+      "Identifier les situations nécessitant l'arrêt de l'intervention ou l'appel à un personnel habilité adapté",
     ],
     programme: [
       "Rappels sur le risque électrique et les mesures de prévention",
       "Rôle et limites d'un exécutant BS",
-      "Rôle et limites d'un habilite BE Manœuvre",
+      "Rôle et limites d'un habilité BE Manœuvre",
       "Mise en sécurité, vérifications visuelles et environnement de travail",
-      "Conduite a tenir en cas d'anomalie, d'incident ou d'accident",
+      "Conduite à tenir en cas d'anomalie, d'incident ou d'accident",
     ],
     note:
-      "Initial en classes virtuelle ou session entreprise, puis recyclage possible en visio accompagnée selon le besoin.",
+      "Initial en classe virtuelle ou session entreprise, puis recyclage possible en visio accompagnée selon le besoin.",
   },
   {
     slug: "b1-b1v",
     category: "Habilitation électrique",
     title: "Habilitation électrique B1 / B1V",
-    duration: "E-learning : 5 h 30 a 7 h + pratique",
+    duration: "E-learning : 5 h 30 à 7 h + pratique",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation présentielle",
-    level: "Avance",
+    level: "Avancé",
     audience:
-      "Électriciens exécutants amenes a réaliser des travaux électriques en basse tension sous direction.",
+      "Électriciens exécutants amenés à réaliser des travaux électriques en basse tension sous direction.",
     description:
-      "Parcours théorique ciblé sur le rôle d'exécutant B1 / B1V, le voisinage, la lecture du cadré de travail et la discipline d'exécution en sécurité.",
+      "Parcours théorique ciblé sur le rôle d'exécutant B1 / B1V, le voisinage, la lecture du cadre de travail et la discipline d'exécution en sécurité.",
     objectifs: [
       "Comprendre le rôle d'exécutant B1 / B1V",
-      "Respecter le cadré de travail fixe par le chargé de travaux",
-      "Identifier le voisinage et stopper en cas d'ecart",
+      "Respecter le cadre de travail fixé par le chargé de travaux",
+      "Identifier le voisinage et stopper en cas d'écart",
     ],
     programme: [
       "Cadre B1 / B1V et rôle de l'exécutant",
-      "Voisinage, pieces nues sous tension et limites d'action",
+      "Voisinage, pièces nues sous tension et limites d'action",
       "Préparation d'un travail électrique",
-      "Execution sous direction et conduite a tenir en cas d'anomalie",
+      "Exécution sous direction et conduite à tenir en cas d'anomalie",
     ],
     note:
       "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
@@ -99,12 +99,12 @@ const formations = [
     slug: "b2-b2v",
     category: "Habilitation électrique",
     title: "Habilitation électrique B2 / B2V",
-    duration: "E-learning : 6 h a 7 h 30 + pratique",
+    duration: "E-learning : 6 h à 7 h 30 + pratique",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation présentielle",
-    level: "Avance",
+    level: "Avancé",
     audience:
-      "Charges de travaux, chefs d'équipe et responsables amenes a préparer et diriger des travaux électriques en basse tension.",
+      "Chargés de travaux, chefs d'équipe et responsables amenés à préparer et diriger des travaux électriques en basse tension.",
     description:
       "Parcours théorique ciblé sur le rôle B2 / B2V, l'organisation du chantier électrique, la coordination et la maîtrise du voisinage.",
     objectifs: [
@@ -116,7 +116,7 @@ const formations = [
       "Cadre B2 / B2V et chaîne de responsabilité",
       "Préparation des travaux et coordination",
       "Direction du chantier et maîtrise du voisinage",
-      "Ecarts, urgences et compte rendu de fin d'opération",
+      "Écarts, urgences et compte rendu de fin d'opération",
     ],
     note:
       "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
@@ -125,24 +125,24 @@ const formations = [
     slug: "br",
     category: "Habilitation électrique",
     title: "Habilitation électrique BR",
-    duration: "E-learning : 6 h a 7 h 30 + pratique",
+    duration: "E-learning : 6 h à 7 h 30 + pratique",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation présentielle",
-    level: "Avance",
+    level: "Avancé",
     audience:
-      "Techniciens de maintenance et personnels amenes a conduire des interventions générales en basse tension.",
+      "Techniciens de maintenance et personnels amenés à conduire des interventions générales en basse tension.",
     description:
       "Parcours théorique ciblé sur le dépannage, le remplacement, les essais limites et les conditions strictes de l'intervention générale BR.",
     objectifs: [
       "Comprendre le cadre BR et ses limites",
       "Préparer une intervention générale en sécurité",
-      "Refuser toute dérive vers des travaux structurés ou hors cadré",
+      "Refuser toute dérive vers des travaux structurés ou hors cadre",
     ],
     programme: [
       "Cadre BR et responsabilités de l'intervenant",
       "Préparation, mise en sécurité et vérification",
-      "Depannage, remplacement, mesurage et essais limites",
-      "Anomalies, urgences et retour d'experience",
+      "Dépannage, remplacement, mesurage et essais limites",
+      "Anomalies, urgences et retour d'expérience",
     ],
     note:
       "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
@@ -151,24 +151,24 @@ const formations = [
     slug: "bc",
     category: "Habilitation électrique",
     title: "Habilitation électrique BC",
-    duration: "E-learning : 5 h 30 a 7 h + pratique",
+    duration: "E-learning : 5 h 30 à 7 h + pratique",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation présentielle",
-    level: "Avance",
+    level: "Avancé",
     audience:
-      "Responsables techniques et personnels amenes a assurer la consignation et la déconsignation en basse tension.",
+      "Responsables techniques et personnels amenés à assurer la consignation et la déconsignation en basse tension.",
     description:
       "Parcours théorique ciblé sur la chaîne de consignation, la vérification d'absence de tension, la traçabilité et la remise à disposition de l'installation.",
     objectifs: [
       "Comprendre le rôle de chargé de consignation",
-      "Maitriser la chaîne de consignation et la VAT",
+      "Maîtriser la chaîne de consignation et la VAT",
       "Fiabiliser la documentation et les interfaces avec les travaux",
     ],
     programme: [
       "Cadre BC et rôle de chargé de consignation",
-      "Identification, separation, condamnation et VAT",
+      "Identification, séparation, condamnation et VAT",
       "Documents, autorisations et coordination",
-      "Ecarts, doute et retour a la normale",
+      "Écarts, doute et retour à la normale",
     ],
     note:
       "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
@@ -177,24 +177,24 @@ const formations = [
     slug: "be-verification-mesurage",
     category: "Habilitation électrique",
     title: "Habilitation électrique BE Vérification / BE Mesurage",
-    duration: "E-learning : 5 h 30 a 7 h + pratique",
+    duration: "E-learning : 5 h 30 à 7 h + pratique",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation présentielle",
-    level: "Avance",
+    level: "Avancé",
     audience:
-      "Techniciens amenes a réaliser des vérifications, mesurages et contrôles en basse tension.",
+      "Techniciens amenés à réaliser des vérifications, mesurages et contrôles en basse tension.",
     description:
-      "Parcours théorique ciblé sur la vérification, le mesurage, la lecture du cadré d'action, les instruments et les limites d'intervention.",
+      "Parcours théorique ciblé sur la vérification, le mesurage, la lecture du cadre d'action, les instruments et les limites d'intervention.",
     objectifs: [
       "Comprendre le cadre BE Vérification / BE Mesurage",
       "Préparer un contrôle en sécurité",
-      "Utiliser la bonne methode et refuser toute derive hors cadré",
+      "Utiliser la bonne méthode et refuser toute dérive hors cadre",
     ],
     programme: [
-      "Cadre BE et rôle du verificateur ou mesureur",
+      "Cadre BE et rôle du vérificateur ou mesureur",
       "Voisinage, mise en sécurité et préparation",
       "Mesurages, essais et contrôle documentaire",
-      "Anomalies, resultat incoherent et compte rendu",
+      "Anomalies, résultat incohérent et compte rendu",
     ],
     note:
       "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
@@ -203,25 +203,25 @@ const formations = [
     slug: "bt-multi-symboles",
     category: "Habilitation électrique",
     title: "Parcours BT multi-symboles B1 / B1V / B2 / B2V / BR / BC / BE",
-    duration: "E-learning : 7 h a 10 h + présentiel : 1 jour",
+    duration: "E-learning : 7 h à 10 h + présentiel : 1 jour",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation présentielle",
-    level: "Avance",
+    level: "Avancé",
     audience:
-      "Personnel électricien amene a couvrir plusieurs rôles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
+      "Personnel électricien amené à couvrir plusieurs rôles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
     description:
       "Parcours théorique transversal structuré autour des rôles, responsabilités, séquences de sécurité, consignation et organisation des opérations d'ordre électrique en basse tension.",
     objectifs: [
-      "Maitriser les prescriptions de sécurité applicables aux opérations d'ordre électrique",
+      "Maîtriser les prescriptions de sécurité applicables aux opérations d'ordre électrique",
       "Comprendre les rôles, responsabilités et limites des différents symboles d'habilitation",
       "Donner un socle commun avant requalification pratique par rôle",
     ],
     programme: [
       "Cadre réglementaire et principes de prévention du risque électrique",
       "Domaines de tension, zones, voisinage et conditions d'intervention",
-      "Roles B1, B2, BR, BC et actes de vérification / mesurage",
+      "Rôles B1, B2, BR, BC et actes de vérification / mesurage",
       "Consignation, intervention, remplacement, raccordement et organisation du travail",
-      "Analyse des risques, conduite a tenir et cas pratiques",
+      "Analyse des risques, conduite à tenir et cas pratiques",
     ],
     note:
       "Socle théorique premium inclus dans l'offre présentielle multi-symboles. Non vendu comme formation e-learning autonome.",
@@ -230,18 +230,18 @@ const formations = [
     slug: "incendie",
     category: "Prévention incendie",
     title: "Sécurité incendie, alerte et évacuation",
-    duration: "Duree indicative : 4 a 7 heures",
+    duration: "Durée indicative : 4 à 7 heures",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation encadrée",
-    level: "Debutant a intermediaire",
+    level: "Débutant à intermédiaire",
     audience:
-      "Tout personnel amene a evoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
+      "Tout personnel amené à évoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
     description:
-      "Module de sensibilisation a la prévention incendie, a l'alerte, a l'alarme, aux premiers réflexes et a l'évacuation, avec reperes sur le Code du travail, les ERP, les IGH et les ICPE.",
+      "Module de sensibilisation à la prévention incendie, à l'alerte, à l'alarme, aux premiers réflexes et à l'évacuation, avec repères sur le Code du travail, les ERP, les IGH et les ICPE.",
     objectifs: [
-      "Reconnaitre les causes de départ de feu et les facteurs aggravants",
-      "Reagir correctement en cas d'alerte ou d'alarme",
-      "Connaitre les principes d'évacuation et les comportements de prévention",
+      "Reconnaître les causes de départ de feu et les facteurs aggravants",
+      "Réagir correctement en cas d'alerte ou d'alarme",
+      "Connaître les principes d'évacuation et les comportements de prévention",
     ],
     programme: [
       "Naissance du feu et facteurs de propagation",
@@ -257,24 +257,24 @@ const formations = [
     slug: "ssi-exploitation",
     category: "SSI",
     title: "Exploitation des SSI - fondamentaux",
-    duration: "Duree indicative : 5 a 8 heures",
+    duration: "Durée indicative : 5 à 8 heures",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation encadrée",
-    level: "Intermediaire",
+    level: "Intermédiaire",
     audience:
-      "Exploitants, responsables de site, personnel technique ou utilisateurs amenes a interagir avec un système de sécurité incendie.",
+      "Exploitants, responsables de site, personnel technique ou utilisateurs amenés à interagir avec un système de sécurité incendie.",
     description:
-      "Module d'initiation au fonctionnement des SSI, a l'exploitation des informations incendie et aux principaux referentiels francais de la famille NF S 61.",
+      "Module d'initiation au fonctionnement des SSI, à l'exploitation des informations incendie et aux principaux référentiels français de la famille NF S 61.",
     objectifs: [
       "Comprendre le rôle d'un SSI et ses fonctions principales",
       "Distinguer SDI, SMSI et logique de mise en sécurité",
-      "Adopter les bons réflexes face a une alarme, un derangement ou un defaut",
+      "Adopter les bons réflexes face à une alarme, un dérangement ou un défaut",
     ],
     programme: [
       "Rôle et logique fonctionnelle d'un SSI",
       "Distinction SDI / SMSI / alarme / mise en sécurité",
-      "Referentiels utiles : NF S 61-931, NF S 61-932, NF S 61-970",
-      "Reflexes d'exploitation et limites utilisateur",
+      "Référentiels utiles : NF S 61-931, NF S 61-932, NF S 61-970",
+      "Réflexes d'exploitation et limites utilisateur",
       "Cas pratiques d'anomalies d'exploitation",
     ],
     note:
@@ -284,29 +284,29 @@ const formations = [
     slug: "sprinkler",
     category: "Protection incendie",
     title: "Exploitation sprinkler - fondamentaux techniques",
-    duration: "Duree indicative : 5 a 8 heures",
+    duration: "Durée indicative : 5 à 8 heures",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation encadrée",
-    level: "Intermediaire",
+    level: "Intermédiaire",
     audience:
       "Personnel d'exploitation, maintenance, encadrement technique ou responsables de site.",
     description:
-      "Module d'exploitation d'une installation sprinkler, de ses organes critiques, de ses anomalies et des referentiels techniques qui encadrent son maintien en etat.",
+      "Module d'exploitation d'une installation sprinkler, de ses organes critiques, de ses anomalies et des référentiels techniques qui encadrent son maintien en état.",
     objectifs: [
       "Comprendre le rôle d'une installation sprinkler",
-      "Reconnaitre ses composants principaux et etats anormaux",
-      "Identifier les bons réflexes d'exploitation, d'essais et de remontee des anomalies",
+      "Reconnaître ses composants principaux et états anormaux",
+      "Identifier les bons réflexes d'exploitation, d'essais et de remontée des anomalies",
     ],
     programme: [
       "Principe de fonctionnement d'une installation sprinkler",
       "Composants principaux et logique d'exploitation",
-      "Anomalies, derives et etats non conformes",
-      "Referentiels : APSAD R1, EN 12845, NFPA 13, FM",
-      "Focus entrepots, stockage et ICPE 1510",
-      "Essais, surveillance et gestion des indisponibilites",
+      "Anomalies, dérives et états non conformes",
+      "Référentiels : APSAD R1, EN 12845, NFPA 13, FM",
+      "Focus entrepôts, stockage et ICPE 1510",
+      "Essais, surveillance et gestion des indisponibilités",
     ],
     note:
-      "Support e-learning inclus avec la formation sprinkler encadrée. Il ne remplace pas une etude sprinkler ni un audit de conformite.",
+      "Support e-learning inclus avec la formation sprinkler encadrée. Il ne remplace pas une étude sprinkler ni un audit de conformité.",
   },
   {
     slug: "extinction-automatique-gaz",
@@ -482,36 +482,36 @@ const formations = [
     slug: "sst",
     category: "Secours au travail",
     title: "SST - Sauveteur Secouriste du Travail",
-    duration: "Duree indicative : 7 a 14 heures selon parcours",
+    duration: "Durée indicative : 7 à 14 heures selon parcours",
     mode: "Support e-learning inclus + présentiel",
     price: "Inclus avec la formation encadrée",
-    level: "Debutant a intermediaire",
+    level: "Débutant à intermédiaire",
     audience:
-      "Salariés amenes a participer a la prévention des risques et a la prise en charge initiale d'une victime.",
+      "Salariés amenés à participer à la prévention des risques et à la prise en charge initiale d'une victime.",
     description:
-      "Parcours théorique d'introduction aux principes SST : proteger, examiner, alerter, secourir et participer a la prévention dans l'entreprise.",
+      "Parcours théorique d'introduction aux principes SST : protéger, examiner, alerter, secourir et participer à la prévention dans l'entreprise.",
     objectifs: [
-      "Reperer une situation dangereuse et eviter le suraccident",
-      "Adopter la logique proteger, examiner, alerter, secourir",
-      "Comprendre le cadré général d'intervention du SST",
+      "Repérer une situation dangereuse et éviter le suraccident",
+      "Adopter la logique protéger, examiner, alerter, secourir",
+      "Comprendre le cadre général d'intervention du SST",
     ],
     programme: [
-      "Proteger",
+      "Protéger",
       "Examiner",
       "Alerter ou faire alerter",
       "Secourir",
       "Prévention et rôle du salarié dans l'entreprise",
     ],
     note:
-      "Support e-learning inclus avec la formation SST encadrée. La pratique reste indispensable pour maîtriser les gestes et valider reellement la compétence SST.",
+      "Support e-learning inclus avec la formation SST encadrée. La pratique reste indispensable pour maîtriser les gestes et valider réellement la compétence SST.",
   },
 ];
 
 const pointsForts = [
   "Offres structurées selon le niveau d'habilitation visé",
   "Contenus structurés autour des risques réels en entreprise",
-  "Approche progressive selon les niveaux, metiers et contraintes terrain",
-  "Modules pédagogiques avec chapitres, syntheses et quiz serieux",
+  "Approche progressive selon les niveaux, métiers et contraintes terrain",
+  "Modules pédagogiques avec chapitres, synthèses et quiz sérieux",
   "Validation finale encadrée : entretien, visio ou présentiel",
 ];
 
@@ -659,7 +659,7 @@ export default function ElearningPage() {
               H0B0 / H0V et BS / BE Manœuvre sont les parcours pouvant être
               achetes en format e-learning encadré avec entretien, visio ou classes
               virtuelle. Les autres modules sont des supports premium inclus avec
-              les formations présentielle ou classes virtuelle, accessibles aux
+              la formation présentielle ou classe virtuelle, accessibles aux
               apprenants inscrits pour préparer, réviser et consolider les acquis.
             </p>
 
@@ -668,7 +668,7 @@ export default function ElearningPage() {
                 href="/inscription"
                 className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg transition hover:-translate-y-0.5"
               >
-                Creer un compte
+                Créer un compte
               </Link>
 
               <Link
@@ -697,17 +697,17 @@ export default function ElearningPage() {
             </h2>
 
             <p className="mt-4 leading-7 text-slate-600">
-              L&apos;espace e-learning n&apos;a pas vocation a remplacer les séquences
-              encadrées. Il sert a préparer les apprenants, harmoniser les bases,
-              renforcer les quiz et conserver un accès de revision aux contenus
+              L&apos;espace e-learning n&apos;a pas vocation à remplacer les séquences
+              encadrées. Il sert à préparer les apprenants, harmoniser les bases,
+              renforcer les quiz et conserver un accès de révision aux contenus
               techniques.
             </p>
 
             <p className="mt-4 leading-7 text-slate-600">
               Pour les parcours B1, B2, BR, BC, BE, incendie, SSI, sprinkler et
-              SST, l&apos;accès aux cours est donc un complement inclus dans l&apos;offre
-              formation. Le client comprend qu&apos;il achete une formation encadrée,
-              enrichie par un support digital consultable en amont et en revision.
+              SST, l&apos;accès aux cours est donc un complément inclus dans l&apos;offre
+              formation. Le client comprend qu&apos;il achète une formation encadrée,
+              enrichie par un support digital consultable en amont et en révision.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -792,7 +792,7 @@ export default function ElearningPage() {
 
                   <p className="mt-4 text-sm leading-7 text-slate-600">
                     <span className="font-semibold text-slate-900">
-                      Public concerne :
+                      Public concerné :
                     </span>{" "}
                     {formation.audience}
                   </p>
@@ -993,13 +993,13 @@ export default function ElearningPage() {
               </p>
 
               <h2 className="mt-3 text-3xl font-bold">
-                Vous souhaitez deployer ces modules dans votre entreprise ?
+                Vous souhaitez déployer ces modules dans votre entreprise ?
               </h2>
 
               <p className="mt-4 leading-7 text-slate-300">
                 PREVENSIA FORMATION peut vous accompagner pour structurer un
-                parcours adapte a vos salaries, a vos operations, a vos risques
-                et a votre environnement reglementaire ou technique.
+                parcours adapté à vos salariés, à vos opérations, à vos risques
+                et à votre environnement réglementaire ou technique.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -1014,7 +1014,7 @@ export default function ElearningPage() {
                   href="/connexion"
                   className="rounded-2xl border border-white/20 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
                 >
-                  Acceder a mon espace
+                  Accéder à mon espace
                 </Link>
               </div>
             </div>
