@@ -21,7 +21,7 @@ export function Footer() {
             </Link>
             <p className="mt-4 text-sm leading-6">
               Organisme de formation certifié <span className="font-semibold text-white">Qualiopi</span>.
-              Habilitation électrique, sécurité incendie, SST, SSI et sprinkler.
+              Habilitation électrique, ATEX, sécurité incendie, SSIAP1, SST, SSI et sprinkler.
             </p>
             <p className="mt-3 text-sm">
               <a href="tel:+33189629492" className="hover:text-white">
