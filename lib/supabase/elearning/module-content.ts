@@ -1679,10 +1679,10 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Une protection sprinkler peut exister sur le papier et être gravement degradee dans la realite si les anomalies d'exploitation sont banalisees.",
         content: [
-          "Une vanne fermee, une pression anormale, une alarme non traitee, un local source encombre, une fuite ou une corrosion visible doivent être considerees avec serieux.",
+          "Une vanne fermée, une pression anormale, une alarme non traitée, un local source encombrée, une fuite ou une corrosion visible doivent être considérées avec sérieux.",
           "L'exploitation sprinkler demande de la rigueur, de la traçabilité et une remontee rapide des écarts.",
           "Un local technique inaccessible, un accès obstrue, un stockage trop proche des têtes, une tête peinte ou heurtée, une modification non déclarée du process ou un réseau détérioré peuvent réduire fortement l'efficacité reelle de l'installation.",
-          "Les anomalies doivent être consignees, traitees et suivies jusqu'au retour a la situation nominale.",
+          "Les anomalies doivent être consignées, traitées et suivies jusqu'au retour a la situation nominale.",
           "La NF EN 12845 distingue deux catégories d'alarmes selon leur nature. Les alarmes de type A signalent un débit d'eau dans le réseau ou la mise en marche d'une pompe : elles correspondent à un déclenchement réel ou suspecté et imposent une réponse incendie immédiate avec information des secours. Les alarmes de type B signalent un défaut technique : basse pression d'air dans un système à air, vanne partiellement fermée, défaut secteur, niveau de carburant bas sur groupe diesel. Elles n'indiquent pas un incendie mais une dégradation de la disponibilité du système, qui doit déclencher l'appel du technicien de maintenance. Confondre ces deux types est une erreur fréquente et potentiellement grave."
         ],
         forbiddenPoints: [
@@ -1702,7 +1702,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           items: [
             "Vanne non conforme",
             "Pression anormale",
-            "Alarme non traitee",
+            "Alarme non traitée",
             "Encombrement ou defaut visible"
           ],
           tone: "red",
@@ -1929,21 +1929,21 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Local protégé",
             "Detection et commande",
             "Temporisation et évacuation",
-            "Emission puis contrôle des accès"
+            "Émission puis contrôle des accès"
           ],
           tone: "blue",
         },
       },
       {
         id: "local-protégé",
-        title: "2. Local protégé, intégrité et securite des personnes",
+        title: "2. Local protégé, intégrité et sécurité des personnes",
         estimatedMinutes: 12,
         intro:
-          "Un systeme a gaz n'est efficace que si le local protégé reste conforme a l'état prevu et si la securite des personnes est traitee en priorite.",
+          "Un systeme a gaz n'est efficace que si le local protégé reste conforme a l'état prévu et si la sécurité des personnes est traitée en priorité.",
         content: [
           "L'intégrité du local protégé est un point critique: portes, passages de cables, clapets, fermetures et étanchéité influencent directement la tenue de la concentration de l'agent extincteur.",
           "L'intégrité se vérifie concrètement : le test de porte consiste à fermer le local et à vérifier qu'aucune fuite significative ne compromet le maintien de la concentration pendant la durée prévue (généralement 10 minutes minimum). Tout percement non bouché, gaine ouverte, joint de porte défectueux ou trappe mal fermée dégrade ce maintien. Une installation peut déclencher parfaitement et rester inefficace si le local fuit trop vite. C'est pourquoi toute modification du local — cloisonnement, passage de câble, remplacement d'une porte — doit être signalée et évaluée avant travaux.",
-          "La securite des personnes impose une chaine claire: alarme, temporisation, évacuation, interdiction d'accès pendant et après emission, puis contrôle strict du réaccès.",
+          "La sécurité des personnes impose une chaîne claire: alarme, temporisation, évacuation, interdiction d'accès pendant et après émission, puis contrôle strict du réaccès.",
           "Après declenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphere du local, des produits de decomposition eventuels et des consignes du site avant tout retour."
         ],
         keyPoints: [
@@ -1961,9 +1961,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           subtitle: "étanchéité, accès, évacuation et réaccès.",
           animationKey: "evacuation-schema" as const,
           items: [
-            "Fermetures et passages maitrises",
+            "Fermetures et passages maîtrisés",
             "Signalisation et alarme",
-            "évacuation avant emission",
+            "Évacuation avant émission",
             "contrôle du réaccès"
           ],
           tone: "red",
@@ -1974,7 +1974,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         title: "3. Detection, temporisation et commande du systeme",
         estimatedMinutes: 11,
         intro:
-          "L'exploitation doit permettre de comprendre d'ou vient l'information incendie et quelles actions le systeme peut commander avant l'emission.",
+          "L'exploitation doit permettre de comprendre d'où vient l'information incendie et quelles actions le systeme peut commander avant l'émission.",
         content: [
           "Un systeme d'extinction automatique a gaz comporte une logique de detection et de traitement qui peut inclure des confirmations, une temporisation, des alarmes sonores et lumineuses et des commandes techniques associees.",
           "L'exploitant doit savoir differencier une alarme reelle, un essai, un derangement et une mise hors service, puis suivre la procedure du site sans improviser de maintenance.",
@@ -1984,7 +1984,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         chapterImageAlt:
           "Déclencheur manuel d'alarme incendie rouge sur fond de local protégé par système d'extinction gaz",
         visual: {
-          title: "Avant l'emission",
+          title: "Avant l'émission",
           subtitle: "Lire l'information et securiser le contexte.",
           animationKey: "alerte-incendie" as const,
           items: [
@@ -2041,7 +2041,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Le retour a la normale ne se limite pas a reenclencher un systeme. Il implique de confirmer l'état du local, la remise en service effective, la levee des inhibitions et l'information des acteurs concernes."
         ],
         keyPoints: [
-          "Indisponibilite autorisee et tracee.",
+          "Indisponibilité autorisée et tracée.",
           "Mesures compensatoires appliquees.",
           "Retour a la normale vérifié et formalise."
         ],
@@ -2053,7 +2053,7 @@ export const modulesContent: Record<string, ModuleContent> = {
           subtitle: "Autoriser, tracer, compenser, remettre en service.",
           illustrationKey: "summary-reflexes" as const,
           items: [
-            "Inhibition ou maintenance autorisee",
+            "Inhibition ou maintenance autorisée",
             "Information des acteurs du site",
             "Mesures compensatoires pendant l'arret",
             "Retour a la normale formalise"

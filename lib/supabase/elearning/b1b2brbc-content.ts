@@ -27,13 +27,13 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "La NF C 18-510 ne présente pas les symboles B1, B1V, B2, B2V, BR et BC comme de simples étiquettes. Elle les rattache à des fonctions précises, à une chaîne de décision claire et à une habilitation employeur qui doit correspondre exactement aux opérations confiées.",
       content: [
         "Le B1 désigne l'exécutant électricien en basse tension. Le B1V désigne cet exécutant lorsqu'il agit dans un environnement de voisinage renforcant les exigences de sécurité. Le B2 désigne le chargé de travaux, c'est-a-dire la personne qui prépare, organisé et dirige effectivement les travaux électriques confies a son équipe. Le B2V désigne ce chargé de travaux lorsqu'il intervient en voisinage dans les conditions prévues par l'organisation et la norme.",
-        "Le BR désigne le chargé d'intervention en basse tension pour les interventions générales autorisées. Il se situe dans un cadre spécifique d'entretien, de dépannage, de mesure, d'essai limite ou de remise en etat. Le BC est le chargé de consignation: il effectue ou fait effectuer les opérations de séparation, condamnation, identification, vérification d'absence de tension et, lorsque cela est requis, mise à la terre et en court-circuit.",
+        "Le BR désigne le chargé d'intervention en basse tension pour les interventions générales autorisées. Il se situe dans un cadre spécifique d'entretien, de dépannage, de mesure, d'essai limité ou de remise en état. Le BC est le chargé de consignation: il effectue ou fait effectuer les opérations de séparation, condamnation, identification, vérification d'absence de tension et, lorsque cela est requis, mise à la terre et en court-circuit.",
         "La norme insiste sur la définition des personnes: employeur, chargé de travaux, chargé d'intervention, chargé de consignation, exécutant, surveillant de sécurité électrique. Cette architecture n'est pas théorique. Elle structure la prévention du risque électrique parce que chacun doit savoir ce qu'il decide, ce qu'il contrôle et ce qu'il exécuté.",
         "L'habilitation reste une reconnaissance employeur. Elle ne se déduit ni d'un diplôme, ni de l'anciennete, ni d'une habitude de site. Un salarié peut posséder plusieurs symboles si ses missions le justifient, mais chaque symbole garde ses limites propres. Cumuler des titres ne signifie jamais mélanger les rôles pendant une opération sans clarification.",
         "La partie e-learning prépare la théorie, mais la délivrance du titre d'habilitation releve d'une vérification employeur complete, appuyee sur une évaluation pratique et sur l'adéquation entre les tâches réelles et le symbole retenu.",
-        "Le Code du travail et la NF C 18-510 encadrent cette logique: l'opération d'ordre électrique doit être organisee, les personnes doivent être formees et habilitees lorsque cela est requis, et l'employeur doit définir les missions réelles, les consignes et les moyens adaptes. Le titre d'habilitation n'est donc jamais une simple formalite administrative.",
+        "Le Code du travail et la NF C 18-510 encadrent cette logique: l'opération d'ordre électrique doit être organisée, les personnes doivent être formées et habilitées lorsque cela est requis, et l'employeur doit définir les missions réelles, les consignes et les moyens adaptés. Le titre d'habilitation n'est donc jamais une simple formalité administrative.",
         "Pour un apprenant, il est essentiel de retenir que les symboles ne decrivent pas seulement un niveau technique. Ils decrivent surtout un périmètre d'action: qui prépare, qui dirige, qui exécuté, qui consigne, qui intervient et dans quelles limites précises.",
-        "Le professionnel fiable sait donc dire non a un glissement de mission. Un B1 ou un B1V n'agit pas comme un B2 ou un B2V. Un BR ne se transforme pas en BC parce qu'il faut aller vite. Et une opération non preparee doit être stoppee meme si le besoin de remise en service est fort.",
+        "Le professionnel fiable sait donc dire non a un glissement de mission. Un B1 ou un B1V n'agit pas comme un B2 ou un B2V. Un BR ne se transforme pas en BC parce qu'il faut aller vite. Et une opération non préparée doit être stoppée même si le besoin de remise en service est fort.",
       ],
       deepDive: [
         "L'introduction de la norme insiste sur l'unicité, la cohérence et la maîtrise de l'information. Dans la pratique, cela veut dire qu'une opération électrique ne doit jamais reposer sur des consignes floues, des transmissions orales contradictoires ou des suppositions de terrain.",
@@ -68,7 +68,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         },
       ],
       practicalCase:
-        "Exemple : un technicien assure habituellement du dépannage en BR. On lui demande soudain d'organiser un chantier avec plusieurs opérateurs et une mise hors tension preparee. La mission ne releve plus du meme cadre et doit être requalifiée avant toute action.",
+        "Exemple : un technicien assure habituellement du dépannage en BR. On lui demande soudain d'organiser un chantier avec plusieurs opérateurs et une mise hors tension préparée. La mission ne relève plus du même cadre et doit être requalifiée avant toute action.",
       scenarios: [
         {
           situation: "Vous êtes technicien, habilité BR. Votre responsable vous demande d'organiser un chantier de remplacement d'un tableau électrique avec deux autres opérateurs sous votre direction, sans avoir modifié votre habilitation.",
@@ -117,16 +117,16 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "2. Rôles, responsabilités et chaîne de décision",
       estimatedMinutes: 25,
       intro:
-        "Le risque électrique ne se maîtrise pas seulement par le geste technique. Il se maîtrise d'abord par une organisation claire, des documents fiables et une chaine de responsabilité que chacun comprend sans ambiguite.",
+        "Le risque électrique ne se maîtrise pas seulement par le geste technique. Il se maîtrise d'abord par une organisation claire, des documents fiables et une chaîne de responsabilité que chacun comprend sans ambiguïté.",
       content: [
-        "L'employeur définit les missions, les moyens, les procédures, les équipements de protection et les niveaux d'habilitation adaptes. Il doit s'assurer que le personnel dispose d'une formation adequate, d'une information maîtrisée et d'une organisation compatible avec le risque électrique reel du site.",
+        "L'employeur définit les missions, les moyens, les procédures, les équipements de protection et les niveaux d'habilitation adaptés. Il doit s'assurer que le personnel dispose d'une formation adéquate, d'une information maîtrisée et d'une organisation compatible avec le risque électrique réel du site.",
         "Le chargé de travaux B2 prépare l'intervention, délimite la zone, vérifié le cadre de sécurité, organisé le briefing, pilote l'équipe et suspend l'opération si les conditions prévues ne sont plus reunies. L'exécutant B1 applique les consignes, reste dans le périmètre défini et remonte immédiatement tout écart, doute ou evenement non prevu.",
-        "Le chargé d'intervention BR prépare et conduit l'intervention générale dans la limite de son cadre. Le chargé de consignation BC garantit la fiabilité de la mise en sécurité électrique. Selon les configurations, d'autres fonctions peuvent intervenir: charge d'exploitation, surveillant de sécurité électrique, représentant de l'entreprise exploitante ou donneur d'ordre. Le fil conducteur reste le meme: une personne sait, une personne autorise, une personne dirige, une personne exécuté.",
+        "Le chargé d'intervention BR prépare et conduit l'intervention générale dans la limite de son cadre. Le chargé de consignation BC garantit la fiabilité de la mise en sécurité électrique. Selon les configurations, d'autres fonctions peuvent intervenir: charge d'exploitation, surveillant de sécurité électrique, représentant de l'entreprise exploitante ou donneur d'ordre. Le fil conducteur reste le même: une personne sait, une personne autorise, une personne dirige, une personne exécuté.",
         "Cette chaine s'appuie sur des documents et des informations claires: instructions, analyses de risque, autorisations, attestations, certificats, reperages, procédures de suivi et de contrôle. La norme insiste sur ce point car une opération mal informee produit des erreurs d'identification, des glissements de mission et des illusions de sécurité.",
-        "Dans les parcours les plus serieux, cette partie ne se limite pas a des définitions. Elle montre comment s'articulent concrètement le titre d'habilitation, l'autorisation de travail, le balisage, la consignation, le briefing d'équipe, le compte rendu de fin d'intervention et la remise en service.",
+        "Dans les parcours les plus sérieux, cette partie ne se limite pas a des définitions. Elle montre comment s'articulent concrètement le titre d'habilitation, l'autorisation de travail, le balisage, la consignation, le briefing d'équipe, le compte rendu de fin d'intervention et la remise en service.",
         "L'apprenant doit aussi savoir qu'une information fiable est unique, cohérente et maîtrisée. Si le schéma, l'etiquetage, le dossier d'intervention ou l'instruction du jour se contredisent, la bonne réaction n'est pas d'interpreter au plus vite: c'est de suspendre et de faire clarifier.",
         "Une mission électrique sure se prépare avec une information exploitable: qui intervient, sur quel matériel, dans quelle zone, avec quelle autorisation, quelles protections, quels points d'arret et quelles conditions de reprise.",
-        "La requalification de l'opération fait partie de cette maturite. Si un dépannage simple revele finalement des travaux a organiser, ou si un chantier prépare se heurte a un voisinage non maîtrise, l'opération n'est pas poursuivie par habitude: elle est stoppee puis redefinie.",
+        "La requalification de l'opération fait partie de cette maturité. Si un dépannage simple révèle finalement des travaux a organiser, ou si un chantier préparé se heurte a un voisinage non maîtrisé, l'opération n'est pas poursuivie par habitude: elle est stoppée puis redéfinie.",
       ],
       deepDive: [
         "Beaucoup d'accidents trouvent leur origine dans une situation ou tout le monde croit que 'quelqu'un d'autre' a vérifié. Le rôle de chacun doit donc être explicite, assume et traçable.",
@@ -147,7 +147,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       legalRefs: [
         "NF C 18-510 - introduction : unicité, cohérence et maîtrise de l'information.",
         "NF C 18-510 - article 3 : définitions des charges et de l'exécutant.",
-        "Code du travail - adéquation entre competence, poste et risque électrique.",
+        "Code du travail - adéquation entre compétence, poste et risque électrique.",
       ],
       practicalCase:
         "Exemple : lors d'une intervention sur une machine, un conducteur supplémentaire non documente est decouvert. Le BR suspend l'action, informe l'organisation et la mission est requalifiée avant reprise.",
@@ -209,8 +209,8 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Les attributs et indices doivent être lus avec rigueur. Un B1 n'est pas un B2. Un BR n'est pas un BC. L'attribut V renvoie a une situation de voisinage qui renforce les exigences de sécurité mais ne transforme jamais un symbole en autre chose que ce qu'il est. Un B1V n'est pas un BR et un BRV n'est pas un chargé de consignation.",
         "La lecture correcte des symboles evite l'un des écarts les plus courants du terrain: penser qu'une habitude, un niveau technique ou une urgence de production permettent d'elargir ce que le titre autorise. La norme fait exactement l'inverse: elle borne les missions pour éviter les derives.",
         "Le voisinage doit être pense des la préparation. Il conditionne les ecrans, obstacles, capotages, delimitations de zone, protections collectives et parfois la nécessité de changer de méthode ou de suspendre l'opération. Un symbole avec voisinage n'est jamais un 'plus pratique'; c'est un cadre plus exigeant.",
-        "L'attribut V ne donne pas un droit supplémentaire de dépannage ou de travaux. Il signifie qu'une opération est réalisée dans des conditions de voisinage qui imposent une analyse plus rigoureuse, des protections renforcees et un encadrement adapte.",
-        "Le symbole BC ne doit pas être confondu avec un rôle général de chantier. Il vise la consignation. Le symbole BR ne doit pas être confondu avec une autorisation générale de modifier librement une installation. Il couvre des interventions générales définies, methodiques et limitees.",
+        "L'attribut V ne donne pas un droit supplémentaire de dépannage ou de travaux. Il signifie qu'une opération est réalisée dans des conditions de voisinage qui imposent une analyse plus rigoureuse, des protections renforcées et un encadrement adapté.",
+        "Le symbole BC ne doit pas être confondu avec un rôle général de chantier. Il vise la consignation. Le symbole BR ne doit pas être confondu avec une autorisation générale de modifier librement une installation. Il couvre des interventions générales définies, méthodiques et limitées.",
         "Une lecture professionnelle des symboles implique enfin de rapprocher le titre, la mission, le matériel, l'environnement et la procédure. Si l'un de ces éléments ne colle plus, le bon reflexe n'est pas d'interpreter au large. C'est de s'arrêter et de requalifier.",
       ],
       deepDive: [
@@ -292,14 +292,14 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Une PNST n'est pas seulement un danger a toucher. C'est un danger a approcher sans maîtrise. Une enveloppe retiree, un capot manquant ou un bornier accessible peuvent faire basculer l'opération vers un niveau de risque incompatible avec le cadre initial.",
         "Le rôle du chargé de travaux, de l'intervenant BR ou du chargé de consignation consiste aussi a reconnaitre ces situations et a imposer les protections supplémentaires ou l'arret avant toute poursuite.",
         "Cette lecture du voisinage est inséparable des zones d'environnement et des distances de sécurité de la norme. L'apprenant n'a pas besoin de mémoriser une géométrie abstraite sans contexte: il doit comprendre qu'un départ voisin sous tension, une pièce nue accessible ou un capot retire changent immédiatement le mode opératoire et parfois le symbole d'habilitation requis.",
-        "Le maintien des capotages, obstacles et ecrans est un point de prévention majeur. Une installation qui semblait compatible avec une opération preparee peut sortir du cadre des qu'un élément de protection est dégradé, déposé ou absent.",
+        "Le maintien des capotages, obstacles et écrans est un point de prévention majeur. Une installation qui semblait compatible avec une opération préparée peut sortir du cadre dès qu'un élément de protection est dégradé, déposé ou absent.",
         "Les chapitres les plus solides insistent aussi sur l'IP2X, le maintien des capotages, la lecture du voisinage et la capacité à requalifier l'opération si un départ voisin ou un bornier accessible change la scène de risque.",
         "La norme NF C 18-510 fixe des distances normatives que tout habilité B1, B2, BR ou BC doit connaître. En basse tension, la Distance Minimale d'Approche (DMA) est de 0,30 m autour d'une pièce nue sous tension en champ libre : c'est la limite à ne jamais franchir sans mise hors tension préalable. En zone de voisinage renforcé BT, cette même limite s'applique et tout franchissement impose des protections adaptées. En haute tension A (1 kV à 50 kV), la Distance Limite de Voisinage Simple (DLVS) est de 3 m et la Distance Limite de Voisinage Renforcé (DLVR) de 2 m : ces valeurs changent radicalement le mode opératoire et les habilitations requises.",
         "Les seuils de tension dangereuse selon l'environnement doivent être intégrés pour comprendre la gravité réelle du risque. En courant alternatif : 50 V en milieu sec, 25 V en milieu humide, 12 V en milieu mouillé. En courant continu : 120 V sec, 60 V humide, 30 V mouillé. Un circuit BT de 230 V est donc dangereux dans tous les environnements, et mortel dans les conditions humides ou mouillées les plus courantes sur chantier."
       ],
       deepDive: [
         "Le voisinage n'est pas une simple définition. Sur le terrain, il conditionne la décision de poursuivre, de renforcer les protections, de modifier le balisage ou d'arreter l'opération tant que la zone n'est pas maîtrisée.",
-        "Le professionnalisme consiste a faire evoluer l'organisation des protections avant que le danger ne se transforme en exposition reelle de l'équipe.",
+        "Le professionnalisme consiste a faire évoluer l'organisation des protections avant que le danger ne se transforme en exposition réelle de l'équipe.",
       ],
       keyPoints: [
         "BT ne veut pas dire risque faible.",
@@ -372,15 +372,15 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "La préparation d'une opération électrique est une phase critique. Elle conditionne la sécurité de l'exécution bien avant le premier geste technique.",
       content: [
         "La préparation comprend la lecture du besoin, l'identification du matériel, l'analyse de l'environnement, la vérification documentaire, la désignation des rôles et la vérification des moyens de prévention.",
-        "Le chargé de travaux doit clarifier la zone d'intervention, les risques de voisinage, les énergies présentées, les interfaces avec les autres corps d'etat et les conditions d'arret.",
+        "Le chargé de travaux doit clarifier la zone d'intervention, les risques de voisinage, les énergies présentées, les interfaces avec les autres corps d'état et les conditions d'arrêt.",
         "Une intervention ou un travail ne commence jamais sur une installation mal identifiée, dégradée, non accessible dans de bonnes conditions ou depourvue de cadre documentaire suffisant.",
-        "La préparation doit aussi vérifier la compatibilité entre le symbole d'habilitation detenu et l'opération reelle. Un chantier électrique, une intervention générale BR, une consignation BC ou un travail en voisinage n'impliquent ni les memes moyens, ni les memes documents, ni les memes responsabilités.",
-        "Le briefing de debut d'opération n'est pas une formalite. Il sert a rappeler le matériel concerne, la zone de travail, les énergies en présence, les limites de chacun, la conduite a tenir en cas d'écart et les conditions de remise en service.",
-        "Les parcours les plus serieux donnent une vraie place au briefing de debut d'opération, a la délimitation physique de la zone, a la vérification des outils et a la coordination avec l'exploitant. Sans cette discipline, meme un chantier techniquement simple peut devenir dangereux.",
+        "La préparation doit aussi vérifier la compatibilité entre le symbole d'habilitation détenu et l'opération réelle. Un chantier électrique, une intervention générale BR, une consignation BC ou un travail en voisinage n'impliquent ni les mêmes moyens, ni les mêmes documents, ni les mêmes responsabilités.",
+        "Le briefing de début d'opération n'est pas une formalité. Il sert a rappeler le matériel concerné, la zone de travail, les énergies en présence, les limites de chacun, la conduite a tenir en cas d'écart et les conditions de remise en service.",
+        "Les parcours les plus sérieux donnent une vraie place au briefing de début d'opération, a la délimitation physique de la zone, a la vérification des outils et a la coordination avec l'exploitant. Sans cette discipline, même un chantier techniquement simple peut devenir dangereux.",
       ],
       deepDive: [
-        "L'essentiel des erreurs graves vient souvent d'une préparation insuffisante : mauvais repère, ambiguite sur le circuit, procédure absente, moyens de protection non vérifiés, interface de chantier négligée.",
-        "Une bonne préparation permet aussi de raccourcir la duree d'exposition et d'éviter les improvisations qui apparaissent quand l'équipe decouvre les difficultees sur place.",
+        "L'essentiel des erreurs graves vient souvent d'une préparation insuffisante : mauvais repère, ambiguïté sur le circuit, procédure absente, moyens de protection non vérifiés, interface de chantier négligée.",
+        "Une bonne préparation permet aussi de raccourcir la durée d'exposition et d'éviter les improvisations qui apparaissent quand l'équipe découvre les difficultés sur place.",
       ],
       keyPoints: [
         "Identifier, préparer, délimiter, vérifier.",
@@ -447,15 +447,15 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "6. Consignation et vérification d'absence de tension",
       estimatedMinutes: 30,
       intro:
-        "La consignation est un processus de sécurité, pas une simple formalite. Elle doit être rigoureuse, vérifiable et comprise par tous les acteurs.",
+        "La consignation est un processus de sécurité, pas une simple formalité. Elle doit être rigoureuse, vérifiable et comprise par tous les acteurs.",
       content: [
         "La consignation repose sur une succession d'étapes : séparation, condamnation, identification, vérification d'absence de tension puis, si nécessaire selon le domaine et l'organisation, mise à la terre et en court-circuit.",
-        "Le chargé de consignation BC garantit la fiabilité du processus. Il doit s'assurer que le circuit concerne est bien celui qui est séparé, identifié et rendu indisponible a toute remise sous tension intempestive.",
-        "La vérification d'absence de tension n'est jamais presumee. Elle doit être faite avec un matériel adapte, selon une méthode connue et sur le bon point de l'installation.",
-        "Les ecueils classiques du BC sont concrets: plusieurs départs semblables dans une meme armoire, repérage incomplet, condamnation mal visible, essai de remise en service concurrent ou confiance excessive dans un simple voyant d'etat. C'est souvent la que l'illusion de sécurité s'installe.",
-        "La VAT n'est pas une formalite annexe. C'est le point de bascule entre une coupure supposée et un etat électrique vérifié. Le professionnel fiable sait expliquer sa méthode, son matériel et ses points de contrôle.",
+        "Le chargé de consignation BC garantit la fiabilité du processus. Il doit s'assurer que le circuit concerné est bien celui qui est séparé, identifié et rendu indisponible a toute remise sous tension intempestive.",
+        "La vérification d'absence de tension n'est jamais présumée. Elle doit être faite avec un matériel adapté, selon une méthode connue et sur le bon point de l'installation.",
+        "Les écueils classiques du BC sont concrets: plusieurs départs semblables dans une même armoire, repérage incomplet, condamnation mal visible, essai de remise en service concurrent ou confiance excessive dans un simple voyant d'état. C'est souvent là que l'illusion de sécurité s'installe.",
+        "La VAT n'est pas une formalité annexe. C'est le point de bascule entre une coupure supposée et un état électrique vérifié. Le professionnel fiable sait expliquer sa méthode, son matériel et ses points de contrôle.",
         "La méthode de vérification doit inclure le contrôle du bon fonctionnement du dispositif avant et après la VAT, l'identification certaine du point de mesure et la cohérence avec le dossier de consignation. Se fier a un voyant, a une habitude ou a une indication orale expose directement l'équipe.",
-        "L'apprenant doit aussi comprendre la difference entre la simple mise hors tension, la mise en sécurité électrique et la consignation complete. Ce vocabulaire n'est pas decoratif: il conditionne le niveau de fiabilité attendu avant le debut des travaux ou de l'intervention.",
+        "L'apprenant doit aussi comprendre la différence entre la simple mise hors tension, la mise en sécurité électrique et la consignation complète. Ce vocabulaire n'est pas décoratif: il conditionne le niveau de fiabilité attendu avant le début des travaux ou de l'intervention.",
         "La mise à la terre et en court-circuit (MALT/CCT) n'est pas systématiquement obligatoire en Basse Tension, mais elle devient impérative dans plusieurs situations : câbles de grande longueur présentant un risque de tension induite (à proximité d'ouvrages HT), risque de réalimentation accidentelle depuis une source de secours ou un groupe électrogène, ou encore lorsque la configuration de l'installation l'impose. En Haute Tension, la MALT/CCT est toujours obligatoire (NF C 18-510 §6.3.4). Ne pas effectuer la MALT/CCT quand elle est requise expose les travailleurs à un risque mortel de tension résiduelle ou de réalimentation inattendue.",
       ],
       deepDive: [
@@ -464,7 +464,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       keyPoints: [
         "Consigner = plusieurs étapes indissociables.",
-        "La VAT doit être reelle et méthodique.",
+        "La VAT doit être réelle et méthodique.",
         "Le BC structure la fiabilité du processus.",
         "MALT/CCT : obligatoire en HT, obligatoire en BT si câbles longs, risque de tension induite ou de réalimentation (NF C 18-510 §6.3.4).",
       ],
@@ -480,12 +480,12 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       resourceVideos: [
         {
-          title: "Chaine INRS France - selection risque électrique",
+          title: "Chaîne INRS France - sélection risque électrique",
           description:
-            "Selection officielle INRS sur YouTube pour completer le chapitre avec des rappels visuels sur le risque électrique, la consignation et la prévention.",
+            "Sélection officielle INRS sur YouTube pour compléter le chapitre avec des rappels visuels sur le risque électrique, la consignation et la prévention.",
           url: "https://www.youtube.com/@INRSFrance/search?query=Risque%20%C3%A9lectrique",
           provider: "INRS France",
-          ctaLabel: "Voir la selection YouTube",
+          ctaLabel: "Voir la sélection YouTube",
         },
       ],
       practicalCase:
@@ -546,7 +546,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "7. Travaux avec B1, B1V, B2 et B2V",
       estimatedMinutes: 25,
       intro:
-        "Les travaux électriques structures ne se conduisent pas comme une intervention ponctuelle. Ils supposent un cadre d'exécution, une équipe et un pilotage sécurité adaptes.",
+        "Les travaux électriques structurés ne se conduisent pas comme une intervention ponctuelle. Ils supposent un cadre d'exécution, une équipe et un pilotage sécurité adaptés.",
       content: [
         "Le B1 exécuté les opérations confiees dans le respect strict des consignes, des limites de la zone de travail et des protections en place.",
         "Le B2 organisé, dirige et surveille les travaux. Il veille a l'information de l'équipe, au respect des rôles, a la cohérence des gestes et au maintien des conditions de sécurité.",
@@ -556,7 +556,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Une équipe fiable ne cherche pas seulement à agir vite : elle agit juste. Le B2 prépare, brief, surveille et arbitre. Le B1 exécute, reformule si besoin et remonte immédiatement tout écart. Cette discipline collective est au cœur de la prévention.",
       ],
       deepDive: [
-        "Une équipe efficace n'est pas une équipe rapide, mais une équipe qui partage la meme lecture du risque et du périmètre de travail. Le brief de debut et la surveillance active ont une vraie valeur preventive.",
+        "Une équipe efficace n'est pas une équipe rapide, mais une équipe qui partage la même lecture du risque et du périmètre de travail. Le brief de début et la surveillance active ont une vraie valeur préventive.",
         "Le B2 doit garder une vision d'ensemble : zone, voisinage, autres entreprises, outillage, protections, autorisations et point d'arret. Le B1 doit conserver une discipline d'exécution sans s'ecarter du cadre fixe.",
       ],
       keyPoints: [
@@ -605,7 +605,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       visual: {
         title: "Travail encadre",
-        subtitle: "Un exécutant et un chargé de travaux n'ont pas le meme rôle.",
+        subtitle: "Un exécutant et un chargé de travaux n'ont pas le même rôle.",
         items: ["Consigne", "Exécution", "Surveillance", "Arret si écart"],
         tone: "blue",
         imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-travaux.svg",
@@ -616,22 +616,22 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "8. Interventions générales avec BR",
       estimatedMinutes: 30,
       intro:
-        "Le BR intervient en basse tension dans un cadre défini qui peut couvrir l'entretien, le dépannage, les essais limites ou certaines remises en etat. Ce cadre ne doit jamais être banalise.",
+        "Le BR intervient en basse tension dans un cadre défini qui peut couvrir l'entretien, le dépannage, les essais limites ou certaines remises en état. Ce cadre ne doit jamais être banalisé.",
       content: [
         "L'intervention BR supposé une bonne identification de l'installation, une lecture claire du besoin et la maîtrise de la limite entre intervention générale, travaux et dépannage complexe.",
         "L'intervenant doit savoir quand une situation sort du cadre BR : multiplicite des circuits, voisinage non maîtrise, besoin de travaux de structure, modification de schéma ou absence de procédure.",
-        "Le dépannage ne doit jamais devenir une exploration hasardeuse. Il doit rester méthodique, documente et proportionne a l'autorisation reelle de l'opérateur.",
+        "Le dépannage ne doit jamais devenir une exploration hasardeuse. Il doit rester méthodique, documenté et proportionné a l'autorisation réelle de l'opérateur.",
         "Le BR est l'une des habilitations les plus sensibles car il ne doit jamais être compris comme un droit général de dépannage. Sa valeur tient a la méthode, aux limites et a la capacité à requalifier des que le contexte sort du cadre initial.",
-        "Dans la pratique, le BR peut être amene a réaliser des opérations d'entretien, de dépannage, de mesurage, d'essai ou de remise en etat dans la limite des procédures définies. Ce cadre supposé une lecture rigoureuse du symptome, du matériel concerne, des énergies présentées et des conditions de voisinage.",
-        "Des que l'intervention supposé une transformation plus lourde, une modification structurelle, plusieurs circuits mal identifiés ou une organisation de chantier, l'action ne releve plus du meme cadre et doit être requalifiée.",
+        "Dans la pratique, le BR peut être amené a réaliser des opérations d'entretien, de dépannage, de mesurage, d'essai ou de remise en état dans la limite des procédures définies. Ce cadre suppose une lecture rigoureuse du symptôme, du matériel concerné, des énergies présentées et des conditions de voisinage.",
+        "Dès que l'intervention suppose une transformation plus lourde, une modification structurelle, plusieurs circuits mal identifiés ou une organisation de chantier, l'action ne relève plus du même cadre et doit être requalifiée.",
       ],
       deepDive: [
         "Le BR est souvent la zone la plus sensible en exploitation, car il se situe au croisement de la pression de remise en service, du besoin de diagnostic et du risque d'improvisation. La discipline de méthode est donc essentielle.",
-        "Toute intervention générale supposé une préparation, meme courte : vérifier le contexte, l'accessibilite, l'absence d'anomalie majeure, le matériel de mesure, les protections et la possibilite de stopper si la situation se complique.",
+        "Toute intervention générale suppose une préparation, même courte : vérifier le contexte, l'accessibilité, l'absence d'anomalie majeure, le matériel de mesure, les protections et la possibilité de stopper si la situation se complique.",
       ],
       keyPoints: [
         "Le BR n'autorise pas tout dépannage.",
-        "Diagnostic et remise en etat doivent rester methodiques.",
+        "Diagnostic et remise en état doivent rester méthodiques.",
         "La complexite doit faire requalifier l'action.",
       ],
       forbiddenPoints: [
@@ -846,15 +846,15 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "10. Mesurages, essais, connexions / déconnexions et limites d'intervention",
       estimatedMinutes: 25,
       intro:
-        "Les habilitations B1, B1V, B2, B2V, BR et BC ne donnent pas toutes les memes possibilites de mesurer, tester, connecter, deconnecter ou remettre en service. Ce chapitre sert a fixer une lecture plus serieuse des limites d'action.",
+        "Les habilitations B1, B1V, B2, B2V, BR et BC ne donnent pas toutes les mêmes possibilités de mesurer, tester, connecter, déconnecter ou remettre en service. Ce chapitre sert a fixer une lecture plus sérieuse des limites d'action.",
       content: [
-        "Un mesurage ou un essai n'est jamais un geste neutre. Il supposé un matériel adapte, une méthode connue, un objectif clair, des conditions de sécurité maîtrisées et un titre d'habilitation compatible avec l'opération reelle.",
+        "Un mesurage ou un essai n'est jamais un geste neutre. Il suppose un matériel adapté, une méthode connue, un objectif clair, des conditions de sécurité maîtrisées et un titre d'habilitation compatible avec l'opération réelle.",
         "Les connexions et deconnexions en basse tension peuvent relever de cadres differents selon qu'il s'agit de travaux, d'interventions générales BR ou d'opérations particulieres formellement preparees. Elles ne doivent jamais être improvisees au motif qu'un circuit parait simple.",
-        "La remise en service est une phase sensible: elle supposé la vérification de la fin d'opération, le retrait des moyens temporaires, la cohérence des condamnations, l'information des acteurs et la certitude qu'aucune personne n'est encore exposee.",
+        "La remise en service est une phase sensible: elle suppose la vérification de la fin d'opération, le retrait des moyens temporaires, la cohérence des condamnations, l'information des acteurs et la certitude qu'aucune personne n'est encore exposée.",
         "Le point cle de sécurité est de ne jamais confondre un geste techniquement possible avec un geste autorise dans le cadre de l'habilitation detenue.",
         "Les transitions dangereuses doivent être maîtrisées : mesure rapide pour voir, essai lancé sans coordination, reconnexion anticipée, remise sous énergie d'un sous-ensemble encore en cours de vérification. C'est souvent dans ces moments-là que le niveau d'exigence doit augmenter.",
-        "La remise sous énergie ne se decide jamais par automatisme. Elle supposé que la fin d'intervention soit confirmee, que les personnes soient hors zone, que les balisages provisoires aient ete traites selon la procédure et que la coordination entre chargé de travaux, intervenant BR, BC et exploitant soit claire.",
-        "Dans un parcours conforme a la norme, cette phase est traitee comme un chapitre a part entiere car c'est souvent a ce moment que surviennent les erreurs de communication, les remises en service trop rapides et les expositions residuelles.",
+        "La remise sous énergie ne se décide jamais par automatisme. Elle suppose que la fin d'intervention soit confirmée, que les personnes soient hors zone, que les balisages provisoires aient été traités selon la procédure et que la coordination entre chargé de travaux, intervenant BR, BC et exploitant soit claire.",
+        "Dans un parcours conforme a la norme, cette phase est traitée comme un chapitre a part entière car c'est souvent a ce moment que surviennent les erreurs de communication, les remises en service trop rapides et les expositions résiduelles.",
       ],
       deepDive: [
         "Sur le terrain, beaucoup d'écarts naissent a ce moment-la: mesure faite 'rapidement', reconnexion pour essayer, remise en service anticipee ou essai lance sans coordination. Ce sont justement ces moments qui exigent le plus de rigueur.",
@@ -925,16 +925,16 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "11. Outils, EPI, EPC et environnement de travail",
       estimatedMinutes: 20,
       intro:
-        "La maîtrise du risque électrique repose aussi sur le choix des moyens de travail, l'etat des outils et l'usage correct des protections collectives et individuelles.",
+        "La maîtrise du risque électrique repose aussi sur le choix des moyens de travail, l'état des outils et l'usage correct des protections collectives et individuelles.",
       content: [
-        "Les EPI et EPC ne remplacent jamais la préparation ni le respect du rôle, mais ils reduisent le risque dans le cadre d'une opération autorisee et correctement organisee.",
-        "L'opérateur doit vérifier l'etat apparent de ses outils, de ses appareils de mesure, de ses moyens de condamnation et de ses protections avant de commencer.",
-        "L'environnement de travail doit être compatible avec l'opération : accès suffisant, absence d'encombrement dangereux, eclairage correct, pas d'humidite anormale ni de deterioration visible non traitee.",
-        "Les appareils de mesure, verificateurs d'absence de tension, dispositifs de condamnation, gants, visieres, outillage isole et ecrans de protection doivent être adaptes a l'usage prevu et a l'etat de l'installation. Un moyen dégradé ou mal choisi peut lui-meme devenir une source d'accident.",
+        "Les EPI et EPC ne remplacent jamais la préparation ni le respect du rôle, mais ils réduisent le risque dans le cadre d'une opération autorisée et correctement organisée.",
+        "L'opérateur doit vérifier l'état apparent de ses outils, de ses appareils de mesure, de ses moyens de condamnation et de ses protections avant de commencer.",
+        "L'environnement de travail doit être compatible avec l'opération : accès suffisant, absence d'encombrement dangereux, éclairage correct, pas d'humidité anormale ni de détérioration visible non traitée.",
+        "Les appareils de mesure, vérificateurs d'absence de tension, dispositifs de condamnation, gants, visières, outillage isolé et écrans de protection doivent être adaptés a l'usage prévu et a l'état de l'installation. Un moyen dégradé ou mal choisi peut lui-même devenir une source d'accident.",
         "La logique normative reste constante: on ne compense jamais un mauvais cadre de travail par une simple accumulation d'EPI. Les protections collectives, l'organisation, la délimitation et la mise en sécurité restent prioritaires.",
       ],
       deepDive: [
-        "Un matériel dégradé, un outil non adapte ou un appareillage de mesure mal maîtrise peuvent devenir eux-memes une source d'accident. La fiabilité des moyens est inséparable de la competence technique.",
+        "Un matériel dégradé, un outil non adapté ou un appareillage de mesure mal maîtrisé peuvent devenir eux-mêmes une source d'accident. La fiabilité des moyens est inséparable de la compétence technique.",
         "Le bon usage des EPC doit être privilegie. Les EPI viennent en complement, jamais comme pretexte pour accepter une situation initialement non conforme.",
       ],
       keyPoints: [
@@ -992,7 +992,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       visual: {
         title: "préparer ses moyens",
         subtitle: "La sécurité passe aussi par le matériel et l'environnement.",
-        items: ["Outils adaptes", "EPI / EPC", "Mesures fiables", "Zone conforme"],
+        items: ["Outils adaptés", "EPI / EPC", "Mesures fiables", "Zone conforme"],
         tone: "slate",
         imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-moyens.svg",
       },
@@ -1002,7 +1002,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       title: "12. Anomalies, écarts et situations d'urgence",
       estimatedMinutes: 20,
       intro:
-        "La bonne réaction face a l'anomalie ne consiste pas a finir coute que coute, mais a proteger, stopper, alerter et reprendre seulement si le cadre est remaitrise.",
+        "La bonne réaction face à l'anomalie ne consiste pas à finir coûte que coûte, mais à protéger, stopper, alerter et reprendre seulement si le cadre est remaîtrisé.",
       content: [
         "Une odeur anormale, un échauffement, un bruit suspect, un capot manquant, un repère incohérent, un déclenchement répété ou un doute sur la consignation sont des signaux d'arrêt immédiat. Dans ces situations, l'objectif n'est pas de terminer plus vite, mais de revenir à un état maîtrisé.",
         "Un écart peut concerner le matériel, le document, le balisage, l'environnement ou le comportement d'un intervenant. Un bornier accessible, un départ non identifié, une protection retirée, une zone humide ou un appareil de mesure douteux modifient le niveau de risque et imposent une décision de sécurité.",
@@ -1022,7 +1022,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "L'urgence ne cree pas d'autorisation supplémentaire.",
       ],
       forbiddenPoints: [
-        "Continuer avec un doute serieux sur l'etat électrique.",
+        "Continuer avec un doute sérieux sur l'état électrique.",
         "Toucher une victime sans suppression du danger.",
       ],
       legalRefs: [
@@ -1030,7 +1030,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "NF C 18-510 - traitement des situations anormales.",
       ],
       practicalCase:
-        "Exemple : après consignation, un voyant reste allume sur un sous-ensemble. L'équipe s'arrête immédiatement et fait vérifier l'etat reel de l'installation avant toute poursuite.",
+        "Exemple : après consignation, un voyant reste allumé sur un sous-ensemble. L'équipe s'arrête immédiatement et fait vérifier l'état réel de l'installation avant toute poursuite.",
       scenarios: [
         {
           situation: "Vous travaillez à côté d'un collègue qui reçoit soudainement une décharge électrique. Il lâche son outil, crie et s'effondre. Vous êtes le premier à réagir.",
@@ -1109,7 +1109,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "INRS - maintien des compétences et retour d'expérience en prévention du risque électrique.",
       ],
       practicalCase:
-        "Exemple : après une consignation difficile a confirmer sur un tableau mal repère, l'équipe fait formaliser une correction documentaire au lieu de laisser le problème en l'etat.",
+        "Exemple : après une consignation difficile a confirmer sur un tableau mal repéré, l'équipe fait formaliser une correction documentaire au lieu de laisser le problème en l'état.",
       scenarios: [
         {
           situation: "À la fin d'une journée de travail, vous réalisez que vous avez failli toucher un conducteur sous tension car une consignation était incomplète. Aucun accident ne s'est produit. Vous hésitez à le signaler pour ne pas créer de problèmes.",
@@ -1165,13 +1165,13 @@ export const b1b2brbcModuleContent: ModuleContent = {
       content: [
         "Les dossiers techniques, reperages, schémas, plans de prévention, permis ou autorisations d'accès permettent de confirmer le périmètre reel d'une opération électrique.",
         "Le chargé de travaux, l'intervenant BR ou le chargé de consignation doivent savoir quels documents vérifier avant d'agir, lesquels mettre a jour et quels interlocuteurs alerter si une incoherence apparait.",
-        "Sur un chantier ou dans un site en exploitation, la coordination avec les autres entreprises, l'encadrement local et les exploitants techniques est un point de sécurité a part entiere.",
+        "Sur un chantier ou dans un site en exploitation, la coordination avec les autres entreprises, l'encadrement local et les exploitants techniques est un point de sécurité a part entière.",
         "Une opération techniquement juste peut devenir dangereuse si un autre intervenant remet une zone sous énergie, retire un balisage, modifie un accès ou travaille sur un départ voisin sans coordination. La prévention électrique est aussi une prévention d'interface.",
-        "Selon les situations, l'apprenant doit savoir reconnaitre le rôle des autorisations de travail, attestations de consignation, avis de fin de travail, plans de prévention, permis feu ou consignes locales d'exploitation. Ces documents ne remplacent pas la competence, mais ils structurent la sécurité collective.",
+        "Selon les situations, l'apprenant doit savoir reconnaître le rôle des autorisations de travail, attestations de consignation, avis de fin de travail, plans de prévention, permis feu ou consignes locales d'exploitation. Ces documents ne remplacent pas la compétence, mais ils structurent la sécurité collective.",
         "La traçabilité de fin d'opération est tout aussi importante: fin de travaux, levee de condamnation, restitution a l'exploitant, information de l'équipe et compte rendu des écarts. Une opération correctement exécutée mais mal cloree peut préparer l'accident suivant.",
       ],
       deepDive: [
-        "Une opération bien preparee sur le plan technique peut devenir dangereuse si la coordination est mauvaise : interface non signalee, accès concurrent, modification non tracee, ou mauvaise information sur l'etat électrique reel.",
+        "Une opération bien préparée sur le plan technique peut devenir dangereuse si la coordination est mauvaise : interface non signalée, accès concurrent, modification non tracée, ou mauvaise information sur l'état électrique réel.",
         "Le professionnalisme attendu sur ces habilitations ne consiste pas seulement a savoir faire un geste technique, mais a maîtriser la chaine complete : préparation, documents, consignes, exécution, compte rendu et retour d'expérience.",
       ],
       keyPoints: [

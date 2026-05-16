@@ -252,7 +252,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
         content: [
           "Les documents servent a faire tenir ensemble plusieurs roles sans confusion. Consignes, repérage, analyse de risque, point d'arret, compte rendu et restitution doivent raconter la même operation.",
           "Un technicien peut tenir des symboles différents selon les taches confiees, mais il ne change pas de role au milieu du chantier sans requalification. La documentation doit donc dire clairement qui execute, qui dirige, qui intervient, qui consigne et qui contrôle.",
-          "La coordination consiste a faire circuler une information exploitable du debut a la fin: bon circuit, bonne zone, bon role, bonne restitution. Toute contradiction documentaire bloque la reprise.",
+          "La coordination consiste à faire circuler une information exploitable du début à la fin: bon circuit, bonne zone, bon rôle, bonne restitution. Toute contradiction documentaire bloque la reprise.",
         ],
         keyPoints: [
           "Plusieurs symboles exigent une documentation encore plus claire.",
