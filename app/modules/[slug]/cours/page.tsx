@@ -778,6 +778,105 @@ function chapterProgressPercent(seconds: number, minSeconds: number) {
   return Math.min(100, Math.round((seconds / minSeconds) * 100));
 }
 
+// ─── Fiche mémo finale ───────────────────────────────────────────────────────
+function FicheMemo({ moduleData }: { moduleData: ModuleContent | null }) {
+  if (!moduleData) return null;
+
+  const keyPoints = moduleData.sections
+    .flatMap((s) => s.keyPoints ?? [])
+    .filter((v, i, arr) => arr.indexOf(v) === i)
+    .slice(0, 8);
+
+  const forbidden = moduleData.sections
+    .flatMap((s) => s.forbiddenPoints ?? [])
+    .filter((v, i, arr) => arr.indexOf(v) === i)
+    .slice(0, 6);
+
+  const legalRefs = moduleData.sections
+    .flatMap((s) => s.legalRefs ?? [])
+    .filter((v, i, arr) => arr.indexOf(v) === i)
+    .slice(0, 4);
+
+  if (!keyPoints.length && !forbidden.length && !legalRefs.length && !moduleData.finalMessage) {
+    return null;
+  }
+
+  return (
+    <div className="mt-8 rounded-[1.5rem] border-2 border-slate-900 bg-slate-950 p-6 text-white shadow-lg">
+      <div className="flex items-center gap-3 mb-5">
+        <span className="text-2xl">📋</span>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">Fin du module</p>
+          <h3 className="text-lg font-extrabold text-white">Fiche mémo — Points essentiels</h3>
+        </div>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {keyPoints.length > 0 && (
+          <div className="rounded-2xl bg-emerald-900/40 border border-emerald-700/40 p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-emerald-400 mb-3">
+              ✅ Points clés à retenir
+            </p>
+            <ul className="space-y-2">
+              {keyPoints.map((pt, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-slate-200">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                  {formatFrenchDisplayText(pt)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {forbidden.length > 0 && (
+          <div className="rounded-2xl bg-red-900/40 border border-red-700/40 p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-red-400 mb-3">
+              🚫 Interdictions absolues
+            </p>
+            <ul className="space-y-2">
+              {forbidden.map((pt, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-slate-200">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+                  {formatFrenchDisplayText(pt)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {legalRefs.length > 0 && (
+        <div className="mt-4 rounded-2xl bg-blue-900/30 border border-blue-700/30 p-4">
+          <p className="text-xs font-bold uppercase tracking-wide text-blue-400 mb-3">
+            📖 Références réglementaires
+          </p>
+          <ul className="space-y-1.5">
+            {legalRefs.map((ref, i) => (
+              <li key={i} className="text-sm text-slate-300 leading-6">
+                — {formatFrenchDisplayText(ref)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {moduleData.finalMessage && (
+        <div className="mt-4 rounded-2xl bg-amber-900/30 border border-amber-700/30 p-4">
+          <p className="text-sm leading-7 text-amber-200 font-medium">
+            💡 {formatFrenchDisplayText(moduleData.finalMessage)}
+          </p>
+        </div>
+      )}
+
+      <div className="mt-5 rounded-xl bg-white/5 p-3 text-center">
+        <p className="text-xs text-slate-400">
+          Vous avez terminé tous les chapitres — le quiz final est maintenant disponible.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
   return moduleData.sections.map((section, index) => {
     const normalizedSectionTitle = section.title.replace(/^\d+\.\s*/, "");
@@ -1527,6 +1626,10 @@ export default function CoursPage() {
                   </div>
                 </div>
               </div>
+
+              {isLastChapter && (
+                <FicheMemo moduleData={currentModuleData} />
+              )}
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <button
