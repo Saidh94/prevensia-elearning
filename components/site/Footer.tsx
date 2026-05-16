@@ -162,7 +162,7 @@ export function Footer() {
             </ul>
             <p className="mt-6 text-xs leading-5 text-slate-500">
               PREVENSIA FORMATION est une marque du<br />
-              <span className="font-medium text-slate-300">Groupe PREVENSIA SAS</span><br />
+              <span className="font-medium text-slate-300">PREVENSIA Groupe SAS</span><br />
               38, rue des Mathurins — 75008 Paris
             </p>
           </div>
