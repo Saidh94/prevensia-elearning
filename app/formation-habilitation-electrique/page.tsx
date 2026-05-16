@@ -166,8 +166,16 @@ export default function FormationHabilitationElectriquePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/95 to-red-900/80" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-slate-400">
+            <Link href="/" className="hover:text-white">Accueil</Link>
+            <span className="mx-2">›</span>
+            <Link href="/elearning" className="hover:text-white">E-learning</Link>
+            <span className="mx-2">›</span>
+            <span className="text-white">Habilitation électrique</span>
+          </nav>
+
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            PREVENSIA FORMATION
+            Habilitation électrique · NF C 18-510
           </p>
 
           <div className="mt-6 max-w-5xl">
