@@ -1,492 +1,384 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 
-function buildPrefillMessage({
-  formation,
-  date,
-  format,
-  location,
-}: {
-  formation: string;
-  date: string;
-  format: string;
-  location: string;
-}) {
-  const lines = [
-    formation ? `Je souhaite organiser le format suivant : ${formation}.` : "",
-    date ? `Date souhaitée ou créneau repéré : ${date}.` : "",
-    format ? `Format repéré : ${format}.` : "",
-    location ? `Lieu souhaité / repéré : ${location}.` : "",
-  ].filter(Boolean);
+type Formation = {
+  id: string;
+  label: string;
+  category: string;
+  priceHT: number | null;
+  priceNote: string;
+  perPerson: boolean;
+};
 
-  return lines.length > 0
-    ? `${lines.join(
-        "\n"
-      )}\n\nMerci de me recontacter pour confirmer l'organisation et les modalités.`
-    : "";
-}
+const FORMATIONS: Formation[] = [
+  // HABILITATION ÉLECTRIQUE
+  { id: "h0b0", label: "H0B0 / H0V", category: "Habilitation électrique", priceHT: 129, priceNote: "E-learning", perPerson: true },
+  { id: "bsbe", label: "BS / BE Manœuvre", category: "Habilitation électrique", priceHT: 199, priceNote: "E-learning + classe virtuelle", perPerson: true },
+  { id: "b1b2brbc", label: "B1 / B2 / BR / BC", category: "Habilitation électrique", priceHT: null, priceNote: "Sur devis selon parcours", perPerson: false },
+  { id: "recyclage-h0b0", label: "Recyclage H0B0", category: "Habilitation électrique", priceHT: null, priceNote: "Sur devis", perPerson: false },
+  // ATEX
+  { id: "atex-n1", label: "ATEX Niveau 1", category: "ATEX", priceHT: 129, priceNote: "E-learning 3h", perPerson: true },
+  { id: "atex-n2", label: "ATEX Niveau 2", category: "ATEX", priceHT: 490, priceNote: "À partir de — E-learning + entretien", perPerson: true },
+  { id: "atex-n3", label: "ATEX Niveau 3", category: "ATEX", priceHT: 790, priceNote: "À partir de — E-learning + classe virtuelle", perPerson: true },
+  // SSIAP / SÉCURITÉ INCENDIE
+  { id: "ssiap1", label: "SSIAP1 initial", category: "Sécurité incendie", priceHT: 1490, priceNote: "À partir de — 105h", perPerson: false },
+  { id: "recyclage-ssiap1", label: "Recyclage SSIAP1", category: "Sécurité incendie", priceHT: 250, priceNote: "À partir de — 14h", perPerson: true },
+  { id: "extincteurs", label: "Manipulation extincteurs", category: "Sécurité incendie", priceHT: 149, priceNote: "0,5 jour", perPerson: true },
+  { id: "guide-file", label: "Guide-file / Serre-file", category: "Sécurité incendie", priceHT: 150, priceNote: "0,5 jour", perPerson: true },
+  { id: "epi", label: "Équipier de Première Intervention (EPI)", category: "Sécurité incendie", priceHT: 220, priceNote: "1 jour", perPerson: true },
+  // SSI
+  { id: "ssi-1j", label: "Exploitation SSI (1 jour)", category: "SSI / Sprinkler", priceHT: 350, priceNote: "Inter-entreprises", perPerson: true },
+  { id: "ssi-2j", label: "SSI avancé (2 jours)", category: "SSI / Sprinkler", priceHT: 690, priceNote: "Inter-entreprises", perPerson: true },
+  // SPRINKLER
+  { id: "sprinkler-1j", label: "Exploitation sprinkler (1 jour)", category: "SSI / Sprinkler", priceHT: 490, priceNote: "Inter-entreprises", perPerson: true },
+  { id: "sprinkler-2j", label: "Sprinkler technique + visite (2 jours)", category: "SSI / Sprinkler", priceHT: 990, priceNote: "Inter-entreprises", perPerson: true },
+  // SST
+  { id: "sst", label: "SST initial", category: "SST", priceHT: 240, priceNote: "2 jours — inter-entreprises", perPerson: true },
+  { id: "mac-sst", label: "MAC SST (recyclage)", category: "SST", priceHT: 130, priceNote: "1 jour — inter-entreprises", perPerson: true },
+];
 
-function DemandeDevisForm() {
-  const searchParams = useSearchParams();
-
-  const requestedType = searchParams.get("type") ?? "";
-  const requestedDetail = searchParams.get("detail") ?? "";
-  const requestedFormation = searchParams.get("formation") ?? "";
-  const requestedDate = searchParams.get("date") ?? "";
-  const requestedFormat = searchParams.get("format") ?? "";
-  const requestedLocation = searchParams.get("location") ?? "";
-
-  const [formationType, setFormationType] = useState<string>(requestedType);
-  const [formationDetail, setFormationDetail] =
-    useState<string>(requestedDetail);
-
-  const prefillMessage = useMemo(
-    () =>
-      buildPrefillMessage({
-        formation: requestedFormation,
-        date: requestedDate,
-        format: requestedFormat,
-        location: requestedLocation,
-      }),
-    [requestedDate, requestedFormation, requestedFormat, requestedLocation]
-  );
-
-  return (
-    <main className="min-h-screen bg-slate-50 px-4 py-16 text-slate-900 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-          PREVENSIA FORMATION
-        </p>
-
-        <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
-          Demande de devis
-        </h1>
-
-        <p className="mt-4 text-slate-600">
-          Décrivez votre besoin en formation : habilitation électrique, ATEX,
-          SSIAP1, SST, exploitation SSI, sécurité incendie ou exploitation
-          sprinkler. Nous vous répondrons avec une proposition adaptée à votre
-          activité, à votre effectif, à votre délai souhaité et au bon format
-          PREVENSIA : e-learning seul, e-learning + classe virtuelle,
-          e-learning + entretien 30&nbsp;min ou parcours mixte avec présentiel.
-        </p>
-
-        <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
-          <p>
-            <strong>Email :</strong> contact@prevensia-formation.fr
-          </p>
-          <p>
-            <strong>Téléphone :</strong> 01 89 62 94 92
-          </p>
-        </div>
-
-        {requestedFormation ||
-        requestedDate ||
-        requestedFormat ||
-        requestedLocation ? (
-          <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900">
-            <p className="font-semibold">
-              Contexte pré-rempli depuis le calendrier
-            </p>
-
-            {requestedFormation ? (
-              <p className="mt-2">Formation : {requestedFormation}</p>
-            ) : null}
-
-            {requestedDate ? (
-              <p className="mt-1">Date repérée : {requestedDate}</p>
-            ) : null}
-
-            {requestedFormat ? (
-              <p className="mt-1">Format : {requestedFormat}</p>
-            ) : null}
-
-            {requestedLocation ? (
-              <p className="mt-1">Lieu : {requestedLocation}</p>
-            ) : null}
-          </div>
-        ) : null}
-
-        <form
-          action="https://formspree.io/f/myknqwyb"
-          method="POST"
-          className="mt-8 grid gap-5"
-        >
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Vous êtes
-            </label>
-            <select
-              name="profil"
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            >
-              <option value="particulier">Particulier</option>
-              <option value="professionnel">Professionnel</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Famille de formation
-            </label>
-
-            <select
-              name="type_formation"
-              required
-              value={formationType}
-              onChange={(event) => {
-                setFormationType(event.target.value);
-                setFormationDetail("");
-              }}
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            >
-              <option value="">Sélectionnez une famille de formation</option>
-              <option value="habilitation">Habilitation électrique</option>
-              <option value="atex">ATEX — Atmosphères Explosives</option>
-              <option value="ssiap1">SSIAP1 — Sécurité Incendie ERP</option>
-              <option value="sst">SST — Sauveteur Secouriste du Travail</option>
-              <option value="ssi">Exploitation SSI</option>
-              <option value="sprinkler">Exploitation sprinkler</option>
-              <option value="incendie">Sécurité incendie</option>
-            </select>
-          </div>
-
-          {formationType === "habilitation" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail habilitation électrique
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une habilitation</option>
-                <option value="h0b0-h0v">
-                  H0B0 / H0V - E-learning + entretien 30 min
-                </option>
-                <option value="bs-be-manoeuvre">
-                  BS / BE Manœuvre - Initiale e-learning + classe virtuelle
-                </option>
-                <option value="bf-hf">
-                  BF / HF - Travaux non électriques sur canalisations enterrées
-                </option>
-                <option value="b1-b1v">
-                  B1 / B1V - Parcours cible exécutant électricien
-                </option>
-                <option value="b1-b1v-recyclage">B1 / B1V - Recyclage</option>
-                <option value="b2-b2v">
-                  B2 / B2V - Parcours cible chargé de travaux
-                </option>
-                <option value="b2-b2v-recyclage">B2 / B2V - Recyclage</option>
-                <option value="br">
-                  BR - Parcours cible intervention générale
-                </option>
-                <option value="br-recyclage">BR - Recyclage</option>
-                <option value="bc">BC - Parcours cible consignation</option>
-                <option value="bc-recyclage">BC - Recyclage</option>
-                <option value="be-verification-mesurage">
-                  BE Vérification / BE Mesurage - Sur devis
-                </option>
-                <option value="b1-b1v-b2-b2v-br-bc">
-                  B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles
-                </option>
-                <option value="b1-b1v-b2-b2v-br-bc-recyclage">
-                  B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles
-                </option>
-              </select>
-            </div>
-          )}
-
-          {formationType === "sst" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation SST
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une formation SST</option>
-                <option value="sst-initial">SST initial</option>
-                <option value="mac-sst">MAC SST</option>
-              </select>
-            </div>
-          )}
-
-          {formationType === "atex" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation ATEX
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une formation ATEX</option>
-                <option value="atex-sensibilisation">
-                  Sensibilisation ATEX — Niveau 0 (personnel en zone)
-                </option>
-                <option value="atex-niveau1">
-                  Formation ATEX — Niveau 1 (intervenant sur appareils)
-                </option>
-                <option value="atex-niveau2">
-                  Formation ATEX — Niveau 2 (encadrant / référent)
-                </option>
-                <option value="atex-recyclage">
-                  Recyclage ATEX — Maintien des compétences
-                </option>
-              </select>
-            </div>
-          )}
-
-          {formationType === "ssiap1" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation SSIAP1
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une formation SSIAP1</option>
-                <option value="ssiap1-initiale">
-                  SSIAP1 — Formation initiale (70h min, max 12 stagiaires)
-                </option>
-                <option value="ssiap1-recyclage">
-                  SSIAP1 — Recyclage (14h / tous les 3 ans)
-                </option>
-              </select>
-            </div>
-          )}
-
-          {formationType === "ssi" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation SSI
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une formation SSI</option>
-                <option value="exploitation-ssi">Exploitation SSI</option>
-                <option value="formation-renforcee-ssi">
-                  Formation SSI renforcée (ERP / IGH / ICPE)
-                </option>
-              </select>
-            </div>
-          )}
-
-          {formationType === "sprinkler" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation sprinkler
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une formation sprinkler</option>
-                <option value="exploitation-sprinkler">
-                  Exploitation sprinkler
-                </option>
-              </select>
-            </div>
-          )}
-
-          {formationType === "incendie" && (
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
-                Détail formation sécurité incendie
-              </label>
-              <select
-                name="detail_formation"
-                required
-                value={formationDetail}
-                onChange={(event) => setFormationDetail(event.target.value)}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-              >
-                <option value="">Sélectionnez une formation incendie</option>
-                <option value="manipulation-extincteurs">
-                  Manipulation des extincteurs
-                </option>
-                <option value="guide-file-serre-file">
-                  Guide-file / Serre-file
-                </option>
-                <option value="evacuation-incendie">Évacuation incendie</option>
-              </select>
-            </div>
-          )}
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Nom
-            </label>
-            <input
-              type="text"
-              name="nom"
-              placeholder="Votre nom"
-              required
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Société
-            </label>
-            <input
-              type="text"
-              name="societe"
-              placeholder="Nom de la société"
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              required
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Téléphone
-            </label>
-            <input
-              type="tel"
-              name="telephone"
-              placeholder="Votre téléphone"
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Nombre de participants
-            </label>
-            <input
-              type="number"
-              name="participants"
-              placeholder="Ex : 8"
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Ville / lieu de formation
-            </label>
-            <input
-              type="text"
-              name="ville"
-              placeholder="Ex : Paris, Noisy-le-Grand, sur site client..."
-              defaultValue={requestedLocation}
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Délai souhaité
-            </label>
-            <input
-              type="text"
-              name="delai"
-              placeholder="Ex : sous 15 jours, courant du mois prochain..."
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
-              Message
-            </label>
-            <textarea
-              name="message"
-              placeholder="Décrivez votre besoin, le niveau attendu, le nombre de stagiaires et toute contrainte particulière."
-              required
-              defaultValue={prefillMessage}
-              className="min-h-[160px] w-full rounded-[1.5rem] border border-slate-300 px-4 py-3 outline-none transition focus:border-red-700 focus:ring-2 focus:ring-red-100"
-            />
-          </div>
-
-          <input
-            type="hidden"
-            name="formation_prefill"
-            value={requestedFormation}
-            readOnly
-          />
-          <input
-            type="hidden"
-            name="date_prefill"
-            value={requestedDate}
-            readOnly
-          />
-          <input
-            type="hidden"
-            name="format_prefill"
-            value={requestedFormat}
-            readOnly
-          />
-          <input
-            type="hidden"
-            name="location_prefill"
-            value={requestedLocation}
-            readOnly
-          />
-
-          <button
-            type="submit"
-            className="rounded-2xl bg-red-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-red-800"
-          >
-            Envoyer la demande
-          </button>
-        </form>
-      </div>
-    </main>
-  );
-}
+const CATEGORIES = Array.from(new Set(FORMATIONS.map((f) => f.category)));
 
 export default function DemandeDevisPage() {
-  return (
-    <Suspense
-      fallback={
-        <main className="min-h-screen bg-slate-50 px-4 py-16 text-slate-900 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-sm">
-            Chargement du formulaire...
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [participants, setParticipants] = useState(1);
+  const [companyName, setCompanyName] = useState("");
+  const [contactName, setContactName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [notes, setNotes] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const selectedFormations = FORMATIONS.filter((f) => selected.has(f.id));
+  const fixedItems = selectedFormations.filter((f) => f.priceHT !== null);
+  const quoteItems = selectedFormations.filter((f) => f.priceHT === null);
+  const totalHT = fixedItems.reduce((sum, f) => {
+    return sum + (f.priceHT! * (f.perPerson ? participants : 1));
+  }, 0);
+  const hasQuote = quoteItems.length > 0;
+
+  function toggleFormation(id: string) {
+    const next = new Set(selected);
+    if (next.has(id)) {
+      next.delete(id);
+    } else {
+      next.add(id);
+    }
+    setSelected(next);
+  }
+
+  function resetForm() {
+    setSelected(new Set());
+    setParticipants(1);
+    setCompanyName("");
+    setContactName("");
+    setEmail("");
+    setPhone("");
+    setNotes("");
+    setErrorMsg("");
+    setSent(false);
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || selected.size === 0) {
+      setErrorMsg("Veuillez renseigner votre email et sélectionner au moins une formation.");
+      return;
+    }
+    setLoading(true);
+    setErrorMsg("");
+    try {
+      const res = await fetch("/api/devis/request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          companyName,
+          contactName,
+          email,
+          phone,
+          participants,
+          formations: FORMATIONS.filter((f) => selected.has(f.id)).map((f) => ({
+            label: f.label,
+            priceHT: f.priceHT,
+            priceNote: f.priceNote,
+            perPerson: f.perPerson,
+            qty: f.perPerson ? participants : 1,
+          })),
+          totalHT,
+          hasQuote,
+          notes,
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setSent(true);
+    } catch {
+      setErrorMsg("Une erreur est survenue. Réessayez ou appelez le 01 89 62 94 92.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (sent) {
+    return (
+      <>
+        <section className="bg-slate-950 text-white">
+          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-slate-400">
+              <Link href="/" className="hover:text-white">Accueil</Link>
+              <span className="mx-2">›</span>
+              <span className="text-white">Demande de devis</span>
+            </nav>
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-400 ring-1 ring-amber-500/20 mb-6">
+              Devis gratuit · Réponse sous 24h
+            </div>
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              Demande de devis
+            </h1>
+            <p className="mt-4 max-w-2xl text-lg text-slate-300">
+              Sélectionnez vos formations, renseignez vos informations et recevez votre devis personnalisé sous 24h ouvrées.
+            </p>
           </div>
-        </main>
-      }
-    >
-      <DemandeDevisForm />
-    </Suspense>
+        </section>
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl rounded-2xl border border-green-200 bg-green-50 p-8 text-center">
+            <div className="mb-4 text-4xl">✓</div>
+            <h2 className="text-xl font-bold text-green-800 mb-2">Votre demande a bien été envoyée !</h2>
+            <p className="text-green-700 text-sm mb-6">
+              Nous vous répondrons sous 24h ouvrées à l&apos;adresse <strong>{email}</strong>
+            </p>
+            <button
+              onClick={resetForm}
+              className="rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-700"
+            >
+              Nouvelle demande
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-slate-400">
+            <Link href="/" className="hover:text-white">Accueil</Link>
+            <span className="mx-2">›</span>
+            <span className="text-white">Demande de devis</span>
+          </nav>
+          <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 px-4 py-1.5 text-sm font-semibold text-amber-400 ring-1 ring-amber-500/20 mb-6">
+            Devis gratuit · Réponse sous 24h
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            Demande de devis
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-slate-300">
+            Sélectionnez vos formations, renseignez vos informations et recevez votre devis personnalisé sous 24h ouvrées.
+          </p>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <form onSubmit={handleSubmit}>
+          <div className="lg:grid lg:grid-cols-3 lg:gap-10">
+            {/* Colonne gauche — formulaire */}
+            <div className="lg:col-span-2 space-y-10">
+
+              {/* Section 1 — Vos informations */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 className="text-lg font-bold text-slate-900 mb-6">Vos informations</h2>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                      Société
+                    </label>
+                    <input
+                      type="text"
+                      value={companyName}
+                      onChange={(e) => setCompanyName(e.target.value)}
+                      placeholder="Nom de la société"
+                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                      Nom du contact
+                    </label>
+                    <input
+                      type="text"
+                      value={contactName}
+                      onChange={(e) => setContactName(e.target.value)}
+                      placeholder="Votre nom"
+                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                      Email professionnel *
+                    </label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="votre@email.fr"
+                      required
+                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="01 89 62 94 92"
+                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                      Nombre de participants
+                    </label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={500}
+                      value={participants}
+                      onChange={(e) => setParticipants(Math.max(1, parseInt(e.target.value) || 1))}
+                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 sm:w-40"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Section 2 — Formations souhaitées */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 className="text-lg font-bold text-slate-900 mb-6">Formations souhaitées</h2>
+                <div className="space-y-8">
+                  {CATEGORIES.map((category) => (
+                    <div key={category}>
+                      <p className="text-sm font-semibold text-slate-700 mb-2">{category}</p>
+                      <div className="space-y-2">
+                        {FORMATIONS.filter((f) => f.category === category).map((formation) => (
+                          <label
+                            key={formation.id}
+                            className="flex items-start gap-3 cursor-pointer rounded-xl border border-slate-100 px-4 py-3 hover:bg-slate-50 transition"
+                          >
+                            <input
+                              type="checkbox"
+                              checked={selected.has(formation.id)}
+                              onChange={() => toggleFormation(formation.id)}
+                              className="mt-0.5 h-4 w-4 accent-slate-900 shrink-0"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <span className="text-sm font-medium text-slate-800">{formation.label}</span>
+                              <span className="ml-2 text-xs text-slate-400">{formation.priceNote}</span>
+                            </div>
+                            <span className="text-sm font-semibold text-slate-700 shrink-0">
+                              {formation.priceHT !== null
+                                ? `${formation.priceHT} € HT/pers.`
+                                : "Sur devis"}
+                            </span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Notes */}
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 className="text-lg font-bold text-slate-900 mb-4">Informations complémentaires</h2>
+                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                  Notes / contexte
+                </label>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Dates souhaitées, contraintes particulières, lieu de formation..."
+                  rows={4}
+                  className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                />
+              </div>
+            </div>
+
+            {/* Colonne droite — récapitulatif sticky */}
+            <div className="mt-10 lg:mt-0 lg:col-span-1">
+              <div className="sticky top-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="font-bold text-slate-900 mb-4">Récapitulatif</h3>
+
+                {selected.size === 0 && (
+                  <p className="text-sm text-slate-400">Sélectionnez des formations pour voir le récapitulatif.</p>
+                )}
+
+                {selected.size > 0 && (
+                  <div className="space-y-3 mb-4">
+                    {selectedFormations.map((f) => {
+                      const lineTotal =
+                        f.priceHT !== null
+                          ? f.priceHT * (f.perPerson ? participants : 1)
+                          : null;
+                      return (
+                        <div key={f.id} className="flex justify-between gap-2 text-sm">
+                          <span className="text-slate-600 leading-snug flex-1">{f.label}</span>
+                          <span className="font-medium text-slate-800 shrink-0">
+                            {lineTotal !== null ? `${lineTotal} €` : "Sur devis"}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {selected.size > 0 && (
+                  <div className="border-t border-slate-100 pt-4 mb-4">
+                    <div className="flex justify-between items-baseline">
+                      <span className="text-sm text-slate-500">Total HT estimé</span>
+                      <span className="text-2xl font-bold text-slate-900">
+                        {totalHT > 0 ? `${totalHT} €` : "—"}
+                      </span>
+                    </div>
+                    {hasQuote && (
+                      <p className="mt-1 text-xs font-medium text-amber-600">
+                        + prestations sur devis
+                      </p>
+                    )}
+                    <p className="mt-1 text-xs text-slate-400">
+                      Pour {participants} participant{participants > 1 ? "s" : ""}
+                    </p>
+                  </div>
+                )}
+
+                {errorMsg && (
+                  <p className="mb-4 rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-sm text-red-700">
+                    {errorMsg}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading || selected.size === 0}
+                  className="bg-slate-900 text-white rounded-xl px-6 py-3 w-full font-semibold hover:bg-slate-700 disabled:opacity-50 transition text-sm"
+                >
+                  {loading ? "Envoi en cours..." : "Envoyer ma demande de devis"}
+                </button>
+
+                <p className="mt-3 text-center text-xs text-slate-400">
+                  Réponse sous 24h ouvrées
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
