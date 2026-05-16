@@ -25,7 +25,7 @@ export default function MentionsLegalesPage() {
         <p><strong>Code NAF / APE :</strong> 85.59A — Formation continue d'adultes</p>
         <p><strong>Adresse du siège social :</strong> 38, rue des Mathurins, 75008 Paris</p>
         <p><strong>Numéro de déclaration d'activité de formation :</strong> [À compléter — préfecture de région]</p>
-        <p><strong>Certification Qualiopi :</strong> [À compléter — organisme certificateur]</p>
+        <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi — Actions de formation</p>
         <p><strong>Téléphone :</strong> 01 89 62 94 92</p>
         <p><strong>Email :</strong> contact@prevensia-formation.fr</p>
         <p><strong>Dirigeants :</strong> Hachiba Said, Hachiba Karim</p>
