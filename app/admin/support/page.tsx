@@ -30,6 +30,7 @@ type Profile = {
   company: string | null;
   role: string | null;
   created_at: string | null;
+  is_blocked?: boolean | null;
 };
 
 type ChapterProgress = {
@@ -87,6 +88,13 @@ function fmt(v: string | null | undefined) {
   return isNaN(d.getTime()) ? "—" : d.toLocaleDateString("fr-FR");
 }
 
+function toInputDate(v: string | null | undefined): string {
+  if (!v) return "";
+  const d = new Date(v);
+  if (isNaN(d.getTime())) return "";
+  return d.toISOString().slice(0, 10);
+}
+
 function fullName(p: Profile) {
   const n = [p.first_name, p.last_name].filter(Boolean).join(" ");
   return n || p.email || "—";
@@ -138,6 +146,7 @@ export default function SupportPage() {
   const [error, setError] = useState<string | null>(null);
   const [tab, setTab] = useState<TabKey>("apprenants");
   const [search, setSearch] = useState("");
+  const [actionMsg, setActionMsg] = useState<{ text: string; ok: boolean } | null>(null);
 
   useEffect(() => {
     fetch("/api/admin/support")
@@ -149,6 +158,124 @@ export default function SupportPage() {
       .catch(() => setError("Erreur de chargement"))
       .finally(() => setLoading(false));
   }, []);
+
+  function showMsg(text: string, ok: boolean) {
+    setActionMsg({ text, ok });
+    setTimeout(() => setActionMsg(null), 3000);
+  }
+
+  async function handleBlockToggle(profileId: string, currentlyBlocked: boolean) {
+    const action = currentlyBlocked ? "unblock" : "block";
+    try {
+      const res = await fetch(`/api/admin/users/${profileId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action }),
+      });
+      const json = await res.json();
+      if (!res.ok || json.error) {
+        showMsg(json.error ?? "Erreur lors de l'action", false);
+        return;
+      }
+      setData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          profiles: prev.profiles.map((p) =>
+            p.id === profileId ? { ...p, is_blocked: json.is_blocked } : p
+          ),
+        };
+      });
+      showMsg(
+        action === "block" ? "Compte bloqué avec succès" : "Compte débloqué avec succès",
+        true
+      );
+    } catch {
+      showMsg("Erreur réseau", false);
+    }
+  }
+
+  async function handleEnrollmentPatch(
+    enrollmentId: string,
+    payload: Record<string, unknown>
+  ) {
+    try {
+      const res = await fetch(`/api/admin/enrollments/${enrollmentId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (!res.ok || json.error) {
+        showMsg(json.error ?? "Erreur lors de la mise à jour", false);
+        return false;
+      }
+      return true;
+    } catch {
+      showMsg("Erreur réseau", false);
+      return false;
+    }
+  }
+
+  async function handleStatusChange(enrollmentId: string, newStatus: string) {
+    const ok = await handleEnrollmentPatch(enrollmentId, { status: newStatus });
+    if (ok) {
+      setData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          enrollments: prev.enrollments.map((e) =>
+            e.id === enrollmentId ? { ...e, status: newStatus } : e
+          ),
+        };
+      });
+      showMsg("Statut mis à jour", true);
+    }
+  }
+
+  async function handleActivate30(enrollmentId: string) {
+    const ok = await handleEnrollmentPatch(enrollmentId, { activate: true });
+    if (ok) {
+      const start = new Date();
+      const end = new Date();
+      end.setDate(start.getDate() + 30);
+      setData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          enrollments: prev.enrollments.map((e) =>
+            e.id === enrollmentId
+              ? {
+                  ...e,
+                  status: "in_progress",
+                  access_start: start.toISOString(),
+                  access_end: end.toISOString(),
+                }
+              : e
+          ),
+        };
+      });
+      showMsg("Accès activé pour 30 jours", true);
+    }
+  }
+
+  async function handleAccessEndChange(enrollmentId: string, dateValue: string) {
+    if (!dateValue) return;
+    const isoDate = new Date(dateValue).toISOString();
+    const ok = await handleEnrollmentPatch(enrollmentId, { access_end: isoDate });
+    if (ok) {
+      setData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          enrollments: prev.enrollments.map((e) =>
+            e.id === enrollmentId ? { ...e, access_end: isoDate } : e
+          ),
+        };
+      });
+      showMsg("Date de fin d'accès mise à jour", true);
+    }
+  }
 
   const q = search.toLowerCase().trim();
 
@@ -276,6 +403,19 @@ export default function SupportPage() {
         </div>
       </div>
 
+      {/* Bandeau feedback actions */}
+      {actionMsg && (
+        <div
+          className={`mb-4 rounded-xl px-4 py-3 text-sm font-semibold ${
+            actionMsg.ok
+              ? "bg-emerald-50 border border-emerald-200 text-emerald-800"
+              : "bg-red-50 border border-red-200 text-red-800"
+          }`}
+        >
+          {actionMsg.text}
+        </div>
+      )}
+
       {/* KPIs */}
       <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
@@ -345,9 +485,9 @@ export default function SupportPage() {
               </thead>
               <tbody>
                 {filteredProfiles.map((p, i) => {
-                  const isAdmin = p.role === "admin";
+                  const isAdminRow = p.role === "admin";
                   const prevIsAdmin = i > 0 && filteredProfiles[i - 1].role === "admin";
-                  const showSeparator = !isAdmin && prevIsAdmin;
+                  const showSeparator = !isAdminRow && prevIsAdmin;
                   return (
                     <>
                       {showSeparator && (
@@ -357,7 +497,7 @@ export default function SupportPage() {
                           </td>
                         </tr>
                       )}
-                      {i === 0 && isAdmin && (
+                      {i === 0 && isAdminRow && (
                         <tr key="sep-admin">
                           <td colSpan={6} className="bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
                             Équipe PREVENSIA
@@ -366,13 +506,26 @@ export default function SupportPage() {
                       )}
                       <tr
                         key={p.id}
-                        className={`border-t ${isAdmin ? "border-slate-200 bg-slate-950/[0.03] hover:bg-slate-950/[0.06]" : "border-slate-100 hover:bg-slate-50"}`}
+                        className={`border-t ${
+                          p.is_blocked
+                            ? "bg-red-50/60 hover:bg-red-50"
+                            : isAdminRow
+                            ? "border-slate-200 bg-slate-950/[0.03] hover:bg-slate-950/[0.06]"
+                            : "border-slate-100 hover:bg-slate-50"
+                        }`}
                       >
-                        <td className="px-4 py-3 font-semibold text-slate-900">{fullName(p)}</td>
+                        <td className="px-4 py-3 font-semibold text-slate-900">
+                          {fullName(p)}
+                          {p.is_blocked && (
+                            <span className="ml-2 inline-block rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">
+                              Bloqué
+                            </span>
+                          )}
+                        </td>
                         <td className="px-4 py-3 text-slate-600">{p.email ?? "—"}</td>
                         <td className="px-4 py-3 text-slate-600">{p.company ?? "—"}</td>
                         <td className="px-4 py-3">
-                          {isAdmin ? (
+                          {isAdminRow ? (
                             <span className="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">
                               Admin
                             </span>
@@ -384,12 +537,25 @@ export default function SupportPage() {
                         </td>
                         <td className="px-4 py-3 text-slate-500">{fmt(p.created_at)}</td>
                         <td className="px-4 py-3">
-                          <a
-                            href={`mailto:${p.email}`}
-                            className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
-                          >
-                            Contacter
-                          </a>
+                          <div className="flex flex-wrap gap-2">
+                            <a
+                              href={`mailto:${p.email}`}
+                              className="rounded-lg border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-100"
+                            >
+                              Contacter
+                            </a>
+                            <button
+                              type="button"
+                              onClick={() => handleBlockToggle(p.id, !!p.is_blocked)}
+                              className={`rounded-lg border px-3 py-1 text-xs font-semibold transition ${
+                                p.is_blocked
+                                  ? "border-emerald-300 bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                                  : "border-red-300 bg-red-50 text-red-700 hover:bg-red-100"
+                              }`}
+                            >
+                              {p.is_blocked ? "Débloquer" : "Bloquer"}
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     </>
@@ -416,29 +582,66 @@ export default function SupportPage() {
                   <th className="px-4 py-3">Statut</th>
                   <th className="px-4 py-3">Paiement</th>
                   <th className="px-4 py-3">Accès du</th>
-                  <th className="px-4 py-3">Au</th>
+                  <th className="px-4 py-3">Fin d'accès</th>
                   <th className="px-4 py-3">Validé le</th>
                   <th className="px-4 py-3">Créé le</th>
+                  <th className="px-4 py-3">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredEnrollments.map((e) => {
                   const f = getFormation(e);
+                  const canActivate =
+                    e.status !== "in_progress" && e.status !== "completed";
                   return (
                     <tr key={e.id} className="border-t border-slate-100 hover:bg-slate-50">
                       <td className="px-4 py-3 font-medium text-slate-900">{f?.title ?? "—"}</td>
                       <td className="px-4 py-3 text-slate-600">{e.company_name ?? "—"}</td>
-                      <td className="px-4 py-3">{statusBadge(e.status)}</td>
+                      <td className="px-4 py-3">
+                        <select
+                          value={e.status ?? ""}
+                          onChange={(ev) => handleStatusChange(e.id, ev.target.value)}
+                          className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                        >
+                          <option value="pending">En attente</option>
+                          <option value="active">Actif</option>
+                          <option value="in_progress">En cours</option>
+                          <option value="completed">Terminé</option>
+                          <option value="cancelled">Annulé</option>
+                        </select>
+                      </td>
                       <td className="px-4 py-3">{paymentBadge(e.payment_status)}</td>
                       <td className="px-4 py-3 text-slate-500">{fmt(e.access_start)}</td>
-                      <td className="px-4 py-3 text-slate-500">{fmt(e.access_end)}</td>
+                      <td className="px-4 py-3">
+                        <input
+                          type="date"
+                          defaultValue={toInputDate(e.access_end)}
+                          onBlur={(ev) => {
+                            if (ev.target.value !== toInputDate(e.access_end)) {
+                              handleAccessEndChange(e.id, ev.target.value);
+                            }
+                          }}
+                          className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                        />
+                      </td>
                       <td className="px-4 py-3 text-slate-500">{fmt(e.validated_at)}</td>
                       <td className="px-4 py-3 text-slate-500">{fmt(e.created_at)}</td>
+                      <td className="px-4 py-3">
+                        {canActivate && (
+                          <button
+                            type="button"
+                            onClick={() => handleActivate30(e.id)}
+                            className="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-100 whitespace-nowrap"
+                          >
+                            Activer 30j
+                          </button>
+                        )}
+                      </td>
                     </tr>
                   );
                 })}
                 {filteredEnrollments.length === 0 && (
-                  <tr><td colSpan={8} className="px-4 py-8 text-center text-slate-400">Aucun résultat</td></tr>
+                  <tr><td colSpan={9} className="px-4 py-8 text-center text-slate-400">Aucun résultat</td></tr>
                 )}
               </tbody>
             </table>

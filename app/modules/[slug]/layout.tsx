@@ -14,6 +14,7 @@ type ModuleLayoutProps = {
 
 type ProfileRow = {
   role: string | null;
+  is_blocked?: boolean | null;
 };
 
 type FormationRow = {
@@ -103,9 +104,14 @@ export default async function ModuleLayout({
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("role")
+    .select("role, is_blocked")
     .eq("id", user.id)
     .maybeSingle<ProfileRow>();
+
+  // Un compte bloqué est redirigé, même s'il est admin
+  if (profile?.is_blocked === true) {
+    redirect("/connexion?blocked=true");
+  }
 
   const isAdmin = profile?.role === "admin";
 

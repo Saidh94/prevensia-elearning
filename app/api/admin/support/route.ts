@@ -32,7 +32,7 @@ export async function GET() {
     // ── Apprenants ──────────────────────────────────────────────────────────
     const { data: profiles } = await adminClient
       .from("profiles")
-      .select("id, first_name, last_name, email, company, role, created_at")
+      .select("id, first_name, last_name, email, company, role, created_at, is_blocked")
       .order("created_at", { ascending: false });
 
     // ── Inscriptions + formations ────────────────────────────────────────────
