@@ -733,13 +733,13 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "À compléter", margin + topCol1, y, topCol2, valueRowHeight, {
+  drawCell(page, "", margin + topCol1, y, topCol2, valueRowHeight, {
     font: fontBold,
     size: 9.2,
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "À compléter", margin + topCol1 + topCol2, y, topCol3, valueRowHeight, {
+  drawCell(page, "", margin + topCol1 + topCol2, y, topCol3, valueRowHeight, {
     font: fontBold,
     size: 9.2,
     borderColor: colors.line,
@@ -795,7 +795,7 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "À compléter", margin + topCol1 + topCol2, y, topCol3, titleValueRowHeight, {
+  drawCell(page, "", margin + topCol1 + topCol2, y, topCol3, titleValueRowHeight, {
     font: fontBold,
     size: 9.2,
     borderColor: colors.line,
@@ -1022,7 +1022,7 @@ function drawFirstPage(params: {
     borderColor: colors.line,
     verticalAlign: "middle",
   });
-  drawCell(page, "À compléter", margin + signLeft + 76, sigContentY, signCenter - 76, 28, {
+  drawCell(page, "", margin + signLeft + 76, sigContentY, signCenter - 76, 28, {
     font: fontBold,
     size: 9.1,
     borderColor: colors.line,
@@ -1371,10 +1371,10 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
     [employeeFirstName?.trim(), employeeLastName?.trim()]
       .filter(Boolean)
       .join(" ")
-      .trim() || learnerEmail || "A completer"
+      .trim() || learnerEmail || ""
   );
 
-  const employerName = sanitizePdfText(companyName?.trim() || "A completer");
+  const employerName = sanitizePdfText(companyName?.trim() || "");
   const sanitizedFormation = sanitizePdfText(formation);
   const validationDate = formatDateFr(date);
   const issueDate = new Date().toLocaleDateString("fr-FR");

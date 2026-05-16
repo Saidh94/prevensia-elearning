@@ -501,7 +501,7 @@ function drawPage1(p: {
     { font: B, size: 9.1, border: C.line, va: "middle" });
   cell(page, sp("Fonction :"), m + sL, sigCY, 76, 28,
     { font: R, size: 8.1, border: C.line, va: "middle" });
-  cell(page, sp("À compléter"), m + sL + 76, sigCY, sC - 76, 28,
+  cell(page, sp(""), m + sL + 76, sigCY, sC - 76, 28,
     { font: B, size: 9.1, border: C.line, va: "middle" });
   cell(page, "", m + sL + sC, sigCY, sR, 58,
     { font: R, size: 8, border: C.line });
