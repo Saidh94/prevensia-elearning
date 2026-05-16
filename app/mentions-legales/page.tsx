@@ -21,7 +21,7 @@ export default function MentionsLegalesPage() {
         </p>
         <p><strong>Raison sociale :</strong> PREVENSIA Groupe SAS</p>
         <p><strong>Forme juridique :</strong> SAS — Société par actions simplifiée</p>
-        <p><strong>SIRET :</strong> En cours d'immatriculation</p>
+        <p><strong>SIRET :</strong> 933 761 363 00029</p>
         <p><strong>Code NAF / APE :</strong> 85.59A — Formation continue d'adultes</p>
         <p><strong>Adresse du siège social :</strong> 38, rue des Mathurins, 75008 Paris</p>
         <p><strong>Numéro de déclaration d'activité de formation :</strong> [À compléter — préfecture de région]</p>

@@ -151,7 +151,7 @@ export default function QuiSommesNousPage() {
                 {[
                   { label: "Raison sociale", value: "PREVENSIA Groupe SAS" },
                   { label: "Marque", value: "PREVENSIA FORMATION" },
-                  { label: "SIRET", value: "En cours d'immatriculation" },
+                  { label: "SIRET", value: "933 761 363 00029" },
                   { label: "Adresse", value: "38, rue des Mathurins\n75008 Paris" },
                   { label: "Téléphone", value: "01 89 62 94 92", href: "tel:+33189629492" },
                   { label: "Email", value: "contact@prevensia-formation.fr", href: "mailto:contact@prevensia-formation.fr" },
