@@ -244,7 +244,7 @@ export default function QuizPage() {
   }, [shuffledQuiz, answers]);
 
   const passingScore = useMemo(() => {
-    return quiz.length > 0 ? Math.ceil(quiz.length * 0.7) : 0;
+    return quiz.length > 0 ? Math.ceil(quiz.length * 0.8) : 0;
   }, [quiz.length]);
 
   const success = quiz.length > 0 && score >= passingScore;

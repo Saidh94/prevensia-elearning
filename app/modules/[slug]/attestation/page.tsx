@@ -193,6 +193,14 @@ export default function AttestationPage() {
           return;
         }
 
+        // Garde supplémentaire : si un résultat de quiz est présent mais échoué, bloquer
+        if (quizResult !== null && quizResult.success === false) {
+          setAccessError(
+            "Vous devez réussir le quiz final (score ≥ 80 %) pour accéder à votre attestation."
+          );
+          return;
+        }
+
         const completedAt = quizResult?.completedAt
           ? new Date(quizResult.completedAt).toLocaleDateString("fr-FR")
           : new Date().toLocaleDateString("fr-FR");
