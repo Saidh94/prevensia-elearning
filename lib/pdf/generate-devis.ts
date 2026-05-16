@@ -1,0 +1,396 @@
+import { PDFDocument, PDFFont, PDFPage, StandardFonts, rgb } from "pdf-lib";
+
+export type DevisPdfInput = {
+  numero: string;
+  date: string;
+  validiteJours: number;
+  clientName: string;
+  clientEmail: string;
+  clientCompany?: string;
+  formationLabel: string;
+  montantHT: number;
+  tvaRate: number;
+  montantTTC: number;
+  notes?: string;
+};
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function sanitize(text: string): string {
+  return text
+    .replace(/œ/g, "oe")
+    .replace(/Œ/g, "Oe")
+    .replace(/æ/g, "ae")
+    .replace(/Æ/g, "Ae")
+    .replace(/€/g, "EUR")
+    .replace(/[–—]/g, "-")
+    .replace(/['']/g, "'")
+    .replace(/[""]/g, '"')
+    .replace(/…/g, "...");
+}
+
+function fmtEur(amount: number): string {
+  return amount.toFixed(2).replace(".", ",") + " EUR";
+}
+
+function wrapText(
+  text: string,
+  maxWidth: number,
+  font: PDFFont,
+  fontSize: number
+): string[] {
+  const segments = text.split("\n");
+  const result: string[] = [];
+
+  for (const segment of segments) {
+    const words = segment.split(/\s+/).filter(Boolean);
+    if (words.length === 0) {
+      result.push("");
+      continue;
+    }
+    let currentLine = "";
+    for (const word of words) {
+      const testLine = currentLine ? `${currentLine} ${word}` : word;
+      if (font.widthOfTextAtSize(testLine, fontSize) <= maxWidth) {
+        currentLine = testLine;
+      } else {
+        if (currentLine) result.push(currentLine);
+        currentLine = word;
+      }
+    }
+    if (currentLine) result.push(currentLine);
+  }
+  return result;
+}
+
+function drawText(
+  page: PDFPage,
+  text: string,
+  x: number,
+  y: number,
+  options: {
+    font: PDFFont;
+    size: number;
+    color?: ReturnType<typeof rgb>;
+    maxWidth?: number;
+    lineHeight?: number;
+  }
+): number {
+  const {
+    font,
+    size,
+    color = rgb(0.1, 0.1, 0.15),
+    maxWidth,
+    lineHeight = size + 4,
+  } = options;
+
+  const lines = maxWidth
+    ? wrapText(sanitize(text), maxWidth, font, size)
+    : [sanitize(text)];
+
+  let currentY = y;
+  for (const line of lines) {
+    page.drawText(line, { x, y: currentY, size, font, color });
+    currentY -= lineHeight;
+  }
+  return currentY;
+}
+
+function drawHRule(
+  page: PDFPage,
+  x: number,
+  y: number,
+  width: number,
+  color: ReturnType<typeof rgb> = rgb(0.8, 0.8, 0.82),
+  thickness = 0.5
+) {
+  page.drawLine({
+    start: { x, y },
+    end: { x: x + width, y },
+    color,
+    thickness,
+  });
+}
+
+function drawTableRow(
+  page: PDFPage,
+  cols: { text: string; x: number; width: number; align?: "left" | "right" | "center" }[],
+  y: number,
+  font: PDFFont,
+  size: number,
+  color: ReturnType<typeof rgb>,
+  rowBg?: ReturnType<typeof rgb>
+) {
+  const rowHeight = 22;
+  if (rowBg) {
+    const firstCol = cols[0];
+    const lastCol = cols[cols.length - 1];
+    page.drawRectangle({
+      x: firstCol.x,
+      y: y - rowHeight + 4,
+      width: lastCol.x + lastCol.width - firstCol.x,
+      height: rowHeight,
+      color: rowBg,
+    });
+  }
+  for (const col of cols) {
+    const s = sanitize(col.text);
+    const tw = font.widthOfTextAtSize(s, size);
+    let textX = col.x + 6;
+    if (col.align === "right") textX = col.x + col.width - tw - 6;
+    else if (col.align === "center") textX = col.x + (col.width - tw) / 2;
+    page.drawText(s, { x: textX, y, size, font, color });
+  }
+}
+
+// ─── Generator ────────────────────────────────────────────────────────────────
+
+export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array> {
+  const {
+    numero,
+    date,
+    validiteJours,
+    clientName,
+    clientEmail,
+    clientCompany,
+    formationLabel,
+    montantHT,
+    tvaRate,
+    montantTTC,
+    notes,
+  } = input;
+
+  const pdfDoc = await PDFDocument.create();
+  const page = pdfDoc.addPage([595.28, 841.89]);
+
+  const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+  const RED = rgb(0.86, 0.15, 0.15);
+  const SLATE = rgb(0.1, 0.1, 0.15);
+  const MUTED = rgb(0.4, 0.4, 0.45);
+  const LIGHT_BG = rgb(0.97, 0.97, 0.98);
+  const HEAD_BG = rgb(0.12, 0.12, 0.18);
+
+  const pageW = 595.28;
+  const pageH = 841.89;
+  const margin = 50;
+  const contentW = pageW - margin * 2;
+
+  // ── En-tête société ──────────────────────────────────────────────────────
+  let y = pageH - margin;
+
+  page.drawRectangle({
+    x: 0,
+    y: pageH - 120,
+    width: pageW,
+    height: 120,
+    color: rgb(0.99, 0.99, 1),
+  });
+
+  page.drawText("PREVENSIA FORMATION", {
+    x: margin,
+    y,
+    size: 20,
+    font: fontBold,
+    color: RED,
+  });
+  y -= 18;
+
+  page.drawText("PREVENSIA Groupe SAS", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
+  y -= 13;
+  page.drawText("33, avenue Philippe Auguste — 75011 Paris", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
+  y -= 13;
+  page.drawText("SIRET : 933 761 363 00029 | Organisme certifie Qualiopi", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
+  y -= 13;
+  page.drawText("contact@prevensia-formation.fr | 01 89 62 94 92", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
+
+  // Date + numéro (coin droit)
+  const dateLineY = pageH - margin;
+  page.drawText(`Date : ${date}`, {
+    x: pageW - margin - 160,
+    y: dateLineY,
+    size: 9,
+    font: fontRegular,
+    color: MUTED,
+  });
+  page.drawText(`N° : ${sanitize(numero)}`, {
+    x: pageW - margin - 160,
+    y: dateLineY - 14,
+    size: 9,
+    font: fontBold,
+    color: SLATE,
+  });
+
+  y = pageH - 138;
+  drawHRule(page, margin, y, contentW, RED, 2);
+
+  // ── Titre ────────────────────────────────────────────────────────────────
+  y -= 30;
+  const title = `DEVIS N  ${sanitize(numero)}`;
+  const titleW = fontBold.widthOfTextAtSize(title, 22);
+  page.drawText(title, {
+    x: (pageW - titleW) / 2,
+    y,
+    size: 22,
+    font: fontBold,
+    color: SLATE,
+  });
+
+  y -= 30;
+  drawHRule(page, margin, y, contentW);
+
+  // ── Section Client ───────────────────────────────────────────────────────
+  y -= 24;
+  page.drawText("CLIENT", { x: margin, y, size: 10, font: fontBold, color: RED });
+  y -= 16;
+
+  page.drawRectangle({ x: margin, y: y - 10, width: contentW, height: 70, color: LIGHT_BG });
+
+  page.drawText("Nom / Responsable :", { x: margin + 10, y, size: 9, font: fontRegular, color: MUTED });
+  page.drawText(sanitize(clientName), { x: margin + 145, y, size: 9, font: fontBold, color: SLATE });
+  y -= 16;
+
+  page.drawText("Email :", { x: margin + 10, y, size: 9, font: fontRegular, color: MUTED });
+  page.drawText(sanitize(clientEmail), { x: margin + 145, y, size: 9, font: fontRegular, color: SLATE });
+  y -= 16;
+
+  if (clientCompany) {
+    page.drawText("Societe :", { x: margin + 10, y, size: 9, font: fontRegular, color: MUTED });
+    page.drawText(sanitize(clientCompany), { x: margin + 145, y, size: 9, font: fontBold, color: SLATE });
+    y -= 16;
+  }
+
+  y -= 16;
+  drawHRule(page, margin, y, contentW);
+
+  // ── Tableau prestation ───────────────────────────────────────────────────
+  y -= 24;
+  page.drawText("PRESTATION", { x: margin, y, size: 10, font: fontBold, color: RED });
+  y -= 16;
+
+  // Entête tableau
+  const col1X = margin;
+  const col1W = 260;
+  const col2X = col1X + col1W + 10;
+  const col2W = 75;
+  const col3X = col2X + col2W + 10;
+  const col3W = 75;
+  const col4X = col3X + col3W + 10;
+  const col4W = contentW - (col1W + col2W + col3W + 40);
+
+  page.drawRectangle({ x: margin, y: y - 8, width: contentW, height: 26, color: HEAD_BG });
+
+  const headerY = y + 6;
+  page.drawText("Designation", { x: col1X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
+  page.drawText("HT (EUR)", { x: col2X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
+  page.drawText("TVA", { x: col3X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
+  page.drawText("TTC (EUR)", { x: col4X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
+  y -= 26;
+
+  // Ligne données
+  drawTableRow(
+    page,
+    [
+      { text: formationLabel, x: col1X, width: col1W },
+      { text: fmtEur(montantHT), x: col2X, width: col2W, align: "right" },
+      { text: tvaRate === 0 ? "0 %" : `${tvaRate} %`, x: col3X, width: col3W, align: "center" },
+      { text: fmtEur(montantTTC), x: col4X, width: col4W, align: "right" },
+    ],
+    y,
+    fontRegular,
+    9,
+    SLATE,
+    LIGHT_BG
+  );
+  y -= 28;
+
+  drawHRule(page, margin, y, contentW);
+
+  // ── Totaux ───────────────────────────────────────────────────────────────
+  y -= 16;
+  const totX = col3X;
+
+  page.drawText("Total HT :", { x: totX, y, size: 9, font: fontRegular, color: MUTED });
+  page.drawText(fmtEur(montantHT), { x: col4X, y, size: 9, font: fontBold, color: SLATE });
+  y -= 14;
+
+  if (tvaRate === 0) {
+    page.drawText("TVA :", { x: totX, y, size: 9, font: fontRegular, color: MUTED });
+    page.drawText("Non applicable", { x: col4X, y, size: 9, font: fontRegular, color: MUTED });
+  } else {
+    const tvaMontant = montantTTC - montantHT;
+    page.drawText(`TVA ${tvaRate}% :`, { x: totX, y, size: 9, font: fontRegular, color: MUTED });
+    page.drawText(fmtEur(tvaMontant), { x: col4X, y, size: 9, font: fontRegular, color: SLATE });
+  }
+  y -= 18;
+
+  page.drawRectangle({ x: col3X - 4, y: y - 6, width: contentW - (col3X - 4 - margin), height: 26, color: RED });
+  page.drawText("TOTAL TTC :", { x: totX, y: y + 4, size: 10, font: fontBold, color: rgb(1, 1, 1) });
+  page.drawText(fmtEur(montantTTC), { x: col4X, y: y + 4, size: 10, font: fontBold, color: rgb(1, 1, 1) });
+  y -= 36;
+
+  // ── Mention TVA ──────────────────────────────────────────────────────────
+  y -= 10;
+  drawHRule(page, margin, y, contentW);
+  y -= 18;
+
+  page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.995, 0.97, 0.97) });
+  page.drawText(
+    "TVA non applicable - art. 261-4-4  du CGI (organisme de formation agree)",
+    { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.7, 0.15, 0.15) }
+  );
+  y -= 30;
+
+  // ── Validité ─────────────────────────────────────────────────────────────
+  y -= 12;
+  page.drawText(
+    `Ce devis est valable ${validiteJours} jours a compter du ${date}.`,
+    { x: margin, y, size: 9, font: fontRegular, color: MUTED }
+  );
+  y -= 20;
+
+  // ── Notes ────────────────────────────────────────────────────────────────
+  if (notes && notes.trim()) {
+    drawHRule(page, margin, y, contentW);
+    y -= 20;
+    page.drawText("Notes :", { x: margin, y, size: 9, font: fontBold, color: SLATE });
+    y -= 14;
+    const noteLines = wrapText(sanitize(notes), contentW - 20, fontRegular, 9);
+    for (const line of noteLines) {
+      page.drawText(line, { x: margin + 10, y, size: 9, font: fontRegular, color: MUTED });
+      y -= 13;
+    }
+  }
+
+  // ── Pied de page ─────────────────────────────────────────────────────────
+  const footerY = 60;
+  drawHRule(page, margin, footerY + 24, contentW, RED, 1.5);
+
+  page.drawText("PREVENSIA FORMATION | PREVENSIA Groupe SAS", {
+    x: margin,
+    y: footerY + 10,
+    size: 7.5,
+    font: fontBold,
+    color: RED,
+  });
+  page.drawText(
+    "33, av. Philippe Auguste — 75011 Paris | SIRET : 933 761 363 00029 | contact@prevensia-formation.fr | 01 89 62 94 92",
+    {
+      x: margin,
+      y: footerY - 2,
+      size: 7,
+      font: fontRegular,
+      color: MUTED,
+    }
+  );
+  page.drawText("Organisme certifie Qualiopi", {
+    x: pageW - margin - fontBold.widthOfTextAtSize("Organisme certifie Qualiopi", 7.5),
+    y: footerY + 10,
+    size: 7.5,
+    font: fontBold,
+    color: MUTED,
+  });
+
+  return pdfDoc.save();
+}

@@ -78,7 +78,7 @@ type SupportData = {
   tickets: SupportTicket[];
 };
 
-type TabKey = "apprenants" | "commandes" | "clients" | "parcours" | "tickets";
+type TabKey = "apprenants" | "commandes" | "clients" | "parcours" | "tickets" | "outils";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -136,6 +136,462 @@ function paymentBadge(ps: string | null) {
   if (ps === "failed") return <span className="inline-block rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">Échoué</span>;
   if (ps === "refunded") return <span className="inline-block rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">Remboursé</span>;
   return <span className="text-slate-400 text-xs">—</span>;
+}
+
+// ─── Composant Outils ────────────────────────────────────────────────────────
+
+function OutilsTab({
+  data,
+  showMsg,
+}: {
+  data: SupportData | null;
+  showMsg: (text: string, ok: boolean) => void;
+}) {
+  // ── État Inscription manuelle ──────────────────────────────────────────
+  const [enrollUserId, setEnrollUserId] = useState("");
+  const [enrollFormation, setEnrollFormation] = useState("");
+  const [enrollStatus, setEnrollStatus] = useState("pending");
+  const [enrollPayment, setEnrollPayment] = useState<string>("null");
+  const today = new Date().toISOString().slice(0, 10);
+  const in30 = (() => { const d = new Date(); d.setDate(d.getDate() + 30); return d.toISOString().slice(0, 10); })();
+  const [enrollStart, setEnrollStart] = useState(today);
+  const [enrollEnd, setEnrollEnd] = useState(in30);
+  const [enrollLoading, setEnrollLoading] = useState(false);
+
+  // ── État Devis ─────────────────────────────────────────────────────────
+  const [devisClientName, setDevisClientName] = useState("");
+  const [devisClientEmail, setDevisClientEmail] = useState("");
+  const [devisClientCompany, setDevisClientCompany] = useState("");
+  const [devisFormation, setDevisFormation] = useState("");
+  const [devisMontantHT, setDevisMontantHT] = useState("");
+  const [devisValidite, setDevisValidite] = useState("30");
+  const [devisNotes, setDevisNotes] = useState("");
+  const [devisLoading, setDevisLoading] = useState(false);
+
+  // ── État Facture ───────────────────────────────────────────────────────
+  const [factClientName, setFactClientName] = useState("");
+  const [factClientEmail, setFactClientEmail] = useState("");
+  const [factClientCompany, setFactClientCompany] = useState("");
+  const [factFormation, setFactFormation] = useState("");
+  const [factMontantHT, setFactMontantHT] = useState("");
+  const [factEnrollmentId, setFactEnrollmentId] = useState("");
+  const [factNotes, setFactNotes] = useState("");
+  const [factLoading, setFactLoading] = useState(false);
+
+  // ── Handlers ───────────────────────────────────────────────────────────
+
+  async function handleCreateEnrollment(e: React.FormEvent) {
+    e.preventDefault();
+    if (!enrollUserId || !enrollFormation) {
+      showMsg("Apprenant et formation requis", false);
+      return;
+    }
+    setEnrollLoading(true);
+    try {
+      const res = await fetch("/api/admin/enrollments/manual", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: enrollUserId,
+          formationLabel: enrollFormation,
+          status: enrollStatus,
+          paymentStatus: enrollPayment === "null" ? null : enrollPayment,
+          accessStart: enrollStart,
+          accessEnd: enrollEnd,
+        }),
+      });
+      const json = await res.json();
+      if (!res.ok || json.error) {
+        showMsg(json.error ?? "Erreur lors de la creation", false);
+      } else {
+        showMsg("Inscription creee avec succes !", true);
+        setEnrollUserId("");
+        setEnrollFormation("");
+      }
+    } catch {
+      showMsg("Erreur reseau", false);
+    } finally {
+      setEnrollLoading(false);
+    }
+  }
+
+  async function handleGenerateDevis(e: React.FormEvent) {
+    e.preventDefault();
+    if (!devisClientName || !devisClientEmail || !devisFormation || !devisMontantHT) {
+      showMsg("Tous les champs obligatoires sont requis", false);
+      return;
+    }
+    setDevisLoading(true);
+    try {
+      const res = await fetch("/api/admin/devis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientName: devisClientName,
+          clientEmail: devisClientEmail,
+          clientCompany: devisClientCompany || undefined,
+          formationLabel: devisFormation,
+          montantHT: parseFloat(devisMontantHT),
+          tvaRate: 0,
+          validiteJours: parseInt(devisValidite) || 30,
+          notes: devisNotes || undefined,
+        }),
+      });
+      if (!res.ok) {
+        const json = await res.json();
+        showMsg(json.error ?? "Erreur lors de la generation", false);
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `devis-${devisClientName.replace(/\s+/g, "-")}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showMsg("Devis genere et telecharge !", true);
+    } catch {
+      showMsg("Erreur reseau", false);
+    } finally {
+      setDevisLoading(false);
+    }
+  }
+
+  async function handleGenerateFacture(e: React.FormEvent) {
+    e.preventDefault();
+    if (!factClientName || !factClientEmail || !factFormation || !factMontantHT) {
+      showMsg("Tous les champs obligatoires sont requis", false);
+      return;
+    }
+    setFactLoading(true);
+    try {
+      const res = await fetch("/api/admin/factures", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clientName: factClientName,
+          clientEmail: factClientEmail,
+          clientCompany: factClientCompany || undefined,
+          formationLabel: factFormation,
+          montantHT: parseFloat(factMontantHT),
+          tvaRate: 0,
+          enrollmentId: factEnrollmentId || undefined,
+          notes: factNotes || undefined,
+        }),
+      });
+      if (!res.ok) {
+        const json = await res.json();
+        showMsg(json.error ?? "Erreur lors de la generation", false);
+        return;
+      }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `facture-${factClientName.replace(/\s+/g, "-")}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showMsg("Facture generee et telechargee !", true);
+    } catch {
+      showMsg("Erreur reseau", false);
+    } finally {
+      setFactLoading(false);
+    }
+  }
+
+  const inputCls =
+    "w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200";
+  const labelCls = "block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-1";
+  const btnCls =
+    "mt-4 w-full rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:opacity-50";
+
+  return (
+    <div className="grid gap-6 lg:grid-cols-3">
+
+      {/* ── Card 1 : Inscription manuelle ─────────────────────────────── */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-base font-bold text-slate-900">Inscription manuelle</h2>
+        <form onSubmit={handleCreateEnrollment} className="space-y-3">
+          <div>
+            <label className={labelCls}>Apprenant</label>
+            <select
+              value={enrollUserId}
+              onChange={(e) => setEnrollUserId(e.target.value)}
+              className={inputCls}
+              required
+            >
+              <option value="">-- Choisir un apprenant --</option>
+              {(data?.profiles ?? [])
+                .filter((p) => p.role !== "admin")
+                .map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {[p.first_name, p.last_name].filter(Boolean).join(" ") || p.email} — {p.email}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          <div>
+            <label className={labelCls}>Formation (label libre)</label>
+            <input
+              type="text"
+              value={enrollFormation}
+              onChange={(e) => setEnrollFormation(e.target.value)}
+              placeholder="Ex : Habilitation électrique H0B0"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Statut initial</label>
+            <select
+              value={enrollStatus}
+              onChange={(e) => setEnrollStatus(e.target.value)}
+              className={inputCls}
+            >
+              <option value="pending">En attente</option>
+              <option value="active">Actif</option>
+              <option value="in_progress">En cours</option>
+            </select>
+          </div>
+
+          <div>
+            <label className={labelCls}>Paiement</label>
+            <select
+              value={enrollPayment}
+              onChange={(e) => setEnrollPayment(e.target.value)}
+              className={inputCls}
+            >
+              <option value="null">Virement / Manuel (non renseigné)</option>
+              <option value="paid">Payé</option>
+            </select>
+          </div>
+
+          <div>
+            <label className={labelCls}>Début d&apos;accès</label>
+            <input
+              type="date"
+              value={enrollStart}
+              onChange={(e) => setEnrollStart(e.target.value)}
+              className={inputCls}
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Fin d&apos;accès</label>
+            <input
+              type="date"
+              value={enrollEnd}
+              onChange={(e) => setEnrollEnd(e.target.value)}
+              className={inputCls}
+            />
+          </div>
+
+          <button type="submit" disabled={enrollLoading} className={btnCls}>
+            {enrollLoading ? "Création…" : "Créer l'inscription"}
+          </button>
+        </form>
+      </div>
+
+      {/* ── Card 2 : Devis PDF ────────────────────────────────────────── */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-base font-bold text-slate-900">Générer un devis</h2>
+        <form onSubmit={handleGenerateDevis} className="space-y-3">
+          <div>
+            <label className={labelCls}>Nom client *</label>
+            <input
+              type="text"
+              value={devisClientName}
+              onChange={(e) => setDevisClientName(e.target.value)}
+              placeholder="Jean Dupont"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Email client *</label>
+            <input
+              type="email"
+              value={devisClientEmail}
+              onChange={(e) => setDevisClientEmail(e.target.value)}
+              placeholder="jean@exemple.fr"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Société (optionnel)</label>
+            <input
+              type="text"
+              value={devisClientCompany}
+              onChange={(e) => setDevisClientCompany(e.target.value)}
+              placeholder="ACME SAS"
+              className={inputCls}
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Formation / Prestation *</label>
+            <input
+              type="text"
+              value={devisFormation}
+              onChange={(e) => setDevisFormation(e.target.value)}
+              placeholder="Habilitation électrique H0B0"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Montant HT (€) *</label>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={devisMontantHT}
+              onChange={(e) => setDevisMontantHT(e.target.value)}
+              placeholder="490"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Validité (jours)</label>
+            <input
+              type="number"
+              min="1"
+              value={devisValidite}
+              onChange={(e) => setDevisValidite(e.target.value)}
+              className={inputCls}
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Notes (optionnel)</label>
+            <textarea
+              value={devisNotes}
+              onChange={(e) => setDevisNotes(e.target.value)}
+              rows={3}
+              placeholder="Informations complémentaires…"
+              className={inputCls + " resize-none"}
+            />
+          </div>
+
+          <button type="submit" disabled={devisLoading} className={btnCls}>
+            {devisLoading ? "Génération…" : "Générer le devis PDF"}
+          </button>
+        </form>
+      </div>
+
+      {/* ── Card 3 : Facture PDF ──────────────────────────────────────── */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-base font-bold text-slate-900">Générer une facture</h2>
+        <form onSubmit={handleGenerateFacture} className="space-y-3">
+          <div>
+            <label className={labelCls}>Nom client *</label>
+            <input
+              type="text"
+              value={factClientName}
+              onChange={(e) => setFactClientName(e.target.value)}
+              placeholder="Jean Dupont"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Email client *</label>
+            <input
+              type="email"
+              value={factClientEmail}
+              onChange={(e) => setFactClientEmail(e.target.value)}
+              placeholder="jean@exemple.fr"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Société (optionnel)</label>
+            <input
+              type="text"
+              value={factClientCompany}
+              onChange={(e) => setFactClientCompany(e.target.value)}
+              placeholder="ACME SAS"
+              className={inputCls}
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Formation / Prestation *</label>
+            <input
+              type="text"
+              value={factFormation}
+              onChange={(e) => setFactFormation(e.target.value)}
+              placeholder="Habilitation électrique H0B0"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Montant HT (€) *</label>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={factMontantHT}
+              onChange={(e) => setFactMontantHT(e.target.value)}
+              placeholder="490"
+              className={inputCls}
+              required
+            />
+          </div>
+
+          <div>
+            <label className={labelCls}>Lier à une inscription (optionnel)</label>
+            <select
+              value={factEnrollmentId}
+              onChange={(e) => setFactEnrollmentId(e.target.value)}
+              className={inputCls}
+            >
+              <option value="">-- Aucune --</option>
+              {(data?.enrollments ?? []).map((enr) => {
+                const f = Array.isArray(enr.formation)
+                  ? enr.formation[0]
+                  : enr.formation;
+                return (
+                  <option key={enr.id} value={enr.id}>
+                    {f?.title ?? "Formation inconnue"} — {enr.id.slice(0, 8)}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          <div>
+            <label className={labelCls}>Notes (optionnel)</label>
+            <textarea
+              value={factNotes}
+              onChange={(e) => setFactNotes(e.target.value)}
+              rows={3}
+              placeholder="Informations complémentaires…"
+              className={inputCls + " resize-none"}
+            />
+          </div>
+
+          <button type="submit" disabled={factLoading} className={btnCls}>
+            {factLoading ? "Génération…" : "Générer la facture PDF"}
+          </button>
+        </form>
+      </div>
+
+    </div>
+  );
 }
 
 // ─── Composant principal ──────────────────────────────────────────────────────
@@ -358,6 +814,7 @@ export default function SupportPage() {
     { key: "clients",    label: "Clients / Entreprises", count: data?.clients.length },
     { key: "parcours",   label: "Suivi des parcours" },
     { key: "tickets",    label: "Tickets Support", count: data?.tickets.length, alert: openTickets > 0 },
+    { key: "outils",     label: "Outils" },
   ];
 
   if (loading) {
@@ -780,6 +1237,11 @@ export default function SupportPage() {
             </div>
           )}
         </div>
+      )}
+
+      {/* ── Onglet Outils ── */}
+      {tab === "outils" && (
+        <OutilsTab data={data} showMsg={showMsg} />
       )}
 
       {/* ── Onglet Tickets Support ── */}
