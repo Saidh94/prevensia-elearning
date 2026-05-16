@@ -512,7 +512,7 @@ const pointsForts = [
   "Contenus structurés autour des risques réels en entreprise",
   "Approche progressive selon les niveaux, métiers et contraintes terrain",
   "Modules pédagogiques avec chapitres, synthèses et quiz sérieux",
-  "Validation finale encadrée : entretien, visio ou présentiel",
+  "Validation encadrée selon le parcours : entretien, visio ou présentiel",
 ];
 
 const catégories = [
@@ -657,8 +657,8 @@ export default function ElearningPage() {
 
             <p className="mt-4 text-base leading-7 text-slate-400">
               H0B0 / H0V et BS / BE Manœuvre sont les parcours pouvant être
-              achetes en format e-learning encadré avec entretien, visio ou classes
-              virtuelle. Les autres modules sont des supports premium inclus avec
+              suivis en format e-learning encadré avec entretien, visio ou classe
+              virtuelle. Les autres modules sont des supports inclus avec
               la formation présentielle ou classe virtuelle, accessibles aux
               apprenants inscrits pour préparer, réviser et consolider les acquis.
             </p>
@@ -697,17 +697,15 @@ export default function ElearningPage() {
             </h2>
 
             <p className="mt-4 leading-7 text-slate-600">
-              L&apos;espace e-learning n&apos;a pas vocation à remplacer les séquences
-              encadrées. Il sert à préparer les apprenants, harmoniser les bases,
-              renforcer les quiz et conserver un accès de révision aux contenus
-              techniques.
+              Les modules e-learning PREVENSIA accompagnent les apprenants avant,
+              pendant ou après leur formation, avec des contenus structurés, des
+              quiz et des repères pratiques adaptés aux risques du terrain.
             </p>
 
             <p className="mt-4 leading-7 text-slate-600">
               Pour les parcours B1, B2, BR, BC, BE, incendie, SSI, sprinkler et
-              SST, l&apos;accès aux cours est donc un complément inclus dans l&apos;offre
-              formation. Le client comprend qu&apos;il achète une formation encadrée,
-              enrichie par un support digital consultable en amont et en révision.
+              SST, l&apos;accès aux modules est inclus avec la formation encadrée —
+              un support digital consultable en amont, en cours et en révision.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
