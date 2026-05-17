@@ -282,6 +282,7 @@ const rowsByMetier: Record<Exclude<MetierKey, "">, TableRow[]> = {
   "securite-qhse": [
     tableRowsByTab.ssi[0],
     tableRowsByTab.sprinkler[0],
+    tableRowsByTab.sprinkler[1],
     tableRowsByTab.incendie[2], // EPI
     tableRowsByTab.sst[0],
     tableRowsByTab.atex[2], // ATEX N3
@@ -295,6 +296,7 @@ const rowsByMetier: Record<Exclude<MetierKey, "">, TableRow[]> = {
     tableRowsByTab.ssi[0],
     tableRowsByTab.ssi[1],
     tableRowsByTab.sprinkler[0],
+    tableRowsByTab.sprinkler[1],
     tableRowsByTab.incendie[0], // extincteurs
     tableRowsByTab.incendie[1], // guide-file
   ],
