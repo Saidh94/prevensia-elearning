@@ -78,7 +78,7 @@ type SupportData = {
   tickets: SupportTicket[];
 };
 
-type TabKey = "apprenants" | "commandes" | "clients" | "parcours" | "tickets" | "outils";
+type TabKey = "today" | "apprenants" | "commandes" | "clients" | "parcours" | "tickets" | "outils";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -600,9 +600,12 @@ export default function SupportPage() {
   const [data, setData] = useState<SupportData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [tab, setTab] = useState<TabKey>("apprenants");
+  const [tab, setTab] = useState<TabKey>("today");
   const [search, setSearch] = useState("");
   const [actionMsg, setActionMsg] = useState<{ text: string; ok: boolean } | null>(null);
+
+  // ── États pour la fiche apprenant (parcours) ──────────────────────────────
+  const [expandedLearner, setExpandedLearner] = useState<string | null>(null);
 
   // ── États pour la gestion des tickets ──────────────────────────────────────
   const [expandedTicket, setExpandedTicket] = useState<string | null>(null);
@@ -850,7 +853,50 @@ export default function SupportPage() {
 
   const openTickets = data?.tickets.filter((t) => t.status === "open").length ?? 0;
 
+  // ── "À traiter aujourd'hui" ────────────────────────────────────────────────
+  const todayItems = useMemo(() => {
+    if (!data) return { pendingPayments: [], expiringAccess: [], blockedLearners: [], pendingInterviews: [], pendingTickets: [] };
+
+    const now = new Date();
+    const in7days = new Date(now);
+    in7days.setDate(now.getDate() + 7);
+
+    // Paiements en attente (statut non annulé)
+    const pendingPayments = data.enrollments.filter(
+      (e) => e.payment_status !== "paid" && e.status !== "cancelled"
+    );
+
+    // Accès expirant dans ≤ 7 jours et encore actifs
+    const expiringAccess = data.enrollments.filter((e) => {
+      if (!e.access_end) return false;
+      if (e.status === "completed" || e.status === "cancelled") return false;
+      const end = new Date(e.access_end);
+      return end >= now && end <= in7days;
+    });
+
+    // Comptes bloqués
+    const blockedLearners = data.profiles.filter((p) => p.is_blocked);
+
+    // Entretiens à planifier
+    const pendingInterviews = data.enrollments.filter(
+      (e) => e.status === "pending_interview"
+    );
+
+    // Tickets ouverts
+    const pendingTickets = data.tickets.filter((t) => t.status === "open");
+
+    return { pendingPayments, expiringAccess, blockedLearners, pendingInterviews, pendingTickets };
+  }, [data]);
+
+  const todayAlertCount =
+    todayItems.pendingPayments.length +
+    todayItems.expiringAccess.length +
+    todayItems.blockedLearners.length +
+    todayItems.pendingInterviews.length +
+    todayItems.pendingTickets.length;
+
   const tabs: { key: TabKey; label: string; count?: number; alert?: boolean }[] = [
+    { key: "today",      label: "À traiter", count: todayAlertCount, alert: todayAlertCount > 0 },
     { key: "apprenants", label: "Apprenants", count: data?.profiles.length },
     { key: "commandes",  label: "Commandes",  count: data?.enrollments.length },
     { key: "clients",    label: "Clients / Entreprises", count: data?.clients.length },
@@ -968,6 +1014,234 @@ export default function SupportPage() {
           className="w-full max-w-md rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
         />
       </div>
+
+      {/* ── Onglet À traiter aujourd'hui ── */}
+      {tab === "today" && (
+        <div className="space-y-6">
+          {todayAlertCount === 0 ? (
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
+              <p className="text-2xl">✅</p>
+              <p className="mt-2 font-semibold text-emerald-800">Rien à traiter aujourd&apos;hui</p>
+              <p className="mt-1 text-sm text-emerald-700">Toutes les inscriptions sont à jour.</p>
+            </div>
+          ) : (
+            <>
+              {/* Paiements en attente */}
+              {todayItems.pendingPayments.length > 0 && (
+                <section>
+                  <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-amber-700">
+                    <span className="inline-block h-2 w-2 rounded-full bg-amber-500" />
+                    Paiements en attente ({todayItems.pendingPayments.length})
+                  </h3>
+                  <div className="overflow-hidden rounded-2xl border border-amber-200 bg-white shadow-sm">
+                    <table className="min-w-full text-sm">
+                      <thead className="bg-amber-50 text-left text-xs uppercase tracking-wide text-amber-700">
+                        <tr>
+                          <th className="px-4 py-3">Formation</th>
+                          <th className="px-4 py-3">Entreprise</th>
+                          <th className="px-4 py-3">Statut paiement</th>
+                          <th className="px-4 py-3">Statut formation</th>
+                          <th className="px-4 py-3">Créé le</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {todayItems.pendingPayments.map((e) => {
+                          const f = getFormation(e);
+                          return (
+                            <tr key={e.id} className="border-t border-amber-100 hover:bg-amber-50/40">
+                              <td className="px-4 py-3 font-medium text-slate-900">{f?.title ?? "—"}</td>
+                              <td className="px-4 py-3 text-slate-600">{e.company_name ?? "—"}</td>
+                              <td className="px-4 py-3">{paymentBadge(e.payment_status)}</td>
+                              <td className="px-4 py-3">{statusBadge(e.status)}</td>
+                              <td className="px-4 py-3 text-slate-500">{fmt(e.created_at)}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
+
+              {/* Accès expirant ≤ 7 jours */}
+              {todayItems.expiringAccess.length > 0 && (
+                <section>
+                  <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-orange-700">
+                    <span className="inline-block h-2 w-2 rounded-full bg-orange-500" />
+                    Accès expirant dans 7 jours ({todayItems.expiringAccess.length})
+                  </h3>
+                  <div className="overflow-hidden rounded-2xl border border-orange-200 bg-white shadow-sm">
+                    <table className="min-w-full text-sm">
+                      <thead className="bg-orange-50 text-left text-xs uppercase tracking-wide text-orange-700">
+                        <tr>
+                          <th className="px-4 py-3">Formation</th>
+                          <th className="px-4 py-3">Entreprise</th>
+                          <th className="px-4 py-3">Fin d&apos;accès</th>
+                          <th className="px-4 py-3">Statut</th>
+                          <th className="px-4 py-3">Prolonger</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {todayItems.expiringAccess.map((e) => {
+                          const f = getFormation(e);
+                          return (
+                            <tr key={e.id} className="border-t border-orange-100 hover:bg-orange-50/40">
+                              <td className="px-4 py-3 font-medium text-slate-900">{f?.title ?? "—"}</td>
+                              <td className="px-4 py-3 text-slate-600">{e.company_name ?? "—"}</td>
+                              <td className="px-4 py-3 font-semibold text-orange-700">{fmt(e.access_end)}</td>
+                              <td className="px-4 py-3">{statusBadge(e.status)}</td>
+                              <td className="px-4 py-3">
+                                <input
+                                  type="date"
+                                  defaultValue={toInputDate(e.access_end)}
+                                  onBlur={(ev) => {
+                                    if (ev.target.value !== toInputDate(e.access_end)) {
+                                      handleAccessEndChange(e.id, ev.target.value);
+                                    }
+                                  }}
+                                  className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                                />
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
+
+              {/* Comptes bloqués */}
+              {todayItems.blockedLearners.length > 0 && (
+                <section>
+                  <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-red-700">
+                    <span className="inline-block h-2 w-2 rounded-full bg-red-500" />
+                    Comptes bloqués ({todayItems.blockedLearners.length})
+                  </h3>
+                  <div className="overflow-hidden rounded-2xl border border-red-200 bg-white shadow-sm">
+                    <table className="min-w-full text-sm">
+                      <thead className="bg-red-50 text-left text-xs uppercase tracking-wide text-red-700">
+                        <tr>
+                          <th className="px-4 py-3">Nom</th>
+                          <th className="px-4 py-3">Email</th>
+                          <th className="px-4 py-3">Entreprise</th>
+                          <th className="px-4 py-3">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {todayItems.blockedLearners.map((p) => (
+                          <tr key={p.id} className="border-t border-red-100 hover:bg-red-50/40">
+                            <td className="px-4 py-3 font-semibold text-slate-900">{fullName(p)}</td>
+                            <td className="px-4 py-3 text-slate-600">{p.email ?? "—"}</td>
+                            <td className="px-4 py-3 text-slate-600">{p.company ?? "—"}</td>
+                            <td className="px-4 py-3">
+                              <button
+                                type="button"
+                                onClick={() => handleBlockToggle(p.id, true)}
+                                className="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition"
+                              >
+                                Débloquer
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
+
+              {/* Entretiens à planifier */}
+              {todayItems.pendingInterviews.length > 0 && (
+                <section>
+                  <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-violet-700">
+                    <span className="inline-block h-2 w-2 rounded-full bg-violet-500" />
+                    Entretiens à planifier ({todayItems.pendingInterviews.length})
+                  </h3>
+                  <div className="overflow-hidden rounded-2xl border border-violet-200 bg-white shadow-sm">
+                    <table className="min-w-full text-sm">
+                      <thead className="bg-violet-50 text-left text-xs uppercase tracking-wide text-violet-700">
+                        <tr>
+                          <th className="px-4 py-3">Formation</th>
+                          <th className="px-4 py-3">Entreprise</th>
+                          <th className="px-4 py-3">Fin d&apos;accès</th>
+                          <th className="px-4 py-3">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {todayItems.pendingInterviews.map((e) => {
+                          const f = getFormation(e);
+                          return (
+                            <tr key={e.id} className="border-t border-violet-100 hover:bg-violet-50/40">
+                              <td className="px-4 py-3 font-medium text-slate-900">{f?.title ?? "—"}</td>
+                              <td className="px-4 py-3 text-slate-600">{e.company_name ?? "—"}</td>
+                              <td className="px-4 py-3 text-slate-500">{fmt(e.access_end)}</td>
+                              <td className="px-4 py-3">
+                                <a
+                                  href="/admin/validations"
+                                  className="rounded-lg border border-violet-300 bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700 hover:bg-violet-100 transition"
+                                >
+                                  Valider entretien →
+                                </a>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
+
+              {/* Tickets ouverts */}
+              {todayItems.pendingTickets.length > 0 && (
+                <section>
+                  <h3 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-red-700">
+                    <span className="inline-block h-2 w-2 rounded-full bg-red-500" />
+                    Tickets ouverts ({todayItems.pendingTickets.length})
+                  </h3>
+                  <div className="overflow-hidden rounded-2xl border border-red-200 bg-white shadow-sm">
+                    <table className="min-w-full text-sm">
+                      <thead className="bg-red-50 text-left text-xs uppercase tracking-wide text-red-700">
+                        <tr>
+                          <th className="px-4 py-3">Date</th>
+                          <th className="px-4 py-3">Nom</th>
+                          <th className="px-4 py-3">Email</th>
+                          <th className="px-4 py-3">Problème</th>
+                          <th className="px-4 py-3">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {todayItems.pendingTickets.map((t) => (
+                          <tr key={t.id} className="border-t border-red-100 hover:bg-red-50/40">
+                            <td className="px-4 py-3 text-slate-500 whitespace-nowrap">{fmt(t.created_at)}</td>
+                            <td className="px-4 py-3 font-medium text-slate-900">{t.user_name || "—"}</td>
+                            <td className="px-4 py-3 text-slate-600">{t.user_email}</td>
+                            <td className="px-4 py-3">
+                              <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+                                {ISSUE_LABELS[t.issue_type] ?? t.issue_type}
+                              </span>
+                            </td>
+                            <td className="px-4 py-3">
+                              <button
+                                type="button"
+                                onClick={() => { setTab("tickets"); }}
+                                className="rounded-lg border border-red-300 bg-red-50 px-3 py-1 text-xs font-semibold text-red-700 hover:bg-red-100 transition"
+                              >
+                                Gérer →
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
+            </>
+          )}
+        </div>
+      )}
 
       {/* ── Onglet Apprenants ── */}
       {tab === "apprenants" && (
@@ -1197,84 +1471,193 @@ export default function SupportPage() {
       {/* ── Onglet Parcours ── */}
       {tab === "parcours" && (
         <div className="space-y-4">
-          {learnersWithProgress.map(({ profile: p, enrollments: enrs, progress, quiz }) => (
-            <div key={p.id} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <p className="font-semibold text-slate-900">{fullName(p)}</p>
-                  <p className="text-sm text-slate-500">{p.email ?? "—"}</p>
-                </div>
-                <a
-                  href={`mailto:${p.email}`}
-                  className="rounded-xl border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50"
-                >
-                  Contacter
-                </a>
-              </div>
+          {learnersWithProgress.map(({ profile: p, enrollments: enrs, progress, quiz }) => {
+            const isExpanded = expandedLearner === p.id;
+            // Accès actif = date de fin dans le futur
+            const now = new Date();
+            const hasActiveAccess = enrs.some((e) => {
+              if (!e.access_end) return false;
+              return new Date(e.access_end) > now && e.status !== "cancelled";
+            });
 
-              {enrs.length === 0 ? (
-                <p className="mt-3 text-sm text-slate-400">Aucune inscription.</p>
-              ) : (
-                <div className="mt-4 space-y-3">
-                  {enrs.map((e) => {
-                    const f = getFormation(e);
-                    const slug = f?.slug ?? "";
-                    const chapsDone = progress.filter(
-                      (c) => c.formation_slug === slug && c.is_completed
-                    ).length;
-                    const totalChaps = progress.filter(
-                      (c) => c.formation_slug === slug
-                    ).length;
-                    const lastQuiz = quiz
-                      .filter((q) => q.formation_slug === slug)
-                      .sort((a, b) =>
-                        (b.attempted_at ?? "") > (a.attempted_at ?? "") ? 1 : -1
-                      )[0];
-
-                    return (
-                      <div key={e.id} className="rounded-xl border border-slate-100 bg-slate-50 p-4">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span className="font-medium text-slate-800">
-                            {f?.title ?? "Formation inconnue"}
-                          </span>
-                          {statusBadge(e.status)}
-                          {paymentBadge(e.payment_status)}
-                        </div>
-
-                        <div className="mt-3 grid gap-2 text-sm sm:grid-cols-3">
-                          <div>
-                            <span className="text-slate-500">Chapitres :</span>{" "}
-                            <span className="font-medium text-slate-800">
-                              {chapsDone}/{totalChaps > 0 ? totalChaps : "?"}
-                            </span>
-                          </div>
-                          <div>
-                            <span className="text-slate-500">Accès jusqu'au :</span>{" "}
-                            <span className="font-medium text-slate-800">{fmt(e.access_end)}</span>
-                          </div>
-                          <div>
-                            <span className="text-slate-500">Validé :</span>{" "}
-                            <span className="font-medium text-slate-800">{fmt(e.validated_at)}</span>
-                          </div>
-                        </div>
-
-                        {lastQuiz && (
-                          <div className="mt-2 flex flex-wrap gap-3 text-sm">
-                            <span className="text-slate-500">Dernier quiz :</span>
-                            <span className={`font-semibold ${lastQuiz.passed ? "text-emerald-700" : "text-red-600"}`}>
-                              {lastQuiz.score}/{lastQuiz.total} ({lastQuiz.score_percent}%)
-                              — {lastQuiz.passed ? "Réussi ✓" : "Échoué ✗"}
-                            </span>
-                            <span className="text-slate-400">{fmt(lastQuiz.attempted_at)}</span>
-                          </div>
+            return (
+              <div key={p.id} className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                {/* ── En-tête apprenant ── */}
+                <div className="flex flex-wrap items-center justify-between gap-3 p-5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-sm font-bold text-slate-600 flex-shrink-0">
+                      {(p.first_name?.[0] ?? p.email?.[0] ?? "?").toUpperCase()}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <p className="font-semibold text-slate-900">{fullName(p)}</p>
+                        {p.is_blocked && (
+                          <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">Bloqué</span>
+                        )}
+                        {hasActiveAccess ? (
+                          <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-700">Accès actif</span>
+                        ) : (
+                          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-500">Accès expiré</span>
                         )}
                       </div>
-                    );
-                  })}
+                      <p className="text-sm text-slate-500">{p.email ?? "—"}{p.company ? ` · ${p.company}` : ""}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-slate-400">{enrs.length} formation{enrs.length > 1 ? "s" : ""}</span>
+                    <a
+                      href={`mailto:${p.email}`}
+                      className="rounded-xl border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50"
+                    >
+                      Contacter
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setExpandedLearner(isExpanded ? null : p.id)}
+                      className="rounded-xl border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-100"
+                    >
+                      {isExpanded ? "Réduire ▲" : "Voir détail ▼"}
+                    </button>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+
+                {/* ── Résumé rapide (toujours visible) ── */}
+                <div className="grid grid-cols-2 gap-px bg-slate-100 sm:grid-cols-4 border-t border-slate-100">
+                  {[
+                    { label: "Formations", value: enrs.length },
+                    { label: "Terminées", value: enrs.filter(e => e.status === "completed").length },
+                    { label: "Quiz réussis", value: quiz.filter(q => q.passed).length },
+                    { label: "Inscrit le", value: fmt(p.created_at) },
+                  ].map((kpi) => (
+                    <div key={kpi.label} className="bg-white px-4 py-3">
+                      <p className="text-xs text-slate-500">{kpi.label}</p>
+                      <p className="mt-0.5 text-sm font-semibold text-slate-900">{kpi.value}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* ── Détail expandable ── */}
+                {isExpanded && (
+                  <div className="border-t border-slate-100 p-5 space-y-5 bg-slate-50/50">
+                    {enrs.length === 0 ? (
+                      <p className="text-sm text-slate-400">Aucune inscription.</p>
+                    ) : (
+                      enrs.map((e) => {
+                        const f = getFormation(e);
+                        const slug = f?.slug ?? "";
+                        const allChaps = progress.filter((c) => c.formation_slug === slug);
+                        const chapsDone = allChaps.filter((c) => c.is_completed).length;
+                        const totalChaps = allChaps.length;
+                        const progressPct = totalChaps > 0 ? Math.round((chapsDone / totalChaps) * 100) : 0;
+                        const allQuizAttempts = quiz
+                          .filter((q) => q.formation_slug === slug)
+                          .sort((a, b) => ((b.attempted_at ?? "") > (a.attempted_at ?? "") ? 1 : -1));
+                        const lastQuiz = allQuizAttempts[0];
+
+                        // Statut accès
+                        const accessExpired = e.access_end ? new Date(e.access_end) < now : false;
+
+                        return (
+                          <div key={e.id} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                            {/* Titre formation */}
+                            <div className="mb-3 flex flex-wrap items-center gap-2">
+                              <span className="font-semibold text-slate-900">{f?.title ?? "Formation inconnue"}</span>
+                              {statusBadge(e.status)}
+                              {paymentBadge(e.payment_status)}
+                              {accessExpired && e.status !== "completed" && (
+                                <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold text-red-700">Accès expiré</span>
+                              )}
+                            </div>
+
+                            {/* Grille infos accès */}
+                            <div className="mb-4 grid gap-2 text-sm sm:grid-cols-3">
+                              <div>
+                                <span className="text-slate-500">Début accès :</span>{" "}
+                                <span className="font-medium text-slate-800">{fmt(e.access_start)}</span>
+                              </div>
+                              <div>
+                                <span className="text-slate-500">Fin accès :</span>{" "}
+                                <span className={`font-medium ${accessExpired && e.status !== "completed" ? "text-red-700" : "text-slate-800"}`}>
+                                  {fmt(e.access_end)}
+                                </span>
+                              </div>
+                              <div>
+                                <span className="text-slate-500">Validé le :</span>{" "}
+                                <span className="font-medium text-slate-800">{fmt(e.validated_at)}</span>
+                              </div>
+                            </div>
+
+                            {/* Barre de progression chapitres */}
+                            {totalChaps > 0 && (
+                              <div className="mb-4">
+                                <div className="mb-1.5 flex items-center justify-between text-xs text-slate-500">
+                                  <span>Progression chapitres</span>
+                                  <span className="font-semibold text-slate-800">{chapsDone}/{totalChaps} ({progressPct}%)</span>
+                                </div>
+                                <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
+                                  <div
+                                    className="h-full rounded-full bg-blue-500 transition-all"
+                                    style={{ width: `${progressPct}%` }}
+                                  />
+                                </div>
+                                {/* Liste chapitres */}
+                                {allChaps.length > 0 && (
+                                  <div className="mt-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
+                                    {allChaps.map((c) => (
+                                      <div
+                                        key={c.chapter_key}
+                                        className={`flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs ${
+                                          c.is_completed
+                                            ? "bg-emerald-50 text-emerald-800"
+                                            : "bg-slate-100 text-slate-600"
+                                        }`}
+                                      >
+                                        <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${c.is_completed ? "bg-emerald-500" : "bg-slate-400"}`} />
+                                        <span className="truncate">{c.chapter_key}</span>
+                                        {c.is_completed && <span className="ml-auto flex-shrink-0">✓</span>}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            )}
+
+                            {/* Historique quiz */}
+                            {allQuizAttempts.length > 0 && (
+                              <div>
+                                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                                  Historique quiz ({allQuizAttempts.length} tentative{allQuizAttempts.length > 1 ? "s" : ""})
+                                </p>
+                                <div className="space-y-1.5">
+                                  {allQuizAttempts.map((qa, idx) => (
+                                    <div
+                                      key={idx}
+                                      className={`flex items-center justify-between rounded-lg px-3 py-2 text-xs ${
+                                        qa.passed ? "bg-emerald-50" : "bg-red-50"
+                                      }`}
+                                    >
+                                      <span className={`font-semibold ${qa.passed ? "text-emerald-800" : "text-red-800"}`}>
+                                        {qa.passed ? "✓ Réussi" : "✗ Échoué"} — {qa.score}/{qa.total} ({qa.score_percent}%)
+                                      </span>
+                                      <span className="text-slate-500">{fmt(qa.attempted_at)}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {!lastQuiz && totalChaps === 0 && (
+                              <p className="text-xs text-slate-400">Aucune activité enregistrée.</p>
+                            )}
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
           {learnersWithProgress.length === 0 && (
             <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-400">
               Aucun résultat

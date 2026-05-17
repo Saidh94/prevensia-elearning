@@ -47,6 +47,8 @@ type FormationRow = {
 type AttestationPayload = {
   enrollmentId?: string;
   forceAdminCompletion?: boolean;
+  /** Motif saisi par l'admin lors du forçage — tracé dans les logs serveur */
+  forceReason?: string;
   formation?: string;
   moduleSlug?: string;
   date?: string;
@@ -124,6 +126,7 @@ async function readPayload(request: Request): Promise<AttestationPayload> {
     return {
       enrollmentId: normalizeString(body.enrollmentId) || undefined,
       forceAdminCompletion: readOptionalBoolean(body.forceAdminCompletion),
+      forceReason: normalizeString(body.forceReason) || undefined,
       formation: normalizeString(body.formation) || undefined,
       moduleSlug: normalizeString(body.moduleSlug) || undefined,
       date: normalizeString(body.date) || undefined,
@@ -168,9 +171,15 @@ async function forceCompleteEnrollmentForAdmin(
     | Awaited<ReturnType<typeof createClient>>
     | NonNullable<ReturnType<typeof createAdminClient>>,
   enrollmentId: string,
-  adminUserId: string
+  adminUserId: string,
+  forceReason?: string
 ) {
   const validatedAt = new Date().toISOString();
+
+  // Traçabilité audit — enregistré dans les logs serveur
+  console.warn(
+    `[AUDIT] Force attestation — admin: ${adminUserId} | enrollment: ${enrollmentId} | at: ${validatedAt} | motif: "${forceReason ?? "(non renseigné)"}"`
+  );
 
   const { error } = await supabase
     .from("enrollments")
@@ -461,7 +470,8 @@ export async function POST(request: Request) {
         await forceCompleteEnrollmentForAdmin(
           adminSupabase ?? supabase,
           enrollment.id,
-          user.id
+          user.id,
+          payload.forceReason
         );
 
       if (forceError) {
