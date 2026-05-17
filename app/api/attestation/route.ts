@@ -176,19 +176,37 @@ async function forceCompleteEnrollmentForAdmin(
 ) {
   const validatedAt = new Date().toISOString();
 
-  // Traçabilité audit — enregistré dans les logs serveur
+  // Traçabilité — log serveur (toujours, même si la DB échoue)
   console.warn(
     `[AUDIT] Force attestation — admin: ${adminUserId} | enrollment: ${enrollmentId} | at: ${validatedAt} | motif: "${forceReason ?? "(non renseigné)"}"`
   );
 
+  // 1. Mettre à jour le statut + marquer forced_by_admin
   const { error } = await supabase
     .from("enrollments")
     .update({
       status: "completed",
       validated_at: validatedAt,
       validated_by: adminUserId,
+      forced_by_admin: true,
     })
     .eq("id", enrollmentId);
+
+  if (!error) {
+    // 2. Écrire dans admin_audit_log (best-effort — ne bloque pas si la table n'existe pas encore)
+    try {
+      await supabase.from("admin_audit_log").insert({
+        action: "force_attestation",
+        admin_id: adminUserId,
+        target_id: enrollmentId,
+        target_type: "enrollment",
+        reason: forceReason ?? null,
+        metadata: { validated_at: validatedAt },
+      });
+    } catch {
+      // Silencieux : la table peut ne pas exister encore (migration en attente)
+    }
+  }
 
   return { error, validatedAt };
 }

@@ -64,6 +64,7 @@ type EnrollmentRow = {
   company_name: string | null;
   manager_email: string | null;
   payment_status: string | null;
+  forced_by_admin: boolean | null;
 };
 
 type UserProfileRow = {
@@ -97,6 +98,7 @@ type AdminRow = {
   accessStart: string | null;
   accessEnd: string | null;
   paymentStatus: string | null;
+  forcedByAdmin: boolean;
 };
 
 function getSingleValue(value: string | string[] | undefined) {
@@ -145,7 +147,8 @@ export default async function AdminPage({
       access_end,
       company_name,
       manager_email,
-      payment_status
+      payment_status,
+      forced_by_admin
     `)
     .order("access_start", { ascending: false })
     .returns<EnrollmentRow[]>();
@@ -197,6 +200,7 @@ export default async function AdminPage({
     return {
       id: item.id,
       user_id: item.user_id,
+      forcedByAdmin: item.forced_by_admin === true,
       fullName:
         [userProfile?.first_name, userProfile?.last_name]
           .filter(Boolean)
@@ -424,13 +428,20 @@ export default async function AdminPage({
                       <td className="px-4 py-4 min-w-[160px]">{item.companyName}</td>
                       <td className="px-4 py-4 whitespace-nowrap">{item.managerEmail}</td>
                       <td className="px-4 py-4 whitespace-nowrap">
-                        <span
-                          className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusClasses(
-                            item.status
-                          )}`}
-                        >
-                          {getStatusLabel(item.status)}
-                        </span>
+                        <div className="flex flex-col gap-1">
+                          <span
+                            className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusClasses(
+                              item.status
+                            )}`}
+                          >
+                            {getStatusLabel(item.status)}
+                          </span>
+                          {item.forcedByAdmin && (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">
+                              ⚠ Forcé admin
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         {formatDate(item.accessStart)}
