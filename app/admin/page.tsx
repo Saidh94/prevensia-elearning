@@ -1,54 +1,17 @@
+import {
+  computeKPIs,
+  formatDate,
+  getPaymentClasses,
+  getPaymentLabel,
+  getStatusClasses,
+  getStatusLabel,
+  type AdminRow,
+} from "@/lib/admin-helpers";
 import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ForceAttestationButton } from "./components/ForceAttestationButton";
-
-function formatDate(value: string | null) {
-  if (!value) return "—";
-  const d = new Date(value);
-  return Number.isNaN(d.getTime()) ? "—" : d.toLocaleDateString("fr-FR");
-}
-
-function getStatusLabel(status: string | null) {
-  switch (status) {
-    case "completed":
-      return "Terminée";
-    case "pending_interview":
-      return "Entretien à planifier";
-    case "in_progress":
-      return "En cours";
-    case "not_started":
-      return "Non démarrée";
-    default:
-      return status || "—";
-  }
-}
-
-function getStatusClasses(status: string | null) {
-  switch (status) {
-    case "completed":
-      return "bg-emerald-100 text-emerald-700";
-    case "pending_interview":
-      return "bg-amber-100 text-amber-700";
-    case "in_progress":
-      return "bg-blue-100 text-blue-700";
-    case "not_started":
-      return "bg-slate-100 text-slate-700";
-    default:
-      return "bg-slate-100 text-slate-700";
-  }
-}
-
-function getPaymentLabel(paymentStatus: string | null) {
-  return paymentStatus === "paid" ? "Payé" : "En attente";
-}
-
-function getPaymentClasses(paymentStatus: string | null) {
-  return paymentStatus === "paid"
-    ? "bg-emerald-100 text-emerald-700"
-    : "bg-red-100 text-red-700";
-}
 
 type ProfileRow = {
   role: string | null;
@@ -85,21 +48,6 @@ type AdminSearchParams = Promise<{
   status?: string | string[];
   payment?: string | string[];
 }>;
-
-type AdminRow = {
-  id: string;
-  user_id: string;
-  fullName: string;
-  email: string;
-  formationTitle: string;
-  companyName: string;
-  managerEmail: string;
-  status: string | null;
-  accessStart: string | null;
-  accessEnd: string | null;
-  paymentStatus: string | null;
-  forcedByAdmin: boolean;
-};
 
 function getSingleValue(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] ?? "" : value ?? "";
@@ -237,24 +185,7 @@ export default async function AdminPage({
   });
 
   // ── KPIs calculés depuis les données ──────────────────────────────────────
-  const now = new Date();
-  const in7days = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
-
-  const kpis = {
-    total:            rows.length,
-    uniqueApprenants: new Set(rows.map((r) => r.user_id)).size,
-    paid:             rows.filter((r) => r.paymentStatus === "paid").length,
-    inProgress:       rows.filter((r) => r.status === "in_progress").length,
-    completed:        rows.filter((r) => r.status === "completed").length,
-    pendingInterview: rows.filter((r) => r.status === "pending_interview").length,
-    pendingPayment:   rows.filter((r) => r.paymentStatus !== "paid" && r.status !== "cancelled").length,
-    expiringAccess:   rows.filter((r) => {
-      if (!r.accessEnd) return false;
-      if (r.status === "completed" || r.status === "cancelled") return false;
-      const end = new Date(r.accessEnd);
-      return end >= now && end <= in7days;
-    }).length,
-  };
+  const kpis = computeKPIs(rows);
 
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10">
