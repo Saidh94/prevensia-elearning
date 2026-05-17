@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#F8FAFC"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+
+  <text x="600" y="90" text-anchor="middle" fill="#0F172A" font-family="Arial, sans-serif" font-size="36" font-weight="700">Domaines de tension — NF C 18-510</text>
+  <text x="600" y="124" text-anchor="middle" fill="#475569" font-family="Arial, sans-serif" font-size="19">Le domaine de tension conditionne le danger, les distances et les règles d'accès.</text>
+
+  <!-- En-têtes colonnes -->
+  <rect x="310" y="142" width="380" height="50" rx="12" fill="#1D4ED8"/>
+  <text x="500" y="174" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">COURANT ALTERNATIF (AC)</text>
+  <rect x="710" y="142" width="380" height="50" rx="12" fill="#0F766E"/>
+  <text x="900" y="174" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">COURANT CONTINU (DC)</text>
+
+  <!-- En-tête colonne gauche -->
+  <rect x="64" y="142" width="230" height="50" rx="12" fill="#334155"/>
+  <text x="179" y="174" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Domaine</text>
+
+  <!-- Ligne 1 : TBT -->
+  <rect x="64" y="204" width="230" height="90" rx="10" fill="#F0FDF4" stroke="#4ADE80" stroke-width="2"/>
+  <text x="179" y="244" text-anchor="middle" fill="#14532D" font-family="Arial, sans-serif" font-size="28" font-weight="700">TBT</text>
+  <text x="179" y="270" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="15">Très basse tension</text>
+  <rect x="310" y="204" width="380" height="90" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="500" y="244" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="34" font-weight="700">≤ 50 V</text>
+  <text x="500" y="272" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="16">ex. 12 V, 24 V, 48 V — TBTS</text>
+  <rect x="710" y="204" width="380" height="90" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="900" y="244" text-anchor="middle" fill="#15803D" font-family="Arial, sans-serif" font-size="34" font-weight="700">≤ 120 V</text>
+  <text x="900" y="272" text-anchor="middle" fill="#166534" font-family="Arial, sans-serif" font-size="16">batteries, certains équipements</text>
+
+  <!-- Ligne 2 : BT -->
+  <rect x="64" y="306" width="230" height="140" rx="10" fill="#FFF7ED" stroke="#FB923C" stroke-width="2.5"/>
+  <text x="179" y="354" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="28" font-weight="700">BT</text>
+  <text x="179" y="378" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="15">Basse tension</text>
+  <text x="179" y="398" text-anchor="middle" fill="#F97316" font-family="Arial, sans-serif" font-size="20" font-weight="700">⚡ DANGER</text>
+  <rect x="310" y="306" width="380" height="140" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
+  <text x="500" y="356" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="34" font-weight="700">50 V — 1 000 V</text>
+  <text x="500" y="388" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="16">230 V réseau domestique — 400 V tri</text>
+  <text x="500" y="416" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="16">Contact direct ou indirect = risque grave</text>
+  <rect x="710" y="306" width="380" height="140" rx="10" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5"/>
+  <text x="900" y="356" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="34" font-weight="700">120 V — 1 500 V</text>
+  <text x="900" y="388" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="16">traction, batteries véhicules EV</text>
+  <text x="900" y="416" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="16">Arc plus stable et difficile à couper</text>
+
+  <!-- Ligne 3 : HT -->
+  <rect x="64" y="458" width="230" height="90" rx="10" fill="#FEF2F2" stroke="#F87171" stroke-width="2.5"/>
+  <text x="179" y="498" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="28" font-weight="700">HT</text>
+  <text x="179" y="522" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="15">Haute tension</text>
+  <rect x="310" y="458" width="380" height="90" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="500" y="498" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="34" font-weight="700">&gt; 1 000 V</text>
+  <text x="500" y="526" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="16">HTA (1–50 kV) · HTB (&gt; 50 kV)</text>
+  <rect x="710" y="458" width="380" height="90" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+  <text x="900" y="498" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="34" font-weight="700">&gt; 1 500 V</text>
+  <text x="900" y="526" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="16">photovoltaïque, industriel haute tension</text>
+
+  <!-- Barre bas -->
+  <rect x="64" y="562" width="1072" height="68" rx="14" fill="#0F172A"/>
+  <text x="600" y="588" text-anchor="middle" fill="#FDE68A" font-family="Arial, sans-serif" font-size="18" font-weight="700">En HT : amorçage possible SANS contact direct — la distance seule ne garantit pas la sécurité.</text>
+  <text x="600" y="616" text-anchor="middle" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="17">En cas de doute sur le domaine ou la limite d'accès : s'arrêter et demander l'avis d'une personne compétente.</text>
+</svg>

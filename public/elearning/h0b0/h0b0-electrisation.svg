@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFF1F2"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#FECDD3" stroke-width="2"/>
+
+  <text x="600" y="92" text-anchor="middle" fill="#9F1239" font-family="Arial, sans-serif" font-size="36" font-weight="700">Électrisation et électrocution</text>
+  <text x="600" y="126" text-anchor="middle" fill="#BE123C" font-family="Arial, sans-serif" font-size="20">Deux termes distincts — un seul niveau de réponse requis : sérieux et immédiat.</text>
+
+  <!-- Électrisation -->
+  <rect x="64" y="148" width="514" height="340" rx="20" fill="#FFF7ED" stroke="#F97316" stroke-width="2.5"/>
+  <rect x="64" y="148" width="514" height="64" rx="20" fill="#B45309"/>
+  <rect x="64" y="192" width="514" height="20" fill="#B45309"/>
+  <text x="321" y="191" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">ÉLECTRISATION</text>
+
+  <text x="321" y="242" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="20" font-weight="700">Passage du courant dans le corps humain</text>
+  <text x="321" y="270" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="18">→ Pas nécessairement mortelle</text>
+
+  <text x="88" y="312" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">⚡  Brûlures internes et externes</text>
+  <text x="88" y="342" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">⚡  Contractions musculaires involontaires</text>
+  <text x="88" y="372" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">⚡  Troubles cardiaques ou respiratoires</text>
+  <text x="88" y="402" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">⚡  Lésions internes retardées possibles</text>
+
+  <rect x="88" y="432" width="466" height="40" rx="10" fill="#FFEDD5"/>
+  <text x="321" y="458" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="17" font-weight="700">Absence de perte de connaissance ≠ absence de gravité</text>
+
+  <!-- Séparateur -->
+  <text x="622" y="345" text-anchor="middle" fill="#D1D5DB" font-family="Arial, sans-serif" font-size="52">≠</text>
+
+  <!-- Électrocution -->
+  <rect x="622" y="148" width="514" height="340" rx="20" fill="#FEF2F2" stroke="#EF4444" stroke-width="2.5"/>
+  <rect x="622" y="148" width="514" height="64" rx="20" fill="#991B1B"/>
+  <rect x="622" y="192" width="514" height="20" fill="#991B1B"/>
+  <text x="879" y="191" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="700">ÉLECTROCUTION</text>
+
+  <text x="879" y="242" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="20" font-weight="700">Électrisation mortelle</text>
+  <text x="879" y="270" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">→ Issue fatale du passage de courant</text>
+
+  <text x="646" y="312" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="19">☠  Fibrillation ventriculaire</text>
+  <text x="646" y="342" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="19">☠  Arrêt cardiorespiratoire</text>
+  <text x="646" y="372" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="19">☠  Traumatisme grave du système nerveux</text>
+  <text x="646" y="402" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="19">☠  Brûlures électriques étendues</text>
+
+  <rect x="646" y="432" width="466" height="40" rx="10" fill="#FEE2E2"/>
+  <text x="879" y="458" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17" font-weight="700">Surtout si le courant traverse le cœur ou le thorax</text>
+
+  <!-- Facteurs aggravants -->
+  <rect x="64" y="502" width="522" height="106" rx="14" fill="#FEF9C3" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="325" y="528" text-anchor="middle" fill="#78350F" font-family="Arial, sans-serif" font-size="18" font-weight="700">Facteurs aggravants</text>
+  <text x="88" y="554" fill="#7C2D12" font-family="Arial, sans-serif" font-size="17">▸ Durée de contact prolongée (non-lâcher)</text>
+  <text x="88" y="576" fill="#7C2D12" font-family="Arial, sans-serif" font-size="17">▸ Peau humide ou milieu conducteur</text>
+  <text x="88" y="598" fill="#7C2D12" font-family="Arial, sans-serif" font-size="17">▸ Trajet main-cœur ou main-pieds</text>
+
+  <!-- Message clé -->
+  <rect x="606" y="502" width="530" height="106" rx="14" fill="#9F1239"/>
+  <text x="871" y="532" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Réaction attendue</text>
+  <text x="871" y="558" text-anchor="middle" fill="#FECDD3" font-family="Arial, sans-serif" font-size="18">Toute électrisation, même sans perte</text>
+  <text x="871" y="580" text-anchor="middle" fill="#FECDD3" font-family="Arial, sans-serif" font-size="18">de connaissance, impose une prise</text>
+  <text x="871" y="602" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="700">en charge médicale immédiate.</text>
+</svg>

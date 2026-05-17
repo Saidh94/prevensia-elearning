@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FFF7ED"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#FED7AA" stroke-width="2"/>
+
+  <text x="600" y="90" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="36" font-weight="700">Matériels défectueux — signaux d'alerte</text>
+  <text x="600" y="124" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="19">Chaque signal visible est un motif d'arrêt immédiat — jamais de bricolage ni d'improvisation.</text>
+
+  <!-- Grille 3×2 -->
+
+  <!-- Cellule 1: Gaine abîmée -->
+  <rect x="64" y="146" width="336" height="160" rx="16" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+  <rect x="64" y="146" width="336" height="50" rx="16" fill="#DC2626"/>
+  <rect x="64" y="178" width="336" height="18" fill="#DC2626"/>
+  <text x="232" y="179" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24">⚠</text>
+  <text x="270" y="179" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Gaine abîmée</text>
+  <text x="232" y="222" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="18">Câble écrasé, coupé, craquelé</text>
+  <text x="232" y="250" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17">→ Conducteur nu accessible</text>
+  <text x="232" y="278" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="16" font-weight="700">Contact direct possible</text>
+
+  <!-- Cellule 2: Prise / connecteur défectueux -->
+  <rect x="432" y="146" width="336" height="160" rx="16" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+  <rect x="432" y="146" width="336" height="50" rx="16" fill="#DC2626"/>
+  <rect x="432" y="178" width="336" height="18" fill="#DC2626"/>
+  <text x="600" y="179" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24">⚠</text>
+  <text x="638" y="179" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Prise fissurée</text>
+  <text x="600" y="222" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="18">Boîtier fissuré, fondu, déformé</text>
+  <text x="600" y="250" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17">→ Broche ou bornier accessible</text>
+  <text x="600" y="278" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="16" font-weight="700">Isolement compromis</text>
+
+  <!-- Cellule 3: Échauffement / odeur -->
+  <rect x="800" y="146" width="336" height="160" rx="16" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+  <rect x="800" y="146" width="336" height="50" rx="16" fill="#DC2626"/>
+  <rect x="800" y="178" width="336" height="18" fill="#DC2626"/>
+  <text x="968" y="179" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24">⚠</text>
+  <text x="1006" y="179" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Échauffement</text>
+  <text x="968" y="222" text-anchor="middle" fill="#7F1D1D" font-family="Arial, sans-serif" font-size="18">Odeur de brûlé, surface chaude</text>
+  <text x="968" y="250" text-anchor="middle" fill="#991B1B" font-family="Arial, sans-serif" font-size="17">→ Surcharge ou court-circuit</text>
+  <text x="968" y="278" text-anchor="middle" fill="#DC2626" font-family="Arial, sans-serif" font-size="16" font-weight="700">Départ de feu possible</text>
+
+  <!-- Cellule 4: Étincelles / fumée -->
+  <rect x="64" y="322" width="336" height="160" rx="16" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <rect x="64" y="322" width="336" height="50" rx="16" fill="#C2410C"/>
+  <rect x="64" y="354" width="336" height="18" fill="#C2410C"/>
+  <text x="232" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24">⚠</text>
+  <text x="270" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Étincelles / fumée</text>
+  <text x="232" y="398" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">Flash visible, claquement</text>
+  <text x="232" y="426" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="17">→ Arc électrique interne</text>
+  <text x="232" y="454" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="16" font-weight="700">Signaler immédiatement</text>
+
+  <!-- Cellule 5: Déclenchements répétés -->
+  <rect x="432" y="322" width="336" height="160" rx="16" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <rect x="432" y="322" width="336" height="50" rx="16" fill="#C2410C"/>
+  <rect x="432" y="354" width="336" height="18" fill="#C2410C"/>
+  <text x="600" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24">⚠</text>
+  <text x="638" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Déclenchements</text>
+  <text x="600" y="398" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">Disjoncteur déclenche et déclenche</text>
+  <text x="600" y="426" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="17">→ Défaut persistant en aval</text>
+  <text x="600" y="454" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="16" font-weight="700">Ne jamais réarmer à répétition</text>
+
+  <!-- Cellule 6: Câble au sol / humidité -->
+  <rect x="800" y="322" width="336" height="160" rx="16" fill="#FFF7ED" stroke="#F97316" stroke-width="2"/>
+  <rect x="800" y="322" width="336" height="50" rx="16" fill="#C2410C"/>
+  <rect x="800" y="354" width="336" height="18" fill="#C2410C"/>
+  <text x="968" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="24">⚠</text>
+  <text x="1006" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="700">Câble / eau</text>
+  <text x="968" y="398" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="18">Rallonge au sol, câble sous eau</text>
+  <text x="968" y="426" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="17">→ Sol conducteur + courant</text>
+  <text x="968" y="454" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="16" font-weight="700">Ne pas marcher dessus</text>
+
+  <!-- Barre bas : réaction -->
+  <rect x="64" y="498" width="1072" height="116" rx="14" fill="#7C2D12"/>
+  <text x="600" y="530" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Réaction unique — sans exception</text>
+  <text x="600" y="560" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="20">ARRÊT de l'usage  ▸  SÉCURISER la zone (empêcher utilisation)  ▸  SIGNALER à l'encadrement</text>
+  <text x="600" y="590" text-anchor="middle" fill="#FFEDD5" font-family="Arial, sans-serif" font-size="18">Ne jamais : réparer, réenclencher à répétition, "voir ce qu'il y a", bricoler une solution.</text>
+  <text x="600" y="612" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="17">Voir un écart = raison valable d'arrêter l'action, même si aucun incident n'est encore survenu.</text>
+</svg>

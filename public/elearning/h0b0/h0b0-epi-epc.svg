@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="36" fill="#FEFCE8"/>
+  <rect x="40" y="40" width="1120" height="620" rx="28" fill="white" stroke="#FDE68A" stroke-width="2"/>
+
+  <text x="600" y="90" text-anchor="middle" fill="#422006" font-family="Arial, sans-serif" font-size="36" font-weight="700">Protections collectives et individuelles</text>
+  <text x="600" y="124" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="19">La protection collective est toujours prioritaire — l'EPI n'est qu'un complément.</text>
+
+  <!-- Colonne gauche : EPC -->
+  <rect x="64" y="148" width="500" height="370" rx="20" fill="#FFF7ED" stroke="#F97316" stroke-width="2.5"/>
+  <rect x="64" y="148" width="500" height="66" rx="20" fill="#EA580C"/>
+  <rect x="64" y="194" width="500" height="20" fill="#EA580C"/>
+  <text x="314" y="173" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">PRIORITÉ 1</text>
+  <text x="314" y="195" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">————</text>
+
+  <text x="314" y="228" text-anchor="middle" fill="#7C2D12" font-family="Arial, sans-serif" font-size="26" font-weight="700">EPC — Protection Collective</text>
+  <text x="314" y="258" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="17">Agit à la source — protège tous les présents</text>
+
+  <text x="88" y="298" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">🔒  Enveloppes fermées, capotages</text>
+  <text x="88" y="328" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">🚧  Balisage, obstacles, séparations</text>
+  <text x="88" y="358" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">🔑  Verrouillages d'accès, condamnations</text>
+  <text x="88" y="388" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">⚠️  Signalisation de danger</text>
+  <text x="88" y="418" fill="#7C2D12" font-family="Arial, sans-serif" font-size="19">🛑  Consignation et mise hors tension</text>
+
+  <rect x="88" y="444" width="452" height="58" rx="12" fill="#FFEDD5"/>
+  <text x="314" y="466" text-anchor="middle" fill="#C2410C" font-family="Arial, sans-serif" font-size="17" font-weight="700">Ne jamais déplacer, contourner ou neutraliser</text>
+  <text x="314" y="490" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="16">une protection collective pour des raisons de confort ou de rapidité.</text>
+
+  <!-- Flèche de priorité -->
+  <text x="592" y="345" text-anchor="middle" fill="#D1D5DB" font-family="Arial, sans-serif" font-size="48">+</text>
+
+  <!-- Colonne droite : EPI -->
+  <rect x="636" y="148" width="500" height="370" rx="20" fill="#EFF6FF" stroke="#60A5FA" stroke-width="2.5"/>
+  <rect x="636" y="148" width="500" height="66" rx="20" fill="#1D4ED8"/>
+  <rect x="636" y="194" width="500" height="20" fill="#1D4ED8"/>
+  <text x="886" y="173" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">PRIORITÉ 2 — complément</text>
+  <text x="886" y="195" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="700">————</text>
+
+  <text x="886" y="228" text-anchor="middle" fill="#1E3A8A" font-family="Arial, sans-serif" font-size="26" font-weight="700">EPI — Protection Individuelle</text>
+  <text x="886" y="258" text-anchor="middle" fill="#1E40AF" font-family="Arial, sans-serif" font-size="17">Uniquement en complément des EPC</text>
+
+  <text x="660" y="296" fill="#1E40AF" font-family="Arial, sans-serif" font-size="18" font-weight="700">✅  EPI autorisés H0/B0/H0V :</text>
+  <text x="660" y="322" fill="#1E40AF" font-family="Arial, sans-serif" font-size="18">    Chaussures de sécurité diélectriques</text>
+  <text x="660" y="348" fill="#1E40AF" font-family="Arial, sans-serif" font-size="18">    Vêtements couvrants, casque</text>
+  <text x="660" y="374" fill="#1E40AF" font-family="Arial, sans-serif" font-size="18">    Lunettes si projection mécanique</text>
+
+  <line x1="660" y1="392" x2="1112" y2="392" stroke="#BFDBFE" stroke-width="1.5"/>
+
+  <text x="660" y="416" fill="#B91C1C" font-family="Arial, sans-serif" font-size="18" font-weight="700">✗  Hors périmètre H0/B0/H0V :</text>
+  <text x="660" y="440" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">    Gants isolants HT / BT (opérations électriques)</text>
+  <text x="660" y="464" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">    Écran facial anti-arc (opérations HT)</text>
+  <text x="660" y="488" fill="#991B1B" font-family="Arial, sans-serif" font-size="18">    VAT — vérificateur d'absence de tension</text>
+
+  <!-- Barre bas -->
+  <rect x="64" y="536" width="1072" height="82" rx="14" fill="#422006"/>
+  <text x="600" y="563" text-anchor="middle" fill="#FDE68A" font-family="Arial, sans-serif" font-size="20" font-weight="700">Règle absolue</text>
+  <text x="600" y="589" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="19">Le port d'un EPI ne transforme jamais une opération interdite en opération autorisée.</text>
+  <text x="600" y="612" text-anchor="middle" fill="#FED7AA" font-family="Arial, sans-serif" font-size="17">Une protection absente, déposée ou dégradée doit être signalée immédiatement.</text>
+</svg>

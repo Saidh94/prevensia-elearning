@@ -186,9 +186,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Identifier qui fait quoi dans la prévention du risque électrique et comprendre la chaîne de responsabilité",
     minSeconds: 180,
-    image: "/elearning/h0b0/roles-responsabilites.png",
+    image: "/elearning/h0b0/h0b0-roles.svg",
     imageAlt:
-      "Illustration des rôles et responsabilités en habilitation électrique",
+      "Organigramme des rôles et responsabilités — employeur, encadrement, salarié H0B0, formateur",
     highlights: [
       "L’employeur organise la prévention et délivre l’habilitation.",
       "L’encadrement veille à la cohérence entre mission confiée et niveau d’habilitation.",
@@ -222,9 +222,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Distinguer BT et HT en alternatif et en continu, et comprendre les conséquences pratiques sur le niveau de danger",
     minSeconds: 240,
-    image: "/elearning/h0b0/domaines-tension.png",
+    image: "/elearning/h0b0/h0b0-domaines-tension.svg",
     imageAlt:
-      "Schema pedagogique des domaines de tension et de la difference entre basse tension et haute tension",
+      "Tableau comparatif des domaines de tension NF C 18-510 — TBT, BT et HT en courant alternatif et continu",
     highlights: [
       "Le domaine de tension conditionne le danger, les distances et les règles d’accès.",
       "Le courant alternatif et le courant continu n’impliquent pas exactement les mêmes seuils.",
@@ -501,9 +501,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Distinguer le passage du courant dans le corps et l’issue mortelle, et comprendre pourquoi toute électrisation est grave",
     minSeconds: 150,
-    image: "/elearning/h0b0/electrisation-electrocution.png",
+    image: "/elearning/h0b0/h0b0-electrisation.svg",
     imageAlt:
-      "Illustration pédagogique de l’électrisation et de l’électrocution",
+      "Distinction électrisation / électrocution — mécanismes, facteurs aggravants et réaction attendue",
     highlights: [
       "L’électrisation correspond au passage du courant dans le corps.",
       "L’électrocution correspond à une électrisation mortelle.",
@@ -530,9 +530,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre l’influence de l’état du corps, du milieu et de l’humidité sur le niveau réel de danger",
     minSeconds: 180,
-    image: "/elearning/h0b0/milieu-sec-humide.png",
+    image: "/elearning/h0b0/h0b0-resistance-corps.svg",
     imageAlt:
-      "Illustration de l’influence du milieu sec ou humide sur le risque électrique",
+      "Tableau résistance du corps humain — peau sèche / humide / mouillée avec tensions limites et courants résultants",
     highlights: [
       "La résistance du corps humain n’est pas constante.",
       "L’humidité réduit fortement cette résistance.",
@@ -563,9 +563,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Reconnaître rapidement un matériel dangereux et adopter la bonne réaction sans bricolage ni improvisation",
     minSeconds: 180,
-    image: "/elearning/h0b0/materiel-defectueux.png",
+    image: "/elearning/h0b0/h0b0-materiel-defectueux.svg",
     imageAlt:
-      "Illustration de matériels, câbles et équipements électriques défectueux",
+      "6 signaux d'alerte matériels défectueux — gaine abîmée, échauffement, étincelles, déclenchements répétés",
     highlights: [
       "Une anomalie visible est déjà un motif d’arrêt.",
       "Échauffement, fumée, déclenchements répétés ou gaine abîmée doivent alerter immédiatement.",
@@ -598,9 +598,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Identifier les protections qui réduisent le risque et comprendre leur hiérarchie dans la prévention",
     minSeconds: 180,
-    image: "/elearning/h0b0/epi-epc.png",
+    image: "/elearning/h0b0/h0b0-epi-epc.svg",
     imageAlt:
-      "Illustration des equipements de protection collective et individuelle avec priorite a la protection collective",
+      "Hiérarchie EPC / EPI — protections collectives prioritaires, EPI en complément, règles H0B0",
     highlights: [
       "La protection collective est prioritaire sur la protection individuelle.",
       "Les EPI viennent en complément et ne rendent jamais licite une opération interdite.",
@@ -628,9 +628,9 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Savoir précisément ce qu’un titulaire B0 / H0 / H0V peut faire, ne peut pas faire, et doit immédiatement signaler",
     minSeconds: 240,
-    image: "/elearning/h0b0/autorise-interdit.png",
+    image: "/elearning/h0b0/h0b0-comportements.svg",
     imageAlt:
-      "Illustration des comportements autorisés et interdits en B0 H0 H0V",
+      "Tableau comportements autorisés et interdits H0/B0/H0V — ce qui est dans le périmètre et ce qui ne l'est jamais",
     highlights: [
       "Le B0 / H0 / H0V n’autorise aucune opération d’ordre électrique.",
       "Respecter ses limites est une compétence professionnelle de sécurité.",

@@ -23,6 +23,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
       id: "cadre-general",
       title: "1. Cadre des habilitations B1, B1V, B2, B2V, BR et BC",
       estimatedMinutes: 25,
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2brbc-cadre-roles.svg",
       intro:
         "La NF C 18-510 ne présente pas les symboles B1, B1V, B2, B2V, BR et BC comme de simples étiquettes. Elle les rattache à des fonctions précises, à une chaîne de décision claire et à une habilitation employeur qui doit correspondre exactement aux opérations confiées.",
       content: [
@@ -358,10 +359,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
       visual: {
         title: "Le voisinage change tout",
         subtitle: "PNST, capotage, zone et protection conditionnent l'action.",
-        items: ["BT a risque", "PNST", "Voisinage", "Arret si non maîtrise"],
+        items: ["BT à risque", "PNST", "Voisinage", "Arrêt si non maîtrisé"],
         tone: "amber",
-        imagePath: "/images/modules/electricite/distances-locaux-acces.jpg",
-        imageAlt: "Distances de sécurité et zones d'approche autour des pièces nues sous tension en basse tension — DMA, DLVS, DLVR",
+        animationKey: "zones-voisinage-bt" as const,
       },
     },
     {
@@ -524,9 +524,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 6.3.3 — identification du circuit avant consignation",
         },
       ],
-      chapterImagePath: "/images/modules/electricite/consignation-vat-balisage.jpg",
+      chapterImagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-consignation.svg",
       chapterImageAlt:
-        "Illustration de consignation avec vérification d'absence de tension et balisage de zone",
+        "Schéma des 5 étapes de consignation — séparation, condamnation, identification, VAT, MALT/CC",
       visual: {
         title: "La chaine de consignation",
         subtitle: "5 étapes impératives — dans l'ordre, sans raccourci.",
