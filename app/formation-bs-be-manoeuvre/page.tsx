@@ -41,7 +41,7 @@ const faqItems = [
   {
     question: "La formation BS / BE Manœuvre est-elle disponible en e-learning ?",
     answer:
-      "Oui. PREVENSIA FORMATION propose un parcours e-learning pour la partie théorique, complété par une classe virtuelle pour les mises en situation et la validation. L'habilitation est ensuite délivrée par l'employeur.",
+      "Oui. PREVENSIA FORMATION propose un parcours e-learning pour la préparation théorique, complété par une classe virtuelle pour les mises en situation et la validation. Attention : l'e-learning et le quiz ne délivrent pas d'habilitation. L'habilitation BS / BE Manœuvre est délivrée exclusivement par l'employeur, après formation complète et vérification de l'adéquation au poste.",
   },
   {
     question: "Peut-on avoir BS et BE Manœuvre en même temps ?",

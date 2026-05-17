@@ -244,10 +244,22 @@ export default function QuizPage() {
   }, [shuffledQuiz, answers]);
 
   const passingScore = useMemo(() => {
-    return quiz.length > 0 ? Math.ceil(quiz.length * 0.8) : 0;
-  }, [quiz.length]);
+    if (quiz.length === 0) return 0;
+    // BS/BE : seuil réglementaire 85 % (NF C 18-510/A2)
+    const threshold = canonicalSlug === "bsbe" ? 0.85 : 0.8;
+    return Math.ceil(quiz.length * threshold);
+  }, [quiz.length, canonicalSlug]);
 
-  const success = quiz.length > 0 && score >= passingScore;
+  /** Question éliminatoire manquée = échec immédiat même si score global suffisant */
+  const failedEliminatory = useMemo(() => {
+    return shuffledQuiz.some((question, index) => {
+      if (!question.eliminatory) return false;
+      const selectedAnswers = answers[index] ?? [];
+      return !arraysEqual(selectedAnswers, question.answer);
+    });
+  }, [shuffledQuiz, answers]);
+
+  const success = quiz.length > 0 && score >= passingScore && !failedEliminatory;
 
   const scorePercent = useMemo(() => {
     return quiz.length > 0 ? Math.round((score / quiz.length) * 100) : 0;
@@ -1107,6 +1119,12 @@ export default function QuizPage() {
                 {success ? (
                   <p className="mt-4 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
                     Validation réussie. Votre dossier passe maintenant à l’étape entretien.
+                  </p>
+                ) : failedEliminatory ? (
+                  <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+                    Échec sur une question éliminatoire. Une réponse incorrecte sur un
+                    point de sécurité critique entraîne un échec immédiat, indépendamment
+                    du score global. Vous devez recommencer le quiz.
                   </p>
                 ) : (
                   <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">

@@ -888,7 +888,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
           "Le titulaire BE Vérification / BE Mesurage travaille souvent à proximité de pièces nues sous tension (PNST). La maîtrise des zones d'environnement et des distances de sécurité conditionne directement la sécurité de chaque mesure ou contrôle.",
         content: [
           "La basse tension n'est pas une zone de confort. Un conducteur BT à 230 V ou 400 V est dangereux dans tous les environnements et potentiellement mortel en conditions humides. Le titulaire BE qui réalise des mesures sur une installation en service est exposé à ce risque à chaque approche d'un point de mesure.",
-          "La NF C 18-510 définit des zones d'environnement autour des pièces nues sous tension. En basse tension : la Distance Minimale d'Approche (DMA) est de 0,30 m — c'est la limite à ne jamais franchir sans protection adaptée. Entre la DMA et 3 m : zone de voisinage simple BT, accès habilité requis. Au-delà : zone accessible au personnel non habilité encadré.",
+          "La NF C 18-510 définit des zones d'environnement autour des pièces nues sous tension. En basse tension : la zone de voisinage débute à 0,30 m (DLVS BT) des pièces nues sous tension — c'est la limite à ne pas franchir sans habilitation et EPI adaptés. Au-delà de 0,30 m : zone accessible au personnel non habilité encadré. À noter : la valeur 3 m est la DLVS en haute tension A (HTA, 1 kV à 50 kV) et ne s'applique pas à la basse tension.",
           "Pour le BE Mesurage, l'approche du point de mesure implique souvent de travailler en voisinage immédiat de conducteurs ou de jeux de barres sous tension. La catégorie CAT de l'instrument est dimensionnée pour tenir les transitoires de tension de cette zone — c'est la traduction instrumentale de la DMA.",
           "La présence de PNST doit être analysée avant toute approche. Un capot manquant, un bornier accessible ou une enveloppe retirée peuvent faire basculer l'opération BE vers une exposition non prévue dans le titre d'habilitation. Dans ce cas, l'opération s'arrête : le BE ne repose pas le capot, ne protège pas la PNST lui-même — il signale et attend une décision du chargé d'exploitation.",
           "Les seuils de tension dangereuse varient selon l'environnement. En courant alternatif : 50 V en milieu sec, 25 V en milieu humide, 12 V en milieu mouillé. En courant continu : 120 V sec, 60 V humide, 30 V mouillé. Un circuit BT de 230 V dépasse ces seuils dans tous les environnements rencontrés en industrie ou en tertiaire.",
@@ -899,8 +899,8 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
           "En pratique, un titulaire BE Mesurage sur un TGBT industriel travaille régulièrement à moins de 30 cm de jeux de barres sous tension. C'est précisément pour ce contexte que les catégories CAT III et CAT IV ont été définies — la zone d'environnement et la catégorie d'instrument sont deux faces du même dispositif de sécurité.",
         ],
         keyPoints: [
-          "DMA BT = 0,30 m — limite à ne jamais franchir sans protection adaptée.",
-          "Zone de voisinage simple BT : entre 0,30 m et 3 m des PNST — accès habilité requis.",
+          "DLVS BT = 0,30 m — limite extérieure de la zone de voisinage en basse tension ; ne jamais franchir sans habilitation et EPI adaptés.",
+          "Zone de voisinage BT : < 0,30 m des PNST — accès réservé aux habilités avec EPI. (Ne pas confondre avec DLVS HTA = 3 m.)",
           "PNST inattendue (capot manquant, bornier ouvert) → arrêt BE, signalement.",
           "Tensions dangereuses BT : 50 V sec / 25 V humide / 12 V mouillé (AC).",
           "Habilitation BE limitée à la BT — HT exige un titre HE complémentaire.",
@@ -961,7 +961,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
           },
         ],
         chapterImageAlt:
-          "Schéma des zones d'environnement BT autour d'un conducteur nu avec DMA 0,30 m et zone de voisinage simple jusqu'à 3 m",
+          "Schéma des zones d'environnement BT autour d'un conducteur nu — zone de voisinage BT : < 0,30 m des PNST (DLVS HTA = 3 m ne s'applique pas à la BT)",
         visual: {
           title: "Zones BE : mesurer près des PNST",
           subtitle: "DMA 0,30 m, voisinage, CAT instrument — même dispositif de sécurité.",
@@ -1084,7 +1084,7 @@ export const electricalCommercialModuleContent: Record<string, ModuleContent> = 
           "Les principaux écarts observés en contexte BE concernent : mesure réalisée avec un instrument de mauvaise catégorie (CAT II sur un tableau industriel TGBT qui exige CAT III), cordon de mesure dégradé utilisé faute d'anticipation, anomalie détectée suivie d'une intervention spontanée hors cadre, dérive progressive de la vérification vers le dépannage.",
           "L'analyse de ces situations permet d'améliorer la préparation : choix de l'instrument adapté à la catégorie du point de mesure en amont de l'opération, vérification systématique de l'état des cordons (NF EN 61010-031) avant chaque déplacement, procédure de signalement documentée en cas d'anomalie, clarification écrite du rôle BE dans l'organisation du site.",
           "Le maintien des compétences BE implique de conserver la discipline du périmètre défini dans le titre d'habilitation : contrôler sans modifier, mesurer sans intervenir, signaler sans corriger hors cadre. Ces réflexes s'érodent avec le temps si le professionnel ne les pratique pas activement.",
-          "Les statistiques nationales rappellent l'enjeu : environ 428 accidents du travail d'origine électrique en 2021, dont 46 mortels. Le mode opératoire inapproprié représente 31 % des facteurs causaux. Pour le titulaire BE, cela signifie qu'un instrument mal choisi, un cordon fissuré ou une vérification transformée en dépannage spontané peuvent être à l'origine d'un accident grave.",
+          "Les statistiques nationales rappellent l'enjeu : environ 428 accidents du travail d'origine électrique en 2021, dont 3 décès et 46 nouvelles incapacités permanentes. Le mode opératoire inapproprié représente 31 % des facteurs causaux. Pour le titulaire BE, cela signifie qu'un instrument mal choisi, un cordon fissuré ou une vérification transformée en dépannage spontané peuvent être à l'origine d'un accident grave.",
         ],
         deepDive: [
           "Les organisations qui capitalisent sur les retours d'expérience BE réduisent les écarts instrumentaux, les ambiguïtés de rôle et les débordements vers des opérations non prévues. Le retour d'expérience est un levier de sécurité aussi important que la maîtrise technique.",

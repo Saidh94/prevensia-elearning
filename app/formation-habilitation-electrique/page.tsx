@@ -121,9 +121,9 @@ const faqItemsHabilitation = [
       "La NF C 18-510 recommande un recyclage tous les 3 ans. L'employeur reste libre d'en demander un plus fréquent si l'environnement de travail le justifie (incident, changement de poste, évolution des installations).",
   },
   {
-    question: "Le e-learning H0B0/H0V est-il accepté pour la délivrance de l'habilitation ?",
+    question: "Le e-learning H0B0/H0V suffit-il pour obtenir l'habilitation ?",
     answer:
-      "Oui, dès lors qu'il est complété par un entretien de validation avec le formateur (inclus dans notre formule). Pour les autres symboles (B1, B2, BR, BC, BE), une séquence pratique encadrée est obligatoire en plus du e-learning.",
+      "Non. L'e-learning et le quiz constituent la préparation théorique de la formation — ils ne délivrent pas l'habilitation. Pour H0B0 / H0V, le parcours doit être complété par un entretien de validation avec le formateur (inclus dans notre formule). L'habilitation est ensuite délivrée exclusivement par l'employeur. Pour les autres symboles (B1, B2, BR, BC, BE), une séquence pratique encadrée est obligatoire en complément du e-learning.",
   },
   {
     question: "Pouvez-vous intervenir directement sur notre site ?",

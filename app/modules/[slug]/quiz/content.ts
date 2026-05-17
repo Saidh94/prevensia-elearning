@@ -10,6 +10,11 @@ export type QuizQuestion = {
   contextLabel?: string;
   imagePath?: string;
   imageAlt?: string;
+  /**
+   * Si true, une mauvaise réponse à cette question entraîne un échec immédiat
+   * quel que soit le score global (question éliminatoire).
+   */
+  eliminatory?: boolean;
 };
 
 export const quizContent: Record<string, QuizQuestion[]> = {
@@ -1847,6 +1852,136 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le BE Manœuvre n’autorise que des manœuvres prévues sur des organes clairement identifiés dans les consignes du site ou le bon de travail. Si l’organe n’est pas repéré ou ne figure pas dans les documents de référence, l’opérateur ne peut pas procéder. Il doit demander une identification formelle (mise à jour du plan, étiquetage) avant toute action. Manœuvrer un disjoncteur inconnu expose à une coupure sur un équipement non prévu.",
       timeLimit: 55,
     },
+
+    // === QUESTIONS ÉLIMINATOIRES BS/BE ===
+    {
+      question:
+        "Un opérateur BS doit intervenir sur une prise de courant endommagée. Avant toute opération, quelle étape est obligatoire ?",
+      choices: [
+        "Vérifier visuellement que l’installation est hors tension puis commencer",
+        "Consigner l’alimentation (couper, condamner, vérifier l’absence de tension avec un VAT approprié) avant d’intervenir",
+        "Porter des gants isolants et procéder si l’opération est rapide",
+        "Demander à un collègue de surveiller pendant l’intervention",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Consignation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Intervenir sur une installation sans consignation préalable est la première cause d’accidents électriques mortels. La consignation complète (coupure, condamnation, vérification d’absence de tension par VAT homologué, signalisation) est obligatoire avant toute opération BS.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Vous êtes habilité BS. Une installation est consignée par votre collègue qui a posé son cadenas de condamnation. Il est absent momentanément. Pouvez-vous retirer son cadenas pour accéder à l’installation ?",
+      choices: [
+        "Oui, si vous êtes certain que la consignation est correcte",
+        "Oui, en urgence si votre intervention est urgente",
+        "Non : seul celui qui a posé le cadenas peut le retirer, sauf procédure formelle d’urgence validée par le responsable électrique",
+        "Oui, si vous avez le même niveau d’habilitation",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Consignation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Le cadenas de condamnation est personnel et nominatif. Seule la personne qui l’a posé peut le retirer, garantissant qu’elle est bien dégagée de l’installation. Retirer le cadenas d’un autre expose à l’électrocution de ce collègue. Une procédure d’urgence formelle et documentée peut exister, mais jamais par décision unilatérale.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Un opérateur habilité BS effectue un remplacement de composant. La vérification d’absence de tension (VAT) avec son multimètre indique 0 V. Doit-il vérifier l’état du multimètre avant et après la mesure ?",
+      choices: [
+        "Non, une mesure à 0 V suffit à confirmer l’absence de tension",
+        "Oui : le multimètre doit être testé sur une source connue avant et après la mesure pour confirmer son bon fonctionnement",
+        "Non, si l’appareil est récent et en bon état apparent",
+        "Oui uniquement si l’installation est en haute tension",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Consignation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Un multimètre défaillant peut afficher 0 V sur une installation sous tension. La NF C 18-510 exige de tester l’appareil de mesure sur une source connue avant et après la VAT. Ne pas effectuer ce contrôle peut conduire à intervenir sur une installation sous tension.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Lors d’une opération BS, vous constatez que le schéma de l’installation fourni ne correspond pas à l’état réel. Que faites-vous ?",
+      choices: [
+        "Procéder en adaptant votre intervention à la situation réelle",
+        "Arrêter l’intervention, signaler l’écart documentaire et attendre une mise à jour ou une clarification formelle",
+        "Continuer si l’écart concerne uniquement le câblage et non les protections",
+        "Demander au client de valider oralement l’état réel de l’installation",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Documents & préparation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Un schéma non conforme à la réalité signifie que les risques réels ne sont pas maîtrisés. Toute intervention sur une installation dont la documentation est erronée expose à des mises sous tension imprévues. L’arrêt et la demande de mise à jour documentaire sont obligatoires.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Un habilité BS doit intervenir près d’une jeu de barres HTA restant sous tension dans la même armoire. La Distance Limite d’Investigation (DLI) en HTA est de :",
+      choices: [
+        "0,30 m",
+        "0,60 m",
+        "1 m",
+        "2 m",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Distances réglementaires",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — La DLI (Distance Limite d’Investigation) en HTA est de 0,60 m (NF C 18-510/A2). Pénétrer dans cette zone sans protection adaptée expose à l’arc électrique. Connaître cette valeur est une exigence de sécurité critique pour tout opérateur BS/BE intervenant en environnement HTA.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Un habilité BE Vérification réalise une mesure de tension et détecte une valeur anormalement élevée. Elle pourrait indiquer un défaut d’isolement. Quelle est l’action correcte ?",
+      choices: [
+        "Effectuer une mesure complémentaire pour confirmer avant de signaler",
+        "Signaler immédiatement le défaut au responsable et arrêter l’opération sans tenter de corriger",
+        "Corriger le défaut d’isolement dans la foulée, puisque vous êtes sur place",
+        "Continuer la mission et mentionner l’anomalie dans le compte rendu final",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Limites BE",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — L’habilitation BE Vérification autorise à mesurer et contrôler, pas à intervenir. Tenter de corriger un défaut d’isolement sort du périmètre de l’habilitation et expose à un accident grave. Le signalement immédiat sans intervention est la seule réponse correcte.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Un opérateur BS effectue une intervention sur une installation BT. Il doit poser un pont provisoire sur un bornier. Ce pont crée-t-il une situation de risque particulier ?",
+      choices: [
+        "Non, un pont provisoire est une opération courante sans risque",
+        "Oui : le pont peut court-circuiter une protection ou maintenir une partie sous tension après remontée ; sa pose et son retrait doivent être documentés et contrôlés",
+        "Non, si l’installation est consignée avant la pose du pont",
+        "Oui uniquement si le bornier est en HTA",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Consignation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Un pont provisoire peut court-circuiter une protection différentielle, un coupe-surintensité ou maintenir une alimentation de sécurité. Sa pose crée une situation non standard qui doit être tracée, contrôlée et retirée avant toute remise en service. L’oubli d’un pont provisoire est une cause connue d’accidents graves.",
+      timeLimit: 55,
+    },
+    {
+      question:
+        "Après votre intervention BS, avant de lever la consignation, vous constatez qu’un outil est resté à l’intérieur de l’armoire. Que faites-vous ?",
+      choices: [
+        "Lever la consignation et récupérer l’outil rapidement avant la remise sous tension",
+        "Informer le donneur d’ordre que l’outil peut rester en place temporairement",
+        "Maintenir la consignation, récupérer l’outil et vérifier l’état de l’installation avant de lever la consignation",
+        "Lever la consignation si l’outil est en plastique et ne présente pas de danger apparent",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Consignation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Tout outil oublié dans une armoire constitue un risque de court-circuit ou de bloc mécanique lors de la remise sous tension. La consignation doit être maintenue, l’outil récupéré et l’état de l’installation vérifié avant toute levée. La remise sous tension avec un outil présent est une faute grave.",
+      timeLimit: 45,
+    },
   ],
   h0b0: [
     {
@@ -2653,6 +2788,136 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 45,
       imagePath: "/elearning/bsbe/bsbe-ip.svg",
       imageAlt: "Indice IP — 2e chiffre et protection contre les liquides",
+    },
+
+    // === QUESTIONS ÉLIMINATOIRES H0B0 ===
+    {
+      question:
+        "Une personne est électrisée et toujours en contact avec la partie sous tension. Quelle est la première action à effectuer ?",
+      choices: [
+        "Saisir la victime par le bras pour l'éloigner rapidement",
+        "Supprimer ou faire supprimer le courant électrique avant tout contact avec la victime",
+        "Appeler le SAMU puis attendre à distance",
+        "Arroser la zone pour protéger les intervenants",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Conduite à tenir",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Toucher une personne électrisée encore en contact avec la source constitue un suraccident mortel. La première action est toujours de supprimer le courant. Toute autre réponse engage la vie de l'intervenant.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Vous découvrez un départ de feu sur un tableau électrique encore sous tension. Quel moyen d'extinction est strictement interdit ?",
+      choices: [
+        "Extincteur CO₂ (neige carbonique)",
+        "Extincteur poudre ABC",
+        "Eau ou extincteur eau",
+        "Couverture anti-feu sur les câbles",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Conduite à tenir",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — L'eau est conductrice de l'électricité. Son utilisation sur une installation sous tension provoque un électrocution immédiate de l'intervenant. Seuls les extincteurs adaptés aux feux électriques (CO₂, poudre) ou les coupes-circuit d'alimentation préalables sont autorisés.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Vous êtes habilité B0 uniquement. Peut-on vous demander d'effectuer un remplacement de fusible dans un tableau électrique ?",
+      choices: [
+        "Oui, si l'opération est rapide et que le tableau est accessible",
+        "Oui, si un collègue surveille à proximité",
+        "Non, cette opération dépasse les limites de l'habilitation B0",
+        "Oui, s'il n'y a pas d'électricien disponible",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Habilitation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — L'habilitation B0 / H0 / H0V n'autorise aucune opération électrique. Remplacer un fusible, réarmer un disjoncteur ou intervenir à l'intérieur d'un tableau dépasse strictement les limites de ce niveau d'habilitation. L'urgence ou l'absence de personnel qualifié ne modifie pas cette règle.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Un balisage interdit l'accès à une zone de travaux électriques. Vous devez y passer pour effectuer votre mission non électrique. Que faites-vous ?",
+      choices: [
+        "Franchir rapidement la zone en restant vigilant",
+        "Déplacer brièvement le balisage et le remettre en place ensuite",
+        "Ne pas pénétrer et demander l'autorisation à la personne en charge",
+        "Entrer si aucun électricien n'est visible dans la zone",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Locaux & accès",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Franchir ou déplacer un balisage de sécurité sans autorisation expose à un accident grave sur une installation sous tension. L'autorisation formelle de la personne en charge est obligatoire avant tout franchissement.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Vous remarquez qu'un câble d'alimentation présente une gaine fortement endommagée avec le conducteur apparent. Quelle action est correcte ?",
+      choices: [
+        "Couvrir le câble avec du ruban adhésif et continuer l'activité",
+        "Signaler immédiatement l'anomalie, condamner si possible l'accès et ne pas utiliser l'équipement",
+        "Continuer à utiliser le câble en évitant de le toucher",
+        "Attendre la fin de la journée pour signaler l'anomalie",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Conduite à tenir",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Un conducteur apparent constitue un risque d'électrocution immédiat. Le signalement et la mise hors service sont obligatoires. Aucun palliatif (ruban adhésif, prudence, délai) n'est acceptable sur une anomalie de ce type.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Un collègue non habilité vous demande d'ouvrir une armoire électrique pour lui montrer comment fonctionne l'installation. Que faites-vous ?",
+      choices: [
+        "Accepter si vous êtes habilité B0 et que l'armoire est accessible",
+        "Accepter uniquement si l'armoire est hors tension",
+        "Refuser : ouvrir une armoire électrique dépasse les limites de l'habilitation B0",
+        "Accepter si le collègue ne touche rien",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Habilitation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — L'ouverture d'une enveloppe électrique (armoire, coffret, boîte de jonction) est une opération électrique qui dépasse les limites de l'habilitation B0. Cette action expose aux parties actives et constitue un acte interdit pour ce niveau.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Votre responsable vous demande oralement de « juste vérifier » une prise endommagée dans un atelier. Vous êtes habilité H0 uniquement. Que faites-vous ?",
+      choices: [
+        "Procéder si la vérification visuelle n'implique pas de toucher les pièces nues",
+        "Refuser et orienter vers une personne habilitée pour les opérations électriques",
+        "Vérifier rapidement puis signaler au responsable",
+        "Accepter si vous avez de l'expérience en électricité",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Habilitation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — L'habilitation H0 n'autorise aucune vérification d'installation électrique, même visuelle et sans contact apparent. La demande orale ou l'expérience ne modifie pas les limites légales de l'habilitation. La bonne réponse est de refuser et d'orienter vers un personnel qualifié.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Lors d'une intervention de maintenance non électrique, vous devez utiliser une échelle métallique près d'une armoire électrique ouverte. Quelle précaution s'impose ?",
+      choices: [
+        "Positionner l'échelle parallèlement à l'armoire pour s'en rapprocher davantage",
+        "Ne pas utiliser d'échelle métallique à proximité de parties sous tension accessibles ; utiliser un escabeau isolant ou demander la consignation préalable",
+        "Travailler rapidement pour minimiser le temps d'exposition",
+        "L'armoire étant au même niveau, il n'y a pas de précaution particulière",
+      ],
+      answer: [1],
+      eliminatory: true,
+      chapterLabel: "Zones d'approche",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Une échelle métallique constitue un conducteur. Son utilisation à proximité de parties actives accessibles expose à un arc électrique ou à un contact direct. La règle est d'utiliser un matériel isolant adapté ou d'exiger la consignation de l'installation avant toute intervention à proximité.",
+      timeLimit: 50,
     },
   ],
   "securite-incendie": [

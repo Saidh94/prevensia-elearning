@@ -40,7 +40,7 @@ const formations = [
       "Conduite à tenir en cas d'incident ou d'accident",
     ],
     note:
-      "Module théorique de sensibilisation complété par un entretien de validation de 30 minutes.",
+      "Ce parcours constitue la préparation théorique au titre H0B0 / H0V, complétée par un entretien de validation de 30 minutes avec un formateur. La réussite au quiz et à l'entretien ne vaut pas habilitation : l'habilitation est délivrée uniquement par l'employeur, après vérification des acquis et adéquation au poste.",
   },
   {
     slug: "bs-be-manœuvre",
@@ -67,7 +67,7 @@ const formations = [
       "Conduite à tenir en cas d'anomalie, d'incident ou d'accident",
     ],
     note:
-      "Initial en classe virtuelle ou session entreprise, puis recyclage possible en visio accompagnée selon le besoin.",
+      "Ce parcours constitue la préparation théorique aux habilitations BS et BE Manœuvre, complétée par une classe virtuelle ou une session entreprise. La réussite au quiz et à la séquence encadrée ne vaut pas habilitation : l'habilitation est délivrée uniquement par l'employeur, après vérification des acquis, adéquation au poste et analyse du risque.",
   },
   {
     slug: "b1-b1v",
@@ -754,6 +754,13 @@ export default function ElearningPage() {
             Les parcours H0B0 / H0V et BS / BE Manœuvre peuvent être suivis en
             e-learning encadré. Les autres modules sont inclus avec la formation
             encadrée correspondante pour préparer et consolider les acquis.
+          </p>
+          <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
+            <span className="font-semibold">Important :</span> L&apos;e-learning
+            et le quiz constituent la préparation théorique de la formation.
+            Ils ne délivrent pas d&apos;habilitation. L&apos;habilitation
+            électrique est délivrée exclusivement par l&apos;employeur, après
+            formation et entretien ou séquence encadrée, selon le titre visé.
           </p>
         </div>
 

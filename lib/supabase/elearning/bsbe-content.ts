@@ -686,9 +686,9 @@ export const bsbeModuleContent: ModuleContent = {
       keyPoints: [
         "Lampe IP2X sous tension → personnel formé non habilité peut intervenir (NF C 18-510 § 10).",
         "Fusible à fusion enfermée sans VAT → B0 ou personnel formé non habilité suffisent.",
-        "Tout le reste (lampe sans IP2X, fusible nu, prise, interrupteur, raccordement) → BS requis, hors tension.",
-        "BS = remplacement à l'identique, hors tension, circuit repéré, ≤ 400 V, circuits terminaux.",
-        "BS ≠ diagnostic, ≠ câblage modifié, ≠ intervention sur circuit non identifié.",
+        "Opérations BS autorisées (§ 10.4.1) : remplacement à l'identique de lampe (absence IP2X), fusible nu, prise de courant, interrupteur, disjoncteur de branchement BT ; raccordement d'un circuit en attente — toujours hors tension, circuit identifié.",
+        "BS = remplacement à l'identique, hors tension, circuit repéré, ≤ 400 V BT, circuits terminaux uniquement.",
+        "BS ≠ diagnostic, ≠ câblage modifié, ≠ intervention sur circuit de distribution, ≠ intervention sur circuit non identifié.",
       ],
       forbiddenPoints: [
         "Chercher la panne si le remplacement ne suffit pas.",

@@ -259,9 +259,9 @@ export const modulesContent: Record<string, ModuleContent> = {
       keyPoints: [
         "Les distances structurent la prévention.",
         "La consignation et le travail hors tension restent à privilégier quand ils relèvent des opérations autorisées.",
-        "DMA BT = 0,30 m — ne jamais franchir cette limite sans mise hors tension.",
-        "DLI BT = 50 m — zone d'investigation.",
-        "DLAP = 0,50 m pour les canalisations enterrées.",
+        "DLVS BT = 0,30 m — limite extérieure de la zone de voisinage en basse tension (zone de voisinage : < 0,30 m des PNST).",
+        "DMA BT = contact — en BT, le risque commence dès l'approche de la zone de voisinage (0,30 m) ; ne jamais franchir sans habilitation et EPI adaptés.",
+        "DLAP = 1,50 m — distance d'approche prudentielle pour travaux de terrassement près des réseaux enterrés (fouille manuelle obligatoire en deçà).",
         "Grillage avertisseur rouge = réseau électrique enterré.",
         "DLVS HTA = 3 m — zone de voisinage simple haute tension A (1 kV à 50 kV).",
         "DLVR HTA = 2 m — zone de danger renforcé haute tension A.",
@@ -432,7 +432,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         "Le trajet du courant modifie fortement la gravité. Un trajet main-main ou main-pieds peut traverser le thorax et majorer le risque cardiaque. Un trajet plus localisé peut provoquer des brûlures ou des atteintes nerveuses importantes.",
         "La durée de passage du courant est un facteur aggravant majeur. Un courant relativement modéré mais appliqué plus longtemps peut devenir beaucoup plus dangereux qu’un passage très bref.",
         "Le type de courant compte également. Dans les approches pédagogiques simplifiées, on rappelle souvent que les valeurs en courant continu sont généralement plus élevées que celles du courant alternatif pour produire certains effets physiologiques, mais cela ne signifie jamais absence de danger.",
-        "Les statistiques d'accidents confirment la réalité du risque. En 2021, les données de sinistralité enregistraient environ 428 accidents du travail d'origine électrique, dont 46 mortels. L'analyse des facteurs causaux révèle que le mode opératoire inapproprié ou dangereux est la première cause (31 %), devant la méconnaissance des risques (30 %), l'application incomplète des procédures (15 %), la formation insuffisante (12 %) et le matériel défectueux (12 %). Ces chiffres montrent que la prévention technique ne suffit pas : le comportement et la culture de sécurité sont déterminants."
+        "Les statistiques d'accidents confirment la réalité du risque. En 2021, les données de sinistralité enregistraient environ 428 accidents du travail d'origine électrique, dont 3 décès et 46 nouvelles incapacités permanentes. L'analyse des facteurs causaux révèle que le mode opératoire inapproprié ou dangereux est la première cause (31 %), devant la méconnaissance des risques (30 %), l'application incomplète des procédures (15 %), la formation insuffisante (12 %) et le matériel défectueux (12 %). Ces chiffres montrent que la prévention technique ne suffit pas : le comportement et la culture de sécurité sont déterminants."
       ],
       deepDive: [
         "La tension seule n’explique pas tout. Ce sont les conditions réelles d’exposition qui déterminent la gravité.",
@@ -445,7 +445,7 @@ export const modulesContent: Record<string, ModuleContent> = {
         "30 mA : niveau déjà très dangereux.",
         "75 mA : risque cardiaque majeur.",
         "La durée de passage et le trajet changent la gravité.",
-        "2021 : 428 AT d'origine électrique — 46 mortels.",
+        "2021 : 428 AT d'origine électrique — 3 décès, 46 nouvelles incapacités permanentes.",
         "1re cause d'accident : mode opératoire inapproprié (31 %).",
         "2e cause : méconnaissance des risques (30 %)."
       ],
