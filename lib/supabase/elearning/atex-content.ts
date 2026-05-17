@@ -36,20 +36,20 @@ export const atexModuleContent: ModuleContent = {
       ],
       deepDive: [
         "La directive européenne 99/92/CE (directive ATEX « lieux de travail ») a été transposée en droit français par le décret du 19 novembre 2002 (décret 2002-1553). Elle définit les prescriptions minimales visant à améliorer la protection en matière de sécurité et de santé des travailleurs susceptibles d'être exposés aux risques découlant des atmosphères explosives.",
-        "La directive 94/9/CE (ATEX « équipements ») encadre pour sa part la mise sur le marché des appareils et systèmes de protection utilisés dans les atmosphères explosives. Ces deux directives sont complémentaires et forment le cadre réglementaire ATEX.",
-        "L'employeur est tenu d'établir un Document Relatif à la Protection contre les Explosions (DRPE) précisant les risques identifiés, la classification des zones, les mesures de prévention et les équipements utilisés.",
+        "La directive 2014/34/UE (refonte de la directive 94/9/CE, dite ATEX 95 ou ATEX équipements) encadre pour sa part la mise sur le marché des appareils et systèmes de protection utilisés dans les atmosphères explosives. Ces deux directives sont complémentaires et forment le cadre réglementaire ATEX.",
+        "L'employeur est tenu d'établir un Document Relatif à la Protection Contre les Explosions (DRPCE) précisant les risques identifiés, la classification des zones, les mesures de prévention et les équipements utilisés.",
       ],
       keyPoints: [
         "ATEX = mélange air + substances inflammables (gaz, vapeurs, poussières) en proportions explosibles.",
         "Présentes dans de nombreux secteurs industriels, y compris agroalimentaire et traitement des eaux.",
         "La directive 99/92/CE impose des obligations à l'employeur.",
-        "L'employeur doit établir un Document Relatif à la Protection contre les Explosions (DRPE).",
+        "L'employeur doit établir un Document Relatif à la Protection Contre les Explosions (DRPCE).",
         "Trois piliers : supprimer l'atmosphère, éviter l'inflammation, atténuer les effets.",
       ],
       legalRefs: [
         "Code du travail - Art. L4121-1 à L4121-5 : obligation générale de prévention.",
         "Directive 99/92/CE transposée par décret 2002-1553 : prescriptions minimales pour les lieux de travail ATEX.",
-        "Directive 94/9/CE (ATEX équipements) : appareils et systèmes de protection utilisés en zone ATEX.",
+        "Directive 2014/34/UE (ATEX équipements, refonte 94/9/CE) : appareils et systèmes de protection utilisés en zone ATEX.",
         "Art. R4227-42 et suivants du Code du travail : dispositions spécifiques aux atmosphères explosives.",
       ],
     },
@@ -62,7 +62,7 @@ export const atexModuleContent: ModuleContent = {
       intro:
         "Deux directives européennes constituent le socle de la réglementation ATEX. L'une concerne les employeurs, l'autre les fabricants d'équipements. Les connaître est indispensable pour agir conformément à la loi.",
       content: [
-        "La directive 99/92/CE (dite ATEX 137 ou ATEX lieux de travail) fixe les responsabilités de l'employeur. Elle impose d'évaluer les risques d'explosion sur le site, de classer les zones à risques et de les signaliser, de tenir un Document Relatif à la Protection contre les Explosions (DRPE), de mettre en œuvre des mesures techniques et organisationnelles de prévention, et de respecter les critères de sélection des appareils selon la zone.",
+        "La directive 99/92/CE (dite ATEX 137 ou ATEX lieux de travail) fixe les responsabilités de l'employeur. Elle impose d'évaluer les risques d'explosion sur le site, de classer les zones à risques et de les signaliser, de tenir un Document Relatif à la Protection Contre les Explosions (DRPCE), de mettre en œuvre des mesures techniques et organisationnelles de prévention, et de respecter les critères de sélection des appareils selon la zone.",
         "La directive 2014/34/UE (refonte de la directive 94/9/CE, dite ATEX 95 ou ATEX équipements) concerne les fabricants d'équipements. Elle définit les exigences en matière d'équipements et de systèmes de protection destinés aux atmosphères explosives (détecteurs de gaz, moteurs, coffrets), les exigences pour les dispositifs de commande et de contrôle utilisés hors zone ATEX mais nécessaires au bon fonctionnement des équipements, ainsi que la classification des groupes d'équipements en catégories et les exigences essentielles de conception et fabrication.",
         "Pour être conforme à la directive ATEX, un équipement doit : porter le marquage CE, disposer des certifications nécessaires pour les zones dangereuses, répondre à une norme reconnue (exemple : EN 60079-29-1 pour les détecteurs de gaz inflammables), et porter le marquage Ex avec l'indication du groupe, de la catégorie, du mode de protection et de la classe de température.",
         "Le marquage réglementaire ATEX permet d'identifier la compatibilité d'un équipement avec les zones. Il se décompose en : groupe d'appareils (II pour surfaces, I pour mines), catégorie (1G/2G/3G pour gaz, 1D/2D/3D pour poussières), mode de protection Ex (d, e, ia, ib, p, n...), groupe de gaz (IIA, IIB, IIC), et classe de température (T1 à T6). Pour les poussières, la température maximale de surface est indiquée directement.",
@@ -71,13 +71,13 @@ export const atexModuleContent: ModuleContent = {
       ],
       deepDive: [
         "Exemples de formation d'une ATEX selon l'INERIS : une ATEX de type zone 2 se forme dans l'air ambiant à proximité d'une flaque d'un liquide à point d'éclair inférieur à l'ambiante répandu accidentellement. De même, une canalisation sous pression d'un gaz inflammable présentant une fuite (dysfonctionnement) crée une zone 2 dans son environnement immédiat.",
-        "Le DRPE (Document Relatif à la Protection contre les Explosions) doit être établi avant le début des travaux et tenu à jour. Il reprend : l'identification des zones ATEX, les mesures de prévention mises en place, la liste des équipements certifiés utilisés dans chaque zone et les procédures spécifiques aux interventions en zone.",
+        "Le DRPCE (Document Relatif à la Protection Contre les Explosions) doit être établi avant le début des travaux et tenu à jour. Il reprend : l'identification des zones ATEX, les mesures de prévention mises en place, la liste des équipements certifiés utilisés dans chaque zone et les procédures spécifiques aux interventions en zone.",
         "Le signe CE + Ex sur un équipement autorise sa libre circulation dans l'Union Européenne. Ce marquage atteste que l'équipement a été conçu, testé et certifié pour ne pas constituer une source d'inflammation dans les conditions d'utilisation prévues.",
       ],
       keyPoints: [
         "Directive 99/92/CE (ATEX 137) = obligations de l'EMPLOYEUR.",
         "Directive 2014/34/UE (ATEX 95) = obligations du FABRICANT d'équipements.",
-        "DRPE obligatoire : document à établir avant tout travail, à tenir à jour.",
+        "DRPCE obligatoire : document à établir avant tout travail, à tenir à jour.",
         "Marquage Ex = certification équipement : groupe + catégorie + mode protection + classe température.",
         "Catégories : 1G/1D (zone 0/20) → 2G/2D (zone 1/21) → 3G/3D (zone 2/22).",
         "Groupes de gaz : IIA (moins dangereux) → IIB → IIC (hydrogène, le plus dangereux).",
@@ -253,7 +253,7 @@ export const atexModuleContent: ModuleContent = {
         "Contrôle atmosphérique obligatoire avant toute intervention en zone ATEX.",
       ],
       legalRefs: [
-        "Directive 94/9/CE (ATEX équipements) — marquage CE + marquage Ex des équipements.",
+        "Directive 2014/34/UE (refonte 94/9/CE — ATEX équipements) — marquage CE + marquage Ex des équipements.",
         "Norme EN 13463-1 : appareils non électriques destinés à être utilisés en atmosphères explosibles.",
         "Guide INRS ED 6028 — Atmosphères explosives au travail.",
       ],

@@ -36,7 +36,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       ],
       keyPoints: [
         "SSIAP1 = agent de service · SSIAP2 = chef d'équipe · SSIAP3 = chef de service.",
-        "Obligatoire dans les ERP de 1re à 4e catégorie selon l'arrêté du 2 mai 2005.",
+        "Obligatoire dans certains types d'ERP de 1re à 4e catégorie selon l'arrêté du 2 mai 2005 modifié — les obligations varient selon le type et la catégorie de l'établissement.",
         "5 objectifs fondamentaux : évacuer, alerter, faciliter l'accès, limiter la propagation, résistance au feu.",
         "Deux volets : prévention (avant l'incendie) et protection (pendant l'incendie).",
       ],

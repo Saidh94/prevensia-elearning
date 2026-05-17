@@ -69,7 +69,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Le plan de zonage ATEX fait partie du DRPCE. Avant toute intervention, l'intervenant doit consulter ce document ou se renseigner auprès du responsable sécurité pour connaître la classification précise de la zone où il va travailler.",
       ],
       deepDive: [
-        "Les zones ATEX doivent être signalées par le panneau triangulaire réglementaire (triangle jaune avec le pictogramme d'éclair et l'inscription 'ATEX'). À l'intérieur de la zone, seuls les équipements certifiés pour la catégorie correspondante sont autorisés.",
+        "Les zones ATEX doivent être signalées par le panneau triangulaire réglementaire (triangle noir sur fond jaune avec une flamme noire à l'intérieur et l'inscription 'ATEX'). Attention : ce pictogramme représente une flamme, pas un éclair — l'éclair est le symbole du risque électrique. À l'intérieur de la zone, seuls les équipements certifiés pour la catégorie correspondante sont autorisés.",
         "La maintenance peut modifier temporairement les zones : l'ouverture d'une vanne ou d'un équipement contenant un fluide inflammable crée une zone temporaire. Ces zones temporaires doivent être identifiées dans le plan de prévention ou le permis de travail.",
         "En présence de poussières : les couches de dépôts doivent être incluses dans le zonage. Une couche de 1 à 5 mm peut suffire à créer une zone 22 lors d'une mise en suspension (coup de pied, nettoyage à air comprimé). Le nettoyage des dépôts fait partie des mesures préventives obligatoires.",
       ],
