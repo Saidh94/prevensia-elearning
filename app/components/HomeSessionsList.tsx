@@ -76,12 +76,21 @@ export default function HomeSessionsList() {
           .filter((s) => {
             const format = (s.format ?? "").toLowerCase();
             const title  = (s.title ?? "").toLowerCase();
-            return (
-              !format.includes("e-learning") &&
-              !format.includes("elearning") &&
-              !title.includes("e-learning") &&
-              !title.includes("elearning")
-            );
+            const isElearning =
+              format.includes("e-learning") ||
+              format.includes("elearning") ||
+              title.includes("e-learning") ||
+              title.includes("elearning");
+            // H0B0 et BS/BE Manœuvre sont quasi 100% e-learning — exclus de la homepage
+            const isQuasiElearning =
+              title.includes("h0b0") ||
+              title.includes("h0 b0") ||
+              title.includes("habilitation électrique h0") ||
+              title.includes("habilitation electrique h0") ||
+              title.includes("bs / be") ||
+              title.includes("bs/be") ||
+              title.includes("bs et be manoeuvre");
+            return !isElearning && !isQuasiElearning;
           })
           .sort((a, b) => new Date(a.date_start).getTime() - new Date(b.date_start).getTime())
           .slice(0, 24); // buffer pour filtrage

@@ -702,37 +702,27 @@ function InfoTile({ label, value }: { label: string; value: string }) {
   );
 }
 
+const metierAbbrev: Record<string, string> = {
+  "electricien":     "BT",
+  "non-electricien": "H0",
+  "securite-qhse":   "QH",
+  "agent-ssiap":     "SI",
+  "exploitant-erp":  "ERP",
+  "sst":             "SST",
+  "atex":            "ATX",
+};
+
 function MetierIcon({ metierKey }: { metierKey: string }) {
-  const props = {
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 18,
-    height: 18,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.75,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true,
-  };
-  switch (metierKey) {
-    case "electricien":
-      return <svg {...props}><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>;
-    case "non-electricien":
-      return <svg {...props}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>;
-    case "securite-qhse":
-      return <svg {...props}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>;
-    case "agent-ssiap":
-      return <svg {...props}><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>;
-    case "exploitant-erp":
-      return <svg {...props}><rect x="3" y="9" width="18" height="13" rx="2"/><path d="M8 9V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><line x1="12" y1="13" x2="12" y2="18"/><line x1="9" y1="15.5" x2="15" y2="15.5"/></svg>;
-    case "sst":
-      return <svg {...props}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
-    case "atex":
-      return <svg {...props}><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>;
-    default:
-      return null;
-  }
+  const abbrev = metierAbbrev[metierKey];
+  if (!abbrev) return null;
+  return (
+    <span
+      className="select-none text-[10px] font-extrabold leading-none tracking-tight"
+      aria-hidden="true"
+    >
+      {abbrev}
+    </span>
+  );
 }
 
 function AudienceBox({ items }: { items: string[] }) {
