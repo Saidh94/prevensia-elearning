@@ -3531,25 +3531,25 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Comment fonctionne une installation sprinkler en situation d'incendie ?",
       choices: [
         "Toutes les têtes se déclenchent automatiquement en même temps",
-        "Seules les têtes soumises a une chaleur suffisante s'ouvrent",
-        "Le systeme agit localement au plus pres du foyer",
+        "Seules les têtes soumises à une chaleur suffisante s'ouvrent",
+        "Le système agit localement au plus près du foyer",
         "Le sprinkler remplace toute autre organisation incendie du site",
       ],
       answer: [1, 2],
       multiple: true,
       explanation:
-        "Le sprinkler agit localement et precocement. Il ne remplace ni l'organisation du site ni les autres moyens de securite incendie.",
+        "Le sprinkler agit localement et précocement. Il ne remplace ni l'organisation du site ni les autres moyens de sécurité incendie.",
       chapterLabel: "Principe sprinkler",
       timeLimit: 70,
       contextLabel:
-        "Une installation sprinkler doit être lue comme une protection technique integree a une strategie incendie plus large.",
+        "Une installation sprinkler doit être lue comme une protection technique intégrée à une stratégie incendie plus large.",
       imagePath: "/images/installation-sprinkler.png",
       imageAlt:
-        "schéma de principe d'une installation sprinkler avec reserve d'eau, pompe, poste de contrôle et réseau",
+        "schéma de principe d'une installation sprinkler avec réserve d'eau, pompe, poste de contrôle et réseau",
     },
     {
       question:
-        "Quels elements appartiennent typiquement a une installation sprinkler ?",
+        "Quels éléments appartiennent typiquement à une installation sprinkler ?",
       choices: [
         "Des têtes sprinkler",
         "Un réseau de tuyauteries",
@@ -3570,11 +3570,11 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Quelles anomalies doivent être prises au serieux en exploitation sprinkler ?",
+        "Quelles anomalies doivent être prises au sérieux en exploitation sprinkler ?",
       choices: [
-        "Une vanne fermee ou mal positionnee",
+        "Une vanne fermée ou mal positionnée",
         "Une pression anormale",
-        "Une alarme non traitee",
+        "Une alarme non traitée",
         "Une corrosion ou une fuite visible",
       ],
       answer: [0, 1, 2, 3],
@@ -3588,15 +3588,15 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question:
         "Pourquoi une modification de stockage ou d'exploitation doit-elle alerter sur un site protégé par sprinkler ?",
       choices: [
-        "Parce qu'elle peut remettre en cause l'adequation entre le risque et la protection installee",
-        "Parce qu'un sprinkler est universel et ne depend jamais du risque reel",
-        "Parce que la hauteur, la densite ou la nature des produits peuvent changer la situation",
-        "Parce que seule la présence des têtes suffit a garantir la conformité en toute circonstance",
+        "Parce qu'elle peut remettre en cause l'adéquation entre le risque et la protection installée",
+        "Parce qu'un sprinkler est universel et ne dépend jamais du risque réel",
+        "Parce que la hauteur, la densité ou la nature des produits peuvent changer la situation",
+        "Parce que seule la présence des têtes suffit à garantir la conformité en toute circonstance",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Le sprinkler reste efficace dans un cadre de conception et d'exploitation donne, qu'il faut preserver dans le temps.",
+        "Le sprinkler reste efficace dans un cadre de conception et d'exploitation donné, qu'il faut préserver dans le temps.",
       chapterLabel: "Réglementation",
       timeLimit: 75,
     },
@@ -3619,16 +3619,16 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le monde sprinkler s'appuie sur plusieurs référentiels techniques selon le site protégé et ses exigences d'assurance.",
       imagePath: "/images/installation-sprinkler.png",
       imageAlt:
-        "schéma pedagogique d'une installation sprinkler dans un bâtiment logistique ou industriel",
+        "schéma pédagogique d'une installation sprinkler dans un bâtiment logistique ou industriel",
     },
     {
       question:
-        "En cas d'indisponibilite temporaire d'une partie de l'installation sprinkler, quel raisonnement est le plus juste ?",
+        "En cas d'indisponibilité temporaire d'une partie de l'installation sprinkler, quel raisonnement est le plus juste ?",
       choices: [
-        "Il faut tracer la situation et appliquer les mesures compensatoires prevues",
-        "Une vanne fermee n'a pas d'importance si elle est remise plus tard",
+        "Il faut tracer la situation et appliquer les mesures compensatoires prévues",
+        "Une vanne fermée n'a pas d'importance si elle est remise plus tard",
         "L'organisation du site doit savoir qui alerter et qui autorise",
-        "Aucune action n'est necessaire tant qu'il n'y a pas de depart de feu",
+        "Aucune action n'est nécessaire tant qu'il n'y a pas de départ de feu",
       ],
       answer: [0, 2],
       multiple: true,
@@ -3639,23 +3639,23 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Dans un entrepot ou une logique ICPE 1510, quelle affirmation est correcte ?",
+        "Dans un entrepôt ou une logique ICPE 1510, quelle affirmation est correcte ?",
       choices: [
         "Le sprinkler fait partie d'un ensemble plus large de prescriptions et d'organisation",
-        "La seule présence du sprinkler suffit a regler le risque incendie d'un entrepot",
-        "Les changements d'exploitation doivent être analyses",
+        "La seule présence du sprinkler suffit à régler le risque incendie d'un entrepôt",
+        "Les changements d'exploitation doivent être analysés",
         "Le compartimentage et l'organisation du site restent sans importance",
       ],
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Le sprinkler est un maillon d'une strategie plus large qui depend aussi du stockage, des cellules, de l'organisation et du risque reel.",
+        "Le sprinkler est un maillon d'une stratégie plus large qui dépend aussi du stockage, des cellules, de l'organisation et du risque réel.",
       chapterLabel: "Réglementation",
       timeLimit: 75,
     },
     {
       question:
-        "Quel comportement traduit une bonne maturite d'exploitation sprinkler ?",
+        "Quel comportement traduit une bonne maturité d'exploitation sprinkler ?",
       choices: [
         "Considérer un défaut chronique comme normal",
         "Suivre les essais et contrôles périodiques",
@@ -4121,76 +4121,76 @@ export const quizContent: Record<string, QuizQuestion[]> = {
   "extinction-automatique-gaz": [
     {
       question:
-        "Quel enonce distingue correctement un systeme d'extinction automatique a gaz d'une installation sprinkler ?",
+        "Quel énoncé distingue correctement un système d'extinction automatique à gaz d'une installation sprinkler ?",
       choices: [
-        "Le systeme a gaz protégé un volume et impose une logique de temporisation et d'évacuation",
-        "Le systeme a gaz fonctionne comme un sprinkler mais sans eau",
-        "Le systeme a gaz depend fortement de l'intégrité du local protégé",
-        "Le systeme a gaz n'impose aucune contrainte particuliere sur le réaccès",
+        "Le système à gaz protège un volume et impose une logique de temporisation et d'évacuation",
+        "Le système à gaz fonctionne comme un sprinkler mais sans eau",
+        "Le système à gaz dépend fortement de l'intégrité du local protégé",
+        "Le système à gaz n'impose aucune contrainte particulière sur le réaccès",
       ],
       answer: [0, 2],
       chapterLabel: "Principes & fonctionnement",
       multiple: true,
       explanation:
-        "Un systeme a gaz ne se lit pas comme un sprinkler. Il repose sur un local protégé, une chaine de commande et une gestion stricte des acces.",
+        "Un système à gaz ne se lit pas comme un sprinkler. Il repose sur un local protégé, une chaîne de commande et une gestion stricte des accès.",
       timeLimit: 75,
       contextLabel:
-        "L'extinction automatique a gaz repose sur une logique de local protégé, de temporisation et de securite des personnes.",
+        "L'extinction automatique à gaz repose sur une logique de local protégé, de temporisation et de sécurité des personnes.",
       imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
       imageAlt:
-        "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        "schéma d'un système fixe d'extinction automatique à gaz avec détection, diffusion et réserve d'agent extincteur",
     },
     {
       question:
-        "Pourquoi l'intégrité du local protégé est-elle un point critique pour un systeme a gaz ?",
+        "Pourquoi l'intégrité du local protégé est-elle un point critique pour un système à gaz ?",
       choices: [
         "Parce que la concentration utile doit pouvoir se maintenir",
         "Parce que les portes, passages et fuites n'ont aucun effet",
-        "Parce que l'efficacité depend aussi de l'étanchéité du volume",
+        "Parce que l'efficacité dépend aussi de l'étanchéité du volume",
         "Parce que seul le nombre de bouteilles compte",
       ],
       answer: [0, 2],
       chapterLabel: "Principes & fonctionnement",
       multiple: true,
       explanation:
-        "Le local protégé fait partie du systeme. Si son intégrité est degradee, la concentration peut devenir insuffisante.",
+        "Le local protégé fait partie du système. Si son intégrité est dégradée, la concentration peut devenir insuffisante.",
       timeLimit: 70,
     },
     {
       question:
-        "Quels elements de securite des personnes sont essentiels avant une emission de gaz ?",
+        "Quels éléments de sécurité des personnes sont essentiels avant une émission de gaz ?",
       choices: [
         "Une alarme et une temporisation visibles ou audibles",
-        "L'évacuation prealable du local protégé",
-        "L'acces libre au local pendant la diffusion",
-        "Le contrôle des acces avant et apres emission",
+        "L'évacuation préalable du local protégé",
+        "L'accès libre au local pendant la diffusion",
+        "Le contrôle des accès avant et après émission",
       ],
       answer: [0, 1, 3],
       chapterLabel: "Sécurité des personnes",
       multiple: true,
       explanation:
-        "La securite des personnes impose une chaine claire: alarme, temporisation, évacuation et maitrise des acces.",
+        "La sécurité des personnes impose une chaîne claire : alarme, temporisation, évacuation et maîtrise des accès.",
       timeLimit: 75,
     },
     {
       question:
-        "Apres une emission de gaz, quel comportement est le plus professionnel ?",
+        "Après une émission de gaz, quel comportement est le plus professionnel ?",
       choices: [
-        "Interdire le réaccès tant que les consignes du site ne permettent pas un retour contrôle",
-        "Rentrer aussitot pour verifier visuellement",
-        "Prendre en compte l'atmosphere du local et les risques residuels",
-        "Considérer que tout danger a disparu des l'extinction apparente",
+        "Interdire le réaccès tant que les consignes du site ne permettent pas un retour contrôlé",
+        "Rentrer aussitôt pour vérifier visuellement",
+        "Prendre en compte l'atmosphère du local et les risques résiduels",
+        "Considérer que tout danger a disparu dès l'extinction apparente",
       ],
       answer: [0, 2],
       chapterLabel: "Sécurité des personnes",
       multiple: true,
       explanation:
-        "Apres emission, le risque ne se limite pas au feu initial. Le réaccès doit être strictement encadre.",
+        "Après émission, le risque ne se limite pas au feu initial. Le réaccès doit être strictement encadré.",
       timeLimit: 75,
     },
     {
       question:
-        "Quels repères techniques ou normatifs sont cites pour les systemes d'extinction automatique a gaz ?",
+        "Quels repères techniques ou normatifs sont cités pour les systèmes d'extinction automatique à gaz ?",
       choices: [
         "APSAD R13",
         "NF EN 15004-1",
@@ -4208,16 +4208,16 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question:
         "Quel raisonnement est juste pour un exploitant non mainteneur ?",
       choices: [
-        "Comprendre la chaine d'information et appliquer la procedure du site",
-        "Improviser une neutralisation technique si une alarme se repete",
+        "Comprendre la chaîne d'information et appliquer la procédure du site",
+        "Improviser une neutralisation technique si une alarme se répète",
         "Tracer les anomalies et alerter le bon interlocuteur",
-        "Confondre exploitation et maintenance specialisee",
+        "Confondre exploitation et maintenance spécialisée",
       ],
       answer: [0, 2],
       chapterLabel: "Procédures opérationnelles",
       multiple: true,
       explanation:
-        "L'exploitant doit comprendre, agir dans son role et transmettre. Il ne doit pas improviser de maintenance.",
+        "L'exploitant doit comprendre, agir dans son rôle et transmettre. Il ne doit pas improviser de maintenance.",
       timeLimit: 70,
     },
     {
@@ -4237,22 +4237,22 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 75,
       imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
       imageAlt:
-        "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+        "schéma d'un système fixe d'extinction automatique à gaz avec détection, diffusion et réserve d'agent extincteur",
     },
     {
       question:
-        "Pourquoi une modification du local protégé doit-elle être analysee avec serieux sur un systeme a gaz ?",
+        "Pourquoi une modification du local protégé doit-elle être analysée avec sérieux sur un système à gaz ?",
       choices: [
         "Parce que passages, portes et percements influencent la tenue de la concentration",
-        "Parce que l'efficacité depend aussi de l'intégrité du volume protégé",
-        "Parce qu'un local protégé reste conforme même apres n'importe quelle modification",
-        "Parce que l'étanchéité et les fermetures font partie du systeme reel",
+        "Parce que l'efficacité dépend aussi de l'intégrité du volume protégé",
+        "Parce qu'un local protégé reste conforme même après n'importe quelle modification",
+        "Parce que l'étanchéité et les fermetures font partie du système réel",
       ],
       answer: [0, 1, 3],
       chapterLabel: "Principes & fonctionnement",
       multiple: true,
       explanation:
-        "Le volume protégé fait partie du systeme a gaz. Toute modification du local peut degrader la performance et la securite des personnes.",
+        "Le volume protégé fait partie du système à gaz. Toute modification du local peut dégrader la performance et la sécurité des personnes.",
       timeLimit: 75,
     },
       {
