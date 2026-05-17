@@ -140,6 +140,8 @@ export const ssiap1ModuleContent: ModuleContent = {
         "L'extincteur au CO₂ (rouge, bande noire) est préconisé pour les feux de classe B et les équipements électriques sous tension. Il n'est pas conducteur d'électricité et ne laisse aucun résidu. Son action est étouffante (déplacement de l'O₂). Attention : à utiliser dans des espaces ventilés — en espace clos, le CO₂ est asphyxiant. Ne pas saisir le diffuseur pendant l'utilisation (froid intense : -78°C).",
         "L'extincteur à poudre polyvalente ABC (rouge) est le plus polyvalent : il permet d'attaquer simultanément des feux A, B et C. Son action est basée sur l'inhibition de la réaction en chaîne. Inconvénient majeur : les résidus de poudre sont très corrosifs et endommagent irrémédiablement les équipements électroniques, archives, matériels délicats. À réserver aux incendies importants ou mixtes où la rapidité prime.",
         "Le Robinet d'Incendie Armé (RIA) est un moyen de lutte fixe alimenté en eau par le réseau d'eau incendie. Il comprend un dévidoir tubulaire ou à plat, un robinet d'arrêt, et une lance réglable (jet diffusé ou jet droit). Le RIA offre un débit continu contrairement à un extincteur portable. Il est efficace sur les feux de classe A et B. Avant utilisation : vérifier que le tuyau est totalement déroulé, ouvrir l'eau, ne jamais avancer seul sans sécurité.",
+        "Batteries lithium-ion — comportement feu et limites des extincteurs : une batterie lithium-ion en emballement thermique produit des fumées toxiques et corrosives (fluorure d'hydrogène, CO, gaz inflammables) et peut reprendre feu après extinction apparente des flammes. Le CO₂ ou la poudre peuvent agir sur les flammes visibles mais ne refroidissent pas le cœur de la batterie. Une intervention initiale au CO₂ peut ralentir l'embrasement initial si le feu est très naissant, mais dès que des fumées, projections, crépitements ou chaleur intense sont présents, le réflexe est d'évacuer la zone et d'alerter les secours. Les pompiers utilisent généralement de grandes quantités d'eau pour refroidir massivement la batterie sur la durée.",
+        "Émulseurs fluorés et PFAS : les extincteurs à mousse AFFF contiennent des composés fluorés (PFAS). Ces substances font l'objet d'une restriction européenne progressive. En pratique pour un agent SSIAP1 : vérifier la fiche technique des extincteurs mousse présents sur site, ne pas utiliser les mousses AFFF lors d'essais ou d'exercices sans maîtrise du rejet et traçabilité, signaler tout extincteur déclenché accidentellement avec collecte des eaux contaminées si possible, et se tenir informé des alternatives sans fluor disponibles sur le site."
       ],
       deepDive: [
         "La distance d'attaque avec un extincteur est de 3 à 4 mètres de la base des flammes. Se positionner dos au vent ou à la ventilation. Ne jamais se placer entre le feu et la sortie. Utiliser la méthode DAPS : Dégoupiller (retirer la goupille de sécurité) · Acheminer (approcher à 3-4 m) · Pointer (diriger vers la base des flammes) · Supprimer (balayer en faisant des mouvements de gauche à droite).",
@@ -153,11 +155,16 @@ export const ssiap1ModuleContent: ModuleContent = {
         "Poudre ABC (rouge) → A+B+C. Résidus corrosifs : éviter sur équipements sensibles.",
         "RIA : moyen fixe, débit continu, classe A et B — tuyau entièrement déroulé avant ouverture.",
         "DAPS : Dégoupiller · Acheminer (3-4 m) · Pointer (base des flammes) · Supprimer (balayer).",
+        "Batterie Li-ion : CO₂/poudre agissent sur les flammes visibles — ne refroidissent pas le cœur.",
+        "Reprise de feu Li-ion possible après extinction — évacuer si fumées/crépitements, alerter 18.",
+        "AFFF/PFAS : consulter la fiche technique — éviter les rejets non maîtrisés en exercice."
       ],
       legalRefs: [
         "Norme NF EN 3 — extincteurs portables : exigences de performance et construction.",
         "Norme NF S 61-919 — maintenance des extincteurs.",
         "Arrêté du 31 janvier 1986 (habitations) et règlement ERP : implantation des moyens de secours.",
+        "INRS ED 6164 — Batteries lithium-ion au travail : risques et prévention.",
+        "Règlement UE 2024/2462 et UE 2025/1988 — restriction progressive des PFAS dans les mousses incendie."
       ],
     },
     {
@@ -267,6 +274,7 @@ export const ssiap1ModuleContent: ModuleContent = {
         "En cas de fumées importantes, se déplacer en se baissant au maximum : la fumée s'accumule en hauteur, l'air plus respirable se trouve en partie basse. Si une pièce est enfumée, ramper. Avant d'ouvrir une porte fermée, placer la main sur la porte (pas la poignée) : si elle est chaude, ne pas l'ouvrir. Si une sortie est bloquée par les flammes, se réfugier dans un local, fermer la porte, signaler sa présence à une fenêtre.",
         "Ne jamais utiliser les ascenseurs en cas d'incendie. Ne jamais retourner dans un bâtiment en feu, même pour récupérer des affaires. Ne jamais ouvrir une fenêtre dans une pièce en feu (alimentation en oxygène). Ne jamais tenter de traverser un couloir enfumé sans protection respiratoire adaptée.",
         "La protection des tiers est primordiale : interdire l'accès à la zone, éloigner les personnes, guider vers le point de rassemblement. Signaler aux pompiers toute information utile : présence de personnes non évacuées, matières dangereuses, zones techniques, coupures effectuées.",
+        "Cas particulier — feu de batterie lithium-ion : si l'alarme est liée à un local de charge de batteries, un parking de véhicules électriques, un local trottinettes/vélos électriques ou une zone de stockage d'énergie, la conduite à tenir est renforcée. Même si la zone semble maîtrisée visuellement, un emballement thermique interne peut reprendre. Signaux d'alerte à la levée de doute : gonflement, fumée blanche ou grise, odeur âcre, sifflement ou crépitement. Réflexe : ne pas s'approcher sans équipement respiratoire adapté, déclencher l'alarme générale, évacuer, alerter le 18 en précisant la nature batteries lithium-ion. Ne pas tenter de déplacer les batteries endommagées. Informer les secours à leur arrivée : type de batterie, nombre, localisation exacte."
       ],
       keyPoints: [
         "Séquence : ALARMER → ALERTER (18/112) → ATTAQUER (si conditions remplies).",
@@ -274,6 +282,8 @@ export const ssiap1ModuleContent: ModuleContent = {
         "Fumées : se baisser / ramper — porte chaude = ne pas ouvrir.",
         "Jamais l'ascenseur. Jamais retourner dans le bâtiment.",
         "Signaler aux pompiers : personnes, matières dangereuses, coupures.",
+        "Local batteries/VE : levée de doute renforcée — gonflement, fumée, odeur = ne pas entrer sans ARI.",
+        "Informer les pompiers : présence batteries lithium-ion, type, nombre, localisation."
       ],
     },
     {

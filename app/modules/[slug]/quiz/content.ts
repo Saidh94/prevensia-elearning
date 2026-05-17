@@ -3524,6 +3524,84 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "En réglementation ERP, 1 Unité de Passage (UP) = 0,60 mètre. Les dégagements sont dimensionnés en UP en fonction de l'effectif à évacuer. Un dégagement principal doit comporter au minimum 2 UP (1,20 m) pour permettre le passage simultané de deux files de personnes. Une porte de 0,90 m compte pour 1 UP. Une porte de 1,40 m compte pour 2 UP. Le nombre total d'UP requis est calculé selon des tables réglementaires en fonction de l'effectif admis.",
       timeLimit: 40,
     },
+    {
+      question: "Quels sont les signes précurseurs d'un emballement thermique d'une batterie lithium-ion ?",
+      choices: [
+        "Gonflement visible, odeur âcre, sifflement, chaleur anormale, dégagement de fumée",
+        "Uniquement une fumée noire dense avec flammes visibles",
+        "Une légère chaleur de surface sans autres signes",
+        "Des étincelles uniquement lors de la connexion"
+      ],
+      answer: [0],
+      explanation:
+        "L'emballement thermique d'une batterie lithium-ion peut se manifester avant toute flamme visible : gonflement du boîtier, sifflement ou crépitement, odeur âcre, chaleur anormale, fumée blanche ou grise. Ces signes précurseurs imposent une réaction immédiate : isoler, alarmer, évacuer sans toucher ni déplacer la batterie.",
+      chapterLabel: "Batteries & PFAS",
+    },
+    {
+      question: "Une batterie lithium-ion est gonflée et chaude. Quelle est la bonne conduite à tenir ?",
+      choices: [
+        "L'isoler sur place, ne pas la déplacer, alerter et attendre les consignes",
+        "La déplacer à l'extérieur du bâtiment pour limiter les risques",
+        "La plonger dans un seau d'eau pour la refroidir",
+        "Vérifier son état en l'ouvrant pour évaluer le dommage interne"
+      ],
+      answer: [0],
+      explanation:
+        "Une batterie gonflée est en phase de pré-emballement. La déplacer risque de déclencher l'emballement par contrainte mécanique. L'ouvrir est extrêmement dangereux (gaz inflammables et toxiques sous pression). La plonger dans l'eau sans protocole est inefficace et dangereux. La bonne conduite : laisser en place, isoler la zone, ne pas toucher, alerter et attendre les secours ou la personne habilitée.",
+      chapterLabel: "Batteries & PFAS",
+    },
+    {
+      question: "Vous utilisez un extincteur CO₂ sur un feu de batterie lithium-ion et les flammes disparaissent. La situation est-elle définitivement maîtrisée ?",
+      choices: [
+        "Non — le CO₂ agit sur les flammes visibles mais ne refroidit pas le cœur de la batterie. Une reprise est possible.",
+        "Oui — dès que les flammes sont éteintes, le risque est maîtrisé.",
+        "Oui — le CO₂ éteint la réaction chimique interne de la batterie.",
+        "Non — il faut immédiatement utiliser de la poudre ABC pour finaliser l'extinction."
+      ],
+      answer: [0],
+      explanation:
+        "Le CO₂ (et la poudre) peuvent stopper les flammes visibles, mais ils ne refroidissent pas le cœur de la batterie. La réaction interne peut reprendre minutes ou heures après une extinction apparente. Seul un refroidissement massif et prolongé à l'eau (intervention des pompiers) peut réduire durablement le risque. Après toute extinction de batterie, la zone reste dangereuse et les secours doivent être alertés.",
+      chapterLabel: "Batteries & PFAS",
+    },
+    {
+      question: "Quel(s) principe(s) s'applique(nt) à un local de charge de batteries lithium-ion ?",
+      choices: [
+        "Local ventilé, dégagé de combustibles, chargeurs adaptés, recharge surveillée",
+        "Fenêtres fermées pour éviter l'humidité, recharge possible sans surveillance",
+        "Stocker les batteries pleines et vides au même endroit sans distinction",
+        "Les multiprises standards conviennent pour plusieurs batteries simultanées"
+      ],
+      answer: [0],
+      explanation:
+        "Un local de charge de batteries lithium-ion doit être ventilé (évacuation des gaz), sans combustibles à proximité immédiate, équipé de chargeurs adaptés aux batteries concernées, et la recharge ne doit pas se faire sans surveillance dans les zones sensibles. Les multiprises surchargées et les chargeurs non adaptés sont des causes fréquentes d'incendie.",
+      chapterLabel: "Batteries & PFAS",
+    },
+    {
+      question: "Peut-on utiliser librement des extincteurs mousse AFFF (fluorés) lors d'exercices d'entraînement ?",
+      choices: [
+        "Non — les mousses fluorées/PFAS font l'objet de restrictions progressives. Les rejets doivent être maîtrisés et les alternatives sans fluor privilégiées.",
+        "Oui — les extincteurs mousse sont homologués et peuvent être utilisés sans restriction en exercice.",
+        "Oui, à condition de déclencher à l'extérieur uniquement.",
+        "Non, uniquement en cas de feu réel."
+      ],
+      answer: [0],
+      explanation:
+        "Les mousses contenant des composés fluorés (PFAS) font l'objet d'une restriction réglementaire européenne progressive. En pratique : ne pas utiliser les mousses AFFF lors d'exercices ou d'essais sans maîtrise du rejet, vérifier les fiches techniques des produits présents sur site, privilégier les alternatives sans fluor disponibles. Les eaux d'extinction contenant des émulseurs fluorés sont des déchets à gérer.",
+      chapterLabel: "Batteries & PFAS",
+    },
+    {
+      question: "Que doit vérifier un responsable sécurité sur les extincteurs mousse présents sur son site ?",
+      choices: [
+        "La fiche technique du produit pour savoir si la mousse contient des composés fluorés (PFAS) et si des alternatives sans fluor existent",
+        "Uniquement la date de péremption et la pression de l'extincteur",
+        "Le numéro de série pour s'assurer de la conformité NF EN 3",
+        "La couleur de la bande pour identifier la classe de feu couverte"
+      ],
+      answer: [0],
+      explanation:
+        "Les extincteurs mousse peuvent contenir des émulseurs fluorés (PFAS) soumis à restriction. Vérifier la fiche technique permet de savoir si le produit est concerné, d'anticiper le remplacement par une alternative sans fluor, et d'éviter des rejets non maîtrisés lors d'essais. La date de péremption, la pression et la conformité NF sont importantes mais ne renseignent pas sur la composition de la mousse.",
+      chapterLabel: "Batteries & PFAS",
+    },
   ],
   sprinkler: [
     {
@@ -4116,6 +4194,19 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 45,
       imagePath: "/elearning/sprinkler/stockage-obstacle-sous-tete-sprinkler.png",
       imageAlt: "Stockage obstacle sous tête sprinkler — distance libre insuffisante, risque non couvert",
+    },
+    {
+      question: "Un entrepôt équipé de sprinkler stocke des batteries lithium-ion. Que garantit le sprinkler en cas d'emballement thermique d'une batterie ?",
+      choices: [
+        "Le sprinkler refroidit l'environnement et limite la propagation — mais ne garantit pas l'arrêt de la réaction interne de la batterie.",
+        "Le sprinkler éteint définitivement tout feu de batterie lithium-ion.",
+        "Le sprinkler ne peut pas intervenir sur des feux de batterie car l'eau est contre-indiquée.",
+        "Le sprinkler garantit la protection complète si la tête est positionnée directement au-dessus de la batterie."
+      ],
+      answer: [0],
+      explanation:
+        "Le sprinkler refroidit l'environnement et peut limiter la propagation d'un incendie, mais il ne stoppe pas une réaction d'emballement thermique interne d'une batterie lithium-ion. Une reprise de feu est possible après activation du sprinkler. Ce point doit figurer dans les consignes d'exploitation et être signalé aux secours. Un entrepôt stockant des batteries Li-ion doit faire l'objet d'une analyse de risque spécifique.",
+      chapterLabel: "Batteries Li-ion",
     },
   ],
   "extinction-automatique-gaz": [

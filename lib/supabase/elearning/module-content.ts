@@ -1118,7 +1118,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Les colonnes sèches et colonnes humides sont des tuyauteries fixes installées dans les bâtiments pour faciliter l’intervention des sapeurs-pompiers : elles acheminent rapidement l’eau à tous les niveaux. Les colonnes sèches sont alimentées depuis l’extérieur par les pompiers ; les colonnes humides sont en permanence sous pression.",
           "Tout extincteur portatif conforme porte une estampille argentée NF, délivrée par AFNOR, attestant la conformité à la norme NF EN 3. Cette estampille est la preuve visible de la conformité technique de l’appareil.",
           "L’agent de terrain doit aussi retenir que l’intervention initiale n’est qu’une composante d’un dispositif plus large. Même après une extinction apparente, il faut signaler, baliser si nécessaire et laisser la suite à l’organisation prévue.",
-          "Brûlure grave — conduite à tenir : en cas de brûlure thermique, arroser immédiatement et abondamment à l’eau froide pendant 15 minutes minimum, même sur les vêtements (sauf si ceux-ci adhèrent à la peau : ne jamais les retirer de force). Ne pas percer les cloques, ne pas appliquer de corps gras, de dentifrice ou de glace. Alerter le 15 (SAMU), le 18 (pompiers) ou le 112. Couvrir la brûlure avec un pansement propre non adhérent ou un film plastique en attendant les secours. Une brûlure étendue (supérieure à la paume de la main) ou profonde constitue une urgence médicale absolue."
+          "Brûlure grave — conduite à tenir : en cas de brûlure thermique, arroser immédiatement et abondamment à l’eau froide pendant 15 minutes minimum, même sur les vêtements (sauf si ceux-ci adhèrent à la peau : ne jamais les retirer de force). Ne pas percer les cloques, ne pas appliquer de corps gras, de dentifrice ou de glace. Alerter le 15 (SAMU), le 18 (pompiers) ou le 112. Couvrir la brûlure avec un pansement propre non adhérent ou un film plastique en attendant les secours. Une brûlure étendue (supérieure à la paume de la main) ou profonde constitue une urgence médicale absolue.",
+          "Risque spécifique — feux de batteries lithium-ion : les batteries lithium-ion (véhicules électriques, trottinettes, engins de manutention, armoires onduleurs, stockages d’énergie) présentent un comportement feu très particulier. Un emballement thermique interne peut démarrer plusieurs minutes ou heures après un choc, une surcharge ou un court-circuit. Les signes précurseurs à reconnaître : gonflement visible de la batterie, sifflement ou crépitement, odeur âcre ou acres, dégagement de fumée blanche ou grise, chaleur anormale sur le boîtier. Face à ces signes : ne pas toucher ni déplacer la batterie, isoler immédiatement la zone, déclencher l’alarme, évacuer, alerter les secours. L’extinction au CO₂ ou à la poudre peut stopper les flammes visibles mais ne refroidit pas le cœur de la batterie — une reprise de feu est possible après extinction apparente. L’intervention d’un salarié se limite au tout début : dès que des fumées, projections ou crépitements sont présents, il faut reculer, alerter et attendre les secours spécialisés qui utiliseront de grandes quantités d’eau pour refroidir durablement.",
+          "Agents extincteurs et mousses fluorées (PFAS) : certains extincteurs et systèmes de lutte contiennent des émulseurs fluorés (composés PFAS). Ces substances font l’objet d’une restriction progressive européenne. À retenir en pratique : vérifier la fiche technique de tout extincteur mousse présent sur le site, éviter les rejets non maîtrisés lors d’essais ou d’exercices, privilégier les alternatives sans fluor lorsqu’elles sont disponibles et compatibles avec le risque présent, et ne pas jeter les eaux d’extinction contenant des mousses fluorées — ce sont des déchets à gérer selon les consignes du site."
         ],
         keyPoints: [
           "Intervenir seulement si la situation reste maîtrisable.",
@@ -1127,12 +1129,18 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Un RIA doit rester accessible, signalé et employé dans un cadre compatible avec l’eau.",
           "CO₂ = feux électriques, ~8 secondes pour 2 kg, distance 1,5-2,5 m.",
           "Estampille argentée NF EN 3 = conformité de l’extincteur.",
-          "Brûlure : 15 min eau froide, ne pas retirer vêtements adhérents, alerter 15/18/112."
+          "Brûlure : 15 min eau froide, ne pas retirer vêtements adhérents, alerter 15/18/112.",
+          "Batterie Li-ion : signe d'alerte (gonflement, fumée, odeur) → isoler, alarmer, évacuer — ne pas déplacer.",
+          "Reprise de feu Li-ion possible après extinction apparente — refroidissement prolongé nécessaire.",
+          "PFAS : vérifier la fiche technique des mousses, éviter les rejets, privilégier les alternatives sans fluor."
         ],
         forbiddenPoints: [
           "Se lancer seul dans un local enfumé.",
           "Utiliser un moyen sans connaître son cadre d’emploi.",
-          "Croire qu’une extinction apparente clôt la situation."
+          "Croire qu’une extinction apparente clôt la situation.",
+          "Déplacer une batterie lithium-ion gonflée, chaude, fumante ou endommagée sans procédure.",
+          "S’exposer aux fumées d’une batterie en emballement thermique.",
+          "Utiliser des émulseurs fluorés en exercice sans maîtrise du rejet."
         ],
         legalRefs: [
           "Code du travail - moyens de premier secours contre l’incendie et personnel instruit de leur emploi.",
@@ -1140,7 +1148,10 @@ export const modulesContent: Record<string, ModuleContent> = {
           "INRS - évacuation, intervention et consignes de sécurité sur le lieu de travail.",
           "NF EN 3 - norme européenne des extincteurs portatifs (conformité attestée par l’estampille NF argentée).",
           "NF EN 2 - classes de feux (A solides, B liquides, C gaz, D métaux, E électrique, F huiles/graisses).",
-          "Consignes du site et organisation interne de première intervention."
+          "Consignes du site et organisation interne de première intervention.",
+          "INRS ED 6164 — Batteries lithium-ion au travail : risques et prévention.",
+          "INERIS — Extinction des feux de batteries lithium-ion : limites et recommandations.",
+          "Règlement UE 2024/2462 et UE 2025/1988 — restriction progressive des PFAS dans les mousses incendie (voir ECHA pour les textes à jour)."
         ],
         chapterImagePath: "/images/extincteur-ria-extincteur-mobile.jpg",
         chapterImageAlt:
@@ -1314,13 +1325,17 @@ export const modulesContent: Record<string, ModuleContent> = {
         content: [
           "La sécurité incendie dépend largement des comportements quotidiens : ordre, propreté, maîtrise des déchets, respect des consignes électriques et dégagement des issues.",
           "La prévention repose aussi sur le signalement des anomalies : bloc porte non conforme, dispositif hors service, déclencheur manuel inaccessible, stockage inadapté, travaux non encadrés, issue condamnée, local électrique encombré ou produit inflammable mal géré.",
-          "Le bon niveau professionnel n’est pas de s’habituer aux écarts. C’est de les voir, de les signaler et de contribuer à leur suppression avant qu’ils ne deviennent un départ de feu ou un obstacle à l’évacuation."
+          "Le bon niveau professionnel n’est pas de s’habituer aux écarts. C’est de les voir, de les signaler et de contribuer à leur suppression avant qu’ils ne deviennent un départ de feu ou un obstacle à l’évacuation.",
+          "Les batteries lithium-ion constituent un risque spécifique à intégrer dans la prévention quotidienne. Un local ou une zone de charge de batteries (vélos électriques, trottinettes, engins automoteurs, chariots élévateurs électriques, stockage d’énergie) doit être traité avec rigueur : local ventilé, dégagé de tout combustible à proximité immédiate, sans chargeur non adapté ni multiprise surchargée, sans recharge non surveillée en zone sensible. Une batterie gonflée, abîmée ou dont la cellule est endommagée doit être isolée, étiquetée et signalée avant toute autre décision. Ne jamais laisser charger une batterie endommagée ou non vérifiée dans un local non sécurisé."
         ],
         forbiddenPoints: [
           "Bloquer une porte coupe-feu.",
           "Stocker devant une issue.",
           "Masquer un extincteur ou un déclencheur manuel.",
-          "Laisser s’installer un désordre chronique."
+          "Laisser s’installer un désordre chronique.",
+          "Charger une batterie endommagée ou non vérifiée sans surveillance.",
+          "Stocker des batteries lithium-ion à proximité de combustibles sans procédure.",
+          "Utiliser un chargeur non adapté ou une multiprise surchargée pour des batteries lithium-ion."
         ],
         chapterImagePath: "/images/extincteurs-de-chantier.jpg",
         chapterImageAlt:
@@ -1683,14 +1698,17 @@ export const modulesContent: Record<string, ModuleContent> = {
           "L'exploitation sprinkler demande de la rigueur, de la traçabilité et une remontee rapide des écarts.",
           "Un local technique inaccessible, un accès obstrue, un stockage trop proche des têtes, une tête peinte ou heurtée, une modification non déclarée du process ou un réseau détérioré peuvent réduire fortement l'efficacité reelle de l'installation.",
           "Les anomalies doivent être consignées, traitées et suivies jusqu'au retour a la situation nominale.",
-          "La NF EN 12845 distingue deux catégories d'alarmes selon leur nature. Les alarmes de type A signalent un débit d'eau dans le réseau ou la mise en marche d'une pompe : elles correspondent à un déclenchement réel ou suspecté et imposent une réponse incendie immédiate avec information des secours. Les alarmes de type B signalent un défaut technique : basse pression d'air dans un système à air, vanne partiellement fermée, défaut secteur, niveau de carburant bas sur groupe diesel. Elles n'indiquent pas un incendie mais une dégradation de la disponibilité du système, qui doit déclencher l'appel du technicien de maintenance. Confondre ces deux types est une erreur fréquente et potentiellement grave."
+          "La NF EN 12845 distingue deux catégories d'alarmes selon leur nature. Les alarmes de type A signalent un débit d'eau dans le réseau ou la mise en marche d'une pompe : elles correspondent à un déclenchement réel ou suspecté et imposent une réponse incendie immédiate avec information des secours. Les alarmes de type B signalent un défaut technique : basse pression d'air dans un système à air, vanne partiellement fermée, défaut secteur, niveau de carburant bas sur groupe diesel. Elles n'indiquent pas un incendie mais une dégradation de la disponibilité du système, qui doit déclencher l'appel du technicien de maintenance. Confondre ces deux types est une erreur fréquente et potentiellement grave.",
+          "Cas particulier — stockage ou charge de batteries lithium-ion : le sprinkler peut limiter la propagation d'un incendie et refroidir l'environnement autour d'une batterie en emballement thermique, mais il ne garantit pas l'arrêt de la réaction interne de la batterie. Une batterie lithium-ion peut redémarrer son emballement après un refroidissement apparent. Si l'installation sprinkler est implantée dans un local de charge, un parking de véhicules électriques ou une zone de stockage d'énergie, ce point doit figurer dans les consignes d'exploitation et être signalé aux secours à leur arrivée."
         ],
         forbiddenPoints: [
           "Fermer une vanne sans procedure.",
           "Ignorer une alarme de type A ou B.",
           "Encombrer les organes d'accès.",
           "Considerer une fuite comme anodine.",
-          "Traiter une alarme de type A comme un simple défaut technique."
+          "Traiter une alarme de type A comme un simple défaut technique.",
+          "Considérer une alarme sprinkler dans un local batteries/VE comme maîtrisée sans information des secours.",
+          "Ne pas signaler aux pompiers la présence de batteries lithium-ion dans une zone sinistrée."
         ],
         chapterImagePath: "/elearning/sprinkler/sprinkler-alarmes-ab.svg",
         chapterImageAlt:

@@ -61,6 +61,7 @@ export const recyclageSsiap1ModuleContent: ModuleContent = {
         "Les ERP sont classés par type selon leur activité (J, L, M, N, O, P, R, S, T, U, V, W, X, Y) et par catégorie selon leur capacité (1re : > 1 500 personnes, 2e : 701-1 500, 3e : 301-700, 4e : ≤ 300, 5e : sous les seuils). La réglementation impose des obligations strictes adaptées à chaque combinaison type/catégorie : présence d'agents SSIAP selon le type et la catégorie de l'ERP, fréquence des exercices d'évacuation (≥ 1 fois/an, ≥ 2 fois/an pour les locaux à sommeil), entretien réglementaire des équipements et tenue du registre de sécurité.",
         "Les IGH (Immeubles de Grande Hauteur) sont soumis à une réglementation encore plus exigeante : seuil de 28 m pour les habitations, 50 m pour les bureaux, hôtels et autres usages. Ils sont subdivisés en classes (GHA, GHB, GHC, GHD, GHE, GHF, GHJ, GHR, GHU, GHW, GHZ). Chaque IGH doit disposer d'un poste central de sécurité incendie (PCSI) occupé en permanence, d'un service incendie permanent et de deux ascenseurs minimum dans la même gaine pour l'intervention des pompiers.",
         "La réglementation des Établissements Recevant du Travail (ERT) — relevant du Code du travail — coexiste avec la réglementation ERP. Le Document Unique d'Évaluation des Risques Professionnels (DUERP) doit intégrer le risque incendie. L'employeur est responsable de la mise en place et de la mise à jour du plan de prévention des risques d'incendie, de la désignation des guide-files et serre-files, de la conduite d'exercices d'évacuation documentés, et de l'entretien des moyens de secours.",
+        "Risques émergents à intégrer dans la pratique : la réglementation incendie intègre progressivement de nouveaux risques que l'agent SSIAP1 doit connaître. Les batteries lithium-ion (VE, trottinettes, vélos, stockage d'énergie, onduleurs) représentent un risque d'emballement thermique avec reprise de feu, fumées toxiques et limites des agents extincteurs classiques. Les mousses incendie contenant des composés fluorés (PFAS) font l'objet de restrictions européennes progressives : vérifier les fiches techniques des produits présents sur site, éviter les rejets non maîtrisés, tracer les stocks et se tenir informé des alternatives. Ces deux sujets doivent être intégrés dans les rondes de prévention, les consignes d'exploitation et les informations transmises aux secours."
       ],
       keyPoints: [
         "Recyclage SSIAP1 : 14h obligatoires tous les 3 ans — qualification suspendue sans recyclage.",
@@ -68,12 +69,16 @@ export const recyclageSsiap1ModuleContent: ModuleContent = {
         "Résistance au feu européenne : R (mécanique) · E (étanchéité) · I (isolation) + durée en minutes.",
         "ERP : 5 catégories selon capacité + types selon activité (J, L, M, N, O, R, U, W…).",
         "IGH : > 28 m habitation · > 50 m bureaux — PCSI permanent + 2 ascenseurs en gaine commune.",
+        "Batteries Li-ion : risque d'emballement thermique, reprise de feu, fumées toxiques — conduite spécifique.",
+        "Mousses PFAS : restriction progressive — vérifier fiches techniques, éviter rejets non maîtrisés."
       ],
       legalRefs: [
         "Arrêté du 2 mai 2005 modifié — qualification et missions SSIAP.",
         "Arrêté du 25 juin 1980 modifié — règlement de sécurité ERP.",
         "Décret 76-1060 du 14 novembre 1976 — règlement de sécurité IGH.",
         "Code du travail Art. R4227-28 à R4227-41 — sécurité incendie au travail.",
+        "INRS ED 6164 — Batteries lithium-ion au travail.",
+        "Règlement UE 2024/2462 et UE 2025/1988 — restriction progressive des PFAS dans les mousses incendie (ECHA pour textes à jour)."
       ],
     },
     {
