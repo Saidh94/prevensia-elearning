@@ -702,27 +702,40 @@ function InfoTile({ label, value }: { label: string; value: string }) {
   );
 }
 
-const metierAbbrev: Record<string, string> = {
-  "electricien":     "BT",
-  "non-electricien": "H0",
-  "securite-qhse":   "QH",
-  "agent-ssiap":     "SI",
-  "exploitant-erp":  "ERP",
-  "sst":             "SST",
-  "atex":            "ATX",
-};
-
 function MetierIcon({ metierKey }: { metierKey: string }) {
-  const abbrev = metierAbbrev[metierKey];
-  if (!abbrev) return null;
-  return (
-    <span
-      className="select-none text-[10px] font-extrabold leading-none tracking-tight"
-      aria-hidden="true"
-    >
-      {abbrev}
-    </span>
-  );
+  const s = {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 18,
+    height: 18,
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    "aria-hidden": true as const,
+  };
+  switch (metierKey) {
+    case "electricien":
+      // Éclair / foudre (filled polygon)
+      return <svg {...s}><path d="M13 2L3 14L12 14L11 22L21 10L12 10Z"/></svg>;
+    case "non-electricien":
+      // Clé / outil (Material Icons "build", filled)
+      return <svg {...s}><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>;
+    case "securite-qhse":
+      // Bouclier (filled, simple)
+      return <svg {...s}><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>;
+    case "agent-ssiap":
+      // Flamme (Material Icons "whatshot", filled)
+      return <svg {...s}><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>;
+    case "exploitant-erp":
+      // Bâtiment / maison (Material Icons "home", filled)
+      return <svg {...s}><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>;
+    case "sst":
+      // Croix médicale (Material Icons "local_hospital", filled)
+      return <svg {...s}><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-2v-4H8v-2h4V8h2v4h4v2z"/></svg>;
+    case "atex":
+      // Triangle danger / avertissement (Material Icons "warning", filled)
+      return <svg {...s}><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>;
+    default:
+      return null;
+  }
 }
 
 function AudienceBox({ items }: { items: string[] }) {
