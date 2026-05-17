@@ -87,6 +87,7 @@ type AdminSearchParams = Promise<{
 
 type AdminRow = {
   id: string;
+  user_id: string;
   fullName: string;
   email: string;
   formationTitle: string;
@@ -195,6 +196,7 @@ export default async function AdminPage({
 
     return {
       id: item.id,
+      user_id: item.user_id,
       fullName:
         [userProfile?.first_name, userProfile?.last_name]
           .filter(Boolean)
@@ -229,6 +231,26 @@ export default async function AdminPage({
 
     return matchesSearch && matchesCompany && matchesStatus && matchesPayment;
   });
+
+  // ── KPIs calculés depuis les données ──────────────────────────────────────
+  const now = new Date();
+  const in7days = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+  const kpis = {
+    total:            rows.length,
+    uniqueApprenants: new Set(rows.map((r) => r.user_id)).size,
+    paid:             rows.filter((r) => r.paymentStatus === "paid").length,
+    inProgress:       rows.filter((r) => r.status === "in_progress").length,
+    completed:        rows.filter((r) => r.status === "completed").length,
+    pendingInterview: rows.filter((r) => r.status === "pending_interview").length,
+    pendingPayment:   rows.filter((r) => r.paymentStatus !== "paid" && r.status !== "cancelled").length,
+    expiringAccess:   rows.filter((r) => {
+      if (!r.accessEnd) return false;
+      if (r.status === "completed" || r.status === "cancelled") return false;
+      const end = new Date(r.accessEnd);
+      return end >= now && end <= in7days;
+    }).length,
+  };
 
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10">
@@ -274,6 +296,25 @@ export default async function AdminPage({
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* ── KPIs ── */}
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { label: "Apprenants uniques",   value: kpis.uniqueApprenants, color: "text-slate-900",    bg: "bg-white" },
+            { label: "Inscriptions totales",  value: kpis.total,            color: "text-slate-900",    bg: "bg-white" },
+            { label: "Inscriptions payées",   value: kpis.paid,             color: "text-emerald-700",  bg: "bg-white" },
+            { label: "En cours de formation", value: kpis.inProgress,       color: "text-blue-700",     bg: "bg-white" },
+            { label: "Formations terminées",  value: kpis.completed,        color: "text-violet-700",   bg: "bg-white" },
+            { label: "Entretiens à planifier",value: kpis.pendingInterview, color: kpis.pendingInterview > 0 ? "text-amber-700" : "text-slate-400", bg: kpis.pendingInterview > 0 ? "bg-amber-50" : "bg-white" },
+            { label: "Paiements en attente",  value: kpis.pendingPayment,   color: kpis.pendingPayment  > 0 ? "text-red-700"   : "text-slate-400", bg: kpis.pendingPayment  > 0 ? "bg-red-50"   : "bg-white" },
+            { label: "Accès expirant ≤7 j",   value: kpis.expiringAccess,   color: kpis.expiringAccess  > 0 ? "text-orange-700": "text-slate-400", bg: kpis.expiringAccess  > 0 ? "bg-orange-50": "bg-white" },
+          ].map((kpi) => (
+            <div key={kpi.label} className={`rounded-2xl border border-slate-200 ${kpi.bg} p-5 shadow-sm`}>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{kpi.label}</p>
+              <p className={`mt-2 text-3xl font-bold ${kpi.color}`}>{kpi.value}</p>
+            </div>
+          ))}
         </div>
 
         <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
