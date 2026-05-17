@@ -1581,7 +1581,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     shortTitle: "Sprinkler",
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d’une installation sprinkler, sa surveillance, ses anomalies d’exploitation et les grands référentiels rencontrés sur les sites protégés.",
-    duration: "60 a 85 minutes",
+    duration: "90 à 120 minutes",
     level: "Intermediaire",
     objective:
       "Comprendre le rôle d’une installation sprinkler, reconnaître ses composants, suivre ses états d’exploitation, traiter les anomalies et garder une protection adaptée au risque réel, sans la confondre avec un système fixe d’extinction à gaz.",
@@ -1591,7 +1591,7 @@ export const modulesContent: Record<string, ModuleContent> = {
       "Ce module traite de l'exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude sprinkler, ni un audit de conformité, ni une mission de conception, ni la vérification spécialisée des référentiels applicables au site.",
     heroBadge: "Protection incendie",
     finalMessage:
-      "Vous avez acquis les fondamentaux de l'exploitation sprinkler. La performance dépend ensuite du maintien en état, des contrôles périodiques, de la traçabilité et de l'adéquation permanente entre protection installée et risque réel.",
+      "Vous avez acquis les fondamentaux de l'exploitation sprinkler : principe de fonctionnement, lecture du poste de contrôle, conduite à tenir face aux alarmes, gestion des indisponibilités et surveillance des têtes et du stockage. La performance dépend ensuite du maintien en état, des contrôles périodiques, de la traçabilité et de l'adéquation permanente entre protection installée et risque réel. En cas de doute sur un organe, une pression ou une alarme : signaler, tracer, ne jamais improviser.",
     quizCtaLabel: "Passer au quiz sprinkler",
     sections: [
       {
@@ -1656,9 +1656,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Besoins hydrauliques calculés sur la zone hydrauliquement la plus défavorisée",
           "Modes de stockage : ST1 (empilage libre) · ST2/ST3 (racks rangées simples/multiples) · ST4 (racks avec têtes intermédiaires)",
         ],
-        chapterImagePath: "/elearning/sprinkler/sprinkler-types.svg",
+        chapterImagePath: "/elearning/sprinkler/manometre-pressostat-sprinkler.png",
         chapterImageAlt:
-          "Les 4 types de systèmes sprinkler : humide, préaction, sec, déluge — APSAD R1 / NF EN 12845",
+          "Manomètre et pressostat d'une installation sprinkler — lecture des pressions amont/aval et seuils d'alarme",
         visual: {
           title: "Composants d'une installation sprinkler",
           subtitle: "Les organes à connaître en exploitation.",
@@ -1817,9 +1817,9 @@ export const modulesContent: Record<string, ModuleContent> = {
           "25 ans : inspection interne canalisations + prélèvement de têtes en labo.",
           "Mise hors service : notification préalable, rondes, permis de feu, retour vérifié."
         ],
-        chapterImagePath: "/elearning/sprinkler/sprinkler-essais.svg",
+        chapterImagePath: "/elearning/sprinkler/registre-controles-sprinkler.png",
         chapterImageAlt:
-          "Périodicités d'essais NF EN 12845 : mensuel, trimestriel, annuel, 25 ans — registre de sécurité",
+          "Registre de contrôles sprinkler avec périodicités : mensuel, trimestriel, annuel — traçabilité obligatoire APSAD R1 / EN 12845",
         visual: {
           title: "Garder la protection reellement disponible",
           subtitle: "Surveiller, tracer, compenser, remettre en état.",
@@ -1854,35 +1854,165 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "têtes-obstacles",
-        title: "7. têtes sprinkler, obstacles et stockage",
-        estimatedMinutes: 10,
+        title: "7. Têtes sprinkler, obstacles et stockage",
+        estimatedMinutes: 12,
         intro:
-          "Une installation sprinkler peut être présenté, alimentee et pourtant mal exploitee si les têtes sont masquees, endommagees ou mal dégagées.",
+          "Une installation peut être présente, alimentée et pourtant mal exploitée si les têtes sont masquées, endommagées ou mal dégagées.",
         content: [
-          "Les têtes sprinkler ne doivent pas être peintes, utilisées comme points d'accroche ou exposées a des chocs sans analyse immediate.",
-          "Le stockage, les faux plafonds, luminaires, gaines, rayonnages ou protections ajoutees peuvent creer des obstacles a la diffusion de l'eau ou modifier l'exposition a la chaleur.",
-          "L'exploitant doit surveiller les distances libres, l'absence d'encombrement sous les têtes et les écarts visibles entre l'état reel du local et les conditions prevues par la protection installee.",
-          "Toute modification d'implantation ou de stockage qui rapproche les marchandises des têtes, modifie les hauteurs ou ajoute des obstacles doit être remontee pour analyse."
+          "Les têtes sprinkler ne doivent jamais être peintes, utilisées comme points d'accroche ou exposées à des chocs sans analyse immédiate. La peinture crée une isolation thermique autour de l'ampoule qui retarde le déclenchement ou fragilise le mécanisme jusqu'à la rupture intempestive. Une tête peinte ou heurtée — même si elle n'a pas coulé — doit être remplacée sans délai.",
+          "Le stockage, les faux plafonds, luminaires, gaines, rayonnages ou protections ajoutées peuvent créer des obstacles à la diffusion de l'eau ou modifier l'exposition à la chaleur. Les référentiels imposent une distance libre minimale de 0,46 m (APSAD R1 / EN 12845) entre la tête et le sommet du stockage. En dessous de cette distance, l'eau arrosée est interceptée par la marchandise avant d'atteindre le foyer.",
+          "Les aérosols, les plastiques expansés et les liquides inflammables constituent les marchandises les plus pénalisantes : leur combustion rapide peut dépasser la capacité de maîtrise du système si la hauteur de stockage excède les limites de classe. Un changement de référence produit — même sans modification visible de la hauteur — peut changer la catégorie de marchandise et remettre en cause la protection.",
+          "L'exploitant doit surveiller régulièrement les distances libres, l'intégrité visible des têtes et tout écart entre l'état réel du local et les conditions prévues par la protection installée. Toute modification d'implantation ou de stockage qui rapproche les marchandises des têtes, modifie les hauteurs, ajoute des obstacles ou crée des îlots non couverts doit être remontée pour analyse avant d'être réalisée.",
         ],
         keyPoints: [
-          "Ne jamais peindre ni utiliser une tête comme support.",
-          "Respecter les dégagements sous les sprinklers.",
-          "Analyser tout obstacle ou modification de stockage."
+          "Tête peinte ou heurtée = remplacement immédiat, même sans coulure.",
+          "Distance libre minimale : 0,46 m entre la tête et le sommet du stockage (EN 12845 / APSAD R1).",
+          "Aérosols, plastiques expansés, liquides inflammables : catégorie la plus pénalisante.",
+          "Toute modification de stockage (hauteur, nature, géométrie) doit être analysée avant réalisation.",
+          "Racks ST4 : têtes intermédiaires obligatoires si écart vertical > 1,2 m entre niveaux.",
         ],
-        chapterImagePath: "/elearning/sprinkler/sprinkler-tetes.svg",
+        chapterImagePath: "/elearning/sprinkler/types-de-tetes-sprinkler.png",
         chapterImageAlt:
-          "Têtes sprinkler — interdictions, dégagements à respecter et surveillance en exploitation",
+          "Types de têtes sprinkler : pendante, droite, murale — intégrité et positionnement correct",
+        scenarios: [
+          {
+            situation: "Lors d'une inspection, vous constatez qu'une tête sprinkler pendante au-dessus d'un rack a été heurtée par un chariot élévateur. Elle n'a pas coulé mais son déflecteur est légèrement déformé.",
+            question: "Que faites-vous face à une tête visiblement heurtée mais n'ayant pas coulé ?",
+            wrongActions: [
+              "Laisser en place car elle n'a pas coulé — le système reste opérationnel.",
+              "Redresser manuellement le déflecteur pour le remettre en position correcte.",
+              "Attendre la prochaine visite annuelle du mainteneur pour signaler.",
+            ],
+            correctActions: [
+              "Signaler immédiatement au responsable et au mainteneur.",
+              "Demander le remplacement de la tête — une tête heurtée est hors service même sans coulure.",
+              "Tracer l'anomalie dans le registre de sécurité avec date et lieu.",
+            ],
+            explanation: "Un choc modifie la géométrie du déflecteur et peut fragiliser le mécanisme de maintien de l'ampoule. Une tête heurtée ne garantit plus ni la température de déclenchement ni la distribution d'eau conforme. Elle doit être remplacée sans délai par un mainteneur qualifié.",
+            normRef: "EN 12845 / APSAD R1 — intégrité des têtes sprinkler en exploitation",
+          },
+        ],
         visual: {
           title: "Têtes sprinkler et volume protégé",
-          subtitle: "Dégagement, absence d'obstacle, intégrité visible.",
+          subtitle: "Dégagement minimum, intégrité visible, signalement immédiat.",
           animationKey: "sprinkler-activation" as const,
           items: [
-            "tête intacte et non peinte",
-            "Aucun stockage sous la tête",
-            "Pas d'obstacle a la diffusion",
-            "Modification remontee pour analyse"
+            "Tête intacte et non peinte",
+            "0,46 m libre sous la tête",
+            "Pas d'obstacle à la diffusion",
+            "Modification signalée avant réalisation",
           ],
           tone: "slate",
+        },
+      },
+      {
+        id: "poste-controle",
+        title: "8. Lecture du poste de contrôle",
+        estimatedMinutes: 15,
+        intro:
+          "Le poste de contrôle est le cœur visible de l'installation sprinkler. Un exploitant compétent sait le lire en 2 minutes : vannes, pressions, alarmes, position normale.",
+        content: [
+          "Le poste de contrôle regroupe les organes hydrauliques et d'alarme d'une zone sprinkler. Il comprend systématiquement : une vanne principale d'isolement (en position ouverte en exploitation normale), un clapet d'alarme (ou vanne d'alarme à clapets), des manomètres amont et aval, un pressostat, un dispositif de test (vanne de purge), et les éléments de report d'alarme (gong hydraulique, pressostat électrique, alarme report PC sécurité).",
+          "La vanne principale doit toujours être en position ouverte en exploitation normale. Elle est souvent équipée d'un indicateur de position visible (position ouverte = poignée dans l'axe du tuyau pour une vanne papillon, ou manette haute pour une vanne à opercule). Un cadenas ou un scellé de position peut être présent selon les exigences de l'assureur. Toute vanne trouvée fermée alors qu'elle devrait être ouverte constitue une indisponibilité grave à signaler immédiatement.",
+          "Les deux manomètres permettent de comparer la pression amont (côté alimentation, en amont du clapet) et la pression aval (côté réseau, en aval du clapet). En exploitation normale, les deux pressions doivent être dans la plage définie par les consignes du site. Une pression aval inférieure à la pression amont signale une consommation ou une fuite. Une pression aval nulle avec pression amont normale indique que le réseau est vide — état critique. Le pressostat est réglé pour déclencher l'alarme électrique (type B ou type A selon la configuration) lorsque la pression chute sous le seuil d'alarme.",
+          "Le gong hydraulique est un organe mécanique autonome (sans électricité) qui sonne dès qu'un débit d'eau circule dans le réseau. Son déclenchement lors d'un essai ou d'un incendie confirme que le clapet s'est ouvert et que l'eau circule. Lors des essais trimestriels, la vanne de test simule l'ouverture d'une tête et permet de vérifier que le gong et l'alarme électrique fonctionnent correctement.",
+          "L'état normal d'un poste de contrôle se résume ainsi : vanne principale ouverte (cadenas/scellé intact), pression amont et aval dans la plage nominale, indicateur de pompe jockey en position automatique, aucune alarme active. Tout écart par rapport à cet état doit être consigné et traité.",
+        ],
+        keyPoints: [
+          "Vanne principale = ouverte en exploitation normale (cadenas/scellé intact).",
+          "Manomètre amont / aval : comparer et vérifier que les valeurs sont dans la plage nominale.",
+          "Pression aval inférieure à amont → fuite ou consommation. Pression aval nulle → réseau vide.",
+          "Gong hydraulique : sonnerie mécanique sans électricité — confirme la circulation d'eau.",
+          "Pressostat : déclenche l'alarme électrique sous le seuil de pression défini.",
+          "État normal = vanne ouverte + pressions nominales + aucune alarme active.",
+        ],
+        chapterImagePath: "/elearning/sprinkler/poste-controle-sprinkler-annote.png",
+        chapterImageAlt:
+          "Poste de contrôle sprinkler annoté : vanne principale, clapet d'alarme, manomètres amont/aval, gong hydraulique, pressostat",
+        scenarios: [
+          {
+            situation: "Lors d'une ronde de surveillance, vous observez le poste de contrôle sprinkler. Le manomètre amont indique 9 bar (normal), mais le manomètre aval indique 3 bar alors que la consigne minimum est 7 bar. Aucune alarme n'est active.",
+            question: "Comment interprétez-vous cette différence de pression et que faites-vous ?",
+            wrongActions: [
+              "Ignorer car aucune alarme n'a retenti — le système électronique l'aurait signalé si c'était grave.",
+              "Supposer que le manomètre aval est en panne et noter 'à vérifier à la prochaine maintenance'.",
+              "Ouvrir la vanne de test pour 'rééquilibrer' la pression.",
+            ],
+            correctActions: [
+              "Signaler immédiatement la chute de pression aval au responsable sécurité et à la maintenance.",
+              "Vérifier si une tête a déclenché ou si une fuite est visible dans la zone concernée.",
+              "Tracer l'anomalie dans le registre avec heure, valeurs relevées et actions entreprises.",
+            ],
+            explanation: "Une pression aval très inférieure à la pression amont avec pression amont normale indique une consommation d'eau en aval : tête déclenchée, fuite, ou test non fermé. L'absence d'alarme électrique peut signifier que le pressostat est réglé trop bas ou défaillant — ce n'est pas une confirmation que tout va bien. La surveillance visuelle du poste reste indispensable.",
+            normRef: "APSAD R1 / EN 12845 — surveillance des pressions au poste de contrôle",
+          },
+        ],
+        visual: {
+          title: "Lire le poste de contrôle",
+          subtitle: "Vanne, pressions, alarmes — état normal en 2 minutes.",
+          illustrationKey: "authorized-forbidden" as const,
+          items: [
+            "Vanne principale ouverte",
+            "Pressions amont / aval dans la plage",
+            "Gong et pressostat opérationnels",
+            "Aucune alarme active",
+          ],
+          tone: "blue",
+        },
+      },
+      {
+        id: "conduite-alarme",
+        title: "9. Conduite à tenir face à une alarme sprinkler",
+        estimatedMinutes: 12,
+        intro:
+          "Une alarme sprinkler ne se traite pas au hasard. Selon son type, la réponse est radicalement différente — confondre une alarme A et une alarme B peut être fatal.",
+        content: [
+          "Face à toute alarme sprinkler, la première action est toujours d'identifier le type d'alarme avant d'agir : alarme type A (débit d'eau / pompe démarrée = incendie probable) ou alarme type B (défaut technique = dégradation de disponibilité). Ces deux types imposent des réponses totalement différentes.",
+          "Alarme type A — conduite à tenir : (1) Ne pas annuler l'alarme sans vérification terrain. (2) Déclencher ou confirmer l'alarme incendie générale du bâtiment si elle n'est pas automatiquement liée. (3) Alerter les secours (18 ou 112) immédiatement, sans attendre de constater le feu visuellement. (4) Déclencher l'évacuation du bâtiment selon le plan d'urgence. (5) Envoyer un binôme (jamais seul) vérifier la zone concernée depuis l'extérieur, sans entrer dans un local en feu. (6) Accueillir et guider les pompiers jusqu'au poste de contrôle et à la source d'eau. (7) Ne jamais fermer la vanne principale pendant un incendie.",
+          "Alarme type B — conduite à tenir : (1) Identifier l'origine du défaut sur le tableau de signalisation ou au poste de contrôle. (2) Appeler le mainteneur ou le technicien désigné. (3) Tracer le défaut dans le registre avec heure et nature. (4) Appliquer les mesures compensatoires si le défaut rend une zone indisponible. (5) Ne pas tenter de corriger soi-même un défaut technique (vanne, pompe, pressostat) sans compétence et autorisation. (6) Lever les mesures compensatoires uniquement après confirmation écrite du retour à la normale par le mainteneur.",
+          "Alarme suite à un déclenchement de tête sans incendie visible (tête ouverte accidentellement ou test) : (1) Confirmer que le déclenchement n'est pas lié à un incendie. (2) Fermer la vanne principale de la zone concernée uniquement après confirmation formelle de l'absence d'incendie. (3) Faire appel au mainteneur pour remplacement de la tête, purge du réseau et remise en service. (4) Tracer l'événement intégralement dans le registre. (5) Ne pas remettre en service le réseau sans vérification du mainteneur.",
+          "La traçabilité est systématique : toute alarme, qu'elle soit réelle, de défaut ou de test, doit être consignée dans le registre de sécurité avec horodatage, type, cause identifiée, actions prises et nom de l'intervenant.",
+        ],
+        keyPoints: [
+          "Alarme type A → réponse incendie immédiate : alerte secours + évacuation + NE PAS fermer la vanne.",
+          "Alarme type B → appel maintenance + traçabilité + mesures compensatoires si indisponibilité.",
+          "Tête déclenchée sans feu confirmé → fermeture vanne UNIQUEMENT après confirmation absence d'incendie.",
+          "Ne jamais annuler une alarme type A sans vérification terrain.",
+          "Ne jamais tenter de corriger un défaut technique sans compétence et autorisation.",
+          "Toute alarme = entrée dans le registre de sécurité (date, heure, type, cause, actions).",
+        ],
+        chapterImagePath: "/elearning/sprinkler/conduite-alarme-sprinkler.png",
+        chapterImageAlt:
+          "Synoptique conduite à tenir face à une alarme sprinkler — type A (incendie) vs type B (défaut technique)",
+        scenarios: [
+          {
+            situation: "Une alarme sprinkler retentit dans votre bâtiment. Vous êtes le responsable exploitation de permanence. Aucun occupant ne signale de feu ni d'odeur de fumée. Vous pensez qu'il s'agit peut-être d'un déclenchement accidentel.",
+            question: "Quelle est la bonne séquence d'actions face à une alarme sprinkler, même en l'absence de signe visible d'incendie ?",
+            wrongActions: [
+              "Attendre quelques minutes pour voir si un feu se déclare avant d'alerter les secours.",
+              "Aller fermer immédiatement la vanne principale pour stopper l'alarme.",
+              "Annuler l'alarme au tableau de signalisation car 'il n'y a probablement rien'.",
+            ],
+            correctActions: [
+              "Alerter immédiatement les secours (18 ou 112) sans attendre confirmation visuelle.",
+              "Déclencher l'évacuation du bâtiment selon le plan d'urgence.",
+              "Envoyer un binôme vérifier la zone depuis l'extérieur, sans entrer dans un local potentiellement en feu.",
+            ],
+            explanation: "Une alarme type A impose une réponse incendie immédiate, même en l'absence de signe visuel. Le feu peut être en phase initiale ou dans un local non visible. Fermer la vanne principale pendant un incendie non confirmé peut laisser un foyer se développer sans protection. Les pompiers décident de la suite — l'exploitant ne gère pas seul.",
+            normRef: "APSAD R1 / EN 12845 — conduite à tenir en cas d'alarme incendie sprinkler",
+          },
+        ],
+        visual: {
+          title: "Alarme sprinkler : quelle réponse ?",
+          subtitle: "Type A = incendie probable → secours + évacuation.",
+          animationKey: "alerte-incendie" as const,
+          items: [
+            "Identifier le type d'alarme (A ou B)",
+            "Type A → alerte secours + évacuation",
+            "Type B → maintenance + traçabilité",
+            "Tout événement → registre de sécurité",
+          ],
+          tone: "red",
         },
       },
     ],

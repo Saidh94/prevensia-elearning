@@ -4025,6 +4025,98 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       chapterLabel: "Maintenance",
       timeLimit: 35,
     },
+
+    // === QUESTIONS ÉLIMINATOIRES SPRINKLER ===
+    {
+      question:
+        "Une alarme sprinkler retentit. Vous êtes la seule personne sur site. Aucune fumée n'est visible. Quelle est votre première action ?",
+      choices: [
+        "Chercher d'abord l'origine dans le bâtiment avant d'alerter les secours",
+        "Fermer immédiatement la vanne principale pour stopper l'alarme pendant votre inspection",
+        "Alerter les secours (18 ou 112) immédiatement, puis déclencher l'évacuation sans entrer dans les zones à risque",
+        "Attendre 5 minutes pour voir si l'alarme se confirme",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Conduite alarme",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Une alarme sprinkler de type A impose une réponse incendie immédiate. Toute temporisation ou investigation solitaire expose à se retrouver dans un bâtiment en feu sans secours. Fermer la vanne principale pendant un incendie non confirmé supprime la seule protection active. Les secours décident de la suite — l'exploitant n'est pas pompier.",
+      timeLimit: 40,
+      imagePath: "/elearning/sprinkler/conduite-alarme-sprinkler.png",
+      imageAlt: "Synoptique conduite à tenir face à une alarme sprinkler type A",
+    },
+    {
+      question:
+        "Lors d'une ronde, vous trouvez la vanne principale d'un poste de contrôle sprinkler en position fermée. Aucune étiquette de maintenance n'est visible. Que faites-vous ?",
+      choices: [
+        "La laisser fermée pour éviter une ouverture accidentelle si un travail est en cours",
+        "L'ouvrir immédiatement vous-même pour remettre l'installation en service",
+        "Signaler immédiatement au responsable sécurité et au mainteneur — ne pas modifier la position sans autorisation mais traiter comme une indisponibilité critique",
+        "Consigner l'anomalie dans le registre et attendre la prochaine maintenance planifiée",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Poste de contrôle",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Une vanne principale fermée sans autorisation est l'une des causes les plus fréquentes de sinistre mortel sur site protégé par sprinkler. L'exploitant ne doit ni laisser en état sans signalement, ni ouvrir seul sans vérifier qu'aucun travail n'est en cours. La signalisation immédiate comme indisponibilité critique avec mesures compensatoires est la seule réponse correcte.",
+      timeLimit: 45,
+      imagePath: "/elearning/sprinkler/vanne-sprinkler.png",
+      imageAlt: "Vanne sprinkler en position fermée — anomalie critique d'exploitation",
+    },
+    {
+      question:
+        "Un technicien demande à fermer temporairement la vanne principale d'une zone sprinkler pour effectuer une intervention de maintenance de 2 heures. Quelle est la procédure correcte ?",
+      choices: [
+        "Fermer la vanne sur demande verbale du technicien et la rouvrir après",
+        "Refuser car une vanne sprinkler ne peut jamais être fermée",
+        "Appliquer la procédure d'indisponibilité : autorisation formelle, rondes continues dans la zone non protégée, permis de feu obligatoire, information du responsable sécurité et de l'assureur si requis, remise en service vérifiée avant levée des mesures compensatoires",
+        "Fermer la vanne et mettre une étiquette 'maintenance' puis attendre le technicien",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Maintenance",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — La mise hors service d'une zone sprinkler, même temporaire, déclenche une procédure formelle selon EN 12845 Annexe J : autorisation préalable, rondes continues, interdiction de feux nus, permis de feu obligatoire pour tout travail par point chaud, remise en service vérifiée. Une simple étiquette ne constitue pas une procédure d'indisponibilité.",
+      timeLimit: 45,
+      imagePath: "/elearning/sprinkler/indisponibilite-sprinkler-mode-degrade.png",
+      imageAlt: "Procédure d'indisponibilité sprinkler — mode dégradé et mesures compensatoires",
+    },
+    {
+      question:
+        "Vous constatez qu'une tête sprinkler au-dessus d'un rack a été peinte en blanc pour s'harmoniser avec le plafond lors de travaux de rénovation. Elle n'a pas coulé. Que faites-vous ?",
+      choices: [
+        "Ne rien faire — si elle n'a pas coulé, la peinture n'a pas altéré son fonctionnement",
+        "Gratter délicatement la peinture pour rétablir la conductivité thermique",
+        "Signaler immédiatement, faire remplacer la tête par un mainteneur qualifié et tracer l'anomalie dans le registre",
+        "Attendre la prochaine vérification annuelle pour la faire remplacer",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Composants",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Une tête peinte est hors service selon tous les référentiels (EN 12845, APSAD R1, NFPA 13). La peinture crée une isolation thermique retardant ou empêchant le déclenchement lors d'un incendie réel. Gratter la peinture est interdit car cela peut fragiliser l'ampoule. Le seul recours est le remplacement immédiat par un mainteneur qualifié.",
+      timeLimit: 40,
+      imagePath: "/elearning/sprinkler/tete-sprinkler-peinte-abimee.png",
+      imageAlt: "Tête sprinkler peinte — anomalie critique imposant un remplacement immédiat",
+    },
+    {
+      question:
+        "Un nouveau prestataire logistique veut stocker des palettes de bombes aérosols dans une cellule actuellement protégée en classe OH2. La hauteur prévue est de 4 m. Quelle est la bonne réaction ?",
+      choices: [
+        "Accepter car le sprinkler est en service et la hauteur reste raisonnable",
+        "Accepter à condition que le responsable logistique signe une décharge",
+        "Refuser et exiger une analyse de l'installateur / bureau d'études avant tout stockage — les aérosols sont une marchandise hautement pénalisante pouvant exiger une reclassification en HHS et des têtes ESFR",
+        "Accepter si la hauteur reste inférieure au plafond de 5 m prévu dans la cellule",
+      ],
+      answer: [2],
+      eliminatory: true,
+      chapterLabel: "Réglementation",
+      explanation:
+        "QUESTION ÉLIMINATOIRE — Les bombes aérosols sont classées en catégorie IV (marchandises les plus pénalisantes selon EN 12845) et peuvent exiger une reclassification en HHS ou l'installation de têtes ESFR (Extended Spray Fast Response). Accepter ce stockage sans analyse remet en cause l'adéquation protection/risque et expose à un sinistre non maîtrisé. Une signature de décharge ne change pas la physique de la combustion.",
+      timeLimit: 45,
+      imagePath: "/elearning/sprinkler/stockage-obstacle-sous-tete-sprinkler.png",
+      imageAlt: "Stockage obstacle sous tête sprinkler — distance libre insuffisante, risque non couvert",
+    },
   ],
   "extinction-automatique-gaz": [
     {
