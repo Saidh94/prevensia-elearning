@@ -6389,6 +6389,85 @@ quizContent["atex"] = [
     explanation: "La ventilation agit directement sur la suppression de la source de combustible en diluant la concentration du gaz ou des vapeurs inflammables en dessous de la LIE. C'est une mesure de prévention primaire. Les vêtements antistatiques et les équipements certifiés agissent sur la suppression des sources d'inflammation, tandis que les extincteurs sont une mesure de protection (atténuation des effets).",
     timeLimit: 40,
   },
+  // ── Questions terrain ATEX ──────────────────────────────────────────────────
+  {
+    question: "Un technicien de maintenance doit intervenir dans une zone ATEX classée. Quelle est la première action à effectuer avant d'entrer dans la zone ?",
+    choices: [
+      "Vérifier qu'il porte ses EPI habituels",
+      "S'assurer qu'une autorisation de travail valide a été délivrée et consulter le DRPCE",
+      "Appeler un collègue pour qu'il surveille depuis l'entrée",
+      "Entrer rapidement pour limiter l'exposition à la zone",
+    ],
+    answer: [1],
+    explanation: "Toute intervention en zone ATEX impose une autorisation de travail préalable et la consultation du DRPCE (Document Relatif à la Protection Contre les Explosions). Ces deux étapes permettent de connaître la classification exacte de la zone, les équipements autorisés et les mesures de prévention à appliquer.",
+    chapterLabel: "Intervention & maintenance",
+    timeLimit: 40,
+  },
+  {
+    question: "Lors d'une maintenance sur une tuyauterie en zone ATEX, l'ouverture de la tuyauterie crée une zone temporaire. Que doit-on faire ?",
+    choices: [
+      "Ignorer la zone temporaire si l'intervention est courte",
+      "Identifier la zone temporaire, la mentionner dans le plan de prévention et appliquer les mesures compensatoires adaptées",
+      "Reventiler la pièce et continuer sans formalité",
+      "Demander uniquement un permis de feu si l'on utilise un outil chauffant",
+    ],
+    answer: [1],
+    explanation: "L'ouverture d'une tuyauterie ou d'un équipement contenant un fluide inflammable crée une zone ATEX temporaire qui doit être identifiée dans le plan de prévention ou le permis de travail. Des mesures compensatoires (ventilation renforcée, explosimètre, interdiction d'autres sources d'inflammation à proximité) doivent être mises en place.",
+    chapterLabel: "Intervention & maintenance",
+    timeLimit: 50,
+  },
+  {
+    question: "Un opérateur découvre qu'un outil électroportatif utilisé par un sous-traitant en zone ATEX ne porte pas le marquage Ex. Que doit-il faire ?",
+    choices: [
+      "Laisser le sous-traitant continuer si l'intervention est presque terminée",
+      "Arrêter immédiatement l'utilisation de l'outil et sortir de la zone pour régulariser la situation",
+      "Autoriser l'outil si le risque lui semble faible dans cette zone",
+      "Signaler le problème à la fin de la journée dans le registre",
+    ],
+    answer: [1],
+    explanation: "Un outil non certifié Ex constitue une source d'inflammation potentielle en zone ATEX. Son utilisation doit être stoppée immédiatement, quelle que soit l'avancement des travaux. L'utilisation d'équipements non conformes est une des causes les plus fréquentes d'accidents ATEX.",
+    chapterLabel: "Équipements Ex",
+    timeLimit: 40,
+  },
+  {
+    question: "Des travaux de soudure sont prévus à proximité d'une zone ATEX. Quelle condition est indispensable avant de commencer ?",
+    choices: [
+      "La présence d'un extincteur à poudre à moins de 5 mètres",
+      "La délivrance d'un permis de feu signé par le responsable compétent, avec contrôle atmosphérique préalable",
+      "Le port d'un masque à gaz par le soudeur",
+      "L'accord oral du chef d'équipe présent sur le chantier",
+    ],
+    answer: [1],
+    explanation: "Tout travail par points chauds (soudure, meulage, découpage) à proximité d'une zone ATEX nécessite impérativement un permis de feu. Ce document formalise la nature des travaux, la zone concernée, les risques identifiés, les mesures de prévention et les moyens d'extinction disponibles. Un contrôle atmosphérique à l'explosimètre doit être réalisé avant le début des travaux.",
+    chapterLabel: "Permis de feu",
+    timeLimit: 45,
+  },
+  {
+    question: "Avant une intervention en zone ATEX, l'explosimètre affiche 18 % de la LIE. Que faire ?",
+    choices: [
+      "Intervenir normalement, la valeur est inférieure à 100 % de la LIE",
+      "Attendre quelques minutes et re-mesurer avant de décider",
+      "Ne pas pénétrer dans la zone — le seuil d'alarme est généralement fixé à 10 % de la LIE, 18 % impose l'évacuation immédiate",
+      "Mettre en marche la ventilation et entrer avec un masque filtrant",
+    ],
+    answer: [2],
+    explanation: "Le premier seuil d'alarme de l'explosimètre est fixé à 10 % de la LIE — il déclenche une alerte sonore et lumineuse. À 18 % de la LIE, on dépasse largement ce seuil : il est interdit de pénétrer dans la zone. Le deuxième seuil (25 à 50 % selon le site) impose l'évacuation et la coupure automatique des équipements non Ex.",
+    chapterLabel: "Contrôle atmosphérique",
+    timeLimit: 45,
+  },
+  {
+    question: "En cours d'intervention en zone ATEX, la ventilation tombe en panne. Quelle est la bonne conduite à tenir ?",
+    choices: [
+      "Terminer rapidement l'opération en cours avant d'évacuer",
+      "Arrêter immédiatement toute source d'inflammation, évacuer la zone et ne pas reprendre les travaux avant remise en service de la ventilation et contrôle atmosphérique",
+      "Ouvrir une fenêtre ou une porte pour pallier le défaut de ventilation",
+      "Continuer si l'intervention est presque terminée et que la zone semble saine",
+    ],
+    answer: [1],
+    explanation: "Une panne de ventilation en zone ATEX modifie immédiatement les conditions de sécurité et peut conduire à une accumulation de gaz ou vapeurs inflammables. Toute source d'inflammation doit être supprimée et la zone évacuée sans délai. La reprise des travaux n'est possible qu'après remise en service de la ventilation et contrôle atmosphérique confirmant un niveau inférieur au seuil d'alarme.",
+    chapterLabel: "Contrôle atmosphérique",
+    timeLimit: 45,
+  },
 ];
 
 // ─── SSIAP1 ──────────────────────────────────────────────────────────────────
