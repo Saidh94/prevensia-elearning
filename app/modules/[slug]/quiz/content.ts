@@ -3315,7 +3315,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0, 1, 2, 3],
       multiple: true,
       explanation:
-        "Une petite anomalie apparente peut degrader fortement la protection reelle du site.",
+        "Une petite anomalie apparente peut dégrader fortement la protection réelle du site.",
       chapterLabel: "Maintenance",
       timeLimit: 80,
     },
@@ -3368,7 +3368,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0, 2],
       multiple: true,
       explanation:
-        "Une indisponibilite sprinkler se pilote avec methode, tracabilite et mesures compensatoires adaptees.",
+        "Une indisponibilité sprinkler se pilote avec méthode, traçabilité et mesures compensatoires adaptées.",
       chapterLabel: "Maintenance",
       timeLimit: 75,
     },
@@ -3392,15 +3392,15 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question:
         "Quel comportement traduit une bonne maturite d'exploitation sprinkler ?",
       choices: [
-        "Considerer un defaut chronique comme normal",
+        "Considérer un défaut chronique comme normal",
         "Suivre les essais et contrôles périodiques",
-        "Traiter et suivre les anomalies jusqu'au retour a la normale",
-        "Laisser les acces aux organes se degrader avec le temps",
+        "Traiter et suivre les anomalies jusqu'au retour à la normale",
+        "Laisser les accès aux organes se dégrader avec le temps",
       ],
       answer: [1, 2],
       multiple: true,
       explanation:
-        "La qualite d'exploitation se voit dans la surveillance, la tracabilite et le traitement effectif des ecarts.",
+        "La qualité d'exploitation se voit dans la surveillance, la traçabilité et le traitement effectif des écarts.",
       chapterLabel: "Maintenance",
       timeLimit: 65,
     },
@@ -3410,13 +3410,13 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       choices: [
         "Elles ne doivent pas être peintes ni utilisées comme support",
         "Le stockage doit respecter un dégagement suffisant sous les têtes",
-        "Un obstacle ajoute sous une tête peut modifier la protection reelle",
-        "Une tête heurtée ou deformee peut être ignoree si elle n'a pas coule",
+        "Un obstacle ajouté sous une tête peut modifier la protection réelle",
+        "Une tête heurtée ou déformée peut être ignorée si elle n'a pas coulé",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "Les têtes sprinkler doivent rester intactes, dégagées et adaptees au volume protégé. Un choc, une peinture ou un obstacle modifient la protection.",
+        "Les têtes sprinkler doivent rester intactes, dégagées et adaptées au volume protégé. Un choc, une peinture ou un obstacle modifient la protection.",
       chapterLabel: "Composants",
       timeLimit: 75,
       contextLabel:
@@ -3427,17 +3427,17 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Quels organes ou etats doivent rester accessibles et lisibles sur une installation sprinkler ?",
+        "Quels organes ou états doivent rester accessibles et lisibles sur une installation sprinkler ?",
       choices: [
-        "Les postes de contrôle et repères associes",
+        "Les postes de contrôle et repères associés",
         "Les vannes et leurs positions normales",
-        "Les alarmes, reports ou organes utiles a l'exploitation",
-        "Peu importe, si l'installation est presente depuis longtemps",
+        "Les alarmes, reports ou organes utiles à l'exploitation",
+        "Peu importe, si l'installation est présente depuis longtemps",
       ],
       answer: [0, 1, 2],
       multiple: true,
       explanation:
-        "L'exploitant doit pouvoir lire l'etat de l'installation, acceder aux organes et detecter un ecart sans perdre de temps.",
+        "L'exploitant doit pouvoir lire l'état de l'installation, accéder aux organes et détecter un écart sans perdre de temps.",
       chapterLabel: "Maintenance",
       timeLimit: 75,
       imagePath: "/images/installation-spk.jpg",
@@ -3859,17 +3859,17 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Lors d'une mise hors service ou d'une maintenance sur un systeme d'extinction a gaz, quelle conduite est correcte ?",
+        "Lors d'une mise hors service ou d'une maintenance sur un système d'extinction à gaz, quelle conduite est correcte ?",
       choices: [
-        "L'indisponibilite doit être autorisee et tracee",
-        "Des mesures compensatoires peuvent être necessaires selon le site",
+        "L'indisponibilité doit être autorisée et tracée",
+        "Des mesures compensatoires peuvent être nécessaires selon le site",
         "Une inhibition temporaire peut se faire sans informer personne",
-        "Le retour a la normale doit être verifie avant de considerer le local de nouveau protégé",
+        "Le retour à la normale doit être vérifié avant de considérer le local de nouveau protégé",
       ],
       answer: [0, 1, 3],
       multiple: true,
       explanation:
-        "Le mode degrade doit être pilote avec methode: autorisation, tracabilite, compensation et verification du retour a la normale.",
+        "Le mode dégradé doit être piloté avec méthode : autorisation, traçabilité, compensation et vérification du retour à la normale.",
       timeLimit: 75,
       imagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
       imageAlt:
