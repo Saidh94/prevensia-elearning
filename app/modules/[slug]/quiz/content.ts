@@ -24,6 +24,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le chef d'équipe seul",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "La formation prépare à l'habilitation, mais c'est l'employeur qui la délivre.",
       timeLimit: 40,
@@ -37,6 +38,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un personnel non électricien",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le B1 désigne l'exécutant électricien travaillant dans un cadre préparé et encadré.",
       timeLimit: 40,
@@ -45,6 +47,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Le chargé de travaux en basse tension est généralement titulaire du symbole :",
       choices: ["B1", "B2", "BR", "BC"],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le B2 prépare, dirige et surveille l'exécution des travaux électriques.",
       timeLimit: 35,
@@ -58,6 +61,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Les opérations d'ordre non électrique",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BR concerne les interventions générales comme l'entretien, le dépannage ou certaines remises en état autorisées.",
       timeLimit: 45,
@@ -71,6 +75,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Le chargé de consignation est désigné par le symbole :",
       choices: ["B1V", "BR", "BC", "B2V"],
       answer: [2],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BC garantit le processus de consignation et de mise en sécurité de l'installation.",
       timeLimit: 35,
@@ -91,6 +96,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Consignation",
       explanation:
         "La consignation repose sur une chaîne d'étapes inséparables pour garantir la mise en sécurité.",
       timeLimit: 70,
@@ -110,6 +116,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, en présence d'un B2",
       ],
       answer: [2],
+      chapterLabel: "Consignation",
       explanation:
         "La VAT ne se suppose jamais. Elle doit être effectuée selon une méthode fiable et au bon point de l'installation.",
       timeLimit: 40,
@@ -129,6 +136,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Observateur H0B0",
       ],
       answer: [1],
+      chapterLabel: "Consignation",
       explanation:
         "Le B2 organise et pilote la sécurité du travail confié à l'équipe.",
       timeLimit: 45,
@@ -143,6 +151,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Toutes ces réponses",
       ],
       answer: [3],
+      chapterLabel: "Anomalies & écarts",
       explanation:
         "Tout doute sérieux sur l'état électrique, l'identification ou l'intégrité du matériel impose l'arrêt.",
       timeLimit: 35,
@@ -157,6 +166,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Ignorer la différence si la basse tension est conservée",
       ],
       answer: [1],
+      chapterLabel: "Anomalies & écarts",
       explanation:
         "Une intervention ne doit pas glisser vers des travaux sans clarification du cadre et des rôles.",
       timeLimit: 45,
@@ -171,6 +181,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Les EPI remplacent la préparation",
       ],
       answer: [1],
+      chapterLabel: "EPI & moyens",
       explanation:
         "Les protections collectives priment. Les EPI ne changent jamais les limites d'habilitation ni la nécessité de préparer l'opération.",
       timeLimit: 45,
@@ -185,6 +196,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Considérer que l'urgence d'exploitation justifie l'écart",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "La sécurité repose sur la méthode, la clarté des rôles et l'arrêt en cas d'incertitude.",
       timeLimit: 45,
@@ -200,6 +212,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "EPI & moyens",
       explanation:
         "L'expérience ne remplace ni l'identification, ni l'organisation, ni le support documentaire.",
       timeLimit: 65,
@@ -214,6 +227,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Terminer la consignation puis prévenir",
       ],
       answer: [1],
+      chapterLabel: "Urgence électrique",
       explanation:
         "Le premier objectif est d'éviter le suraccident en supprimant le danger électrique.",
       timeLimit: 40,
@@ -228,6 +242,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le fait de terminer avant l'horaire prévu",
       ],
       answer: [0],
+      chapterLabel: "Préparation du chantier",
       explanation:
         "Le B2 doit d'abord clarifier les rôles, le périmètre de travail, les protections et les conditions de suspension.",
       timeLimit: 45,
@@ -243,6 +258,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Préparation du chantier",
       explanation:
         "La documentation, le repérage et la coordination doivent être confirmées avant toute reprise d'action.",
       timeLimit: 70,
@@ -257,6 +273,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Une consignation générale de site sans désignation BC",
       ],
       answer: [1],
+      chapterLabel: "Coordination & interfaces",
       explanation:
         "Le BR couvre les interventions générales en basse tension dans un cadre défini, pas les travaux structurés ni la consignation générale.",
       timeLimit: 45,
@@ -271,6 +288,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Parce qu'elle dispense de vérifier l'identification du matériel",
       ],
       answer: [0],
+      chapterLabel: "Coordination & interfaces",
       explanation:
         "Une coordination insuffisante peut exposer l'équipe à une reprise d'énergie, à une erreur de zone ou à une mauvaise compréhension de l'état réel de l'installation.",
       timeLimit: 45,
@@ -285,6 +303,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "La présence d'un seul circuit terminal clairement identifié",
       ],
       answer: [0],
+      chapterLabel: "Coordination & interfaces",
       explanation:
         "Une interface chantier ou exploitation mal coordonnée peut remettre en cause la zone de sécurité, la consignation ou l'état réel de l'installation.",
       timeLimit: 45,
@@ -300,6 +319,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 3],
       multiple: true,
+      chapterLabel: "Voisinage & zones",
       explanation:
         "Le voisinage et la présence de PNST modifient concrètement la façon de préparer et de protéger l'opération, y compris en basse tension.",
       timeLimit: 70,
@@ -319,6 +339,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Exiger une vérification avant poursuite",
       ],
       answer: [0],
+      chapterLabel: "Consignation",
       explanation:
         "Une consignation mal identifiée crée une illusion de sécurité et expose directement l'équipe à un risque majeur.",
       timeLimit: 45,
@@ -334,6 +355,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Consignation",
       explanation:
         "La remise en énergie ne peut se faire qu'après vérification complète de la fin d'opération et de l'absence d'exposition résiduelle.",
       timeLimit: 75,
@@ -348,6 +370,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Lorsqu'il suspend son action à cause d'une anomalie visible",
       ],
       answer: [0],
+      chapterLabel: "Anomalies & écarts",
       explanation:
         "Dès qu'une intervention générale glisse vers des travaux structurés, une modification de schéma ou un dépannage non maîtrisé, elle doit être requalifiée.",
       timeLimit: 45,
@@ -363,6 +386,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Préparation du chantier",
       explanation:
         "Une préparation sérieuse repose sur la clarté des rôles, la cohérence documentaire et la maîtrise de l'environnement, pas sur l'habitude seule.",
       timeLimit: 75,
@@ -377,6 +401,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Conserver l'information uniquement à l'oral",
       ],
       answer: [1],
+      chapterLabel: "Anomalies & écarts",
       explanation:
         "Le retour d'expérience et la trace écrite permettent de corriger durablement les causes d'écarts avant qu'elles ne deviennent accidentogènes.",
       timeLimit: 40,
@@ -391,6 +416,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le fait que le disjoncteur paraisse en position ouverte",
       ],
       answer: [0],
+      chapterLabel: "Consignation",
       explanation:
         "La chaîne de consignation ne vaut vraiment que si l'absence de tension est vérifiée au bon point, avec la bonne méthode.",
       timeLimit: 50,
@@ -411,6 +437,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un outillage récent et complet",
       ],
       answer: [0],
+      chapterLabel: "Coordination & interfaces",
       explanation:
         "Une interface chantier ou exploitation mal maîtrisée peut remettre en cause la zone de sécurité et l'état réel de l'installation.",
       timeLimit: 50,
@@ -432,6 +459,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Consignation",
       explanation:
         "La remise en service est une phase sensible qui suppose une vérification complète de la fin d'opération et de l'absence d'exposition résiduelle.",
       timeLimit: 80,
@@ -452,6 +480,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le BC n'a besoin ni d'identification ni de traçabilité",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Chaque symbole répond à une fonction propre. La norme borne les rôles pour éviter les glissements de mission.",
       timeLimit: 50,
@@ -472,6 +501,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Seulement si l'intervention dure plus de 30 minutes",
       ],
       answer: [0],
+      chapterLabel: "Voisinage & zones",
       explanation:
         "La présence de PNST ou d'un voisinage non maîtrisé change concrètement la scène de risque et peut sortir l'opération de son cadre initial.",
       timeLimit: 45,
@@ -487,6 +517,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Consignation",
       explanation:
         "La consignation fiable repose sur l'identification, la traçabilité et la vérification réelle, pas sur une confiance aveugle dans le repérage seul.",
       timeLimit: 75,
@@ -495,6 +526,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "À partir de quelle intensité le courant alternatif devient-il dangereux pour le corps humain ?",
       choices: ["1 mA", "10 mA", "50 mA", "100 mA"],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "Le courant électrique est dangereux à partir de 10 mA en courant alternatif. En courant continu, le seuil est de 40 mA.",
       timeLimit: 40,
@@ -503,6 +535,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Quelle est la tension de contact dangereuse en milieu sec, en courant alternatif ?",
       choices: ["12 V", "25 V", "50 V", "120 V"],
       answer: [2],
+      chapterLabel: "Risque électrique",
       explanation:
         "En milieu sec (résistance du corps : 5 000 Ω), la tension dangereuse est U = R × I = 5 000 × 0,01 = 50 V en courant alternatif.",
       timeLimit: 40,
@@ -511,6 +544,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "En milieu humide, quelle est la tension de contact dangereuse en courant alternatif ?",
       choices: ["12 V", "25 V", "50 V", "120 V"],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "En milieu humide (résistance réduite à 2 500 Ω), la tension dangereuse descend à 25 V en courant alternatif.",
       timeLimit: 40,
@@ -519,6 +553,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Quelle est la résistance conventionnelle du corps humain en milieu sec ?",
       choices: ["500 Ω", "1 000 Ω", "2 500 Ω", "5 000 Ω"],
       answer: [3],
+      chapterLabel: "Risque électrique",
       explanation:
         "La norme fixe la résistance conventionnelle du corps humain à 5 000 Ω en local ou emplacement sec, et à 2 500 Ω en milieu mouillé.",
       timeLimit: 45,
@@ -532,6 +567,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Une perte de conscience sans séquelles",
       ],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "La tétanisation est une paralysie des muscles. La personne peut succomber par asphyxie du fait du blocage de la cage thoracique.",
       timeLimit: 45,
@@ -545,6 +581,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Non, seulement si on coupe immédiatement le courant",
       ],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "La fibrillation ventriculaire est la contraction anarchique du muscle cardiaque. Elle ne cède jamais spontanément : seuls des contre-chocs électriques délivrés par un défibrillateur peuvent la corriger.",
       timeLimit: 50,
@@ -559,6 +596,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Consignation",
       explanation:
         "La consignation électrique comprend 4 phases : 1. Séparation, 2. Condamnation, 3. Identification, 4. VAT + MALT/CCT. Une étape manquante invalide la consignation.",
       timeLimit: 65,
@@ -572,6 +610,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Une fois par semaine, indépendamment des mesures",
       ],
       answer: [2],
+      chapterLabel: "Consignation",
       explanation:
         "Le VAT doit être vérifié avant et après chaque mesure pour s'assurer qu'il fonctionne correctement au moment où la mesure a été réalisée.",
       timeLimit: 45,
@@ -585,6 +624,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Jamais en basse tension",
       ],
       answer: [1],
+      chapterLabel: "Consignation",
       explanation:
         "La MALT et CCT n'est pas obligatoire en BT, sauf en cas de risque de tension induite, risque de ré-alimentation ou avec des câbles de grandes longueurs.",
       timeLimit: 55,
@@ -598,6 +638,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Aucune autre habilitation",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "L'habilitation BR entraîne les habilitations B0, B1 et B1V, mais elle n'entraîne pas les habilitations B2 et BC.",
       timeLimit: 50,
@@ -611,6 +652,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "À la consignation des armoires industrielles",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "L'habilitation BS est limitée à 400 V et aux circuits terminaux. Elle ne permet pas de remplacer un disjoncteur dans une armoire industrielle.",
       timeLimit: 50,
@@ -624,6 +666,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Zone sans limite fixe, définie librement par le chargé de travaux",
       ],
       answer: [1],
+      chapterLabel: "Voisinage & zones",
       explanation:
         "La NF C 18-510 définit une zone de voisinage simple BT entre la DMA (0,30 m) et 3 m des pièces nues sous tension. Dans cette zone, un personnel habilité est requis et des précautions spécifiques s'appliquent. En deçà de 0,30 m (DMA), on entre dans la zone de travail sous tension qui exige une habilitation et des équipements adaptés.",
       timeLimit: 55,
@@ -632,6 +675,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Quel est l'indice de protection minimal du matériel en basse tension (BT) pour assurer la protection contre les contacts directs ?",
       choices: ["IP 1X", "IP 2X", "IP 3X", "IP 5X"],
       answer: [1],
+      chapterLabel: "Voisinage & zones",
       explanation:
         "L'indice minimum de protection du matériel est IP 2X en Basse Tension et IP 3X en Haute Tension. Ils assurent la protection contre les contacts directs.",
       timeLimit: 40,
@@ -640,6 +684,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Quelle est la périodicité de recyclage recommandée pour une habilitation électrique ?",
       choices: ["1 an", "2 ans", "3 ans", "5 ans"],
       answer: [2],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "La périodicité de recyclage, sauf contre-indication, est fixée à 3 ans pour les habilitations électriques.",
       timeLimit: 35,
@@ -653,6 +698,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Application incomplète des procédures (15 %)",
       ],
       answer: [2],
+      chapterLabel: "Risque électrique",
       explanation:
         "L'analyse des accidents électriques montre que le mode opératoire inapproprié est la première cause (31 %), suivi de la méconnaissance des risques (30 %), l'application incomplète des procédures (15 %), et à égalité formation insuffisante et matériel (12 % chacun).",
       timeLimit: 50,
@@ -667,6 +713,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "EPI & moyens",
       explanation:
         "Les EPI obligatoires en voisinage comprennent les gants isolants (conformes aux normes, vérifiés avant et après usage), les écrans faciaux anti-UV, le casque isolant si risque à la tête, et les chaussures isolantes. Les objets métalliques personnels (bracelets, chaînes) sont interdits.",
       timeLimit: 65,
@@ -675,6 +722,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Quelle est la Distance Minimale d'Approche (DMA) autour d'une pièce nue sous tension en basse tension (BT), en champ libre ?",
       choices: ["0,05 m", "0,30 m", "1 m", "3 m"],
       answer: [1],
+      chapterLabel: "Voisinage & zones",
       explanation:
         "La DMA en BT est de 0,30 m autour d'une pièce nue sous tension. En haute tension, cette distance est nettement plus grande. Un titulaire H0B0 ne doit jamais franchir cette limite.",
       timeLimit: 40,
@@ -683,6 +731,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "En milieu humide (condensation, transpiration), quelle est la tension de contact dangereuse en courant alternatif ?",
       choices: ["50 V", "25 V", "12 V", "120 V"],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "En milieu humide, la résistance du corps chute à environ 2 500 Ω. La tension dangereuse descend à 25 V en AC. En milieu sec elle est de 50 V, et en milieu mouillé de 12 V seulement.",
       timeLimit: 40,
@@ -691,6 +740,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "En milieu mouillé (eau ruisselante, immersion partielle), quelle est la tension de contact dangereuse en courant alternatif ?",
       choices: ["50 V", "25 V", "12 V", "30 V"],
       answer: [2],
+      chapterLabel: "Risque électrique",
       explanation:
         "En milieu mouillé, la résistance du corps est très faible. La tension dangereuse en AC tombe à 12 V. Toute installation électrique dans un tel environnement présente un risque maximal même à très basse tension.",
       timeLimit: 40,
@@ -699,6 +749,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "De quelle couleur est le grillage avertisseur signalant la présence d'une canalisation électrique enterrée ?",
       choices: ["Jaune", "Vert", "Rouge", "Bleu"],
       answer: [2],
+      chapterLabel: "Voisinage & zones",
       explanation:
         "Le grillage avertisseur rouge signale les canalisations électriques enterrées. Jaune = gaz, vert = eau potable, bleu = eau non potable, blanc = télécommunications. Découvrir ce grillage lors d'un terrassement impose l'arrêt immédiat.",
       timeLimit: 35,
@@ -707,6 +758,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "Quelle est la Distance Minimale d'Approche (DMA) autour d'une pièce nue sous tension en basse tension (BT) ?",
       choices: ["0,05 m", "0,30 m", "1 m", "3 m"],
       answer: [1],
+      chapterLabel: "Voisinage & zones",
       explanation:
         "La DMA en basse tension est fixée à 0,30 m par la NF C 18-510. En deçà de cette limite, on entre dans la zone de travail sous tension : des habilitations spécifiques, des EPI adaptés et des protections contre les pièces nues sont obligatoires. Cette distance ne se présume pas, elle se mesure physiquement sur le terrain avant toute opération.",
       timeLimit: 40,
@@ -720,6 +772,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Remplacer le chargé de consignation en cas d'absence",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le surveillant de sécurité électrique assure une surveillance permanente des personnes non habilitées travaillant en zone à risque. Il peut intervenir immédiatement en cas de dérive et fait le lien entre l'opérateur et l'organisation de prévention.",
       timeLimit: 50,
@@ -728,6 +781,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       question: "En courant continu, quelle est la tension de contact dangereuse en milieu sec ?",
       choices: ["50 V", "25 V", "60 V", "120 V"],
       answer: [3],
+      chapterLabel: "Risque électrique",
       explanation:
         "En courant continu et milieu sec, la tension dangereuse est de 120 V (contre 50 V en AC). En milieu humide DC : 60 V, en milieu mouillé DC : 30 V. Le courant continu est moins dangereux que l'AC à tension équivalente, mais ne doit jamais être banalisé.",
       timeLimit: 40,
@@ -741,6 +795,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le neutre est flottant et aucune protection n'est nécessaire",
       ],
       answer: [1],
+      chapterLabel: "Schémas & protection",
       explanation:
         "En schéma IT, le neutre du transformateur est isolé ou relié à la terre par une impédance élevée (500 à 1 000 Ω). Lors d'un premier défaut d'isolement, le courant de défaut reste limité et l'alimentation n'est pas interrompue — c'est l'avantage de continuité de service. Un Contrôleur Permanent d'Isolement (CPI) surveille l'installation et déclenche une alarme dès ce premier défaut.",
       timeLimit: 50,
@@ -754,6 +809,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Parce que le disjoncteur général est réglé à un seuil plus élevé",
       ],
       answer: [1],
+      chapterLabel: "Schémas & protection",
       explanation:
         "L'impédance entre le neutre et la terre (500 à 1 000 Ω) limite le courant circulant lors d'un premier défaut à une valeur trop faible pour déclencher les protections et trop faible pour être dangereuse. C'est ce qui permet la continuité de service dans les hôpitaux et les industries de process.",
       timeLimit: 50,
@@ -767,6 +823,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Couper l'alimentation générale immédiatement",
       ],
       answer: [2],
+      chapterLabel: "Schémas & protection",
       explanation:
         "Une alarme CPI signale un premier défaut actif. Intervenir sur un autre circuit dans cet état crée un risque de deuxième défaut simultané, qui lui est potentiellement mortel (court-circuit ou électrocution entre les deux points de défaut). Il faut localiser et éliminer le premier défaut avant toute autre opération. Ne jamais neutraliser le CPI.",
       timeLimit: 55,
@@ -780,6 +837,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un double déclenchement de la protection différentielle — alarme uniquement",
       ],
       answer: [1],
+      chapterLabel: "Schémas & protection",
       explanation:
         "En IT, le premier défaut est sans coupure. Mais si un deuxième défaut apparaît simultanément sur une autre phase ou un autre circuit, un courant dangereux peut circuler entre les deux points de défaut — potentiellement à travers une personne ou une masse. C'est pour cette raison que le premier défaut doit être éliminé impérativement avant de poursuivre toute intervention.",
       timeLimit: 55,
@@ -793,6 +851,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Éclairage public et voirie",
       ],
       answer: [2],
+      chapterLabel: "Schémas & protection",
       explanation:
         "Le schéma IT est choisi pour garantir la continuité de service : un premier défaut ne coupe pas l'alimentation. Il est donc utilisé dans les blocs opératoires (NF C 15-211), les unités de réanimation, les industries de process où une coupure entraînerait des conséquences graves, et certains datacenters critiques.",
       timeLimit: 45,
@@ -808,6 +867,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Il doit choisir l'une des deux missions et renoncer à l'autre",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Cumuler BR et BE Mesurage sur un titre d'habilitation est possible si les missions le justifient. Mais les deux rôles gardent leurs périmètres propres : le BR intervient et dépanne, le BE Mesurage mesure dans un cadre préparé sans intervenir. Passer de l'un à l'autre sans distinction revient à mélanger les rôles — ce qui est interdit. Chaque basculement doit être conscient, documenté et cohérent avec le titre.",
       timeLimit: 55,
@@ -822,6 +882,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le BR est limité aux installations domestiques ; le BE couvre les installations industrielles",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "C'est la frontière la plus importante à retenir : le BR (intervenant général) peut diagnostiquer et corriger une anomalie dans son cadre d'habilitation. Le BE Vérification / BE Mesurage observe, contrôle et mesure — sans jamais modifier, réparer ni consigner. Une anomalie détectée par le BE ne lui donne pas le droit d'agir : elle impose de signaler et de transmettre pour requalification vers BR, B2 ou BC selon le besoin. NF C 18-510 §11.5.2 et §11.5.3.",
       timeLimit: 50,
@@ -838,6 +899,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le salarié lui-même après réussite au quiz",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "La formation prépare à l’habilitation, mais seul l’employeur délivre le titre en fonction du poste réel, des tâches confiées et des risques.",
       timeLimit: 40,
@@ -856,6 +918,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Des opérations d’ordre non électrique uniquement",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BS couvre des interventions élémentaires en basse tension, dans un cadre strictement limité, identifié et préparé.",
       timeLimit: 40,
@@ -869,6 +932,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Une consignation complète d’installation",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BE Manœuvre permet des manœuvres d’exploitation prévues, sur organes identifiés, dans le cadre des consignes du site.",
       timeLimit: 40,
@@ -883,6 +947,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "BE Manœuvre est équivalent à BR",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BS et le BE Manœuvre ont des périmètres distincts. Aucun des deux ne vaut BR, B1, B2 ou BC.",
       timeLimit: 45,
@@ -898,6 +963,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BS reste limité aux interventions élémentaires. La recherche de panne et la modification de câblage sortent du cadre.",
       timeLimit: 70,
@@ -917,6 +983,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, si un collègue habilité B1 est présent",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BS ne donne pas un accès général à tout matériel BT. Il est conditionné à un matériel précisément identifié, une procédure définie par l’entreprise et une intervention hors tension. Toute dérive vers du diagnostic ou du câblage sort du cadre BS.",
       timeLimit: 45,
@@ -931,6 +998,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Réarmer plusieurs fois pour tester",
       ],
       answer: [2],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le glissement d’un remplacement simple vers une recherche de panne fait sortir l’opération du cadre BS.",
       timeLimit: 45,
@@ -951,6 +1019,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Une manœuvre d’exploitation suppose un organe identifié, une consigne claire et un contexte normal. L’ouverture pour diagnostic sort du cadre.",
       timeLimit: 75,
@@ -965,6 +1034,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Action explicitement prévue dans la consigne du site",
       ],
       answer: [0],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Une odeur anormale, un échauffement, un bruit suspect ou un déclenchement répété impose l’arrêt et le signalement.",
       timeLimit: 40,
@@ -982,6 +1052,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Neutraliser provisoirement la protection",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le réarmement répété est un signal d’alerte. Il ne doit jamais devenir un dépannage improvisé.",
       timeLimit: 40,
@@ -997,6 +1068,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "BS et BE Manœuvre ne couvrent ni le dépannage, ni la recherche de panne, ni la modification de câblage.",
       timeLimit: 75,
@@ -1014,6 +1086,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Point neutre sans tension",
       ],
       answer: [0],
+      chapterLabel: "Risque électrique",
       explanation:
         "Une PNST est une pièce nue sous tension. Sa présence impose de prendre au sérieux le voisinage électrique.",
       timeLimit: 35,
@@ -1032,6 +1105,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "Le voisinage expose au risque avant même le contact direct. Il impose le respect strict des limites d’approche et des protections.",
       timeLimit: 70,
@@ -1049,6 +1123,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Être dans un local technique sans anomalie visible",
       ],
       answer: [0],
+      chapterLabel: "Risque électrique",
       explanation:
         "Le contact direct concerne une partie active normalement sous tension.",
       timeLimit: 40,
@@ -1063,6 +1138,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Manœuvrer un organe clairement repéré",
       ],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "Le contact indirect concerne une masse normalement non dangereuse, devenue accidentellement sous tension.",
       timeLimit: 40,
@@ -1078,6 +1154,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "L’intensité, la durée, le trajet et l’état du milieu influencent fortement la gravité d’une électrisation.",
       timeLimit: 80,
@@ -1095,6 +1172,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Uniquement au-delà de 1 000 V",
       ],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "Autour de 10 mA, des contractions musculaires peuvent rendre le lâcher difficile. Ce repère sert à comprendre le danger, pas à chercher une limite acceptable.",
       timeLimit: 45,
@@ -1113,6 +1191,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "Une peau humide, un sol conducteur ou un environnement mouillé facilitent le passage du courant.",
       timeLimit: 60,
@@ -1127,6 +1206,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "La puissance exacte du circuit",
       ],
       answer: [0],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "IP2X ou IPXXB aident à apprécier si l’enveloppe protège réellement contre l’accès involontaire aux parties dangereuses.",
       timeLimit: 45,
@@ -1141,6 +1221,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Compter uniquement sur les EPI",
       ],
       answer: [0],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Une enveloppe dégradée change le niveau de risque. L’action doit être suspendue.",
       timeLimit: 45,
@@ -1155,6 +1236,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Les EPI remplacent la procédure",
       ],
       answer: [0],
+      chapterLabel: "EPI & protection",
       explanation:
         "La prévention privilégie les protections collectives. Les EPI viennent en complément et n’élargissent jamais le domaine d’autorisation.",
       timeLimit: 40,
@@ -1170,6 +1252,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "EPI & protection",
       explanation:
         "Capotage, balisage, écrans et obstacles sont des protections collectives. Les gants relèvent des EPI.",
       timeLimit: 70,
@@ -1184,6 +1267,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "L’habitude de l’opérateur uniquement",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Un support écrit, cohérent avec le terrain, limite les erreurs de repérage et les glissements de mission.",
       timeLimit: 40,
@@ -1198,6 +1282,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Réarmer pour observer le résultat",
       ],
       answer: [0],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Une incohérence de repérage est un signal d’arrêt. L’identification doit être confirmée avant toute action.",
       timeLimit: 45,
@@ -1212,6 +1297,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Une autorisation de modifier le câblage",
       ],
       answer: [0],
+      chapterLabel: "Consignation",
       explanation:
         "Le BS doit comprendre la logique de mise hors tension et de vérification, même s’il n’est pas chargé de consignation générale.",
       timeLimit: 45,
@@ -1229,6 +1315,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, en basse tension uniquement",
       ],
       answer: [2],
+      chapterLabel: "Consignation",
       explanation:
         "BS et BE Manœuvre ne valent pas BC. La consignation générale relève d’un rôle spécifique.",
       timeLimit: 40,
@@ -1243,6 +1330,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Réarmer pour identifier la cause",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "On ne touche jamais directement une victime tant que le danger électrique persiste. La priorité est d’éviter le suraccident.",
       timeLimit: 45,
@@ -1260,6 +1348,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Retirer le capot pour ventiler",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Une anomalie électrique impose l’arrêt, la mise à distance et l’alerte. Le geste ne doit pas devenir un dépannage.",
       timeLimit: 40,
@@ -1278,6 +1367,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Un doute sur le matériel, la procédure ou le voisinage impose l’arrêt et la clarification.",
       timeLimit: 75,
@@ -1295,6 +1385,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Se fier uniquement à son expérience",
       ],
       answer: [1],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le bon réflexe est de décider correctement avant le geste : identifier, vérifier, agir si le cadre est respecté, sinon s’arrêter.",
       timeLimit: 45,
@@ -1304,7 +1395,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
     },
     {
       question:
-        "Pourquoi un titulaire BS / BE Manœuvre doit-il s'entraîner sur des cas de terrain, et pas seulement mémoriser des définitions ?",
+        "Pourquoi un titulaire BS / BE Manœuvre doit-il s’entraîner sur des cas de terrain, et pas seulement mémoriser des définitions ?",
       choices: [
         "Pour vérifier la capacité à distinguer ce qui est autorisé de ce qui doit être refusé",
         "Pour remplacer l’évaluation pratique de l’employeur",
@@ -1312,6 +1403,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Pour éviter de parler des limites du symbole",
       ],
       answer: [0],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Sur le terrain, la sécurité repose sur la capacité à prendre la bonne décision face à une situation concrète, tout en rappelant que l’employeur reste seul décisionnaire de l’habilitation.",
       timeLimit: 45,
@@ -1327,6 +1419,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Ces quatre réflexes résument la logique opérationnelle du parcours BS / BE Manœuvre.",
       timeLimit: 75,
@@ -1346,6 +1439,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3, 4],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Ces cinq opérations sont précisément celles autorisées par la norme NF C 18-510 pour le symbole BS. Elles doivent toujours être réalisées hors tension, sur un circuit repéré, dans la limite de 400 V et sur des circuits terminaux.",
       timeLimit: 70,
@@ -1361,6 +1455,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3, 4],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Ces cinq conditions sont cumulatives. Si l'une fait défaut — par exemple l'intensité dépasse 63 A ou l'analyse sur place est impossible — il ne s'agit plus d'une intervention BS mais de travaux nécessitant une organisation différente.",
       timeLimit: 75,
@@ -1375,6 +1470,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "La norme distingue : les manœuvres de consignation (selon instruction du chargé de consignation), les manœuvres d'exploitation (conduite normale), et les manœuvres d'urgence (procédure établie à l'avance). Le diagnostic improvisé n'est jamais une manœuvre autorisée.",
       timeLimit: 60,
@@ -1388,6 +1484,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Non, sauf si l'employeur le précise dans le titre d'habilitation",
       ],
       answer: [2],
+      chapterLabel: "Consignation",
       explanation:
         "Le BS peut réaliser une mise hors tension pour son propre compte dans le cadre de son intervention élémentaire, mais il ne peut pas consigner pour le compte d'un autre opérateur. Cette responsabilité appartient exclusivement au chargé de consignation BC.",
       timeLimit: 50,
@@ -1401,6 +1498,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Ouvrir le coffret pour observer le disjoncteur en détail",
       ],
       answer: [2],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Une odeur et un retombé immédiat signalent une anomalie. Le réarmement répété aggrave le risque. La conduite attendue est l'arrêt immédiat de la manœuvre et la transmission au niveau compétent (BR ou B2).",
       timeLimit: 50,
@@ -1416,6 +1514,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Classe 4 (36 000 V max)",
       ],
       answer: [1],
+      chapterLabel: "EPI & protection",
       explanation:
         "La classe 0 supporte jusqu'à 1 000 V et couvre largement le domaine BT (230/400 V). La classe 00 est limitée à 500 V et ne couvre pas toute la BT. Les classes supérieures sont réservées aux domaines HTA et HTB.",
       timeLimit: 45,
@@ -1432,6 +1531,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Les chaussures isolantes",
       ],
       answer: [2],
+      chapterLabel: "EPI & protection",
       explanation:
         "La combinaison anti-arc est conçue pour absorber et dissiper l'énergie thermique produite lors d'un arc électrique. Les autres EPI (gants, casque, chaussures) offrent une isolation électrique mais pas une protection thermique contre l'arc.",
       timeLimit: 40,
@@ -1448,6 +1548,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Classe 3 (26 500 V max)",
       ],
       answer: [2],
+      chapterLabel: "EPI & protection",
       explanation:
         "Pour une tension de 15 000 V (HTA), la classe 2 est requise au minimum car elle supporte jusqu'à 17 000 V. La classe 1 (7 500 V max) serait insuffisante pour ce niveau de tension.",
       timeLimit: 45,
@@ -1464,6 +1565,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Aucune vérification préalable n'est nécessaire si le délai de 6 mois n'est pas dépassé",
       ],
       answer: [1],
+      chapterLabel: "EPI & protection",
       explanation:
         "Avant chaque usage, les gants isolants doivent faire l'objet d'une inspection visuelle (absence de perforation, coupure, détérioration) et d'un gonflage (enrouler le gant et observer s'il reste gonflé). Un gant endommagé doit être retiré immédiatement du service.",
       timeLimit: 50,
@@ -1482,6 +1584,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Classe 0 (isolation simple)",
       ],
       answer: [1],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "Le symbole du carré dans le carré (□□) identifie les matériels de classe II, qui possèdent une double isolation ou une isolation renforcée. Ces appareils ne nécessitent pas de mise à la terre.",
       timeLimit: 40,
@@ -1498,6 +1601,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Classe 0",
       ],
       answer: [3],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "Les matériels de classe 0 ne possèdent qu'une isolation principale sans protection supplémentaire (ni mise à la terre, ni double isolation). Leur utilisation est interdite en milieu professionnel en France car ils offrent un niveau de sécurité insuffisant en cas de défaut d'isolement.",
       timeLimit: 40,
@@ -1514,6 +1618,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "L'isolation principale du câble",
       ],
       answer: [2],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "En classe I, la mise à la terre crée un chemin de retour du courant de défaut. Ce courant de fuite est détecté par le disjoncteur différentiel (ou interrupteur différentiel), qui coupe le circuit en quelques millisecondes, avant qu'une électrisation ne soit dangereuse.",
       timeLimit: 50,
@@ -1532,6 +1637,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Protection contre les corps solides de diamètre supérieur à 50 mm",
       ],
       answer: [1],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "Dans un indice IP, le premier chiffre concerne la protection contre les corps solides. Le chiffre 3 signifie que l'équipement est protégé contre les corps solides de diamètre supérieur à 2,5 mm (outils, fils). Le chiffre relatif à l'eau est le second (ici 4).",
       timeLimit: 45,
@@ -1548,6 +1654,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Certification CENELEC",
       ],
       answer: [2],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "La lettre additionnelle d'un indice IP précise la protection des personnes contre l'accès aux parties dangereuses. La lettre C correspond à un outil de diamètre supérieur à 2,5 mm (exemple : tournevis). Les lettres A, B, C, D correspondent respectivement à : main (50 mm), doigt (12,5 mm), outil (2,5 mm), fil (1 mm).",
       timeLimit: 50,
@@ -1564,6 +1671,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "IP 68",
       ],
       answer: [2],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "Le second chiffre 4 signifie 'protection contre les projections d'eau de toutes directions'. Le premier chiffre 4 garantit la protection contre les corps solides ≥ 1 mm. L'IP 44 est le minimum standard pour une armoire en extérieur exposée aux intempéries. L'IP 33 ne couvre que les aspersions jusqu'à 60°.",
       timeLimit: 50,
@@ -1582,6 +1690,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Uniquement le responsable de site",
       ],
       answer: [1],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "La NF C 18-510 § 10 prévoit une exception pour les matériels IP2X : si les parties actives sous tension sont inaccessibles au toucher (protection mécanique IP2X), un personnel formé au risque électrique mais non habilité peut effectuer le remplacement sous tension. L'habilitation BS n'est pas requise dans ce cas précis.",
       timeLimit: 50,
@@ -1596,6 +1705,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Non, seul un électricien habilité H peut manipuler des fusibles",
       ],
       answer: [1],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "Un fusible à fusion enfermée (cartouche cylindrique type gG, aM…) monté dans un porte-fusible adapté est conçu pour être manipulé sans risque de contact avec les parties actives. Dans ce cas précis, la NF C 18-510 § 10 autorise un personnel B0 ou formé non habilité à procéder au remplacement sans VAT préalable. L'habilitation BS n'est pas requise.",
       timeLimit: 55,
@@ -1610,6 +1720,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Incorrecte : seul un chef d'équipe peut remplacer une ampoule",
       ],
       answer: [1],
+      chapterLabel: "Domaines & matériels",
       explanation:
         "L'exception IP2X s'applique uniquement si les parties actives sont effectivement inaccessibles au toucher (protection certifiée IP2X). Sur un luminaire standard sans cette protection, le risque de contact direct est réel. L'habilitation BS et la mise hors tension (VAT incluse) sont obligatoires. Le B0 n'est pas habilité à intervenir dans ce contexte.",
       timeLimit: 60,
@@ -1626,6 +1737,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Appeler le fabricant pour connaître le temps de décharge",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Un condensateur peut rester chargé plusieurs secondes à minutes après coupure, même si la VAT sur les conducteurs indique zéro. Il existe un risque de choc électrique par la décharge du condensateur. Il faut attendre la décharge complète (durée indiquée sur la fiche technique ou la plaque) et vérifier l’absence de tension directement aux bornes avant de toucher. Ne jamais court-circuiter manuellement.",
       timeLimit: 55,
@@ -1640,6 +1752,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Couper tous les disjoncteurs du tableau pour être sûr puis continuer",
       ],
       answer: [2],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le BS intervient dans un cadre strictement défini. Toute situation imprévue — câblage non conforme au schéma, fil inconnu, doute sur l’identification — impose l’arrêt immédiat. L’opérateur BS n’a ni l’habilitation ni la compétence pour analyser un câblage modifié ou inconnu. Il balise, rend compte et attend l’intervention d’une personne habilitée (B1, BR…).",
       timeLimit: 55,
@@ -1654,6 +1767,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Ignorer la différence : le bon de travail est légalement valable même si le repérage a changé",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le repérage est une condition fondamentale de la sécurité BS. Si le document de travail ne correspond pas à la réalité terrain (étiquette différente, numérotation modifiée), l’identification n’est pas certaine. Il faut suspendre sans toucher à aucun organe et demander une mise à jour du bon de travail ou une confirmation auprès du responsable. Intervenir avec un repérage douteux expose au risque de couper le mauvais circuit ou d’intervenir sur un circuit actif.",
       timeLimit: 55,
@@ -1668,6 +1782,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Alerter uniquement le chef d’équipe",
       ],
       answer: [2],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Toucher une victime en contact avec une source électrique sous tension expose le sauveteur à une électrisation secondaire. La première action est toujours de couper l’alimentation (disjoncteur, interrupteur…) AVANT tout contact avec la victime. Une fois le circuit hors tension, on alerte les secours (15 ou 18 selon le contexte) et on prodigue les premiers secours (PLS, RCP si nécessaire).",
       timeLimit: 50,
@@ -1682,6 +1797,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Remplacer le porte-fusible par lui-même car il a l’habilitation BS",
       ],
       answer: [2],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le BS autorise uniquement le remplacement à l’identique dans un périmètre défini. Un porte-fusible brûlé ou fissuré constitue une dégradation matérielle non prévue : ce n’est plus un remplacement à l’identique, et le risque de mise en danger lors de la remise sous tension est réel. L’opérateur BS doit arrêter, consigner le problème par écrit et rendre compte. La réparation du porte-fusible relève d’un électricien habilité (B1, BR).",
       timeLimit: 55,
@@ -1696,6 +1812,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Appeler le responsable de site pour qu’il supervise la manœuvre",
       ],
       answer: [2],
+      chapterLabel: "Consignation",
       explanation:
         "La condamnation est une étape obligatoire de la mise hors tension. Elle consiste à rendre impossible le réenclenchement accidentel par un tiers, grâce à un cadenas individuel dont l’opérateur possède seul la clé. Un panneau ou une surveillance humaine sont insuffisants : seule une condamnation physique (cadenas) garantit que personne d’autre ne peut remettre sous tension. La VAT doit être effectuée APRÈS la condamnation.",
       timeLimit: 55,
@@ -1710,6 +1827,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, sauf si l’employeur a modifié les consignes de sécurité",
       ],
       answer: [2],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "L’habilitation n’est pas permanente. La NF C 18-510 prévoit un réexamen périodique, généralement tous les 3 ans, ainsi qu’une réévaluation après changement de poste, modification significative de l’installation ou absence prolongée. L’employeur est responsable de maintenir à jour les habilitations de ses salariés. Intervenir avec une habilitation expirée est une faute de l’employeur et expose l’opérateur à un risque non couvert.",
       timeLimit: 50,
@@ -1724,6 +1842,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, manœuvrer un disjoncteur est toujours sans risque avec le BE Manœuvre",
       ],
       answer: [2],
+      chapterLabel: "Rôles & habilitation",
       explanation:
         "Le BE Manœuvre n’autorise que des manœuvres prévues sur des organes clairement identifiés dans les consignes du site ou le bon de travail. Si l’organe n’est pas repéré ou ne figure pas dans les documents de référence, l’opérateur ne peut pas procéder. Il doit demander une identification formelle (mise à jour du plan, étiquetage) avant toute action. Manœuvrer un disjoncteur inconnu expose à une coupure sur un équipement non prévu.",
       timeLimit: 55,
@@ -1740,6 +1859,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le chef d’équipe",
       ],
       answer: [2],
+      chapterLabel: "Habilitation",
       explanation:
         "L’habilitation est délivrée par l’employeur. La formation prépare à l’habilitation mais ne vaut jamais habilitation à elle seule.",
       timeLimit: 45,
@@ -1754,6 +1874,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Non, sauf si le formateur le mentionne dans son support",
       ],
       answer: [2],
+      chapterLabel: "Habilitation",
       explanation:
         "La formation seule ne suffit pas. L’habilitation est une décision de l’employeur.",
       timeLimit: 40,
@@ -1770,6 +1891,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Habilitation",
       explanation:
         "L’expérience seule ne remplace pas les vérifications nécessaires avant habilitation.",
       timeLimit: 75,
@@ -1784,6 +1906,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le type d’entreprise",
       ],
       answer: [1],
+      chapterLabel: "Symboles",
       explanation:
         "Le premier caractère précise le domaine de tension concerné.",
       timeLimit: 35,
@@ -1802,6 +1925,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Blocage",
       ],
       answer: [1],
+      chapterLabel: "Symboles",
       explanation: "B = basse tension ; H = haute tension.",
       timeLimit: 30,
     },
@@ -1814,6 +1938,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Habilitation temporaire",
       ],
       answer: [1],
+      chapterLabel: "Symboles",
       explanation: "H = haute tension.",
       timeLimit: 30,
     },
@@ -1827,6 +1952,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un travail sous tension",
       ],
       answer: [0],
+      chapterLabel: "Symboles",
       explanation:
         "Le caractère 0 vise les opérations d’ordre non électrique.",
       timeLimit: 35,
@@ -1841,6 +1967,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "En version provisoire",
       ],
       answer: [1],
+      chapterLabel: "Symboles",
       explanation: "V indique la notion de voisinage.",
       timeLimit: 30,
     },
@@ -1854,6 +1981,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "À l’obligation d’utiliser des outils isolés en H0V",
       ],
       answer: [1],
+      chapterLabel: "Voisinage",
       explanation:
         "H0V ajoute la notion d’opération d’ordre non électrique au voisinage.",
       timeLimit: 45,
@@ -1873,6 +2001,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Une simple ancienneté supplémentaire sur le chantier",
       ],
       answer: [1],
+      chapterLabel: "Voisinage",
       explanation:
         "Le H0V ne permet pas de travaux électriques. Il cadre des opérations d’ordre non électrique au voisinage HT avec des exigences renforcées.",
       timeLimit: 50,
@@ -1893,6 +2022,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Voisinage",
       explanation:
         "En H0V, l’organisation du chantier doit empêcher tout franchissement dangereux des limites de voisinage.",
       timeLimit: 80,
@@ -1912,6 +2042,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le quiz de fin de module",
       ],
       answer: [0],
+      chapterLabel: "Autorisation de chantier",
       explanation:
         "L’autorisation de travail matérialise le cadre d’accès, la zone et les conditions de sécurité retenues.",
       timeLimit: 45,
@@ -1931,6 +2062,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, uniquement en basse tension",
       ],
       answer: [2],
+      chapterLabel: "Voisinage",
       explanation:
         "Lors d’une opération d’ordre non électrique, les protections contre les contacts directs ne doivent pas être supprimées.",
       timeLimit: 45,
@@ -1945,6 +2077,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Choisir seul sa limite d’approche",
       ],
       answer: [0],
+      chapterLabel: "Voisinage",
       explanation:
         "La cohérence de l’organisation impose une habilitation adaptée à la zone et une surveillance compatible avec le voisinage HT.",
       timeLimit: 50,
@@ -1959,6 +2092,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Considérer que la fin matérielle du travail suffit, sans compte rendu",
       ],
       answer: [1],
+      chapterLabel: "Voisinage",
       explanation:
         "Le compte rendu et l’interdiction de retour non autorisé participent directement à la maîtrise de la zone de travail.",
       timeLimit: 50,
@@ -1973,6 +2107,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Il peut remplacer un appareillage défectueux à l’identique",
       ],
       answer: [2],
+      chapterLabel: "Voisinage",
       explanation:
         "B0 / H0 / H0V ne permet pas de réaliser des opérations d’ordre électrique.",
       timeLimit: 50,
@@ -1987,6 +2122,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Inférieure à 25 V uniquement",
       ],
       answer: [0],
+      chapterLabel: "Domaines de tension",
       explanation:
         "En courant alternatif, la basse tension va au-delà de 50 V et jusqu’à 1 000 V.",
       timeLimit: 50,
@@ -1996,6 +2132,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "En courant alternatif, la haute tension débute classiquement au-delà de :",
       choices: ["25 V", "50 V", "400 V", "1 000 V"],
       answer: [3],
+      chapterLabel: "Domaines de tension",
       explanation:
         "Le repère usuel est le dépassement de 1 000 V en courant alternatif.",
       timeLimit: 40,
@@ -2011,6 +2148,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "Le courant continu est présent dans plusieurs installations modernes, pas uniquement dans des contextes spécialisés rares.",
       timeLimit: 75,
@@ -2026,6 +2164,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 3],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "Le courant continu peut présenter des risques spécifiques, notamment en présence de batteries ou de systèmes photovoltaïques.",
       timeLimit: 80,
@@ -2041,6 +2180,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Zones d’approche",
       explanation:
         "Le voisinage augmente le risque d’atteinte des distances de sécurité et d’exposition à un arc.",
       timeLimit: 75,
@@ -2055,6 +2195,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Les EPI suffisent à autoriser une opération interdite",
       ],
       answer: [1],
+      chapterLabel: "EPI & comportement",
       explanation:
         "Les protections collectives priment sur les protections individuelles.",
       timeLimit: 40,
@@ -2071,6 +2212,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "EPI & comportement",
       explanation:
         "Les gants relèvent des EPI, pas des EPC.",
       timeLimit: 70,
@@ -2085,6 +2227,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Non, sauf en présence d’un collègue habilité BR",
       ],
       answer: [2],
+      chapterLabel: "EPI & comportement",
       explanation:
         "L’EPI protège ; il n’élargit pas les limites d’habilitation.",
       timeLimit: 45,
@@ -2099,6 +2242,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Des éléments qu’on peut déplacer pour faciliter l’accès",
       ],
       answer: [1],
+      chapterLabel: "Locaux & accès",
       explanation:
         "La signalisation et le balisage ont une valeur opérationnelle immédiate et ne doivent pas être contournés.",
       timeLimit: 50,
@@ -2115,6 +2259,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Locaux & accès",
       explanation:
         "La prévention repose aussi sur les documents et consignes applicables sur site.",
       timeLimit: 80,
@@ -2129,6 +2274,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Continuer l’activité prévue sans rien signaler",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Un titulaire B0 / H0 / H0V ne doit pas manipuler une armoire ouverte ou des parties potentiellement sous tension.",
       timeLimit: 55,
@@ -2144,6 +2290,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Locaux & accès",
       explanation:
         "Le balisage informe et matérialise des limites ; il ne remplace ni la vigilance ni les règles d’accès.",
       timeLimit: 65,
@@ -2160,6 +2307,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Zones d'approche",
       explanation:
         "Le risque dépend aussi du contexte de travail et de la nature des installations présentes.",
       timeLimit: 85,
@@ -2175,6 +2323,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 3],
       multiple: true,
+      chapterLabel: "Zones d'approche",
       explanation:
         "Un déplacement, un outil ou une manutention peuvent créer un risque sans intervention électrique directe.",
       timeLimit: 85,
@@ -2189,6 +2338,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un outil isolé",
       ],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "Le contact direct concerne les parties actives normalement sous tension.",
       timeLimit: 40,
@@ -2203,6 +2353,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un balisage de sécurité",
       ],
       answer: [1],
+      chapterLabel: "Risque électrique",
       explanation:
         "Le contact indirect concerne une masse mise accidentellement sous tension.",
       timeLimit: 40,
@@ -2218,6 +2369,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "Le courant électrique peut provoquer des atteintes graves, pas une amélioration des réflexes.",
       timeLimit: 75,
@@ -2233,6 +2385,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Risque électrique",
       explanation:
         "L’humidité augmente le risque ; elle ne le supprime pas.",
       timeLimit: 60,
@@ -2248,6 +2401,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1, 3],
       multiple: true,
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le personnel B0 / H0 / H0V doit signaler et se protéger, pas réparer.",
       timeLimit: 70,
@@ -2263,6 +2417,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 3],
       multiple: true,
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le nettoyage dans le cadre autorisé n’est pas en soi incompatible ; les autres actions le sont.",
       timeLimit: 85,
@@ -2277,6 +2432,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Faire l’opération si elle paraît simple",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "Le doute impose l’arrêt et la demande d’avis, pas l’improvisation.",
       timeLimit: 45,
@@ -2291,6 +2447,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "La déplacer sans attendre",
       ],
       answer: [1],
+      chapterLabel: "Conduite à tenir",
       explanation:
         "La priorité est d’éviter le suraccident en supprimant le danger électrique.",
       timeLimit: 55,
@@ -2306,6 +2463,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 3],
       multiple: true,
+      chapterLabel: "Conduite à tenir",
       explanation:
         "L’eau sur une installation sous tension est à proscrire.",
       timeLimit: 80,
@@ -2321,6 +2479,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 2, 3],
       multiple: true,
+      chapterLabel: "Habilitation",
       explanation:
         "Le maintien des compétences et la revue périodique sont indispensables ; une habilitation n’est jamais acquise définitivement.",
       timeLimit: 80,
@@ -2336,6 +2495,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Habilitation",
       explanation:
         "La réussite à l’évaluation théorique ne remplace jamais l’aptitude médicale requise.",
       timeLimit: 75,
@@ -2351,6 +2511,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [1, 2],
       multiple: true,
+      chapterLabel: "Habilitation",
       explanation:
         "L’intérimaire est habilité par l’entreprise qui l’accueille pour les opérations concernées, pas par le formateur.",
       timeLimit: 80,
@@ -2367,6 +2528,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 3],
       multiple: true,
+      chapterLabel: "Zones d’approche",
       explanation:
         "Une installation en fonctionnement n’est jamais automatiquement sans danger.",
       timeLimit: 90,
@@ -2383,6 +2545,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 4],
       multiple: true,
+      chapterLabel: "Locaux & accès",
       explanation:
         "Le nettoyage B0 / H0 / H0V reste une opération non électrique, sans action sur les protections ou équipements électriques.",
       timeLimit: 90,
@@ -2399,6 +2562,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2, 4],
       multiple: true,
+      chapterLabel: "Conduite à tenir",
       explanation:
         "L’improvisation est incompatible avec la prévention du risque électrique.",
       timeLimit: 90,
@@ -2415,6 +2579,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Bleu",
       ],
       answer: [2],
+      chapterLabel: "Zones d’approche",
       explanation:
         "Le grillage avertisseur rouge signale les canalisations électriques enterrées. Jaune = gaz, vert = eau potable, bleu = eau non potable, blanc = télécommunications. Découvrir ce grillage lors d’un terrassement impose l’arrêt immédiat des travaux mécaniques et l’information du responsable de chantier.",
       timeLimit: 40,
@@ -2429,6 +2594,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "5 m",
       ],
       answer: [2],
+      chapterLabel: "Zones d'approche",
       explanation:
         "La DLVS en HTA (1 kV à 50 kV) est de 3 m. La Distance Limite de Voisinage Renforcé (DLVR) en HTA est de 2 m. En HTB (> 50 kV), la DLVS monte à 5 m. Un titulaire H0V ne peut pénétrer en zone de voisinage HT que dans un cadre strictement organisé avec autorisation et surveillance appropriées.",
       timeLimit: 45,
@@ -2445,6 +2611,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "L’appareil est alimenté en très basse tension (TBTS)",
       ],
       answer: [1],
+      chapterLabel: "Locaux & accès",
       explanation:
         "Le symbole du double carré (□□) identifie les matériels de classe II, dotés d’une double isolation ou d’une isolation renforcée. Ces appareils n’ont pas besoin de mise à la terre car leur conception évite tout contact dangereux avec des parties conductrices en cas de défaut.",
       timeLimit: 45,
@@ -2461,6 +2628,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Oui, s’il est surveillé en permanence",
       ],
       answer: [2],
+      chapterLabel: "Locaux & accès",
       explanation:
         "Les matériels de classe 0 ne possèdent qu’une isolation principale. En cas de défaut d’isolement, l’utilisateur peut être électrisé sans protection. Leur usage est interdit en milieu professionnel en France. La réglementation impose au minimum la classe I (avec mise à la terre) ou la classe II (double isolation).",
       timeLimit: 40,
@@ -2479,6 +2647,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Second chiffre 0 (aucune protection)",
       ],
       answer: [2],
+      chapterLabel: "Locaux & accès",
       explanation:
         "En extérieur exposé aux intempéries, le second chiffre de l’indice IP doit être au minimum 4, garantissant la protection contre les projections d’eau de toutes directions. Un second chiffre de 3 (aspersion 60°) ne suffit pas pour une installation pleinement exposée à la pluie.",
       timeLimit: 45,
@@ -2497,6 +2666,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Un SSI, un sprinkler et un RIA",
       ],
       answer: [0],
+      chapterLabel: "Bases du feu",
       explanation:
         "La prévention incendie agit d'abord sur les sources d'ignition, les combustibles et les conditions de propagation.",
       timeLimit: 45,
@@ -2516,6 +2686,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Couper soi-même tous les équipements sans consigne",
       ],
       answer: [1],
+      chapterLabel: "Alerte & évacuation",
       explanation:
         "L'alerte doit partir vite. La reconnaissance ne doit pas se faire au prix d'une exposition inutile.",
       timeLimit: 40,
@@ -2536,6 +2707,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 2, 3],
       multiple: true,
+      chapterLabel: "Alerte & évacuation",
       explanation:
         "Une évacuation réussie repose sur le calme, la discipline, l'aide adaptée et l'interdiction de retour intempestif.",
       timeLimit: 70,
@@ -2551,6 +2723,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 2],
       multiple: true,
+      chapterLabel: "Moyens d'extinction",
       explanation:
         "On n'intervient que dans un cadre maîtrisé, sans s'exposer et sans retarder l'alerte ou l'évacuation.",
       timeLimit: 75,
@@ -2570,6 +2743,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "La distance n'a aucune importance",
       ],
       answer: [1],
+      chapterLabel: "Moyens d'extinction",
       explanation:
         "Le visuel rappelle un ordre de grandeur pédagogique de distance d'attaque, sans remplacer les consignes du site ni la formation pratique.",
       timeLimit: 50,
@@ -2590,6 +2764,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le repère 8",
       ],
       answer: [1],
+      chapterLabel: "Moyens d'extinction",
       explanation:
         "Le repère 2 du visuel correspond à la goupille de sécurité, élément de base à identifier avant toute utilisation encadrée de l'appareil.",
       timeLimit: 45,
@@ -2610,6 +2785,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Moyens d'extinction",
       explanation:
         "Le RIA est un moyen interne de première intervention. Il doit être disponible, signalé, bien implanté et utilisé dans un cadre cohérent avec les consignes du site.",
       timeLimit: 75,
@@ -2630,6 +2806,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1],
       multiple: true,
+      chapterLabel: "Moyens d’extinction",
       explanation:
         "L’usage au voisinage d’une origine électrique impose un appareil adapté et une vigilance forte sur les effets du ruissellement et l’exposition de l’intervenant.",
       timeLimit: 70,
@@ -2651,6 +2828,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      chapterLabel: "Réglementation",
       explanation:
         "Le socle de base repose notamment sur les moyens de secours, les consignes, les essais et les exercices, pas sur la banalisation des écarts.",
       timeLimit: 75,
@@ -3096,6 +3274,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Le sprinkler agit localement et precocement. Il ne remplace ni l'organisation du site ni les autres moyens de securite incendie.",
+      chapterLabel: "Principe sprinkler",
       timeLimit: 70,
       contextLabel:
         "Une installation sprinkler doit être lue comme une protection technique integree a une strategie incendie plus large.",
@@ -3116,6 +3295,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Le sprinkler repose sur un ensemble cohérent: têtes, réseau, contrôle, alimentation en eau et alarmes.",
+      chapterLabel: "Composants",
       timeLimit: 70,
       contextLabel:
         "Le réseau sprinkler comprend plusieurs parties visibles ou techniques qu'un exploitant doit savoir reconnaître.",
@@ -3136,6 +3316,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Une petite anomalie apparente peut degrader fortement la protection reelle du site.",
+      chapterLabel: "Maintenance",
       timeLimit: 80,
     },
     {
@@ -3151,6 +3332,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Le sprinkler reste efficace dans un cadre de conception et d'exploitation donne, qu'il faut preserver dans le temps.",
+      chapterLabel: "Réglementation",
       timeLimit: 75,
     },
     {
@@ -3166,6 +3348,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Ces référentiels peuvent s'appliquer selon le contexte technique, contractuel ou assurantiel du site.",
+      chapterLabel: "Réglementation",
       timeLimit: 80,
       contextLabel:
         "Le monde sprinkler s'appuie sur plusieurs référentiels techniques selon le site protégé et ses exigences d'assurance.",
@@ -3186,6 +3369,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Une indisponibilite sprinkler se pilote avec methode, tracabilite et mesures compensatoires adaptees.",
+      chapterLabel: "Maintenance",
       timeLimit: 75,
     },
     {
@@ -3201,6 +3385,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Le sprinkler est un maillon d'une strategie plus large qui depend aussi du stockage, des cellules, de l'organisation et du risque reel.",
+      chapterLabel: "Réglementation",
       timeLimit: 75,
     },
     {
@@ -3216,6 +3401,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "La qualite d'exploitation se voit dans la surveillance, la tracabilite et le traitement effectif des ecarts.",
+      chapterLabel: "Maintenance",
       timeLimit: 65,
     },
     {
@@ -3231,6 +3417,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Les têtes sprinkler doivent rester intactes, dégagées et adaptees au volume protégé. Un choc, une peinture ou un obstacle modifient la protection.",
+      chapterLabel: "Composants",
       timeLimit: 75,
       contextLabel:
         "L'exploitation quotidienne doit aussi surveiller les têtes sprinkler, leur dégagement et l'absence d'obstacle ou de choc visible.",
@@ -3251,6 +3438,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "L'exploitant doit pouvoir lire l'etat de l'installation, acceder aux organes et detecter un ecart sans perdre de temps.",
+      chapterLabel: "Maintenance",
       timeLimit: 75,
       imagePath: "/images/installation-spk.jpg",
       imageAlt:
@@ -3267,6 +3455,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Le sprinkler détecte (par bulbe ou ampoule thermosensible) puis éteint ou contient l'incendie en arrosant la zone concernée.",
+      chapterLabel: "Principe sprinkler",
     },
     {
       question: "Le déclenchement d'une tête sprinkler classique se fait par :",
@@ -3279,6 +3468,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "La tête sprinkler à bulbe libère l'eau quand la chaleur atteint la température de tarage du bulbe (généralement 68 °C ou 79 °C).",
+      chapterLabel: "Principe sprinkler",
     },
     {
       question: "Les principaux référentiels techniques pour le sprinkler sont :",
@@ -3292,6 +3482,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "EN 12845 (norme européenne), APSAD R1 (référentiel assureur français), NFPA 13 (USA, exigeant en logistique), FM Global (assureur). NF C 18-510 concerne l'habilitation électrique, pas le sprinkler.",
+      chapterLabel: "Réglementation",
     },
     {
       question: "Une tête sprinkler à bulbe ROUGE est tarée à environ :",
@@ -3304,6 +3495,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Le code couleur des bulbes : orange = 57 °C, rouge = 68 °C, jaune = 79 °C, vert = 93 °C, bleu = 141 °C, mauve = 182 °C, noir = 204+ °C.",
+      chapterLabel: "Composants",
     },
     {
       question: "Le poste de contrôle d'une installation sprinkler comporte typiquement :",
@@ -3316,6 +3508,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "Le poste de contrôle : vanne d'isolement, clapet anti-retour avec gong hydraulique d'alarme, manomètres pression amont et aval, dispositif de test.",
+      chapterLabel: "Composants",
     },
     {
       question: "Une vanne sprinkler trouvée fermée alors qu'elle devrait être ouverte représente :",
@@ -3328,6 +3521,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Une vanne fermée à tort rend l'installation inopérante. C'est l'une des causes les plus fréquentes de défaillance, à signaler et corriger sans délai.",
+      chapterLabel: "Maintenance",
     },
     {
       question: "Un essai hebdomadaire (essai du gong d'alarme) doit être consigné dans :",
@@ -3340,6 +3534,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "Le registre d'exploitation trace tous les essais (hebdomadaires, mensuels, annuels), anomalies et opérations de maintenance, conformément à l'EN 12845 et l'APSAD R1.",
+      chapterLabel: "Maintenance",
     },
     {
       question: "L'APSAD R1 est :",
@@ -3352,6 +3547,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "L'APSAD R1 (Centre National de Prévention et de Protection / CNPP) est le référentiel d'installation, vérification et maintenance des installations sprinkler en France, reconnu par les assureurs.",
+      chapterLabel: "Réglementation",
     },
     {
       question: "Le risque le plus fréquent d'indisponibilité d'une installation sprinkler vient de :",
@@ -3364,6 +3560,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "Vannes fermées, stockage qui masque les têtes, source d'eau coupée : c'est ce que les exploitants doivent surveiller en priorité.",
+      chapterLabel: "Maintenance",
     },
     {
       question: "L'eau d'une installation sprinkler peut-elle être utilisée à d'autres fins (lavage, arrosage) ?",
@@ -3376,6 +3573,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Le réseau et la source d'eau sprinkler sont dédiés. Tout détournement compromet la disponibilité en cas d'incendie et est interdit par les référentiels.",
+      chapterLabel: "Maintenance",
     },
     {
       question: "Une installation sprinkler de type « sous eau » signifie :",
@@ -3388,6 +3586,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "Le système sous eau (« wet pipe ») est rempli d'eau sous pression en aval du clapet, prêt à arroser dès qu'une tête s'ouvre. C'est le plus courant.",
+      chapterLabel: "Principe sprinkler",
     },
     {
       question: "Un système « sous air » (dry pipe) est utilisé :",
@@ -3400,6 +3599,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Le système sous air remplace l'eau par de l'air comprimé en aval du clapet, pour éviter le gel des canalisations dans les zones non chauffées.",
+      chapterLabel: "Principe sprinkler",
     },
     {
       question: "Une modification du stockage (hauteur, type de produit) peut nécessiter :",
@@ -3412,6 +3612,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Toute modification significative (hauteur, densité combustible, géométrie) peut sortir l'installation de son périmètre de conception. Un avis bureau d'études et assureur est nécessaire.",
+      chapterLabel: "Réglementation",
     },
     {
       question: "Un travail par points chauds dans une zone protégée par sprinkler nécessite :",
@@ -3424,6 +3625,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "Permis de feu obligatoire, avec procédure de neutralisation locale temporaire et réarmement immédiat à la fin des travaux, sous suivi de l'exploitant.",
+      chapterLabel: "Maintenance",
     },
     {
       question: "Le rôle du chargé d'exploitation sprinkler inclut :",
@@ -3437,6 +3639,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       multiple: true,
       explanation:
         "Essais périodiques, registre, coordination avec mainteneur et assureur, signalement des anomalies. Les modifications techniques relèvent de l'installateur ou du mainteneur qualifié.",
+      chapterLabel: "Maintenance",
     },
     {
       question: "Quelle est la différence entre l'APSAD R1 et l'APSAD R5 ?",
@@ -3449,6 +3652,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "L'APSAD R1 est le référentiel d'installation, vérification et maintenance des systèmes sprinkler (extinction automatique par eau). L'APSAD R5 est le référentiel équivalent pour les Robinets d'Incendie Armés (RIA). Ces deux référentiels sont émis par le CNPP (Centre National de Prévention et de Protection) et sont reconnus par les assureurs français. Les deux peuvent coexister sur un même site.",
+      chapterLabel: "Réglementation",
       timeLimit: 35,
     },
     {
@@ -3463,6 +3667,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "La classification des modes de stockage pour le calcul des besoins sprinkler selon l'APSAD R1 / EN 12845 : ST1 = empilage libre (palettes directement au sol, sans structure métallique) ; ST2 = palettes sur racks à rangées simples (une palette de profondeur) ; ST3 = palettes sur racks à rangées multiples (back-to-back, plusieurs palettes de profondeur) ; ST4 = racks à grande hauteur avec têtes sprinkler intermédiaires obligatoires entre niveaux lorsque l'écart vertical dépasse 1,2 m entre la marchandise et les têtes de plafond.",
+      chapterLabel: "Réglementation",
       timeLimit: 40,
     },
     {
@@ -3477,6 +3682,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [0],
       explanation:
         "La tête ELO (Élevé Oblique) est conçue pour les toitures inclinées (chais, entrepôts agricoles) : son déflecteur oriente le jet obliquement selon l'angle du plafond. Sa température de déclenchement est élevée (ex. 160 °C pour les zones chaudes comme les chais de vieillissement en fût) et son K-factor élevé (K≈141) assure un grand débit hydraulique couvrant une grande surface. La tête SSU standard est montée verticalement, déclenchement à 68 °C (bulbe rouge, standard) ou 79 °C (bulbe jaune), K≈68. Le choix dépend de la géométrie du bâtiment et de la température ambiante maximale.",
+      chapterLabel: "Composants",
       timeLimit: 40,
     },
     {
@@ -3491,6 +3697,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "La pompe jockey (ou de maintien) est une petite pompe (typiquement 5 m³/h à 110 mCE) dont le seul rôle est de compenser les micro-fuites du réseau et de maintenir la pression nominale entre 0 et 5 m³/h. Si une tête se déclenche ou si une fuite importante survient, la jockey ne peut pas suivre la demande en débit — elle s'épuise et tourne en continu. Ses démarrages fréquents et rapprochés constituent une alarme de type B à investiguer immédiatement. La source principale reste l'électropompe et/ou le groupe motopompe diesel.",
+      chapterLabel: "Composants",
       timeLimit: 40,
     },
     {
@@ -3505,6 +3712,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Pour les risques liquides inflammables (hydrocarbures, alcools, distilleries), l'eau seule provoquerait une vaporisation explosive et l'extension du feu. L'émulseur AFFF (Aqueous Film-Forming Foam) à 3 % crée un film aqueux sur la surface du liquide qui stoppe l'émission de vapeurs inflammables. L'alternative FFF (fluorcompound-free, sans PFAS) offre les mêmes performances sur hydrocarbures et solvants polaires. Le dosage est assuré par une pompe FIREDOS (hydraulique, sans électricité) ou un tank proportionnel. L'autonomie minimale demandée est généralement 30 minutes.",
+      chapterLabel: "Principe sprinkler",
       timeLimit: 40,
     },
     {
@@ -3519,6 +3727,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Les besoins hydrauliques sont calculés sur la zone hydrauliquement la plus défavorisée : la portion du réseau où la pression disponible est la plus faible (la zone la plus éloignée de la source ou la plus haute en altitude). Ce calcul détermine le débit requis, la pression minimale à la pompe et le volume de réserve d'eau nécessaire. Si la pression et le débit sont suffisants dans la zone critique, ils seront suffisants partout ailleurs — c'est le principe du dimensionnement par la zone défavorisée.",
+      chapterLabel: "Composants",
       timeLimit: 35,
     },
     {
@@ -3533,6 +3742,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Peindre une tête sprinkler est formellement interdit par tous les référentiels (EN 12845, APSAD R1, NFPA 13). La peinture crée une isolation thermique autour de l'ampoule en verre ou du bulbe à fusible, pouvant retarder le déclenchement (la tête répond trop tard lors d'un incendie réel). À l'inverse, une peinture trop épaisse peut fragiliser le mécanisme de maintien jusqu'à la rupture intempestive. Une tête peinte, heurtée ou visuellement déformée doit être remplacée immédiatement — même si elle n'a pas coulé.",
+      chapterLabel: "Maintenance",
       timeLimit: 35,
     },
     {
@@ -3547,6 +3757,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       answer: [1],
       explanation:
         "Distinction clé selon la NF EN 12845 : Alarme type A = signal de débit d'eau dans le réseau ou mise en marche d'une pompe → incendie réel ou probable → réponse incendie immédiate (alerte pompiers, évacuation, vérification terrain). Alarme type B = défaut technique : basse pression d'air en système sec, vanne partiellement fermée, défaut secteur, niveau carburant diesel bas → pas d'incendie, mais dégradation de disponibilité → appel technicien maintenance. Confondre ces deux types est une erreur fréquente et potentiellement fatale.",
+      chapterLabel: "Maintenance",
       timeLimit: 35,
     },
   ],
