@@ -40,20 +40,25 @@ export async function GET() {
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
+  type SlotShape = {
+    date: string;
+    start_time: string;
+    end_time: string;
+    formation_type: string;
+    notes: string | null;
+  };
+  type ProfShape = {
+    first_name: string | null;
+    last_name: string | null;
+    email: string | null;
+  };
+
   // Formater pour FullCalendar
   const events = (data ?? []).map((b) => {
-    const slot = b.interview_slots as {
-      date: string;
-      start_time: string;
-      end_time: string;
-      formation_type: string;
-      notes: string | null;
-    };
-    const prof = b.profiles as {
-      first_name: string | null;
-      last_name: string | null;
-      email: string | null;
-    };
+    const rawSlot = b.interview_slots;
+    const slot: SlotShape = (Array.isArray(rawSlot) ? rawSlot[0] : rawSlot) as SlotShape;
+    const rawProf = b.profiles;
+    const prof: ProfShape = (Array.isArray(rawProf) ? rawProf[0] : rawProf) as ProfShape;
 
     const name = [prof.first_name, prof.last_name].filter(Boolean).join(" ") || prof.email || "Apprenant";
     const typeLabel = slot.formation_type === "h0b0"
