@@ -56,6 +56,13 @@ type QuizContext = {
 
 const DEFAULT_QUESTION_TIME_LIMIT = 60;
 
+/**
+ * Nombre maximum de questions présentées par tentative.
+ * Les questions éliminatoires sont toujours incluses ; le reste est
+ * tiré aléatoirement depuis la banque pour varier à chaque tentative.
+ */
+const MAX_QUIZ_QUESTIONS = 45;
+
 function arraysEqual(a: number[] = [], b: number[] = []) {
   if (a.length !== b.length) return false;
 
@@ -93,11 +100,32 @@ export default function QuizPage() {
   );
   const formattedFormationLabel = formatFrenchDisplayText(formationLabel);
 
-  const quiz: QuizQuestion[] = useMemo(() => {
+  /** Banque complète de questions pour ce module */
+  const allQuestions: QuizQuestion[] = useMemo(() => {
     return quizContent[canonicalSlug] ?? [];
   }, [canonicalSlug]);
 
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
+
+  /**
+   * Sous-ensemble de questions à présenter pour cette tentative.
+   * Si la banque dépasse MAX_QUIZ_QUESTIONS, on prend toutes les questions
+   * éliminatoires + un tirage aléatoire (basé sur shuffleSeed) parmi les autres.
+   * Cela garantit la variété entre tentatives tout en respectant le plafond.
+   */
+  const quiz: QuizQuestion[] = useMemo(() => {
+    if (allQuestions.length <= MAX_QUIZ_QUESTIONS) return allQuestions;
+
+    const eliminatory = allQuestions.filter((q) => q.eliminatory);
+    const regular = allQuestions.filter((q) => !q.eliminatory);
+
+    const regularNeeded = Math.max(0, MAX_QUIZ_QUESTIONS - eliminatory.length);
+    // Tirage aléatoire reproductible parmi les questions régulières
+    const shuffledRegular = seededShuffle(regular, shuffleSeed ^ 0xdeadbeef);
+    const selected = shuffledRegular.slice(0, regularNeeded);
+
+    return [...eliminatory, ...selected];
+  }, [allQuestions, shuffleSeed]);
 
   const shuffledQuiz = useMemo((): QuizQuestion[] => {
     if (!quiz.length) return [];
