@@ -230,6 +230,12 @@ export default async function AdminPage({
               >
                 Analytics quiz
               </Link>
+              <Link
+                href="/admin/calendrier-global"
+                className="inline-flex items-center rounded-xl border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
+              >
+                📅 Calendrier
+              </Link>
             </div>
           </div>
         </div>
