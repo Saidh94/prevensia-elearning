@@ -1,0 +1,92 @@
+import { createClient } from "@/lib/supabase/server";
+import { NextResponse } from "next/server";
+import { deleteZoomMeeting } from "@/lib/zoom";
+
+// DELETE — supprimer un créneau (et annuler les réunions Zoom associées)
+export async function DELETE(
+  _req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (profile?.role !== "admin") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
+  // Récupérer les réservations pour supprimer les réunions Zoom
+  const { data: bookings } = await supabase
+    .from("interview_bookings")
+    .select("zoom_meeting_id")
+    .eq("slot_id", id)
+    .eq("status", "confirmed");
+
+  // Supprimer les réunions Zoom (best-effort)
+  if (bookings) {
+    for (const b of bookings) {
+      if (b.zoom_meeting_id) {
+        try {
+          await deleteZoomMeeting(b.zoom_meeting_id);
+        } catch {
+          // non-bloquant
+        }
+      }
+    }
+  }
+
+  // Supprimer le créneau (cascade supprime les bookings)
+  const { error } = await supabase.from("interview_slots").delete().eq("id", id);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  return NextResponse.json({ ok: true });
+}
+
+// PATCH — modifier notes ou max_participants
+export async function PATCH(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (profile?.role !== "admin") return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
+  const body = await req.json();
+  const allowed = ["notes", "max_participants"] as const;
+  const updates: Record<string, unknown> = {};
+  for (const key of allowed) {
+    if (key in body) updates[key] = body[key];
+  }
+
+  if (Object.keys(updates).length === 0) {
+    return NextResponse.json({ error: "Rien à mettre à jour" }, { status: 400 });
+  }
+
+  const { data, error } = await supabase
+    .from("interview_slots")
+    .update(updates)
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data);
+}

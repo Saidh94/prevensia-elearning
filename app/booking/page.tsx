@@ -144,8 +144,7 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
       duration: "30 min",
       audience: "Individuel",
       ctaLabel: "Réserver l'entretien H0B0 / H0V",
-      ctaHref: "https://calendly.com/prevensia-formation-kq6l/30min",
-      ctaExternal: true,
+      ctaHref: `/entretien?enrollment_id=${enrollment.id}&type=h0b0`,
       variant: "green",
       note: "L'entretien complète le module théorique et prépare la validation finale du parcours.",
     };
@@ -215,8 +214,7 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
       duration: "30 min",
       audience: "Individuel",
       ctaLabel: "Réserver l'entretien ATEX",
-      ctaHref: "https://calendly.com/prevensia-formation-kq6l/30min",
-      ctaExternal: true,
+      ctaHref: `/entretien?enrollment_id=${enrollment.id}&type=atex`,
       variant: "amber" as const,
       note: "L'entretien valide la compréhension du zonage ATEX, des EPI requis et des procédures de travail en zone explosive.",
     };

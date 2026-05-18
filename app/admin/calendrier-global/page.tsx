@@ -56,7 +56,7 @@ export default async function AdminCalendrierGlobalPage() {
                 Calendrier global
               </h1>
               <p className="mt-2 text-sm text-slate-500">
-                Vue unifiée — entretiens Calendly, sessions virtuelles et présentiel
+                Vue unifiée — entretiens de validation, sessions virtuelles et présentiel
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -79,7 +79,7 @@ export default async function AdminCalendrierGlobalPage() {
           <div className="mt-4 flex flex-wrap gap-4 border-t border-slate-100 pt-4">
             <div className="flex items-center gap-2 text-sm text-slate-600">
               <span className="inline-block h-3 w-3 rounded-full bg-emerald-500"></span>
-              Entretiens Calendly (H0B0 / ATEX)
+              Entretiens de validation (H0B0 / ATEX)
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-600">
               <span className="inline-block h-3 w-3 rounded-full bg-blue-500"></span>
@@ -88,10 +88,6 @@ export default async function AdminCalendrierGlobalPage() {
             <div className="flex items-center gap-2 text-sm text-slate-600">
               <span className="inline-block h-3 w-3 rounded-full bg-orange-500"></span>
               Sessions présentiel (planning)
-            </div>
-            <div className="flex items-center gap-2 text-sm text-slate-600">
-              <span className="inline-block h-3 w-3 rounded-full bg-amber-400"></span>
-              Entretiens à planifier
             </div>
           </div>
         </div>

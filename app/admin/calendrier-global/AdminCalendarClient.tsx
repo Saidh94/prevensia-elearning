@@ -26,13 +26,15 @@ type SelectedEvent = {
   title: string;
   start: string;
   end: string;
-  type: "calendly" | "virtual" | "presentiel";
+  type: "interview" | "virtual" | "presentiel";
   invitees?: number;
   limit?: number;
   location?: string;
   note?: string;
   meetingUrl?: string;
   seats?: number;
+  learnerName?: string;
+  learnerEmail?: string;
 };
 
 export function AdminCalendarClient({
@@ -40,19 +42,18 @@ export function AdminCalendarClient({
 }: {
   virtualSessions: VirtualSession[];
 }) {
-  const [calendlyEvents, setCalendlyEvents] = useState<EventInput[]>([]);
+  const [interviewEvents, setInterviewEvents] = useState<EventInput[]>([]);
   const [presentielEvents, setPresentielEvents] = useState<EventInput[]>([]);
-  const [calendlyError, setCalendlyError] = useState<string | null>(null);
   const [selected, setSelected] = useState<SelectedEvent | null>(null);
   const calendarRef = useRef<FullCalendar>(null);
 
-  // Charger les événements Calendly
+  // Charger les entretiens réservés
   useEffect(() => {
-    fetch("/api/admin/calendly-events")
+    fetch("/api/admin/interview-bookings")
       .then((r) => r.json())
       .then((data: unknown) => {
         if (Array.isArray(data)) {
-          setCalendlyEvents(
+          setInterviewEvents(
             (data as EventInput[]).map((ev) => ({
               ...ev,
               backgroundColor: "#10b981",
@@ -60,11 +61,9 @@ export function AdminCalendarClient({
               textColor: "#fff",
             }))
           );
-        } else if (data && typeof data === "object" && "error" in data) {
-          setCalendlyError(String((data as { error: string }).error));
         }
       })
-      .catch(() => setCalendlyError("Impossible de contacter Calendly"));
+      .catch(() => {});
   }, []);
 
   // Charger les sessions présentiel
@@ -128,20 +127,22 @@ export function AdminCalendarClient({
   }));
 
   const allEvents: EventInput[] = [
-    ...calendlyEvents,
+    ...interviewEvents,
     ...virtualEvents,
     ...presentielEvents,
   ];
 
   function handleEventClick(info: EventClickArg) {
     const p = info.event.extendedProps as {
-      type: "calendly" | "virtual" | "presentiel";
+      type: "interview" | "virtual" | "presentiel";
       invitees?: number;
       limit?: number;
       location?: string;
       note?: string;
       meetingUrl?: string;
       seats?: number;
+      learnerName?: string;
+      learnerEmail?: string;
     };
     setSelected({
       title: info.event.title,
@@ -154,35 +155,25 @@ export function AdminCalendarClient({
       note: p.note,
       meetingUrl: p.meetingUrl,
       seats: p.seats,
+      learnerName: p.learnerName,
+      learnerEmail: p.learnerEmail,
     });
   }
 
   const typeLabel: Record<string, string> = {
-    calendly: "Entretien Calendly",
+    interview: "Entretien de validation",
     virtual: "Session virtuelle",
     presentiel: "Session présentiel",
   };
 
   const typeBadge: Record<string, string> = {
-    calendly: "bg-emerald-100 text-emerald-800",
+    interview: "bg-emerald-100 text-emerald-800",
     virtual: "bg-blue-100 text-blue-800",
     presentiel: "bg-orange-100 text-orange-800",
   };
 
   return (
     <div>
-      {/* Erreur Calendly non bloquante */}
-      {calendlyError && (
-        <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          ⚠ Calendly : {calendlyError}
-          {calendlyError.includes("non configuré") && (
-            <span className="ml-1">
-              — Ajoute <code className="rounded bg-amber-100 px-1">CALENDLY_API_TOKEN</code> dans les variables d&apos;environnement Vercel.
-            </span>
-          )}
-        </div>
-      )}
-
       {/* Calendrier */}
       <div className="fc-prevensia">
         <FullCalendar
@@ -256,6 +247,15 @@ export function AdminCalendarClient({
                   <span className="font-semibold">Lieu :</span> {selected.location}
                 </p>
               )}
+              {selected.learnerName && (
+                <p>
+                  <span className="font-semibold">Apprenant :</span>{" "}
+                  {selected.learnerName}
+                  {selected.learnerEmail && (
+                    <span className="ml-1 text-slate-500">({selected.learnerEmail})</span>
+                  )}
+                </p>
+              )}
               {selected.invitees !== undefined && selected.limit !== undefined && (
                 <p>
                   <span className="font-semibold">Inscrits :</span>{" "}
@@ -274,7 +274,7 @@ export function AdminCalendarClient({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 font-semibold text-blue-700 underline underline-offset-2"
                 >
-                  Rejoindre la visio →
+                  Démarrer / Rejoindre la visio →
                 </a>
               )}
             </div>
