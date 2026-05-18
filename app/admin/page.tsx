@@ -11,6 +11,8 @@ import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { ConfirmActivateButton } from "./components/ConfirmActivateButton";
+import { ConfirmPaymentButton } from "./components/ConfirmPaymentButton";
 import { ForceAttestationButton } from "./components/ForceAttestationButton";
 import { SessionsCapacityWidget } from "./components/SessionsCapacityWidget";
 
@@ -288,6 +290,31 @@ export default async function AdminPage({
             </span>
           </div>
 
+          {/* ── Filtres rapides ── */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 self-center mr-1">Accès rapide :</span>
+            <a href="/admin?status=pending_interview" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'pending_interview' ? 'bg-amber-600 text-white' : 'bg-amber-100 text-amber-800 hover:bg-amber-200'}`}>
+              ⏳ Entretien à planifier ({rows.filter(r => r.status === 'pending_interview').length})
+            </a>
+            <a href="/admin?payment=pending" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${paymentFilter === 'pending' ? 'bg-red-600 text-white' : 'bg-red-100 text-red-800 hover:bg-red-200'}`}>
+              💳 Paiement en attente ({rows.filter(r => r.paymentStatus === 'pending').length})
+            </a>
+            <a href="/admin?status=in_progress" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'in_progress' ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>
+              📚 En cours ({rows.filter(r => r.status === 'in_progress').length})
+            </a>
+            <a href="/admin?status=not_started" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'not_started' ? 'bg-slate-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+              🔒 Non démarrées ({rows.filter(r => r.status === 'not_started').length})
+            </a>
+            <a href="/admin?status=completed" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'completed' ? 'bg-violet-600 text-white' : 'bg-violet-100 text-violet-800 hover:bg-violet-200'}`}>
+              ✅ Terminées ({rows.filter(r => r.status === 'completed').length})
+            </a>
+            {(statusFilter || paymentFilter || companyFilter || q) && (
+              <a href="/admin" className="inline-flex items-center rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-300">
+                ✕ Réinitialiser
+              </a>
+            )}
+          </div>
+
           <form method="GET" className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
             <input
               type="text"
@@ -420,15 +447,7 @@ export default async function AdminPage({
                       <td className="px-4 py-4 whitespace-nowrap">
                         <div className="flex flex-col gap-2">
                           {isPaid ? (
-                            <form action="/api/admin/activate" method="POST">
-                              <input type="hidden" name="enrollmentId" value={item.id} />
-                              <button
-                                type="submit"
-                                className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-700"
-                              >
-                                Activer 30 jours
-                              </button>
-                            </form>
+                            <ConfirmActivateButton enrollmentId={item.id} learnerName={item.fullName} />
                           ) : (
                             <button
                               type="button"
@@ -465,15 +484,7 @@ export default async function AdminPage({
                             </a>
                           ) : null}
 
-                          <form action="/api/admin/payment" method="POST">
-                            <input type="hidden" name="enrollmentId" value={item.id} />
-                            <button
-                              type="submit"
-                              className="rounded-lg bg-emerald-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-emerald-700"
-                            >
-                              Marquer payé
-                            </button>
-                          </form>
+                          <ConfirmPaymentButton enrollmentId={item.id} learnerName={item.fullName} />
                           {canDownloadAttestation ? (
                             <form action="/api/attestation" method="POST">
                               <input
