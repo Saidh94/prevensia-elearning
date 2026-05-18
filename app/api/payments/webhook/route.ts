@@ -12,57 +12,52 @@ function getResend() {
   return new Resend(apiKey);
 }
 
-async function markEnrollmentAsPaid(session: Stripe.Checkout.Session) {
-  const enrollmentId =
+function getEnrollmentId(session: Stripe.Checkout.Session): string | null {
+  return (
     session.metadata?.enrollmentId?.trim() ||
-    session.client_reference_id?.trim();
+    session.client_reference_id?.trim() ||
+    null
+  );
+}
 
+// ── Marquer une inscription comme payée + envoyer la facture ────────────────
+async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
+  const enrollmentId = getEnrollmentId(session);
   if (!enrollmentId) {
-    console.warn("Stripe webhook sans enrollmentId", session.id);
+    console.warn("[Webhook] checkout sans enrollmentId", session.id);
     return;
   }
 
   const supabase = createAdminClient();
+  if (!supabase) throw new Error("SUPABASE_SERVICE_ROLE_KEY manquante.");
 
-  if (!supabase) {
-    throw new Error(
-      "SUPABASE_SERVICE_ROLE_KEY manquante. Le webhook Stripe ne peut pas mettre a jour le paiement."
-    );
-  }
-
-  // ── Mise à jour statut paiement ──────────────────────────────────────────
   const { error } = await supabase
     .from("enrollments")
     .update({ payment_status: "paid" })
     .eq("id", enrollmentId);
 
-  if (error) {
-    throw new Error(`Erreur mise a jour paiement: ${error.message}`);
-  }
+  if (error) throw new Error(`Erreur mise à jour paiement: ${error.message}`);
 
-  // ── Récupération de la facture Stripe ────────────────────────────────────
+  // ── Facture Stripe ─────────────────────────────────────────────────────────
   if (!session.invoice) return;
 
   try {
     const stripe = getStripeClient();
     const invoice = await stripe.invoices.retrieve(session.invoice as string);
-
     const invoiceUrl = invoice.hosted_invoice_url ?? null;
     const invoicePdfUrl = invoice.invoice_pdf ?? null;
-    const invoiceId = invoice.id;
 
-    // Stocker l'URL dans l'inscription
     await supabase
       .from("enrollments")
       .update({
-        stripe_invoice_id: invoiceId,
+        stripe_invoice_id: invoice.id,
         stripe_invoice_url: invoiceUrl,
         stripe_invoice_pdf: invoicePdfUrl,
       })
       .eq("id", enrollmentId);
 
-    // Envoyer l'email avec la facture si un email est disponible
-    const customerEmail = session.customer_email || session.customer_details?.email;
+    const customerEmail =
+      session.customer_email || session.customer_details?.email;
     const formationTitle = session.metadata?.formationTitle || "votre formation";
     const resend = getResend();
 
@@ -101,9 +96,125 @@ async function markEnrollmentAsPaid(session: Stripe.Checkout.Session) {
         `,
       });
     }
-  } catch (invoiceError) {
-    // Ne pas bloquer le webhook si la récupération de facture échoue
-    console.error("[Webhook] Erreur récupération facture Stripe :", invoiceError);
+  } catch (err) {
+    console.error("[Webhook] Erreur récupération facture Stripe :", err);
+  }
+}
+
+// ── Marquer une inscription comme "paiement en attente" ─────────────────────
+async function markEnrollmentPending(session: Stripe.Checkout.Session) {
+  const enrollmentId = getEnrollmentId(session);
+  if (!enrollmentId) {
+    console.warn("[Webhook] checkout sans enrollmentId (pending)", session.id);
+    return;
+  }
+
+  const supabase = createAdminClient();
+  if (!supabase) throw new Error("SUPABASE_SERVICE_ROLE_KEY manquante.");
+
+  const { error } = await supabase
+    .from("enrollments")
+    .update({ payment_status: "pending" })
+    .eq("id", enrollmentId);
+
+  if (error) throw new Error(`Erreur mise à jour paiement pending: ${error.message}`);
+
+  // ── Email d'information à l'apprenant ─────────────────────────────────────
+  const customerEmail =
+    session.customer_email || session.customer_details?.email;
+  const formationTitle = session.metadata?.formationTitle || "votre formation";
+  const resend = getResend();
+
+  if (resend && customerEmail) {
+    try {
+      await resend.emails.send({
+        from: "PREVENSIA <contact@prevensia-formation.fr>",
+        to: [customerEmail],
+        subject: `Paiement en cours de traitement — ${formationTitle}`,
+        html: `
+          <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+            <div style="margin-bottom:24px;">
+              <img src="https://prevensia-formation.fr/images/logo-prevensia.png" alt="PREVENSIA FORMATION" width="200" style="display:block;" />
+            </div>
+            <h2 style="color:#1e293b;">Votre paiement est en cours de traitement</h2>
+            <p>Bonjour,</p>
+            <p>Nous avons bien reçu votre demande de paiement par prélèvement SEPA ou virement bancaire pour :</p>
+            <p style="font-size:16px;font-weight:bold;color:#1e293b;">${formationTitle}</p>
+            <p>Ce mode de paiement nécessite un délai de traitement bancaire de <strong>2 à 6 jours ouvrés</strong>.</p>
+            <p>Votre accès à la formation sera activé automatiquement dès que le paiement sera confirmé par votre banque. Vous recevrez un e-mail de confirmation à ce moment-là.</p>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin:24px 0;">
+              <p style="margin:0;font-size:13px;color:#475569;">
+                💡 <strong>Besoin d'aide ?</strong> Contactez-nous à
+                <a href="mailto:contact@prevensia-formation.fr" style="color:#1e293b;">contact@prevensia-formation.fr</a>
+              </p>
+            </div>
+            <hr style="border:none;border-top:1px solid #e2e8f0;margin:28px 0;" />
+            <p style="font-size:12px;color:#94a3b8;">
+              PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
+              33, avenue Philippe Auguste — 75011 Paris<br />
+              Organisme certifié Qualiopi
+            </p>
+          </div>
+        `,
+      });
+    } catch (err) {
+      console.error("[Webhook] Erreur envoi email pending :", err);
+    }
+  }
+}
+
+// ── Marquer une inscription comme "paiement échoué" ─────────────────────────
+async function markEnrollmentFailed(session: Stripe.Checkout.Session) {
+  const enrollmentId = getEnrollmentId(session);
+  if (!enrollmentId) return;
+
+  const supabase = createAdminClient();
+  if (!supabase) throw new Error("SUPABASE_SERVICE_ROLE_KEY manquante.");
+
+  await supabase
+    .from("enrollments")
+    .update({ payment_status: "failed" })
+    .eq("id", enrollmentId);
+
+  // ── Email d'information échec ──────────────────────────────────────────────
+  const customerEmail =
+    session.customer_email || session.customer_details?.email;
+  const formationTitle = session.metadata?.formationTitle || "votre formation";
+  const resend = getResend();
+
+  if (resend && customerEmail) {
+    try {
+      await resend.emails.send({
+        from: "PREVENSIA <contact@prevensia-formation.fr>",
+        to: [customerEmail],
+        subject: `Échec du paiement — ${formationTitle}`,
+        html: `
+          <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+            <div style="margin-bottom:24px;">
+              <img src="https://prevensia-formation.fr/images/logo-prevensia.png" alt="PREVENSIA FORMATION" width="200" style="display:block;" />
+            </div>
+            <h2 style="color:#dc2626;">Votre paiement n'a pas pu être traité</h2>
+            <p>Bonjour,</p>
+            <p>Malheureusement, votre paiement par prélèvement SEPA pour <strong>${formationTitle}</strong> a été rejeté par votre banque.</p>
+            <p>Pour régulariser votre inscription, veuillez nous contacter :</p>
+            <p style="margin:28px 0;">
+              <a href="mailto:contact@prevensia-formation.fr"
+                style="display:inline-block;background:#1e293b;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">
+                Contacter PREVENSIA
+              </a>
+            </p>
+            <hr style="border:none;border-top:1px solid #e2e8f0;margin:28px 0;" />
+            <p style="font-size:12px;color:#94a3b8;">
+              PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
+              33, avenue Philippe Auguste — 75011 Paris<br />
+              Organisme certifié Qualiopi
+            </p>
+          </div>
+        `,
+      });
+    } catch (err) {
+      console.error("[Webhook] Erreur envoi email failed :", err);
+    }
   }
 }
 
@@ -127,8 +238,34 @@ export async function POST(request: Request) {
       webhookSecret
     );
 
-    if (event.type === "checkout.session.completed") {
-      await markEnrollmentAsPaid(event.data.object);
+    const session = event.data.object as Stripe.Checkout.Session;
+
+    switch (event.type) {
+      // ── Paiement immédiat (carte bancaire) ──────────────────────────────────
+      // ── OU confirmation que la session est complétée (sans paiement encore) ─
+      case "checkout.session.completed":
+        if (session.payment_status === "paid") {
+          // Carte : paiement immédiatement confirmé
+          await markEnrollmentPaid(session);
+        } else {
+          // SEPA / virement : paiement initié mais pas encore encaissé
+          await markEnrollmentPending(session);
+        }
+        break;
+
+      // ── Paiement asynchrone confirmé (SEPA, virement) ─────────────────────
+      case "checkout.session.async_payment_succeeded":
+        await markEnrollmentPaid(session);
+        break;
+
+      // ── Paiement asynchrone rejeté (ex. rejet SEPA) ───────────────────────
+      case "checkout.session.async_payment_failed":
+        await markEnrollmentFailed(session);
+        break;
+
+      default:
+        // Événement non géré — ignorer silencieusement
+        break;
     }
 
     return NextResponse.json({ received: true });

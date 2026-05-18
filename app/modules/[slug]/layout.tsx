@@ -187,6 +187,56 @@ export default async function ModuleLayout({
   const displayFormationTitle =
     formation?.title ?? getModuleLabelBySlug(normalizedRouteSlug);
 
+  // \u2500\u2500 Cas sp\u00e9cial : paiement SEPA/virement en cours de traitement \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  if (
+    !hasAccess &&
+    enrollment?.payment_status === "pending"
+  ) {
+    return (
+      <main className="min-h-screen bg-slate-50 px-4 py-10">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-blue-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">
+            Paiement en cours
+          </p>
+          <h1 className="mt-3 text-3xl font-bold text-slate-900">
+            Votre paiement est en cours de traitement
+          </h1>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            Votre paiement par pr\u00e9l\u00e8vement SEPA ou virement bancaire a bien \u00e9t\u00e9
+            initi\u00e9. Le traitement bancaire prend <strong>2 \u00e0 6 jours ouvr\u00e9s</strong>.
+          </p>
+          <p className="mt-3 text-base leading-7 text-slate-600">
+            Votre acc\u00e8s \u00e0{" "}
+            <strong>{displayFormationTitle}</strong>{" "}
+            sera activ\u00e9 automatiquement d\u00e8s confirmation de votre banque.
+            Vous recevrez un e-mail \u00e0 ce moment-l\u00e0.
+          </p>
+          <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5">
+            <p className="text-sm text-blue-800">
+              \ud83d\udca1 Si vous pensez que votre paiement a d\u00e9j\u00e0 \u00e9t\u00e9 valid\u00e9, patientez
+              quelques minutes puis rafra\u00eechissez la page. Pour toute question :
+              {" "}
+              <a
+                href="mailto:contact@prevensia-formation.fr"
+                className="font-semibold underline"
+              >
+                contact@prevensia-formation.fr
+              </a>
+            </p>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Retour au dashboard
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   if (!hasAccess) {
     return (
       <main className="min-h-screen bg-slate-50 px-4 py-10">
