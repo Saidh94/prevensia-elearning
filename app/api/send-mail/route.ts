@@ -475,7 +475,7 @@ async function upsertProfile(
       last_name: profile.lastName || null,
       phone: profile.phone || null,
       company: profile.company || null,
-      rôle: "learner",
+      role: "learner",
     },
     { onConflict: "id" }
   );
