@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { logAdminAction } from "@/lib/supabase/audit";
 
 export async function POST(req: Request) {
   try {
@@ -58,7 +59,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    console.log("[admin/payment] Enrollment", id, "marqué payé. Motif:", motif || "(non fourni)");
+    await logAdminAction({
+      adminId: user.id,
+      action: "payment_confirmed",
+      targetType: "enrollment",
+      targetId: id,
+      metadata: { motif: motif || null },
+    });
 
     if (contentType.includes("application/json")) {
       return NextResponse.json({ ok: true });

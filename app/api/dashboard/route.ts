@@ -41,6 +41,15 @@ type ChapterProgressRow = {
   updated_at: string | null;
 };
 
+type QuizAttemptRow = {
+  enrollment_id: string | null;
+  score: number;
+  total: number;
+  score_percent: number;
+  passed: boolean;
+  attempted_at: string;
+};
+
 function getSingleFormation(
   formation: FormationRow | FormationRow[] | null
 ): FormationRow | null {
@@ -118,6 +127,7 @@ export async function GET() {
       .filter((slug): slug is string => Boolean(slug));
 
     let chapterProgressRows: ChapterProgressRow[] = [];
+    let quizAttemptRows: QuizAttemptRow[] = [];
 
     if (formationSlugs.length > 0) {
       const { data: chapterProgress, error: chapterProgressError } =
@@ -146,12 +156,34 @@ export async function GET() {
       }
 
       chapterProgressRows = (chapterProgress ?? []) as ChapterProgressRow[];
+
+      // Récupérer les tentatives de quiz pour toutes les inscriptions
+      const enrollmentIds = typedEnrollments.map((e) => e.id).filter(Boolean);
+      if (enrollmentIds.length > 0) {
+        const { data: quizAttempts } = await supabase
+          .from("quiz_attempts")
+          .select("enrollment_id, score, total, score_percent, passed, attempted_at")
+          .eq("user_id", user.id)
+          .in("enrollment_id", enrollmentIds)
+          .order("attempted_at", { ascending: false });
+        quizAttemptRows = (quizAttempts ?? []) as QuizAttemptRow[];
+      }
     }
 
     const dashboardFormations = typedEnrollments.map((enrollment) => {
       const formation = getSingleFormation(enrollment.formation);
       const formationSlug = formation?.slug ?? null;
       const requiredChapterCount = getRequiredChapterCount(formationSlug);
+
+      // Quiz : toutes les tentatives pour cette inscription
+      const enrollmentAttempts = quizAttemptRows.filter(
+        (a) => a.enrollment_id === enrollment.id
+      );
+      const passedAttempt = enrollmentAttempts.find((a) => a.passed) ?? null;
+      const bestAttempt = enrollmentAttempts.reduce<QuizAttemptRow | null>(
+        (best, cur) => (!best || cur.score_percent > best.score_percent ? cur : best),
+        null
+      );
 
       const formationChapterRows = chapterProgressRows.filter(
         (row) => row.formation_slug === formationSlug
@@ -216,6 +248,11 @@ export async function GET() {
         access_end: enrollment.access_end,
         stripe_invoice_url: enrollment.stripe_invoice_url ?? null,
         stripe_invoice_pdf: enrollment.stripe_invoice_pdf ?? null,
+        // Quiz
+        quiz_attempts_count: enrollmentAttempts.length,
+        quiz_best_score_percent: bestAttempt?.score_percent ?? null,
+        quiz_passed: passedAttempt !== null,
+        quiz_passed_at: passedAttempt?.attempted_at ?? null,
       };
     });
 

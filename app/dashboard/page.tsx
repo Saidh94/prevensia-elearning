@@ -13,7 +13,7 @@ type DashboardFormation = {
   duration_hours: number | null;
   elearning_duration: string | null;
   mode: string | null;
-  status: "not_started" | "in_progress" | "completed" | string;
+  status: "not_started" | "in_progress" | "pending_interview" | "completed" | string;
   payment_status: "pending" | "paid" | "failed" | "refunded" | null;
   completion_percent: number;
   completed: boolean;
@@ -23,6 +23,11 @@ type DashboardFormation = {
   access_end: string | null;
   stripe_invoice_url: string | null;
   stripe_invoice_pdf: string | null;
+  // Quiz
+  quiz_attempts_count: number;
+  quiz_best_score_percent: number | null;
+  quiz_passed: boolean;
+  quiz_passed_at: string | null;
 };
 
 type DashboardResponse = {
@@ -42,11 +47,36 @@ type DashboardResponse = {
   formations: DashboardFormation[];
 };
 
-function getStatusLabel(status: string, completionPercent: number) {
-  if (status === "pending_interview") return "Entretien à planifier";
-  if (status === "completed" || completionPercent >= 100) return "Terminé";
-  if (status === "in_progress" || completionPercent > 0) return "En cours";
-  return "Non commencé";
+/** Retourne le statut enrichi (7 états) */
+function getStatusConfig(f: DashboardFormation): {
+  label: string;
+  color: string;
+} {
+  if (f.status === "completed") {
+    return { label: "✅ Parcours validé", color: "bg-emerald-50 text-emerald-700" };
+  }
+  if (f.status === "pending_interview") {
+    return { label: "📅 Entretien à planifier", color: "bg-blue-50 text-blue-700" };
+  }
+  if (f.quiz_passed) {
+    return { label: "🎯 Quiz réussi", color: "bg-indigo-50 text-indigo-700" };
+  }
+  if (f.completion_percent >= 100) {
+    return { label: "📝 Quiz à passer", color: "bg-purple-50 text-purple-700" };
+  }
+  if (f.completion_percent > 0) {
+    return { label: "▶️ En cours", color: "bg-amber-50 text-amber-700" };
+  }
+  return { label: "⏳ Non commencé", color: "bg-slate-100 text-slate-600" };
+}
+
+/** Retourne le nombre de jours avant expiration de l'accès */
+function daysUntilExpiry(accessEnd: string | null): number | null {
+  if (!accessEnd) return null;
+  const end = new Date(accessEnd);
+  const now = new Date();
+  const diff = Math.ceil((end.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+  return diff;
 }
 
 export default function DashboardPage() {
@@ -156,6 +186,7 @@ export default function DashboardPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
+      {/* Header */}
       <section className="rounded-3xl bg-slate-900 p-6 text-white shadow-sm md:p-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
@@ -166,7 +197,7 @@ export default function DashboardPage() {
               Bonjour {firstName}
             </h1>
             <p className="mt-3 max-w-2xl text-sm text-slate-200 md:text-base">
-              Retrouvez vos parcours e-learning, votre progression et l’accès à vos
+              Retrouvez vos parcours e-learning, votre progression et l'accès à vos
               modules de formation PREVENSIA FORMATION.
             </p>
           </div>
@@ -217,6 +248,7 @@ export default function DashboardPage() {
         </div>
       </section>
 
+      {/* Formations */}
       <section className="mt-8">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-2xl font-bold text-slate-900">Mes formations</h2>
@@ -268,20 +300,44 @@ export default function DashboardPage() {
 
               const showBooking = formation.status === "pending_interview";
               const showAttestation = formation.status === "completed";
+              const statusConfig = getStatusConfig(formation);
+
+              // Alerte expiration accès (≤ 7 jours)
+              const daysLeft = daysUntilExpiry(formation.access_end);
+              const isExpiringSoon =
+                daysLeft !== null && daysLeft >= 0 && daysLeft <= 7;
+              const isExpired = daysLeft !== null && daysLeft < 0;
 
               return (
                 <article
                   key={formation.enrollment_id}
                   className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
                 >
+                  {/* Alerte expiration */}
+                  {isExpiringSoon && !showAttestation ? (
+                    <div className="mb-4 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                      <span>⚠️</span>
+                      <span>
+                        Votre accès expire dans{" "}
+                        <strong>{daysLeft} jour{daysLeft !== 1 ? "s" : ""}</strong>.
+                        Contactez-nous pour renouveler.
+                      </span>
+                    </div>
+                  ) : isExpired && !showAttestation ? (
+                    <div className="mb-4 flex items-center gap-2 rounded-xl border border-red-300 bg-red-100 px-4 py-3 text-sm font-medium text-red-800">
+                      <span>🔒</span>
+                      <span>Votre accès à cette formation est expiré.</span>
+                    </div>
+                  ) : null}
+
                   <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-3">
                         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">
                           {formation.mode || "e-learning"}
                         </span>
-                        <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
-                          {getStatusLabel(formation.status, progress)}
+                        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusConfig.color}`}>
+                          {statusConfig.label}
                         </span>
                         {formation.payment_status === "paid" ? (
                           <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
@@ -313,10 +369,11 @@ export default function DashboardPage() {
                         </p>
                       ) : null}
 
+                      {/* Barre de progression */}
                       <div className="mt-5">
                         <div className="mb-2 flex items-center justify-between text-sm">
                           <span className="font-medium text-slate-700">
-                            Progression
+                            Progression des modules
                           </span>
                           <span className="font-semibold text-slate-900">
                             {progress} %
@@ -325,11 +382,39 @@ export default function DashboardPage() {
 
                         <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
                           <div
-                            className="h-full rounded-full bg-slate-900 transition-all"
+                            className={`h-full rounded-full transition-all ${
+                              progress >= 100 ? "bg-emerald-500" : "bg-slate-900"
+                            }`}
                             style={{ width: `${progress}%` }}
                           />
                         </div>
                       </div>
+
+                      {/* Résultats quiz */}
+                      {formation.quiz_attempts_count > 0 ? (
+                        <div className="mt-4 flex flex-wrap items-center gap-3">
+                          <div className={`flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold ${
+                            formation.quiz_passed
+                              ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+                              : "border border-amber-200 bg-amber-50 text-amber-700"
+                          }`}>
+                            <span>{formation.quiz_passed ? "✅" : "❌"}</span>
+                            <span>
+                              Quiz — meilleur score :{" "}
+                              <strong>{formation.quiz_best_score_percent ?? 0} %</strong>
+                            </span>
+                          </div>
+                          <span className="text-xs text-slate-500">
+                            {formation.quiz_attempts_count} tentative
+                            {formation.quiz_attempts_count > 1 ? "s" : ""}
+                            {formation.quiz_passed && formation.quiz_passed_at
+                              ? ` · réussi le ${new Date(
+                                  formation.quiz_passed_at
+                                ).toLocaleDateString("fr-FR")}`
+                              : ""}
+                          </span>
+                        </div>
+                      ) : null}
 
                       <div className="mt-4 grid gap-3 text-sm text-slate-600 md:grid-cols-2">
                         <div>
@@ -344,7 +429,7 @@ export default function DashboardPage() {
                             Accès :
                           </span>{" "}
                           {formation.access_end
-                            ? `jusqu’au ${new Date(
+                            ? `jusqu'au ${new Date(
                                 formation.access_end
                               ).toLocaleDateString("fr-FR")}`
                             : "ouvert"}
@@ -352,6 +437,7 @@ export default function DashboardPage() {
                       </div>
                     </div>
 
+                    {/* Actions */}
                     <div className="flex w-full flex-col gap-3 lg:w-auto lg:min-w-[220px]">
                       <Link
                         href={safeSlug ? `/modules/${safeSlug}` : "/dashboard"}
@@ -368,7 +454,7 @@ export default function DashboardPage() {
                         href={safeSlug ? `/modules/${safeSlug}/quiz` : "/dashboard"}
                         className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                       >
-                        Accéder au quiz
+                        {formation.quiz_passed ? "Revoir le quiz" : "Accéder au quiz"}
                       </Link>
 
                       {showBooking ? (
@@ -376,15 +462,15 @@ export default function DashboardPage() {
                           href="/booking"
                           className="inline-flex items-center justify-center rounded-xl bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
                         >
-                          Planifier mon entretien
+                          📅 Planifier mon entretien
                         </Link>
                       ) : showAttestation ? (
                         <div className="flex w-full items-center justify-center rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-center text-sm font-medium text-green-700">
-                          Parcours validé
+                          ✅ Parcours validé
                         </div>
                       ) : (
                         <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-700">
-                          L’entretien sera disponible après réussite du quiz.
+                          L'entretien sera disponible après réussite du quiz.
                         </div>
                       )}
 
@@ -393,7 +479,7 @@ export default function DashboardPage() {
                           href={safeSlug ? `/modules/${safeSlug}/attestation` : "/dashboard"}
                           className="inline-flex items-center justify-center rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-100"
                         >
-                          Voir l’attestation
+                          📄 Voir l'attestation
                         </Link>
                       ) : null}
 
@@ -414,6 +500,32 @@ export default function DashboardPage() {
             })}
           </div>
         )}
+      </section>
+
+      {/* Support */}
+      <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-lg font-bold text-slate-900">Besoin d'aide ?</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Notre équipe pédagogique est disponible pour vous accompagner.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="mailto:contact@prevensia.fr"
+              className="inline-flex items-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              ✉️ Contacter le support
+            </a>
+            <Link
+              href="/faq"
+              className="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+            >
+              FAQ
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );

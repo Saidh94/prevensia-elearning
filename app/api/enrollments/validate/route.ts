@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logAdminAction } from "@/lib/supabase/audit";
 
 export async function POST(req: Request) {
   try {
@@ -49,9 +50,27 @@ export async function POST(req: Request) {
       );
     }
 
+    // Si rôle employeur : vérifier que l'inscription appartient bien à cet employeur
+    let employerUuid: string | null = null;
+    if (role === "employer") {
+      const { data: employerUser, error: euError } = await supabase
+        .from("employer_users")
+        .select("employer_id")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+      if (euError || !employerUser?.employer_id) {
+        return NextResponse.json(
+          { error: "Compte employeur introuvable" },
+          { status: 403 }
+        );
+      }
+      employerUuid = employerUser.employer_id;
+    }
+
     const { data: enrollment, error: enrollmentError } = await supabase
       .from("enrollments")
-      .select("id, status")
+      .select("id, status, employer_id")
       .eq("id", enrollmentId)
       .maybeSingle();
 
@@ -66,6 +85,14 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: "Inscription introuvable" },
         { status: 404 }
+      );
+    }
+
+    // Vérification d'appartenance pour le rôle employeur
+    if (role === "employer" && enrollment.employer_id !== employerUuid) {
+      return NextResponse.json(
+        { error: "Cette inscription ne vous appartient pas" },
+        { status: 403 }
       );
     }
 
@@ -97,6 +124,14 @@ export async function POST(req: Request) {
         { status: 500 }
       );
     }
+
+    await logAdminAction({
+      adminId: user.id,
+      action: "enrollment_validated",
+      targetType: "enrollment",
+      targetId: enrollmentId,
+      metadata: { note: note?.trim() || null, validated_by_role: role },
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
