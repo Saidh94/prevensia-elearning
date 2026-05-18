@@ -141,15 +141,11 @@ export default function PlanningClient({ sessions }: { sessions: Session[] }) {
                     {session.format && (
                       <p className="mt-1 text-sm text-slate-500">{session.format}</p>
                     )}
-                    <p className="mt-2 text-sm font-medium text-slate-700">
-                      Places restantes :{" "}
-                      <span className="font-bold text-green-700">
-                        {session.places_restantes}
-                      </span>
-                      <span className="ml-2 text-slate-400 font-normal">
-                        ({session.places_taken} inscrit(s) / {session.places_total})
-                      </span>
-                    </p>
+                    {session.places_restantes <= 3 && (
+                      <p className="mt-2 text-sm font-semibold text-amber-700">
+                        ⚠ Plus que {session.places_restantes} place{session.places_restantes > 1 ? "s" : ""} disponible{session.places_restantes > 1 ? "s" : ""} !
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex shrink-0 flex-wrap gap-2">

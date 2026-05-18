@@ -12,6 +12,7 @@ import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ForceAttestationButton } from "./components/ForceAttestationButton";
+import { SessionsCapacityWidget } from "./components/SessionsCapacityWidget";
 
 type ProfileRow = {
   role: string | null;
@@ -250,6 +251,21 @@ export default async function AdminPage({
               <p className={`mt-2 text-3xl font-bold ${kpi.color}`}>{kpi.value}</p>
             </div>
           ))}
+        </div>
+
+        {/* ── Sessions présentiel — taux de remplissage ── */}
+        <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="mb-5 flex items-center justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-700">
+                Capacité en temps réel
+              </p>
+              <h2 className="mt-1 text-2xl font-bold text-slate-900">
+                Sessions présentiel
+              </h2>
+            </div>
+          </div>
+          <SessionsCapacityWidget />
         </div>
 
         <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">

@@ -201,10 +201,11 @@ export default function HomeSessionsList() {
                   <p className="mt-1 text-sm text-slate-600">
                     {s.format || "Présentiel"}
                   </p>
-                  <p className="mt-2 text-sm font-medium text-slate-700">
-                    Places restantes :{" "}
-                    <span className="font-bold text-red-700">{places}</span>
-                  </p>
+                  {places <= 3 && (
+                    <p className="mt-2 text-sm font-semibold text-amber-700">
+                      ⚠ Plus que {places} place{places > 1 ? "s" : ""} disponible{places > 1 ? "s" : ""} !
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex justify-start md:justify-end">
