@@ -5469,6 +5469,514 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 55,
     },
   ],
+
+  // ─── Sécurité incendie ────────────────────────────────────────────────────
+  "securite-incendie": [
+    {
+      question: "Quels sont les trois éléments du triangle du feu ?",
+      choices: [
+        "Comburant, combustible et énergie d'activation",
+        "Oxygène, chaleur et fumée",
+        "Combustible, chaleur et monoxyde de carbone",
+        "Air, carburant et étincelle",
+      ],
+      answer: [0],
+      explanation:
+        "Le triangle du feu repose sur trois éléments simultanément nécessaires : un comburant (généralement l'oxygène de l'air), un combustible (solide, liquide ou gazeux) et une énergie d'activation (chaleur, étincelle, flamme). Supprimer l'un de ces trois éléments stoppe ou empêche la combustion.",
+      chapterLabel: "Triangle du feu",
+    },
+    {
+      question: "Un feu de papier et bois appartient à quelle classe ?",
+      choices: ["Classe A", "Classe B", "Classe C", "Classe F"],
+      answer: [0],
+      explanation:
+        "La classe A regroupe les feux de matières solides ordinaires : bois, papier, carton, textiles, plastiques. L'extincteur à eau avec additif est le plus adapté. La classe B concerne les liquides inflammables, la classe C les gaz, la classe F les huiles et graisses de cuisson.",
+      chapterLabel: "Classes de feux",
+    },
+    {
+      question: "Quel extincteur est interdit sur un feu électrique sous tension ?",
+      choices: [
+        "Extincteur à eau (même avec additif)",
+        "Extincteur CO₂",
+        "Extincteur poudre ABC",
+        "Les deux : CO₂ et poudre ABC",
+      ],
+      answer: [0],
+      explanation:
+        "L'eau est conductrice d'électricité : l'utiliser sur une installation sous tension expose à un risque d'électrocution. L'extincteur CO₂ est le plus adapté aux feux électriques car il est non conducteur et ne laisse aucun résidu. La poudre ABC peut être utilisée si nécessaire mais dégrade fortement les équipements.",
+      chapterLabel: "Extincteurs",
+      eliminatory: true,
+    },
+    {
+      question: "Un extincteur CO₂ de 2 kg a une durée de fonctionnement d'environ :",
+      choices: ["8 secondes", "30 secondes", "2 minutes", "5 minutes"],
+      answer: [0],
+      explanation:
+        "Un extincteur CO₂ de 2 kg fonctionne environ 8 secondes. Cette durée très courte impose d'agir sans hésiter, d'être positionné correctement face au foyer et de viser la base des flammes dès le premier déclenchement. Toute hésitation peut conduire à un épuisement prématuré de l'agent.",
+      chapterLabel: "Extincteurs",
+    },
+    {
+      question: "Dans quel ordre doit-on appliquer les réflexes en cas d'incendie déclaré ?",
+      choices: [
+        "Donner l'alarme, alerter les secours, évacuer, ne pas utiliser les ascenseurs",
+        "Tenter d'éteindre, puis alerter si nécessaire",
+        "Évacuer discrètement sans alarmer pour éviter la panique",
+        "Attendre la confirmation visuelle des flammes avant d'agir",
+      ],
+      answer: [0],
+      explanation:
+        "Le bon réflexe est : (1) déclencher l'alarme incendie, (2) alerter les secours (18 ou 112), (3) évacuer par les sorties de secours, (4) ne jamais utiliser les ascenseurs. Tenter d'éteindre sans avoir déclenché l'alarme ni alerté les secours est une faute grave qui peut coûter des vies.",
+      chapterLabel: "Alerte et évacuation",
+      eliminatory: true,
+    },
+    {
+      question: "Un RIA (Robinet d'Incendie Armé) s'utilise :",
+      choices: [
+        "Sur des feux de classe A, en l'absence d'interdiction d'utiliser l'eau, et uniquement si une voie de repli est assurée",
+        "Sur tous types de feux pour sa puissance supérieure à l'extincteur",
+        "Sur les feux électriques, car le jet peut être orienté à distance",
+        "Uniquement par les pompiers, pas par les salariés",
+      ],
+      answer: [0],
+      explanation:
+        "Le RIA offre un débit continu d'eau, plus puissant qu'un extincteur, adapté aux feux de classe A. Il ne doit jamais être utilisé sur une installation électrique sous tension (eau conductrice) ni en l'absence de voie de repli sécurisée. Le salarié peut l'utiliser s'il a reçu la formation adéquate.",
+      chapterLabel: "Extincteurs",
+    },
+    {
+      question: "Lors d'une évacuation incendie, que doit-on faire avant de quitter son poste ?",
+      choices: [
+        "Couper les équipements à risque si possible sans se mettre en danger, fermer les portes et rejoindre le point de rassemblement",
+        "Récupérer ses affaires personnelles importantes",
+        "Attendre l'ordre d'évacuation d'un supérieur",
+        "Laisser les portes ouvertes pour faciliter l'accès des pompiers",
+      ],
+      answer: [0],
+      explanation:
+        "Lors d'une évacuation, on coupe si possible les équipements à risque (sans se mettre en danger), on ferme les portes derrière soi (ce qui ralentit la propagation du feu et des fumées), et on rejoint le point de rassemblement. Récupérer des affaires retarde l'évacuation et crée un danger. Les portes fermées peuvent sauver des vies.",
+      chapterLabel: "Alerte et évacuation",
+    },
+    {
+      question: "Les fumées constituent la principale cause de décès dans les incendies car elles :",
+      choices: [
+        "Asphyxient, désorientent et sont souvent plus toxiques que les flammes elles-mêmes",
+        "Brûlent directement les voies respiratoires à haute température",
+        "Ne sont dangereuses que si elles contiennent du monoxyde de carbone",
+        "Sont dangereuses uniquement dans les sous-sols et pièces fermées",
+      ],
+      answer: [0],
+      explanation:
+        "Les fumées tuent plus vite que les flammes : elles asphyxient (baisse d'oxygène), désoriented (visibilité nulle), contiennent des gaz toxiques (CO, HCN, etc.) et peuvent être mortelles en quelques minutes. Les recommandations sont de se baisser sous les fumées (air plus frais en bas) et d'évacuer sans délai.",
+      chapterLabel: "Fumées et risques",
+    },
+    {
+      question: "Un salarié constate un début d'incendie maîtrisable. À quel moment doit-il renoncer à utiliser l'extincteur ?",
+      choices: [
+        "Dès qu'une voie de repli n'est plus assurée, dès que le feu dépasse la taille d'une corbeille à papier, ou dès que des fumées épaisses sont présentes",
+        "Uniquement si l'extincteur est vide",
+        "Si le feu implique des matières inconnues",
+        "Jamais : mieux vaut toujours essayer d'éteindre avant d'évacuer",
+      ],
+      answer: [0],
+      explanation:
+        "L'intervention avec extincteur ne se justifie que sur un feu naissant, avec une voie de repli garantie. Dès que le feu dépasse la taille d'une corbeille à papier, que des fumées épaisses apparaissent, ou que la voie de repli est compromise, il faut évacuer et ne pas insister. Un extincteur ne combat pas un incendie déclaré.",
+      chapterLabel: "Extincteurs",
+    },
+    {
+      question: "Les émulseurs fluorés (PFAS) présents dans certains extincteurs ou systèmes mousse font l'objet :",
+      choices: [
+        "D'une restriction progressive européenne — ils doivent être identifiés, les rejets maîtrisés et remplacés par des alternatives sans fluor quand disponibles",
+        "D'une interdiction totale immédiate sur tous les sites",
+        "D'une obligation d'utilisation pour les risques liquides inflammables",
+        "D'aucune contrainte réglementaire particulière en France",
+      ],
+      answer: [0],
+      explanation:
+        "Les PFAS (substances per- et polyfluoroalkylées) font l'objet d'une restriction progressive en Europe. En pratique : vérifier les fiches techniques des extincteurs mousse, éviter les rejets non maîtrisés, ne pas utiliser de mousses fluorées lors d'exercices inutiles, et privilegier les alternatives sans fluor compatibles avec le risque. Les eaux d'extinction contenant des mousses fluorées sont des déchets à gérer selon les consignes du site.",
+      chapterLabel: "Batteries & PFAS",
+    },
+    {
+      question: "Quels signes précurseurs doivent alerter sur un emballement thermique d'une batterie lithium-ion ?",
+      choices: [
+        "Gonflement du boîtier, sifflement ou crépitement, odeur âcre, chaleur anormale, fumée blanche ou grise",
+        "Uniquement une flamme visible ou une explosion",
+        "Un voyant rouge sur le chargeur",
+        "Une batterie qui ne se charge plus normalement",
+      ],
+      answer: [0],
+      explanation:
+        "L'emballement thermique d'une batterie lithium-ion peut survenir avant toute flamme visible. Les signes précurseurs à identifier : gonflement du boîtier, sifflement ou crépitement, odeur âcre, chaleur anormale, fumée blanche ou grise. Dès ces signes : ne pas toucher ni déplacer la batterie, isoler la zone, déclencher l'alarme, évacuer, alerter les secours.",
+      chapterLabel: "Batteries & PFAS",
+      eliminatory: true,
+    },
+    {
+      question: "Après avoir utilisé un extincteur CO₂ sur un feu de batterie lithium-ion et constaté l'extinction des flammes visibles, que doit-on faire ?",
+      choices: [
+        "Ne pas considérer le feu comme éteint — une reprise est possible — et appeler les secours qui utiliseront de l'eau pour refroidir durablement",
+        "Vérifier visuellement l'absence de flamme et déclarer le feu maîtrisé",
+        "Déplacer la batterie pour vérifier son état",
+        "Recharger immédiatement la batterie pour tester son fonctionnement",
+      ],
+      answer: [0],
+      explanation:
+        "Le CO₂ ou la poudre peuvent stopper les flammes visibles mais ne refroidissent pas le cœur de la batterie. Une reprise de feu est possible après extinction apparente. Seul un refroidissement prolongé à l'eau (par les secours spécialisés) garantit l'inertage. Le salarié doit alerter les secours même si les flammes ont disparu.",
+      chapterLabel: "Batteries & PFAS",
+      eliminatory: true,
+    },
+    {
+      question: "Les EPI incendie (équipements de protection individuelle) disponibles pour un salarié standard lui permettent-ils d'intervenir comme un sapeur-pompier ?",
+      choices: [
+        "Non — les EPI salariés (casque, gants, chaussures) n'offrent pas la protection thermique nécessaire à une intervention prolongée en milieu enfumé ou ardent",
+        "Oui, si les EPI sont conformes aux normes EN",
+        "Oui, pour tout feu de classe A naissant",
+        "Oui, dès que le salarié a suivi une formation extincteurs",
+      ],
+      answer: [0],
+      explanation:
+        "Les EPI disponibles pour un salarié ordinaire (casque, gants isolants, chaussures) offrent une protection limitée. Ils ne sont pas conçus pour une intervention prolongée dans un milieu enfumé ou en présence d'un incendie déclaré. La tenue de sapeur-pompier (vêtement de protection thermique, appareil respiratoire isolant) est une protection de niveau professionnel que le salarié n'a pas.",
+      chapterLabel: "EPI incendie",
+    },
+    {
+      question: "La prévention incendie en entreprise repose principalement sur :",
+      choices: [
+        "L'élimination ou la réduction des sources d'inflammation, la gestion des combustibles et la mise à jour régulière du plan de prévention",
+        "La présence suffisante d'extincteurs sur le site",
+        "La formation annuelle de tout le personnel aux extincteurs",
+        "La présence de détecteurs de fumée dans tous les locaux",
+      ],
+      answer: [0],
+      multiple: false,
+      explanation:
+        "La prévention incendie passe avant tout par la maîtrise des sources de risque : élimination des travaux par points chauds sans permis, stockage sécurisé des combustibles, entretien des installations électriques, gestion des déchets combustibles, et maintien des voies d'évacuation. Les extincteurs et détecteurs sont des mesures complémentaires, non substitutives à la prévention.",
+      chapterLabel: "Prévention",
+    },
+    {
+      question: "Un feu de gaz (classe C) doit être éteint :",
+      choices: [
+        "En coupant l'alimentation en gaz en priorité — éteindre la flamme sans couper l'arrivée de gaz crée un risque d'explosion",
+        "Avec un extincteur CO₂ en visant la base de la flamme",
+        "Avec un extincteur à eau pour refroidir la source",
+        "En couvrant la flamme avec un matériau non combustible",
+      ],
+      answer: [0],
+      explanation:
+        "Un feu de gaz ne doit pas être éteint sans couper l'alimentation : si la flamme disparaît mais que le gaz continue de fuir, une accumulation explosive peut se former. La priorité est de couper l'arrivée de gaz. Si cela n'est pas possible, laisser brûler en sécurisant la zone et alerter les secours.",
+      chapterLabel: "Classes de feux",
+      eliminatory: true,
+    },
+    {
+      question: "Un local de charge de batteries lithium-ion doit respecter quelles conditions ?",
+      choices: [
+        "Ventilation adaptée, absence de combustibles à proximité, chargeurs conformes à la batterie chargée, surveillance pendant la charge",
+        "Verrouillage permanent et accès réservé aux techniciens",
+        "Présence d'un extincteur CO₂ uniquement",
+        "Température maintenue entre 5 et 10°C",
+      ],
+      answer: [0],
+      explanation:
+        "Un local de charge de batteries lithium-ion doit être ventilé (évacuation des gaz dégagés), exempt de combustibles à proximité immédiate, équipé de chargeurs adaptés aux batteries concernées, et la recharge ne doit pas se faire sans surveillance dans les zones sensibles. Les multiprises surchargées et les chargeurs non adaptés sont des causes fréquentes de sinistre.",
+      chapterLabel: "Batteries & PFAS",
+    },
+  ],
+
+  // ─── SSI – Exploitation ───────────────────────────────────────────────────
+  "ssi-exploitation": [
+    {
+      question: "Quelle est la différence entre une alarme feu et un dérangement sur un SSI ?",
+      choices: [
+        "Une alarme feu signale une détection incendie réelle ou probable — un dérangement signale un défaut technique sur l'installation (capteur déconnecté, câble coupé, alimentation défaillante)",
+        "Les deux signaux sont identiques sur la centrale, seule la couleur du voyant diffère",
+        "Un dérangement est une alarme feu de niveau inférieur qui peut être ignorée sans protocole",
+        "Un dérangement signifie qu'un détecteur a détecté de la fumée mais pas de flamme",
+      ],
+      answer: [0],
+      explanation:
+        "Une alarme feu (signal rouge, sonnerie générale) signale une détection incendie — elle déclenche le protocole sécurité complet. Un dérangement (signal jaune/orange) signale un défaut technique sur l'installation : détecteur déconnecté, câble coupé, batterie de secours faible. Le dérangement ne déclenche pas l'alarme générale mais doit être traité sans délai pour ne pas dégrader la protection.",
+      chapterLabel: "États du SSI",
+    },
+    {
+      question: "La levée de doute après une alarme SSI consiste à :",
+      choices: [
+        "Envoyer une personne vérifier physiquement la zone signalée avant de prendre toute décision de réarmement ou d'appel des secours",
+        "Acquitter l'alarme sur la centrale après vérification visuelle depuis le poste de sécurité",
+        "Attendre 5 minutes pour voir si une deuxième alarme confirme la première",
+        "Contacter le mainteneur pour qu'il effectue la vérification",
+      ],
+      answer: [0],
+      explanation:
+        "La levée de doute impose une vérification terrain : une personne se rend physiquement dans la zone signalée pour constater la présence ou l'absence d'un sinistre. Aucune décision d'acquittement, de réarmement ou d'annulation d'appel ne peut se prendre sans cette vérification préalable. Une alarme répétée considérée comme fausse et jamais vérifiée est un accident en attente.",
+      chapterLabel: "Exploitation SSI",
+      eliminatory: true,
+    },
+    {
+      question: "Qu'est-ce qu'un DAS (Dispositif Actionné de Sécurité) ?",
+      choices: [
+        "Un équipement commandé par le SSI pour assurer une fonction de mise en sécurité : fermeture d'une porte coupe-feu, clapet de désenfumage, arrêt de ventilation, déverrouillage d'issue",
+        "Un détecteur automatique de fumée de nouvelle génération",
+        "Un déclencheur manuel d'alarme incendie",
+        "Un dispositif d'alarme sonore déclenché en phase d'évacuation",
+      ],
+      answer: [0],
+      explanation:
+        "Les DAS sont les actionneurs du système de mise en sécurité incendie (SMSI) : portes coupe-feu (qui se ferment pour confiner le feu), clapets de désenfumage (qui s'ouvrent pour évacuer les fumées), arrêts de ventilation (pour éviter la propagation des fumées), déverrouillages d'issues de secours. Chaque DAS remplit une fonction précise dans le scénario de mise en sécurité.",
+      chapterLabel: "Architecture SSI",
+    },
+    {
+      question: "Après une alarme SSI dont la levée de doute a conclu à l'absence d'incendie, le réarmement de la centrale :",
+      choices: [
+        "Ne constitue pas une réparation — la cause du déclenchement doit être identifiée et traitée avant de remettre le système en service normal",
+        "Suffit à garantir que le système est pleinement opérationnel",
+        "Peut être effectué par n'importe quel occupant du bâtiment",
+        "Peut être différé de 48 heures si le site est peu fréquenté",
+      ],
+      answer: [0],
+      explanation:
+        "Réarmer une centrale SSI après une fausse alarme ne règle pas le problème à l'origine du déclenchement. Il faut identifier la cause : détecteur encrassé, câble endommagé, vapeurs de cuisine, travaux sans protection. Si la cause n'est pas traitée, le déclenchement se reproduira. Le réarmement sans analyse est une pratique dangereuse qui banalise les alarmes.",
+      chapterLabel: "Exploitation SSI",
+    },
+    {
+      question: "Qu'est-ce que le registre de sécurité incendie ?",
+      choices: [
+        "Le document obligatoire dans lequel sont consignées toutes les opérations liées à la sécurité incendie : vérifications, maintenances, alarmes, exercices, observations et anomalies",
+        "Le livre de consignes d'évacuation affiché dans les couloirs",
+        "Le document transmis aux pompiers lors de leur passage annuel",
+        "La liste des équipiers de première intervention du site",
+      ],
+      answer: [0],
+      explanation:
+        "Le registre de sécurité incendie est un document réglementaire obligatoire (Code du travail, règlement ERP). Il trace toutes les opérations de maintenance, les vérifications périodiques, les incidents, les alarmes, les exercices d'évacuation et les observations. En cas de sinistre ou de contrôle, son absence ou son incomplétude est constitutive d'une faute. Chaque événement doit y être consigné avec date, nature et intervenant.",
+      chapterLabel: "Registre et traçabilité",
+      eliminatory: true,
+    },
+    {
+      question: "La mise hors service temporaire d'une zone de détection SSI (pour travaux, par exemple) impose :",
+      choices: [
+        "Une autorisation préalable, une traçabilité dans le registre de sécurité, des mesures compensatoires (ronde, surveillance renforcée), et un retour à la normale formalisé",
+        "Uniquement une notification orale au responsable de site",
+        "La mise hors service de l'ensemble du SSI pour éviter les déclenchements intempestifs",
+        "Aucune mesure particulière si la durée est inférieure à 4 heures",
+      ],
+      answer: [0],
+      explanation:
+        "Neutraliser une zone de détection SSI dégrade temporairement la protection du bâtiment. Cela impose : une autorisation formelle, une inscription dans le registre, des mesures compensatoires (ronde de surveillance, présence humaine renforcée), et un retour à la normale vérifié et formalisé. La durée n'allège pas ces obligations.",
+      chapterLabel: "Exploitation SSI",
+    },
+    {
+      question: "Le SDI (Système de Détection Incendie) et le SMSI (Système de Mise en Sécurité Incendie) ont des rôles distincts. Lesquels ?",
+      choices: [
+        "Le SDI collecte et traite les informations de détection — le SMSI commande les fonctions de mise en sécurité (DAS, alarme, désenfumage)",
+        "Le SDI commande les sirènes — le SMSI commande les détecteurs",
+        "SDI et SMSI sont deux noms différents pour le même équipement",
+        "Le SDI est le boîtier rouge au mur — le SMSI est l'armoire technique",
+      ],
+      answer: [0],
+      explanation:
+        "Le SDI collecte les informations des détecteurs et déclencheurs, les analyse et les transmet. Le SMSI reçoit les ordres incendie et commande les équipements de mise en sécurité : fermeture des portes coupe-feu, ouverture des clapets de désenfumage, déverrouillage des issues, arrêt des systèmes de ventilation. Ces deux systèmes fonctionnent ensemble mais ont des rôles distincts.",
+      chapterLabel: "Architecture SSI",
+    },
+    {
+      question: "Une alarme intempestive se répète plusieurs fois sur la même zone. Quelle est la bonne conduite à tenir ?",
+      choices: [
+        "Traiter chaque déclenchement selon le protocole, documenter dans le registre, et faire intervenir le mainteneur pour identifier et traiter la cause",
+        "Neutraliser définitivement la zone pour éviter les désagréments",
+        "Acquitter sans levée de doute après la troisième occurrence",
+        "Informer les occupants que les alarmes de cette zone sont à ignorer",
+      ],
+      answer: [0],
+      explanation:
+        "La répétition d'alarmes intempestives crée une accoutumance qui peut rendre les occupants indifférents à une vraie alarme. Chaque déclenchement doit être traité sérieusement. La cause (détecteur encrassé, vapeurs, températures anormales) doit être identifiée et traitée par un mainteneur qualifié. La neutralisation sans résolution du problème est interdite et dangereuse.",
+      chapterLabel: "Exploitation SSI",
+      eliminatory: true,
+    },
+    {
+      question: "L'UGA (Unité de Gestion d'Alarme) a pour rôle de :",
+      choices: [
+        "Gérer la diffusion de l'alarme sonore et/ou lumineuse vers les occupants, selon le scénario prévu pour la zone concernée",
+        "Commander les détecteurs automatiques de fumée",
+        "Alimenter en secours le CMSI en cas de coupure secteur",
+        "Transmettre les informations d'alarme aux pompiers",
+      ],
+      answer: [0],
+      explanation:
+        "L'UGA assure la gestion de la diffusion sonore et/ou lumineuse de l'alarme générale ou d'évacuation. Elle reçoit les ordres du CMSI et déclenche les diffuseurs sonores (sirènes, haut-parleurs) ou lumineux (flashs) dans les zones concernées par le scénario d'alarme. Sa fiabilité est critique car c'est elle qui prévient les occupants.",
+      chapterLabel: "Architecture SSI",
+    },
+    {
+      question: "Que doit contenir le PC sécurité (ou local de sécurité) d'un établissement soumis à la réglementation ERP ?",
+      choices: [
+        "La centrale SSI accessible, les plans de sécurité du bâtiment, le registre de sécurité, les consignes d'exploitation et les moyens de communication avec les secours",
+        "Uniquement la centrale d'alarme et un téléphone",
+        "Les extincteurs de réserve et les EPI des équipiers d'évacuation",
+        "La documentation administrative de l'établissement",
+      ],
+      answer: [0],
+      explanation:
+        "Le PC sécurité centralise les moyens de gestion d'une situation d'urgence : centrale SSI (lecture des états, acquittement), plans du bâtiment (localisation des zones, cheminements pompiers), registre de sécurité, consignes d'exploitation, et communication directe avec les secours extérieurs. En ERP, sa permanence et son accessibilité sont réglementaires.",
+      chapterLabel: "Registre et traçabilité",
+    },
+    {
+      question: "Un détecteur de fumée signale un défaut (voyant orange allumé). Quelle est la conduite adaptée ?",
+      choices: [
+        "Consigner le défaut dans le registre de sécurité et faire intervenir le mainteneur dans les délais imposés par le contrat de maintenance",
+        "Remplacer soi-même le détecteur si un modèle identique est disponible",
+        "Ignorer le défaut si aucune alarme n'a été déclenchée",
+        "Réinitialiser la centrale pour effacer le défaut",
+      ],
+      answer: [0],
+      explanation:
+        "Un défaut sur un détecteur dégrade la protection de la zone concernée. Il doit être consigné dans le registre de sécurité et traité par le mainteneur habilité dans les délais contractuels. Pendant la période de défaut, des mesures compensatoires peuvent être nécessaires. Effacer un défaut sans traitement ne résout rien et masque un problème réel.",
+      chapterLabel: "Exploitation SSI",
+    },
+    {
+      question: "La désenfumage déclenché par un DAS a pour objectif de :",
+      choices: [
+        "Évacuer les fumées et les gaz chauds pour maintenir des voies d'évacuation praticables et faciliter l'intervention des secours",
+        "Refroidir le foyer en projetant de l'air froid sur les flammes",
+        "Alimenter le feu en oxygène pour l'intensifier et l'éteindre plus rapidement",
+        "Ventiler uniquement les locaux techniques adjacents au foyer",
+      ],
+      answer: [0],
+      explanation:
+        "Le désenfumage crée des conditions permettant l'évacuation des personnes (visibilité, atmosphère respirable) et l'accès des secours au foyer. Il évacue les fumées et gaz chauds vers l'extérieur via des exutoires, façades ou bouches de désenfumage commandés par le SMSI. Il ne refroidit pas et n'éteint pas l'incendie — c'est une mesure de mise en sécurité.",
+      chapterLabel: "Architecture SSI",
+    },
+  ],
+
+  // ─── Extinction automatique à gaz ────────────────────────────────────────
+  "extinction-automatique-gaz": [
+    {
+      question: "Quelles sont les trois grandes familles d'agents extincteurs gazeux utilisés dans les systèmes fixes ?",
+      choices: [
+        "CO₂ (dioxyde de carbone), gaz inertes (argon, azote, Inergen) et agents chimiques halogénés de remplacement (HFC, FK-5)",
+        "CO₂, mousse fluorée et poudre ABC",
+        "Azote, argon et vapeur d'eau surchauffée",
+        "HFC, CO et SO₂",
+      ],
+      answer: [0],
+      explanation:
+        "Les systèmes fixes à gaz utilisent trois familles : (1) le CO₂ — efficace, stocké sous pression liquide, mais dangereux pour les personnes (asphyxie), (2) les gaz inertes (argon, azote, mélanges Inergen/Argonite) — naturels, peu dangereux pour l'environnement, nécessitent de grands volumes de stockage, (3) les agents chimiques halogénés de remplacement (HFC 227ea, FK-5-1-12 / Novec 1230) — efficaces à faible concentration, moins dangereux pour les personnes, mais à impact climatique variable.",
+      chapterLabel: "Agents extincteurs",
+    },
+    {
+      question: "Le CO₂ utilisé dans un système d'extinction fixe représente un risque principal pour les personnes parce qu'il :",
+      choices: [
+        "Peut atteindre des concentrations asphyxiantes (généralement 35 % et plus) qui peuvent être mortelles en quelques minutes dans un local confiné",
+        "Est explosif en concentration élevée",
+        "Provoque des brûlures chimiques cutanées au contact",
+        "Reste toxique pendant 24 heures après l'émission",
+      ],
+      answer: [0],
+      explanation:
+        "Le CO₂ éteint les feux en réduisant la concentration en oxygène. À des concentrations extinctrice (autour de 35 %), il est asphyxiant. Une exposition courte dans un local où un système CO₂ a déclenché peut être mortelle. C'est pourquoi la chaîne alarme-temporisation-évacuation est absolument critique pour tout système CO₂, et le réaccès est strictement interdit sans procédure.",
+      chapterLabel: "Agents extincteurs",
+      eliminatory: true,
+    },
+    {
+      question: "La temporisation d'un système d'extinction gaz a pour rôle de :",
+      choices: [
+        "Permettre l'évacuation complète du local avant l'émission de l'agent extincteur",
+        "Laisser le temps au feu de se stabiliser avant l'attaque",
+        "Retarder l'alarme sonore pour éviter la panique",
+        "Vérifier automatiquement l'intégrité du local avant déclenchement",
+      ],
+      answer: [0],
+      explanation:
+        "La temporisation (généralement 30 à 60 secondes) s'intercale entre la détection et l'émission. Elle est dimensionnée pour permettre l'évacuation de toutes les personnes présentes dans le local protégé avant que l'agent extincteur ne soit diffusé. Sans temporisation, les personnes encore présentes dans le local seraient exposées à l'agent (asphyxie pour le CO₂, atmosphère irrespirable pour les inertes).",
+      chapterLabel: "Chaîne fonctionnelle",
+    },
+    {
+      question: "Après le déclenchement d'un système d'extinction gaz et l'extinction du feu apparent, le réaccès au local protégé :",
+      choices: [
+        "Est interdit tant que l'atmosphère n'a pas été vérifiée et que la procédure de réaccès prévue par le site n'a pas été appliquée",
+        "Peut se faire immédiatement si la fumée a disparu",
+        "Est autorisé 10 minutes après l'émission pour les personnes équipées d'un masque anti-poussières",
+        "Dépend uniquement du ressenti des personnes (odeur, yeux qui piquent)",
+      ],
+      answer: [0],
+      explanation:
+        "Même après extinction apparente, l'atmosphère du local peut être dangereuse : concentration résiduelle en agent extincteur, produits de décomposition thermique, oxygène insuffisant. Le réaccès ne se fait qu'après contrôle de l'atmosphère par une personne compétente et selon la procédure prévue sur le site. Les appareils de protection respiratoire isolants peuvent être nécessaires.",
+      chapterLabel: "Sécurité des personnes",
+      eliminatory: true,
+    },
+    {
+      question: "L'intégrité du local protégé par un système gaz est critique car :",
+      choices: [
+        "Si le local présente des fuites (joints défectueux, gaines ouvertes, portes mal ajustées), l'agent extincteur se dissipe avant d'atteindre la concentration extinctrice ou avant que le feu soit éteint",
+        "Un local hermétique empêche la détection de fumée",
+        "Les fuites augmentent la pression et risquent d'endommager les bouteilles",
+        "Un local non étanche déclenche automatiquement le système sans feu",
+      ],
+      answer: [0],
+      explanation:
+        "L'efficacité d'un système à gaz repose sur la capacité du local à maintenir la concentration de l'agent extincteur pendant le temps nécessaire à l'extinction (généralement 10 minutes minimum). Toute fuite (joint de porte défectueux, gaine de câble non obturée, trappe mal fermée, cloisonnement non étanche) dégrade ce maintien. Un système peut déclencher parfaitement et rester inefficace si le local fuit.",
+      chapterLabel: "Local protégé",
+    },
+    {
+      question: "Que doit faire l'exploitant si des travaux sont prévus dans un local protégé par un système d'extinction gaz ?",
+      choices: [
+        "Mettre le système hors service selon la procédure définie, tracer dans le registre, mettre en place des mesures compensatoires et informer le responsable sécurité",
+        "Laisser le système actif pour maintenir la protection pendant les travaux",
+        "Désactiver uniquement le déclencheur manuel pour éviter les faux déclenchements",
+        "Informer seulement le chef de chantier de la présence du système",
+      ],
+      answer: [0],
+      explanation:
+        "Un déclenchement accidentel du système lors de travaux peut asphyxier les personnes présentes. La mise hors service avant les travaux est obligatoire, quelle que soit leur durée. Elle doit être formalisée (autorisation, registre), accompagnée de mesures compensatoires (surveillance renforcée, ronde) et faire l'objet d'un retour à la normale vérifié après les travaux.",
+      chapterLabel: "Mise hors service",
+      eliminatory: true,
+    },
+    {
+      question: "La différence principale entre gaz inertes (argon, azote) et agents chimiques (HFC, FK-5) réside dans :",
+      choices: [
+        "Les inertes agissent par réduction de l'oxygène (dilution) — les agents chimiques agissent principalement par inhibition chimique de la réaction de combustion, à une concentration plus faible",
+        "Les inertes sont réservés aux data centers — les agents chimiques aux espaces habitables",
+        "Les inertes sont dangereux pour les personnes — les agents chimiques sont totalement inoffensifs",
+        "Les agents chimiques nécessitent plus de stockage que les gaz inertes",
+      ],
+      answer: [0],
+      explanation:
+        "Les gaz inertes (argon, azote, mélanges comme Inergen) réduisent la concentration en oxygène jusqu'à empêcher la combustion (~12-15 % O₂). Ils nécessitent d'importants volumes de stockage. Les agents chimiques halogénés (HFC 227ea, FK-5-1-12) agissent principalement en interrompant la réaction chimique en chaîne, à une concentration beaucoup plus faible (5-8 % pour FK-5 vs 35-40 % pour CO₂). Les agents chimiques sont généralement moins dangereux pour les personnes à concentration extinctrice.",
+      chapterLabel: "Agents extincteurs",
+    },
+    {
+      question: "Le bouton d'inhibition (ou d'arrêt d'urgence) d'un système d'extinction gaz sert à :",
+      choices: [
+        "Interrompre manuellement la séquence de déclenchement pendant la temporisation, si une personne est encore dans le local et n'a pas pu évacuer",
+        "Déclencher manuellement l'émission en cas d'urgence",
+        "Neutraliser définitivement le système en cas de défaillance",
+        "Couper l'alimentation électrique du local protégé",
+      ],
+      answer: [0],
+      explanation:
+        "Le bouton d'inhibition permet d'interrompre la séquence de déclenchement pendant la temporisation, typiquement lorsqu'une personne est encore dans le local. Il est généralement situé à l'entrée du local. Son utilisation doit être immédiatement suivie d'une vérification terrain, d'un signalement et d'une décision sur la remise en service. Il n'est pas un moyen d'éviter l'entretien du système.",
+      chapterLabel: "Chaîne fonctionnelle",
+    },
+    {
+      question: "La norme NF EN 15004-1 et le référentiel APSAD R13 encadrent respectivement :",
+      choices: [
+        "NF EN 15004-1 : calcul, installation et maintenance — APSAD R13 : règles techniques pour la conception et la maintenance selon les assureurs",
+        "NF EN 15004-1 : agents CO₂ uniquement — APSAD R13 : agents inertes uniquement",
+        "NF EN 15004-1 : exploitation en ERP — APSAD R13 : exploitation en IGH",
+        "Les deux normes sont identiques, l'une étant européenne et l'autre française",
+      ],
+      answer: [0],
+      explanation:
+        "La NF EN 15004-1 est la norme européenne de référence pour les installations fixes d'extinction à gaz (calcul de la quantité d'agent, règles d'installation, maintenance). L'APSAD R13 est un référentiel technique des assureurs, souvent requis contractuellement, qui précise les exigences de conception et de maintenance pour l'obtention d'une certification APSAD. L'exploitant doit connaître ces deux références pour dialoguer avec son installateur et son mainteneur.",
+      chapterLabel: "Référentiels",
+    },
+    {
+      question: "Un système d'extinction gaz qui a déclenché doit être remis en service :",
+      choices: [
+        "Uniquement après intervention d'un mainteneur qualifié : vérification de l'état du local, rechargement ou remplacement des bouteilles, contrôle de la chaîne de détection et de commande, et traçabilité dans le registre",
+        "Par simple réarmement de la centrale dès que le feu est éteint",
+        "Automatiquement après 2 heures si aucune nouvelle alarme n'est détectée",
+        "Par l'exploitant après vérification visuelle du local",
+      ],
+      answer: [0],
+      explanation:
+        "Après déclenchement, les bouteilles sont vides ou partiellement vides selon le système. La remise en service impose : recharge ou remplacement des bouteilles par un mainteneur habilité, vérification de toute la chaîne (détection, commande, DAS associés), contrôle de l'intégrité du local, et traçabilité complète. Réarmer la centrale sans recharger le système laisse le local sans protection gaz.",
+      chapterLabel: "Mise hors service",
+    },
+  ],
 };
 
 

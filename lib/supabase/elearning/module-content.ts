@@ -2037,34 +2037,34 @@ export const modulesContent: Record<string, ModuleContent> = {
   },
 
   "extinction-automatique-gaz": {
-    title: "Extinction automatique a gaz - exploitation et référentiels",
-    shortTitle: "Extinction a gaz",
+    title: "Extinction automatique à gaz — exploitation et référentiels",
+    shortTitle: "Extinction à gaz",
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d'un système fixe d'extinction automatique à gaz, la sécurité des personnes, l'intégrité du local protégé et les repères APSAD R13 / NF EN 15004-1.",
-    duration: "55 a 75 minutes",
-    level: "Intermediaire",
+    duration: "55 à 75 minutes",
+    level: "Intermédiaire",
     objective:
-      "Comprendre la logique d'un système d'extinction à gaz, distinguer ce système d'une installation sprinkler, intégrer les contraintes de local protégé et appliquer les bons réflexes d'exploitation et de sécurité.",
+      "Comprendre la logique d'un système d'extinction à gaz, distinguer les familles d'agents (CO₂, inertes, chimiques), intégrer les contraintes de local protégé et appliquer les bons réflexes d'exploitation et de sécurité.",
     audience:
-      "Exploitants, responsables techniques, maintenance, encadrement et utilisateurs de locaux proteges par extinction automatique a gaz.",
+      "Exploitants, responsables techniques, maintenance, encadrement et utilisateurs de locaux protégés par extinction automatique à gaz.",
     certificationNote:
       "Ce module traite de l'exploitation et de la compréhension fonctionnelle. Il ne remplace ni une étude de conception, ni un calcul de concentration, ni la maintenance spécialisée, ni les vérifications réglementaires du site.",
     heroBadge: "Extinction automatique",
     finalMessage:
       "Vous avez acquis les repères essentiels d'un système d'extinction automatique à gaz. L'efficacité repose ensuite sur l'intégrité du local protégé, la qualité des contrôles, la maîtrise des accès et le strict respect des consignes de sécurité.",
-    quizCtaLabel: "Passer au quiz extinction a gaz",
+    quizCtaLabel: "Passer au quiz extinction à gaz",
     sections: [
       {
         id: "principe-gaz",
-        title: "1. Principe d'un systeme fixe d'extinction a gaz",
+        title: "1. Principe d'un système fixe d'extinction à gaz",
         estimatedMinutes: 12,
         intro:
           "Un système à gaz n'est pas un sprinkler sans eau. Il repose sur une logique de volume protégé, de détection et de diffusion contrôlée de l'agent extincteur.",
         content: [
-          "Les systemes fixes d'extinction automatique a gaz sont utilises lorsque la protection par eau n'est pas adaptee ou lorsqu'il faut preserver des équipements, des volumes techniques ou des locaux sensibles.",
+          "Les systèmes fixes d'extinction automatique à gaz sont utilisés lorsque la protection par eau n'est pas adaptée ou lorsqu'il faut préserver des équipements, des volumes techniques ou des locaux sensibles.",
           "Il existe plusieurs variantes selon la configuration du risque. L'inondation totale est la plus répandue : l'agent extincteur est diffusé dans l'ensemble du volume du local fermé jusqu'à atteindre une concentration suffisante pour étouffer le feu. L'application locale protège un équipement précis sans inonder tout le local — elle convient aux risques localisés comme une cabine de peinture ou un transformateur. Les systèmes en cascade utilisent plusieurs bouteilles reliées pour protéger de grands volumes ou déclencher des zones successives.",
           "L'efficacité du système dépend d'une détection fiable, d'une chaîne de commande correcte et de la capacité du local à conserver la concentration utile pendant le temps prévu.",
-          "L'exploitant doit retenir qu'un systeme a gaz se gere comme un ensemble complet: detection, temporisation, alarmes, signalisation, coupures ou arrets associes, diffusion et contrôle du réaccès."
+          "L'exploitant doit retenir qu'un système à gaz se gère comme un ensemble complet : détection, temporisation, alarmes, signalisation, coupures ou arrêts associés, diffusion et contrôle du réaccès."
         ],
         chapterImagePath: "/images/triangle-du-feu.jpg",
         chapterImageAlt:
@@ -2083,16 +2083,51 @@ export const modulesContent: Record<string, ModuleContent> = {
         },
       },
       {
-        id: "local-protégé",
-        title: "2. Local protégé, intégrité et sécurité des personnes",
+        id: "agents-extincteurs-gaz",
+        title: "2. Familles d'agents extincteurs gazeux",
         estimatedMinutes: 12,
         intro:
-          "Un systeme a gaz n'est efficace que si le local protégé reste conforme a l'état prévu et si la sécurité des personnes est traitée en priorité.",
+          "Tous les systèmes à gaz ne fonctionnent pas de la même manière. Connaître les grandes familles d'agents permet de comprendre les contraintes de sécurité, de stockage et de réaccès propres à chaque installation.",
         content: [
-          "L'intégrité du local protégé est un point critique: portes, passages de cables, clapets, fermetures et étanchéité influencent directement la tenue de la concentration de l'agent extincteur.",
+          "On distingue trois grandes familles d'agents extincteurs gazeux utilisés dans les systèmes fixes.",
+          "Le CO₂ (dioxyde de carbone) est l'agent le plus répandu historiquement. Il agit en réduisant la concentration en oxygène. Stocké sous pression liquide, il occupe un volume de stockage réduit. Son principal inconvénient est son danger pour les personnes : à concentration extinctrice (environ 35 % dans le local), il est asphyxiant et peut être mortel en quelques minutes. Son utilisation impose des dispositifs d'alarme, de temporisation et d'interdiction d'accès particulièrement rigoureux.",
+          "Les gaz inertes (argon, azote, ou mélanges commerciaux comme Inergen ou Argonite) agissent également par dilution de l'oxygène, mais à des concentrations plus basses (environ 40-50 %). Leur avantage est leur caractère naturel et non polluant. Leur inconvénient est le volume de stockage important (bouteilles nombreuses). Ils sont moins dangereux pour les personnes que le CO₂ à leur concentration extinctrice, mais le réaccès sans contrôle de l'atmosphère reste interdit.",
+          "Les agents chimiques halogénés de remplacement (HFC 227ea — FM200, FK-5-1-12 — Novec 1230) agissent principalement par inhibition chimique de la réaction de combustion. Ils sont efficaces à une concentration bien plus faible que le CO₂ ou les inertes (5 à 9 %), ce qui les rend moins dangereux pour les personnes à doses extinctrice. Ils sont souvent utilisés dans les salles informatiques, data centers et locaux d'archives. Leur impact environnemental (GWP — potentiel de réchauffement global) varie selon l'agent : le FK-5-1-12 a un GWP très faible contrairement à certains HFC.",
+          "Quelle que soit la famille d'agents, l'exploitant ne choisit pas l'agent — il est déterminé à la conception. En revanche, il doit connaître l'agent présent sur son installation pour comprendre les risques pour les personnes, les précautions de réaccès et les contraintes de maintenance."
+        ],
+        keyPoints: [
+          "CO₂ : asphyxiant à concentration extinctrice — risque mortel en local confiné.",
+          "Gaz inertes (argon, azote, Inergen) : naturels, volume stockage important.",
+          "Agents chimiques (HFC, FK-5) : inhibition chimique, faible concentration, impact GWP variable.",
+          "Connaître l'agent présent = comprendre les risques et le protocole de réaccès.",
+        ],
+        chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
+        chapterImageAlt:
+          "Schéma d'un système fixe d'extinction automatique à gaz avec bouteilles, tuyauterie et diffuseurs",
+        visual: {
+          title: "Trois familles d'agents gazeux",
+          subtitle: "CO₂ / Inertes / Agents chimiques — modes d'action distincts.",
+          illustrationKey: "authorized-forbidden" as const,
+          items: [
+            "CO₂ : dilution O₂, stockage compact, risque asphyxie",
+            "Inertes : dilution O₂, naturels, volume stockage élevé",
+            "Agents chimiques : inhibition, faible concentration, data centers",
+            "Agent présent = contraintes spécifiques de sécurité et réaccès"
+          ],
+          tone: "blue",
+        },
+      },
+      {
+        id: "local-protégé",
+        title: "3. Local protégé, intégrité et sécurité des personnes",
+        estimatedMinutes: 12,
+        intro:
+          "Un système à gaz n'est efficace que si le local protégé reste conforme à l'état prévu et si la sécurité des personnes est traitée en priorité.",
+        content: [
+          "L'intégrité du local protégé est un point critique : portes, passages de câbles, clapets, fermetures et étanchéité influencent directement la tenue de la concentration de l'agent extincteur.",
           "L'intégrité se vérifie concrètement : le test de porte consiste à fermer le local et à vérifier qu'aucune fuite significative ne compromet le maintien de la concentration pendant la durée prévue (généralement 10 minutes minimum). Tout percement non bouché, gaine ouverte, joint de porte défectueux ou trappe mal fermée dégrade ce maintien. Une installation peut déclencher parfaitement et rester inefficace si le local fuit trop vite. C'est pourquoi toute modification du local — cloisonnement, passage de câble, remplacement d'une porte — doit être signalée et évaluée avant travaux.",
-          "La sécurité des personnes impose une chaîne claire: alarme, temporisation, évacuation, interdiction d'accès pendant et après émission, puis contrôle strict du réaccès.",
-          "Après declenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphere du local, des produits de decomposition eventuels et des consignes du site avant tout retour."
+          "La sécurité des personnes impose une chaîne claire : alarme, temporisation, évacuation, interdiction d'accès pendant et après émission, puis contrôle strict du réaccès.",
+          "Après déclenchement, le risque ne se limite pas au feu initial. Il faut tenir compte de l'atmosphère du local, des produits de décomposition éventuels et des consignes du site avant tout retour."
         ],
         keyPoints: [
           "Le local protégé fait partie intégrante du système.",
@@ -2119,54 +2154,55 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "chaine-fonctionnelle-gaz",
-        title: "3. Detection, temporisation et commande du systeme",
+        title: "4. Détection, temporisation et commande du système",
         estimatedMinutes: 11,
         intro:
-          "L'exploitation doit permettre de comprendre d'où vient l'information incendie et quelles actions le systeme peut commander avant l'émission.",
+          "L'exploitation doit permettre de comprendre d'où vient l'information incendie et quelles actions le système peut commander avant l'émission.",
         content: [
-          "Un systeme d'extinction automatique a gaz comporte une logique de detection et de traitement qui peut inclure des confirmations, une temporisation, des alarmes sonores et lumineuses et des commandes techniques associees.",
-          "L'exploitant doit savoir differencier une alarme reelle, un essai, un derangement et une mise hors service, puis suivre la procedure du site sans improviser de maintenance.",
-          "Une neutralisation, un defaut ou une indisponibilite de la chaine de commande doivent être traces, traites et compenses selon l'organisation prevue."
+          "Un système d'extinction automatique à gaz comporte une logique de détection et de traitement qui peut inclure des confirmations, une temporisation, des alarmes sonores et lumineuses et des commandes techniques associées.",
+          "La temporisation — généralement 30 à 60 secondes — s'intercale entre la détection et l'émission pour permettre l'évacuation complète du local. Pendant cette temporisation, une alarme sonore et lumineuse avertit les occupants. Le bouton d'inhibition ou d'arrêt d'urgence, placé à l'entrée du local, permet d'interrompre la séquence si une personne est encore présente et n'a pas pu évacuer.",
+          "L'exploitant doit savoir différencier une alarme réelle, un essai, un dérangement et une mise hors service, puis suivre la procédure du site sans improviser de maintenance.",
+          "Une neutralisation, un défaut ou une indisponibilité de la chaîne de commande doivent être tracés, traités et compensés selon l'organisation prévue."
         ],
         chapterImagePath: "/images/alarme-incendie.jpg",
         chapterImageAlt:
           "Déclencheur manuel d'alarme incendie rouge sur fond de local protégé par système d'extinction gaz",
         visual: {
           title: "Avant l'émission",
-          subtitle: "Lire l'information et securiser le contexte.",
+          subtitle: "Lire l'information et sécuriser le contexte.",
           animationKey: "alerte-incendie" as const,
           items: [
-            "Detection incendie",
-            "Temporisation",
-            "Alarme et avertissement",
-            "Commande de diffusion"
+            "Détection incendie",
+            "Temporisation (30-60 s) + alarme évacuation",
+            "Bouton inhibition si personne encore présente",
+            "Commande de diffusion de l'agent"
           ],
           tone: "amber",
         },
       },
       {
         id: "référentiels-gaz",
-        title: "4. Repères APSAD R13 et NF EN 15004-1",
+        title: "5. Repères APSAD R13 et NF EN 15004-1",
         estimatedMinutes: 10,
         intro:
-          "L'exploitant n'a pas a reciter les normes, mais il doit savoir sur quels repères techniques repose le systeme protégé.",
+          "L'exploitant n'a pas à réciter les normes, mais il doit savoir sur quels repères techniques repose le système protégé.",
         content: [
-          "APSAD R13 constitue un repère technique important pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
-          "La NF EN 15004-1 fournit le cadre general relatif au calcul, a l'installation et a la maintenance des installations fixes d'extinction a gaz.",
-          "En exploitation, l'essentiel est de comprendre que la performance depend autant du systeme installe que du maintien des conditions du local protégé et du respect strict des procedures."
+          "APSAD R13 constitue un repère technique important pour la conception, l'installation et la maintenance des systèmes d'extinction automatique à gaz.",
+          "La NF EN 15004-1 fournit le cadre général relatif au calcul, à l'installation et à la maintenance des installations fixes d'extinction à gaz.",
+          "En exploitation, l'essentiel est de comprendre que la performance dépend autant du système installé que du maintien des conditions du local protégé et du respect strict des procédures."
         ],
         legalRefs: [
-          "APSAD R13 - repère technique pour la conception, l'installation et la maintenance des systemes d'extinction automatique a gaz.",
-          "NF EN 15004-1 - Installations fixes de lutte contre l'incendie - Installations d'extinction a gaz - Partie 1 : calcul, installation et maintenance.",
-          "INRS ND 2191 - Agents extincteurs gazeux utilises dans les installations fixes d'extinction.",
-          "Consignes d'exploitation et procedures specifiques du site protégé."
+          "APSAD R13 — repère technique pour la conception, l'installation et la maintenance des systèmes d'extinction automatique à gaz.",
+          "NF EN 15004-1 — Installations fixes de lutte contre l'incendie — Installations d'extinction à gaz — Partie 1 : calcul, installation et maintenance.",
+          "INRS ND 2191 — Agents extincteurs gazeux utilisés dans les installations fixes d'extinction.",
+          "Consignes d'exploitation et procédures spécifiques du site protégé."
         ],
         chapterImagePath: "/images/formation-ssi.jpg",
         chapterImageAlt:
           "Formation sécurité incendie avec présentation des référentiels techniques et normes applicables",
         visual: {
           title: "Normes et exploitation",
-          subtitle: "Repères techniques pour un systeme sensible.",
+          subtitle: "Repères techniques pour un système sensible.",
           illustrationKey: "authorized-forbidden" as const,
           items: [
             "APSAD R13",
@@ -2179,32 +2215,32 @@ export const modulesContent: Record<string, ModuleContent> = {
       },
       {
         id: "mise-hors-service-gaz",
-        title: "5. Mise hors service, maintenance et retour a la normale",
+        title: "6. Mise hors service, maintenance et retour à la normale",
         estimatedMinutes: 10,
         intro:
-          "Un systeme a gaz neutralise ou en maintenance doit être gere avec une discipline stricte, car une indisponibilite mal pilotee degrade immediatement la protection du local.",
+          "Un système à gaz neutralisé ou en maintenance doit être géré avec une discipline stricte, car une indisponibilité mal pilotée dégrade immédiatement la protection du local.",
         content: [
-          "Une mise hors service, un essai, une intervention de maintenance ou une inhibition temporaire doivent être autorises, traces et accompagnes des mesures compensatoires prevues par le site.",
-          "L'exploitant doit savoir qui autorise l'indisponibilite, qui informe les utilisateurs, comment la signaler sur place et comment vérifier le retour a la situation nominale.",
-          "Le retour a la normale ne se limite pas a reenclencher un systeme. Il implique de confirmer l'état du local, la remise en service effective, la levee des inhibitions et l'information des acteurs concernes."
+          "Une mise hors service, un essai, une intervention de maintenance ou une inhibition temporaire doivent être autorisés, tracés et accompagnés des mesures compensatoires prévues par le site.",
+          "L'exploitant doit savoir qui autorise l'indisponibilité, qui informe les utilisateurs, comment la signaler sur place et comment vérifier le retour à la situation nominale.",
+          "Le retour à la normale ne se limite pas à réenclencher un système. Il implique de confirmer l'état du local, la remise en service effective (y compris le rechargement des bouteilles si nécessaire), la levée des inhibitions et l'information des acteurs concernés."
         ],
         keyPoints: [
-          "Indisponibilité autorisée et tracée.",
-          "Mesures compensatoires appliquees.",
-          "Retour a la normale vérifié et formalise."
+          "Indisponibilité autorisée et tracée dans le registre.",
+          "Mesures compensatoires appliquées (ronde, surveillance renforcée).",
+          "Retour à la normale vérifié et formalisé — bouteilles rechargées si déclenchement."
         ],
         chapterImagePath: "/images/systeme-d'extinction-incendie-automatique.webp",
         chapterImageAlt:
-          "schéma d'un systeme fixe d'extinction automatique a gaz avec detection, diffusion et reserve d'agent extincteur",
+          "Schéma d'un système fixe d'extinction automatique à gaz avec détection, diffusion et réserve d'agent extincteur",
         visual: {
-          title: "Piloter le mode degrade",
+          title: "Piloter le mode dégradé",
           subtitle: "Autoriser, tracer, compenser, remettre en service.",
           illustrationKey: "summary-reflexes" as const,
           items: [
-            "Inhibition ou maintenance autorisée",
+            "Inhibition ou maintenance autorisée et tracée",
             "Information des acteurs du site",
-            "Mesures compensatoires pendant l'arret",
-            "Retour a la normale formalise"
+            "Mesures compensatoires pendant l'arrêt",
+            "Retour à la normale formalisé"
           ],
           tone: "slate",
         },
