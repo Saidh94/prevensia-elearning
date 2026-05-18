@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Booking = {
   id: string;
@@ -40,6 +41,25 @@ function formatTime(t: string) {
   return t.slice(0, 5);
 }
 
+const DAYS = [
+  { num: 1, label: "Lun" },
+  { num: 2, label: "Mar" },
+  { num: 3, label: "Mer" },
+  { num: 4, label: "Jeu" },
+  { num: 5, label: "Ven" },
+  { num: 6, label: "Sam" },
+  { num: 7, label: "Dim" },
+];
+
+// Calcule le lundi de la semaine courante
+function getCurrentMonday() {
+  const d = new Date();
+  const day = d.getDay(); // 0=dim
+  const diff = day === 0 ? -6 : 1 - day;
+  d.setDate(d.getDate() + diff);
+  return d.toISOString().split("T")[0];
+}
+
 export function AdminInterviewSlotsClient({ initialSlots }: { initialSlots: Slot[] }) {
   const router = useRouter();
   const [slots, setSlots] = useState<Slot[]>(initialSlots);
@@ -54,6 +74,21 @@ export function AdminInterviewSlotsClient({ initialSlots }: { initialSlots: Slot
     notes: "",
   });
   const [error, setError] = useState<string | null>(null);
+
+  // ── Génération semaine ──
+  const [weekForm, setWeekForm] = useState({
+    weekStart: getCurrentMonday(),
+    days: [1, 2, 3, 4, 5] as number[],
+    rangeFrom1: "09:00",
+    rangeTo1: "12:00",
+    useRange2: false,
+    rangeFrom2: "14:00",
+    rangeTo2: "17:00",
+    formation_type: "h0b0",
+    notes: "",
+  });
+  const [weekGenerating, setWeekGenerating] = useState(false);
+  const [weekResult, setWeekResult] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
   async function handleCreate(e: React.FormEvent) {
@@ -105,6 +140,44 @@ export function AdminInterviewSlotsClient({ initialSlots }: { initialSlots: Slot
     }
   }
 
+  async function handleGenerateWeek() {
+    setWeekResult(null);
+    setError(null);
+    setWeekGenerating(true);
+    const timeRanges = [{ from: weekForm.rangeFrom1, to: weekForm.rangeTo1 }];
+    if (weekForm.useRange2) timeRanges.push({ from: weekForm.rangeFrom2, to: weekForm.rangeTo2 });
+
+    try {
+      const res = await fetch("/api/admin/interview-slots/batch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          weekStart: weekForm.weekStart,
+          days: weekForm.days,
+          timeRanges,
+          slotDuration: 30,
+          formation_type: weekForm.formation_type,
+          notes: weekForm.notes || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) { setError(data.error ?? "Erreur génération"); return; }
+      setWeekResult(`✓ ${data.created} créneaux de 30 min créés !`);
+      // Ajouter les nouveaux créneaux à la liste
+      if (Array.isArray(data.slots)) {
+        setSlots((prev) => [...prev, ...data.slots].sort((a, b) => {
+          if (a.date !== b.date) return a.date < b.date ? -1 : 1;
+          return a.start_time < b.start_time ? -1 : 1;
+        }));
+      }
+      router.refresh();
+    } catch {
+      setError("Erreur réseau");
+    } finally {
+      setWeekGenerating(false);
+    }
+  }
+
   const upcomingSlots = slots.filter(
     (s) => s.date >= new Date().toISOString().split("T")[0]
   );
@@ -114,6 +187,158 @@ export function AdminInterviewSlotsClient({ initialSlots }: { initialSlots: Slot
 
   return (
     <div className="space-y-6">
+      {/* Bouton retour */}
+      <div className="flex gap-2">
+        <Link
+          href="/admin"
+          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+        >
+          ← Retour au dashboard
+        </Link>
+        <Link
+          href="/admin/calendrier-global"
+          className="inline-flex items-center gap-1.5 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+        >
+          📅 Voir le calendrier
+        </Link>
+      </div>
+
+      {/* ── Génération semaine complète ── */}
+      <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm">
+        <h2 className="mb-1 text-lg font-bold text-emerald-900">🗓 Générer mes dispos sur une semaine</h2>
+        <p className="mb-5 text-sm text-emerald-700">Crée automatiquement tous les créneaux de 30 min sur les jours et plages horaires choisis.</p>
+
+        <div className="space-y-4">
+          {/* Semaine */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-emerald-800">
+                Semaine (lundi)
+              </label>
+              <input
+                type="date"
+                value={weekForm.weekStart}
+                onChange={(e) => setWeekForm((f) => ({ ...f, weekStart: e.target.value }))}
+                className="w-full rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-emerald-800">
+                Formation
+              </label>
+              <select
+                value={weekForm.formation_type}
+                onChange={(e) => setWeekForm((f) => ({ ...f, formation_type: e.target.value }))}
+                className="w-full rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+              >
+                {FORMATION_TYPES.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
+              </select>
+            </div>
+          </div>
+
+          {/* Jours */}
+          <div>
+            <label className="mb-2 block text-xs font-semibold uppercase tracking-wide text-emerald-800">Jours disponibles</label>
+            <div className="flex flex-wrap gap-2">
+              {DAYS.map((d) => (
+                <button
+                  key={d.num}
+                  type="button"
+                  onClick={() => setWeekForm((f) => ({
+                    ...f,
+                    days: f.days.includes(d.num)
+                      ? f.days.filter((x) => x !== d.num)
+                      : [...f.days, d.num].sort(),
+                  }))}
+                  className={`rounded-xl px-3 py-1.5 text-sm font-semibold transition ${
+                    weekForm.days.includes(d.num)
+                      ? "bg-emerald-600 text-white"
+                      : "border border-emerald-200 bg-white text-emerald-700 hover:bg-emerald-100"
+                  }`}
+                >
+                  {d.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Plage 1 */}
+          <div>
+            <label className="mb-2 block text-xs font-semibold uppercase tracking-wide text-emerald-800">Plage horaire 1</label>
+            <div className="flex items-center gap-3">
+              <input
+                type="time"
+                value={weekForm.rangeFrom1}
+                onChange={(e) => setWeekForm((f) => ({ ...f, rangeFrom1: e.target.value }))}
+                className="rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+              />
+              <span className="text-sm text-emerald-700">→</span>
+              <input
+                type="time"
+                value={weekForm.rangeTo1}
+                onChange={(e) => setWeekForm((f) => ({ ...f, rangeTo1: e.target.value }))}
+                className="rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+              />
+            </div>
+          </div>
+
+          {/* Plage 2 optionnelle */}
+          <div>
+            <button
+              type="button"
+              onClick={() => setWeekForm((f) => ({ ...f, useRange2: !f.useRange2 }))}
+              className="text-sm font-semibold text-emerald-700 underline underline-offset-2"
+            >
+              {weekForm.useRange2 ? "− Retirer la plage de l'après-midi" : "+ Ajouter une plage après-midi"}
+            </button>
+            {weekForm.useRange2 && (
+              <div className="mt-2 flex items-center gap-3">
+                <input
+                  type="time"
+                  value={weekForm.rangeFrom2}
+                  onChange={(e) => setWeekForm((f) => ({ ...f, rangeFrom2: e.target.value }))}
+                  className="rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+                />
+                <span className="text-sm text-emerald-700">→</span>
+                <input
+                  type="time"
+                  value={weekForm.rangeTo2}
+                  onChange={(e) => setWeekForm((f) => ({ ...f, rangeTo2: e.target.value }))}
+                  className="rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Note */}
+          <div>
+            <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-emerald-800">Note (optionnel)</label>
+            <input
+              type="text"
+              value={weekForm.notes}
+              placeholder="Ex : Disponible sauf urgences"
+              onChange={(e) => setWeekForm((f) => ({ ...f, notes: e.target.value }))}
+              className="w-full rounded-xl border border-emerald-200 bg-white px-3 py-2.5 text-sm focus:border-emerald-400 focus:outline-none"
+            />
+          </div>
+
+          {weekResult && (
+            <div className="rounded-xl border border-emerald-300 bg-white px-4 py-3 text-sm font-semibold text-emerald-700">
+              {weekResult}
+            </div>
+          )}
+
+          <button
+            type="button"
+            onClick={() => void handleGenerateWeek()}
+            disabled={weekGenerating || weekForm.days.length === 0}
+            className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-50"
+          >
+            {weekGenerating ? "Génération…" : "🗓 Générer les créneaux"}
+          </button>
+        </div>
+      </div>
+
       {/* Formulaire de création */}
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 className="mb-5 text-lg font-bold text-slate-900">Créer un nouveau créneau</h2>

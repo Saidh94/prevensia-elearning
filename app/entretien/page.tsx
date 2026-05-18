@@ -144,12 +144,18 @@ export default async function EntretienPage({
           />
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/booking"
-            className="text-sm text-slate-500 underline underline-offset-2 hover:text-slate-700"
+            className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
           >
             ← Retour à la planification
+          </Link>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+          >
+            Mon espace e-learning
           </Link>
         </div>
       </div>
