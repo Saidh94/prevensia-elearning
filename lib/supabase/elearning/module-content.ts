@@ -1352,6 +1352,101 @@ export const modulesContent: Record<string, ModuleContent> = {
           tone: "slate",
         },
       },
+      {
+        id: "batteries-lithium",
+        title: "9. Incendie de batteries lithium-ion : risques spécifiques",
+        estimatedMinutes: 12,
+        intro:
+          "Les batteries lithium-ion équipent aujourd'hui vélos électriques, trottinettes, chariots, engins de manutention et systèmes de stockage d'énergie. Leur comportement en feu est radicalement différent des incendies classiques et exige une conduite spécifique.",
+        content: [
+          "L'emballement thermique (thermal runaway) est le phénomène central du risque lithium. Lorsqu'une cellule est endommagée, surchargée, court-circuitée ou exposée à une chaleur excessive, elle libère une énergie chimique incontrôlable : montée brutale en température (jusqu'à 800 °C localement), projection de gaz inflammables, ignition des cellules voisines en cascade. Ce phénomène peut se déclencher des heures ou des jours après un choc ou une recharge incorrecte.",
+          "Les fumées émises sont particulièrement toxiques : fluorure d'hydrogène (HF), monoxyde de carbone (CO), dioxyde de carbone (CO₂) et autres composés organiques volatils. Le fluorure d'hydrogène est extrêmement dangereux, corrosif pour les voies respiratoires et mortel à forte concentration. L'évacuation immédiate du secteur est impérative dès les premiers signes.",
+          "La ré-inflammation est une caractéristique majeure du feu de lithium : une batterie apparemment éteinte peut se réenflammer spontanément plusieurs heures après l'intervention, car les réactions chimiques internes continuent. Les pompiers maintiennent une surveillance prolongée et immergent parfois les batteries dans l'eau pour stopper les réactions.",
+          "Les extincteurs classiques (CO₂, poudre, eau) n'éteignent pas l'emballement thermique interne. L'eau en grande quantité peut ralentir le phénomène en refroidissant les cellules, mais ne peut stopper la réaction chimique déjà amorcée. Il n'existe pas à ce jour d'agent extincteur parfaitement efficace : la priorité est l'évacuation, la limitation de la propagation et la protection des structures adjacentes.",
+          "Conduite à tenir face à un feu de batterie lithium : (1) Évacuer immédiatement la zone sans chercher à éteindre soi-même. (2) Déclencher l'alarme et appeler les secours (18 ou 112). (3) Confiner si possible en fermant les portes — ne pas ouvrir de fenêtres proches si cela alimente l'air. (4) Indiquer aux secours la nature du sinistre (batterie lithium) et la localisation. (5) Ne pas rester exposé aux fumées. (6) Surveiller à distance une ré-inflammation potentielle.",
+          "En prévention : les zones de charge de batteries doivent être dans des locaux ventilés, dédiés, résistants au feu, sans combustibles à proximité immédiate. Seuls des chargeurs adaptés à la batterie doivent être utilisés. Une batterie gonflée, choquée ou dont l'enveloppe est déformée doit être isolée et signalée sans délai. La charge sans surveillance dans des espaces à risque (entrepôt, cage d'escalier, local technique) est une pratique dangereuse à proscrire formellement.",
+          "Sur les sites qui accueillent des engins électriques (chariots, AMR, véhicules), une procédure spécifique doit définir les emplacements de recharge, les fréquences de vérification des batteries, la conduite en cas d'anomalie visible et la communication avec les secours."
+        ],
+        keyPoints: [
+          "L'emballement thermique est un phénomène chimique interne incontrôlable : évacuer avant d'agir.",
+          "Les fumées contiennent du fluorure d'hydrogène (HF) : extrêmement toxique.",
+          "La ré-inflammation peut survenir plusieurs heures après l'extinction apparente.",
+          "Aucun extincteur classique ne stoppe l'emballement thermique interne.",
+          "Prévention : local ventilé, chargeur adapté, batterie endommagée isolée et signalée."
+        ],
+        forbiddenPoints: [
+          "Tenter d'éteindre seul un feu de batterie lithium en emballement.",
+          "Rester exposé aux fumées d'une batterie en feu.",
+          "Utiliser un chargeur non adapté ou une multiprise surchargée.",
+          "Laisser charger une batterie endommagée ou gonflée sans surveillance.",
+          "Ignorer une batterie dont l'enveloppe est déformée ou dont la température est anormale."
+        ],
+        legalRefs: [
+          "INRS - Fiche ED 6494 : risques liés aux batteries lithium-ion.",
+          "BRGM / INERIS - publications sur la gestion du risque thermique des accumulateurs.",
+          "Code du travail - obligation d'évaluation des risques spécifiques aux équipements de travail.",
+          "Arrêté du 11 avril 2017 relatif aux installations de charge de véhicules électriques."
+        ],
+        chapterImagePath: "/images/extincteurs-de-chantier.jpg",
+        chapterImageAlt:
+          "Extincteurs disponibles pour intervention incendie",
+        visual: {
+          title: "Conduite à tenir — feu de batterie lithium",
+          subtitle: "La priorité absolue est l'évacuation, pas l'extinction.",
+          items: [
+            "1. Évacuer immédiatement",
+            "2. Déclencher l'alarme et appeler le 18",
+            "3. Fermer les portes — ne pas ouvrir les fenêtres proches",
+            "4. Signaler : batterie lithium, emplacement exact",
+            "5. Surveiller la ré-inflammation à distance"
+          ],
+          tone: "red",
+        },
+      },
+      {
+        id: "pfas-emulseurs",
+        title: "10. PFAS, émulseurs fluorés et évolution réglementaire 2025-2026",
+        estimatedMinutes: 10,
+        intro:
+          "Les mousses fluorées utilisées depuis des décennies pour combattre les feux d'hydrocarbures et de liquides inflammables font l'objet d'une révolution réglementaire majeure en 2025-2026, avec l'interdiction progressive des PFAS en Europe.",
+        content: [
+          "Les PFAS (Per- et Polyfluoroalkylsubstances) sont une famille de composés chimiques fluorés utilisés dans de nombreux émulseurs (mousses extincteurs) : AFFF (Aqueous Film Forming Foam), FFFP, AR-AFFF notamment. Leurs propriétés de résistance chimique et d'étalement sur les hydrocarbures en ont fait des agents très efficaces pour les feux de classe B (liquides inflammables, hydrocarbures, solvants).",
+          "Le problème central des PFAS : ils sont persistants dans l'environnement (on les surnomme « polluants éternels »), s'accumulent dans les chaînes alimentaires et dans l'organisme humain, et présentent des effets sanitaires documentés : perturbation endocrinienne, cancers (rein, testicule notamment), effets sur la reproduction et le développement. Leur demi-vie dans l'environnement se compte en centaines d'années.",
+          "En Europe, le règlement REACH et les travaux de l'ECHA ont conduit à des restrictions croissantes. En France, le décret n° 2022-1588 du 19 décembre 2022 a interdit l'utilisation des mousses fluorées dans la lutte contre les incendies à compter du 1er janvier 2024 dans la majorité des applications — sauf dérogations spécifiques pour certains sites SEVESO, aéroports et installations de défense nationale bénéficiant de délais supplémentaires (2025-2028 selon le secteur).",
+          "Pour les sites industriels, ICPE, entrepôts et installations équipées de systèmes à mousse : les stocks d'émulseurs fluorés existants doivent être inventoriés, les systèmes évalués pour le remplacement par des alternatives fluorine-free (AF3F, émulseurs à base de protéine, glucoprotéines, agents synthétiques non fluorés). La substitution n'est pas triviale : les performances sur feux d'hydrocarbures des alternatives peuvent différer et nécessitent des essais de qualification.",
+          "Pour le personnel de sécurité incendie (SSIAP, équipiers incendie, EPI) et les exploitants de sites concernés, la connaissance de cette évolution est désormais indispensable : savoir si le site utilise encore des émulseurs fluorés, connaître les dérogations éventuelles, comprendre les risques environnementaux liés au déversement de ces produits, et contribuer à la traçabilité des incidents impliquant de la mousse fluorée.",
+          "Les mousses fluorées restent dans certains contextes (sites sous dérogation) les agents les plus efficaces sur des feux d'hydrocarbures en nappe. Mais leur utilisation doit être documentée, tracée, et le rinçage des équipements et des zones impactées doit respecter les procédures de gestion des eaux polluées aux PFAS (interdiction de rejet direct dans le milieu naturel)."
+        ],
+        keyPoints: [
+          "PFAS = polluants persistants, bioaccumulables, effets sanitaires documentés.",
+          "Décret 2022-1588 : interdiction d'usage des mousses fluorées depuis janvier 2024 (sauf dérogations).",
+          "Alternatives : émulseurs fluorine-free (AF3F), protéines, glucoprotéines.",
+          "Sites sous dérogation : inventaire, traçabilité et procédures de gestion des eaux obligatoires.",
+          "Les eaux de ruissellement contaminées aux PFAS ne doivent pas être rejetées dans le milieu naturel."
+        ],
+        legalRefs: [
+          "Décret n° 2022-1588 du 19 décembre 2022 relatif à l'interdiction des mousses fluorées.",
+          "Règlement REACH (CE) n° 1907/2006 — restrictions PFAS.",
+          "ECHA — dossier de restriction PFAS (soumis 2023).",
+          "Arrêté du 4 octobre 2010 modifié — prescriptions ICPE relatives aux émulseurs.",
+          "INRS — ED 6510 : PFAS en milieu professionnel."
+        ],
+        chapterImagePath: "/images/fonctionnement-systeme-incendie.jpg",
+        chapterImageAlt:
+          "Système d'extinction incendie avec mousse",
+        visual: {
+          title: "PFAS — ce qui change en 2025-2026",
+          subtitle: "Une évolution réglementaire majeure pour tous les sites utilisant des mousses.",
+          items: [
+            "Interdiction générale depuis janvier 2024 (décret 2022-1588)",
+            "Dérogations pour aéroports, SEVESO, défense (2025-2028)",
+            "Alternatives : AF3F, protéines, glucoprotéines",
+            "Eaux PFAS = déchets à traiter, pas à rejeter",
+            "Inventaire et traçabilité obligatoires pour les sites sous dérogation"
+          ],
+          tone: "amber",
+        },
+      },
     ],
   },
 

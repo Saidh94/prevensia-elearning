@@ -4512,6 +4512,170 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le serre-file est le dernier à quitter son secteur. Il vérifie l'évacuation de chaque local (toilettes, vestiaires, recoins) et ferme les portes derrière lui pour confiner l'incendie. Le guide-file ouvre la marche et guide vers les issues. Le responsable d'évacuation coordonne l'ensemble et rend compte au point de rassemblement.",
       chapterLabel: "Alerte et évacuation",
     },
+
+    // ── Batteries lithium-ion ──────────────────────────────────────────────
+    {
+      question: "Qu'est-ce que l'emballement thermique (thermal runaway) d'une batterie lithium-ion ?",
+      choices: [
+        "Une réaction chimique interne incontrôlable qui s'emballe en cascade, générant chaleur, gaz inflammables et risque d'incendie",
+        "Une surchauffe temporaire du chargeur qui se dissipe lorsqu'on débranche la batterie",
+        "Un défaut électrique du circuit de charge corrigeable par un fusible",
+        "Un phénomène uniquement possible lors de la fabrication, pas en exploitation",
+      ],
+      answer: [0],
+      explanation:
+        "L'emballement thermique est une réaction exothermique auto-entretenue à l'intérieur des cellules. Une fois amorcé, il ne peut pas être stoppé de l'extérieur : les cellules voisines s'enflamment en cascade. Il peut survenir après un choc, une surcharge, un court-circuit interne ou une exposition à la chaleur — parfois plusieurs heures après l'événement déclencheur.",
+      chapterLabel: "Batteries lithium",
+      eliminatory: true,
+    },
+    {
+      question: "Quelle est la conduite à tenir prioritaire face à un feu de batterie lithium-ion en cours d'emballement thermique ?",
+      choices: [
+        "Évacuer immédiatement la zone et déclencher l'alarme — ne pas tenter d'éteindre seul",
+        "Utiliser un extincteur CO₂ pour asphyxier la batterie",
+        "Arroser avec un seau d'eau pour refroidir",
+        "Couvrir la batterie avec une couverture anti-feu pour étouffer les flammes",
+      ],
+      answer: [0],
+      explanation:
+        "Aucun extincteur classique ne stoppe l'emballement thermique interne. Le CO₂, la poudre et la couverture anti-feu peuvent maîtriser les flammes visibles mais pas la réaction chimique interne. La priorité absolue est l'évacuation, l'alerte des secours et la limitation de la propagation. Les pompiers utilisent de grandes quantités d'eau pour refroidir l'ensemble et surveillent la ré-inflammation.",
+      chapterLabel: "Batteries lithium",
+      eliminatory: true,
+    },
+    {
+      question: "Parmi les gaz émis lors d'un emballement thermique de batterie lithium, lequel est particulièrement dangereux pour les voies respiratoires ?",
+      choices: [
+        "Le fluorure d'hydrogène (HF)",
+        "Le dioxyde de carbone (CO₂)",
+        "L'azote (N₂)",
+        "La vapeur d'eau",
+      ],
+      answer: [0],
+      explanation:
+        "Le fluorure d'hydrogène (HF) est un composé extrêmement corrosif et toxique, produit lors de la décomposition thermique des électrolytes fluorés des batteries lithium-ion. Il est dangereux même à faible concentration et peut provoquer des brûlures internes graves des voies respiratoires. L'évacuation immédiate s'impose dès les premiers signes de fumée.",
+      chapterLabel: "Batteries lithium",
+    },
+    {
+      question: "Qu'est-ce que la ré-inflammation dans le contexte des feux de batteries lithium-ion ?",
+      choices: [
+        "La reprise spontanée du feu plusieurs heures après l'extinction apparente, car les réactions chimiques internes se poursuivent",
+        "Un second départ de feu dû à un court-circuit du chargeur adjacent",
+        "Un phénomène lié uniquement aux batteries endommagées physiquement",
+        "Une réaction qui ne survient que lors de la phase de charge",
+      ],
+      answer: [0],
+      explanation:
+        "La ré-inflammation est un risque majeur spécifique au lithium : une batterie qui semble éteinte peut redémarrer spontanément en raison des réactions électrochimiques qui continuent dans les cellules. C'est pour cette raison que les pompiers maintiennent une surveillance prolongée et immergent parfois les batteries dans l'eau pour stopper définitivement les réactions.",
+      chapterLabel: "Batteries lithium",
+    },
+    {
+      question: "Une batterie lithium-ion présentant une enveloppe gonflée (« boursouflement ») doit-elle être utilisée normalement ?",
+      choices: [
+        "Non — elle doit être immédiatement isolée, étiquetée et signalée sans être rechargée ni utilisée",
+        "Oui, si le gonflement est léger et que la batterie charge encore",
+        "Oui, si la batterie a moins de 2 ans",
+        "Non, uniquement si la batterie est dans un véhicule électrique",
+      ],
+      answer: [0],
+      explanation:
+        "Un gonflement de la batterie (swelling) indique une accumulation de gaz due à une dégradation interne des cellules. La recharger ou l'utiliser dans cet état est extrêmement dangereux car l'emballement thermique peut être imminent. Elle doit être isolée dans un endroit sécurisé, ventilé, loin de combustibles, et signalée au responsable pour élimination.",
+      chapterLabel: "Batteries lithium",
+    },
+    {
+      question: "Où doit se trouver une zone de charge de batteries lithium-ion en milieu professionnel ?",
+      choices: [
+        "Dans un local ventilé, résistant au feu, éloigné des combustibles, avec un chargeur adapté à la batterie",
+        "Dans n'importe quel local à condition d'utiliser une multiprise de qualité",
+        "En sous-sol pour limiter les risques de propagation vers les niveaux supérieurs",
+        "À proximité des moyens d'extinction pour réagir rapidement",
+      ],
+      answer: [0],
+      explanation:
+        "La réglementation et les bonnes pratiques imposent des zones de charge dédiées : locaux ventilés (pour évacuer les gaz), résistants au feu (pour limiter la propagation), sans combustibles à proximité, et avec des chargeurs strictement adaptés aux batteries utilisées. Une multiprise surchargée ou un chargeur non adapté peut provoquer un court-circuit déclencheur d'emballement.",
+      chapterLabel: "Batteries lithium",
+    },
+
+    // ── PFAS / émulseurs fluorés ────────────────────────────────────────────
+    {
+      question: "Que signifie l'acronyme PFAS dans le contexte des émulseurs incendie ?",
+      choices: [
+        "Per- et Polyfluoroalkylsubstances — composés chimiques fluorés utilisés dans les mousses extincteurs",
+        "Produits de Formulation Anti-Sinistre — agents extincteurs homologués en France",
+        "Protéines Fluorées Actives pour Sprinklers — additif pour installations automatiques",
+        "Plan de Formation Anti-incendie et Sécurité — document réglementaire obligatoire",
+      ],
+      answer: [0],
+      explanation:
+        "Les PFAS (Per- et Polyfluoroalkylsubstances) sont une famille de milliers de composés chimiques fluorés. Utilisés dans les émulseurs AFFF, FFFP et AR-AFFF pour leur excellente efficacité sur les feux d'hydrocarbures, ils sont désormais classés comme polluants persistants préoccupants en raison de leur accumulation dans l'environnement et l'organisme humain.",
+      chapterLabel: "PFAS et émulseurs",
+    },
+    {
+      question: "Pourquoi les PFAS sont-ils surnommés 'polluants éternels' ?",
+      choices: [
+        "Parce qu'ils se dégradent extrêmement lentement dans l'environnement (demi-vie de centaines d'années) et s'accumulent dans les chaînes alimentaires",
+        "Parce qu'ils sont interdits en France depuis 1990 mais toujours utilisés à l'étranger",
+        "Parce qu'ils laissent une trace visuelle permanente sur les sols",
+        "Parce qu'ils sont radioactifs et nécessitent un stockage spécial",
+      ],
+      answer: [0],
+      explanation:
+        "Les PFAS résistent à la dégradation chimique, thermique et biologique. Une fois dans l'environnement, ils persistent pendant des centaines d'années, contaminent les nappes phréatiques, s'accumulent dans les tissus vivants (bioaccumulation) et remontent la chaîne alimentaire. Leurs effets sanitaires incluent perturbations endocriniennes, certains cancers et troubles de la reproduction.",
+      chapterLabel: "PFAS et émulseurs",
+    },
+    {
+      question: "Depuis quelle date l'utilisation des mousses fluorées (PFAS) est-elle interdite en France pour la lutte contre l'incendie dans la majorité des applications ?",
+      choices: [
+        "1er janvier 2024 (décret n° 2022-1588 du 19 décembre 2022)",
+        "1er janvier 2020 (transposition de la directive REACH)",
+        "1er juillet 2026 (entrée en vigueur progressive)",
+        "L'interdiction n'est pas encore effective en France",
+      ],
+      answer: [0],
+      explanation:
+        "Le décret n° 2022-1588 du 19 décembre 2022 a interdit l'utilisation des mousses fluorées à compter du 1er janvier 2024. Des dérogations existent pour certains secteurs (aéroports, sites SEVESO spécifiques, défense nationale) avec des délais supplémentaires jusqu'en 2025-2028 selon le secteur.",
+      chapterLabel: "PFAS et émulseurs",
+      eliminatory: false,
+    },
+    {
+      question: "Sur quels types de feux les émulseurs fluorés (AFFF, FFFP) étaient-ils principalement utilisés ?",
+      choices: [
+        "Feux de classe B : liquides inflammables et hydrocarbures en nappe",
+        "Feux de classe A : solides organiques (bois, papier, tissu)",
+        "Feux de classe C : gaz inflammables",
+        "Feux de classe F : huiles de cuisson",
+      ],
+      answer: [0],
+      explanation:
+        "Les émulseurs fluorés formaient un film aqueux sur la surface des hydrocarbures, les isolant de l'oxygène et empêchant les vapeurs inflammables de s'enflammer à nouveau. Leur efficacité sur les feux de classe B (liquides inflammables, hydrocarbures, solvants) était reconnue, ce qui explique leur large utilisation dans les dépôts pétroliers, les aéroports et les sites ICPE.",
+      chapterLabel: "PFAS et émulseurs",
+    },
+    {
+      question: "Que désigne le terme 'AF3F' ou 'fluorine-free' dans le contexte des émulseurs incendie ?",
+      choices: [
+        "Des émulseurs sans composés fluorés, développés comme alternatives aux AFFF pour les feux d'hydrocarbures",
+        "Des extincteurs à eau avec additif anti-feu renforcé",
+        "Des mousses destinées exclusivement aux cuisines professionnelles",
+        "Un label européen de certification des équipements extincteurs",
+      ],
+      answer: [0],
+      explanation:
+        "AF3F (Alcohol-resistant Fluorine-Free Foam) et les émulseurs fluorine-free sont des alternatives aux émulseurs PFAS pour les feux d'hydrocarbures. Basés sur des protéines, glucoprotéines ou agents synthétiques non fluorés, ils ne présentent pas les mêmes risques environnementaux. Leur performance sur certains feux d'hydrocarbures doit être qualifiée par des essais, car elle peut différer des émulseurs fluorés.",
+      chapterLabel: "PFAS et émulseurs",
+    },
+    {
+      question: "Lors d'un incident sur un site utilisant encore des émulseurs fluorés (sous dérogation), que doit-on faire des eaux de ruissellement contaminées ?",
+      choices: [
+        "Les collecter et les traiter comme déchets dangereux — ne pas les rejeter dans le milieu naturel",
+        "Les diluer avec de l'eau claire avant rejet dans les égouts",
+        "Les laisser s'infiltrer dans le sol après neutralisation au pH",
+        "Les rejeter dans le réseau pluvial si la quantité est inférieure à 500 litres",
+      ],
+      answer: [0],
+      explanation:
+        "Les eaux contaminées aux PFAS constituent un déchet dangereux. Tout rejet direct dans le milieu naturel, les égouts ou le réseau pluvial est interdit. Elles doivent être collectées, confinées et traitées par des filières agréées. Sur les sites sous dérogation, une procédure de gestion des eaux PFAS doit être formalisée avant tout incident.",
+      chapterLabel: "PFAS et émulseurs",
+      eliminatory: true,
+    },
   ],
   "extinction-automatique-gaz": [
     {
@@ -7712,6 +7876,138 @@ quizContent["ssiap1"] = [
     explanation:
       "La notation européenne de résistance au feu pour les éléments séparateurs non porteurs (cloisons, portes, rideaux coupe-feu) : E = étanchéité aux flammes et gaz chauds (pas de flamme ni de gaz passant d'un côté à l'autre) ; I = isolation thermique (la face non exposée au feu ne dépasse pas 140 °C d'élévation). EI 30 = ancien pare-feu ½ heure (PF ½ h) ; EI 60 = ancien coupe-feu 1 heure (CF 1h) ; EI 120 = CF 2h. Pour les éléments porteurs, R s'ajoute : REI 60 = plancher résistance + étanchéité + isolation pendant 60 min.",
     timeLimit: 35,
+  },
+
+  // ── Cas terrain SSIAP : levée de doute, alarme intempestive, registre ──────
+  {
+    question: "Une alarme restreinte se déclenche au tableau SSI à 14h30. Quelle est la procédure de levée de doute ?",
+    choices: [
+      "Se rendre dans la zone concernée pour vérifier visuellement si un sinistre réel est en cours avant de déclencher l'alarme générale",
+      "Déclencher immédiatement l'alarme générale sans vérification",
+      "Appeler les pompiers directement sans vérification préalable",
+      "Éteindre le signal sonore et attendre 5 minutes pour voir si ça se répète",
+    ],
+    answer: [0],
+    chapterLabel: "PC sécurité et exploitation",
+    explanation:
+      "L'alarme restreinte (signal vers le PC sécurité seulement) déclenche la procédure de levée de doute : l'agent SSIAP1 se rend dans la zone indiquée pour constater si le départ de feu est réel. Si incendie confirmé → alarme générale + appel 18. Si levée de doute négative (fausse alarme) → réarmement, traçabilité dans le registre, analyse du détecteur. La levée de doute ne doit pas dépasser 3 minutes.",
+    eliminatory: true,
+    timeLimit: 40,
+  },
+  {
+    question: "Lors d'une levée de doute, vous arrivez dans la zone concernée et constatez une légère odeur de fumée sans flamme visible. Que faites-vous ?",
+    choices: [
+      "Déclencher immédiatement l'alarme générale et appeler le 18 — une odeur de fumée est un sinistre confirmé",
+      "Continuer la vérification dans les locaux adjacents pendant 10 minutes avant de décider",
+      "Aérer le local et réarmer le détecteur car c'est probablement de la poussière",
+      "Attendre l'arrivée d'un collègue pour décider à deux",
+    ],
+    answer: [0],
+    chapterLabel: "PC sécurité et exploitation",
+    explanation:
+      "Une odeur de fumée sans flamme visible est un sinistre en cours (phase de départ ou d'échauffement). L'alarme générale doit être déclenchée immédiatement et le 18 appelé. La levée de doute sert à confirmer ou infirmer l'alarme — toute détection sensorielle (odeur, chaleur, fumée légère) constitue une confirmation. On ne temporise pas.",
+    eliminatory: true,
+    timeLimit: 40,
+  },
+  {
+    question: "Une alarme restreinte se déclenche pour la troisième fois en 2 heures sur le même détecteur. Chaque fois, la levée de doute est négative. Comment qualifiez-vous cette situation et que faites-vous ?",
+    choices: [
+      "Alarme intempestive répétitive — tracer chaque événement au registre, signaler au responsable et contacter le mainteneur SSI pour diagnostic du détecteur",
+      "Inhiber le détecteur pour ne plus être dérangé jusqu'à la prochaine maintenance préventive",
+      "Considérer que le secteur est sûr et ne plus effectuer de levée de doute pour ce détecteur",
+      "Débrancher physiquement le détecteur pour stopper les fausses alarmes",
+    ],
+    answer: [0],
+    chapterLabel: "PC sécurité et exploitation",
+    explanation:
+      "Une alarme intempestive répétitive sur le même détecteur est une anomalie technique (détecteur encrassé, sensibilité déréglée, exposition à de la vapeur ou de la poussière). Elle ne doit jamais être gérée par inhibition non encadrée ou débranchement. La traçabilité est obligatoire, le mainteneur doit intervenir. Inhiber un détecteur sans procédure formelle est une faute grave.",
+    eliminatory: true,
+    timeLimit: 40,
+  },
+  {
+    question: "Qu'est-ce qu'une mise hors service (MHS) encadrée d'un équipement SSI, et qui peut la décider ?",
+    choices: [
+      "L'inhibition temporaire d'un équipement (détecteur, DAS, zone) pour travaux ou maintenance, décidée et tracée selon une procédure formelle avec mesures compensatoires",
+      "L'extinction du tableau SSI pendant les travaux pour éviter les fausses alarmes",
+      "Le débranchement d'un détecteur jugé trop sensible, décidé par l'agent SSIAP1 de permanence",
+      "La coupure générale du système SSI le week-end quand le site est fermé",
+    ],
+    answer: [0],
+    chapterLabel: "PC sécurité et exploitation",
+    explanation:
+      "Une MHS encadrée est décidée par le responsable sécurité ou le coordinateur SSI, documentée dans le registre, limitée dans le temps, et accompagnée de mesures compensatoires (rondes renforcées, moyen de détection alternatif, restriction d'accès à la zone). Toute MHS non tracée constitue un manquement réglementaire grave. L'agent SSIAP1 ne peut pas décider seul d'une MHS.",
+    eliminatory: true,
+    timeLimit: 40,
+  },
+  {
+    question: "Que doit contenir une entrée dans le registre de sécurité d'un ERP pour être valide ?",
+    choices: [
+      "La date et l'heure, la nature de l'événement, le secteur concerné, les actions réalisées et la signature de l'agent",
+      "Uniquement la date et l'action réalisée — le reste est optionnel",
+      "Le nom du visiteur ou du responsable de travaux seulement",
+      "Le registre de sécurité n'est pas obligatoire dans les ERP de catégorie 4 et 5",
+    ],
+    answer: [0],
+    chapterLabel: "PC sécurité et exploitation",
+    explanation:
+      "Le registre de sécurité est un document réglementaire obligatoire dans tous les ERP (article R. 123-51 du CCH). Chaque entrée doit être datée, horodatée, localisée, décrite précisément et signée. Il recense : alarmes et levées de doute, rondes, visites de contrôle, exercices, travaux, mises hors service, interventions de maintenance. La commission de sécurité peut le consulter à tout moment.",
+    timeLimit: 35,
+  },
+  {
+    question: "Un DAS (Dispositif Actionné de Sécurité) s'est déclenché lors d'une alarme. Après réarmement du SSI, comment vérifier que le DAS est bien revenu en position de veille ?",
+    choices: [
+      "Contrôle visuel sur site de la position du DAS (porte CF fermée, trappe de désenfumage fermée) ET vérification au tableau SSI de la disparition de l'indication d'état actionné",
+      "Vérification uniquement au tableau SSI — le retour en position est automatique",
+      "Attendre 30 minutes pour laisser le temps au DAS de se réarmer automatiquement",
+      "Il suffit de réarmer le CMSI — les DAS suivent automatiquement",
+    ],
+    answer: [0],
+    chapterLabel: "DAS et désenfumage",
+    explanation:
+      "Le retour en position de veille d'un DAS doit être vérifié à la fois visuellement sur site (la porte coupe-feu est bien refermée, la trappe de désenfumage est bien retournée en position fermée) et au tableau (disparition de l'indication 'actionné'). Un DAS non revenu en position compromet la protection du compartiment. Certains DAS ne se réarment pas automatiquement et nécessitent une action manuelle sur site.",
+    timeLimit: 35,
+  },
+  {
+    question: "Lors d'un exercice d'évacuation, l'alarme générale sonne. Un visiteur refuse d'évacuer et dit que c'est 'juste un exercice'. Que fait l'agent SSIAP1 ?",
+    choices: [
+      "Insiste fermement pour que le visiteur évacue — lors d'un exercice comme d'un sinistre réel, l'évacuation est obligatoire pour tous",
+      "Laisse le visiteur rester car c'est effectivement un exercice et non un sinistre",
+      "Appelle immédiatement les forces de l'ordre pour contraindre le visiteur",
+      "Note le refus dans le registre mais ne peut pas forcer l'évacuation d'un visiteur adulte",
+    ],
+    answer: [0],
+    chapterLabel: "Evacuation et rôle terrain",
+    explanation:
+      "L'exercice d'évacuation a précisément pour but de former les comportements en situation réelle. L'agent SSIAP1 doit faire évacuer tous les occupants sans exception. Il peut s'appuyer sur les guides-files et le responsable d'évacuation. L'objectif pédagogique est de tester le comportement réel : un visiteur qui reste annule la valeur de l'exercice. Si refus persistant, signalement au SSIAP2 de permanence.",
+    timeLimit: 30,
+  },
+  {
+    question: "Quelle est la différence entre un dérangement et un défaut sur un tableau SSI ?",
+    choices: [
+      "Le dérangement signale une anomalie de supervision (câble coupé, boucle ouverte) ; le défaut signale une anomalie interne à un équipement (alimentation, composant) — les deux nécessitent un suivi mainteneur",
+      "Le dérangement est une alarme feu non confirmée ; le défaut est une alarme confirmée",
+      "Il n'y a pas de différence : les deux termes désignent la même chose selon les constructeurs",
+      "Le dérangement est signalé uniquement sur les CMSI de catégorie A ; le défaut sur les catégories B et C",
+    ],
+    answer: [0],
+    chapterLabel: "Lecture du tableau SSI",
+    explanation:
+      "Sur un SSI, le dérangement (ou 'défaut de ligne') signale une anomalie de la supervision du réseau (câble coupé, mise à la terre, boucle ouverte). Le défaut technique signale une anomalie interne à un composant (alimentation de secours, carte électronique). Les deux sont des états anormaux qui dégradent la protection et nécessitent l'intervention du mainteneur — jamais une simple extinction de signal.",
+    timeLimit: 35,
+  },
+  {
+    question: "Un désenfumage mécanique s'est déclenché sur fausse alarme dans un couloir. Que doit faire l'agent SSIAP1 avant de réarmer ?",
+    choices: [
+      "Vérifier physiquement que les clapets et ouvrants sont bien revenus en position fermée, que le couloir est libre, puis réarmer selon la procédure du site et tracer dans le registre",
+      "Réarmer directement depuis le PC sécurité sans vérification sur site",
+      "Attendre que le désenfumage s'arrête seul avant toute action",
+      "Ouvrir les portes coupe-feu du couloir pour accélérer la ventilation avant réarmement",
+    ],
+    answer: [0],
+    chapterLabel: "DAS et désenfumage",
+    explanation:
+      "Avant tout réarmement, l'agent doit s'assurer que le local est sûr (pas de fumée réelle), que les équipements actionnés (extracteurs, clapets, trappes) ont bien la position correcte pour le réarmement. Le réarmement sans vérification peut fausser l'état de disponibilité du système. Ouvrir les portes CF compromet le compartimentage — c'est une erreur.",
+    timeLimit: 40,
   },
 ];
 
