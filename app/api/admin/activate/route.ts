@@ -24,8 +24,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Accès interdit" }, { status: 403 });
     }
 
-    const formData = await req.formData();
-    const enrollmentId = String(formData.get("enrollmentId") || "");
+    // Lire soit JSON soit formData
+    let enrollmentId = "";
+    let motif = "";
+    const contentType = req.headers.get("content-type") ?? "";
+    if (contentType.includes("application/json")) {
+      const body = await req.json() as { enrollmentId?: string; motif?: string };
+      enrollmentId = String(body.enrollmentId ?? "").trim();
+      motif = String(body.motif ?? "").trim();
+    } else {
+      const formData = await req.formData();
+      enrollmentId = String(formData.get("enrollmentId") || "").trim();
+      motif = String(formData.get("motif") || "").trim();
+    }
 
     if (!enrollmentId) {
       return NextResponse.json({ error: "enrollmentId manquant" }, { status: 400 });
@@ -78,6 +89,11 @@ export async function POST(req: Request) {
       );
     }
 
+    console.log("[admin/activate] Enrollment", enrollmentId, "activé. Motif:", motif || "(non fourni)");
+
+    if (contentType.includes("application/json")) {
+      return NextResponse.json({ ok: true });
+    }
     return NextResponse.redirect(new URL("/admin", req.url));
   } catch (error) {
     return NextResponse.json(

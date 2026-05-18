@@ -5,6 +5,7 @@ type SessionRow = {
   title: string;
   date_start: string;
   format?: string | null;
+  places_total?: number | null;
 };
 
 type RegistrationCountRow = {
@@ -70,7 +71,7 @@ export async function GET() {
 
     const sessionsUrl =
       `${supabaseUrl}/rest/v1/sessions` +
-      `?select=id,title,date_start,format&order=date_start.asc`;
+      `?select=id,title,date_start,format,places_total&order=date_start.asc`;
 
     // Utilise la vue session_registration_counts (données agrégées uniquement,
     // pas d'accès aux données personnelles des inscrits)
@@ -132,7 +133,7 @@ export async function GET() {
     );
 
     const result = sessions.map((session) => {
-      const places_total = getMaxPlaces(session);
+      const places_total = session.places_total ?? getMaxPlaces(session);
       const places_taken = countBySession[session.id] ?? 0;
       const places_restantes = Math.max(places_total - places_taken, 0);
 

@@ -36,7 +36,7 @@ export async function GET() {
 
     if (error) throw error;
 
-    return NextResponse.json(data || []);
+    return NextResponse.json({ items: data || [] });
   } catch (err) {
     console.error(err);
     return NextResponse.json(
