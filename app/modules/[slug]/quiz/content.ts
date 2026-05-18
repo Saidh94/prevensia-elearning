@@ -7890,7 +7890,7 @@ quizContent["ssiap1"] = [
     answer: [0],
     chapterLabel: "PC sécurité et exploitation",
     explanation:
-      "L'alarme restreinte (signal vers le PC sécurité seulement) déclenche la procédure de levée de doute : l'agent SSIAP1 se rend dans la zone indiquée pour constater si le départ de feu est réel. Si incendie confirmé → alarme générale + appel 18. Si levée de doute négative (fausse alarme) → réarmement, traçabilité dans le registre, analyse du détecteur. La levée de doute ne doit pas dépasser 3 minutes.",
+      "L'alarme restreinte (signal vers le PC sécurité seulement) déclenche la procédure de levée de doute : l'agent SSIAP1 se rend dans la zone indiquée pour constater si le départ de feu est réel. Si incendie confirmé → alarme générale + appel 18. Si levée de doute négative (fausse alarme) → réarmement, traçabilité dans le registre, analyse du détecteur. La levée de doute doit être menée dans le délai fixé par les consignes du site — généralement 5 minutes maximum ; passé ce délai sans résultat, l'alarme générale s'impose.",
     eliminatory: true,
     timeLimit: 40,
   },
