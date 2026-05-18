@@ -152,6 +152,69 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// ─── PATCH : mise à jour d'un créneau (admin seulement) ──────────────────────
+
+export async function PATCH(request: NextRequest) {
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .maybeSingle<{ role: string | null }>();
+
+    if (profile?.role !== "admin") {
+      return NextResponse.json({ error: "Accès refusé" }, { status: 403 });
+    }
+
+    const adminClient = createAdminClient();
+    if (!adminClient) {
+      return NextResponse.json({ error: "Admin client manquant" }, { status: 500 });
+    }
+
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+    if (!id) return NextResponse.json({ error: "Paramètre id manquant" }, { status: 400 });
+
+    const body = await request.json();
+
+    const { data, error } = await adminClient
+      .from("virtual_sessions")
+      .update({
+        formation: String(body.formation ?? ""),
+        date: String(body.date ?? ""),
+        start_time: String(body.startTime ?? ""),
+        end_time: String(body.endTime ?? ""),
+        location: String(body.location ?? ""),
+        seats: Number(body.seats ?? 1),
+        format: String(body.format ?? "in_person"),
+        audience: String(body.audience ?? "both"),
+        category: String(body.category ?? "other"),
+        min_participants: Number(body.minParticipants ?? 1),
+        note: body.note ? String(body.note) : null,
+        meeting_url: body.meetingUrl ? String(body.meetingUrl) : null,
+      })
+      .eq("id", id)
+      .select("*")
+      .single<VirtualSessionRow>();
+
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+    return NextResponse.json(rowToSlot(data), { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Erreur inconnue" },
+      { status: 500 }
+    );
+  }
+}
+
 // ─── DELETE : suppression d'un créneau (admin seulement) ─────────────────────
 
 export async function DELETE(request: NextRequest) {
