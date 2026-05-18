@@ -52,6 +52,10 @@ export default function AdminCalendrierPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+  const [meetingUrl, setMeetingUrl] = useState("");
+  const [zoomStartUrl, setZoomStartUrl] = useState("");
+  const [generatingZoom, setGeneratingZoom] = useState(false);
+  const [zoomError, setZoomError] = useState("");
 
   const loadSlots = useCallback(async () => {
     setLoading(true);
@@ -76,6 +80,45 @@ export default function AdminCalendrierPage() {
     void loadSlots();
   }, [loadSlots]);
 
+  const handleGenerateZoom = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setZoomError("");
+    setGeneratingZoom(true);
+
+    // Récupérer les valeurs du formulaire parent
+    const form = (event.currentTarget as HTMLButtonElement).closest("form") as HTMLFormElement;
+    const formData = new FormData(form);
+    const date = String(formData.get("date") ?? "").trim();
+    const startTime = String(formData.get("startTime") ?? "09:00").trim();
+    const endTime = String(formData.get("endTime") ?? "10:00").trim();
+    const formation = String(formData.get("formation") ?? "Session PREVENSIA").trim();
+
+    if (!date) {
+      setZoomError("Remplis d'abord la date avant de générer le lien.");
+      setGeneratingZoom(false);
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/admin/zoom-meeting", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ topic: formation, date, start_time: startTime, end_time: endTime }),
+      });
+      const data = await res.json() as { joinUrl?: string; startUrl?: string; error?: string };
+      if (!res.ok) {
+        setZoomError(data.error ?? "Erreur génération Zoom");
+        return;
+      }
+      setMeetingUrl(data.joinUrl ?? "");
+      setZoomStartUrl(data.startUrl ?? "");
+    } catch {
+      setZoomError("Erreur réseau");
+    } finally {
+      setGeneratingZoom(false);
+    }
+  };
+
   const handleAddSlot = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSaving(true);
@@ -95,7 +138,7 @@ export default function AdminCalendrierPage() {
       category: String(formData.get("category") ?? "other"),
       minParticipants: Number(formData.get("minParticipants") ?? 1),
       note: String(formData.get("note") ?? ""),
-      meetingUrl: String(formData.get("meetingUrl") ?? ""),
+      meetingUrl: meetingUrl || String(formData.get("meetingUrl") ?? ""),
     };
 
     try {
@@ -108,6 +151,9 @@ export default function AdminCalendrierPage() {
       if (res.ok) {
         setMessage("Session ajoutée au calendrier.");
         event.currentTarget.reset();
+        setMeetingUrl("");
+        setZoomStartUrl("");
+        setZoomError("");
         await loadSlots();
       } else {
         const data = await res.json().catch(() => ({}));
@@ -302,18 +348,52 @@ export default function AdminCalendrierPage() {
                 </label>
               </div>
 
-              <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
-                Lien de connexion virtuelle
+              <div className="flex flex-col gap-2">
+                <span className="text-sm font-medium text-slate-700">Lien de connexion virtuelle</span>
+
+                {/* Bouton génération auto Zoom */}
+                <button
+                  type="button"
+                  onClick={handleGenerateZoom}
+                  disabled={generatingZoom}
+                  className="inline-flex w-fit items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
+                >
+                  {generatingZoom ? "Génération…" : "🎥 Générer un lien Zoom auto"}
+                </button>
+
+                {zoomError && (
+                  <p className="text-xs text-red-600">{zoomError}</p>
+                )}
+
+                {meetingUrl && (
+                  <div className="rounded-xl border border-blue-200 bg-blue-50 px-3 py-2 text-xs">
+                    <p className="font-semibold text-blue-800">✓ Lien Zoom généré</p>
+                    <p className="mt-1 text-blue-700 break-all">Participants : {meetingUrl}</p>
+                    {zoomStartUrl && (
+                      <a
+                        href={zoomStartUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 block font-semibold text-blue-900 underline"
+                      >
+                        Lien hôte (toi) →
+                      </a>
+                    )}
+                  </div>
+                )}
+
                 <input
                   name="meetingUrl"
                   type="url"
+                  value={meetingUrl}
+                  onChange={(e) => setMeetingUrl(e.target.value)}
                   className="rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-red-400"
-                  placeholder="https://meet.google.com/... ou https://zoom.us/..."
+                  placeholder="https://zoom.us/j/... (généré auto ou coller manuellement)"
                 />
                 <span className="text-xs text-slate-500">
-                  Facultatif — visible uniquement dans l&apos;espace admin. À communiquer manuellement aux inscrits.
+                  Clique sur le bouton pour générer automatiquement, ou colle un lien manuellement.
                 </span>
-              </label>
+              </div>
 
               <label className="flex flex-col gap-2 text-sm font-medium text-slate-700">
                 Note opérationnelle
