@@ -269,23 +269,40 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
   page.drawText("PRESTATION", { x: margin, y, size: 10, font: fontBold, color: RED });
   y -= 16;
 
-  // Entête tableau
+  // ── Layout colonnes ───────────────────────────────────────────────────────
+  // A4 : pageW=595.28, margin=50 → contentW=495.28
+  // col1 (désignation) | col2 (HT) | col3 (TVA) | col4 (TTC)
+  const GAP = 8;
   const col1X = margin;
-  const col1W = 260;
-  const col2X = col1X + col1W + 10;
-  const col2W = 75;
-  const col3X = col2X + col2W + 10;
-  const col3W = 75;
-  const col4X = col3X + col3W + 10;
-  const col4W = contentW - (col1W + col2W + col3W + 40);
+  const col1W = 215;
+  const col2X = col1X + col1W + GAP; // 273
+  const col2W = 90;
+  const col3X = col2X + col2W + GAP; // 371
+  const col3W = 58;
+  const col4X = col3X + col3W + GAP; // 437
+  const col4W = margin + contentW - col4X; // 545 - 437 = 108
+  const rightEdge = margin + contentW; // 545.28 — bord droit de la zone utile
 
   page.drawRectangle({ x: margin, y: y - 8, width: contentW, height: 26, color: HEAD_BG });
 
   const headerY = y + 6;
+  // En-têtes alignés comme les données (gauche / droite / centre / droite)
   page.drawText("Designation", { x: col1X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
-  page.drawText("HT (EUR)", { x: col2X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
-  page.drawText("TVA", { x: col3X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
-  page.drawText("TTC (EUR)", { x: col4X + 6, y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1) });
+  const htLabel = "HT (EUR)";
+  page.drawText(htLabel, {
+    x: col2X + col2W - fontBold.widthOfTextAtSize(htLabel, 8.5) - 6,
+    y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1),
+  });
+  const tvaLabel = "TVA";
+  page.drawText(tvaLabel, {
+    x: col3X + (col3W - fontBold.widthOfTextAtSize(tvaLabel, 8.5)) / 2,
+    y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1),
+  });
+  const ttcLabel = "TTC (EUR)";
+  page.drawText(ttcLabel, {
+    x: rightEdge - fontBold.widthOfTextAtSize(ttcLabel, 8.5) - 6,
+    y: headerY, size: 8.5, font: fontBold, color: rgb(1, 1, 1),
+  });
   y -= 26;
 
   // Ligne données
@@ -307,27 +324,37 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
 
   drawHRule(page, margin, y, contentW);
 
-  // ── Totaux ───────────────────────────────────────────────────────────────
+  // ── Totaux (valeurs alignées à droite sur le bord de la zone utile) ───────
   y -= 16;
-  const totX = col3X;
+  const totX = col3X - 4; // étiquettes légèrement en retrait du bord gauche de col3
 
+  // Aide : calcule x pour aligner un texte à droite sur rightEdge
+  function valX(text: string, font: PDFFont, size: number) {
+    return rightEdge - font.widthOfTextAtSize(text, size);
+  }
+
+  const htStr = fmtEur(montantHT);
   page.drawText("Total HT :", { x: totX, y, size: 9, font: fontRegular, color: MUTED });
-  page.drawText(fmtEur(montantHT), { x: col4X, y, size: 9, font: fontBold, color: SLATE });
+  page.drawText(htStr, { x: valX(htStr, fontBold, 9), y, size: 9, font: fontBold, color: SLATE });
   y -= 14;
 
   if (tvaRate === 0) {
+    const tvaStr = "Non applicable";
     page.drawText("TVA :", { x: totX, y, size: 9, font: fontRegular, color: MUTED });
-    page.drawText("Non applicable", { x: col4X, y, size: 9, font: fontRegular, color: MUTED });
+    page.drawText(tvaStr, { x: valX(tvaStr, fontRegular, 9), y, size: 9, font: fontRegular, color: MUTED });
   } else {
     const tvaMontant = montantTTC - montantHT;
+    const tvaStr = fmtEur(tvaMontant);
     page.drawText(`TVA ${tvaRate}% :`, { x: totX, y, size: 9, font: fontRegular, color: MUTED });
-    page.drawText(fmtEur(tvaMontant), { x: col4X, y, size: 9, font: fontRegular, color: SLATE });
+    page.drawText(tvaStr, { x: valX(tvaStr, fontRegular, 9), y, size: 9, font: fontRegular, color: SLATE });
   }
   y -= 18;
 
-  page.drawRectangle({ x: col3X - 4, y: y - 6, width: contentW - (col3X - 4 - margin), height: 26, color: RED });
+  // Barre TOTAL TTC
+  page.drawRectangle({ x: totX - 4, y: y - 6, width: rightEdge - (totX - 4), height: 26, color: RED });
+  const ttcStr = fmtEur(montantTTC);
   page.drawText("TOTAL TTC :", { x: totX, y: y + 4, size: 10, font: fontBold, color: rgb(1, 1, 1) });
-  page.drawText(fmtEur(montantTTC), { x: col4X, y: y + 4, size: 10, font: fontBold, color: rgb(1, 1, 1) });
+  page.drawText(ttcStr, { x: valX(ttcStr, fontBold, 10), y: y + 4, size: 10, font: fontBold, color: rgb(1, 1, 1) });
   y -= 36;
 
   // ── Mention TVA ──────────────────────────────────────────────────────────
