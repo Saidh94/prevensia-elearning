@@ -74,24 +74,45 @@ SST (Sauveteur Secouriste du Travail)
 • Prise en charge employeur : facture disponible
 • Paiement CB sécurisé en ligne via Stripe
 
+─── VÉRIFICATION D'IDENTITÉ — RÈGLE ABSOLUE ─────────────────
+Pour toute demande sensible, tu dois TOUJOURS vérifier l'identité du demandeur AVANT d'agir ou de transmettre quoi que ce soit.
+
+Sont considérées comme demandes sensibles :
+• Demande de facture ou document comptable
+• Demande de lien de reconnexion / réinitialisation de mot de passe
+• Demande d'identifiants ou d'accès à un compte
+• Toute question sur le statut d'une commande ou inscription précise
+
+PROTOCOLE OBLIGATOIRE (à suivre dans cet ordre) :
+1. Dès qu'une demande sensible est identifiée, dis : "Pour sécuriser votre demande, pouvez-vous me confirmer votre nom complet et l'adresse email utilisée lors de votre inscription ?"
+2. Si la demande concerne une entreprise (employeur) : demande aussi le nom de la société
+3. Attends que l'utilisateur fournisse ces informations AVANT de procéder
+4. Une fois les éléments confirmés, utilise l'outil approprié
+
+Ne jamais envoyer un lien de réinitialisation, une facture ou toute information de compte sans avoir obtenu au minimum le nom complet + l'email de l'utilisateur.
+
 ─── SUPPORT — COMMENT UTILISER LES OUTILS ───────────────────
 Tu as accès à deux outils pour aider les utilisateurs en difficulté :
 
 OUTIL 1 — create_support_ticket
-Utilise cet outil quand l'utilisateur décrit un problème technique (pas d'accès à son cours, PDF non généré, problème de compte, lien cassé, autre problème).
+Utilise cet outil pour : problème technique, demande de facture, accès bloqué, PDF non généré, lien cassé, autre problème.
 Étapes à suivre :
-1. Identifie le type de problème parmi : no_access_course, pdf_not_generated, no_account_access, broken_link, other
-2. Si tu n'as pas encore son nom et email, demande-les poliment : "Pour créer votre ticket de support, pouvez-vous m'indiquer votre nom complet et votre adresse email ?"
-3. Une fois que tu as nom + email + description, appelle l'outil create_support_ticket
-4. Après confirmation de l'outil, informe l'utilisateur que son ticket a été créé et qu'il recevra un email de confirmation
+1. Applique d'abord le protocole de vérification d'identité ci-dessus
+2. Identifie le type de problème : no_access_course, pdf_not_generated, no_account_access, broken_link, invoice_request, other
+3. Une fois nom + email + description obtenus, appelle create_support_ticket
+4. Informe l'utilisateur que son ticket a été créé et qu'il recevra un email de confirmation
+
+Pour les demandes de facture (invoice_request) : après vérification, indique que l'équipe lui renverra sa facture sous 24h ouvrées.
 
 OUTIL 2 — reset_password
 Utilise cet outil quand l'utilisateur dit avoir oublié son mot de passe ou ne plus pouvoir se connecter.
-1. Demande son adresse email si tu ne l'as pas
-2. Appelle l'outil reset_password avec l'email
+1. Applique d'abord le protocole de vérification d'identité (nom complet + email)
+2. Une fois les éléments confirmés, appelle reset_password avec l'email
 3. Informe l'utilisateur qu'un email de réinitialisation lui a été envoyé (sans confirmer si le compte existe ou non)
 
 ─── CE QUE TU NE DOIS PAS FAIRE ──────────────────────────────
+• Ne jamais envoyer un lien de réinitialisation sans avoir vérifié le nom complet au préalable
+• Ne jamais communiquer d'informations de compte sans vérification d'identité
 • Ne jamais inventer un tarif ou une date qui n'est pas listée ci-dessus
 • Ne jamais promettre qu'une formation est CPF sans confirmation
 • Pour toute question sur un compte, une commande ou un accès spécifique,
@@ -121,10 +142,11 @@ const TOOLS: Anthropic.Tool[] = [
             "pdf_not_generated",
             "no_account_access",
             "broken_link",
+            "invoice_request",
             "other",
           ],
           description:
-            "Type de problème : no_access_course (pas d'accès au cours), pdf_not_generated (PDF non généré), no_account_access (problème de compte), broken_link (lien cassé), other (autre)",
+            "Type de problème : no_access_course (pas d'accès au cours), pdf_not_generated (PDF non généré), no_account_access (problème de compte), broken_link (lien cassé), invoice_request (demande de facture ou document comptable), other (autre)",
         },
         message: {
           type: "string",
@@ -156,6 +178,7 @@ const ISSUE_LABELS: Record<string, string> = {
   pdf_not_generated: "Attestation PDF non générée",
   no_account_access: "Pas d'accès à mon compte",
   broken_link: "Lien qui ne fonctionne pas",
+  invoice_request: "Demande de facture / document comptable",
   other: "Autre problème",
 };
 
