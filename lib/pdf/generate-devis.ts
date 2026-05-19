@@ -269,7 +269,7 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
   // ── Tableau prestation ───────────────────────────────────────────────────
   y -= 24;
   page.drawText("PRESTATION", { x: margin, y, size: 10, font: fontBold, color: RED });
-  y -= 16;
+  y -= 26;
 
   // ── Layout colonnes ───────────────────────────────────────────────────────
   // A4 : pageW=595.28, margin=50 → contentW=495.28

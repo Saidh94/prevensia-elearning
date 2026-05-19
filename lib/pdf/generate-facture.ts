@@ -261,7 +261,7 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
   // ── Tableau prestation ───────────────────────────────────────────────────
   y -= 24;
   page.drawText("PRESTATION", { x: margin, y, size: 10, font: fontBold, color: RED });
-  y -= 16;
+  y -= 26;
 
   // ── Layout colonnes ───────────────────────────────────────────────────────
   const GAP = 8;
