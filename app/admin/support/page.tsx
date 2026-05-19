@@ -164,6 +164,7 @@ function OutilsTab({
   const [devisClientCompany, setDevisClientCompany] = useState("");
   const [devisFormation, setDevisFormation] = useState("");
   const [devisMontantHT, setDevisMontantHT] = useState("");
+  const [devisTvaRate, setDevisTvaRate] = useState("0");
   const [devisValidite, setDevisValidite] = useState("30");
   const [devisNotes, setDevisNotes] = useState("");
   const [devisLoading, setDevisLoading] = useState(false);
@@ -174,6 +175,7 @@ function OutilsTab({
   const [factClientCompany, setFactClientCompany] = useState("");
   const [factFormation, setFactFormation] = useState("");
   const [factMontantHT, setFactMontantHT] = useState("");
+  const [factTvaRate, setFactTvaRate] = useState("0");
   const [factEnrollmentId, setFactEnrollmentId] = useState("");
   const [factNotes, setFactNotes] = useState("");
   const [factLoading, setFactLoading] = useState(false);
@@ -232,7 +234,7 @@ function OutilsTab({
           clientCompany: devisClientCompany || undefined,
           formationLabel: devisFormation,
           montantHT: parseFloat(devisMontantHT),
-          tvaRate: 0,
+          tvaRate: parseFloat(devisTvaRate) || 0,
           validiteJours: parseInt(devisValidite) || 30,
           notes: devisNotes || undefined,
         }),
@@ -274,7 +276,7 @@ function OutilsTab({
           clientCompany: factClientCompany || undefined,
           formationLabel: factFormation,
           montantHT: parseFloat(factMontantHT),
-          tvaRate: 0,
+          tvaRate: parseFloat(factTvaRate) || 0,
           enrollmentId: factEnrollmentId || undefined,
           notes: factNotes || undefined,
         }),
@@ -460,6 +462,18 @@ function OutilsTab({
           </div>
 
           <div>
+            <label className={labelCls}>TVA</label>
+            <select
+              value={devisTvaRate}
+              onChange={(e) => setDevisTvaRate(e.target.value)}
+              className={inputCls}
+            >
+              <option value="0">0 % — Exonéré art. 261-4-4 CGI (formation)</option>
+              <option value="20">20 % — TVA standard (prestation hors formation)</option>
+            </select>
+          </div>
+
+          <div>
             <label className={labelCls}>Validité (jours)</label>
             <input
               type="number"
@@ -550,6 +564,18 @@ function OutilsTab({
               className={inputCls}
               required
             />
+          </div>
+
+          <div>
+            <label className={labelCls}>TVA</label>
+            <select
+              value={factTvaRate}
+              onChange={(e) => setFactTvaRate(e.target.value)}
+              className={inputCls}
+            >
+              <option value="0">0 % — Exonéré art. 261-4-4 CGI (formation)</option>
+              <option value="20">20 % — TVA standard (prestation hors formation)</option>
+            </select>
           </div>
 
           <div>

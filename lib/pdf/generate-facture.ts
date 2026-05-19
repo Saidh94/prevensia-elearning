@@ -284,7 +284,7 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
     [
       { text: formationLabel, x: col1X, width: col1W },
       { text: fmtEur(montantHT), x: col2X, width: col2W, align: "right" },
-      { text: tvaRate === 0 ? "0 %" : `${tvaRate} %`, x: col3X, width: col3W, align: "center" },
+      { text: tvaRate === 0 ? "Exonere" : `${tvaRate} %`, x: col3X, width: col3W, align: "center" },
       { text: fmtEur(montantTTC), x: col4X, width: col4W, align: "right" },
     ],
     y,
@@ -335,11 +335,19 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
   drawHRule(page, margin, y, contentW);
   y -= 18;
 
-  page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.995, 0.97, 0.97) });
-  page.drawText(
-    "TVA non applicable - art. 261-4-4  du CGI (organisme de formation agree)",
-    { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.7, 0.15, 0.15) }
-  );
+  if (tvaRate === 0) {
+    page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.995, 0.97, 0.97) });
+    page.drawText(
+      "TVA non applicable - art. 261-4-4 du CGI (organisme de formation enregistre)",
+      { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.7, 0.15, 0.15) }
+    );
+  } else {
+    page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.97, 0.97, 0.99) });
+    page.drawText(
+      `TVA ${tvaRate}% applicable - PREVENSIA Groupe SAS - TVA intracommunautaire : [numero TVA]`,
+      { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.2, 0.3, 0.6) }
+    );
+  }
   y -= 36;
 
   // ── Notes ────────────────────────────────────────────────────────────────
@@ -366,7 +374,9 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
     "Penalites de retard : taux legal en vigueur (art. L.441-10 C. com.)",
     "Indemnite forfaitaire pour frais de recouvrement : 40 EUR",
     "Escompte pour paiement anticipe : aucun",
-    "Numero de declaration d'activite : [a completer aupres de la DREETS]",
+    tvaRate === 0
+      ? "TVA non applicable - art. 261-4-4 du CGI - Organisme de formation enregistre (NDA a completer aupres de la DREETS)"
+      : `TVA ${tvaRate}% - PREVENSIA Groupe SAS - Numero TVA intracommunautaire : [a renseigner]`,
   ];
   for (const mention of mentions) {
     page.drawText(`- ${mention}`, { x: margin + 10, y, size: 8, font: fontRegular, color: MUTED });

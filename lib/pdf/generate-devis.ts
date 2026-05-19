@@ -294,7 +294,7 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
     [
       { text: formationLabel, x: col1X, width: col1W },
       { text: fmtEur(montantHT), x: col2X, width: col2W, align: "right" },
-      { text: tvaRate === 0 ? "0 %" : `${tvaRate} %`, x: col3X, width: col3W, align: "center" },
+      { text: tvaRate === 0 ? "Exonere" : `${tvaRate} %`, x: col3X, width: col3W, align: "center" },
       { text: fmtEur(montantTTC), x: col4X, width: col4W, align: "right" },
     ],
     y,
@@ -335,12 +335,21 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
   drawHRule(page, margin, y, contentW);
   y -= 18;
 
-  page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.995, 0.97, 0.97) });
-  page.drawText(
-    "TVA non applicable - art. 261-4-4  du CGI (organisme de formation agree)",
-    { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.7, 0.15, 0.15) }
-  );
-  y -= 30;
+  if (tvaRate === 0) {
+    page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.995, 0.97, 0.97) });
+    page.drawText(
+      "TVA non applicable - art. 261-4-4 du CGI (organisme de formation enregistre)",
+      { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.7, 0.15, 0.15) }
+    );
+    y -= 30;
+  } else {
+    page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.97, 0.97, 0.99) });
+    page.drawText(
+      `TVA ${tvaRate}% applicable - PREVENSIA Groupe SAS - TVA intracommunautaire : [numero TVA]`,
+      { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.2, 0.3, 0.6) }
+    );
+    y -= 30;
+  }
 
   // ── Validité ─────────────────────────────────────────────────────────────
   y -= 12;
