@@ -18,7 +18,7 @@ export default async function AdminLayout({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/connexion?redirectTo=/admin");
+    redirect("/connexion-admin");
   }
 
   const { data: profile } = await supabase
