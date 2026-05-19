@@ -227,7 +227,7 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
 
   // ── Titre ────────────────────────────────────────────────────────────────
   y -= 30;
-  const title = `DEVIS N  ${sanitize(numero)}`;
+  const title = `DEVIS N° ${sanitize(numero)}`;
   const titleW = fontBold.widthOfTextAtSize(title, 22);
   page.drawText(title, {
     x: (pageW - titleW) / 2,
@@ -245,7 +245,9 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
   page.drawText("CLIENT", { x: margin, y, size: 10, font: fontBold, color: RED });
   y -= 16;
 
-  page.drawRectangle({ x: margin, y: y - 10, width: contentW, height: 70, color: LIGHT_BG });
+  const clientLineCount = clientCompany ? 3 : 2;
+  const clientBoxH = clientLineCount * 16 + 18;
+  page.drawRectangle({ x: margin, y: y - (clientBoxH - 10), width: contentW, height: clientBoxH, color: LIGHT_BG });
 
   page.drawText("Nom / Responsable :", { x: margin + 10, y, size: 9, font: fontRegular, color: MUTED });
   page.drawText(sanitize(clientName), { x: margin + 145, y, size: 9, font: fontBold, color: SLATE });
@@ -261,7 +263,7 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
     y -= 16;
   }
 
-  y -= 16;
+  y -= 12;
   drawHRule(page, margin, y, contentW);
 
   // ── Tableau prestation ───────────────────────────────────────────────────
@@ -348,7 +350,7 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
     page.drawText(`TVA ${tvaRate}% :`, { x: totX, y, size: 9, font: fontRegular, color: MUTED });
     page.drawText(tvaStr, { x: valX(tvaStr, fontRegular, 9), y, size: 9, font: fontRegular, color: SLATE });
   }
-  y -= 18;
+  y -= 28;
 
   // Barre TOTAL TTC
   page.drawRectangle({ x: totX - 4, y: y - 6, width: rightEdge - (totX - 4), height: 26, color: RED });
