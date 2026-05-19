@@ -23,16 +23,18 @@ type MetierKey =
   | "agent-ssiap"
   | "exploitant-erp"
   | "sst"
-  | "atex";
+  | "atex"
+  | "exploitant-protection-incendie";
 
 const metierIconBg: Record<string, string> = {
-  "electricien":     "bg-blue-50 text-blue-700 border border-blue-100",
-  "non-electricien": "bg-slate-100 text-slate-600",
-  "securite-qhse":   "bg-emerald-50 text-emerald-700 border border-emerald-100",
-  "agent-ssiap":     "bg-red-50 text-red-700 border border-red-100",
-  "exploitant-erp":  "bg-violet-50 text-violet-700 border border-violet-100",
-  "sst":             "bg-pink-50 text-pink-700 border border-pink-100",
-  "atex":            "bg-amber-50 text-amber-700 border border-amber-100",
+  "electricien":                    "bg-blue-50 text-blue-700 border border-blue-100",
+  "non-electricien":                "bg-slate-100 text-slate-600 border border-slate-200",
+  "securite-qhse":                  "bg-emerald-50 text-emerald-700 border border-emerald-100",
+  "agent-ssiap":                    "bg-orange-50 text-orange-700 border border-orange-100",
+  "exploitant-erp":                 "bg-indigo-50 text-indigo-700 border border-indigo-100",
+  "sst":                            "bg-pink-50 text-pink-700 border border-pink-100",
+  "atex":                           "bg-amber-50 text-amber-700 border border-amber-100",
+  "exploitant-protection-incendie": "bg-cyan-50 text-cyan-700 border border-cyan-100",
 };
 
 type TableRow = {
@@ -233,38 +235,43 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
 const metiers: { key: MetierKey; label: string; description: string }[] = [
   {
     key: "non-electricien",
-    label: "Non-électricien / opérateur",
-    description: "Travaux non électriques en environnement avec risque électrique",
+    label: "Personnel non électricien",
+    description: "H0B0, H0V — travaux non électriques à proximité du risque électrique",
   },
   {
     key: "electricien",
-    label: "Électricien / technicien maintenance",
-    description: "Travaux BT, interventions, consignation",
+    label: "Personnel électricien / maintenance",
+    description: "BS, BE, B1/B2/BR/BC — interventions BT, manœuvres et consignation",
   },
   {
     key: "securite-qhse",
-    label: "Responsable sécurité / QHSE",
-    description: "Pilotage de la prévention, management des risques",
+    label: "Encadrement / QHSE",
+    description: "Prévention, conformité, suivi des habilitations et gestion des risques",
   },
   {
     key: "agent-ssiap",
-    label: "Agent de sécurité incendie",
-    description: "Surveillance ERP, poste de sécurité, rondes",
+    label: "Équipier de première intervention",
+    description: "Alerte, évacuation, extincteurs et premiers moyens d'intervention",
   },
   {
     key: "exploitant-erp",
-    label: "Exploitant ERP / responsable technique",
-    description: "Gestion de site, maintenance bâtiment, ERP/IGH",
+    label: "Exploitant bâtiment / ERP",
+    description: "SSI, consignes, registre de sécurité, évacuation et exploitation courante",
+  },
+  {
+    key: "exploitant-protection-incendie",
+    label: "Exploitant protection incendie",
+    description: "Sprinkler, extinction gaz, SSI et gestion des indisponibilités",
   },
   {
     key: "sst",
     label: "Secouriste du travail",
-    description: "Gestes de premiers secours, SST initial ou recyclage",
+    description: "Protection, alerte, gestes de secours et prévention en entreprise",
   },
   {
     key: "atex",
-    label: "Intervenant en zone ATEX",
-    description: "Sites pétrochimiques, industries, zones classées",
+    label: "Intervenant ATEX",
+    description: "Zones à atmosphère explosive, prévention des sources d'inflammation",
   },
 ];
 
@@ -283,25 +290,31 @@ const rowsByMetier: Record<Exclude<MetierKey, "">, TableRow[]> = {
     tableRowsByTab.atex[1], // ATEX N2
   ],
   "securite-qhse": [
-    tableRowsByTab.ssi[0],
-    tableRowsByTab.sprinkler[0],
-    tableRowsByTab.sprinkler[1],
     tableRowsByTab.incendie[2], // EPI
     tableRowsByTab.sst[0],
-    tableRowsByTab.atex[2], // ATEX N3
+    tableRowsByTab.atex[2],     // ATEX N3
+    tableRowsByTab.ssi[0],
+    tableRowsByTab.sprinkler[0],
   ],
   "agent-ssiap": [
+    // Équipier de première intervention
+    tableRowsByTab.incendie[0], // extincteurs
+    tableRowsByTab.incendie[1], // guide-file / serre-file
+    tableRowsByTab.incendie[2], // EPI
+  ],
+  "exploitant-erp": [
     tableRowsByTab.ssiap1[0],
     tableRowsByTab.ssiap1[1],
     tableRowsByTab.ssi[0],
-  ],
-  "exploitant-erp": [
-    tableRowsByTab.ssi[0],
     tableRowsByTab.ssi[1],
+    tableRowsByTab.incendie[1], // guide-file
+    tableRowsByTab.incendie[2], // EPI
+  ],
+  "exploitant-protection-incendie": [
     tableRowsByTab.sprinkler[0],
     tableRowsByTab.sprinkler[1],
-    tableRowsByTab.incendie[0], // extincteurs
-    tableRowsByTab.incendie[1], // guide-file
+    tableRowsByTab.ssi[0],
+    tableRowsByTab.ssi[1],
   ],
   sst: [
     tableRowsByTab.sst[0],
@@ -713,25 +726,28 @@ function MetierIcon({ metierKey }: { metierKey: string }) {
   };
   switch (metierKey) {
     case "electricien":
-      // Éclair / foudre (filled polygon)
-      return <svg {...s}><path d="M13 2L3 14L12 14L11 22L21 10L12 10Z"/></svg>;
+      // Éclair / zap (filled)
+      return <svg {...s}><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>;
     case "non-electricien":
       // Clé / outil (Material Icons "build", filled)
       return <svg {...s}><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>;
     case "securite-qhse":
-      // Bouclier (filled, simple)
-      return <svg {...s}><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>;
+      // Bouclier + coche (shield-check)
+      return <svg {...s}><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 13l-3-3 1.41-1.41L10 11.17l5.59-5.58L17 7l-7 7z"/></svg>;
     case "agent-ssiap":
-      // Flamme (Material Icons "whatshot", filled)
+      // Flamme (Équipier de première intervention)
       return <svg {...s}><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>;
     case "exploitant-erp":
-      // Bâtiment / maison (Material Icons "home", filled)
-      return <svg {...s}><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>;
+      // Bâtiment / immeuble (building-2)
+      return <svg {...s}><path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zm-6 4H9v-2h2v2zm0-4H9V9h2v2zm0-4H9V5h2v2zm4 8h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>;
+    case "exploitant-protection-incendie":
+      // Bouclier + goutte d'eau (protection incendie)
+      return <svg {...s}><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10c0 .55-.45 1-1 1s-1-.45-1-1c0-1.66 1.34-3 3-3s3 1.34 3 3c0 2.21-1.79 4-4 4v-2c1.1 0 2-.9 2-2 0-.55-.45-1-1-1z"/></svg>;
     case "sst":
-      // Croix médicale (Material Icons "local_hospital", filled)
+      // Croix médicale (local_hospital, filled)
       return <svg {...s}><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-2v-4H8v-2h4V8h2v4h4v2z"/></svg>;
     case "atex":
-      // Triangle danger / avertissement (Material Icons "warning", filled)
+      // Triangle danger / avertissement (warning, filled)
       return <svg {...s}><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>;
     default:
       return null;
