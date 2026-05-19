@@ -402,348 +402,265 @@ export default async function EmployeurDashboardPage() {
   });
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-10">
-      <div className="mx-auto max-w-7xl">
+    <main className="min-h-screen bg-slate-50">
 
-        {/* Barre de navigation rapide */}
-        <div className="mb-6 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 hover:text-red-700"
-          >
-            ← Retour au site
+      {/* ── Barre de navigation sticky ── */}
+      <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div className="mx-auto flex max-w-7xl items-center gap-4 px-6 py-3">
+          <Link href="/" className="mr-3 flex shrink-0 items-center gap-2">
+            <span className="rounded-md bg-red-700 px-2 py-0.5 text-xs font-bold uppercase tracking-widest text-white">Prévensia</span>
+            <span className="hidden text-xs font-semibold text-slate-400 sm:block">Espace employeur</span>
           </Link>
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 shadow-sm transition hover:bg-slate-50"
-          >
-            Mon espace apprenant
-          </Link>
+          <div className="flex flex-1 items-center gap-2">
+            <span className="text-sm font-semibold text-slate-900">{employer.company_name}</span>
+            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-500">
+              {employer.contact_name || employer.manager_email}
+            </span>
+          </div>
+          <nav className="flex items-center gap-2">
+            <Link
+              href="/reservation-formation?audience=group"
+              className="hidden sm:inline-flex items-center rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+            >
+              Planning
+            </Link>
+            <Link
+              href="/demande-devis?type=habilitation"
+              className="hidden sm:inline-flex items-center rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-semibold text-red-700 transition hover:bg-red-100"
+            >
+              Demander un devis
+            </Link>
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+            >
+              Mon espace →
+            </Link>
+          </nav>
         </div>
+      </header>
 
-        <section className="rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-8 text-white shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-300">
-            Espace employeur
+      <div className="mx-auto max-w-7xl px-6 py-8">
+
+        {/* ── Hero ── */}
+        <section className="rounded-[2rem] bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 p-8 text-white shadow-md">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300">Espace employeur</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight">{employer.company_name}</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+            Pilotez les accès e-learning, les validations formateurs, les paiements et les attestations de vos salariés.
           </p>
-          <h1 className="mt-3 text-3xl font-bold">{employer.company_name}</h1>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-200">
-            Pilotez les accès e-learning de vos salariés, les validations
-            réalisées par nos formateurs, les paiements et les attestations
-            délivrées à l’issue de chaque parcours.
-          </p>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
-            Vous voyez ici la situation de chacun de vos salariés inscrits. La
-            prise de rendez-vous finale reste à l’initiative du salarié :
-            entretien de validation, classe virtuelle ou journée terrain selon
-            le parcours.
-          </p>
-          <p className="mt-4 text-sm leading-6 text-slate-300">
-            Gestionnaire : {employer.contact_name || "Non renseigné"} ·{" "}
-            {employer.manager_email || "Email non renseigné"} · Rôle :{" "}
-            {employerUser.role || "employeur"}
+          <p className="mt-1 text-xs text-slate-400">
+            Gestionnaire : {employer.contact_name || "Non renseigné"} · {employer.manager_email || "Email non renseigné"}
           </p>
 
           <div className="mt-8 grid gap-3 md:grid-cols-3">
-            <Link
-              href="/formation-habilitation-electrique"
-              className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
-                Catalogue PREVENSIA
-              </p>
-              <p className="mt-3 text-lg font-semibold">
-                Voir le détail des parcours
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                H0B0 / H0V avec entretien, BS / BE Manœuvre en classe
-                virtuelle, B1 à BC en mixte e-learning + présentiel.
-              </p>
+            <Link href="/formation-habilitation-electrique" className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">Catalogue</p>
+              <p className="mt-2 text-base font-semibold">Détail des parcours</p>
+              <p className="mt-1.5 text-xs leading-5 text-slate-400">H0B0 / H0V · BS/BE · B1 à BC · SST · Incendie…</p>
             </Link>
-
-            <Link
-              href="/reservation-formation?audience=group"
-              className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
-                Planning groupe
-              </p>
-              <p className="mt-3 text-lg font-semibold">
-                Voir les sessions ouvertes
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                Consultez les classes virtuelles, entretiens et journées
-                présentielles ouverts.
-              </p>
+            <Link href="/reservation-formation?audience=group" className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">Planning groupe</p>
+              <p className="mt-2 text-base font-semibold">Sessions ouvertes</p>
+              <p className="mt-1.5 text-xs leading-5 text-slate-400">Classes virtuelles, entretiens, journées présentielles.</p>
             </Link>
-
-            <Link
-              href="/demande-devis?type=habilitation"
-              className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">
-                Sur mesure
-              </p>
-              <p className="mt-3 text-lg font-semibold">
-                Demander un devis groupe
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                Pour une session intra-entreprise, une cohorte de salariés ou
-                un besoin spécifique à votre site.
-              </p>
+            <Link href="/demande-devis?type=habilitation" className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 transition hover:bg-white/10">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-red-200">Sur mesure</p>
+              <p className="mt-2 text-base font-semibold">Devis groupe</p>
+              <p className="mt-1.5 text-xs leading-5 text-slate-400">Intra-entreprise, cohorte, besoin spécifique.</p>
             </Link>
           </div>
         </section>
 
-        <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-              Salariés suivis
-            </p>
-            <p className="mt-3 text-3xl font-bold text-slate-900">
-              {employeeCount}
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              {totalEnrollments} inscription{totalEnrollments > 1 ? "s" : ""}
-            </p>
+        {/* ── KPIs ── */}
+        <section className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Salariés suivis</p>
+            <p className="mt-2 text-3xl font-bold text-slate-900">{employeeCount}</p>
+            <p className="mt-1 text-xs text-slate-400">{totalEnrollments} inscription{totalEnrollments > 1 ? "s" : ""} au total</p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">
-              Formations attribuées
-            </p>
-            <p className="mt-3 text-3xl font-bold text-slate-900">
-              {formationCount}
-            </p>
-            <p className="mt-2 text-sm text-slate-600">
-              {inProgressCount} parcours en cours
-            </p>
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Formations</p>
+            <p className="mt-2 text-3xl font-bold text-slate-900">{formationCount}</p>
+            <p className="mt-1 text-xs text-slate-400">{inProgressCount} parcours en cours</p>
+            {totalEnrollments > 0 && (
+              <div className="mt-3 h-1.5 w-full rounded-full bg-slate-100">
+                <div
+                  className="h-1.5 rounded-full bg-blue-500 transition-all"
+                  style={{ width: `${Math.round((completedCount / totalEnrollments) * 100)}%` }}
+                />
+              </div>
+            )}
+            {totalEnrollments > 0 && (
+              <p className="mt-1 text-xs text-slate-400">{Math.round((completedCount / totalEnrollments) * 100)} % terminées</p>
+            )}
           </div>
 
-          <div className="rounded-[1.75rem] border border-amber-200 bg-amber-50 p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-800">
+          <div className={`rounded-2xl border p-6 shadow-sm ${pendingInterviewCount > 0 ? "border-amber-200 bg-amber-50" : "border-slate-200 bg-white"}`}>
+            <p className={`text-xs font-semibold uppercase tracking-wide ${pendingInterviewCount > 0 ? "text-amber-700" : "text-slate-400"}`}>
               Entretiens à planifier
             </p>
-            <p className="mt-3 text-3xl font-bold text-slate-900">
-              {pendingInterviewCount}
-            </p>
-            <p className="mt-2 text-sm text-amber-900">
-              validation{pendingInterviewCount > 1 ? "s" : ""} formateur en
-              attente
+            <p className={`mt-2 text-3xl font-bold ${pendingInterviewCount > 0 ? "text-amber-900" : "text-slate-400"}`}>{pendingInterviewCount}</p>
+            <p className={`mt-1 text-xs ${pendingInterviewCount > 0 ? "text-amber-700" : "text-slate-400"}`}>
+              {pendingInterviewCount > 0 ? "Action requise — planifier la validation" : "Aucune validation en attente"}
             </p>
           </div>
 
-          <div className="rounded-[1.75rem] border border-violet-200 bg-violet-50 p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-violet-800">
-              Paiements / attestations
+          <div className={`rounded-2xl border p-6 shadow-sm ${unpaidCount > 0 ? "border-red-200 bg-red-50" : "border-emerald-200 bg-emerald-50"}`}>
+            <p className={`text-xs font-semibold uppercase tracking-wide ${unpaidCount > 0 ? "text-red-700" : "text-emerald-700"}`}>
+              Paiements
             </p>
-            <p className="mt-3 text-3xl font-bold text-slate-900">
-              {unpaidCount} / {completedCount}
+            <p className={`mt-2 text-3xl font-bold ${unpaidCount > 0 ? "text-red-900" : "text-emerald-700"}`}>
+              {unpaidCount > 0 ? unpaidCount : completedCount}
             </p>
-            <p className="mt-2 text-sm text-violet-900">
-              impayés / parcours terminés
+            <p className={`mt-1 text-xs ${unpaidCount > 0 ? "text-red-700" : "text-emerald-700"}`}>
+              {unpaidCount > 0 ? `dossier${unpaidCount > 1 ? "s" : ""} à régulariser` : `parcours terminés & attestés`}
             </p>
           </div>
         </section>
 
-        <section className="mt-6 grid gap-4 lg:grid-cols-3">
-          <article className="rounded-[1.75rem] border border-emerald-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-emerald-700">
-              H0B0 / H0V
-            </p>
-            <h2 className="mt-2 text-xl font-bold text-slate-900">
-              E-learning + entretien 30 min
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              Parcours théorique en ligne, quiz d’évaluation, puis entretien
-              individuel avec un formateur pour valider les acquis.
-            </p>
-          </article>
-
-          <article className="rounded-[1.75rem] border border-blue-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-              BS / BE Manœuvre
-            </p>
-            <h2 className="mt-2 text-xl font-bold text-slate-900">
-              E-learning + classe virtuelle
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              Modules en ligne, classe virtuelle animée par un formateur,
-              session entreprise possible et visio de recyclage.
-            </p>
-          </article>
-
-          <article className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
-              B1 / B2 / BR / BC
-            </p>
-            <h2 className="mt-2 text-xl font-bold text-slate-900">
-              E-learning + journée présentielle
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              Préparation théorique en e-learning puis mise en situation
-              pratique encadrée en présentiel.
-            </p>
-          </article>
-        </section>
-
+        {/* ── Alertes prioritaires ── */}
         {(pendingInterviewCount > 0 || unpaidCount > 0) && (
-          <section className="mt-6 grid gap-4 lg:grid-cols-2">
-            <article className="rounded-[1.75rem] border border-amber-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-amber-700">
-                Priorité pédagogique
-              </p>
-              <h2 className="mt-2 text-xl font-bold text-slate-900">
-                Validations à organiser
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                {pendingInterviewCount === 0
-                  ? "Aucune validation formateur en attente."
-                  : `${pendingInterviewCount} inscription${
-                      pendingInterviewCount > 1 ? "s" : ""
-                    } en attente d’entretien de validation.`}
-              </p>
-              <Link
-                href="/reservation-formation?audience=group"
-                className="mt-5 inline-flex items-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Voir le planning des sessions
-              </Link>
-            </article>
-
-            <article className="rounded-[1.75rem] border border-violet-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-violet-700">
-                Priorité administrative
-              </p>
-              <h2 className="mt-2 text-xl font-bold text-slate-900">
-                Dossiers à régulariser
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                {unpaidCount === 0
-                  ? "Tous les dossiers apparaissent comme réglés."
-                  : `${unpaidCount} inscription${
-                      unpaidCount > 1 ? "s" : ""
-                    } n'ont pas encore le statut payé.`}
-              </p>
-              <Link
-                href="/demande-devis?type=habilitation"
-                className="mt-5 inline-flex items-center rounded-2xl border border-violet-300 bg-white px-4 py-3 text-sm font-semibold text-violet-700 transition hover:bg-violet-50"
-              >
-                Lancer une demande de devis
-              </Link>
-            </article>
+          <section className="mt-5 grid gap-4 lg:grid-cols-2">
+            {pendingInterviewCount > 0 && (
+              <article className="flex items-start gap-5 rounded-2xl border-2 border-amber-200 bg-white p-6 shadow-sm">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-xl">⏳</div>
+                <div className="flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">Priorité pédagogique</p>
+                  <h2 className="mt-1 text-lg font-bold text-slate-900">
+                    {pendingInterviewCount} validation{pendingInterviewCount > 1 ? "s" : ""} à organiser
+                  </h2>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {pendingInterviewCount > 1 ? "Ces salariés ont" : "Ce salarié a"} terminé le e-learning et attend{pendingInterviewCount > 1 ? "ent" : ""} un entretien de validation avec un formateur.
+                  </p>
+                  <Link href="/reservation-formation?audience=group" className="mt-4 inline-flex items-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800">
+                    Voir le planning des sessions →
+                  </Link>
+                </div>
+              </article>
+            )}
+            {unpaidCount > 0 && (
+              <article className="flex items-start gap-5 rounded-2xl border-2 border-red-200 bg-white p-6 shadow-sm">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-100 text-xl">💳</div>
+                <div className="flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-red-700">Priorité administrative</p>
+                  <h2 className="mt-1 text-lg font-bold text-slate-900">
+                    {unpaidCount} dossier{unpaidCount > 1 ? "s" : ""} à régulariser
+                  </h2>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {unpaidCount > 1 ? "Ces inscriptions n’ont" : "Cette inscription n’a"} pas encore le statut payé. Régularisez pour débloquer les attestations.
+                  </p>
+                  <Link href="/demande-devis?type=habilitation" className="mt-4 inline-flex items-center rounded-xl border border-red-300 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-700 transition hover:bg-red-100">
+                    Lancer une demande de devis →
+                  </Link>
+                </div>
+              </article>
+            )}
           </section>
         )}
 
-        <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <div className="flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-bold text-slate-900">Vue salariés</h2>
-            <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
-              {employeeSummaries.length} fiche
-              {employeeSummaries.length > 1 ? "s" : ""}
+        {/* ── Vue salariés ── */}
+        <section className="mt-5 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-1 rounded-full bg-red-600" />
+              <h2 className="text-xl font-bold text-slate-900">Vue salariés</h2>
+            </div>
+            <span className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-600">
+              {employeeSummaries.length} fiche{employeeSummaries.length > 1 ? "s" : ""}
             </span>
           </div>
 
           {employeeSummaries.length === 0 ? (
-            <p className="mt-6 text-sm text-slate-500">
-              Aucun salarié rattaché à cet employeur pour le moment.
-            </p>
+            <div className="flex flex-col items-center gap-3 py-10 text-center">
+              <p className="text-4xl">👥</p>
+              <p className="text-sm font-semibold text-slate-600">Aucun salarié rattaché pour le moment</p>
+              <p className="text-xs text-slate-400">Contactez PREVENSIA pour inscrire vos collaborateurs.</p>
+            </div>
           ) : (
-            <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <div className="grid gap-4 lg:grid-cols-2">
               {employeeSummaries.map((employee) => {
                 const priorityAction = employee.priorityRow
                   ? getEnrollmentActionMeta(employee.priorityRow)
                   : null;
+                const progressPct = employee.formationCount > 0
+                  ? Math.round((employee.completedCount / employee.formationCount) * 100)
+                  : 0;
+                const hasUrgency = employee.pendingInterviewCount > 0 || employee.unpaidCount > 0;
 
                 return (
                   <article
                     key={employee.key}
-                    className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5"
+                    className={`rounded-2xl border p-5 transition ${hasUrgency ? "border-amber-200 bg-amber-50/40" : "border-slate-200 bg-slate-50"}`}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="text-lg font-semibold text-slate-900">
-                          {employee.fullName}
-                        </h3>
-                        <p className="mt-1 text-sm text-slate-600">
-                          {employee.email}
-                        </p>
+                    {/* En-tête salarié */}
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-slate-600">
+                          {(employee.fullName.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()) || "?"}
+                        </div>
+                        <div>
+                          <h3 className="text-base font-semibold text-slate-900">{employee.fullName}</h3>
+                          <p className="text-xs text-slate-500">{employee.email}</p>
+                        </div>
                       </div>
-                      <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700">
-                        {employee.formationCount} formation
-                        {employee.formationCount > 1 ? "s" : ""}
+                      <span className="rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-xs font-semibold text-slate-600">
+                        {employee.formationCount} formation{employee.formationCount > 1 ? "s" : ""}
                       </span>
                     </div>
 
-                    <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                      <div className="rounded-2xl bg-white p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Terminées
-                        </p>
-                        <p className="mt-2 text-xl font-bold text-slate-900">
-                          {employee.completedCount}
-                        </p>
+                    {/* Barre de progression */}
+                    <div className="mt-4">
+                      <div className="flex items-center justify-between text-xs text-slate-500 mb-1.5">
+                        <span>Progression</span>
+                        <span className="font-semibold text-slate-700">{employee.completedCount}/{employee.formationCount} terminées</span>
                       </div>
-
-                      <div className="rounded-2xl bg-white p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Entretiens
-                        </p>
-                        <p className="mt-2 text-xl font-bold text-slate-900">
-                          {employee.pendingInterviewCount}
-                        </p>
-                      </div>
-
-                      <div className="rounded-2xl bg-white p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Impayés
-                        </p>
-                        <p className="mt-2 text-xl font-bold text-slate-900">
-                          {employee.unpaidCount}
-                        </p>
+                      <div className="h-2 w-full rounded-full bg-slate-200">
+                        <div
+                          className={`h-2 rounded-full transition-all ${progressPct === 100 ? "bg-emerald-500" : "bg-blue-500"}`}
+                          style={{ width: `${progressPct}%` }}
+                        />
                       </div>
                     </div>
 
-                    <p className="mt-4 text-sm text-slate-600">
-                      Fin d'accès la plus récente :{" "}
-                      <span className="font-semibold text-slate-900">
-                        {formatDate(employee.latestAccessEnd)}
-                      </span>
+                    {/* Indicateurs */}
+                    <div className="mt-4 grid grid-cols-3 gap-2">
+                      <div className="rounded-xl bg-white p-3 text-center">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Terminées</p>
+                        <p className="mt-1 text-xl font-bold text-emerald-700">{employee.completedCount}</p>
+                      </div>
+                      <div className={`rounded-xl p-3 text-center ${employee.pendingInterviewCount > 0 ? "bg-amber-100" : "bg-white"}`}>
+                        <p className={`text-xs font-semibold uppercase tracking-wide ${employee.pendingInterviewCount > 0 ? "text-amber-700" : "text-slate-400"}`}>Entretiens</p>
+                        <p className={`mt-1 text-xl font-bold ${employee.pendingInterviewCount > 0 ? "text-amber-900" : "text-slate-400"}`}>{employee.pendingInterviewCount}</p>
+                      </div>
+                      <div className={`rounded-xl p-3 text-center ${employee.unpaidCount > 0 ? "bg-red-100" : "bg-white"}`}>
+                        <p className={`text-xs font-semibold uppercase tracking-wide ${employee.unpaidCount > 0 ? "text-red-700" : "text-slate-400"}`}>Impayés</p>
+                        <p className={`mt-1 text-xl font-bold ${employee.unpaidCount > 0 ? "text-red-900" : "text-slate-400"}`}>{employee.unpaidCount}</p>
+                      </div>
+                    </div>
+
+                    <p className="mt-3 text-xs text-slate-500">
+                      Accès jusqu’au{" "}
+                      <span className="font-semibold text-slate-700">{formatDate(employee.latestAccessEnd)}</span>
                     </p>
 
                     {priorityAction ? (
-                      <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                          Parcours prioritaire
-                        </p>
-                        <p className="mt-2 text-sm font-semibold text-slate-900">
-                          {priorityAction.familyLabel}
-                        </p>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">
-                          {priorityAction.note}
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-3">
-                          {priorityAction.planningHref &&
-                          priorityAction.planningLabel ? (
-                            <Link
-                              href={priorityAction.planningHref}
-                              className="inline-flex items-center rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                            >
+                      <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Parcours prioritaire</p>
+                        <p className="mt-1.5 text-sm font-semibold text-slate-900">{priorityAction.familyLabel}</p>
+                        <p className="mt-1 text-xs leading-5 text-slate-500">{priorityAction.note}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {priorityAction.planningHref && priorityAction.planningLabel ? (
+                            <Link href={priorityAction.planningHref} className="inline-flex items-center rounded-xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-slate-800">
                               {priorityAction.planningLabel}
                             </Link>
                           ) : null}
-
-                          <Link
-                            href={priorityAction.offerHref}
-                            className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                          >
+                          <Link href={priorityAction.offerHref} className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">
                             {priorityAction.offerLabel}
                           </Link>
-
-                          <a
-                            href={`#enrollment-${employee.priorityRow.id}`}
-                            className="inline-flex items-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-                          >
-                            Voir ses dossiers
+                          <a href={`#enrollment-${employee.priorityRow.id}`} className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">
+                            Voir les dossiers
                           </a>
                         </div>
                       </div>
@@ -755,31 +672,31 @@ export default async function EmployeurDashboardPage() {
           )}
         </section>
 
-        <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <div className="flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-bold text-slate-900">
-              Détail des inscriptions
-            </h2>
-            <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+        {/* ── Détail des inscriptions ── */}
+        <section className="mt-5 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-1 rounded-full bg-red-600" />
+              <h2 className="text-xl font-bold text-slate-900">Détail des inscriptions</h2>
+            </div>
+            <span className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-600">
               {totalEnrollments} inscription{totalEnrollments > 1 ? "s" : ""}
             </span>
           </div>
 
-          <div className="mt-6 overflow-x-auto">
-            <table className="min-w-full border-separate border-spacing-y-3">
+          <div className="overflow-x-auto">
+            <table className="min-w-full border-separate border-spacing-y-1.5">
               <thead>
-                <tr className="text-left text-sm text-slate-500">
-                  <th className="px-4 py-2">Salarié</th>
-                  <th className="px-4 py-2">Email</th>
-                  <th className="px-4 py-2">Formation</th>
-                  <th className="px-4 py-2">Statut</th>
-                  <th className="px-4 py-2">Début accès</th>
-                  <th className="px-4 py-2">Fin accès</th>
-                  <th className="px-4 py-2">Paiement</th>
-                  <th className="px-4 py-2">Actions</th>
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Salarié</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Formation</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Statut</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Début</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Fin</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Paiement</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400">Actions</th>
                 </tr>
               </thead>
-
               <tbody>
                 {enrollmentRows.map((item) => {
                   const actionMeta = getEnrollmentActionMeta(item);
@@ -788,128 +705,61 @@ export default async function EmployeurDashboardPage() {
                     <tr
                       key={item.id}
                       id={`enrollment-${item.id}`}
-                      className="rounded-2xl bg-slate-50 text-sm text-slate-800"
+                      className="bg-white text-sm"
                     >
-                      <td className="px-4 py-4 font-semibold text-slate-900">
-                        {item.fullName}
+                      <td className="rounded-l-xl px-4 py-3 whitespace-nowrap">
+                        <p className="font-semibold text-slate-900">{item.fullName}</p>
+                        <p className="mt-0.5 text-xs text-slate-500">{item.email}</p>
                       </td>
-
-                      <td className="px-4 py-4">{item.email}</td>
-
-                      <td className="px-4 py-4">
-                        <p className="font-semibold text-slate-900">
-                          {item.formationTitle}
-                        </p>
-                        <p className="mt-1 text-xs uppercase tracking-[0.14em] text-slate-500">
-                          {actionMeta.familyLabel}
-                        </p>
-                        <p className="mt-2 text-xs leading-5 text-slate-500">
-                          {actionMeta.note}
-                        </p>
+                      <td className="px-4 py-3">
+                        <p className="font-semibold text-slate-800">{item.formationTitle}</p>
+                        <p className="mt-0.5 text-xs uppercase tracking-wide text-slate-400">{actionMeta.familyLabel}</p>
                       </td>
-
-                      <td className="px-4 py-4">
-                        <span
-                          className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusClasses(
-                            item.status
-                          )}`}
-                        >
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${getStatusClasses(item.status)}`}>
                           {getStatusLabel(item.status)}
                         </span>
                       </td>
-
-                      <td className="px-4 py-4">
-                        {formatDate(item.accessStart)}
-                      </td>
-
-                      <td className="px-4 py-4">
-                        {formatDate(item.accessEnd)}
-                      </td>
-
-                      <td className="px-4 py-4">
-                        <span
-                          className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getPaymentClasses(
-                            item.paymentStatus
-                          )}`}
-                        >
+                      <td className="px-4 py-3 text-xs text-slate-500 whitespace-nowrap">{formatDate(item.accessStart)}</td>
+                      <td className="px-4 py-3 text-xs text-slate-500 whitespace-nowrap">{formatDate(item.accessEnd)}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${getPaymentClasses(item.paymentStatus)}`}>
                           {getPaymentLabel(item.paymentStatus)}
                         </span>
                       </td>
-
-                      <td className="px-4 py-4">
-                        <div className="flex min-w-[220px] flex-col gap-2">
-                          {actionMeta.planningHref &&
-                          actionMeta.planningLabel &&
-                          !item.isCompleted ? (
-                            <Link
-                              href={actionMeta.planningHref}
-                              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-slate-800"
-                            >
+                      <td className="rounded-r-xl px-4 py-3">
+                        <div className="flex flex-wrap gap-1.5">
+                          {actionMeta.planningHref && actionMeta.planningLabel && !item.isCompleted ? (
+                            <Link href={actionMeta.planningHref} className="inline-flex items-center rounded-lg bg-slate-900 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-slate-800">
                               {actionMeta.planningLabel}
                             </Link>
                           ) : null}
-
-                          <Link
-                            href={actionMeta.offerHref}
-                            className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
-                          >
+                          <Link href={actionMeta.offerHref} className="inline-flex items-center rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">
                             {actionMeta.offerLabel}
                           </Link>
-
                           {!item.isPaid && item.paymentOption.kind === "direct" ? (
                             <form action="/api/payments/checkout" method="POST">
-                              <input
-                                type="hidden"
-                                name="enrollmentId"
-                                value={item.id}
-                              />
-                              <input
-                                type="hidden"
-                                name="returnPath"
-                                value="/employeur/dashboard"
-                              />
-                              <button
-                                type="submit"
-                                className="w-full rounded-lg bg-violet-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-violet-700"
-                              >
-                                Payer en ligne
+                              <input type="hidden" name="enrollmentId" value={item.id} />
+                              <input type="hidden" name="returnPath" value="/employeur/dashboard" />
+                              <button type="submit" className="rounded-lg bg-violet-600 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-violet-700">
+                                Payer
                               </button>
                             </form>
                           ) : null}
-
                           {!item.isPaid && item.paymentOption.kind === "quote" ? (
-                            <a
-                              href={`/demande-devis?formation=${encodeURIComponent(
-                                item.formationTitle || "Formation"
-                              )}`}
-                              className="inline-flex items-center justify-center rounded-lg border border-violet-300 px-3 py-2 text-xs font-semibold text-violet-700 transition hover:bg-violet-50"
-                              title={item.paymentOption.reason}
-                            >
-                              Demander un devis
+                            <a href={`/demande-devis?formation=${encodeURIComponent(item.formationTitle || "Formation")}`} className="inline-flex items-center rounded-lg border border-violet-200 bg-violet-50 px-2.5 py-1.5 text-xs font-semibold text-violet-700 transition hover:bg-violet-100" title={item.paymentOption.reason}>
+                              Devis
                             </a>
                           ) : null}
-
                           {item.isCompleted ? (
                             <form action="/api/attestation" method="POST">
-                              <input
-                                type="hidden"
-                                name="enrollmentId"
-                                value={item.id}
-                              />
-                              <button
-                                type="submit"
-                                className="w-full rounded-lg bg-emerald-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-emerald-700"
-                              >
+                              <input type="hidden" name="enrollmentId" value={item.id} />
+                              <button type="submit" className="rounded-lg bg-emerald-600 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700">
                                 Attestation
                               </button>
                             </form>
                           ) : (
-                            <button
-                              type="button"
-                              disabled
-                              className="w-full cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
-                              title="Attestation disponible uniquement après validation complète"
-                            >
+                            <button type="button" disabled className="cursor-not-allowed rounded-lg bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-400" title="Disponible après validation complète">
                               Attestation
                             </button>
                           )}
@@ -922,6 +772,26 @@ export default async function EmployeurDashboardPage() {
             </table>
           </div>
         </section>
+
+        {/* ── Formats pédagogiques ── */}
+        <section className="mt-5 grid gap-4 lg:grid-cols-3">
+          <article className="rounded-2xl border border-emerald-200 bg-white p-5 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700">H0B0 / H0V</p>
+            <h3 className="mt-2 text-base font-bold text-slate-900">E-learning + entretien 30 min</h3>
+            <p className="mt-2 text-xs leading-5 text-slate-500">Parcours théorique en ligne, quiz, puis entretien individuel formateur.</p>
+          </article>
+          <article className="rounded-2xl border border-blue-200 bg-white p-5 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">BS / BE Manœuvre</p>
+            <h3 className="mt-2 text-base font-bold text-slate-900">E-learning + classe virtuelle</h3>
+            <p className="mt-2 text-xs leading-5 text-slate-500">Modules en ligne puis classe virtuelle animée, recyclage visio possible.</p>
+          </article>
+          <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">B1 / B2 / BR / BC</p>
+            <h3 className="mt-2 text-base font-bold text-slate-900">E-learning + journée présentielle</h3>
+            <p className="mt-2 text-xs leading-5 text-slate-500">Préparation e-learning puis mise en situation encadrée en présentiel.</p>
+          </article>
+        </section>
+
       </div>
     </main>
   );

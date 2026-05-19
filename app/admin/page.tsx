@@ -191,333 +191,283 @@ export default async function AdminPage({
   const kpis = computeKPIs(rows);
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-10">
-      <div className="mx-auto max-w-7xl">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-red-700">
-                Administration
-              </p>
-              <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Admin PREVENSIA
-              </h1>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Gestion des dossiers clients, apprenants, paiements et activations.
-              </p>
-            </div>
+    <main className="min-h-screen bg-slate-50">
 
-            <div className="flex flex-wrap gap-2">
-              <Link
-                href="/dashboard"
-                className="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                Dashboard
-              </Link>
-              <Link
-                href="/mot-de-passe"
-                className="inline-flex items-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                Mot de passe
-              </Link>
-              <Link
-                href="/admin/support"
-                className="inline-flex items-center rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100"
-              >
-                Espace support
-              </Link>
-              <Link
-                href="/admin/quiz-analytics"
-                className="inline-flex items-center rounded-xl border border-indigo-300 bg-indigo-50 px-4 py-2 text-sm font-semibold text-indigo-700 transition hover:bg-indigo-100"
-              >
-                Analytics quiz
-              </Link>
-              <Link
-                href="/admin/calendrier-global"
-                className="inline-flex items-center rounded-xl border border-blue-300 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
-              >
-                📅 Calendrier
-              </Link>
-              <Link
-                href="/admin/entretiens"
-                className="inline-flex items-center rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100"
-              >
-                🎥 Entretiens
-              </Link>
-              <Link
-                href="/admin/audit-logs"
-                className="inline-flex items-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                📋 Journal d'activité
-              </Link>
-            </div>
-          </div>
+      {/* ── Barre de navigation sticky ── */}
+      <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div className="mx-auto flex max-w-7xl items-center gap-3 px-6 py-3">
+          <Link href="/" className="mr-3 flex shrink-0 items-center gap-2">
+            <span className="rounded-md bg-red-700 px-2 py-0.5 text-xs font-bold uppercase tracking-widest text-white">Prévensia</span>
+            <span className="hidden text-xs font-semibold text-slate-400 sm:block">Admin</span>
+          </Link>
+          <nav className="flex flex-1 flex-wrap gap-1">
+            <Link href="/admin" className="inline-flex items-center rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white">
+              Inscriptions
+            </Link>
+            <Link href="/admin/support" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
+              Support
+            </Link>
+            <Link href="/admin/quiz-analytics" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200">
+              Analytics
+            </Link>
+            <Link href="/admin/calendrier-global" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200">
+              📅 Calendrier
+            </Link>
+            <Link href="/admin/entretiens" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
+              🎥 Entretiens
+            </Link>
+            <Link href="/admin/audit-logs" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50">
+              📋 Journal
+            </Link>
+          </nav>
+          <Link href="/dashboard" className="shrink-0 text-xs font-medium text-slate-400 transition hover:text-slate-800">
+            Mon espace →
+          </Link>
         </div>
+      </header>
+
+      <div className="mx-auto max-w-7xl px-6 py-8">
+
+        {/* ── Hero ── */}
+        <section className="rounded-[2rem] bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 p-8 text-white shadow-md">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300">Administration</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight">Tableau de bord PREVENSIA</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+            Gestion des dossiers clients, apprenants, paiements et activations. Toutes les inscriptions en temps réel.
+          </p>
+        </section>
+
+        {/* ── Alertes urgentes ── */}
+        {(kpis.pendingInterview > 0 || kpis.pendingPayment > 0 || kpis.expiringAccess > 0) && (
+          <section className="mt-5 grid gap-3 sm:grid-cols-3">
+            {kpis.pendingInterview > 0 && (
+              <a href="/admin?status=pending_interview" className="flex items-center gap-4 rounded-2xl border-2 border-amber-300 bg-amber-50 p-5 transition hover:bg-amber-100">
+                <span className="text-3xl">⏳</span>
+                <div>
+                  <p className="text-2xl font-bold text-amber-900">{kpis.pendingInterview}</p>
+                  <p className="text-sm font-semibold text-amber-800">Entretien{kpis.pendingInterview > 1 ? "s" : ""} à planifier</p>
+                  <p className="mt-0.5 text-xs text-amber-700">Action requise →</p>
+                </div>
+              </a>
+            )}
+            {kpis.pendingPayment > 0 && (
+              <a href="/admin?payment=pending" className="flex items-center gap-4 rounded-2xl border-2 border-red-300 bg-red-50 p-5 transition hover:bg-red-100">
+                <span className="text-3xl">💳</span>
+                <div>
+                  <p className="text-2xl font-bold text-red-900">{kpis.pendingPayment}</p>
+                  <p className="text-sm font-semibold text-red-800">Paiement{kpis.pendingPayment > 1 ? "s" : ""} en attente</p>
+                  <p className="mt-0.5 text-xs text-red-700">À régulariser →</p>
+                </div>
+              </a>
+            )}
+            {kpis.expiringAccess > 0 && (
+              <a href="/admin?status=in_progress" className="flex items-center gap-4 rounded-2xl border-2 border-orange-300 bg-orange-50 p-5 transition hover:bg-orange-100">
+                <span className="text-3xl">⚠️</span>
+                <div>
+                  <p className="text-2xl font-bold text-orange-900">{kpis.expiringAccess}</p>
+                  <p className="text-sm font-semibold text-orange-800">Accès expirant ≤ 7 j</p>
+                  <p className="mt-0.5 text-xs text-orange-700">À surveiller →</p>
+                </div>
+              </a>
+            )}
+          </section>
+        )}
 
         {/* ── KPIs ── */}
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {[
-            { label: "Apprenants uniques",   value: kpis.uniqueApprenants, color: "text-slate-900",    bg: "bg-white" },
-            { label: "Inscriptions totales",  value: kpis.total,            color: "text-slate-900",    bg: "bg-white" },
-            { label: "Inscriptions payées",   value: kpis.paid,             color: "text-emerald-700",  bg: "bg-white" },
-            { label: "En cours de formation", value: kpis.inProgress,       color: "text-blue-700",     bg: "bg-white" },
-            { label: "Formations terminées",  value: kpis.completed,        color: "text-violet-700",   bg: "bg-white" },
-            { label: "Entretiens à planifier",value: kpis.pendingInterview, color: kpis.pendingInterview > 0 ? "text-amber-700" : "text-slate-400", bg: kpis.pendingInterview > 0 ? "bg-amber-50" : "bg-white" },
-            { label: "Paiements en attente",  value: kpis.pendingPayment,   color: kpis.pendingPayment  > 0 ? "text-red-700"   : "text-slate-400", bg: kpis.pendingPayment  > 0 ? "bg-red-50"   : "bg-white" },
-            { label: "Accès expirant ≤7 j",   value: kpis.expiringAccess,   color: kpis.expiringAccess  > 0 ? "text-orange-700": "text-slate-400", bg: kpis.expiringAccess  > 0 ? "bg-orange-50": "bg-white" },
+            { label: "Apprenants uniques",    value: kpis.uniqueApprenants, sub: "profils distincts",         color: "text-slate-900" },
+            { label: "Inscriptions totales",  value: kpis.total,            sub: "tous statuts",               color: "text-slate-900" },
+            { label: "Payées",                value: kpis.paid,             sub: `sur ${kpis.total} inscrip.`, color: "text-emerald-700" },
+            { label: "En cours",              value: kpis.inProgress,       sub: "parcours actifs",            color: "text-blue-700" },
+            { label: "Terminées",             value: kpis.completed,        sub: "parcours validés",           color: "text-violet-700" },
           ].map((kpi) => (
-            <div key={kpi.label} className={`rounded-2xl border border-slate-200 ${kpi.bg} p-5 shadow-sm`}>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{kpi.label}</p>
+            <div key={kpi.label} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">{kpi.label}</p>
               <p className={`mt-2 text-3xl font-bold ${kpi.color}`}>{kpi.value}</p>
+              <p className="mt-1 text-xs text-slate-400">{kpi.sub}</p>
             </div>
           ))}
-        </div>
+        </section>
 
-        {/* ── Sessions présentiel — taux de remplissage ── */}
-        <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <div className="mb-5 flex items-center justify-between">
+        {/* ── Sessions présentiel ── */}
+        <section className="mt-5 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="h-8 w-1 rounded-full bg-red-600" />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-red-700">
-                Capacité en temps réel
-              </p>
-              <h2 className="mt-1 text-2xl font-bold text-slate-900">
-                Sessions présentiel
-              </h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Capacité en temps réel</p>
+              <h2 className="text-xl font-bold text-slate-900">Sessions présentiel</h2>
             </div>
           </div>
           <SessionsCapacityWidget />
-        </div>
+        </section>
 
-        <div className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        {/* ── Table inscriptions ── */}
+        <section className="mt-5 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <h2 className="text-2xl font-bold text-slate-900">Inscriptions</h2>
-            <span className="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-1 rounded-full bg-red-600" />
+              <h2 className="text-xl font-bold text-slate-900">Inscriptions</h2>
+            </div>
+            <span className="rounded-full bg-slate-100 px-4 py-1.5 text-sm font-semibold text-slate-600">
               {filteredRows.length} résultat{filteredRows.length > 1 ? "s" : ""}
             </span>
           </div>
 
-          {/* ── Filtres rapides ── */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 self-center mr-1">Accès rapide :</span>
-            <a href="/admin?status=pending_interview" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'pending_interview' ? 'bg-amber-600 text-white' : 'bg-amber-100 text-amber-800 hover:bg-amber-200'}`}>
-              ⏳ Entretien à planifier ({rows.filter(r => r.status === 'pending_interview').length})
+          {/* Filtres rapides */}
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">Filtre :</span>
+            <a href="/admin?status=pending_interview" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === "pending_interview" ? "bg-amber-600 text-white" : "bg-amber-50 text-amber-800 hover:bg-amber-100"}`}>
+              ⏳ Entretien ({rows.filter((r) => r.status === "pending_interview").length})
             </a>
-            <a href="/admin?payment=pending" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${paymentFilter === 'pending' ? 'bg-red-600 text-white' : 'bg-red-100 text-red-800 hover:bg-red-200'}`}>
-              💳 Paiement en attente ({rows.filter(r => r.paymentStatus === 'pending').length})
+            <a href="/admin?payment=pending" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${paymentFilter === "pending" ? "bg-red-600 text-white" : "bg-red-50 text-red-800 hover:bg-red-100"}`}>
+              💳 Impayés ({rows.filter((r) => r.paymentStatus === "pending").length})
             </a>
-            <a href="/admin?status=in_progress" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'in_progress' ? 'bg-blue-600 text-white' : 'bg-blue-100 text-blue-800 hover:bg-blue-200'}`}>
-              📚 En cours ({rows.filter(r => r.status === 'in_progress').length})
+            <a href="/admin?status=in_progress" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === "in_progress" ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-800 hover:bg-blue-100"}`}>
+              📚 En cours ({rows.filter((r) => r.status === "in_progress").length})
             </a>
-            <a href="/admin?status=not_started" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'not_started' ? 'bg-slate-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
-              🔒 Non démarrées ({rows.filter(r => r.status === 'not_started').length})
+            <a href="/admin?status=not_started" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === "not_started" ? "bg-slate-700 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}>
+              🔒 Non démarrées ({rows.filter((r) => r.status === "not_started").length})
             </a>
-            <a href="/admin?status=completed" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === 'completed' ? 'bg-violet-600 text-white' : 'bg-violet-100 text-violet-800 hover:bg-violet-200'}`}>
-              ✅ Terminées ({rows.filter(r => r.status === 'completed').length})
+            <a href="/admin?status=completed" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === "completed" ? "bg-violet-600 text-white" : "bg-violet-50 text-violet-800 hover:bg-violet-100"}`}>
+              ✅ Terminées ({rows.filter((r) => r.status === "completed").length})
             </a>
             {(statusFilter || paymentFilter || companyFilter || q) && (
-              <a href="/admin" className="inline-flex items-center rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-300">
-                ✕ Réinitialiser
+              <a href="/admin" className="inline-flex items-center rounded-full bg-slate-200 px-3 py-1 text-xs font-semibold text-slate-700 transition hover:bg-slate-300">
+                ✕ Effacer tout
               </a>
             )}
           </div>
 
-          <form method="GET" className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+          {/* Barre de recherche & filtres avancés */}
+          <form method="GET" className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
             <input
               type="text"
               name="q"
               defaultValue={q}
-              placeholder="Rechercher salarié, email, entreprise..."
-              className="rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900"
+              placeholder="Nom, email, entreprise…"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white"
             />
-
-            <select
-              name="company"
-              defaultValue={companyFilter}
-              className="rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900"
-            >
+            <select name="company" defaultValue={companyFilter} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white">
               <option value="">Toutes les entreprises</option>
               {companyOptions.map((company) => (
-                <option key={company} value={company}>
-                  {company}
-                </option>
+                <option key={company} value={company}>{company}</option>
               ))}
             </select>
-
-            <select
-              name="status"
-              defaultValue={statusFilter}
-              className="rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900"
-            >
+            <select name="status" defaultValue={statusFilter} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white">
               <option value="">Tous les statuts</option>
               <option value="completed">Terminée</option>
               <option value="pending_interview">Entretien à planifier</option>
               <option value="in_progress">En cours</option>
               <option value="not_started">Non démarrée</option>
             </select>
-
-            <select
-              name="payment"
-              defaultValue={paymentFilter}
-              className="rounded-xl border border-slate-300 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-900"
-            >
+            <select name="payment" defaultValue={paymentFilter} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-slate-900 focus:bg-white">
               <option value="">Tous les paiements</option>
               <option value="paid">Payé</option>
               <option value="pending">En attente</option>
             </select>
-
             <div className="flex gap-2">
-              <button
-                type="submit"
-                className="inline-flex flex-1 items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-              >
+              <button type="submit" className="flex-1 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90">
                 Filtrer
               </button>
-              <a
-                href="/admin"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
-              >
-                Réinitialiser
+              <a href="/admin" className="flex items-center justify-center rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-50">
+                ✕
               </a>
             </div>
           </form>
 
+          {/* Table */}
           <div className="mt-6 overflow-x-auto pb-2">
-            <table className="w-full min-w-[1450px] border-separate border-spacing-y-3">
+            <table className="w-full min-w-[1450px] border-separate border-spacing-y-1.5">
               <thead>
-                <tr className="text-left text-sm text-slate-500">
-                  <th className="px-4 py-2 whitespace-nowrap">Salarié</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Email</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Formation</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Entreprise</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Manager</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Statut</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Début accès</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Fin accès</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Paiement</th>
-                  <th className="px-4 py-2 whitespace-nowrap">Action</th>
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Salarié</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Email</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Formation</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Entreprise</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Manager</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Statut</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Début</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Fin</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Paiement</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredRows.map((item) => {
                   const isPaid = item.paymentStatus === "paid";
-                  const paymentOption = getEnrollmentPaymentOption({
-                    formationTitle: item.formationTitle,
-                  });
+                  const paymentOption = getEnrollmentPaymentOption({ formationTitle: item.formationTitle });
                   const canDownloadAttestation = item.status === "completed";
                   const canValidateInterview = item.status === "pending_interview";
                   const canForceAttestation = item.status !== "completed";
+                  const isUrgent = item.status === "pending_interview" || item.paymentStatus === "pending";
 
                   return (
                     <tr
                       key={item.id}
-                      className="rounded-2xl bg-slate-50 text-sm text-slate-800"
+                      className={`text-sm transition ${isUrgent ? "bg-amber-50/70" : "bg-white"}`}
                     >
-                      <td className="px-4 py-4 font-semibold text-slate-900 whitespace-nowrap">
-                        {item.fullName}
-                      </td>
-                      <td className="px-4 py-4 whitespace-nowrap">{item.email}</td>
-                      <td className="px-4 py-4 min-w-[220px]">{item.formationTitle}</td>
-                      <td className="px-4 py-4 min-w-[160px]">{item.companyName}</td>
-                      <td className="px-4 py-4 whitespace-nowrap">{item.managerEmail}</td>
-                      <td className="px-4 py-4 whitespace-nowrap">
+                      <td className="rounded-l-xl px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">{item.fullName}</td>
+                      <td className="px-4 py-3 text-slate-500 text-xs whitespace-nowrap">{item.email}</td>
+                      <td className="px-4 py-3 min-w-[200px] text-slate-800 text-sm">{item.formationTitle}</td>
+                      <td className="px-4 py-3 min-w-[140px] text-slate-600 text-sm">{item.companyName}</td>
+                      <td className="px-4 py-3 text-slate-500 text-xs whitespace-nowrap">{item.managerEmail}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">
                         <div className="flex flex-col gap-1">
-                          <span
-                            className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getStatusClasses(
-                              item.status
-                            )}`}
-                          >
+                          <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${getStatusClasses(item.status)}`}>
                             {getStatusLabel(item.status)}
                           </span>
                           {item.forcedByAdmin && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">
+                            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
                               ⚠ Forcé admin
                             </span>
                           )}
                         </div>
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {formatDate(item.accessStart)}
-                      </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        {formatDate(item.accessEnd)}
-                      </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        <span
-                          className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${getPaymentClasses(
-                            item.paymentStatus
-                          )}`}
-                        >
+                      <td className="px-4 py-3 text-xs text-slate-500 whitespace-nowrap">{formatDate(item.accessStart)}</td>
+                      <td className="px-4 py-3 text-xs text-slate-500 whitespace-nowrap">{formatDate(item.accessEnd)}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${getPaymentClasses(item.paymentStatus)}`}>
                           {getPaymentLabel(item.paymentStatus)}
                         </span>
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
-                        <div className="flex flex-col gap-2">
+                      <td className="rounded-r-xl px-4 py-3 whitespace-nowrap">
+                        <div className="flex flex-wrap gap-1.5">
                           {isPaid ? (
                             <ConfirmActivateButton enrollmentId={item.id} learnerName={item.fullName} />
                           ) : (
-                            <button
-                              type="button"
-                              disabled
-                              className="cursor-not-allowed rounded-lg bg-slate-200 px-3 py-2 text-xs font-semibold text-slate-500"
-                              title="Activation réservée aux dossiers payés"
-                            >
+                            <button type="button" disabled className="cursor-not-allowed rounded-lg bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-400" title="Activation réservée aux dossiers payés">
                               Paiement requis
                             </button>
                           )}
-
                           {!isPaid && paymentOption.kind === "direct" ? (
                             <form action="/api/payments/checkout" method="POST">
                               <input type="hidden" name="enrollmentId" value={item.id} />
                               <input type="hidden" name="returnPath" value="/admin" />
-                              <button
-                                type="submit"
-                                className="rounded-lg bg-violet-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-violet-700"
-                              >
-                                Payer en ligne
+                              <button type="submit" className="rounded-lg bg-violet-600 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-violet-700">
+                                Payer
                               </button>
                             </form>
                           ) : null}
-
                           {!isPaid && paymentOption.kind === "quote" ? (
-                            <a
-                              href={`/demande-devis?formation=${encodeURIComponent(
-                                item.formationTitle
-                              )}`}
-                              className="inline-flex items-center justify-center rounded-lg border border-violet-300 px-3 py-2 text-xs font-semibold text-violet-700 transition hover:bg-violet-50"
-                              title={paymentOption.reason}
-                            >
-                              Sur devis
+                            <a href={`/demande-devis?formation=${encodeURIComponent(item.formationTitle)}`} className="inline-flex items-center rounded-lg border border-violet-200 bg-violet-50 px-2.5 py-1.5 text-xs font-semibold text-violet-700 transition hover:bg-violet-100" title={paymentOption.reason}>
+                              Devis
                             </a>
                           ) : null}
-
                           <ConfirmPaymentButton enrollmentId={item.id} learnerName={item.fullName} />
                           {canDownloadAttestation ? (
                             <form action="/api/attestation" method="POST">
-                              <input
-                                type="hidden"
-                                name="enrollmentId"
-                                value={item.id}
-                              />
-                              <button
-                                type="submit"
-                                className="rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-slate-800"
-                                title="Télécharger l'attestation"
-                              >
+                              <input type="hidden" name="enrollmentId" value={item.id} />
+                              <button type="submit" className="rounded-lg bg-emerald-600 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700">
                                 Attestation
                               </button>
                             </form>
                           ) : null}
-
                           {canValidateInterview ? (
-                            <a
-                              href="/admin/validations"
-                              className="inline-flex items-center justify-center rounded-lg border border-amber-300 px-3 py-2 text-xs font-semibold text-amber-700 transition hover:bg-amber-50"
-                              title="Ouvrir la page de validation finale"
-                            >
+                            <a href="/admin/validations" className="inline-flex items-center rounded-lg border border-amber-300 bg-amber-50 px-2.5 py-1.5 text-xs font-semibold text-amber-700 transition hover:bg-amber-100">
                               Valider entretien
                             </a>
                           ) : null}
-
                           {canForceAttestation ? (
                             <ForceAttestationButton enrollmentId={item.id} />
                           ) : null}
@@ -531,11 +481,13 @@ export default async function AdminPage({
           </div>
 
           {filteredRows.length === 0 && (
-            <p className="mt-6 text-sm text-slate-500">
-              Aucun résultat pour les filtres sélectionnés.
-            </p>
+            <div className="mt-8 flex flex-col items-center gap-3 py-8 text-center">
+              <p className="text-4xl">🔍</p>
+              <p className="text-sm font-semibold text-slate-600">Aucun résultat pour ces filtres</p>
+              <a href="/admin" className="mt-1 text-sm text-red-600 underline hover:text-red-800">Effacer les filtres</a>
+            </div>
           )}
-        </div>
+        </section>
       </div>
     </main>
   );
