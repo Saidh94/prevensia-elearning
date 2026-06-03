@@ -13,9 +13,12 @@ function getInitialCollapsedState() {
 
 export default function FloatingContactButtons() {
   const [showDesktopPanel, setShowDesktopPanel] = useState(false);
-  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(
-    getInitialCollapsedState
-  );
+  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(false);
+
+  useEffect(() => {
+    // Lire localStorage après hydratation pour éviter le mismatch serveur/client
+    setIsDesktopPanelCollapsed(getInitialCollapsedState());
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -167,13 +170,4 @@ export default function FloatingContactButtons() {
         <Link
           href="/demande-devis"
           className="flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
-          aria-label="Demander un devis à Prevensia Formation"
-          title="Devis"
-        >
-          Devis
-        </Link>
-      </div>
-
-    </>
-  );
-}
+          aria-l
