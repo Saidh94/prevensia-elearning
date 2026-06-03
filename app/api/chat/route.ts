@@ -297,16 +297,24 @@ export async function POST(request: Request) {
     const trimmedMessages = messages.slice(-20);
     const client = new Anthropic({ apiKey });
 
+    // L'API Anthropic exige que le premier message soit "user"
+    // On supprime les messages "assistant" en tête de liste (ex: message de bienvenue)
+    const apiMessages = trimmedMessages
+      .map((m) => ({ role: m.role as "user" | "assistant", content: m.content }));
+    while (apiMessages.length > 0 && apiMessages[0].role === "assistant") {
+      apiMessages.shift();
+    }
+    if (apiMessages.length === 0) {
+      return NextResponse.json({ error: "Aucun message utilisateur." }, { status: 400 });
+    }
+
     // ── Premier appel ────────────────────────────────────────────────────
     let response = await client.messages.create({
       model: "claude-3-5-haiku-20241022",
       max_tokens: 600,
       system: SYSTEM_PROMPT,
       tools: TOOLS,
-      messages: trimmedMessages.map((m) => ({
-        role: m.role,
-        content: m.content,
-      })),
+      messages: apiMessages,
     });
 
     // ── Boucle tool use ──────────────────────────────────────────────────
