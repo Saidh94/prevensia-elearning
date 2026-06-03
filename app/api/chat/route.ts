@@ -391,4 +391,14 @@ export async function POST(request: Request) {
     if (status === 429) {
       return NextResponse.json(
         { error: "Trop de requêtes. Réessayez dans quelques secondes." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: "Erreur lors de la réponse du bot. Réessayez dans un instant." },
+      { status: 500 }
+    );
+  }
+}
     
