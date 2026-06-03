@@ -299,7 +299,7 @@ export async function POST(request: Request) {
 
     // ── Premier appel ────────────────────────────────────────────────────
     let response = await client.messages.create({
-      model: "claude-haiku-4-5",
+      model: "claude-haiku-4-5-20251001",
       max_tokens: 600,
       system: SYSTEM_PROMPT,
       tools: TOOLS,
@@ -345,7 +345,7 @@ export async function POST(request: Request) {
       ];
 
       response = await client.messages.create({
-        model: "claude-haiku-4-5",
+        model: "claude-haiku-4-5-20251001",
         max_tokens: 600,
         system: SYSTEM_PROMPT,
         tools: TOOLS,
@@ -376,6 +376,12 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+    if (status === 400) {
+      return NextResponse.json(
+        { error: "Requête invalide. Contactez l'administrateur." },
+        { status: 500 }
+      );
+    }
     if (status === 404) {
       return NextResponse.json(
         { error: "Modèle IA indisponible. Contactez l'administrateur." },
@@ -385,13 +391,4 @@ export async function POST(request: Request) {
     if (status === 429) {
       return NextResponse.json(
         { error: "Trop de requêtes. Réessayez dans quelques secondes." },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json(
-      { error: "Erreur lors de la réponse du bot. Réessayez dans un instant." },
-      { status: 500 }
-    );
-  }
-}
+    
