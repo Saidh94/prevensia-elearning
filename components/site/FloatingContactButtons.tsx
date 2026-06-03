@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -16,7 +16,7 @@ export default function FloatingContactButtons() {
   const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(false);
 
   useEffect(() => {
-    // Lire localStorage après hydratation pour éviter le mismatch serveur/client
+    // Lire localStorage apres hydratation pour eviter le mismatch serveur/client
     setIsDesktopPanelCollapsed(getInitialCollapsedState());
   }, []);
 
@@ -71,9 +71,9 @@ export default function FloatingContactButtons() {
                 type="button"
                 onClick={() => setIsDesktopPanelCollapsed(true)}
                 className="absolute right-4 top-4 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white transition hover:bg-white/20"
-                aria-label="Réduire le panneau de contact PREVENSIA"
+                aria-label="Reduire le panneau de contact PREVENSIA"
               >
-                Réduire
+                Reduire
               </button>
 
               <p className="pr-16 text-[11px] font-semibold uppercase tracking-[0.24em] text-red-200">
@@ -90,7 +90,7 @@ export default function FloatingContactButtons() {
             <div className="space-y-3 px-5 py-4">
               <div className="rounded-2xl border border-slate-200/80 bg-white/75 p-3.5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Réponse rapide
+                  Reponse rapide
                 </p>
                 <div className="mt-2.5 space-y-1.5">
                   <a
@@ -113,7 +113,7 @@ export default function FloatingContactButtons() {
                   Employeurs et responsables formation
                 </p>
                 <p className="mt-2 text-sm leading-5 text-slate-600">
-                  Visibilité sur les parcours salariés et formats disponibles.
+                  Visibilite sur les parcours salaries et formats disponibles.
                 </p>
               </div>
 
@@ -131,7 +131,7 @@ export default function FloatingContactButtons() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-2xl border border-green-300 bg-white px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-50"
                 >
-                  Échanger sur WhatsApp
+                  Echanger sur WhatsApp
                 </a>
 
                 <a
@@ -170,4 +170,13 @@ export default function FloatingContactButtons() {
         <Link
           href="/demande-devis"
           className="flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
-          aria-l
+          aria-label="Demander un devis a Prevensia Formation"
+          title="Devis"
+        >
+          Devis
+        </Link>
+      </div>
+
+    </>
+  );
+}
