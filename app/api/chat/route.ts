@@ -84,7 +84,7 @@ export async function POST(request: Request) {
       const errBody = await anthropicRes.text();
       console.error("[Chat] Anthropic error", anthropicRes.status, errBody);
       return NextResponse.json(
-        { error: `DEBUG ${anthropicRes.status}: ${errBody}` },
+        { error: `Erreur technique (${anthropicRes.status}). Contactez-nous au 01 89 62 94 92.` },
         { status: 500 }
       );
     }
