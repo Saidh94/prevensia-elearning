@@ -185,26 +185,26 @@ export default function Home() {
     </div>
   </div>
 
-  <div className="relative mx-auto max-w-7xl px-4 pt-16 text-center sm:px-6 lg:px-8">
+  <div className="relative mx-auto max-w-4xl px-4 pt-12 text-center sm:px-6 lg:px-8">
     <p className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100 backdrop-blur">
       Organisme de formation Qualiopi
     </p>
 
-    <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.5rem]">
+    <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.25rem]">
       La sécurité, c’est une compétence qui se forme.
       <span className="mt-2 block text-red-400">
         Habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST.
       </span>
     </h1>
 
-    <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-200">
+    <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-slate-200">
       Formations conformes au Code du travail et à la NF&nbsp;C&nbsp;18-510, en
       présentiel, e-learning ou intra-entreprise. Pour les employeurs qui doivent
       délivrer l’habilitation, et les apprenants qui doivent l’obtenir.
     </p>
 
     {/* Preuve sociale au-dessus du pli */}
-    <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 text-center md:grid-cols-4">
+    <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3 text-center md:grid-cols-4">
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
         <p className="text-2xl font-bold text-white sm:text-3xl">Qualiopi</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
@@ -232,7 +232,7 @@ export default function Home() {
     </div>
   </div>
 
-  <div className="relative mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8">
+  <div className="relative mx-auto max-w-5xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
     <div className="grid gap-5 lg:grid-cols-2">
       <div className="flex flex-col rounded-[2rem] border border-red-700/30 bg-gradient-to-br from-red-900/50 to-slate-900/80 p-8 shadow-2xl">
         <span className="inline-flex w-fit rounded-xl bg-red-700/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-red-300">
@@ -381,7 +381,7 @@ export default function Home() {
 
         {/* Section 3 piliers Prevensia — différenciation et conversion */}
         <section className="bg-white py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 Trois engagements concrets
@@ -530,7 +530,7 @@ export default function Home() {
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 to-slate-50/95" />
 
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
@@ -591,7 +591,7 @@ export default function Home() {
           <TrainingCatalogTabsClean />
 
         <section className="bg-white py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 Ressources INRS
@@ -638,7 +638,7 @@ export default function Home() {
 
         {/* Section SEO — liens internes vers landing pages */}
         <section className="bg-slate-50 py-14">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
               Habilitation électrique par symbole
             </p>
@@ -747,7 +747,7 @@ export default function Home() {
         </section>
 
         <section className="bg-slate-100 py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 Avis clients
@@ -783,7 +783,7 @@ export default function Home() {
         <LocationCoverageSection />
 
         <section id="planning" className="bg-white py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 Sessions présentielles
@@ -811,7 +811,7 @@ export default function Home() {
         </section>
 
         <section className="bg-slate-100 py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 À qui s&apos;adresse PREVENSIA FORMATION ?
