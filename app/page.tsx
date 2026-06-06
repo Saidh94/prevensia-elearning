@@ -234,7 +234,7 @@ export default function Home() {
 
   <div className="relative mx-auto max-w-5xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
     <div className="grid gap-5 lg:grid-cols-2">
-      <div className="flex flex-col rounded-[2rem] border border-red-700/30 bg-gradient-to-br from-red-900/50 to-slate-900/80 p-8 shadow-2xl">
+      <div className="flex flex-col rounded-3xl border border-red-700/30 bg-gradient-to-br from-red-900/50 to-slate-900/80 p-8 shadow-2xl">
         <span className="inline-flex w-fit rounded-xl bg-red-700/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-red-300">
           Entreprises
         </span>
@@ -276,7 +276,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-800/60 to-slate-900/80 p-8 shadow-2xl">
+      <div className="flex flex-col rounded-3xl border border-white/10 bg-gradient-to-br from-slate-800/60 to-slate-900/80 p-8 shadow-2xl">
         <span className="inline-flex w-fit rounded-xl bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate-300">
           Particuliers &amp; Apprenants
         </span>
@@ -396,7 +396,7 @@ export default function Home() {
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-3">
-              <div className="flex flex-col rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 shadow-sm">
+              <div className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-7 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
                   1
                 </div>
@@ -408,7 +408,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 shadow-sm">
+              <div className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-7 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
                   2
                 </div>
@@ -420,7 +420,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col rounded-[1.75rem] border border-slate-200 bg-slate-50 p-7 shadow-sm">
+              <div className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-7 shadow-sm">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
                   3
                 </div>
@@ -550,7 +550,7 @@ export default function Home() {
               {formations.map((item) => (
                 <div
                   key={item.title}
-                  className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
                     <Image
@@ -611,7 +611,7 @@ export default function Home() {
               {inrsVideoResources.map((item) => (
                 <article
                   key={item.href}
-                  className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-sm"
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm"
                 >
                   <span className="inline-flex rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
                     {item.badge}
@@ -678,7 +678,7 @@ export default function Home() {
 
         <section className="bg-white py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-            <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                 Formation SSI
               </p>
@@ -732,8 +732,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm">
-              <div className="relative mx-auto aspect-[16/10] w-full max-w-[560px] overflow-hidden rounded-[1.5rem] bg-slate-100">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+              <div className="relative mx-auto aspect-[16/10] w-full max-w-[560px] overflow-hidden rounded-2xl bg-slate-100">
                 <Image
                   src="/images/image-ssi.jpg"
                   alt="Système de sécurité incendie"
@@ -765,7 +765,7 @@ export default function Home() {
               {testimonials.map((item) => (
                 <div
                   key={item.name}
-                  className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"
+                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
                 >
                   <div className="text-amber-500">★★★★★</div>
                   <p className="mt-4 text-sm leading-7 text-slate-600">
@@ -822,7 +822,7 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              <div className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm">
+              <div className="flex h-full flex-col rounded-2xl bg-white p-6 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                   Entreprises
                 </p>
@@ -859,7 +859,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm">
+              <div className="flex h-full flex-col rounded-2xl bg-white p-6 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                   Apprenants
                 </p>
@@ -896,7 +896,7 @@ export default function Home() {
 
               <div
                 id="contact"
-                className="flex h-full flex-col rounded-[1.75rem] bg-white p-6 shadow-sm"
+                className="flex h-full flex-col rounded-2xl bg-white p-6 shadow-sm"
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
                   Contact

@@ -579,7 +579,7 @@ export default function CommercialProofSection() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/devis"
+                href="/demande-devis"
                 className="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-medium text-slate-900 transition hover:bg-slate-100"
               >
                 Demander un devis
