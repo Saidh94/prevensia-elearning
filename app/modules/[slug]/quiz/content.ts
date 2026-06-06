@@ -8488,9 +8488,6 @@ quizContent["recyclage-ssiap1"] = [
       "Le registre de sécurité est obligatoire dans tout ERP (quelle que soit la catégorie). Il doit mentionner : les consignes générales et particulières de sécurité incendie, les dates et résultats des exercices d'évacuation, les dates des vérifications et entretiens des installations de sécurité (extincteurs, SSI, désenfumage, RIA, colonnes sèches, etc.), les observations faites lors des visites de la commission de sécurité et les suites données. La commission de sécurité peut exiger de le consulter lors de ses visites périodiques ou inopinées.",
     timeLimit: 30,
   },
-];
-
-
   {
     question: "Quelles sont les 5 catégories d'ERP (Établissements Recevant du Public) selon leur capacité d'accueil ?",
     choices: [
@@ -8716,6 +8713,7 @@ quizContent["recyclage-ssiap1"] = [
     timeLimit: 35,
     eliminatory: false,
   },
+];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ATEX NIVEAU 1 — Intervenant en zone ATEX
