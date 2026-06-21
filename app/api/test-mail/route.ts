@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-// Route de test — désactivée en production
 export async function GET() {
-  if (process.env.NODE_ENV === "production") {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
-  }
-
   try {
-    const { Resend } = await import("resend");
     const apiKey = process.env.RESEND_API_KEY?.trim();
 
     if (!apiKey) {
@@ -23,12 +18,31 @@ export async function GET() {
       from: "PREVENSIA <onboarding@resend.dev>",
       to: ["prevensia.formation@outlook.fr"],
       subject: "Test Resend PREVENSIA",
-      html: "<p>Test email envoyé depuis /api/test-mail (dev uniquement)</p>",
+      html: "<p>Test email envoyé depuis Vercel.</p>",
     });
 
-    return NextResponse.json({ ok: true, result });
-  } catch (err) {
-    const message = err instanceof Error ? err.message : "Erreur inconnue";
-    return NextResponse.json({ ok: false, error: message }, { status: 500 });
+    if (result.error) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: result.error.message,
+          details: result.error,
+        },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      ok: true,
+      data: result.data,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: error instanceof Error ? error.message : "Erreur inconnue",
+      },
+      { status: 500 }
+    );
   }
 }

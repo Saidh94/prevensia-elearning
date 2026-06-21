@@ -1,13 +1,9 @@
-import { checkCsrfOrigin } from "@/lib/security/csrf";
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 import { logAdminAction } from "@/lib/supabase/audit";
 
 export async function POST(req: Request) {
   try {
-    const csrfError = checkCsrfOrigin(req);
-    if (csrfError) return csrfError;
-
     const supabase = await createClient();
 
     const {
