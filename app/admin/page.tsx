@@ -204,6 +204,15 @@ export default async function AdminPage({
             <Link href="/admin" className="inline-flex items-center rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white">
               Inscriptions
             </Link>
+            <Link href="/admin/leads" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200">
+              👥 Leads
+            </Link>
+            <Link href="/admin/kpis" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200">
+              📊 KPIs
+            </Link>
+            <Link href="/admin/agents" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
+              🤖 Agents IA
+            </Link>
             <Link href="/admin/support" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
               Support
             </Link>
