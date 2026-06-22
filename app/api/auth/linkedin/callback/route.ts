@@ -46,12 +46,12 @@ export async function GET(request: Request) {
   let myId = "";
 
   try {
-    // ID du membre
-    const meRes = await fetch("https://api.linkedin.com/v2/me", {
+    // ID du membre via OpenID Connect userinfo
+    const meRes = await fetch("https://api.linkedin.com/v2/userinfo", {
       headers: { Authorization: `Bearer ${tokens.access_token}` },
     });
     const meData = await meRes.json();
-    myId = meData.id ?? "";
+    myId = meData.sub ?? meData.id ?? "";
 
     orgsHtml = `<tr>
       <td style="padding:6px 12px;border:1px solid #e2e8f0">Ton profil personnel</td>
