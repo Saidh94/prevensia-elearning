@@ -10,12 +10,12 @@ export async function GET() {
 
   const redirectUri = "https://prevensia-formation.fr/api/auth/linkedin/callback";
 
-  // Scopes LinkedIn — Share on LinkedIn (disponible immédiatement)
+  // Scopes LinkedIn — Share on LinkedIn + OpenID Connect
   const params = new URLSearchParams({
     response_type: "code",
     client_id: clientId,
     redirect_uri: redirectUri,
-    scope: "w_member_social r_basicprofile openid profile email",
+    scope: "w_member_social openid profile email",
     state: "prevensia_linkedin_" + Date.now(),
   });
 

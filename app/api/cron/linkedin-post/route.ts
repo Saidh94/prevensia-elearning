@@ -43,9 +43,11 @@ Cible les responsables sécurité ERP, facility managers, directeurs techniques.
   },
 ];
 
-function getThemeForWeek(): typeof THEMES_LINKEDIN[0] {
-  const weekIndex = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000)) % THEMES_LINKEDIN.length;
-  return THEMES_LINKEDIN[weekIndex];
+function getThemeForWeek(slot: number): typeof THEMES_LINKEDIN[0] {
+  // slot 1 = lundi, slot 2 = jeudi (thème décalé de 3 positions)
+  const weekIndex = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
+  const offset = slot === 2 ? 3 : 0;
+  return THEMES_LINKEDIN[(weekIndex + offset) % THEMES_LINKEDIN.length];
 }
 
 async function generateContent(prompt: string): Promise<string> {
@@ -120,7 +122,9 @@ export async function GET(request: Request) {
 
   const supabase = createAdminClient();
   const startTime = Date.now();
-  const theme = getThemeForWeek();
+  const { searchParams } = new URL(request.url);
+  const slot = parseInt(searchParams.get("slot") ?? "1");
+  const theme = getThemeForWeek(slot);
 
   try {
     // 1. Générer le contenu
