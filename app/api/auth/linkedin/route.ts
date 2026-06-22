@@ -8,11 +8,7 @@ export async function GET() {
     return NextResponse.json({ error: "LINKEDIN_CLIENT_ID manquante" }, { status: 500 });
   }
 
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://prevensia-formation.fr";
-
-  const redirectUri = `${baseUrl}/api/auth/linkedin/callback`;
+  const redirectUri = "https://prevensia-formation.fr/api/auth/linkedin/callback";
 
   // Scopes LinkedIn pour poster au nom d'une organisation
   const params = new URLSearchParams({

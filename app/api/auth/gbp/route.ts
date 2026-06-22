@@ -8,11 +8,7 @@ export async function GET() {
     return NextResponse.json({ error: "GSC_CLIENT_ID manquante dans Vercel" }, { status: 500 });
   }
 
-  const baseUrl = process.env.NEXTAUTH_URL || process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://prevensia-formation.fr";
-
-  const redirectUri = `${baseUrl}/api/auth/gbp/callback`;
+  const redirectUri = "https://prevensia-formation.fr/api/auth/gbp/callback";
 
   const params = new URLSearchParams({
     client_id: clientId,

@@ -16,10 +16,7 @@ export async function GET(request: Request) {
 
   const clientId = process.env.GSC_CLIENT_ID!;
   const clientSecret = process.env.GSC_CLIENT_SECRET!;
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://prevensia-formation.fr";
-  const redirectUri = `${baseUrl}/api/auth/gbp/callback`;
+  const redirectUri = "https://prevensia-formation.fr/api/auth/gbp/callback";
 
   const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",

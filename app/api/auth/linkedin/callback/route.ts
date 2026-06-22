@@ -17,10 +17,7 @@ export async function GET(request: Request) {
 
   const clientId = process.env.LINKEDIN_CLIENT_ID!;
   const clientSecret = process.env.LINKEDIN_CLIENT_SECRET!;
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "https://prevensia-formation.fr";
-  const redirectUri = `${baseUrl}/api/auth/linkedin/callback`;
+  const redirectUri = "https://prevensia-formation.fr/api/auth/linkedin/callback";
 
   // Échanger le code contre un token
   const tokenRes = await fetch("https://www.linkedin.com/oauth/v2/accessToken", {
