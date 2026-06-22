@@ -72,14 +72,14 @@ async function generateContent(prompt: string): Promise<string> {
 
 async function postToLinkedIn(content: string): Promise<string> {
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
-  const organizationId = process.env.LINKEDIN_ORGANIZATION_ID;
+  const memberId = process.env.LINKEDIN_MEMBER_ID;
 
-  if (!accessToken || !organizationId) {
-    throw new Error("LINKEDIN_ACCESS_TOKEN ou LINKEDIN_ORGANIZATION_ID manquant — connecte d'abord LinkedIn via /api/auth/linkedin");
+  if (!accessToken || !memberId) {
+    throw new Error("LINKEDIN_ACCESS_TOKEN ou LINKEDIN_MEMBER_ID manquant — connecte d'abord LinkedIn via /api/auth/linkedin");
   }
 
   const body = {
-    author: `urn:li:organization:${organizationId}`,
+    author: `urn:li:person:${memberId}`,
     lifecycleState: "PUBLISHED",
     specificContent: {
       "com.linkedin.ugc.ShareContent": {

@@ -53,21 +53,10 @@ export async function GET(request: Request) {
     const meData = await meRes.json();
     myId = meData.id ?? "";
 
-    // Organisations administrées
-    const orgsRes = await fetch(
-      `https://api.linkedin.com/v2/organizationAcls?q=roleAssignee&role=ADMINISTRATOR&projection=(elements*(organizationGrantedPermissions,organization~(id,localizedName)))`,
-      { headers: { Authorization: `Bearer ${tokens.access_token}`, "X-Restli-Protocol-Version": "2.0.0" } }
-    );
-    const orgsData = await orgsRes.json();
-    const orgs = orgsData.elements ?? [];
-
-    orgsHtml = orgs.map((el: { "organization~": { id: number; localizedName: string } }) => {
-      const org = el["organization~"] ?? {};
-      return `<tr>
-        <td style="padding:6px 12px;border:1px solid #e2e8f0">${org.localizedName ?? "—"}</td>
-        <td style="padding:6px 12px;border:1px solid #e2e8f0;font-family:monospace;background:#f8fafc">${org.id ?? "—"}</td>
-      </tr>`;
-    }).join("") || `<tr><td colspan="2" style="padding:8px 12px;color:#94a3b8">Aucune organisation trouvée — vérifie tes droits admin sur la page LinkedIn</td></tr>`;
+    orgsHtml = `<tr>
+      <td style="padding:6px 12px;border:1px solid #e2e8f0">Ton profil personnel</td>
+      <td style="padding:6px 12px;border:1px solid #e2e8f0;font-family:monospace;background:#f8fafc">${myId}</td>
+    </tr>`;
   } catch (e) {
     orgsHtml = `<tr><td colspan="2" style="color:#dc2626;padding:8px">Erreur: ${e}</td></tr>`;
   }
@@ -111,20 +100,20 @@ export async function GET(request: Request) {
   </div>
 
   <div class="card">
-    <h3>2. Organisations administrées</h3>
-    <p>Note l'ID de ta page entreprise PREVENSIA → <strong>LINKEDIN_ORGANIZATION_ID</strong></p>
+    <h3>2. Ton Member ID (LINKEDIN_MEMBER_ID)</h3>
+    <p>Les posts seront publiés depuis ton profil personnel en mentionnant PREVENSIA FORMATION.</p>
     <table><thead><tr>
-      <th style="padding:6px 12px;background:#f8fafc;text-align:left;border:1px solid #e2e8f0">Nom de la page</th>
-      <th style="padding:6px 12px;background:#f8fafc;text-align:left;border:1px solid #e2e8f0">Organization ID (→ LINKEDIN_ORGANIZATION_ID)</th>
+      <th style="padding:6px 12px;background:#f8fafc;text-align:left;border:1px solid #e2e8f0">Profil</th>
+      <th style="padding:6px 12px;background:#f8fafc;text-align:left;border:1px solid #e2e8f0">Member ID (→ LINKEDIN_MEMBER_ID)</th>
     </tr></thead><tbody>${orgsHtml}</tbody></table>
   </div>
 
   <div class="card" style="background:#eff6ff;border-color:#bfdbfe">
     <h3>3. Variables à ajouter dans Vercel</h3>
-    <code>LINKEDIN_ACCESS_TOKEN      = [token ci-dessus]
-LINKEDIN_ORGANIZATION_ID   = [ID de la page entreprise]
-LINKEDIN_CLIENT_ID         = [déjà configuré]
-LINKEDIN_CLIENT_SECRET     = [déjà configuré]</code>
+    <code>LINKEDIN_ACCESS_TOKEN  = [token ci-dessus]
+LINKEDIN_MEMBER_ID     = [Member ID ci-dessus]
+LINKEDIN_CLIENT_ID     = [déjà configuré]
+LINKEDIN_CLIENT_SECRET = [déjà configuré]</code>
     <p style="margin-top:12px">👉 <strong>Vercel → Settings → Environment Variables</strong> → Add</p>
     <p>🔄 Pense à renouveler le token dans 60 jours en revisitant <a href="/api/auth/linkedin" style="color:#0a66c2">/api/auth/linkedin</a></p>
   </div>

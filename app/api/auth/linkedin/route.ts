@@ -10,12 +10,12 @@ export async function GET() {
 
   const redirectUri = "https://prevensia-formation.fr/api/auth/linkedin/callback";
 
-  // Scopes LinkedIn pour poster au nom d'une organisation
+  // Scopes LinkedIn — Share on LinkedIn (disponible immédiatement)
   const params = new URLSearchParams({
     response_type: "code",
     client_id: clientId,
     redirect_uri: redirectUri,
-    scope: "r_organization_social w_organization_social r_basicprofile",
+    scope: "w_member_social r_basicprofile openid profile email",
     state: "prevensia_linkedin_" + Date.now(),
   });
 
