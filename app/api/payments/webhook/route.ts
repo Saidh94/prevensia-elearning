@@ -38,6 +38,18 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
 
   if (error) throw new Error(`Erreur mise à jour paiement: ${error.message}`);
 
+  // ── Mise à jour KPI quotidien ──────────────────────────────────────────────
+  try {
+    const today = new Date().toISOString().split("T")[0];
+    const amountHT = session.amount_total ? Math.round(session.amount_total / 100 / 1.2) : 0;
+    await supabase.from("kpi_daily").upsert(
+      { date: today, new_enrollments: 1, revenue_stripe: amountHT },
+      { onConflict: "date", ignoreDuplicates: false }
+    );
+  } catch (kpiErr) {
+    console.error("[Webhook] Erreur mise à jour KPI :", kpiErr);
+  }
+
   // ── Facture Stripe ─────────────────────────────────────────────────────────
   if (!session.invoice) return;
 

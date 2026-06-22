@@ -107,11 +107,19 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
               {filtered.length} lead{filtered.length > 1 ? "s" : ""}
               {statusFilter ? ` — ${STATUS_LABELS[statusFilter]}` : ""}
             </h2>
-            {statusFilter && (
-              <Link href="/admin/leads" className="text-xs text-slate-400 hover:text-slate-700">
-                ✕ Effacer filtre
-              </Link>
-            )}
+            <div className="flex items-center gap-3">
+              {statusFilter && (
+                <Link href="/admin/leads" className="text-xs text-slate-400 hover:text-slate-700">
+                  ✕ Effacer filtre
+                </Link>
+              )}
+              <a
+                href={`/api/admin/leads/export${statusFilter ? `?status=${statusFilter}` : ""}`}
+                className="inline-flex items-center rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+              >
+                ⬇️ Export CSV
+              </a>
+            </div>
           </div>
 
           {/* Recherche */}
