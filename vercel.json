@@ -11,6 +11,10 @@
     {
       "path": "/api/cron/leads-followup",
       "schedule": "0 8 * * 1-5"
+    },
+    {
+      "path": "/api/cron/gsc-sync",
+      "schedule": "0 3 * * *"
     }
   ]
 }
