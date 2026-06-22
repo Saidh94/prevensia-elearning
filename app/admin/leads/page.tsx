@@ -133,7 +133,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
             <table className="w-full min-w-[900px] border-separate border-spacing-y-1.5 text-sm">
               <thead>
                 <tr>
-                  {["Nom", "Email", "Téléphone", "Formation", "Source", "Statut", "Créé le", "Relance"].map((h) => (
+                  {["Nom", "Email", "Téléphone", "Formation", "Source", "Score", "Statut", "Créé le"].map((h) => (
                     <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">{h}</th>
                   ))}
                 </tr>
@@ -142,7 +142,9 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
                 {filtered.map((lead) => (
                   <tr key={lead.id} className="bg-white transition hover:bg-slate-50">
                     <td className="rounded-l-xl px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">
-                      {[lead.first_name, lead.last_name].filter(Boolean).join(" ") || "—"}
+                      <Link href={`/admin/leads/${lead.id}`} className="hover:text-blue-700 hover:underline">
+                        {[lead.first_name, lead.last_name].filter(Boolean).join(" ") || "—"}
+                      </Link>
                     </td>
                     <td className="px-4 py-3 text-xs text-slate-500">{lead.email}</td>
                     <td className="px-4 py-3 text-xs text-slate-500">{lead.phone ?? "—"}</td>
@@ -153,15 +155,15 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
                       </span>
                     </td>
                     <td className="px-4 py-3">
+                      <span className={`text-sm font-bold ${(lead.score ?? 0) >= 70 ? "text-emerald-700" : (lead.score ?? 0) >= 40 ? "text-amber-700" : "text-slate-400"}`}>
+                        {lead.score ?? 0}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3">
                       <LeadStatusButton leadId={lead.id} currentStatus={lead.status ?? "new"} />
                     </td>
-                    <td className="px-4 py-3 text-xs text-slate-400 whitespace-nowrap">
-                      {new Date(lead.created_at).toLocaleDateString("fr-FR")}
-                    </td>
                     <td className="rounded-r-xl px-4 py-3 text-xs text-slate-400 whitespace-nowrap">
-                      {lead.next_followup_at
-                        ? new Date(lead.next_followup_at).toLocaleDateString("fr-FR")
-                        : "—"}
+                      {new Date(lead.created_at).toLocaleDateString("fr-FR")}
                     </td>
                   </tr>
                 ))}
