@@ -8488,6 +8488,231 @@ quizContent["recyclage-ssiap1"] = [
       "Le registre de sécurité est obligatoire dans tout ERP (quelle que soit la catégorie). Il doit mentionner : les consignes générales et particulières de sécurité incendie, les dates et résultats des exercices d'évacuation, les dates des vérifications et entretiens des installations de sécurité (extincteurs, SSI, désenfumage, RIA, colonnes sèches, etc.), les observations faites lors des visites de la commission de sécurité et les suites données. La commission de sécurité peut exiger de le consulter lors de ses visites périodiques ou inopinées.",
     timeLimit: 30,
   },
+  {
+    question: "Quelles sont les 5 catégories d'ERP (Établissements Recevant du Public) selon leur capacité d'accueil ?",
+    choices: [
+      "1re : > 1 500 pers. · 2e : 701 à 1 500 · 3e : 301 à 700 · 4e : ≤ 300 (sauf 5e) · 5e : en dessous des seuils de la 4e",
+      "1re : > 5 000 pers. · 2e : 2 001 à 5 000 · 3e : 1 001 à 2 000 · 4e : 501 à 1 000 · 5e : ≤ 500",
+      "La catégorie dépend uniquement du type d'activité, pas de la capacité d'accueil",
+      "1re : > 300 pers. · 2e : 201 à 300 · 3e : 101 à 200 · 4e : 51 à 100 · 5e : ≤ 50",
+    ],
+    answer: [0],
+    chapterLabel: "Réglementation ERP",
+    explanation:
+      "Le classement ERP combine le type (activité) et la catégorie (effectif). Catégorie 1re : > 1 500 personnes. 2e : 701 à 1 500. 3e : 301 à 700. 4e : jusqu'à 300 personnes (sauf si en dessous des seuils de la 5e catégorie). 5e catégorie : en dessous des seuils fixés pour chaque type (ex. type L salle de réunion : seuil 5e cat. fixé à 200 personnes en sous-sol ou 200 en rez-de-chaussée). Les obligations de sécurité incendie sont proportionnelles à la catégorie.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Quelle est la fréquence obligatoire des exercices d'évacuation dans un ERP ?",
+    choices: [
+      "Une fois par an minimum, avec consignation dans le registre de sécurité",
+      "Deux fois par an minimum (dont un exercice nuit pour les établissements avec hébergement), avec consignation dans le registre de sécurité",
+      "Une fois tous les deux ans — la fréquence est adaptée selon la catégorie de l'ERP",
+      "Uniquement à la demande de la commission de sécurité",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "L'article MS 52 du règlement de sécurité ERP impose au moins deux exercices d'évacuation par an. Pour les établissements avec locaux à sommeil (hôtels, hôpitaux, foyers…), l'un des exercices doit être réalisé de nuit. Chaque exercice doit être consigné dans le registre de sécurité : date, heure, durée de l'évacuation, nombre de personnes, observations et mesures correctives prises.",
+    timeLimit: 30,
+    eliminatory: false,
+  },
+  {
+    question: "Qu'est-ce qu'un espace d'attente sécurisé (EAS) et à quoi sert-il ?",
+    choices: [
+      "Un espace réservé aux fumeurs, situé à l'extérieur du bâtiment",
+      "Une zone compartimentée, résistante au feu, équipée de moyens de communication, permettant à des personnes à mobilité réduite (PMR) d'attendre l'intervention des secours sans être exposées aux fumées ou au feu",
+      "Un local de stockage des matériels de sécurité incendie (extincteurs, RIA, BAES)",
+      "Un poste de commandement avancé pour l'agent SSIAP1 lors d'une intervention",
+    ],
+    answer: [1],
+    chapterLabel: "Réglementation ERP",
+    explanation:
+      "Les espaces d'attente sécurisés (EAS) sont obligatoires dans les ERP et IGH neufs depuis 2009 (arrêté du 1er août 2006 modifié). Ils permettent aux PMR (personnes à mobilité réduite) d'attendre les secours dans un espace protégé : résistance au feu CF 1 heure minimum, surface minimale de 3 m², moyen de communication avec le PC de sécurité, éclairage de sécurité. L'agent SSIAP1 doit connaître l'emplacement de tous les EAS de son établissement et s'assurer qu'ils sont accessibles et conformes lors de ses rondes.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Quels sont les types de détecteurs automatiques d'incendie les plus courants et leurs applications ?",
+    choices: [
+      "Détecteur optique (fumées visibles) · Détecteur ionique (fumées invisibles) · Détecteur thermovélocimétrique (montée rapide de température) · Détecteur de flamme (rayonnement UV/IR)",
+      "Détecteur rouge (feu ouvert) · Détecteur bleu (fumées) · Détecteur jaune (gaz) · Détecteur vert (chaleur)",
+      "Il n'existe que deux types : ionique et optique — tous les autres sont des variantes commerciales",
+      "Détecteur manuel (déclencheur) · Détecteur automatique (toute technologie) · Détecteur d'ambiance · Détecteur de périmètre",
+    ],
+    answer: [0],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "Les principaux types : Détecteur optique (photoélectrique) : idéal pour fumées épaisses visibles, lents à se former (feux couvants). Détecteur ionique : sensible aux aérosols et fumées de combustion vive, adapté aux feux rapides. Détecteur thermique fixe : déclenche à une température seuil (57°C, 68°C, 93°C…). Détecteur thermovélocimétrique : déclenche sur la vitesse de montée en température (≥ 5°C/min). Détecteur de flamme UV/IR : détecte le rayonnement des flammes, adapté aux hydrocarbures. Détecteur multicrités (combinaison de capteurs) : réduit les fausses alarmes. L'agent SSIAP1 doit identifier le type de détecteur lors d'une alarme pour adapter la levée de doute.",
+    timeLimit: 40,
+    eliminatory: false,
+  },
+  {
+    question: "Lors d'une ronde de sécurité, à quelle fréquence minimale l'agent SSIAP1 doit-il effectuer ses rondes dans un ERP ouvert au public ?",
+    choices: [
+      "Une ronde par poste de 8 heures — la fréquence n'est pas réglementée davantage",
+      "La fréquence est définie dans les consignes particulières de l'établissement, validées par le chef d'établissement, et peut varier selon la configuration et le niveau de risque",
+      "Toutes les heures, obligatoirement avec un système de contrôle de ronde (badge ou clé)",
+      "Uniquement en dehors des heures d'ouverture au public",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "La réglementation (arrêté du 2 mai 2005 et NF S 61-900) ne fixe pas de fréquence minimale universelle pour les rondes SSIAP1. La fréquence est définie dans les consignes particulières de l'établissement, établies selon la configuration (surface, niveaux, nombre de personnes), les risques identifiés et les éventuelles prescriptions de la commission de sécurité. En pratique, les rondes sont souvent horaires dans les grands ERP. L'agent doit adapter sa vigilance selon les phases d'activité (ouverture, fermeture, nuit).",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Qu'est-ce que le désenfumage naturel et dans quel contexte est-il utilisé ?",
+    choices: [
+      "Un système de ventilation forcée qui aspire les fumées vers l'extérieur via des ventilateurs",
+      "L'évacuation des fumées et gaz chauds par différence de pression (tirage thermique) via des ouvrants en partie haute, sans moteur — utilisé dans les escaliers, halls et locaux à faible densité",
+      "L'utilisation d'extincteurs CO₂ pour étouffer les fumées dans les couloirs",
+      "Un système uniquement applicable aux entrepôts et locaux industriels de grande hauteur",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "Le désenfumage naturel utilise la différence de densité entre air chaud (fumées) et air froid pour évacuer les fumées par convection thermique, sans équipement motorisé. Il repose sur des ouvrants de désenfumage (exutoires, fenêtres commandées) en partie haute et des amenées d'air frais en partie basse. Il est utilisé dans les escaliers (maintien de voie d'évacuation praticable), halls, couloirs et locaux de grande surface. Le désenfumage mécanique (VMC ou extracteurs motorisés) complète ou remplace le désenfumage naturel là où la thermique ne suffit pas.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Comment l'agent SSIAP1 doit-il commander le désenfumage en cas d'alarme feu confirmée ?",
+    choices: [
+      "Il ouvre toutes les fenêtres et portes du bâtiment pour maximiser la ventilation naturelle",
+      "Il suit strictement les consignes particulières de l'établissement : mise en sécurité automatique (CMSI) ou commande manuelle selon la configuration, et vérifie la bonne exécution des fonctions de sécurité (fermeture des clapets, ouverture des exutoires)",
+      "Il coupe la VMC générale et attend les pompiers pour le désenfumage",
+      "Il décide librement selon son évaluation de la situation, sans contrainte réglementaire particulière",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "Le désenfumage en ERP est majoritairement commandé par le CMSI (Centralisateur de Mise en Sécurité Incendie) de façon automatique ou depuis le PC de sécurité. L'agent SSIAP1 doit : suivre les consignes particulières, vérifier que les fonctions de mise en sécurité s'exécutent correctement (voyants, retours d'information), intervenir manuellement en cas de défaillance selon la procédure, et ne jamais improviser. La commande doit être tracée sur la main courante.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Quelle est la différence entre une colonne sèche et une colonne humide dans un bâtiment ?",
+    choices: [
+      "La colonne sèche est réservée aux interventions des pompiers ; la colonne humide est utilisable par l'agent SSIAP1 pour l'extinction courante",
+      "Colonne sèche : canalisation vide en temps normal, alimentée par les pompiers depuis l'extérieur lors de l'intervention · Colonne humide : canalisation sous pression permanente d'eau, utilisable immédiatement depuis les prises murales aux étages",
+      "Les deux systèmes sont équivalents — la distinction est uniquement commerciale",
+      "Colonne sèche : en service dans les bâtiments de moins de 28 m · Colonne humide : obligatoire dans les IGH",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "Colonne sèche (obligatoire dans les ERP et IGH à partir d'un certain niveau) : canalisation metallique noyée dans les parois, vide d'eau en permanence. Les pompiers la raccordent à leur camion-citerne depuis les raccords d'alimentation en pied de colonne, et alimentent les prises de 65 mm aux étages. L'agent SSIAP1 doit s'assurer que les raccords d'alimentation sont accessibles et non obstrués. Colonne humide : sous pression permanente raccordée au réseau d'eau, permet une intervention immédiate depuis les prises de 40 mm aux étages. Soumise à vérification annuelle.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Lors d'une alarme de niveau 1 (alarme restreinte au PC sécurité), quelle est la procédure de levée de doute de l'agent SSIAP1 ?",
+    choices: [
+      "Déclencher immédiatement l'alarme générale sans investigation préalable",
+      "Identifier la zone en alarme sur le tableau SSI, se rendre physiquement sur les lieux dans les délais fixés par les consignes, observer et analyser (fumée, odeur, chaleur, feu visible), puis rendre compte au PC et décider du déclenchement de l'alarme générale ou du réarmement",
+      "Appeler le 18 immédiatement puis se rendre sur les lieux",
+      "Attendre une seconde alarme (double détection) avant toute action",
+    ],
+    answer: [1],
+    chapterLabel: "Levée de doute",
+    explanation:
+      "La procédure de levée de doute suit un enchaînement précis : 1) Identifier sur le tableau CMSI la zone et le déclencheur concernés ; 2) Avertir le PC sécurité de son départ en levée de doute ; 3) Se rendre sur les lieux dans les délais fixés (généralement 2 à 5 min selon les consignes) en emportant les moyens de communication et les clés nécessaires ; 4) Observer : présence de fumée, odeur, chaleur anormale, feu visible, personnes signalant un incident ; 5) Rendre compte au PC et décider : si pas de sinistre = réarmement et consignation ; si sinistre confirmé = déclencher l'alarme générale, alerter les secours (18/112), débuter les premières actions (évacuation, tentative d'extinction si possible).",
+    timeLimit: 40,
+    eliminatory: true,
+  },
+  {
+    question: "Quelles vérifications l'agent SSIAP1 doit-il effectuer lors de son remplacement de poste (prise de service) ?",
+    choices: [
+      "Signer la main courante et attendre les informations du collègue sortant",
+      "Vérifier l'état du tableau SSI (alarmes, dérangements, inhibitions), prendre connaissance des événements survenus, vérifier les registres et consignes, effectuer une ronde de prise de service, s'assurer du bon état des moyens de secours accessibles",
+      "Uniquement vérifier que le registre de sécurité est à jour",
+      "Il n'y a pas de procédure réglementaire pour la prise de service — chaque agent s'organise comme il l'entend",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "La prise de service SSIAP1 doit être rigoureuse : vérification de l'état du tableau CMSI (pas d'alarme non traitée, pas de dérangement en cours, inhibitions actives notées), lecture de la main courante des dernières heures, récupération des informations orales du collègue sortant (travaux en cours, visiteurs présents, équipements indisponibles), vérification des consignes particulières en vigueur, ronde de prise de service pour s'assurer de l'état des voies d'évacuation, extincteurs, DAS, RIA visibles. La signature de la main courante formalise la prise de responsabilité.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Un robinet d'incendie armé (RIA) 19/6 et un RIA 33/12 — quelle est la différence principale ?",
+    choices: [
+      "Le 19/6 a un tuyau de 19 mm de diamètre et un débit de 6 m³/h ; le 33/12 a un tuyau de 33 mm et un débit de 12 m³/h — le 33/12 offre une puissance d'extinction supérieure mais est plus difficile à manœuvrer seul",
+      "La différence est uniquement esthétique — les deux modèles ont les mêmes performances hydrauliques",
+      "Le 19/6 est réservé aux IGH ; le 33/12 est utilisé dans les ERP de 5e catégorie",
+      "Le 19/6 utilise de la mousse ; le 33/12 utilise de l'eau pulvérisée",
+    ],
+    answer: [0],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "Un RIA est caractérisé par le diamètre de son tuyau (en mm) et son débit nominal (en m³/h ou L/min). RIA 19/6 : tuyau semi-rigide de 19 mm, débit ≥ 130 L/min (environ 6 m³/h), portée jusqu'à 10 m, manœuvrable par une seule personne — adapté aux ERP classiques. RIA 33/12 : tuyau souple de 33 mm, débit ≥ 500 L/min (environ 12 m³/h), portée > 15 m, nécessite généralement 2 personnes — adapté aux grands entrepôts et locaux à risques importants. L'agent SSIAP1 doit connaître l'implantation et le type de RIA de son établissement.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Quelles informations OBLIGATOIRES doivent figurer dans chaque entrée de la main courante SSIAP ?",
+    choices: [
+      "Date et signature de l'agent — les autres informations sont facultatives",
+      "Date et heure précises de l'événement, identité de l'agent, nature exacte de l'événement, actions menées, suite donnée (réarmement, transmission, signalement)",
+      "Uniquement les événements anormaux — les rondes sans anomalie ne doivent pas être consignées",
+      "La main courante est un document interne libre — son contenu n'est pas réglementé",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "La main courante est un document officiel pouvant être requis lors d'une enquête ou d'une inspection. Chaque entrée doit comporter : date et heure précises, identification de l'agent (nom ou matricule), nature de l'événement (alarme zone X, ronde, visite intervenants, inhibition, défaut SSI…), actions entreprises (levée de doute, réarmement, appel 18, contact direction), suite donnée et heure de clôture. Les rondes sans anomalie doivent également être consignées (heure de départ, itinéraire, heure de retour, RAS). La main courante doit être conservée selon les délais définis par l'établissement (généralement 2 à 5 ans).",
+    timeLimit: 30,
+    eliminatory: false,
+  },
+  {
+    question: "Dans le système SDI (Système de Détection Incendie), que signifie un voyant 'défaut' fixe (non clignotant) sur une zone ?",
+    choices: [
+      "Un feu est en cours dans cette zone — déclencher l'alarme générale immédiatement",
+      "Un défaut de câblage, d'alimentation ou de fonctionnement a été détecté sur la zone (boucle ouverte, détecteur défaillant, court-circuit) — la zone peut ne plus être surveillée correctement. Consigner et signaler au mainteneur",
+      "La zone a été réarmée avec succès après une alarme — état normal de retour",
+      "Un dérangement climatique (humidité, poussière) a provoqué une fausse alarme sur un détecteur de la zone",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "Sur un tableau CMSI ou SDI, les voyants ont des significations précises : Voyant d'alarme (rouge fixe ou clignotant) : détection en cours. Voyant de dérangement/défaut (jaune ou orange) : anomalie technique sur l'installation (boucle coupée, détecteur hors service, alimentation défaillante, organe de mise en sécurité non actionné). Un défaut signifie que la surveillance de la zone est dégradée ou nulle — c'est une situation à risque qui doit être signalée immédiatement au responsable et au mainteneur agréé. L'agent SSIAP1 doit renforcer la surveillance humaine de la zone concernée jusqu'à correction.",
+    timeLimit: 35,
+    eliminatory: false,
+  },
+  {
+    question: "Quelles sont les missions EXACTES de l'agent SSIAP1 (par opposition aux missions du SSIAP2 ou SSIAP3) ?",
+    choices: [
+      "L'agent SSIAP1 peut réaliser toutes les missions SSIAP y compris la direction du service de sécurité",
+      "L'agent SSIAP1 est un agent d'exécution : rondes de surveillance, levée de doute, accueil et guidage des secours, tenue de la main courante, exploitation du SSI au PC selon les consignes, première intervention en cas de départ de feu",
+      "L'agent SSIAP1 est uniquement responsable de la gestion administrative du registre de sécurité",
+      "L'agent SSIAP1 dirige l'évacuation et coordonne les équipes de sécurité lors des sinistres",
+    ],
+    answer: [1],
+    chapterLabel: "Réglementation & missions",
+    explanation:
+      "La hiérarchie SSIAP est claire. SSIAP1 (agent) : missions d'exécution — surveiller, détecter, alerter, intervenir en premier et accueillir les secours. SSIAP2 (chef d'équipe) : encadre les agents SSIAP1, anime et dirige les exercices, gère les maintenances de premier niveau, tient le registre de sécurité. SSIAP3 (chef de service) : dirige le service de sécurité, responsable de l'organisation générale, interlocuteur de la direction et de la commission de sécurité. L'agent SSIAP1 ne doit jamais outrepasser ses attributions — toute décision stratégique appartient au SSIAP2 ou SSIAP3.",
+    timeLimit: 30,
+    eliminatory: false,
+  },
+  {
+    question: "Lors d'une visite d'une entreprise extérieure (maintenance, nettoyage, livraison) dans un ERP en exploitation, quelles mesures l'agent SSIAP1 doit-il mettre en œuvre ?",
+    choices: [
+      "Laisser les intervenants accéder librement — la responsabilité incombe à leur employeur",
+      "Enregistrer l'identité et la nature de l'intervention sur la main courante, s'assurer que les intervenants connaissent les consignes de sécurité du site (alerte, évacuation), surveiller les zones concernées et récupérer les clés remises à leur départ",
+      "Appeler la commission de sécurité pour toute intervention d'une entreprise extérieure",
+      "Exiger un agrément SSIAP de l'entreprise extérieure avant toute autorisation d'accès",
+    ],
+    answer: [1],
+    chapterLabel: "Procédures opérationnelles",
+    explanation:
+      "L'agent SSIAP1 doit gérer les accès des entreprises extérieures : consignation sur la main courante (heure d'arrivée, identité, entreprise, zone d'intervention, heure de départ), remise des consignes de sécurité incendie du site (procédure d'alerte, points de rassemblement, interdictions), récupération des badges ou clés remis, surveillance renforcée de la zone pendant l'intervention (risques travaux, accès locaux sensibles). Pour les travaux par points chauds, l'émission d'un permis de feu est obligatoire (signé par le chef d'établissement ou son délégué).",
+    timeLimit: 35,
+    eliminatory: false,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

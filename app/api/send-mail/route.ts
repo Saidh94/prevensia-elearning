@@ -10,6 +10,36 @@ import {
 
 export const runtime = "nodejs";
 
+// ── Rate-limiter en mémoire (par IP, max 5 req / 10 min) ─────────────────────
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT_MAX) return false;
+  entry.count += 1;
+  return true;
+}
+
+// Validation email stricte
+function isValidEmail(email: string): boolean {
+  return /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email);
+}
+
+// Validation téléphone (optionnel mais si présent : chiffres + indicatifs)
+function isValidPhone(phone: string): boolean {
+  if (!phone) return true; // optionnel
+  return /^[\d\s().+\-]{6,20}$/.test(phone);
+}
+
+
 // Resend instancié à la demande dans POST pour éviter le throw au chargement.
 let _resend: import("resend").Resend | null = null;
 function getResend() {
@@ -639,6 +669,16 @@ export async function POST(request: Request) {
       );
     }
 
+    // ── Sécurité : rate-limit par IP ─────────────────────────────────────────
+    const forwarded = request.headers.get("x-forwarded-for");
+    const ip = (forwarded ? forwarded.split(",")[0] : "unknown").trim();
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json(
+        { success: false, error: "Trop de demandes. Réessayez dans 10 minutes." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
 
     const type = String(body?.type ?? "").trim();
@@ -660,6 +700,27 @@ export async function POST(request: Request) {
           success: false,
           error: "Champs obligatoires manquants.",
         },
+        { status: 400 }
+      );
+    }
+
+    // ── Honeypot anti-bot ────────────────────────────────────────────────────
+    const honeypot = String(body?.website ?? body?._hp ?? "").trim();
+    if (honeypot) {
+      // Champ piège rempli par un bot — on renvoie 200 pour ne pas alerter
+      return NextResponse.json({ success: true });
+    }
+
+    // ── Validation stricte email et téléphone ─────────────────────────────
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { success: false, error: "Adresse email invalide." },
+        { status: 400 }
+      );
+    }
+    if (phone && !isValidPhone(phone)) {
+      return NextResponse.json(
+        { success: false, error: "Numéro de téléphone invalide." },
         { status: 400 }
       );
     }

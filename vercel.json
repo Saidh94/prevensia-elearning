@@ -15,6 +15,10 @@
     {
       "path": "/api/cron/gsc-sync",
       "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/cron/blog-ia",
+      "schedule": "0 6 * * 3"
     }
   ]
 }

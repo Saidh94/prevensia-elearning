@@ -2,6 +2,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { LeadStatusButton } from "./LeadStatusButton";
 
 type SearchParams = Promise<{ status?: string; q?: string }>;
 
@@ -152,9 +153,7 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
                       </span>
                     </td>
                     <td className="px-4 py-3">
-                      <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${STATUS_COLORS[lead.status] ?? "bg-slate-100 text-slate-600"}`}>
-                        {STATUS_LABELS[lead.status] ?? lead.status}
-                      </span>
+                      <LeadStatusButton leadId={lead.id} currentStatus={lead.status ?? "new"} />
                     </td>
                     <td className="px-4 py-3 text-xs text-slate-400 whitespace-nowrap">
                       {new Date(lead.created_at).toLocaleDateString("fr-FR")}

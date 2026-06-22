@@ -1,7 +1,23 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
+
+// Lead scoring basé sur les formations demandées
+function scoreLead(formations: FormationLine[], company: string, phone: string): number {
+  let score = 20; // base
+  const labels = formations.map((f) => f.label.toLowerCase()).join(" ");
+  if (labels.includes("atex niveau 3") || labels.includes("ssiap")) score += 40;
+  else if (labels.includes("atex niveau 2") || labels.includes("b1") || labels.includes("b2") || labels.includes("br") || labels.includes("bc")) score += 30;
+  else if (labels.includes("atex") || labels.includes("sprinkler") || labels.includes("ssi")) score += 25;
+  else if (labels.includes("bs") || labels.includes("be") || labels.includes("h0")) score += 15;
+  if (formations.length >= 3) score += 20;
+  else if (formations.length >= 2) score += 10;
+  if (company && company.trim()) score += 15;
+  if (phone && phone.trim()) score += 10;
+  return Math.min(score, 100);
+}
 
 let _resend: Resend | null = null;
 function getResend(): Resend | null {
@@ -174,6 +190,39 @@ export async function POST(request: Request) {
       subject: clientSubject,
       html: clientHtml,
     });
+
+    // --- Insérer le lead dans le CRM ---
+    const admin = createAdminClient();
+    if (admin) {
+      const nameParts = (contactName ?? "").trim().split(" ");
+      const firstName = nameParts[0] ?? "";
+      const lastName = nameParts.slice(1).join(" ") || "";
+      const formationInterest = formations.map((f) => f.label).join(", ");
+      const score = scoreLead(formations, companyName, phone);
+      const nextFollowup = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+
+      await admin.from("leads").insert({
+        email,
+        first_name: firstName,
+        last_name: lastName,
+        phone: phone || null,
+        company: companyName || null,
+        formation_interest: formationInterest,
+        source: "devis",
+        status: "new",
+        score,
+        next_followup_at: nextFollowup,
+        notes: notes || null,
+        metadata: { participants, total_ht: totalHT, has_quote: hasQuote },
+      });
+
+      // Incrémenter kpi_daily
+      const today = new Date().toISOString().split("T")[0];
+      await admin.from("kpi_daily").upsert(
+        { date: today, new_leads: 1, new_devis_requests: 1 },
+        { onConflict: "date", ignoreDuplicates: false }
+      );
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {

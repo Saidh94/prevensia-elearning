@@ -84,7 +84,7 @@ export default function LocationCoverageSection() {
             {/* CTA (important) */}
             <div className="mt-8">
               <a
-                href="/devis"
+                href="/demande-devis"
                 className="inline-flex items-center justify-center rounded-2xl bg-red-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-red-800"
               >
                 Demander une intervention
