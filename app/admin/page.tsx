@@ -213,6 +213,9 @@ export default async function AdminPage({
             <Link href="/admin/agents" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
               🤖 Agents IA
             </Link>
+            <Link href="/admin/blog" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-violet-50 hover:text-violet-700 hover:border-violet-200">
+              ✍️ Blog IA
+            </Link>
             <Link href="/admin/support" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
               Support
             </Link>
