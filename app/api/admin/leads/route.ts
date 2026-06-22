@@ -3,60 +3,56 @@ import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
 
-// GET /api/admin/leads?status=new&limit=50
+const VALID_STATUSES = ["new", "contacted", "qualified", "converted", "lost"];
+
 export async function GET(req: Request) {
   const supabase = createAdminClient();
   if (!supabase) return NextResponse.json({ error: "DB error" }, { status: 500 });
 
   const { searchParams } = new URL(req.url);
   const status = searchParams.get("status");
-  const limit = parseInt(searchParams.get("limit") ?? "50", 10);
 
   let query = supabase
     .from("leads")
     .select("*")
     .order("created_at", { ascending: false })
-    .limit(limit);
+    .limit(200);
 
-  if (status) {
-    query = query.eq("status", status);
-  }
+  if (status) query = query.eq("status", status);
 
   const { data, error } = await query;
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  return NextResponse.json({ leads: data });
+  return NextResponse.json(data ?? []);
 }
 
-// POST /api/admin/leads — Créer un lead manuellement
-export async function POST(req: Request) {
-  const supabase = createAdminClient();
-  if (!supabase) return NextResponse.json({ error: "DB error" }, { status: 500 });
-
-  const body = await req.json();
-  const { data, error } = await supabase.from("leads").insert(body).select().single();
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-
-  return NextResponse.json({ lead: data }, { status: 201 });
-}
-
-// PATCH /api/admin/leads — Mettre à jour un lead
 export async function PATCH(req: Request) {
   const supabase = createAdminClient();
   if (!supabase) return NextResponse.json({ error: "DB error" }, { status: 500 });
 
   const body = await req.json();
-  const { id, ...updates } = body;
-  if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 });
+  const { id, status, notes, next_followup_at } = body;
 
-  const { data, error } = await supabase
-    .from("leads")
-    .update(updates)
-    .eq("id", id)
-    .select()
-    .single();
+  if (!id) return NextResponse.json({ error: "id manquant" }, { status: 400 });
 
+  const updates: Record<string, unknown> = {};
+
+  if (status !== undefined) {
+    if (!VALID_STATUSES.includes(status)) {
+      return NextResponse.json({ error: "Statut invalide" }, { status: 400 });
+    }
+    updates.status = status;
+  }
+
+  if (notes !== undefined) updates.notes = notes;
+  if (next_followup_at !== undefined) updates.next_followup_at = next_followup_at;
+
+  if (Object.keys(updates).length === 0) {
+    return NextResponse.json({ error: "Aucun champ à mettre à jour" }, { status: 400 });
+  }
+
+  const { error } = await supabase.from("leads").update(updates).eq("id", id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  return NextResponse.json({ lead: data });
+  return NextResponse.json({ ok: true });
 }

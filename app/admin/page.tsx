@@ -9,6 +9,7 @@ import {
 } from "@/lib/admin-helpers";
 import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ConfirmActivateButton } from "./components/ConfirmActivateButton";
@@ -86,6 +87,17 @@ export default async function AdminPage({
   if (profile?.role !== "admin") {
     redirect("/");
   }
+
+  // ── Données IA ────────────────────────────────────────────────────────────
+  const adminDb = createAdminClient();
+  const today = new Date().toISOString().split("T")[0];
+
+  const [{ data: leadsAujourdhui }, { data: kpiAujourdhui }, { data: derniersAgents }, { data: articlesAValider }] = await Promise.all([
+    adminDb ? adminDb.from("leads").select("id", { count: "exact" }).gte("created_at", today) : Promise.resolve({ data: null }),
+    adminDb ? adminDb.from("kpi_daily").select("gsc_clicks, new_leads, new_enrollments, revenue_stripe").eq("date", today).maybeSingle() : Promise.resolve({ data: null }),
+    adminDb ? adminDb.from("agent_logs").select("agent_name, status, executed_at").order("executed_at", { ascending: false }).limit(3) : Promise.resolve({ data: null }),
+    adminDb ? adminDb.from("blog_posts").select("id", { count: "exact" }).eq("status", "review") : Promise.resolve({ data: null }),
+  ]);
 
   const { data: enrollments, error: enrollmentsError } = await supabase
     .from("enrollments")
@@ -216,6 +228,9 @@ export default async function AdminPage({
             <Link href="/admin/blog" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-violet-50 hover:text-violet-700 hover:border-violet-200">
               ✍️ Blog IA
             </Link>
+            <Link href="/admin/seo" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200">
+              🔍 SEO
+            </Link>
             <Link href="/admin/support" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
               Support
             </Link>
@@ -247,6 +262,37 @@ export default async function AdminPage({
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">
             Gestion des dossiers clients, apprenants, paiements et activations. Toutes les inscriptions en temps réel.
           </p>
+        </section>
+
+        {/* ── Widget IA — chiffres du jour ── */}
+        <section className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Link href="/admin/leads" className="group rounded-2xl border border-blue-200 bg-blue-50 p-5 transition hover:shadow-md hover:bg-blue-100">
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-500">Leads aujourd&apos;hui</p>
+            <p className="mt-3 text-4xl font-bold text-blue-900">{leadsAujourdhui?.length ?? 0}</p>
+            <p className="mt-1 text-xs text-blue-600">Voir le CRM →</p>
+          </Link>
+          <Link href="/admin/kpis" className="group rounded-2xl border border-emerald-200 bg-emerald-50 p-5 transition hover:shadow-md hover:bg-emerald-100">
+            <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">Revenus HT (aujourd&apos;hui)</p>
+            <p className="mt-3 text-4xl font-bold text-emerald-900">{kpiAujourdhui?.revenue_stripe ? `${kpiAujourdhui.revenue_stripe} €` : "—"}</p>
+            <p className="mt-1 text-xs text-emerald-600">Clics GSC : {kpiAujourdhui?.gsc_clicks ?? "—"}</p>
+          </Link>
+          <Link href="/admin/blog" className="group rounded-2xl border border-violet-200 bg-violet-50 p-5 transition hover:shadow-md hover:bg-violet-100">
+            <p className="text-xs font-semibold uppercase tracking-wide text-violet-600">Articles à valider</p>
+            <p className="mt-3 text-4xl font-bold text-violet-900">{articlesAValider?.length ?? 0}</p>
+            <p className="mt-1 text-xs text-violet-600">Blog IA →</p>
+          </Link>
+          <Link href="/admin/agents" className="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:shadow-md hover:bg-slate-50">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Derniers agents IA</p>
+            <div className="mt-3 space-y-1.5">
+              {(derniersAgents ?? []).slice(0, 3).map((ag, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs">
+                  <span className={ag.status === "success" ? "text-emerald-500" : "text-red-400"}>{ag.status === "success" ? "✓" : "✗"}</span>
+                  <span className="text-slate-700 font-medium truncate">{ag.agent_name}</span>
+                </div>
+              ))}
+              {!derniersAgents?.length && <p className="text-xs text-slate-400">Aucun log encore</p>}
+            </div>
+          </Link>
         </section>
 
         {/* ── Alertes urgentes ── */}

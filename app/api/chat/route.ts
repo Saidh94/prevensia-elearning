@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
 
@@ -91,6 +92,69 @@ export async function POST(request: Request) {
 
     const data = await anthropicRes.json();
     const reply = data?.content?.[0]?.text ?? "Je n'ai pas pu générer de réponse. Contactez-nous au 01 89 62 94 92.";
+
+    // ── Capture de lead chatbot ──────────────────────────────────────────────
+    // Détecter un email dans les messages utilisateur
+    try {
+      const allUserText = messages
+        .filter((m) => m.role === "user")
+        .map((m) => m.content)
+        .join(" ");
+
+      const emailMatch = allUserText.match(/[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/);
+      if (emailMatch) {
+        const email = emailMatch[0].toLowerCase();
+
+        // Détecter la formation citée dans la conversation
+        const fullText = messages.map((m) => m.content).join(" ").toLowerCase();
+        const formationMap: Record<string, string> = {
+          "atex 3": "ATEX Niveau 3", "atex3": "ATEX Niveau 3",
+          "atex 2": "ATEX Niveau 2", "atex2": "ATEX Niveau 2",
+          "atex 1": "ATEX Niveau 1", "atex1": "ATEX Niveau 1", "atex": "ATEX",
+          "ssiap1": "SSIAP1", "ssiap 1": "SSIAP1", "ssiap": "SSIAP1",
+          "sst": "SST", "b1": "B1/B2", "b2": "B1/B2",
+          "bs be": "BS/BE", "bs/be": "BS/BE",
+          "h0b0": "H0B0", "h0v": "H0V", "h0": "H0B0",
+          "sprinkler": "Exploitation Sprinkler",
+          "ssi": "Exploitation SSI", "extincteur": "Extincteurs",
+        };
+        let formationInterest = "chatbot";
+        for (const [keyword, label] of Object.entries(formationMap)) {
+          if (fullText.includes(keyword)) { formationInterest = label; break; }
+        }
+
+        const supabaseAdmin = createAdminClient();
+        if (supabaseAdmin) {
+          // Vérifier si déjà en base (éviter doublons)
+          const { data: existing } = await supabaseAdmin
+            .from("leads")
+            .select("id")
+            .eq("email", email)
+            .maybeSingle();
+
+          if (!existing) {
+            await supabaseAdmin.from("leads").insert({
+              email,
+              source: "chatbot",
+              formation_interest: formationInterest,
+              status: "new",
+              score: 20, // score minimal (email seul)
+              created_at: new Date().toISOString(),
+            });
+
+            // KPI
+            const today = new Date().toISOString().split("T")[0];
+            await supabaseAdmin.from("kpi_daily").upsert(
+              { date: today, new_leads: 1 },
+              { onConflict: "date", ignoreDuplicates: false }
+            );
+          }
+        }
+      }
+    } catch (leadErr) {
+      // Non bloquant
+      console.error("[Chat] Erreur capture lead :", leadErr);
+    }
 
     return NextResponse.json({ reply });
   } catch (error) {
