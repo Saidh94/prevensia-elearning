@@ -1,0 +1,29 @@
+import { NextResponse } from "next/server";
+
+export const runtime = "nodejs";
+
+export async function GET() {
+  const clientId = process.env.LINKEDIN_CLIENT_ID;
+  if (!clientId) {
+    return NextResponse.json({ error: "LINKEDIN_CLIENT_ID manquante" }, { status: 500 });
+  }
+
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "https://prevensia-formation.fr";
+
+  const redirectUri = `${baseUrl}/api/auth/linkedin/callback`;
+
+  // Scopes LinkedIn pour poster au nom d'une organisation
+  const params = new URLSearchParams({
+    response_type: "code",
+    client_id: clientId,
+    redirect_uri: redirectUri,
+    scope: "r_organization_social w_organization_social r_basicprofile",
+    state: "prevensia_linkedin_" + Date.now(),
+  });
+
+  return NextResponse.redirect(
+    `https://www.linkedin.com/oauth/v2/authorization?${params.toString()}`
+  );
+}

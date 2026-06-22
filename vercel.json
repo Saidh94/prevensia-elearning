@@ -19,6 +19,14 @@
     {
       "path": "/api/cron/blog-ia",
       "schedule": "0 6 * * 3"
+    },
+    {
+      "path": "/api/cron/gbp-post",
+      "schedule": "0 8 * * 2"
+    },
+    {
+      "path": "/api/cron/linkedin-post",
+      "schedule": "0 9 * * 4"
     }
   ]
 }

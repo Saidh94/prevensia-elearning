@@ -231,6 +231,9 @@ export default async function AdminPage({
             <Link href="/admin/seo" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-orange-50 hover:text-orange-700 hover:border-orange-200">
               🔍 SEO
             </Link>
+            <Link href="/admin/reseaux" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200">
+              📣 Réseaux
+            </Link>
             <Link href="/admin/support" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
               Support
             </Link>
