@@ -1,0 +1,16 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/dashboard-matin",
+      "schedule": "0 7 * * *"
+    },
+    {
+      "path": "/api/cron/seo-hebdo",
+      "schedule": "0 7 * * 1"
+    },
+    {
+      "path": "/api/cron/leads-followup",
+      "schedule": "0 8 * * 1-5"
+    }
+  ]
+}
