@@ -56,11 +56,11 @@ function getThemeForWeek(): typeof THEMES_GBP[0] {
 
 async function getGBPAccessToken(): Promise<string> {
   const refreshToken = process.env.GOOGLE_GBP_REFRESH_TOKEN;
-  const clientId = process.env.GOOGLE_CLIENT_ID;
-  const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+  const clientId = process.env.GSC_CLIENT_ID;
+  const clientSecret = process.env.GSC_CLIENT_SECRET;
 
   if (!refreshToken || !clientId || !clientSecret) {
-    throw new Error("Variables GBP manquantes (GOOGLE_GBP_REFRESH_TOKEN / GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET)");
+    throw new Error("Variables GBP manquantes (GOOGLE_GBP_REFRESH_TOKEN / GSC_CLIENT_ID / GSC_CLIENT_SECRET)");
   }
 
   const res = await fetch("https://oauth2.googleapis.com/token", {

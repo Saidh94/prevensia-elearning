@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 
 export async function GET() {
-  const clientId = process.env.GOOGLE_CLIENT_ID;
+  const clientId = process.env.GSC_CLIENT_ID;
   if (!clientId) {
-    return NextResponse.json({ error: "GOOGLE_CLIENT_ID manquante" }, { status: 500 });
+    return NextResponse.json({ error: "GSC_CLIENT_ID manquante dans Vercel" }, { status: 500 });
   }
 
   const baseUrl = process.env.NEXTAUTH_URL || process.env.VERCEL_URL

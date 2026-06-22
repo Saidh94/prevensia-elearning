@@ -14,8 +14,8 @@ export async function GET(request: Request) {
     </body></html>`, { headers: { "Content-Type": "text/html" } });
   }
 
-  const clientId = process.env.GOOGLE_CLIENT_ID!;
-  const clientSecret = process.env.GOOGLE_CLIENT_SECRET!;
+  const clientId = process.env.GSC_CLIENT_ID!;
+  const clientSecret = process.env.GSC_CLIENT_SECRET!;
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : "https://prevensia-formation.fr";
