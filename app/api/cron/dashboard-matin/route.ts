@@ -46,7 +46,8 @@ export async function GET(req: Request) {
     let analyseIA = "Analyse IA indisponible.";
 
     if (apiKey) {
-      const prompt = `Tu es le directeur opérationnel de PREVENSIA FORMATION.
+      const prompt = `Tu es le directeur opérationnel de PREVENSIA FORMATION, un organisme de formation en sécurité (ATEX, SSIAP, habilitations électriques) basé à Noisy-le-Grand, en plein développement.
+
 Voici les données d'hier (${yesterday}) :
 - Nouveaux leads : ${kpiHier?.new_leads ?? 0}
 - Nouvelles inscriptions : ${kpiHier?.new_enrollments ?? 0}
@@ -56,7 +57,9 @@ Voici les données d'hier (${yesterday}) :
 - Leads total ce mois : ${leadsMois ?? 0}
 - Leads à relancer : ${leadsARelancer?.length ?? 0}
 
-En 3 phrases maximum : analyse la situation, identifie le point le plus urgent et donne UNE action prioritaire pour aujourd'hui.`;
+IMPORTANT : Le site est récent et en phase de démarrage. Des journées à 0 leads ou 0 clics sont NORMALES et attendues. Ne parle jamais de "situation critique" ou d'"urgence" si les chiffres sont simplement à 0 — c'est la réalité d'un site qui monte en puissance.
+
+En 3 phrases maximum : donne une analyse calme et constructive, et UNE action concrète positive pour aujourd'hui (ex: relancer un prospect, publier un contenu, optimiser une page).`;
 
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
