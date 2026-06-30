@@ -4,10 +4,10 @@ import { createAdminClient } from "@/lib/supabase/admin";
 export const runtime = "nodejs";
 
 // POST /api/leads/outreach
-// Body: { lead_id: string }
-// Envoie immédiatement un email de qualification personnalisé à un lead spécifique
+// Body: { lead_id: string, preview_only?: boolean }
+// preview_only=true → envoie uniquement à Said pour relecture, ne touche pas au lead
+// preview_only=false (défaut) → envoie au lead + BCC Said + met à jour le statut
 export async function POST(req: Request) {
-  // Sécurité : admin seulement (on vérifie via Supabase session ou CRON_SECRET)
   const authHeader = req.headers.get("authorization");
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -15,6 +15,7 @@ export async function POST(req: Request) {
 
   const body = await req.json().catch(() => ({}));
   const leadId = body.lead_id as string | undefined;
+  const previewOnly = body.preview_only === true;
 
   if (!leadId) {
     return NextResponse.json({ error: "lead_id requis" }, { status: 400 });
@@ -97,6 +98,16 @@ Termine par une invitation claire à répondre directement à cet email ou à ap
   else if (fi.includes("sst")) lienFormation = "https://prevensia-formation.fr/formation-sst";
 
   // Envoi Resend
+  // En mode preview : email envoyé uniquement à Said, sujet préfixé [APERCU]
+  // En mode normal : email envoyé au lead + BCC Said
+  const destinataires = previewOnly
+    ? ["contact@prevensia-formation.fr"]
+    : [lead.email];
+  const sujet = previewOnly
+    ? `[APERCU AVANT ENVOI] ${lead.first_name ?? ""} ${lead.last_name ?? ""} — ${formation}`
+    : `Votre projet de formation — ${formation} | PREVENSIA FORMATION`;
+  const bcc = previewOnly ? [] : ["contact@prevensia-formation.fr"];
+
   const sendRes = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -105,9 +116,10 @@ Termine par une invitation claire à répondre directement à cet email ou à ap
     },
     body: JSON.stringify({
       from: "Said Hachiba — PREVENSIA FORMATION <contact@prevensia-formation.fr>",
-      to: [lead.email],
+      to: destinataires,
+      ...(bcc.length > 0 && { bcc }),
       reply_to: "contact@prevensia-formation.fr",
-      subject: `Votre projet de formation — ${formation} | PREVENSIA FORMATION`,
+      subject: sujet,
       html: `<!DOCTYPE html>
 <html lang="fr">
 <head><meta charset="UTF-8"></head>
@@ -156,10 +168,23 @@ Termine par une invitation claire à répondre directement à cet email ou à ap
 
   const sendData = await sendRes.json();
   if (!sendRes.ok) {
-    return NextResponse.json({ error: "Échec envoi email", details: sendData }, { status: 500 });
+    return NextResponse.json({ error: "Echec envoi email", details: sendData }, { status: 500 });
   }
 
-  // Mise à jour du lead
+  if (previewOnly) {
+    // Mode apercu : on ne touche pas au lead
+    return NextResponse.json({
+      ok: true,
+      mode: "preview",
+      apercu_envoye_a: "contact@prevensia-formation.fr",
+      lead_email: lead.email,
+      formation,
+      message: "Apercu envoyé sur contact@prevensia-formation.fr — vérifiez votre boîte avant d'envoyer au lead.",
+      resend_id: sendData.id ?? null,
+    });
+  }
+
+  // Mode envoi réel : mise à jour du lead
   const j7 = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
   await supabase
     .from("leads")
@@ -170,17 +195,18 @@ Termine par une invitation claire à répondre directement à cet email ou à ap
     })
     .eq("id", leadId);
 
-  // Log agent
   await supabase.from("agent_logs").insert({
     agent_name: "leads-outreach",
     status: "success",
-    output_summary: `Email qualification envoyé à ${lead.email} (${formation})`,
+    output_summary: `Email qualification envoyé a ${lead.email} (${formation})`,
     metadata: { lead_id: leadId, email: lead.email, formation },
   });
 
   return NextResponse.json({
     ok: true,
+    mode: "sent",
     email_sent_to: lead.email,
+    bcc: "contact@prevensia-formation.fr",
     formation,
     resend_id: sendData.id ?? null,
   });
