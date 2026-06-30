@@ -74,17 +74,17 @@ const tarifs = [
   },
   {
     format: "Présentiel - 1 jour",
-    price: "490 € HT / apprenant",
+    price: "590 € HT / apprenant",
     detail: "Formation exploitation avec cas pratiques, lecture de schéma, anomalies courantes et conduite à tenir. Accès e-learning inclus en préparation et révision.",
   },
   {
     format: "Présentiel renforcé - 2 jours",
-    price: "990 € HT / apprenant",
+    price: "1 190 € HT / apprenant",
     detail: "Parcours technique pour responsables techniques, maintenance, exploitation, sites industriels et logistiques. Inclut une visite terrain encadrée sur une installation sprinkler réelle, réalisée avec les apprenants sur un site logistique ou industriel. Conforme APSAD R1, EN 12845, NFPA 13. Accès e-learning inclus.",
   },
   {
     format: "Intra entreprise",
-    price: "À partir de 1 800 € HT / jour",
+    price: "À partir de 2 200 € HT / jour",
     detail: "Tarif à ajuster selon le site, le référentiel attendu, les documents fournis et le niveau technique demandé. Adapté aux entrepôts et plateformes logistiques.",
   },
 ];
@@ -337,4 +337,3 @@ export default function FormationSprinkler() {
       </section>
     </main>
   );
-}

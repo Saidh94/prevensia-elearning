@@ -2,7 +2,54 @@ import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
-export const maxDuration = 30;
+export const maxDuration = 60;
+
+// Génère un email de qualification personnalisé via Claude Haiku
+async function genererEmailQualification(lead: {
+  first_name?: string;
+  last_name?: string;
+  formation_interest?: string;
+  email: string;
+}): Promise<string> {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) return "";
+
+  const prenom = lead.first_name ? `, ${lead.first_name}` : "";
+  const formation = lead.formation_interest ?? "une formation sécurité incendie";
+
+  const prompt = `Tu es Said Hachiba, directeur de PREVENSIA FORMATION (organisme de formation sécurité incendie, Qualiopi).
+Tu rédiges un email de prise de contact commercial en français, chaleureux et professionnel, pour qualifier un prospect.
+
+Informations prospect :
+- Prénom : ${lead.first_name ?? "non renseigné"}
+- Intérêt de formation : ${formation}
+
+Rédige uniquement le CORPS de l'email (pas de sujet, pas de signature), en HTML simple (paragraphes <p>).
+Ton : professionnel, direct, humain. Pas de jargon. Environ 120 mots.
+Objectif : demander 3 choses précises :
+1. Le nombre de participants envisagé
+2. Les dates souhaitées (mois, trimestre)
+3. Si la formation est souhaitée en intra (sur leur site) ou en inter (dans nos locaux)
+
+Commence par "Bonjour${prenom}," et termine par une phrase d'invitation à répondre directement à cet email.`;
+
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 400,
+      messages: [{ role: "user", content: prompt }],
+    }),
+  });
+
+  const data = await res.json();
+  return data?.content?.[0]?.text ?? "";
+}
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get("authorization");
@@ -26,60 +73,4 @@ export async function GET(req: Request) {
       .limit(20);
 
     if (!leads?.length) {
-      return NextResponse.json({ ok: true, message: "Aucun lead à relancer" });
-    }
-
-    // Envoyer un récap email des leads à relancer
-    const resendKey = process.env.RESEND_API_KEY;
-    if (resendKey) {
-      const lignes = leads
-        .map(
-          (l) =>
-            `<tr>
-              <td>${l.first_name ?? ""} ${l.last_name ?? ""}</td>
-              <td>${l.email}</td>
-              <td>${l.phone ?? "-"}</td>
-              <td>${l.formation_interest ?? "-"}</td>
-              <td>${l.source ?? "-"}</td>
-            </tr>`
-        )
-        .join("");
-
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "PREVENSIA IA <ia@prevensia-formation.fr>",
-          to: ["contact@prevensia-formation.fr"],
-          subject: `📞 ${leads.length} lead(s) à relancer aujourd'hui`,
-          html: `
-<h2>Leads à relancer</h2>
-<table border="1" cellpadding="8" style="border-collapse:collapse;width:100%">
-  <thead>
-    <tr style="background:#f0f4ff">
-      <th>Nom</th><th>Email</th><th>Téléphone</th><th>Formation</th><th>Source</th>
-    </tr>
-  </thead>
-  <tbody>${lignes}</tbody>
-</table>
-<p><a href="https://prevensia-formation.fr/admin/leads">→ Voir tous les leads dans l'admin</a></p>
-          `,
-        }),
-      });
-    }
-
-    await supabase.from("agent_logs").insert({
-      agent_name: "leads-followup",
-      status: "success",
-      output_summary: `${leads.length} leads à relancer notifiés`,
-    });
-
-    return NextResponse.json({ ok: true, leads_count: leads.length });
-  } catch (error) {
-    console.error("[leads-followup] Erreur:", error);
-    return NextResponse.json({ error: String(error) }, { status: 500 });
-  }
-}
+      return NextResponse.json({ ok: true, message: "Aucun lead à rela

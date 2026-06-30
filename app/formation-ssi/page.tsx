@@ -355,106 +355,85 @@ export default function FormationSSI() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">
-            Questions fréquentes sur la formation SSI
+      {/* Tarifs */}
+      <section id="tarifs" className="bg-slate-950 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-400">
+            Tarifs
+          </p>
+          <h2 className="mt-3 text-2xl font-bold text-white">
+            Formations SSI — grille tarifaire 2025
           </h2>
-
-          <div className="mt-6">
-            <details className="mb-4 rounded-xl border border-slate-200 p-4">
-              <summary className="cursor-pointer font-semibold">
-                À qui s&apos;adresse la formation SSI ?
-              </summary>
-              <p className="mt-3 text-slate-700">
-                Elle s&apos;adresse aux exploitants, responsables techniques,
-                équipes maintenance, services généraux et personnels amenés à
-                utiliser ou surveiller un système de sécurité incendie.
-              </p>
-            </details>
-
-            <details className="mb-4 rounded-xl border border-slate-200 p-4">
-              <summary className="cursor-pointer font-semibold">
-                Que permet de comprendre la formation SSI ?
-              </summary>
-              <p className="mt-3 text-slate-700">
-                Elle permet de comprendre le rôle du SSI, l&apos;architecture du
-                système, les signaux courants, les normes applicables et les
-                réactions attendues en cas d&apos;alarme, de défaut ou de
-                dérangement.
-              </p>
-            </details>
-
-            <details className="mb-4 rounded-xl border border-slate-200 p-4">
-              <summary className="cursor-pointer font-semibold">
-                Peut-on adapter la formation au site de l&apos;entreprise ?
-              </summary>
-              <p className="mt-3 text-slate-700">
-                Oui, PREVENSIA FORMATION peut adapter la session au système
-                installé, aux consignes du site, aux référentiels applicables et
-                au niveau de connaissance des participants.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Découvrir nos autres formations</h2>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <a
-              href="/formation-habilitation-electrique"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation habilitation électrique
-            </a>
-
-            <a
-              href="/formation-sst"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation SST – Sauveteur Secouriste du Travail
-            </a>
-
-            <a
-              href="/formation-ssiap1"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation SSIAP1 — Agent sécurité incendie
-            </a>
-
-            <a
-              href="/formation-sprinkler"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation exploitation sprinkler
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-blue-50 border-y border-blue-200 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Besoin d&apos;un devis rapide ?</h2>
-
-          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Indiquez votre besoin, le nombre de participants, vos contraintes
-            de site et nous revenons vers vous avec une proposition adaptée
-            (présentiel, intra-entreprise, accompagnement).
+          <p className="mt-4 max-w-3xl leading-8 text-slate-300">
+            Trois formats selon votre niveau technique et vos contraintes d&apos;organisation.
+            Toutes nos formations SSI sont certifiées Qualiopi et finançables OPCO.
           </p>
 
-          <div className="mt-6">
-            <Link
-              href="/demande-devis?type=ssi"
-              className="inline-flex rounded-2xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-800"
-            >
-              Demander un devis SSI
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-}
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {/* 1 jour */}
+            <div className="rounded-2xl border border-slate-700 bg-slate-900 p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                Exploitation SSI — 1 jour
+              </p>
+              <p className="mt-4 text-3xl font-bold text-white">650 €</p>
+              <p className="text-sm text-slate-400">HT / apprenant · inter</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-300">
+                <li>✓ Architecture SDI / CMSI / UGA / DAS</li>
+                <li>✓ Lecture des signalisations</li>
+                <li>✓ Conduite à tenir en cas d&apos;alarme</li>
+                <li>✓ Normes NF S 61 applicables</li>
+                <li>✓ E-learning inclus</li>
+                <li>✓ Attestation Qualiopi</li>
+              </ul>
+              <Link
+                href="/demande-devis?type=ssi&format=1j"
+                className="mt-7 block rounded-xl border border-blue-400 px-4 py-2 text-center text-sm font-semibold text-blue-300 hover:bg-blue-900 transition-colors"
+              >
+                Demander un devis
+              </Link>
+            </div>
+
+            {/* 2 jours avancé */}
+            <div className="rounded-2xl border-2 border-blue-500 bg-slate-900 p-7 relative">
+              <span className="absolute -top-3 left-6 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+                Recommandé
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400">
+                SSI Avancé — 2 jours
+              </p>
+              <p className="mt-4 text-3xl font-bold text-white">1 190 €</p>
+              <p className="text-sm text-slate-400">HT / apprenant · inter</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-300">
+                <li>✓ Tout le contenu 1 jour</li>
+                <li>✓ Exploitation renforcée sur site</li>
+                <li>✓ Scénarios défaut / alarme / travaux</li>
+                <li>✓ Module e-learning extinction gaz inclus</li>
+                <li>✓ ERP · IGH · ICPE · logistique</li>
+                <li>✓ Attestation Qualiopi</li>
+              </ul>
+              <Link
+                href="/demande-devis?type=ssi&format=2j"
+                className="mt-7 block rounded-xl bg-blue-700 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-blue-600 transition-colors"
+              >
+                Demander un devis
+              </Link>
+            </div>
+
+            {/* Intra */}
+            <div className="rounded-2xl border border-slate-700 bg-slate-900 p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                Intra entreprise
+              </p>
+              <p className="mt-4 text-3xl font-bold text-white">2 200 €</p>
+              <p className="text-sm text-slate-400">HT / jour · groupe</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-300">
+                <li>✓ Formation sur votre site</li>
+                <li>✓ Adapté à votre SSI installé</li>
+                <li>✓ Jusqu&apos;à 10 participants / session</li>
+                <li>✓ Contenu calé sur vos consignes</li>
+                <li>✓ Financement OPCO possible</li>
+                <li>✓ Devis sous 48h</li>
+              </ul>
+              <Link
+                href="/demande-devis?type=ssi&format=intra"
+                classNa
