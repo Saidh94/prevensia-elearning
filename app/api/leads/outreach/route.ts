@@ -43,28 +43,32 @@ export async function POST(req: Request) {
 
   // Générer l'email de qualification via Claude Haiku
   const prenom = lead.first_name ?? "";
+  const nom = lead.last_name ?? "";
   const formation = lead.formation_interest ?? "une formation sécurité incendie";
   const societe = lead.company ?? "";
 
   const prompt = `Tu es Said Hachiba, directeur de PREVENSIA FORMATION (organisme Qualiopi, sécurité incendie, Île-de-France).
-Tu rédiges un email de prise de contact commercial en français, chaleureux et professionnel.
+Tu rédiges un email commercial de premier contact, naturel et humain, pour qualifier un prospect.
 
-Prospect :
-- Prénom : ${prenom || "non renseigné"}
+Informations du prospect :
+- Prénom : ${prenom || "inconnu"}
+- Nom : ${nom || "inconnu"}
 - Société : ${societe || "non renseignée"}
-- Intérêt de formation : ${formation}
+- Formation(s) souhaitée(s) : ${formation}
 
-Rédige uniquement le CORPS de l'email en HTML simple (balises <p> uniquement).
-Ton : professionnel, humain, direct. Environ 130 mots. Pas de phrases génériques ou de jargon.
+RÈGLES IMPÉRATIVES :
+1. Détermine la civilité (M. ou Mme) en fonction du prénom. Si le prénom est ambigu ou absent, utilise "Madame, Monsieur".
+2. Commence OBLIGATOIREMENT par "Bonjour M. [Nom]," ou "Bonjour Mme [Nom]," — jamais par le prénom seul.
+3. Écris comme un humain qui a vu la demande et réagit naturellement — pas comme un robot. Varie les formulations, évite les listes à puces ou les formules toutes faites.
+4. Environ 120 mots, ton direct et chaleureux, sans jargon commercial.
+5. Glisse naturellement ces 4 questions dans le corps du texte (pas sous forme de liste numérotée) :
+   - Combien de participants sont prévus ?
+   - Quelles dates ou période conviendraient ?
+   - Intra (sur leur site) ou inter (nos locaux à Paris) ?
+   - Si plusieurs formations, dans quel ordre les organiser ?
+6. Termine par une phrase d'invitation simple à répondre ou à appeler.
+7. Renvoie UNIQUEMENT le corps HTML en balises <p>. Aucun sujet, aucune signature.`;
 
-Demande explicitement les 4 éléments suivants :
-1. Le nombre de participants envisagé
-2. Les dates souhaitées (mois ou trimestre de préférence)
-3. Si la formation est souhaitée en intra (sur votre site) ou en inter (nos locaux en Île-de-France)
-4. Si plusieurs formations sont envisagées (ex : pack SSI + Sprinkler 2 jours), préciser l'ordre souhaité
-
-Commence par "Bonjour${prenom ? " " + prenom : ""},".
-Termine par une invitation claire à répondre directement à cet email ou à appeler.`;
 
   const iaRes = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
@@ -146,7 +150,7 @@ Termine par une invitation claire à répondre directement à cet email ou à ap
       <td style="padding:3px 0">
         <strong style="color:#1e293b">Said Hachiba</strong><br/>
         Directeur — PREVENSIA FORMATION<br/>
-        📍 Noisy-le-Grand (93) — Île-de-France<br/>
+        📍 33, avenue Philippe Auguste — 75011 Paris<br/>
         🌐 <a href="https://prevensia-formation.fr" style="color:#2563eb">prevensia-formation.fr</a>
       </td>
     </tr>

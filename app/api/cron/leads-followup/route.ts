@@ -14,18 +14,23 @@ async function genererEmailQualification(lead: {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return "";
 
-  const prenom = lead.first_name ? `, ${lead.first_name}` : "";
+  const nom = lead.last_name ?? "";
+  const prenom = lead.first_name ?? "";
   const formation = lead.formation_interest ?? "une formation securite incendie";
 
   const prompt = [
-    "Tu es Said Hachiba, directeur de PREVENSIA FORMATION (organisme Qualiopi).",
-    "Redige un email de prise de contact commercial en francais, chaleureux et professionnel.",
+    "Tu es Said Hachiba, directeur de PREVENSIA FORMATION (organisme Qualiopi, securite incendie, Paris).",
+    "Tu rediges un email de premier contact commercial, naturel et humain, pour qualifier un prospect.",
     "",
-    `Prospect : ${lead.first_name ?? "non renseigne"} / Formation : ${formation}`,
+    `Prenom : ${prenom || "inconnu"} / Nom : ${nom || "inconnu"} / Formation : ${formation}`,
     "",
-    "Corps de email en HTML (<p> uniquement). Ton professionnel, direct, humain. ~120 mots.",
-    "Demande 3 choses : 1) nombre de participants 2) dates souhaitees 3) intra ou inter",
-    `Commence par \"Bonjour${prenom}," et termine par invitation a repondre par email.`,
+    "REGLES :",
+    "1. Determine la civilite (M. ou Mme) selon le prenom. Si ambigu, utilise 'Madame, Monsieur'.",
+    "2. Commence par 'Bonjour M. [Nom],' ou 'Bonjour Mme [Nom],' — jamais par le prenom seul.",
+    "3. Ecris comme un humain, pas un robot. Ton direct, chaleureux, sans jargon commercial.",
+    "4. Glisse naturellement ces 3 questions dans le texte (pas de liste numerotee) : nombre de participants, dates souhaitees, intra ou inter (nos locaux a Paris).",
+    "5. ~120 mots. Termine par une invitation simple a repondre a cet email.",
+    "6. Renvoie UNIQUEMENT le corps HTML en balises <p>.",
   ].join("\n");
 
   const res = await fetch("https://api.anthropic.com/v1/messages", {
