@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { Resend } from "resend";
+import { randomUUID } from "crypto";
 
 export const runtime = "nodejs";
 
@@ -15,7 +16,7 @@ Ton : expert, direct, professionnel. Environ 250-300 mots. Parle des obligations
     formation: "SSIAP1",
     prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation SSIAP1.
 Accroche forte, corps 3-4 paragraphes courts, CTA vers https://prevensia-formation.fr/formation-ssiap1, 5 hashtags.
-Évoque : 105h de formation, éligibilité CPF, les métiers de la sécurité incendie, les débouchés. Commence par un emoji. ~250-300 mots.`,
+Évoque : 70h de formation, éligibilité CPF, les métiers de la sécurité incendie, les débouchés. Commence par un emoji. ~250-300 mots.`,
   },
   {
     formation: "Habilitation électrique",
@@ -72,46 +73,6 @@ async function generateContent(prompt: string): Promise<string> {
   return data.content?.[0]?.text ?? "";
 }
 
-async function postToLinkedIn(content: string): Promise<string> {
-  const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
-  const memberId = process.env.LINKEDIN_MEMBER_ID;
-
-  if (!accessToken || !memberId) {
-    throw new Error("LINKEDIN_ACCESS_TOKEN ou LINKEDIN_MEMBER_ID manquant — connecte d'abord LinkedIn via /api/auth/linkedin");
-  }
-
-  const body = {
-    author: `urn:li:person:${memberId}`,
-    lifecycleState: "PUBLISHED",
-    specificContent: {
-      "com.linkedin.ugc.ShareContent": {
-        shareCommentary: {
-          text: content,
-        },
-        shareMediaCategory: "NONE",
-      },
-    },
-    visibility: {
-      "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC",
-    },
-  };
-
-  const res = await fetch("https://api.linkedin.com/v2/ugcPosts", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-      "X-Restli-Protocol-Version": "2.0.0",
-    },
-    body: JSON.stringify(body),
-  });
-
-  const data = await res.json();
-  if (!res.ok) throw new Error(`LinkedIn API error (${res.status}): ${JSON.stringify(data)}`);
-
-  return data.id ?? "unknown";
-}
-
 export async function GET(request: Request) {
   // Auth cron
   const authHeader = request.headers.get("authorization");
@@ -121,7 +82,6 @@ export async function GET(request: Request) {
   }
 
   const supabase = createAdminClient();
-  const startTime = Date.now();
   const { searchParams } = new URL(request.url);
   const slot = parseInt(searchParams.get("slot") ?? "1");
   const theme = getThemeForWeek(slot);
@@ -131,52 +91,74 @@ export async function GET(request: Request) {
     const content = await generateContent(theme.prompt);
     if (!content) throw new Error("Claude n'a pas généré de contenu");
 
-    // 2. Poster sur LinkedIn
-    const postId = await postToLinkedIn(content);
-    const duration = Date.now() - startTime;
+    // 2. Générer un token unique d'approbation
+    const token = randomUUID();
+    const baseUrl = "https://prevensia-formation.fr";
+    const approvalUrl = `${baseUrl}/api/admin/linkedin-publish?token=${token}`;
+    const rejectUrl = `${baseUrl}/api/admin/linkedin-reject?token=${token}`;
 
-    // 3. Log en base
+    // 3. Sauvegarder en attente de validation dans Supabase
     if (supabase) {
       await supabase.from("agent_logs").insert({
         agent_name: "linkedin-post",
-        status: "success",
-        details: {
+        status: "pending_approval",
+        output_summary: `Post en attente — thème : ${theme.formation} (slot ${slot})`,
+        metadata: {
+          content,
           theme: theme.formation,
-          post_id: postId,
-          content_length: content.length,
-          duration_ms: duration,
+          slot,
+          token,
+          created_at: new Date().toISOString(),
         },
-        executed_at: new Date().toISOString(),
       });
     }
 
-    // 4. Notification email
+    // 4. Email de validation à Said — avec aperçu complet + boutons
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       const resend = new Resend(resendKey);
+      const contentEscaped = content
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
       await resend.emails.send({
-        from: "PREVENSIA IA <contact@prevensia-formation.fr>",
+        from: "PREVENSIA IA <ia@prevensia-formation.fr>",
         to: ["contact@prevensia-formation.fr"],
-        subject: `✅ LinkedIn Post publié — ${theme.formation}`,
+        subject: `📋 Post LinkedIn à valider — ${theme.formation}`,
         html: `
-          <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
-            <h2 style="color:#1e293b">✅ Post LinkedIn publié</h2>
-            <p><strong>Thème :</strong> ${theme.formation}</p>
-            <p><strong>ID du post :</strong> <code>${postId}</code></p>
-            <h3 style="color:#475569">Contenu publié :</h3>
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;white-space:pre-wrap;font-size:14px">${content}</div>
-            <p style="margin-top:16px"><a href="https://www.linkedin.com/company/${process.env.LINKEDIN_ORGANIZATION_ID}" style="color:#0a66c2">Voir sur LinkedIn →</a></p>
-          </div>
-        `,
+<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#1e293b">
+  <h2 style="color:#1e293b;margin-bottom:4px">📋 Post LinkedIn à valider</h2>
+  <p style="color:#64748b;margin-top:0">Thème : <strong>${theme.formation}</strong> · Slot ${slot}</p>
+
+  <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0"/>
+
+  <h3 style="color:#475569;margin-bottom:8px;font-size:14px;text-transform:uppercase;letter-spacing:.5px">Aperçu du post :</h3>
+  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:20px;white-space:pre-wrap;font-size:14px;line-height:1.7;color:#1e293b">${contentEscaped}</div>
+
+  <div style="margin-top:28px;text-align:center">
+    <a href="${approvalUrl}"
+       style="background:#0a66c2;color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:bold;display:inline-block;margin-right:12px">
+      ✅ PUBLIER SUR LINKEDIN
+    </a>
+    <a href="${rejectUrl}"
+       style="background:#f1f5f9;color:#475569;padding:14px 24px;border-radius:8px;text-decoration:none;font-size:15px;font-weight:bold;display:inline-block;border:1px solid #cbd5e1">
+      ❌ Rejeter
+    </a>
+  </div>
+
+  <p style="margin-top:20px;font-size:12px;color:#94a3b8;text-align:center">
+    Ce post sera archivé automatiquement dans 7 jours si vous ne le validez pas.
+  </p>
+</div>`,
       });
     }
 
     return NextResponse.json({
       ok: true,
       theme: theme.formation,
-      post_id: postId,
-      content_length: content.length,
-      duration_ms: duration,
+      status: "pending_approval",
+      message: "Post généré — email de validation envoyé à contact@prevensia-formation.fr",
     });
 
   } catch (err) {
@@ -186,8 +168,8 @@ export async function GET(request: Request) {
       await supabase.from("agent_logs").insert({
         agent_name: "linkedin-post",
         status: "error",
-        details: { error: msg, theme: theme.formation, duration_ms: Date.now() - startTime },
-        executed_at: new Date().toISOString(),
+        output_summary: `Erreur génération post ${theme.formation}`,
+        metadata: { error: msg, theme: theme.formation, slot },
       });
     }
 
@@ -195,10 +177,10 @@ export async function GET(request: Request) {
     if (resendKey) {
       const resend = new Resend(resendKey);
       await resend.emails.send({
-        from: "PREVENSIA IA <contact@prevensia-formation.fr>",
+        from: "PREVENSIA IA <ia@prevensia-formation.fr>",
         to: ["contact@prevensia-formation.fr"],
         subject: "❌ Erreur agent LinkedIn Post",
-        html: `<p>Erreur lors du post LinkedIn :</p><pre>${msg}</pre>`,
+        html: `<p>Erreur lors de la génération du post LinkedIn :</p><pre>${msg}</pre>`,
       });
     }
 

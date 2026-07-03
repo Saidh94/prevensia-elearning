@@ -17,7 +17,7 @@ const THEMES_GBP = [
     title: "Formation SSIAP1 — Sécurité incendie",
     cta_text: "Découvrir SSIAP1",
     cta_url: "https://prevensia-formation.fr/formation-ssiap1",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation SSIAP1 (agent de sécurité incendie). Inclus : débouchés, durée 105h, éligibilité CPF. Ton engageant. Termine par 3 hashtags.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation SSIAP1 (agent de sécurité incendie). Inclus : débouchés, durée 70h, éligibilité CPF. Ton engageant. Termine par 3 hashtags.",
   },
   {
     formation: "Habilitation électrique",

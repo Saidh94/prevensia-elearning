@@ -23,7 +23,7 @@ const FORMATIONS: Formation[] = [
   { id: "atex-n2", label: "ATEX Niveau 2", category: "ATEX", priceHT: 490, priceNote: "À partir de — E-learning + entretien", perPerson: true },
   { id: "atex-n3", label: "ATEX Niveau 3", category: "ATEX", priceHT: 790, priceNote: "À partir de — E-learning + classe virtuelle", perPerson: true },
   // SSIAP / SÉCURITÉ INCENDIE
-  { id: "ssiap1", label: "SSIAP1 initial", category: "Sécurité incendie", priceHT: 1490, priceNote: "À partir de — 105h", perPerson: false },
+  { id: "ssiap1", label: "SSIAP1 initial", category: "Sécurité incendie", priceHT: 1490, priceNote: "À partir de — 70h", perPerson: false },
   { id: "recyclage-ssiap1", label: "Recyclage SSIAP1", category: "Sécurité incendie", priceHT: 250, priceNote: "À partir de — 14h", perPerson: true },
   { id: "extincteurs", label: "Manipulation extincteurs", category: "Sécurité incendie", priceHT: 149, priceNote: "0,5 jour", perPerson: true },
   { id: "guide-file", label: "Guide-file / Serre-file", category: "Sécurité incendie", priceHT: 150, priceNote: "0,5 jour", perPerson: true },

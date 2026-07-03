@@ -20,7 +20,7 @@ FORMATIONS PROPOSÉES :
 - ATEX Niveau 1 : Sensibilisation — 3h e-learning — 129 EUR HT
 - ATEX Niveau 2 : Travailleur exposé — E-learning 3h + entretien — 490 EUR HT
 - ATEX Niveau 3 : Chargé de travaux — E-learning + classe virtuelle — à partir de 790 EUR HT
-- SSIAP1 initial : 105h — à partir de 1 490 EUR HT
+- SSIAP1 initial : 70h — à partir de 1 490 EUR HT
 - Exploitation SSI : 1 jour — 350 EUR HT inter
 - Exploitation Sprinkler : 1 jour — 490 EUR HT
 - SST initial : 2 jours — 240 EUR HT inter

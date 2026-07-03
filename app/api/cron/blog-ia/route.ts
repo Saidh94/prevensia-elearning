@@ -22,7 +22,7 @@ const THEMES = [
     title: "SSIAP1 en 2026 : tarifs, durée et financement CPF",
     keywords: ["SSIAP1", "formation sécurité incendie", "financement CPF", "agent de sécurité incendie"],
     category: "ssi",
-    angle: "Tout savoir sur la formation SSIAP1 en 2026 : durée (105h), tarifs, financement CPF, débouchés et comment s'inscrire chez un organisme certifié Qualiopi.",
+    angle: "Tout savoir sur la formation SSIAP1 en 2026 : durée (70h), tarifs, financement CPF, débouchés et comment s'inscrire chez un organisme certifié Qualiopi.",
   },
   {
     title: "SST Sauveteur Secouriste du Travail : pourquoi former vos salariés",
