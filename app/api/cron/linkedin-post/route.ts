@@ -16,7 +16,7 @@ Ton : expert, direct, professionnel. Environ 250-300 mots. Parle des obligations
     formation: "SSIAP1",
     prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation SSIAP1.
 Accroche forte, corps 3-4 paragraphes courts, CTA vers https://prevensia-formation.fr/formation-ssiap1, 5 hashtags.
-Évoque : 70h de formation, éligibilité CPF, les métiers de la sécurité incendie, les débouchés. Commence par un emoji. ~250-300 mots.`,
+Évoque : 70h de formation, financement OPCO possible, les métiers de la sécurité incendie, les débouchés. Commence par un emoji. ~250-300 mots.`,
   },
   {
     formation: "Habilitation électrique",

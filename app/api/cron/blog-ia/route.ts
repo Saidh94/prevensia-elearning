@@ -20,9 +20,9 @@ const THEMES = [
   },
   {
     title: "SSIAP1 en 2026 : tarifs, durée et financement CPF",
-    keywords: ["SSIAP1", "formation sécurité incendie", "financement CPF", "agent de sécurité incendie"],
+    keywords: ["SSIAP1", "formation sécurité incendie", "financement OPCO", "agent de sécurité incendie"],
     category: "ssi",
-    angle: "Tout savoir sur la formation SSIAP1 en 2026 : durée (70h), tarifs, financement CPF, débouchés et comment s'inscrire chez un organisme certifié Qualiopi.",
+    angle: "Tout savoir sur la formation SSIAP1 en 2026 : durée (70h), tarifs, financement OPCO, débouchés et comment s'inscrire chez un organisme certifié Qualiopi.",
   },
   {
     title: "SST Sauveteur Secouriste du Travail : pourquoi former vos salariés",
@@ -106,7 +106,7 @@ Structure requise (en Markdown) :
 
 Règles :
 - Ton professionnel mais accessible
-- Mentionner l'éligibilité CPF là où c'est pertinent
+- Mentionner les financements OPCO et FNE-Formation disponibles
 - Mentionner la certification Qualiopi de PREVENSIA FORMATION
 - Terminer par un CTA : "Demandez un devis sur prevensia-formation.fr"
 - Ne pas inventer de chiffres ou statistiques non vérifiables

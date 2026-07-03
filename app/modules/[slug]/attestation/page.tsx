@@ -280,7 +280,7 @@ export default function AttestationPage() {
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
             L&apos;attestation SSIAP1 officielle est délivrée après examen devant
-            jury agréé préfecture. PREVENSIA vous contactera pour les dates et
+            jury officiel SSIAP. PREVENSIA vous contactera pour les dates et
             modalités de passage.
           </p>
           <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5">

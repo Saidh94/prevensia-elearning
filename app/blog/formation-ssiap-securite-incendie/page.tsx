@@ -6,7 +6,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata: Metadata = {
   title: "Formation SSIAP : guide complet SSIAP 1, 2 et 3 | PREVENSIA",
   description:
-    "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), coût (dès 250 € HT pour le recyclage), financement CPF, débouchés et salaires 2025-2026.",
+    "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), coût (dès 250 € HT pour le recyclage), financement OPCO, débouchés et salaires 2025-2026.",
   alternates: {
     canonical: "https://prevensia-formation.fr/blog/formation-ssiap-securite-incendie",
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "SSIAP 1 certification",
     "formation agent sécurité incendie",
     "recyclage SSIAP obligatoire",
-    "SSIAP CPF financement",
+    "SSIAP financement formation professionnelle",
     "SSIAP débouchés salaires",
     "arrêté 2 mai 2005 SSIAP",
     "ERP agent sécurité incendie",
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Formation certifiante SSIAP sécurité incendie : guide complet",
     description:
-      "SSIAP 1, 2 et 3 : niveaux, conditions d'accès, financement CPF, débouchés et salaires. Le guide complet pour devenir agent de sécurité incendie ERP.",
+      "SSIAP 1, 2 et 3 : niveaux, conditions d'accès, financement OPCO et FNE-Formation, débouchés et salaires. Le guide complet pour devenir agent de sécurité incendie ERP.",
     url: "https://prevensia-formation.fr/blog/formation-ssiap-securite-incendie",
   },
 };
 
 const faqItems = [
   {
-    question: "Le SSIAP est-il vraiment éligible au CPF en 2025-2026 ?",
+    question: "Le SSIAP est-il finançable via un dispositif de formation ?",
     answer:
-      "Oui, les formations SSIAP figurent sur Mon Compte Formation. L'organisme choisi doit être certifié Qualiopi, condition sine qua non pour le financement CPF. PREVENSIA FORMATION est certifié Qualiopi.",
+      "Oui, les formations SSIAP peuvent être financées via différents dispositifs : OPCO (pour les salariés en entreprise), FNE-Formation, Pôle Emploi pour les demandeurs d'emploi. L'éligibilité CPF via Mon Compte Formation dépend du référencement spécifique de l'organisme — renseignez-vous directement auprès de PREVENSIA FORMATION pour connaître les financements disponibles pour votre situation.",
   },
   {
     question: "Peut-on passer le SSIAP 1 sans expérience dans la sécurité ?",
@@ -47,7 +47,7 @@ const faqItems = [
   {
     question: "Que se passe-t-il si mon SSIAP n'est plus valide ?",
     answer:
-      "Un SSIAP périmé (non recyclé tous les 3 ans) rend impossible l'exercice légal du métier. Il faut suivre une formation de recyclage (14 heures pour le SSIAP 1) auprès d'un organisme agréé. Le recyclage est finançable via le CPF.",
+      "Un SSIAP périmé (non recyclé tous les 3 ans) rend impossible l'exercice légal du métier. Il faut suivre une formation de recyclage (14 heures pour le SSIAP 1) auprès d'un organisme agréé. Le recyclage peut être financé via votre OPCO ou d'autres dispositifs selon votre situation.",
   },
   {
     question: "Le SSIAP mène-t-il uniquement à des postes de sécurité incendie ?",
@@ -117,7 +117,7 @@ export default function ArticleFormationSSIAPPage() {
             Formation certifiante SSIAP sécurité incendie : guide complet
           </h1>
           <p className="mt-4 text-lg text-slate-300">
-            Guide des formations SSIAP 1, 2 et 3, conditions d&apos;accès, financement CPF
+            Guide des formations SSIAP 1, 2 et 3, conditions d&apos;accès, financement OPCO
             et débouchés dans la sécurité incendie ERP.
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function ArticleFormationSSIAPPage() {
           <ul className="mt-3 space-y-1 text-sm text-red-700 leading-7">
             <li>✓ <strong>SSIAP 1</strong> : agent terrain ERP, 70 h, dès 690 € HT, accessible sans expérience préalable</li>
             <li>✓ <strong>Recyclage obligatoire</strong> tous les 3 ans (arrêté du 2 mai 2005) — 14 h, dès 250 € HT</li>
-            <li>✓ <strong>Éligible CPF</strong> via Mon Compte Formation (organisme Qualiopi requis)</li>
+            <li>✓ <strong>Finançable OPCO</strong> — Renseignez-vous pour les dispositifs disponibles</li>
             <li>✓ <strong>Débouchés solides</strong> : hôpitaux, centres commerciaux, hôtels, gares, IGH</li>
             <li>✓ <strong>Salaires</strong> : 1 600 €/mois (SSIAP 1 débutant) → 3 800 €/mois (SSIAP 3)</li>
           </ul>
@@ -186,7 +186,7 @@ export default function ArticleFormationSSIAPPage() {
             <p className="mt-2 text-sm text-amber-700 leading-7">
               Le SSIAP doit être recyclé <strong>tous les 3 ans</strong> pour rester valide. Un SSIAP périmé
               rend impossible l&apos;exercice légal du métier. Le recyclage SSIAP 1 dure <strong>14 heures</strong>
-              (e-learning théorique + présentiel pratique). Il est finançable via le CPF.
+              (e-learning théorique + présentiel pratique). Il peut être financé via votre OPCO ou FNE-Formation.
             </p>
           </div>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -204,17 +204,17 @@ export default function ArticleFormationSSIAPPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold text-slate-900">Financement : CPF et autres dispositifs</h2>
+          <h2 className="text-2xl font-bold text-slate-900">Financement : OPCO, FNE et autres dispositifs</h2>
           <p className="mt-4 text-slate-600 leading-8">
-            Les formations SSIAP sont <strong>éligibles au CPF</strong> via Mon Compte Formation. En 2025-2026,
-            le solde moyen d&apos;un compte CPF actif (800 à 1 500 €) couvre souvent intégralement une
+            Les formations SSIAP peuvent être financées via plusieurs dispositifs selon votre statut. En 2025-2026,
+            les budgets formation des OPCO couvrent souvent une partie ou la totalité du coût d'une
             formation SSIAP 1.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {[
-              { label: "CPF (Mon Compte Formation)", desc: "Pour actifs et demandeurs d'emploi. Organisme Qualiopi requis." },
+              { label: "OPCO (financement entreprise)", desc: "Pour salariés en activité, via l'OPCO de branche. Organisme Qualiopi requis." },
               { label: "France Travail — AIF", desc: "Aide Individuelle à la Formation pour les demandeurs d'emploi." },
-              { label: "CPF de transition (CPF-TP)", desc: "Pour salariés en reconversion complète. Maintien de salaire jusqu'à 100 %." },
+              { label: "CPF de transition (CPF-TP)", desc: "Pour salariés en reconversion complète (sous conditions). Renseignez-vous." },
               { label: "Plan de développement des compétences", desc: "Financement employeur si la montée en compétences est stratégique." },
             ].map((item) => (
               <div key={item.label} className="rounded-xl border border-slate-200 bg-white p-4">
@@ -290,7 +290,7 @@ export default function ArticleFormationSSIAPPage() {
           <div className="mt-5 space-y-3">
             {[
               { critere: "Agrément préfectoral", desc: "Obligatoire pour délivrer le SSIAP. À vérifier impérativement avant inscription." },
-              { critere: "Certification Qualiopi", desc: "Gage de qualité pédagogique et condition pour financement CPF/OPCO." },
+              { critere: "Certification Qualiopi", desc: "Gage de qualité pédagogique et condition pour financement OPCO." },
               { critere: "Taux de réussite", desc: "Certains organismes publient leurs statistiques — privilégiez ceux qui dépassent 75 %." },
               { critere: "Matériel pédagogique", desc: "La formation doit inclure de vraies mises en pratique (extincteurs, simulation d'évacuation, SSI)." },
             ].map((item) => (
@@ -310,8 +310,7 @@ export default function ArticleFormationSSIAPPage() {
           <p className="mt-4 text-slate-600 leading-8">
             Le SSIAP est une <strong>certification professionnelle réglementée</strong>, inscrite au{" "}
             <strong>Répertoire Spécifique (RS)</strong> et non au RNCP au sens strict. Cela signifie qu&apos;il
-            est reconnu par l&apos;État, obligatoire pour exercer dans les ERP concernés, éligible au CPF via
-            Mon Compte Formation, mais ne confère pas de niveau académique (bac, bac+2...).
+            est reconnu par l&apos;État, obligatoire pour exercer dans les ERP concernés, finançable via OPCO et autres dispositifs, mais ne confère pas de niveau académique (bac, bac+2...).
           </p>
           <p className="mt-3 text-slate-600 leading-8">
             Cette distinction est importante si vous envisagez une évolution vers des certifications RNCP
@@ -356,7 +355,7 @@ export default function ArticleFormationSSIAPPage() {
       <section className="bg-slate-950 py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold">Formation SSIAP1 initiale ou recyclage ?</h2>
-          <p className="mt-3 text-slate-300">Organisme certifié Qualiopi · Éligible CPF · Hybride e-learning + présentiel</p>
+          <p className="mt-3 text-slate-300">Organisme certifié Qualiopi · Financement OPCO disponible · Hybride e-learning + présentiel</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
               href="/formation-ssiap1"

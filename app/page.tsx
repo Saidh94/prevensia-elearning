@@ -11,12 +11,12 @@ import HomeSessionsList from "@/app/components/HomeSessionsList";
 export const metadata: Metadata = {
   title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSIAP1, SSI",
   description:
-    "Organisme certifié Qualiopi. Formations habilitation électrique NF C 18-510, ATEX, SSIAP1 agréé préfecture, SSI, sprinkler, SST. Présentiel, e-learning, intra-entreprise.",
+    "Organisme certifié Qualiopi. Formations habilitation électrique NF C 18-510, ATEX, SSIAP1, SSI, sprinkler, SST. Présentiel, e-learning, intra-entreprise.",
   alternates: { canonical: "https://prevensia-formation.fr" },
   openGraph: {
     title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSIAP1, SSI",
     description:
-      "Organisme certifié Qualiopi. Habilitation électrique NF C 18-510, ATEX, SSIAP1 agréé préfecture, SSI, sprinkler, SST. Présentiel, e-learning, intra.",
+      "Organisme certifié Qualiopi. Habilitation électrique NF C 18-510, ATEX, SSIAP1, SSI, sprinkler, SST. Présentiel, e-learning, intra.",
     url: "https://prevensia-formation.fr",
   },
 };

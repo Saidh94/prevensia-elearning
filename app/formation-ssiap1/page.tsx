@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation SSIAP1 Certifiante — Agent Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "Formation SSIAP1 certifiante (70h) par organisme agréé préfecture. Recyclage 14h / 3 ans. E-learning inclus. 93 % de réussite. À partir de 690 € HT.",
+    "Formation SSIAP1 certifiante (70h) par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h / 3 ans. E-learning inclus. À partir de 690 € HT.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },
@@ -22,18 +22,18 @@ export const metadata = {
     "agent de sécurité incendie formation",
   ],
   openGraph: {
-    title: "Formation SSIAP1 Certifiante — Organisme agréé préfecture | PREVENSIA",
+    title: "Formation SSIAP1 Certifiante — Organisme Qualiopi | PREVENSIA",
     description:
-      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Organisme agréé préfecture. E-learning inclus. À partir de 690 € HT. Devis 48h.",
+      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Certifié Qualiopi. E-learning inclus. À partir de 690 € HT. Devis 48h.",
     url: "https://prevensia-formation.fr/formation-ssiap1",
   },
 };
 
 const faqItems = [
   {
-    question: "PREVENSIA FORMATION est-il habilité à délivrer la formation SSIAP1 ?",
+    question: "PREVENSIA FORMATION proposera-t-il la formation SSIAP1 certifiante ?",
     answer:
-      "Oui. PREVENSIA FORMATION est un organisme de formation agréé par la préfecture pour dispenser la formation SSIAP1 (initiale et recyclage), conformément à l'arrêté du 2 mai 2005 modifié. Nos formations conduisent à la qualification officielle SSIAP1 reconnue par l'État.",
+      "Oui. PREVENSIA FORMATION est en cours d'obtention de l'agrément préfectoral pour dispenser la formation SSIAP1, conformément à l'arrêté du 2 mai 2005 modifié. Nos sessions SSIAP1 démarreront dès l'agrément reçu. Contactez-nous pour être informé en priorité de l'ouverture des inscriptions.",
   },
   {
     question: "En quoi consiste la formation initiale SSIAP1 (70h) ?",
@@ -121,13 +121,13 @@ export default function FormationSsiap1Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation SSIAP1 Certifiante — Agent de Sécurité Incendie ERP"
-        description="Formation SSIAP1 complète et certifiante (70h) dispensée par PREVENSIA FORMATION, organisme agréé préfecture. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
+        description="Formation SSIAP1 complète et certifiante (70h) dispensée par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
         courseCode="SSIAP1"
         url="/formation-ssiap1"
         timeRequired="P10D"
         educationalLevel="Beginner"
         audience="Agents de sécurité incendie, personnel souhaitant exercer les fonctions SSIAP1 en ERP"
-        educationalCredentialAwarded="Qualification SSIAP1 — Titre délivré après examen auprès d'un organisme agréé préfecture"
+        educationalCredentialAwarded="Qualification SSIAP1 — Titre délivré après examen et jury officiel"
       />
       <FaqJsonLd items={faqItems} />
       <BreadcrumbJsonLd
@@ -150,7 +150,7 @@ export default function FormationSsiap1Page() {
           </nav>
 
           <p className="inline-flex rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-300">
-            Organisme agréé préfecture · Formation certifiante · Arrêté du 2 mai 2005
+            Certifié Qualiopi · Formation certifiante · Arrêté du 2 mai 2005
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -181,7 +181,7 @@ export default function FormationSsiap1Page() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
-            <span>✓ Organisme agréé préfecture</span>
+            <span>✓ Qualiopi · Agrément en cours</span>
             <span>✓ 93 % de réussite à l&apos;examen</span>
             <span>✓ Formation certifiante 70h</span>
             <span>✓ Recyclage 14h / 3 ans</span>
@@ -220,9 +220,9 @@ export default function FormationSsiap1Page() {
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-200 mb-2">Pourquoi choisir PREVENSIA FORMATION</p>
-              <h2 className="text-2xl font-bold">Agréés préfecture — formation complète, qualification officielle</h2>
+              <h2 className="text-2xl font-bold">Formation complète vers la qualification officielle SSIAP1</h2>
               <p className="mt-3 text-red-100 leading-7">
-                Agréés par la préfecture, nous organisons la formation SSIAP1 dans son intégralité :
+                Certifié Qualiopi, nous préparons la formation SSIAP1 dans son intégralité, dès l'obtention de notre agrément préfectoral :
                 théorie, exercices pratiques sur matériel réel et examen final devant jury. Nos stagiaires
                 repartent avec la{" "}<strong>qualification officielle SSIAP1</strong>{" "}reconnue par
                 le Ministère de l&apos;Intérieur — exigée dans tous les ERP de catégorie 1 à 4.
@@ -492,8 +492,8 @@ export default function FormationSsiap1Page() {
                 texte: "10 chapitres théoriques avec schémas pédagogiques SVG animés (tétraèdre du feu, classes de feux, extincteurs, SSI, évacuation). Accès individuel activé à l'inscription, accessible depuis PC, tablette ou mobile.",
               },
               {
-                titre: "Formation encadrée par formateur agréé",
-                texte: "Journées en présentiel : apports théoriques complémentaires, exercices pratiques sur extincteurs, mises en situation professionnelles. Formation conduite par un formateur SSIAP agréé PREVENSIA.",
+                titre: "Formation encadrée par formateur SSIAP expérimenté",
+                texte: "Journées en présentiel : apports théoriques complémentaires, exercices pratiques sur extincteurs, mises en situation professionnelles. Formation conduite par un formateur SSIAP expérimenté.",
               },
               {
                 titre: "Attestation + rapport employeur",
@@ -603,7 +603,7 @@ export default function FormationSsiap1Page() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Former vos agents à la sécurité incendie ERP ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Formation certifiante 70h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Organisme agréé préfecture
+            Formation certifiante 70h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Certifié Qualiopi
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link

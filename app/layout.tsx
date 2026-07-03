@@ -94,7 +94,7 @@ const organizationJsonLd = {
   telephone: "+33189629492",
   priceRange: "€€",
   currenciesAccepted: "EUR",
-  paymentAccepted: "Carte bancaire, virement, CPF",
+  paymentAccepted: "Carte bancaire, virement, OPCO",
   description:
     "Organisme de formation Qualiopi certifié, spécialisé en habilitation électrique (H0B0, BS/BE, B1, B2, BR, BC), sécurité incendie, SSI, sprinkler et SST. Formations en présentiel, visio et e-learning.",
   hasCredential: {

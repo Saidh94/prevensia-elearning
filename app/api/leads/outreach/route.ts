@@ -157,7 +157,7 @@ RÈGLES IMPÉRATIVES :
   </table>
 
   <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-top:20px;font-size:13px;color:#166534">
-    ✅ <strong>Organisme certifié Qualiopi</strong> — Financement OPCO, CPF et FNE-Formation disponibles.<br/>
+    ✅ <strong>Organisme certifié Qualiopi</strong> — Financement OPCO et FNE-Formation disponibles.<br/>
     <a href="https://prevensia-formation.fr/demande-devis?type=ssi" style="color:#16a34a;font-size:13px">→ Demander un devis en ligne (réponse sous 48h)</a>
   </div>
 

@@ -17,7 +17,7 @@ const THEMES_GBP = [
     title: "Formation SSIAP1 — Sécurité incendie",
     cta_text: "Découvrir SSIAP1",
     cta_url: "https://prevensia-formation.fr/formation-ssiap1",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation SSIAP1 (agent de sécurité incendie). Inclus : débouchés, durée 70h, éligibilité CPF. Ton engageant. Termine par 3 hashtags.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation SSIAP1 (agent de sécurité incendie). Inclus : débouchés, durée 70h, financement OPCO disponible. Ton engageant. Termine par 3 hashtags.",
   },
   {
     formation: "Habilitation électrique",
@@ -41,11 +41,11 @@ const THEMES_GBP = [
     prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur les formations Sprinkler et SSI (Systèmes de Sécurité Incendie). Cible les responsables sécurité et facility managers. Termine par 3 hashtags.",
   },
   {
-    formation: "CPF & financement",
-    title: "Formations éligibles CPF — PREVENSIA",
+    formation: "Qualiopi & financement OPCO",
+    title: "Formations certifiées Qualiopi — PREVENSIA",
     cta_text: "Voir les formations",
     cta_url: "https://prevensia-formation.fr",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la certification Qualiopi et l'éligibilité CPF de nos formations. Explique comment utiliser son CPF pour financer une formation sécurité. Termine par 3 hashtags.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la certification Qualiopi et le financement OPCO de nos formations sécurité. Explique comment un employeur peut faire financer la formation de ses salariés via son OPCO. Mentionne le dispositif FNE-Formation. Termine par 3 hashtags.",
   },
 ];
 

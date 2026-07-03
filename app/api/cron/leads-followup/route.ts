@@ -105,7 +105,7 @@ export async function GET(req: Request) {
         `<a href=\"${lienFormation}\" style=\"color:#2563eb\">Voir nos tarifs et programmes</a>`,
         "</p>",
         "<div style=\"background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:16px;margin-top:20px;font-size:13px;color:#1e40af\">",
-        "<strong>Formation certifiee Qualiopi</strong> — Financement OPCO possible.<br/>",
+        "<strong>Formation certifiée Qualiopi</strong> — Financement OPCO et FNE-Formation disponibles.<br/>",
         "<a href=\"https://prevensia-formation.fr/demande-devis\" style=\"color:#2563eb\">Demander un devis sous 48h</a>",
         "</div></body></html>",
       ].join("");

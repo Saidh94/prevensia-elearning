@@ -431,7 +431,7 @@ const formations = [
     audience:
       "Agents de sécurité incendie débutants, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux) souhaitant obtenir la qualification SSIAP1 via la formation certifiante complète (70h).",
     description:
-      "Module e-learning théorique inclus dans la formation SSIAP1 certifiante (70h) dispensée par PREVENSIA FORMATION, organisme agréé préfecture. Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation et rôle de l'agent SSIAP1 en ERP.",
+      "Module e-learning théorique inclus dans la formation SSIAP1 certifiante (70h) dispensée par PREVENSIA FORMATION, certifié Qualiopi. Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation et rôle de l'agent SSIAP1 en ERP.",
     objectifs: [
       "Identifier les classes de feux et choisir l'agent extincteur adapté",
       "Appliquer la méthode DAPS pour utiliser un extincteur en sécurité",
@@ -448,7 +448,7 @@ const formations = [
       "Conduite à tenir en cas d'incendie — séquence Alarmer/Alerter/Attaquer",
     ],
     note:
-      "Support e-learning inclus pour chaque stagiaire inscrit à la formation SSIAP1 (70h). PREVENSIA FORMATION est organisme agréé préfecture et délivre la qualification officielle SSIAP1 à l'issue de l'examen.",
+      "Support e-learning inclus pour chaque stagiaire inscrit à la formation SSIAP1 (70h). PREVENSIA FORMATION est certifié Qualiopi. La qualification officielle SSIAP1 est délivrée à l'issue de l'examen, dès l'obtention de notre agrément préfectoral.",
   },
   {
     slug: "recyclage-ssiap1",
@@ -461,7 +461,7 @@ const formations = [
     audience:
       "Agents SSIAP1 titulaires devant effectuer leur recyclage obligatoire tous les 3 ans pour maintenir leur titre de qualification.",
     description:
-      "Module e-learning de remise à niveau théorique inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans) dispensé par PREVENSIA FORMATION, organisme agréé préfecture. Révision des fondamentaux, actualisation réglementaire et préparation à la partie théorique du recyclage encadré.",
+      "Module e-learning de remise à niveau théorique inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans) dispensé par PREVENSIA FORMATION, certifié Qualiopi. Révision des fondamentaux, actualisation réglementaire et préparation à la partie théorique du recyclage encadré.",
     objectifs: [
       "Réviser les fondamentaux du SSIAP1 : classes de feux, agents extincteurs, SSI",
       "Se mettre à jour sur les évolutions réglementaires ERP et les nouvelles consignes",
