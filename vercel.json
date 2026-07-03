@@ -35,6 +35,10 @@
     {
       "path": "/api/cron/veille-reglementaire",
       "schedule": "0 7 * * 5"
+    },
+    {
+      "path": "/api/cron/sessions-cleanup",
+      "schedule": "0 2 * * *"
     }
   ]
 }

@@ -69,9 +69,11 @@ export async function GET() {
       );
     }
 
+    // On ne retourne que les sessions futures (aujourd'hui inclus)
+    const today = new Date().toISOString().split("T")[0];
     const sessionsUrl =
       `${supabaseUrl}/rest/v1/sessions` +
-      `?select=id,title,date_start,format,places_total&order=date_start.asc`;
+      `?select=id,title,date_start,format,places_total&date_start=gte.${today}&order=date_start.asc`;
 
     // Utilise la vue session_registration_counts (données agrégées uniquement,
     // pas d'accès aux données personnelles des inscrits)

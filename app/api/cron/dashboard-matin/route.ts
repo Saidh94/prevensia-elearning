@@ -46,7 +46,7 @@ export async function GET(req: Request) {
     let analyseIA = "Analyse IA indisponible.";
 
     if (apiKey) {
-      const prompt = `Tu es le directeur opérationnel de PREVENSIA FORMATION, un organisme de formation en sécurité (ATEX, SSIAP, habilitations électriques) basé à Noisy-le-Grand, en plein développement.
+      const prompt = `Tu es le directeur opérationnel de PREVENSIA FORMATION, un organisme de formation en sécurité (ATEX, SSIAP, habilitations électriques) basé à Paris 11e, en plein développement.
 
 Voici les données d'hier (${yesterday}) :
 - Nouveaux leads : ${kpiHier?.new_leads ?? 0}

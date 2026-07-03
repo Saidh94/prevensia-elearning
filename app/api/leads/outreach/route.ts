@@ -131,7 +131,7 @@ RÈGLES IMPÉRATIVES :
 
   <div style="margin-bottom:28px">
     <p style="font-weight:bold;font-size:18px;color:#1e293b;margin:0">PREVENSIA FORMATION</p>
-    <p style="font-size:13px;color:#64748b;margin:2px 0 0">Formation sécurité incendie · Qualiopi · Noisy-le-Grand</p>
+    <p style="font-size:13px;color:#64748b;margin:2px 0 0">Formation sécurité incendie · Certifié Qualiopi · Paris 11e</p>
   </div>
 
   ${corpsEmail}
@@ -162,7 +162,7 @@ RÈGLES IMPÉRATIVES :
   </div>
 
   <p style="font-size:11px;color:#94a3b8;margin-top:20px">
-    PREVENSIA FORMATION — 93 Noisy-le-Grand · SIRET XXXXXXXXX · Qualiopi N°XXXX<br/>
+    PREVENSIA FORMATION — 33 av. Philippe Auguste, 75011 Paris<br/>
     Pour ne plus recevoir nos communications : <a href="mailto:contact@prevensia-formation.fr?subject=Désinscription&body=Je souhaite me désinscrire" style="color:#94a3b8">se désinscrire</a>
   </p>
 </body>
