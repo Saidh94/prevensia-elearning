@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import VisualBlock from "@/app/components/elearning/VisualBlock";
+import { RecapVideoWidget } from "@/app/components/elearning/RecapVideoWidget";
 import { formatFrenchDisplayText } from "@/lib/french-display";
 import type {
   ModuleContent,
@@ -1629,6 +1630,10 @@ export default function CoursPage() {
 
               {isLastChapter && (
                 <FicheMemo moduleData={currentModuleData} />
+              )}
+
+              {isLastChapter && (
+                <RecapVideoWidget slug={canonicalSlug} />
               )}
 
               <div className="mt-8 flex flex-wrap gap-3">
