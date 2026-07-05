@@ -43,7 +43,27 @@ export async function GET(req: Request) {
       return NextResponse.json({ ok: true, supprimees: 0, message: "Aucune session passée" });
     }
 
-    // 2. Supprimer les sessions passées
+    // 2. Supprimer d'abord les registrations liées (contrainte FK)
+    const sessionIds = sessionsList.map((s) => s.id);
+    const { error: regDeleteError } = await supabase
+      .from("registrations")
+      .delete()
+      .in("session_id", sessionIds);
+
+    if (regDeleteError) {
+      await supabase.from("agent_logs").insert({
+        agent_name: "sessions-cleanup",
+        status: "error",
+        output_summary: `Erreur suppression registrations : ${regDeleteError.message}`,
+        metadata: { date_limite: hierDate, session_ids: sessionIds },
+      });
+      return NextResponse.json(
+        { ok: false, error: regDeleteError.message, etape: "registrations" },
+        { status: 500 }
+      );
+    }
+
+    // 3. Supprimer les sessions passées (registrations déjà nettoyées)
     const { error: deleteError } = await supabase
       .from("sessions")
       .delete()
