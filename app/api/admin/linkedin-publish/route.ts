@@ -90,7 +90,6 @@ export async function GET(request: Request) {
     .select("*")
     .eq("agent_name", "linkedin-post")
     .eq("status", "pending_approval")
-    .order("created_at", { ascending: false })
     .limit(100);
 
   if (error) {
