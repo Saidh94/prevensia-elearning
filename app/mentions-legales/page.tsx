@@ -11,7 +11,7 @@ export default function MentionsLegalesPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-slate-900">Mentions légales</h1>
-      <p className="mt-2 text-sm text-slate-500">Dernière mise à jour : mai 2026</p>
+      <p className="mt-2 text-sm text-slate-500">Dernière mise à jour : juillet 2026</p>
 
       <section className="mt-10 space-y-2 text-sm text-slate-700">
         <h2 className="text-lg font-semibold text-slate-900">1. Éditeur du site</h2>
@@ -21,9 +21,14 @@ export default function MentionsLegalesPage() {
         </p>
         <p><strong>Raison sociale :</strong> PREVENSIA Groupe SAS</p>
         <p><strong>Forme juridique :</strong> SAS — Société par actions simplifiée</p>
-        <p><strong>SIRET :</strong> 933 761 363 00029</p>
+        <p><strong>Capital social :</strong> 500,00 €</p>
+        <p><strong>SIREN :</strong> 107 290 579</p>
+        <p><strong>SIRET (siège) :</strong> 107 290 579 00013</p>
+        <p><strong>Numéro de TVA intracommunautaire :</strong> FR44107290579</p>
+        <p><strong>RCS :</strong> 107 290 579 R.C.S. Paris</p>
         <p><strong>Code NAF / APE :</strong> 85.59A — Formation continue d'adultes</p>
-        <p><strong>Adresse du siège social :</strong> 33, avenue Philippe Auguste, 75011 Paris</p>
+        <p><strong>Convention collective :</strong> Organismes de formation — IDCC 1516</p>
+        <p><strong>Adresse du siège social :</strong> 33, avenue Philippe-Auguste, 75011 Paris</p>
         <p><strong>Numéro de déclaration d'activité de formation :</strong> [À compléter — préfecture de région]</p>
         <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi — Actions de formation</p>
         <p><strong>Téléphone :</strong> 01 89 62 94 92</p>
@@ -76,7 +81,7 @@ export default function MentionsLegalesPage() {
       <section className="mt-10 space-y-2 text-sm text-slate-700">
         <h2 className="text-lg font-semibold text-slate-900">6. Droit applicable et juridiction</h2>
         <p>
-          Le présent site est soumis au droit français. En cas de litige, les tribunaux du ressort du greffe de Bobigny seront compétents.
+          Le présent site est soumis au droit français. En cas de litige, le Tribunal de Commerce de Paris sera compétent, conformément à l'immatriculation au R.C.S. Paris.
         </p>
       </section>
 
