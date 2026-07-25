@@ -356,7 +356,7 @@ export default function FormationRecyclageSsiap1Page() {
                 </tr>
                 <tr>
                   <td className="px-4 py-3 font-medium text-slate-900">Tarif indicatif</td>
-                  <td className="px-4 py-3 text-center text-slate-700">À partir de 990 € HT</td>
+                  <td className="px-4 py-3 text-center text-slate-700">À partir de 1 090 € HT</td>
                   <td className="px-4 py-3 text-center text-orange-700 font-semibold">À partir de 390 € HT</td>
                 </tr>
               </tbody>

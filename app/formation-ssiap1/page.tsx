@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation SSIAP1 Certifiante — Agent Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "Formation SSIAP1 certifiante (70h) par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h / 3 ans. E-learning inclus. À partir de 990 € HT.",
+    "Formation SSIAP1 certifiante (70h) par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h / 3 ans. E-learning inclus. À partir de 1 090 € HT.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Formation SSIAP1 Certifiante — Organisme Qualiopi | PREVENSIA",
     description:
-      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Certifié Qualiopi. E-learning inclus. À partir de 990 € HT. Devis 48h.",
+      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Certifié Qualiopi. E-learning inclus. À partir de 1 090 € HT. Devis 48h.",
     url: "https://prevensia-formation.fr/formation-ssiap1",
   },
 };
@@ -58,7 +58,7 @@ const faqItems = [
   {
     question: "Quel est le tarif de la formation SSIAP1 ?",
     answer:
-      "La formation initiale SSIAP1 (70h, hybride e-learning + présentiel, examen inclus) est proposée à partir de 990 € HT par personne. Le recyclage SSIAP1 (14h obligatoire tous les 3 ans, e-learning inclus) est disponible à partir de 390 € HT. Ces tarifs s'entendent pour des sessions inter-entreprise. Des tarifs intra-entreprise et groupe sont disponibles sur devis sous 48h.",
+      "La formation initiale SSIAP1 (70h, hybride e-learning + présentiel, examen inclus) est proposée à partir de 1 090 € HT par personne. Le recyclage SSIAP1 (14h obligatoire tous les 3 ans, e-learning inclus) est disponible à partir de 390 € HT. Ces tarifs s'entendent pour des sessions inter-entreprise. Des tarifs intra-entreprise et groupe sont disponibles sur devis sous 48h.",
   },
 ];
 
@@ -197,7 +197,7 @@ export default function FormationSsiap1Page() {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-red-700">Formation initiale certifiante</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-red-600">990 € HT</span></p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-red-600">1 090 € HT</span></p>
               <p className="mt-1 text-sm text-slate-600">70h · E-learning inclus · Examen + qualification</p>
             </div>
             <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">

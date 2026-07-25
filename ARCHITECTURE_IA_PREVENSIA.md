@@ -470,11 +470,17 @@ MOT-CLÉ PRINCIPAL : {{mot_cle}}
 CATÉGORIE : {{categorie_formation}}
 
 FORMATIONS PREVENSIA À MENTIONNER :
-- Habilitation électrique H0B0 (129€ HT) → /formation-habilitation-electrique
-- BS/BE Manœuvre (199€ HT) → /formation-habilitation-electrique
-- ATEX Niveau 1 (129€ HT) → /formation-atex
-- SST initial (240€ HT) → /formation-sst
-- SSIAP1 initial (1490€ HT) → /formation-ssiap1
+- Habilitation électrique H0B0 (190€ HT) → /formation-h0b0
+- BS/BE Manœuvre (350€ HT) → /formation-bs-be-manoeuvre
+- ATEX Niveau 0 — sensibilisation (129€ HT) → /formation-atex
+- ATEX Niveau 1 — intervenant zone ATEX (490€ HT) → /formation-atex
+- ATEX Niveau 2 — référent/encadrant (790€ HT+) → /formation-atex
+- SST initial (sur devis — présentiel obligatoire) → /formation-sst
+- SSIAP1 initial (1090€ HT) → /formation-ssiap1
+- Recyclage SSIAP1 (390€ HT) → /formation-recyclage-ssiap1
+- Sprinkler exploitation (590€ HT / apprenant inter | intra sur devis) → /formation-sprinkler
+- SSI Exploitation (sur devis selon site) → /formation-ssi
+- EPI / Extincteurs / Évacuation (sur devis selon effectif) → /formation-securite-incendie
 
 CONSIGNES :
 1. Structure : H1 → intro 150 mots → 4 à 6 H2 → conclusion + CTA
@@ -643,9 +649,19 @@ GÉNÈRE UN DEVIS PERSONNALISÉ :
 - CTA clair : lien de réservation ou numéro direct
 
 FORMATS DISPONIBLES : e-learning | présentiel | intra-entreprise
-TARIFS : H0B0 129€HT | BS/BE 199€HT | B1/B2/BR sur devis | 
-         ATEX N1 129€HT | ATEX N2 490€HT | ATEX N3 790€HT+ | 
-         SST 240€HT | SSIAP1 1490€HT | SSI 350€HT
+TARIFS :
+- H0B0 / H0V : 190€ HT (inter e-learning) | 890€ HT (intra)
+- BS / BE Manœuvre : 350€ HT (inter) | 1 400€ HT (intra)
+- B1 / B2 / BR / BC : 790€ HT (inter) | sur devis (intra)
+- ATEX N0 sensibilisation : 129€ HT
+- ATEX N1 intervenant : 490€ HT
+- ATEX N2 référent/encadrant : à partir de 790€ HT
+- SSIAP1 formation initiale : 1090€ HT
+- Recyclage SSIAP1 : 390€ HT
+- Sprinkler exploitation : 590€ HT / apprenant (inter) | 1 190€ HT (intra) | sur devis (sur site)
+- SST initial : sur devis (présentiel obligatoire — pratique indispensable)
+- SSI Exploitation : sur devis selon le site et le système installé
+- EPI / Extincteurs / Évacuation / Guide-file : sur devis selon effectif et site
 
 FORMAT : Email HTML professionnel (pas de JSON)
 ```

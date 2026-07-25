@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique H0B0 / H0V — E-learning | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning certifiant pour non-électriciens, caristes, agents de nettoyage, maintenance. Dès 220 € HT. Attestation incluse.",
+    "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning certifiant pour non-électriciens, caristes, agents de nettoyage, maintenance. Dès 190 € HT. Attestation incluse.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-h0b0",
   },
@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     title: "Formation H0B0 / H0V — Habilitation électrique non-électricien",
     description:
-      "Parcours e-learning H0B0/H0V conforme NF C 18-510. Pour caristes, agents de nettoyage, peintres, techniciens. Dès 220 € HT.",
+      "Parcours e-learning H0B0/H0V conforme NF C 18-510. Pour caristes, agents de nettoyage, peintres, techniciens. Dès 190 € HT.",
     url: "https://prevensia-formation.fr/formation-h0b0",
   },
 };
@@ -56,7 +56,7 @@ const faqItems = [
   {
     question: "Quel est le prix de la formation H0B0 ?",
     answer:
-      "La formation H0B0 e-learning encadrée est proposée à partir de 220 € HT en inter-entreprise. Pour les formations intra-entreprise (groupe), les tarifs débutent à 890 € HT selon le nombre de participants. Un devis sur mesure est disponible pour les projets entreprise.",
+      "La formation H0B0 e-learning encadrée est proposée à partir de 190 € HT en inter-entreprise. Pour les formations intra-entreprise (groupe), les tarifs débutent à 890 € HT selon le nombre de participants. Un devis sur mesure est disponible pour les projets entreprise.",
   },
 ];
 
@@ -159,7 +159,7 @@ export default function FormationH0B0Page() {
               href="/inscription"
               className="rounded-xl bg-red-600 px-6 py-3 font-semibold text-white hover:bg-red-700 transition-colors"
             >
-              S&apos;inscrire — dès 220 € HT
+              S&apos;inscrire — dès 190 € HT
             </Link>
             <Link
               href="/demande-devis?type=h0b0"
@@ -185,8 +185,8 @@ export default function FormationH0B0Page() {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Inter-entreprise</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">220 € HT</p>
-              <p className="mt-1 text-sm text-slate-600">Parcours H0B0 / H0V e-learning avec entretien</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">190 € HT</p>
+              <p className="mt-1 text-sm text-slate-600">Parcours H0B0 / H0V e-learning + entretien formateur</p>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-red-600">Intra-entreprise</p>
@@ -196,7 +196,7 @@ export default function FormationH0B0Page() {
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Durée</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">7 h</p>
-              <p className="mt-1 text-sm text-slate-600">E-learning + entretien de validation</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning + entretien avec un formateur</p>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@ export default function FormationH0B0Page() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               { titre: "Accès e-learning complet", texte: "19 chapitres structurés, quiz de validation, support PDF téléchargeable. Accès immédiat à l'inscription." },
-              { titre: "Entretien de validation", texte: "Entretien individuel ou collectif avec un formateur pour valider les acquis et préparer la délivrance par l'employeur." },
+              { titre: "Entretien avec un formateur", texte: "À la fin du parcours e-learning, un entretien individuel avec un formateur Prevensia valide vos acquis et prépare la délivrance de l'habilitation par l'employeur." },
               { titre: "Attestation de formation", texte: "Document Qualiopi remis à l'apprenant et à l'employeur, base pour la délivrance du titre d'habilitation." },
             ].map((c) => (
               <div key={c.titre} className="rounded-2xl border border-slate-200 p-6">
@@ -294,14 +294,14 @@ export default function FormationH0B0Page() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Prêt à obtenir votre habilitation H0B0 ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Accès e-learning immédiat. Entretien de validation inclus. Attestation Qualiopi.
+            Accès e-learning immédiat. Entretien avec un formateur à la fin du parcours. Attestation Qualiopi.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/inscription"
               className="rounded-xl bg-red-600 px-8 py-4 font-semibold hover:bg-red-700 transition-colors"
             >
-              S&apos;inscrire maintenant — 220 € HT
+              S&apos;inscrire maintenant — 190 € HT
             </Link>
             <Link
               href="/demande-devis?type=h0b0"
