@@ -186,7 +186,7 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
   y -= 13;
   page.drawText("33, avenue Philippe Auguste — 75011 Paris", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
   y -= 13;
-  page.drawText("SIRET : 933 761 363 00029 | Organisme certifie Qualiopi", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
+  page.drawText("SIRET : 107 290 579 00013 | Organisme certifie Qualiopi", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
   y -= 13;
   page.drawText("contact@prevensia-formation.fr | 01 89 62 94 92", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
 
@@ -402,7 +402,7 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
     "Escompte pour paiement anticipe : aucun",
     tvaRate === 0
       ? "TVA non applicable - art. 261-4-4 du CGI - Organisme de formation enregistre (NDA a completer aupres de la DREETS)"
-      : `TVA ${tvaRate}% - PREVENSIA Groupe SAS - Numero TVA intracommunautaire : [a renseigner]`,
+      : `TVA ${tvaRate}% - PREVENSIA Groupe SAS - Numero TVA intracommunautaire : FR44107290579`,
   ];
   for (const mention of mentions) {
     page.drawText(`- ${mention}`, { x: margin + 10, y, size: 8, font: fontRegular, color: MUTED });
@@ -421,7 +421,7 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
     color: RED,
   });
   page.drawText(
-    "33, av. Philippe Auguste — 75011 Paris | SIRET : 933 761 363 00029 | contact@prevensia-formation.fr | 01 89 62 94 92",
+    "33, av. Philippe Auguste — 75011 Paris | SIRET : 107 290 579 00013 | contact@prevensia-formation.fr | 01 89 62 94 92",
     {
       x: margin,
       y: footerY - 2,

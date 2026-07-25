@@ -163,7 +163,7 @@ export default function QuiSommesNousPage() {
                 {[
                   { label: "Raison sociale", value: "PREVENSIA Groupe SAS" },
                   { label: "Marque", value: "PREVENSIA FORMATION" },
-                  { label: "SIRET", value: "933 761 363 00029" },
+                  { label: "SIRET", value: "107 290 579 00013" },
                   { label: "Adresse", value: "33, avenue Philippe Auguste\n75011 Paris" },
                   { label: "Téléphone", value: "01 89 62 94 92", href: "tel:+33189629492" },
                   { label: "Email", value: "contact@prevensia-formation.fr", href: "mailto:contact@prevensia-formation.fr" },
