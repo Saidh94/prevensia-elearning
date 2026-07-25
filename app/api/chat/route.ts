@@ -13,19 +13,20 @@ PREVENSIA FORMATION
 - Email : contact@prevensia-formation.fr
 - Certifié Qualiopi — financement OPCO et FNE-Formation
 
-FORMATIONS PROPOSÉES :
-- H0B0 / H0V : Personnel non électricien — E-learning — 129 EUR HT
-- BS / BE Manoeuvre : E-learning + classe virtuelle — 199 EUR HT
+FORMATIONS PROPOSÉES (tarifs inter-entreprise HT) :
+- H0B0 / H0V : Personnel non électricien — E-learning + entretien formateur — 190 EUR HT
+- BS / BE Manœuvre : E-learning + visio — 350 EUR HT
 - B1/B2/BR/BC : Parcours multi-symboles BT — tarif sur devis
-- ATEX Niveau 1 : Sensibilisation — 3h e-learning — 129 EUR HT
-- ATEX Niveau 2 : Travailleur exposé — E-learning 3h + entretien — 490 EUR HT
-- ATEX Niveau 3 : Chargé de travaux — E-learning + classe virtuelle — à partir de 790 EUR HT
-- SSIAP1 initial : 70h — agrément préfectoral en cours d'obtention — pré-inscription disponible
-- Exploitation SSI : 1 jour — 350 EUR HT inter
-- Exploitation Sprinkler : 1 jour — 490 EUR HT
-- SST initial : 2 jours — 240 EUR HT inter
-- MAC SST (recyclage) : 1 jour — 130 EUR HT inter
-- Manipulation extincteurs : 0,5 jour — 149 EUR HT
+- ATEX Niveau 0 — Sensibilisation atmosphères explosives : E-learning 3h — 129 EUR HT
+- ATEX Niveau 1 — Intervenant zone ATEX : E-learning + entretien — 490 EUR HT
+- ATEX Niveau 2 — Référent/Encadrant ATEX : à partir de 790 EUR HT (sur devis)
+- SSIAP1 initial : 70h hybride (e-learning + présentiel + examen) — 1090 EUR HT
+- Recyclage SSIAP1 : 14h obligatoire tous les 3 ans — 390 EUR HT inter
+- Exploitation Sprinkler : 1 jour — 590 EUR HT / apprenant (inter) | intra sur devis
+- Exploitation SSI : sur devis selon site et système installé
+- SST initial : sur devis (présentiel obligatoire — pratique indispensable)
+- MAC SST (recyclage SST) : sur devis
+- EPI / Extincteurs / Évacuation / Guide-file : sur devis selon effectif et site
 
 Pour tout problème de compte, mot de passe, attestation ou facture, invite l'utilisateur à contacter contact@prevensia-formation.fr ou le 01 89 62 94 92.`;
 
