@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr";
+
 export const runtime = "nodejs";
 
 // Lead scoring basé sur les formations demandées
@@ -59,6 +61,7 @@ type DevisPayload = {
   participants: number;
   formations: FormationLine[];
   totalHT: number;
+  tvaRate: number;
   hasQuote: boolean;
   notes: string;
 };
@@ -106,6 +109,7 @@ export async function POST(request: Request) {
       participants = 1,
       formations = [],
       totalHT = 0,
+      tvaRate = 20,
       hasQuote = false,
       notes = "",
     } = body;
@@ -117,16 +121,44 @@ export async function POST(request: Request) {
       );
     }
 
+    // ── Sauvegarder le devis en base et générer le token de validation ──
+    let validationToken: string | null = null;
+    const admin = createAdminClient();
+    if (admin) {
+      const { data: devisRow } = await admin
+        .from("devis")
+        .insert({
+          contact_name: contactName || null,
+          company_name: companyName || null,
+          email,
+          phone: phone || null,
+          participants,
+          formations,
+          total_ht: totalHT,
+          tva_rate: tvaRate,
+          has_quote: hasQuote,
+          notes: notes || null,
+          status: "sent",
+        })
+        .select("token")
+        .single();
+      validationToken = devisRow?.token ?? null;
+    }
+
+    const validationUrl = validationToken
+      ? `${SITE_URL}/devis/valider/${validationToken}`
+      : null;
+
     const resend = getResend();
 
     if (!resend) {
-      // No API key — log and return success to avoid blocking the user
       console.warn("[devis/request] Email non envoyé (RESEND_API_KEY absente).", {
         email,
         companyName,
         formations: formations.map((f) => f.label),
+        validationToken,
       });
-      return NextResponse.json({ success: true });
+      return NextResponse.json({ success: true, validationToken });
     }
 
     const formationsTable = buildFormationsTable(formations);
@@ -167,15 +199,44 @@ export async function POST(request: Request) {
     // --- Email client ---
     const clientSubject = "Votre demande de devis — PREVENSIA FORMATION";
 
+    const montantTVA = tvaRate > 0 ? Math.round(totalHT * tvaRate) / 100 : 0;
+    const totalTTC   = totalHT + montantTVA;
+    const tvaLine    = tvaRate > 0
+      ? `<p style="margin:4px 0;font-size:13px;"><strong>TVA ${tvaRate}% :</strong> ${montantTVA.toFixed(2)} €</p>`
+      : `<p style="margin:4px 0;font-size:13px;color:#64748b;font-style:italic;">TVA non applicable — art. 261-4-4° CGI</p>`;
+
+    const validationBlock = validationUrl ? `
+      <div style="margin:28px 0;background:#fef9ec;border:2px solid #f59e0b;border-radius:12px;padding:20px 24px;">
+        <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.05em;">
+          ✅ Action requise — Valider votre devis
+        </p>
+        <p style="margin:0 0 16px;font-size:14px;color:#1a1a1a;">
+          Pour confirmer votre commande et activer les accès de vos collaborateurs, cliquez sur le bouton ci-dessous :
+        </p>
+        <a href="${validationUrl}"
+           style="display:inline-block;background:#b91c1c;color:#fff;font-weight:700;font-size:15px;
+                  padding:14px 32px;border-radius:10px;text-decoration:none;">
+          Je valide ce devis →
+        </a>
+        <p style="margin:14px 0 0;font-size:11px;color:#64748b;">
+          Ou copiez ce lien dans votre navigateur :<br/>
+          <span style="word-break:break-all;">${validationUrl}</span>
+        </p>
+      </div>` : "";
+
     const clientHtml = `
       ${logoHtml}
       <p>Bonjour ${escapeHtml(contactName || "")},</p>
       <p>Nous avons bien reçu votre demande de devis pour <strong>${formations.length} formation(s)</strong>.</p>
-      <p>Notre équipe vous répondra <strong>sous 24h ouvrées</strong>.</p>
-      <h3 style="color:#0f172a;margin-top:24px;">Récapitulatif de votre demande</h3>
+      <h3 style="color:#0f172a;margin-top:24px;">Récapitulatif de votre devis</h3>
       ${formationsTable}
-      ${totalLine}
-      ${notes ? `<p><strong>Vos notes :</strong> ${escapeHtml(notes)}</p>` : ""}
+      <div style="background:#f8fafc;border-radius:8px;padding:12px 16px;margin-top:8px;">
+        <p style="margin:4px 0;font-size:13px;"><strong>Total HT :</strong> ${totalHT > 0 ? `${totalHT.toFixed(2)} €` : "Sur devis"}${hasQuote ? " <em style='color:#d97706'>(+ prestations sur devis)</em>" : ""}</p>
+        ${tvaLine}
+        <p style="margin:8px 0 4px;font-size:14px;font-weight:700;color:#b91c1c;">Total TTC : ${totalHT > 0 ? `${totalTTC.toFixed(2)} €` : "Sur devis"}</p>
+      </div>
+      ${notes ? `<p style="margin-top:16px;"><strong>Notes :</strong> ${escapeHtml(notes)}</p>` : ""}
+      ${validationBlock}
       <hr style="margin:24px 0;border:none;border-top:1px solid #e2e8f0;" />
       <p style="font-size:13px;color:#64748b;">
         PREVENSIA FORMATION<br />
@@ -192,7 +253,6 @@ export async function POST(request: Request) {
     });
 
     // --- Insérer le lead dans le CRM ---
-    const admin = createAdminClient();
     if (admin) {
       const nameParts = (contactName ?? "").trim().split(" ");
       const firstName = nameParts[0] ?? "";
@@ -224,7 +284,7 @@ export async function POST(request: Request) {
       );
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, validationToken });
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Erreur inconnue";
     return NextResponse.json({ success: false, error: message }, { status: 500 });

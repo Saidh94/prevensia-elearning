@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { createClient } from "@/lib/supabase/server";
+import DemandeClasseVirtuelle from "@/app/employeur/components/DemandeClasseVirtuelle";
 
 function formatDate(value: string | null) {
   if (!value) return "-";
@@ -772,6 +773,19 @@ export default async function EmployeurDashboardPage() {
             </table>
           </div>
         </section>
+
+        {/* ── Demande classe virtuelle ── */}
+        {employeeSummaries.length > 0 && (
+          <section className="mt-5">
+            <DemandeClasseVirtuelle
+              companyName={employer.company_name}
+              collaborateurs={employeeSummaries.map((e) => ({
+                fullName: e.fullName,
+                email:    e.email,
+              }))}
+            />
+          </section>
+        )}
 
         {/* ── Formats pédagogiques ── */}
         <section className="mt-5 grid gap-4 lg:grid-cols-3">
