@@ -18,7 +18,7 @@
   <text x="79" y="200" text-anchor="middle" font-size="10" fill="#555">l'accès à la zone</text>
   <text x="79" y="220" text-anchor="middle" font-size="10" fill="#e67e00" font-weight="700">Supprimer les sources</text>
   <text x="79" y="234" text-anchor="middle" font-size="10" fill="#e67e00" font-weight="700">d'inflammation si possible</text>
-  <text x="79" y="252" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">sans créer d'étincelles</text>
+  <text x="79" y="252" text-anchor="middle" font-size="9" fill="#666" font-style="italic">sans créer d'étincelles</text>
 
   <!-- Flèche P → E -->
   <line x1="148" y1="162" x2="164" y2="162" stroke="#cc2200" stroke-width="3"/>
@@ -38,7 +38,7 @@
   <text x="235" y="206" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">NE PAS entrer dans</text>
   <text x="235" y="220" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">une atmosphère explosive</text>
   <text x="235" y="234" text-anchor="middle" font-size="10" fill="#1a4e8c" font-weight="700">sans EPI adaptés</text>
-  <text x="235" y="252" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">risque de sur-accident</text>
+  <text x="235" y="252" text-anchor="middle" font-size="9" fill="#666" font-style="italic">risque de sur-accident</text>
 
   <!-- Flèche E → A -->
   <line x1="304" y1="162" x2="320" y2="162" stroke="#cc2200" stroke-width="3"/>
@@ -59,7 +59,7 @@
   <text x="391" y="214" text-anchor="middle" font-size="10" fill="#555">État des victimes</text>
   <text x="391" y="232" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">Rester en ligne</text>
   <text x="391" y="246" text-anchor="middle" font-size="10" fill="#1a5c1a" font-weight="700">avec les secours</text>
-  <text x="391" y="260" text-anchor="middle" font-size="9" fill="#aaa" font-style="italic">jusqu'à leur arrivée</text>
+  <text x="391" y="260" text-anchor="middle" font-size="9" fill="#666" font-style="italic">jusqu'à leur arrivée</text>
 
   <!-- Flèche A → S -->
   <line x1="460" y1="162" x2="476" y2="162" stroke="#cc2200" stroke-width="3"/>

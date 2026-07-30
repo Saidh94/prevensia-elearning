@@ -92,12 +92,12 @@
   <text x="108" y="240" text-anchor="middle" font-size="10" fill="#333">② Évaluer les risques inévitables</text>
   <text x="108" y="256" text-anchor="middle" font-size="10" fill="#333">③ Combattre les risques à la source</text>
   <line x1="20" y1="266" x2="196" y2="266" stroke="#1a4e8c" stroke-width="0.5" opacity="0.4"/>
-  <text x="108" y="282" text-anchor="middle" font-size="9" fill="#555" font-style="italic">En ATEX :</text>
-  <text x="108" y="298" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Supprimer l'ATEX (ventiler)</text>
-  <text x="108" y="314" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Substituer le produit</text>
-  <text x="108" y="330" text-anchor="middle" font-size="9" fill="#555" font-style="italic">inflammable par un ininflammable</text>
-  <text x="108" y="346" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Contrôle des fuites</text>
-  <text x="108" y="362" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Explosimètre à 20% LIE</text>
+  <text x="108" y="282" text-anchor="middle" font-size="10" fill="#444" font-style="italic">En ATEX :</text>
+  <text x="108" y="298" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Supprimer l'ATEX (ventiler)</text>
+  <text x="108" y="314" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Substituer le produit</text>
+  <text x="108" y="330" text-anchor="middle" font-size="10" fill="#444" font-style="italic">inflammable par un ininflammable</text>
+  <text x="108" y="346" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Contrôle des fuites</text>
+  <text x="108" y="362" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Explosimètre à 20% LIE</text>
 
   <!-- Colonne 2 -->
   <rect x="216" y="188" width="196" height="184" rx="8" fill="#fff8ed" stroke="#e67e00" stroke-width="1"/>
@@ -106,12 +106,12 @@
   <text x="314" y="240" text-anchor="middle" font-size="10" fill="#333">⑤ Tenir compte de l'évolution</text>
   <text x="314" y="256" text-anchor="middle" font-size="10" fill="#333">⑥ Remplacer ce qui est dangereux</text>
   <line x1="226" y1="266" x2="402" y2="266" stroke="#e67e00" stroke-width="0.5" opacity="0.4"/>
-  <text x="314" y="282" text-anchor="middle" font-size="9" fill="#555" font-style="italic">En ATEX :</text>
-  <text x="314" y="298" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Équipements certifiés Ex</text>
-  <text x="314" y="314" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Outillage non-producteur</text>
-  <text x="314" y="330" text-anchor="middle" font-size="9" fill="#555" font-style="italic">d'étincelles</text>
-  <text x="314" y="346" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Procédures adaptées</text>
-  <text x="314" y="362" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ DRPE à jour</text>
+  <text x="314" y="282" text-anchor="middle" font-size="10" fill="#444" font-style="italic">En ATEX :</text>
+  <text x="314" y="298" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Équipements certifiés Ex</text>
+  <text x="314" y="314" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Outillage non-producteur</text>
+  <text x="314" y="330" text-anchor="middle" font-size="10" fill="#444" font-style="italic">d'étincelles</text>
+  <text x="314" y="346" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Procédures adaptées</text>
+  <text x="314" y="362" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ DRPE à jour</text>
 
   <!-- Colonne 3 -->
   <rect x="422" y="188" width="208" height="184" rx="8" fill="#f0fff4" stroke="#1a5c1a" stroke-width="1"/>
@@ -120,11 +120,11 @@
   <text x="526" y="240" text-anchor="middle" font-size="10" fill="#333">⑧ Privilégier mesures collectives</text>
   <text x="526" y="256" text-anchor="middle" font-size="10" fill="#333">⑨ Former et informer les travailleurs</text>
   <line x1="432" y1="266" x2="620" y2="266" stroke="#1a5c1a" stroke-width="0.5" opacity="0.4"/>
-  <text x="526" y="282" text-anchor="middle" font-size="9" fill="#555" font-style="italic">En ATEX :</text>
-  <text x="526" y="298" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Formation ATEX obligatoire</text>
-  <text x="526" y="314" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Plan de prévention</text>
-  <text x="526" y="330" text-anchor="middle" font-size="9" fill="#555" font-style="italic">(entreprises extérieures)</text>
-  <text x="526" y="346" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Autorisation de travail</text>
-  <text x="526" y="362" text-anchor="middle" font-size="9" fill="#555" font-style="italic">→ Exercices et REX accidents</text>
+  <text x="526" y="282" text-anchor="middle" font-size="10" fill="#444" font-style="italic">En ATEX :</text>
+  <text x="526" y="298" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Formation ATEX obligatoire</text>
+  <text x="526" y="314" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Plan de prévention</text>
+  <text x="526" y="330" text-anchor="middle" font-size="10" fill="#444" font-style="italic">(entreprises extérieures)</text>
+  <text x="526" y="346" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Autorisation de travail</text>
+  <text x="526" y="362" text-anchor="middle" font-size="10" fill="#444" font-style="italic">→ Exercices et REX accidents</text>
 
 </svg>
