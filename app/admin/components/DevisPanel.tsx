@@ -85,8 +85,8 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
   const [selected, setSelected] = useState<Set<string>>(() =>
     initialData?.formationInterest ? matchIds(initialData.formationInterest) : new Set()
   );
+  const [step,    setStep]    = useState<"form" | "preview" | "sent">("form");
   const [loading, setLoading] = useState(false);
-  const [sent,    setSent]    = useState(false);
   const [error,   setError]   = useState("");
 
   const selectedFormations = FORMATIONS.filter((f) => selected.has(f.id));
@@ -102,11 +102,16 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
     setSelected(next);
   }
 
-  async function handleSend() {
+  function handlePreview() {
     if (!email || selectedFormations.length === 0) {
       setError("Email et au moins une formation sont requis.");
       return;
     }
+    setError("");
+    setStep("preview");
+  }
+
+  async function handleSend() {
     setLoading(true);
     setError("");
     try {
@@ -124,7 +129,7 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Erreur envoi");
-      setSent(true);
+      setStep("sent");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Erreur inconnue");
     } finally {
@@ -132,8 +137,160 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
     }
   }
 
+  /* ── Écran d'aperçu avant envoi ── */
+  if (step === "preview") {
+    const previewInner = (
+      <div className={fullPage ? "mx-auto max-w-2xl px-6 py-8 space-y-6" : "flex-1 overflow-y-auto px-6 py-6 space-y-6"}>
+
+        {/* En-tête devis */}
+        <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          {/* Bandeau rouge */}
+          <div className="bg-red-700 px-6 py-4 flex items-center justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-red-200">PREVENSIA FORMATION</p>
+              <p className="text-lg font-extrabold text-white">DEVIS — Aperçu avant envoi</p>
+            </div>
+            <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-bold text-amber-900">Brouillon</span>
+          </div>
+
+          {/* Infos émetteur + client */}
+          <div className="grid gap-4 p-6 sm:grid-cols-2">
+            <div>
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">De</p>
+              <p className="text-sm font-bold text-slate-900">PREVENSIA FORMATION</p>
+              <p className="text-xs text-slate-500">33, av. Philippe Auguste — 75011 Paris</p>
+              <p className="text-xs text-slate-500">SIRET : 107 290 579 00013</p>
+              <p className="text-xs text-slate-500">contact@prevensia-formation.fr</p>
+            </div>
+            <div>
+              <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">À</p>
+              <p className="text-sm font-bold text-slate-900">{contactName || <span className="text-slate-400 font-normal italic">Nom non renseigné</span>}</p>
+              {companyName && <p className="text-xs text-slate-600">{companyName}</p>}
+              <p className="text-xs text-slate-500">{email}</p>
+              {phone && <p className="text-xs text-slate-500">{phone}</p>}
+              <p className="text-xs text-slate-500 mt-1">{participants} participant{participants > 1 ? "s" : ""}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Tableau formations */}
+        <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+          <div className="border-b border-slate-100 bg-slate-800 px-6 py-3">
+            <p className="text-xs font-bold uppercase tracking-widest text-slate-300">Formations</p>
+          </div>
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-slate-100 bg-slate-50">
+                <th className="py-2.5 px-4 text-left text-xs font-semibold text-slate-500">Désignation</th>
+                <th className="py-2.5 px-4 text-right text-xs font-semibold text-slate-500">Qté</th>
+                <th className="py-2.5 px-4 text-right text-xs font-semibold text-slate-500">PU HT</th>
+                <th className="py-2.5 px-4 text-right text-xs font-semibold text-slate-500">Total HT</th>
+              </tr>
+            </thead>
+            <tbody>
+              {selectedFormations.map((f) => {
+                const qty = f.perPerson ? participants : 1;
+                const lineTotal = f.priceHT !== null ? `${f.priceHT * qty} €` : "Sur devis";
+                const puHT = f.priceHT !== null ? `${f.priceHT} €` : "Sur devis";
+                return (
+                  <tr key={f.id} className="border-b border-slate-50">
+                    <td className="py-3 px-4 text-slate-800 font-medium">{f.label}</td>
+                    <td className="py-3 px-4 text-right text-slate-600">{qty}</td>
+                    <td className="py-3 px-4 text-right text-slate-600">{puHT}</td>
+                    <td className="py-3 px-4 text-right font-semibold text-slate-900">{lineTotal}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+
+          {/* Totaux */}
+          <div className="border-t border-slate-100 px-4 py-4 space-y-2">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-500">Total HT</span>
+              <span className="font-semibold text-slate-900">{totalHT > 0 ? `${totalHT} €` : "—"}{hasQuote && <span className="ml-1.5 text-xs text-amber-600">+ prestations sur devis</span>}</span>
+            </div>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-slate-500">TVA</span>
+              <span className="text-slate-400 italic text-xs">Non applicable — art. 261-4-4 CGI</span>
+            </div>
+            <div className="flex items-center justify-between rounded-xl bg-red-700 px-4 py-3">
+              <span className="text-sm font-bold text-white">TOTAL TTC</span>
+              <span className="text-sm font-bold text-white">{totalHT > 0 ? `${totalHT} €` : "Sur devis"}{hasQuote && <span className="ml-1.5 text-xs font-normal opacity-80">+ prestations sur devis</span>}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Notes */}
+        {notes.trim() && (
+          <div className="rounded-2xl border border-slate-200 bg-white px-6 py-4">
+            <p className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-400">Notes</p>
+            <p className="text-sm text-slate-700 whitespace-pre-wrap">{notes}</p>
+          </div>
+        )}
+
+        {/* Mention légale */}
+        <p className="text-center text-xs text-slate-400 italic">
+          Ce devis sera envoyé à <strong className="font-semibold not-italic text-slate-600">{email}</strong> et un lead sera créé dans le CRM.
+        </p>
+
+        {error && (
+          <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>
+        )}
+      </div>
+    );
+
+    const previewActions = (
+      <div className="flex gap-3">
+        <button
+          type="button"
+          onClick={() => setStep("form")}
+          className="rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50"
+        >
+          ← Modifier
+        </button>
+        <button
+          type="button"
+          onClick={handleSend}
+          disabled={loading}
+          className="flex-1 rounded-xl bg-red-700 px-6 py-3 text-sm font-semibold text-white hover:bg-red-800 disabled:opacity-50"
+        >
+          {loading ? "Envoi en cours…" : "✉ Confirmer l'envoi"}
+        </button>
+      </div>
+    );
+
+    if (fullPage) {
+      return (
+        <>
+          {previewInner}
+          <div className="mx-auto max-w-2xl px-6 pb-8">{previewActions}</div>
+        </>
+      );
+    }
+
+    return (
+      <div className="fixed inset-0 z-50 flex">
+        <button className="flex-1 bg-black/50" onClick={onClose} aria-label="Fermer" />
+        <div className="flex w-full max-w-2xl flex-col bg-white shadow-2xl">
+          <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">Admin PREVENSIA</p>
+              <h2 className="text-lg font-bold text-slate-900">Aperçu du devis</h2>
+            </div>
+            <button onClick={onClose} className="rounded-xl border border-slate-200 p-2 text-slate-500 hover:bg-slate-50">✕</button>
+          </div>
+          {previewInner}
+          <div className="sticky bottom-0 border-t border-slate-200 bg-white px-6 py-4">
+            {previewActions}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   /* ── Écran de confirmation ── */
-  if (sent) {
+  if (step === "sent") {
     const inner = (
       <div className="flex flex-col items-center justify-center py-20 text-center">
         <div className="text-6xl">✅</div>
@@ -151,6 +308,7 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
         )}
       </div>
     );
+
 
     if (fullPage) return <div className="mx-auto max-w-2xl px-6 py-12">{inner}</div>;
 
@@ -279,11 +437,11 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
         <div className="flex gap-3 pt-2">
           <button
             type="button"
-            onClick={handleSend}
-            disabled={loading || selectedFormations.length === 0 || !email}
+            onClick={handlePreview}
+            disabled={selectedFormations.length === 0 || !email}
             className="flex-1 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-50"
           >
-            {loading ? "Envoi en cours…" : "Envoyer le devis par email"}
+            Aperçu avant envoi →
           </button>
         </div>
       )}
@@ -318,11 +476,11 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
         <div className="sticky bottom-0 flex gap-3 border-t border-slate-200 bg-white px-6 py-4">
           <button
             type="button"
-            onClick={handleSend}
-            disabled={loading || selectedFormations.length === 0 || !email}
+            onClick={handlePreview}
+            disabled={selectedFormations.length === 0 || !email}
             className="flex-1 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-50"
           >
-            {loading ? "Envoi en cours…" : "Envoyer le devis par email"}
+            Aperçu avant envoi →
           </button>
           <button onClick={onClose} className="rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50">
             Annuler
