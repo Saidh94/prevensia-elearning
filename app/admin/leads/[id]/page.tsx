@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { LeadNoteForm } from "./LeadNoteForm";
 import { LeadStatusButton } from "../LeadStatusButton";
 import DevisGeneratorButton from "./DevisGeneratorButton";
+import FactureButton from "../../components/FactureButton";
 
 type Params = Promise<{ id: string }>;
 
@@ -113,6 +114,15 @@ export default async function LeadDetailPage({ params }: { params: Params }) {
                 participants:      (lead.metadata as { participants?: number } | null)?.participants ?? 1,
                 formationInterest: lead.formation_interest ?? "",
                 notes:             lead.notes ?? "",
+              }}
+            />
+            <FactureButton
+              initialData={{
+                leadId:        lead.id,
+                clientName:    [lead.first_name, lead.last_name].filter(Boolean).join(" "),
+                clientEmail:   lead.email ?? "",
+                clientCompany: lead.company ?? "",
+                totalHT:       (lead.metadata as { total_ht?: number } | null)?.total_ht ?? 0,
               }}
             />
             <a
