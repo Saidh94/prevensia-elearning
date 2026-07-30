@@ -5,7 +5,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
   shortTitle: "ATEX Niv. 1",
   subtitle:
     "Parcours e-learning approfondi destiné au personnel intervenant directement sur des appareils ou installations situés en zone ATEX : techniciens de maintenance, électriciens, monteurs, instrumentistes, sous-traitants effectuant des travaux en zone classée.",
-  duration: "4 h à 5 h",
+  duration: "5 h à 6 h",
   deliveryFormat: "E-learning autonome + entretien de validation 30 min",
   level: "Intermédiaire",
   objective:
@@ -314,8 +314,76 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       ],
     },
     {
+      id: "electricite-installations-ex",
+      title: "10. Spécificités électriques — Câblage, armoires Ex et instrumentation",
+      estimatedMinutes: 30,
+      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
+      chapterImageAlt: "Câblage, presses-étoupe Ex et armoires électriques en zone ATEX",
+      intro:
+        "Ce chapitre est destiné aux électriciens, instrumentistes et techniciens de maintenance électrique intervenant sur des installations en zone ATEX. Il complète les fondamentaux par les exigences spécifiques au câblage Ex, aux armoires et à l'instrumentation en sécurité intrinsèque.",
+      content: [
+        "Câbles et presse-étoupe certifiés Ex : le câble lui-même ne porte pas de certification ATEX, mais doit être sélectionné selon des critères stricts — gaine résistante aux produits chimiques présents, tenue mécanique adaptée à l'environnement, section calculée pour éviter tout échauffement anormal. La traversée des parois de boîtiers Ex se fait obligatoirement avec des presse-étoupe certifiés Ex. Pour un boîtier Ex d (antidéflagrant), le presse-étoupe doit lui-même être certifié Ex d selon EN 60079-1 Annexe A. Un presse-étoupe standard annule intégralement le niveau de protection du boîtier. De même, un orifice de câble non occupé doit être obturé avec un bouchon certifié Ex — ne jamais laisser un trou ouvert dans un boîtier Ex.",
+        "Armoires électriques Ex à surpression interne (Ex p) : ces armoires maintiennent à l'intérieur une pression positive d'air propre ou de gaz inerte pour empêcher l'atmosphère explosive d'y pénétrer. Protocole impératif avant toute ouverture : (1) couper l'alimentation électrique ; (2) arrêter le circuit de pressurisation ; (3) attendre la durée de purge définie par le fabricant (généralement 5 à 15 minutes selon le volume de l'armoire) ; (4) vérifier l'équilibrage de pression avant d'ouvrir. NE JAMAIS ouvrir une armoire Ex p sous tension et sous pression en zone ATEX — risque d'étincelle d'ouverture en atmosphère explosive.",
+        "Instrumentation en sécurité intrinsèque (Ex ia / Ex ib) : les capteurs en zone 0 et zone 1 (pression, niveau, température, débit) sont souvent protégés par sécurité intrinsèque. Le principe : des barrières Zener ou des séparateurs galvaniques placés en armoire hors zone limitent l'énergie électrique disponible au niveau du capteur à une valeur inférieure à l'énergie minimale d'inflammation du gaz présent. Points critiques : (1) ne jamais brancher un circuit Ex ia à un circuit non-intrinsèquement sûr — toute injection d'énergie extérieure détruit la protection et peut provoquer une étincelle ; (2) respecter la résistance maximale de boucle spécifiée par le fabricant ; (3) utiliser exclusivement des câbles de boucle IS (Intrinsically Safe) — généralement gaine bleue — pour les circuits en zone 0 et 1.",
+        "Inspection des installations électriques Ex — norme EN 60079-17 : la norme distingue 3 niveaux. (1) Inspection visuelle : contrôle externe sans démontage — intégrité du boîtier, absence de corrosion, de fissures, de dégradation mécanique, visserie de fermeture complète, étiquetage présent. (2) Inspection rapprochée : ouverture du boîtier pour contrôler l'état des connexions, la propreté, les composants accessibles, les sections de câbles, l'absence de condensation anormale. (3) Inspection détaillée : démontage complet selon les instructions du fabricant, vérification de chaque composant et du mode de protection (jeux d'assemblage, état des joints, serrage des brides). La périodicité est définie par l'employeur selon l'environnement — en atmosphère corrosive ou fortement vibrante, les intervalles sont raccourcis par rapport aux valeurs indicatives du fabricant.",
+        "Moteurs électriques Ex — surveillance et anomalies : signes de défaillance critiques à surveiller lors des rondes et maintenances. (1) Vibration anormale : souvent liée à un roulement dégradé ou à un déséquilibre du rotor — un moteur qui vibre peut atteindre une température de surface supérieure à sa classe de température T et constituer une source d'inflammation directe. (2) Surchauffe : un disjoncteur qui déclenche répétitivement sur surcharge thermique est un signal d'alarme — vérifier la ventilation, l'encrassement du filtre, la compatibilité de la puissance avec la charge. (3) Bruit anormal : craquement (roulement), sifflement (déséquilibre aérodynamique). (4) Traces d'huile sur le boîtier (fuite de palier). Toute anomalie = arrêt immédiat du moteur et signalement au responsable sécurité avant toute remise en service.",
+      ],
+      deepDive: [
+        "Luminaires Ex : les luminaires en zone ATEX doivent être certifiés Ex pour la catégorie de zone. Les LED Ex ont remplacé les lampes à incandescence et les fluorescents compacts (risque de bris de tube libérant du mercure). Pour les zones à poussières (20 et 21), les luminaires doivent avoir une surface lisse et continue pour éviter les accumulations de dépôts — une couche de poussières sur la surface chaude d'un luminaire constitue une source d'inflammation directe. Vérifier la température maximale de surface du luminaire (classe T) par rapport à la MIT (Minimum Ignition Temperature) des poussières présentes.",
+        "Modifications des installations électriques Ex : toute modification (ajout d'un capteur, changement de câble, ajout d'un départ en armoire) doit être précédée d'une analyse d'impact sur le mode de protection existant. La modification doit être documentée dans le DRPCE et tracée dans le registre de maintenance Ex. Cas fréquent de non-conformité : percer un trou supplémentaire dans un boîtier Ex d sans utiliser de presse-étoupe certifié adapté, ou remplacer un composant par un équivalent non certifié Ex.",
+        "Continuité de l'équipotentialité : en zone ATEX, la mise à la terre et la continuité de l'équipotentialité de toutes les masses conductrices (structures métalliques, tuyauteries, équipements) sont critiques pour l'évacuation des charges électrostatiques. Vérification à l'ohmmètre : résistance de continuité < 1 Ω entre deux points de l'installation. Les connexions oxydées ou lâches augmentent la résistance et réduisent l'efficacité de l'écoulement des charges. Les liaisons équipotentielles doivent être vérifiées lors des inspections détaillées.",
+      ],
+      keyPoints: [
+        "Presse-étoupe : certification Ex obligatoire — un presse-étoupe standard ou un trou non bouché annule la protection du boîtier.",
+        "Armoire Ex p : alimentation coupée + purge complète avant ouverture — jamais ouvrir sous tension en zone ATEX.",
+        "Circuit Ex ia : ne jamais connecter à un circuit non-intrinsèquement sûr — énergie extérieure = protection annulée.",
+        "EN 60079-17 : 3 niveaux d'inspection — visuelle, rapprochée, détaillée — périodicité définie par l'employeur.",
+        "Moteur Ex : vibration, surchauffe ou bruit anormal = arrêt immédiat + signalement avant toute remise en service.",
+      ],
+      legalRefs: [
+        "Norme EN 60079-17 : inspection et entretien des installations électriques en atmosphères explosives.",
+        "Norme EN 60079-14 : conception et construction des installations électriques en atmosphères explosives.",
+        "Norme EN 60079-11 : sécurité intrinsèque (Ex ia, Ex ib) — exigences matériels et boucles.",
+        "Directive 2014/34/UE : exigences essentielles pour les appareils et systèmes de protection ATEX.",
+      ],
+    },
+    {
+      id: "equipements-mecaniques-ex",
+      title: "11. Spécificités mécaniques — Pompes, joints et équipements non électriques",
+      estimatedMinutes: 30,
+      chapterImagePath: "/elearning/atex/atex-prevention-3axes.svg",
+      chapterImageAlt: "Équipements mécaniques non électriques en zone ATEX — pompes, compresseurs, joints",
+      intro:
+        "Ce chapitre est destiné aux mécaniciens, monteurs, chaudronniers et techniciens de maintenance mécanique intervenant en zone ATEX. La mécanique présente des sources d'inflammation spécifiques — friction, choc, surfaces chaudes — souvent sous-estimées par rapport aux risques électriques.",
+      content: [
+        "Équipements mécaniques non électriques en zone ATEX : contrairement aux idées reçues, les équipements mécaniques non électriques (pompes, compresseurs, agitateurs, ventilateurs, réducteurs, convoyeurs) sont soumis à la directive 2014/34/UE et à la norme EN 13463 depuis le 30 juin 2003. Tout équipement non électrique présentant une source potentielle d'inflammation propre (friction, choc, surface chaude) doit être certifié Ex pour la zone où il est utilisé, à moins qu'une évaluation documentée démontre qu'il n'en présente aucune. Les équipements mis en service avant 2003 peuvent rester en service sous conditions de maintien documenté dans le DRPCE.",
+        "Sources d'inflammation mécaniques — friction et choc : (1) Friction : un roulement dégradé, une garniture mécanique fonctionnant à sec, une courroie patinant sur une poulie peuvent générer une chaleur suffisante pour dépasser la TAI du produit inflammable présent dans la zone. La vitesse de rotation est un paramètre de risque majeur — un roulement chaud à 3 000 tr/min peut provoquer un incendie en quelques secondes. (2) Choc : fragment d'aubage d'un ventilateur touchant le carter, outil tombant sur une surface métallique, pièce mal serrée frottant sur le carter = étincelle mécanique susceptible d'atteindre plusieurs centaines de degrés.",
+        "Pompes centrifuges et volumétriques en zone ATEX : les pompes pour liquides inflammables doivent être certifiées Ex. Risques spécifiques à maîtriser : (1) Cavitation — génère vibrations intenses et échauffement des paliers ; indicateur sonore caractéristique (claquements). (2) Fonctionnement à sec — la garniture mécanique perd sa lubrification, frotte à sec et surchauffe jusqu'à atteindre la TAI du produit. (3) Fuite de garniture — libération de vapeur ou liquide inflammable créant une zone ATEX locale non cartographiée. Vérifications avant intervention : pression d'aspiration suffisante, absence de fuite visible, niveau d'huile des paliers, température des paliers.",
+        "Garnitures mécaniques et joints d'étanchéité — choix et surveillance : la garniture mécanique est le premier point de défaillance d'une pompe en zone ATEX. (1) Garniture simple : acceptable pour liquides peu volatils — fuit à terme. (2) Garniture double à fluide de barrage (pressurized barrier fluid) : le fluide de barrage est maintenu à une pression supérieure au produit pompé, garantissant l'étanchéité même en cas d'usure partielle de la garniture primaire. Recommandée pour les hydrocarbures volatils, solvants et produits à point éclair < 21 °C en zone 1. Le fluide de barrage doit être compatible avec le produit et renouvelé selon le programme de maintenance.",
+        "Compresseurs et ventilateurs en zone ATEX : risques spécifiques. Compresseurs d'air lubrifiés : contamination du refoulement par de l'huile en suspension — risque d'ATEX dans le réseau aval si l'air comprimé est utilisé en zone. Compresseurs de gaz : fuite aux joints de piston ou de tige. Ventilateurs : risque de contact roue-carter en cas d'usure des paliers ou d'aspiration d'un corps étranger — les roues de ventilateurs ATEX sont en matériaux non générateurs d'étincelles par choc (alliages aluminium-bronze, revêtements non ferreux) ou avec jeu réduit garanti. Surveillance obligatoire lors des rondes : température des paliers (thermomètre ou caméra IR), niveau de vibrations, bruit anormal.",
+      ],
+      deepDive: [
+        "Norme EN 13463 — modes de protection mécaniques : la norme EN 13463 (remplacée progressivement par EN ISO 80079-36 et 80079-37) définit les modes de protection pour équipements non électriques. Principaux modes : 'c' (sécurité de construction) — conception pour supprimer toute source d'inflammation en fonctionnement normal, le plus courant pour les pompes et réducteurs ; 'fr' (contrôle des sources d'inflammation par friction) — mesures spécifiques anti-friction (jeux garantis, matériaux non générateurs d'étincelles, surveillance de vitesse) ; 'b' (enveloppe antidéflagrante) — résistance à une explosion interne ; 'k' (immersion dans un liquide) — immersion des parties actives pour éliminer le contact avec l'atmosphère explosive.",
+        "Roulements en zone ATEX — surveillance précoce : la défaillance de roulement est une des causes majeures d'accident mécanique en zone ATEX. Indicateurs précoces à surveiller : vibration anormale (mesurable par accéléromètre lors des rondes vibratoires), bruit (craquement sourd = début de détérioration de la piste, sifflement = défaut de graissage), élévation de température du palier (thermocouple de surveillance continue ou thermomètre à contact). Sur-graissage = surchauffe par agitation mécanique du lubrifiant. Sous-graissage = contact métal-métal = friction. En zone 0, les roulements magnétiques ou à palier hydrodynamique (sans contact mécanique) permettent de supprimer entièrement le risque de friction.",
+        "Nettoyage mécanique en zone poussières : le nettoyage à l'air comprimé est INTERDIT en zone à risque de poussières combustibles — il remet les dépôts en suspension et crée instantanément une atmosphère explosive (zone 20 transitoire) dans un espace qui était en zone 22 au repos. Utiliser exclusivement des aspirateurs certifiés Ex pour la zone concernée, ou le nettoyage humide contrôlé. Pour les équipements huileux, le nettoyage avec solvants inflammables nécessite une Autorisation de Travail spécifique (zone ATEX créée temporairement). Le nettoyage des filtres à manches, dépoussiéreurs et silos doit être consigné dans le registre d'entretien et planifié hors production si possible.",
+      ],
+      keyPoints: [
+        "Tout équipement mécanique non électrique avec source d'inflammation potentielle = certification Ex obligatoire depuis le 30 juin 2003.",
+        "Friction et choc : roulement dégradé, garniture à sec, ventilateur vibrant = sources d'inflammation mécaniques réelles.",
+        "Pompe en zone 1 avec hydrocarbures volatils : garniture double à fluide de barrage recommandée.",
+        "Nettoyage air comprimé INTERDIT en zone poussières — aspirateur certifié Ex ou nettoyage humide uniquement.",
+        "Roulement : vibration + surchauffe + bruit = arrêt immédiat. Sur/sous-graissage = risque d'incendie.",
+      ],
+      legalRefs: [
+        "Norme EN 13463-1 (et EN ISO 80079-36) : équipements non électriques pour atmosphères explosives — règles générales.",
+        "Norme EN 13463-5 (et EN ISO 80079-37) : protection par sécurité de construction 'c'.",
+        "Directive 2014/34/UE : champ d'application incluant les équipements non électriques depuis 2003.",
+        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : appareils et systèmes de protection non électriques.",
+      ],
+    },
+    {
       id: "synthese-quiz-n1",
-      title: "10. Synthèse et préparation à l'évaluation",
+      title: "12. Synthèse et préparation à l'évaluation",
       estimatedMinutes: 20,
       chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
       chapterImageAlt: "Synthèse des réflexes ATEX Niveau 1 — les 10 règles de l'intervenant",
@@ -324,12 +392,12 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       content: [
         "Les 10 règles de l'intervenant en zone ATEX : (1) Consulter le DRPCE et le plan de zonage avant toute intervention. (2) Obtenir l'autorisation de travail ou le permis de feu signé. (3) Vérifier et tester l'explosimètre (étalonnage, batterie, gaz de référence). (4) Mesurer l'atmosphère avant d'entrer (< 20 % LIE). (5) Porter les EPI antistatiques (vêtements EN 1149-5, chaussures ESD). (6) N'apporter que des équipements et outils certifiés Ex adaptés à la zone. (7) Mettre à la terre tous les équipements conducteurs mobiles. (8) Respecter la zone de sécurité de 10 m pour les travaux par points chauds. (9) Surveiller l'atmosphère en continu pendant les travaux. (10) Signaler toute anomalie immédiatement.",
         "L'avis d'habilitation ATEX Niveau 1 qui vous sera remis à l'issue de l'entretien atteste que vous possédez les connaissances théoriques nécessaires pour intervenir en zone ATEX de manière sécurisée. Il est valable 3 ans. L'employeur reste responsable de l'autorisation formelle d'intervenir en zone classée.",
-        "L'entretien de 30 minutes avec votre formateur PREVENSIA portera sur : votre compréhension des marquages Ex (décodage d'un marquage complet), votre connaissance des procédures d'autorisation de travail et permis de feu, la conduite à tenir en cas d'anomalie, et les spécificités éventuelles de votre site.",
+        "L'entretien de 30 minutes avec votre formateur PREVENSIA portera sur : votre compréhension des marquages Ex (décodage d'un marquage complet), votre connaissance des procédures d'autorisation de travail et permis de feu, la conduite à tenir en cas d'anomalie, les spécificités de votre domaine d'intervention (électrique ou mécanique), et les particularités de votre site.",
       ],
       keyPoints: [
         "10 règles de l'intervenant — à mémoriser et appliquer systématiquement.",
         "Avis d'habilitation ATEX N1 = attestation théorique valable 3 ans. L'employeur autorise formellement.",
-        "L'entretien de validation porte sur les marquages, les procédures et la conduite à tenir.",
+        "L'entretien de validation porte sur les marquages, les procédures, la conduite à tenir et votre domaine (élec/méca).",
         "Recyclage obligatoire tous les 3 ans pour maintenir l'habilitation.",
       ],
       legalRefs: [

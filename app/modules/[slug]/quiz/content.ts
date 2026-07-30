@@ -9022,6 +9022,157 @@ quizContent["atex-niveau1"] = [
     explanation: "Le point éclair (ou température d'éclair) est la température minimale à laquelle un liquide inflammable produit suffisamment de vapeurs pour former un mélange inflammable avec l'air au-dessus de sa surface. Il est fondamental pour la classification des liquides : < 21°C (catégorie 1 — très inflammable, ex. essence), 21-55°C (catégorie 2 — inflammable, ex. gasoil froid), 55-100°C (catégorie 3, ex. fioul domestique). Le point éclair conditionne le zonage ATEX autour des cuves.",
     timeLimit: 35,
   },
+  // ── Track électrique (N1E) ────────────────────────────────────────────────
+  {
+    question: "Vous remplacez un câble entrant dans un boîtier Ex d (antidéflagrant) en Zone 1. Quel type de presse-étoupe devez-vous utiliser ?",
+    choices: [
+      "Un presse-étoupe standard IP68, suffisamment étanche",
+      "Un presse-étoupe certifié Ex d, conforme à EN 60079-1 Annexe A, adapté au diamètre du câble",
+      "Tout presse-étoupe métallique renforcé, quelle que soit sa certification",
+      "Aucun presse-étoupe — le câble peut traverser directement la paroi si le câblage est soigné",
+    ],
+    answer: [1],
+    chapterLabel: "Installations électriques Ex",
+    explanation:
+      "Un boîtier Ex d (enveloppe antidéflagrante) tire sa protection de la résistance de ses parois et de l'étanchéité de ses traversées. Un presse-étoupe standard, même très étanche (IP68), ne résiste pas à une explosion interne et n'est pas certifié pour ce mode de protection. Un presse-étoupe non certifié Ex d annule intégralement la protection du boîtier. La norme EN 60079-1 Annexe A définit les exigences pour les presses-étoupe utilisés en mode de protection 'd'.",
+    timeLimit: 40,
+  },
+  {
+    question: "Avant d'ouvrir une armoire électrique Ex p (surpression interne) en Zone 1 pour effectuer une maintenance, quelle séquence d'actions est correcte ?",
+    choices: [
+      "Ouvrir directement — la surpression à l'intérieur protège contre l'entrée de gaz pendant l'ouverture",
+      "Couper l'alimentation électrique, maintenir la surpression pour protéger l'intérieur pendant la maintenance",
+      "Couper l'alimentation électrique, arrêter le circuit de pressurisation, attendre la durée de purge définie par le fabricant, puis ouvrir",
+      "Ouvrir uniquement si l'explosimètre confirme < 10 % LIE à proximité immédiate de l'armoire",
+    ],
+    answer: [2],
+    chapterLabel: "Installations électriques Ex",
+    explanation:
+      "Le protocole d'ouverture d'une armoire Ex p comporte impérativement 3 étapes : (1) couper l'alimentation électrique pour supprimer toute source d'étincelle lors de l'ouverture ; (2) arrêter le circuit de pressurisation ; (3) attendre la durée de purge définie par le fabricant (5 à 15 minutes selon le volume) pour que la pression s'équilibre sans risque. Ouvrir sous tension une armoire Ex p en zone ATEX est extrêmement dangereux — l'ouverture brusque peut aspirer de l'atmosphère explosive dans l'armoire et créer une étincelle fatale.",
+    timeLimit: 40,
+    contextLabel: "Armoire Ex p — protocole d'ouverture",
+  },
+  {
+    question: "Un technicien souhaite ajouter un capteur de pression supplémentaire sur une boucle de mesure Ex ia (sécurité intrinsèque) en Zone 0. Quelle erreur critique doit-il absolument éviter ?",
+    choices: [
+      "Utiliser un câble de couleur rouge au lieu du bleu conventionnel pour les boucles IS",
+      "Brancher le nouveau capteur sur un circuit non-intrinsèquement sûr (alimentation classique 24V DC sans barrière)",
+      "Réaliser le raccordement sans couper l'alimentation de la boucle IS existante",
+      "Utiliser un câble blindé à la place d'un câble non blindé",
+    ],
+    answer: [1],
+    chapterLabel: "Installations électriques Ex",
+    explanation:
+      "En sécurité intrinsèque Ex ia, la protection repose sur la limitation de l'énergie électrique disponible en zone à une valeur inférieure à l'énergie minimale d'inflammation. Brancher un capteur Ex ia sur un circuit non-intrinsèquement sûr (alimentation classique sans barrière Zener ou séparateur galvanique) injecte de l'énergie non limitée dans la zone — la protection Ex ia est détruite et le risque d'étincelle en zone 0 est maximal. Cette erreur est responsable de nombreux accidents. Tout circuit IS doit rester intégralement IS sur son trajet complet.",
+    timeLimit: 40,
+    eliminatory: true,
+    contextLabel: "Erreur critique — Boucle Ex ia",
+  },
+  {
+    question: "Lors d'une ronde en zone ATEX, vous constatez qu'un moteur Ex présente des vibrations anormales et une élévation de température sur le palier avant. Que faites-vous ?",
+    choices: [
+      "Continuer la ronde et signaler lors du prochain compte-rendu hebdomadaire",
+      "Lubrifier immédiatement le palier avec de la graisse universelle pour corriger le problème",
+      "Arrêter le moteur immédiatement, consigner la machine, signaler au responsable sécurité avant toute remise en service",
+      "Réduire la charge de la machine pour limiter les vibrations et continuer la production",
+    ],
+    answer: [2],
+    chapterLabel: "Installations électriques Ex",
+    explanation:
+      "Un moteur Ex présentant vibrations anormales + surchauffe de palier est en cours de défaillance de roulement. Un roulement qui lâche peut : (1) provoquer un contact rotor-stator générateur d'étincelles ; (2) atteindre une température de surface supérieure à la classe T du moteur, constituant une source d'inflammation directe en zone ATEX. L'arrêt immédiat est impératif. Continuer à faire fonctionner la machine ou lubrifier sans diagnostic préalable aggrave le défaut. La consignation empêche une remise en service non autorisée.",
+    timeLimit: 35,
+    eliminatory: true,
+  },
+  {
+    question: "Quelle norme encadre spécifiquement les vérifications initiales et périodiques des équipements électriques installés en zone ATEX ?",
+    choices: [
+      "NF C 15-100 — installations électriques basse tension",
+      "EN 60079-14 — conception et construction des installations électriques en zones ATEX",
+      "EN 60079-17 — inspection et entretien des installations électriques en atmosphères explosives",
+      "EN 60529 — degrés de protection IP",
+    ],
+    answer: [2],
+    chapterLabel: "Installations électriques Ex",
+    explanation:
+      "La norme EN 60079-17 est la référence pour l'inspection et l'entretien des installations électriques en zone ATEX. Elle définit 3 niveaux d'inspection : visuelle (externe, sans démontage), rapprochée (avec accès à l'intérieur) et détaillée (démontage complet selon instructions fabricant). EN 60079-14 couvre la conception et l'installation initiale, NF C 15-100 les installations BT classiques (hors ATEX), et EN 60529 les indices de protection IP — tous complémentaires mais sans rapport direct avec les vérifications périodiques ATEX.",
+    timeLimit: 35,
+    chapterLabel: "Installations électriques Ex",
+  },
+  // ── Track mécanique (N1M) ─────────────────────────────────────────────────
+  {
+    question: "Quelle norme encadre la certification des équipements mécaniques non électriques (pompes, compresseurs, ventilateurs) destinés à être utilisés en zone ATEX ?",
+    choices: [
+      "EN 60079-14 — exclusivement pour les équipements électriques",
+      "EN 13463-1 (et EN ISO 80079-36) — équipements non électriques pour atmosphères explosives",
+      "NF EN 12845 — installations fixes d'extinction automatique par sprinkler",
+      "EN 60529 — degrés de protection des enveloppes (indices IP)",
+    ],
+    answer: [1],
+    chapterLabel: "Équipements mécaniques Ex",
+    explanation:
+      "La norme EN 13463-1 (remplacée progressivement par EN ISO 80079-36) définit les règles générales pour la conception et la certification des équipements non électriques destinés aux zones ATEX. Elle est le pendant de EN 60079-0 pour les équipements électriques. Depuis le 30 juin 2003, les équipements mécaniques non électriques présentant une source d'inflammation propre (friction, choc, surface chaude) doivent être certifiés Ex pour leur zone d'utilisation, conformément à la directive 2014/34/UE.",
+    timeLimit: 35,
+  },
+  {
+    question: "Vous intervenez sur une pompe centrifuge en Zone 1 transportant des hydrocarbures légers (point éclair < 21 °C). La pompe s'est arrêtée sur défaut et vous constatez une forte odeur de produit. Quelle est la première vérification à effectuer avant de redémarrer ?",
+    choices: [
+      "Vérifier que le moteur n'a pas surchauffé en touchant le boîtier avec la main",
+      "Vérifier l'intégrité de la garniture mécanique et l'absence de fuite — la garniture à sec est une source d'inflammation potentielle",
+      "Redémarrer la pompe à vitesse réduite pour tester si le problème persiste",
+      "Inspecter uniquement les câbles d'alimentation du moteur",
+    ],
+    answer: [1],
+    chapterLabel: "Équipements mécaniques Ex",
+    explanation:
+      "Une forte odeur de produit après un arrêt de pompe indique une fuite de la garniture mécanique. Une garniture qui fuit peut : (1) créer une zone ATEX locale autour de la pompe ; (2) fonctionner à sec si le produit ne lubrifie plus les faces de frottement — la garniture à sec chauffe rapidement au-delà de la TAI du produit. En Zone 1 avec hydrocarbures légers, une garniture défaillante constitue une source d'inflammation directe. L'inspection visuelle de la garniture est la première action. Ne jamais redémarrer sans avoir éliminé la cause du défaut.",
+    timeLimit: 40,
+    eliminatory: true,
+  },
+  {
+    question: "Lors d'une maintenance dans une zone à risque de poussières combustibles (Zone 21), votre collègue propose d'utiliser un pistolet à air comprimé pour nettoyer les dépôts de poussières sur les équipements. Quelle est votre réponse ?",
+    choices: [
+      "Accepter si la pression est maintenue en dessous de 6 bars",
+      "Refuser — le nettoyage à l'air comprimé est interdit en zone poussières : il remet les dépôts en suspension et crée instantanément une atmosphère explosive",
+      "Accepter si l'explosimètre ne détecte rien dans la zone au moment du nettoyage",
+      "Accepter si le nettoyage est rapide et que l'opérateur porte un masque FFP3",
+    ],
+    answer: [1],
+    chapterLabel: "Équipements mécaniques Ex",
+    explanation:
+      "Le nettoyage à l'air comprimé est formellement interdit en zone à risque de poussières combustibles. Une Zone 21 contient des dépôts de poussières potentiellement combustibles. Le soufflage à l'air les remet en suspension sous forme de nuage — créant instantanément une Zone 20 transitoire (nuage continu) dans l'espace de travail. Si une source d'inflammation est présente (équipement non certifié Ex, étincelle statique, surface chaude), l'explosion est immédiate. Utiliser exclusivement des aspirateurs certifiés Ex pour la zone concernée, ou le nettoyage humide contrôlé.",
+    timeLimit: 40,
+    eliminatory: true,
+    contextLabel: "Interdit — nettoyage air comprimé en zone poussières",
+  },
+  {
+    question: "Lors d'une ronde de maintenance en zone ATEX, vous constatez qu'un réducteur mécanique émet un bruit de craquement inhabituel et que le palier est anormalement chaud au toucher. Quelle est la bonne conduite à tenir ?",
+    choices: [
+      "Ajouter de la graisse immédiatement pour corriger le problème de lubrification et continuer la production",
+      "Noter l'anomalie et attendre la prochaine maintenance planifiée dans 15 jours",
+      "Arrêter la machine, consigner l'équipement, signaler immédiatement au responsable sécurité et ne pas autoriser de remise en service sans diagnostic préalable",
+      "Réduire la vitesse de rotation pour limiter la surchauffe et maintenir la production",
+    ],
+    answer: [2],
+    chapterLabel: "Équipements mécaniques Ex",
+    explanation:
+      "Bruit de craquement + palier chaud = roulement en cours de défaillance. Un roulement défaillant en zone ATEX peut : (1) atteindre une température supérieure à la TAI du produit présent (source d'inflammation par surface chaude) ; (2) provoquer un blocage brutal avec choc et génération d'étincelles mécaniques. L'arrêt immédiat et la consignation de la machine sont les seules réponses acceptables. Le sur-graissage sans diagnostic aggrave généralement le problème. L'attente de 15 jours est incompatible avec la sécurité en zone ATEX.",
+    timeLimit: 35,
+    eliminatory: true,
+  },
+  {
+    question: "Quelle est la principale justification technique de l'utilisation d'une garniture mécanique double à fluide de barrage (pressurized barrier fluid) pour une pompe en Zone 1 transportant des hydrocarbures à point éclair < 21 °C ?",
+    choices: [
+      "La garniture double permet de doubler le débit de la pompe",
+      "Le fluide de barrage maintenu à une pression supérieure au produit garantit que seul le fluide de barrage peut fuir vers l'extérieur — le produit inflammable reste confiné même en cas d'usure partielle de la garniture primaire",
+      "La garniture double réduit les vibrations de la pompe et améliore sa durée de vie",
+      "La garniture double est obligatoire uniquement pour les produits corrosifs, pas pour les hydrocarbures",
+    ],
+    answer: [1],
+    chapterLabel: "Équipements mécaniques Ex",
+    explanation:
+      "La garniture double à fluide de barrage pressurisé fonctionne sur le principe de la contre-pression : le fluide de barrage est maintenu à une pression supérieure à la pression du produit pompé. En cas d'usure de la garniture primaire (côté produit), c'est le fluide de barrage (non inflammable ou peu dangereux) qui fuit vers le produit — jamais l'inverse. L'atmosphère extérieure ne reçoit donc que du fluide de barrage et non le produit inflammable. Cette conception est fondamentale pour les produits volatils à fort risque ATEX (hydrocarbures légers, solvants, GPL) en zone 1.",
+    timeLimit: 40,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
