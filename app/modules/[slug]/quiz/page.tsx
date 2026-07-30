@@ -93,6 +93,7 @@ export default function QuizPage() {
     return String(slugParam ?? "").toLowerCase();
   }, [slugParam]);
   const canonicalSlug = useMemo(() => resolveModuleSlug(slug) ?? slug, [slug]);
+  const isAtexN1 = canonicalSlug === "atex-niveau1";
 
   const formationLabel = useMemo(
     () => getModuleLabelBySlug(canonicalSlug),
@@ -1146,7 +1147,9 @@ export default function QuizPage() {
 
                 {success ? (
                   <p className="mt-4 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
-                    Validation réussie. Votre dossier passe maintenant à l’étape entretien.
+                    {isAtexN1
+                      ? "Validation réussie. Prochaine étape : classe virtuelle (2h), puis entretien individuel (30 min)."
+                      : "Validation réussie. Votre dossier passe maintenant à l’étape entretien."}
                   </p>
                 ) : failedEliminatory ? (
                   <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
@@ -1159,6 +1162,31 @@ export default function QuizPage() {
                     Score insuffisant. Vous devez recommencer le quiz pour valider
                     la formation.
                   </p>
+                )}
+
+                {success && isAtexN1 && (
+                  <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 p-4">
+                    <p className="text-sm font-semibold text-blue-900">
+                      Parcours ATEX Niveau 1 — 3 étapes
+                    </p>
+                    <ol className="mt-3 space-y-2 text-sm">
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[11px] font-bold text-white">✓</span>
+                        <span className="text-slate-700">E-learning (5-6h) — <span className="font-semibold text-emerald-700">complété</span></span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-[11px] font-bold text-white">2</span>
+                        <span className="text-slate-700">Classe virtuelle (2h) — <span className="font-semibold text-blue-700">à planifier</span></span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-300 text-[11px] font-bold text-slate-600">3</span>
+                        <span className="text-slate-500">Entretien individuel (30 min) — après la classe virtuelle</span>
+                      </li>
+                    </ol>
+                    <p className="mt-3 text-xs leading-5 text-blue-600">
+                      PREVENSIA vous contactera par e-mail avec votre lien Zoom. Vous pouvez aussi consulter les créneaux disponibles dans votre espace de réservation.
+                    </p>
+                  </div>
                 )}
 
                 {quizContext.orderedByEmployer && success && !saveError ? (
@@ -1335,17 +1363,25 @@ export default function QuizPage() {
 
                 {success && !saveError && !quizContext.orderedByEmployer && (
                   <>
+                    {isAtexN1 && (
+                      <Link
+                        href="/reservation"
+                        className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                      >
+                        Voir les classes virtuelles
+                      </Link>
+                    )}
                     <Link
                       href="/booking"
                       className="inline-flex items-center rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
                     >
-                      Planifier l’entretien
+                      Planifier l&apos;entretien
                     </Link>
                     <Link
                       href={`/modules/${slug}/attestation`}
                       className="inline-flex items-center rounded-xl border border-emerald-600 px-5 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
                     >
-                      Télécharger l’attestation
+                      Télécharger l&apos;attestation
                     </Link>
                   </>
                 )}

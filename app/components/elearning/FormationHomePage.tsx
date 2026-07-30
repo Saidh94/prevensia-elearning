@@ -136,6 +136,48 @@ export default function FormationHomePage({
                 </p>
               </div>
             ) : null}
+
+            {slug === "atex-niveau1" ? (
+              <div className="mt-8 rounded-3xl border border-blue-200 bg-blue-50 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
+                  Votre parcours en 3 étapes
+                </p>
+                <ol className="mt-4 space-y-3">
+                  {[
+                    {
+                      num: "1",
+                      label: "E-learning autonome",
+                      detail: "5 h à 6 h — 12 chapitres + quiz de validation",
+                      color: "bg-slate-700",
+                    },
+                    {
+                      num: "2",
+                      label: "Classe virtuelle (2h)",
+                      detail: "Session Zoom encadrée par un formateur PREVENSIA — mise en situation et cas pratiques",
+                      color: "bg-blue-600",
+                    },
+                    {
+                      num: "3",
+                      label: "Entretien individuel (30 min)",
+                      detail: "Validation finale des acquis — délivrance de l'avis d'habilitation ATEX N1 (3 ans)",
+                      color: "bg-emerald-600",
+                    },
+                  ].map((step) => (
+                    <li key={step.num} className="flex items-start gap-3">
+                      <span
+                        className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${step.color} text-[11px] font-bold text-white`}
+                      >
+                        {step.num}
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-blue-900">{step.label}</p>
+                        <p className="mt-0.5 text-xs leading-5 text-blue-700">{step.detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
           </div>
 
           <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
