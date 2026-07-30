@@ -14,17 +14,17 @@ type Formation = {
 
 const FORMATIONS: Formation[] = [
   // HABILITATION ÉLECTRIQUE
-  { id: "h0b0", label: "H0B0 / H0V", category: "Habilitation électrique", priceHT: 129, priceNote: "E-learning", perPerson: true },
-  { id: "bsbe", label: "BS / BE Manœuvre", category: "Habilitation électrique", priceHT: 199, priceNote: "E-learning + classe virtuelle", perPerson: true },
+  { id: "h0b0", label: "H0B0 / H0V", category: "Habilitation électrique", priceHT: 190, priceNote: "E-learning + entretien formateur", perPerson: true },
+  { id: "bsbe", label: "BS / BE Manœuvre", category: "Habilitation électrique", priceHT: 350, priceNote: "E-learning + classe virtuelle", perPerson: true },
   { id: "b1b2brbc", label: "B1 / B2 / BR / BC", category: "Habilitation électrique", priceHT: null, priceNote: "Sur devis selon parcours", perPerson: false },
   { id: "recyclage-h0b0", label: "Recyclage H0B0", category: "Habilitation électrique", priceHT: null, priceNote: "Sur devis", perPerson: false },
   // ATEX
-  { id: "atex-n1", label: "ATEX Niveau 1", category: "ATEX", priceHT: 129, priceNote: "E-learning 3h", perPerson: true },
-  { id: "atex-n2", label: "ATEX Niveau 2", category: "ATEX", priceHT: 490, priceNote: "À partir de — E-learning + entretien", perPerson: true },
-  { id: "atex-n3", label: "ATEX Niveau 3", category: "ATEX", priceHT: 790, priceNote: "À partir de — E-learning + classe virtuelle", perPerson: true },
+  { id: "atex-n0", label: "ATEX Niveau 0 — Sensibilisation", category: "ATEX", priceHT: 129, priceNote: "E-learning 3h", perPerson: true },
+  { id: "atex-n1", label: "ATEX Niveau 1 — Intervenant zone ATEX", category: "ATEX", priceHT: 490, priceNote: "À partir de — E-learning + entretien formateur", perPerson: true },
+  { id: "atex-n2", label: "ATEX Niveau 2 — Référent / Encadrant", category: "ATEX", priceHT: null, priceNote: "À partir de 790 € — sur devis (présentiel)", perPerson: false },
   // SSIAP / SÉCURITÉ INCENDIE
-  { id: "ssiap1", label: "SSIAP1 initial", category: "Sécurité incendie", priceHT: 1490, priceNote: "À partir de — 70h", perPerson: false },
-  { id: "recyclage-ssiap1", label: "Recyclage SSIAP1", category: "Sécurité incendie", priceHT: 250, priceNote: "À partir de — 14h", perPerson: true },
+  { id: "ssiap1", label: "SSIAP1 initial", category: "Sécurité incendie", priceHT: 1090, priceNote: "À partir de — 70h inter", perPerson: true },
+  { id: "recyclage-ssiap1", label: "Recyclage SSIAP1", category: "Sécurité incendie", priceHT: 390, priceNote: "À partir de — 14h inter", perPerson: true },
   { id: "extincteurs", label: "Manipulation extincteurs", category: "Sécurité incendie", priceHT: 149, priceNote: "0,5 jour", perPerson: true },
   { id: "guide-file", label: "Guide-file / Serre-file", category: "Sécurité incendie", priceHT: 150, priceNote: "0,5 jour", perPerson: true },
   { id: "epi", label: "Équipier de Première Intervention (EPI)", category: "Sécurité incendie", priceHT: 220, priceNote: "1 jour", perPerson: true },
@@ -32,7 +32,7 @@ const FORMATIONS: Formation[] = [
   { id: "ssi-1j", label: "Exploitation SSI (1 jour)", category: "SSI / Sprinkler", priceHT: 350, priceNote: "Inter-entreprises", perPerson: true },
   { id: "ssi-2j", label: "SSI avancé (2 jours)", category: "SSI / Sprinkler", priceHT: 690, priceNote: "Inter-entreprises", perPerson: true },
   // SPRINKLER
-  { id: "sprinkler-1j", label: "Exploitation sprinkler (1 jour)", category: "SSI / Sprinkler", priceHT: 490, priceNote: "Inter-entreprises", perPerson: true },
+  { id: "sprinkler-1j", label: "Exploitation sprinkler (1 jour)", category: "SSI / Sprinkler", priceHT: 590, priceNote: "Inter-entreprises", perPerson: true },
   { id: "sprinkler-2j", label: "Sprinkler technique + visite (2 jours)", category: "SSI / Sprinkler", priceHT: 990, priceNote: "Inter-entreprises", perPerson: true },
   // SST
   { id: "sst", label: "SST initial", category: "SST", priceHT: 240, priceNote: "2 jours — inter-entreprises", perPerson: true },
