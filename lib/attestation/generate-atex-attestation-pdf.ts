@@ -254,7 +254,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       { label: "Exécuter des travaux sur équipements en zone classée",               ok: false },
       { label: "Appliquer des permis de travail ou autorisations ATEX",              ok: false },
       { label: "Diriger ou superviser des interventions en zone ATEX",               ok: false },
-      { label: "Élaborer ou valider un plan de prévention / DRPE",                  ok: false },
+      { label: "Élaborer ou valider un plan de prévention / DRPCE",                 ok: false },
     ],
   },
   2: {
@@ -264,7 +264,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
     description:
       "Travailleur intervenant régulièrement en zone ATEX classée. " +
       "Habilité à exécuter des travaux conformément aux plans de prévention " +
-      "et sous respect du Document Relatif à la Protection contre les Explosions (DRPE). " +
+      "et sous respect du Document Relatif à la Protection Contre les Explosions (DRPCE). " +
       "Recyclage recommandé tous les 3 ans.",
     validityYears: 3,
     zones: [
@@ -278,7 +278,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       { label: "Exécuter des travaux sur équipements en zone classée",               ok: true  },
       { label: "Appliquer les permis de travail et autorisations ATEX",              ok: true  },
       { label: "Diriger ou superviser des interventions en zone ATEX",               ok: false },
-      { label: "Élaborer ou valider le DRPE",                                        ok: false },
+      { label: "Élaborer ou valider le DRPCE",                                       ok: false },
     ],
   },
   3: {
@@ -289,7 +289,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       "Encadrant et responsable de travaux en zone ATEX. " +
       "Habilité à superviser les interventions, élaborer et valider " +
       "les plans de prévention ainsi que le Document Relatif à la Protection " +
-      "contre les Explosions (DRPE). Recyclage recommandé tous les 3 ans.",
+      "Contre les Explosions (DRPCE). Recyclage recommandé tous les 3 ans.",
     validityYears: 3,
     zones: [
       { cat: "Gaz / vapeurs inflammables",  zones: "Zone 0  —  Zone 1  —  Zone 2" },
@@ -316,8 +316,9 @@ function drawPage1(p: {
   ref: string; issueDate: string; validationDate: string; validityDate: string;
   learner: string; employer: string; formation: string;
   level: AtexLevel;
+  formateur: string; nda: string;
 }) {
-  const { page, R, B, C, logo, ref, issueDate, validationDate, validityDate, learner, employer, formation, level } = p;
+  const { page, R, B, C, logo, ref, issueDate, validationDate, validityDate, learner, employer, formation, level, formateur, nda } = p;
   const cfg = LEVEL_CFG[level];
   const W = page.getWidth();   // 595.28
   const H = page.getHeight();  // 841.89
@@ -476,42 +477,62 @@ function drawPage1(p: {
       `Cette attestation est délivrée à l'issue de la validation théorique du parcours PREVENSIA FORMATION ` +
       `le ${validationDate}. Elle ne constitue pas une certification ISM-ATEX ni une habilitation formelle. ` +
       `La décision d'autoriser un salarié à intervenir en zone ATEX appartient exclusivement à l'employeur, ` +
-      `en fonction de l'analyse des risques du poste, des conditions réelles d'intervention et du DRPE en vigueur.`
+      `en fonction de l'analyse des risques du poste, des conditions réelles d'intervention et du DRPCE en vigueur.`
     ),
     m, y - discH, cw, discH,
     { font: R, size: 7.1, border: C.line, bg: rgb(0.99, 0.97, 0.90), lh: 8.6, va: "middle" }
   );
 
   // ── Signatures (ancrées en bas) ───────────────────────────────────────────────
-  const sigCY = 58, sigHY = sigCY + 58;
-  const sL = 160, sC = 248, sR = cw - sL - sC;
+  const sigCY = 68, sigHY = sigCY + 58;
+  const sL = 148, sC = 200, sR = cw - sL - sC;
 
   cell(page, sp("Signature du titulaire"), m, sigHY, sL, 18,
     { font: B, size: 8.4, border: C.line, bg: C.softGrey, va: "middle" });
   cell(page, sp("L'employeur"), m + sL, sigHY, sC, 18,
     { font: B, size: 8.4, border: C.line, bg: C.softGrey, va: "middle" });
-  cell(page, "Signature", m + sL + sC, sigHY, sR, 18,
+  cell(page, sp("Formateur PREVENSIA"), m + sL + sC, sigHY, sR, 18,
     { font: B, size: 8.4, border: C.line, bg: C.softGrey, va: "middle" });
 
   cell(page, learner, m, sigCY, sL, 58,
     { font: B, size: 10.8, border: C.line, align: "center", va: "middle" });
-  cell(page, sp("Raison sociale :"), m + sL, sigCY + 28, 76, 30,
-    { font: R, size: 8.1, border: C.line, va: "middle" });
-  cell(page, employer, m + sL + 76, sigCY + 28, sC - 76, 30,
-    { font: B, size: 9.1, border: C.line, va: "middle" });
-  cell(page, sp("Fonction :"), m + sL, sigCY, 76, 28,
-    { font: R, size: 8.1, border: C.line, va: "middle" });
-  cell(page, sp(""), m + sL + 76, sigCY, sC - 76, 28,
-    { font: B, size: 9.1, border: C.line, va: "middle" });
-  cell(page, "", m + sL + sC, sigCY, sR, 58,
-    { font: R, size: 8, border: C.line });
-  hline(page, m + sL + sC + 12, sigCY + 16, m + sL + sC + sR - 12, C.line);
+  cell(page, sp("Raison sociale :"), m + sL, sigCY + 28, 72, 30,
+    { font: R, size: 8, border: C.line, va: "middle" });
+  cell(page, employer, m + sL + 72, sigCY + 28, sC - 72, 30,
+    { font: B, size: 9, border: C.line, va: "middle" });
+  cell(page, sp("Fonction :"), m + sL, sigCY, 72, 28,
+    { font: R, size: 8, border: C.line, va: "middle" });
+  cell(page, sp(""), m + sL + 72, sigCY, sC - 72, 28,
+    { font: B, size: 9, border: C.line, va: "middle" });
+  // Bloc formateur
+  cell(page, sp(formateur || "— à compléter —"),
+    m + sL + sC, sigCY, sR, 58,
+    { font: formateur ? B : R, size: 9, border: C.line, align: "center", va: "middle",
+      color: formateur ? C.text : C.muted });
+  if (formateur) {
+    const fLabel = sp("PREVENSIA FORMATION");
+    const fLabelW = R.widthOfTextAtSize(fLabel, 6.5);
+    page.drawText(fLabel, {
+      x: m + sL + sC + (sR - fLabelW) / 2,
+      y: sigCY + 6, size: 6.5, font: R, color: C.muted,
+    });
+  }
 
   // Pied de page
-  page.drawText("PREVENSIA FORMATION", { x: m, y: 20, size: 7.1, font: B, color: C.brand });
-  page.drawText(sp(`Référence : ${ref}`), { x: m, y: 10, size: 6.6, font: R, color: C.muted });
-  const formW = R.widthOfTextAtSize(sp(formation), 6.6);
-  page.drawText(sp(formation), { x: W - m - formW, y: 10, size: 6.6, font: R, color: C.muted });
+  const footerY1 = 24, footerY2 = 14, footerY3 = 6;
+  page.drawText(sp("PREVENSIA FORMATION  |  33, avenue Philippe Auguste — 75011 Paris"), {
+    x: m, y: footerY1, size: 7, font: B, color: C.brand,
+  });
+  const contactLine = sp("Tél. 01 89 62 94 92  |  contact@prevensia-formation.fr");
+  page.drawText(contactLine, { x: m, y: footerY2, size: 6.5, font: R, color: C.muted });
+  if (nda) {
+    const ndaText = sp(`N° déclaration d'activité : ${nda}`);
+    const ndaW = R.widthOfTextAtSize(ndaText, 6.5);
+    page.drawText(ndaText, { x: W - m - ndaW, y: footerY2, size: 6.5, font: R, color: C.muted });
+  }
+  page.drawText(sp(`Réf. : ${ref}`), { x: m, y: footerY3, size: 6.3, font: R, color: C.muted });
+  const formW = R.widthOfTextAtSize(sp(formation), 6.3);
+  page.drawText(sp(formation), { x: W - m - formW, y: footerY3, size: 6.3, font: R, color: C.muted });
 }
 
 // ─── Page 2 : Fiche de réussite ATEX ──────────────────────────────────────────
@@ -524,8 +545,9 @@ function drawPage2(p: {
   learner: string; employer: string; formation: string;
   resultText: string; successText: string;
   level: AtexLevel;
+  formateur: string; nda: string;
 }) {
-  const { page, R, B, C, logo, sig, ref, validationDate, learner, employer, formation, resultText, successText, level } = p;
+  const { page, R, B, C, logo, sig, ref, validationDate, learner, employer, formation, resultText, successText, level, formateur, nda } = p;
   const cfg = LEVEL_CFG[level];
   const W = page.getWidth();
   const H = page.getHeight();
@@ -613,31 +635,118 @@ function drawPage2(p: {
       "dispensé par PREVENSIA FORMATION. Elle ne constitue pas une certification ISM-ATEX, ni une " +
       "habilitation formelle, ni un titre délivré par un organisme accrédité INERIS. " +
       "L'autorisation d'intervenir en zone ATEX relève exclusivement de la décision de l'employeur, " +
-      "en fonction du DRPE et de l'analyse des risques du poste."
+      "en fonction du DRPCE et de l'analyse des risques du poste."
     ),
     m, 168, cw, 74,
     { font: R, size: 8.4, border: C.line, bg: C.softGrey, lh: 10.5, va: "middle" }
   );
 
-  // Visa PREVENSIA
-  cell(page, sp("Visa PREVENSIA FORMATION"), m, 86, 210, 18,
-    { font: B, size: 8.3, border: C.line, bg: C.softGrey, va: "middle" });
-  cell(page, "", m, 34, 210, 52, { font: R, size: 8, border: C.line });
-  hline(page, m + 12, 48, m + 198, C.line);
+  // ── Zone signature / visa / tampon ──────────────────────────────────────────
+  const visaAreaY = 34;
+  const visaAreaH = 70;
+  const sigBlockW = 190;
+  const formateurW = 175;
+  const stampW     = cw - sigBlockW - formateurW - 16;
 
+  // Bloc visa PREVENSIA (signature)
+  cell(page, sp("Visa PREVENSIA FORMATION"), m, visaAreaY + visaAreaH, sigBlockW, 18,
+    { font: B, size: 8.3, border: C.line, bg: C.softGrey, va: "middle" });
+  cell(page, "", m, visaAreaY, sigBlockW, visaAreaH, { font: R, size: 8, border: C.line });
+  hline(page, m + 10, visaAreaY + 20, m + sigBlockW - 10, C.line);
   if (sig) {
     try {
       const d = sig.scale(1);
-      const s = Math.min(160 / d.width, 28 / d.height);
-      page.drawImage(sig, { x: m + 22, y: 48, width: d.width * s, height: d.height * s });
+      const s = Math.min((sigBlockW - 24) / d.width, 28 / d.height);
+      page.drawImage(sig, { x: m + 12, y: visaAreaY + 22, width: d.width * s, height: d.height * s });
     } catch { /* no-op */ }
   }
 
-  // Référence dossier
-  cell(page, sp("Référence dossier"), W - m - 180, 86, 180, 18,
+  // Bloc formateur
+  const fX = m + sigBlockW + 8;
+  cell(page, sp("Formateur PREVENSIA"), fX, visaAreaY + visaAreaH, formateurW, 18,
     { font: B, size: 8.3, border: C.line, bg: C.softGrey, va: "middle" });
-  cell(page, ref, W - m - 180, 34, 180, 52,
-    { font: B, size: 11, border: C.line, align: "center", va: "middle" });
+  cell(page, sp(formateur || "— à compléter —"), fX, visaAreaY, formateurW, visaAreaH,
+    { font: formateur ? B : R, size: 9.5, border: C.line, align: "center", va: "middle",
+      color: formateur ? C.text : C.muted });
+
+  // Tampon circulaire PREVENSIA
+  const stampX = fX + formateurW + 8;
+  const stampCX = stampX + stampW / 2;
+  const stampCY = visaAreaY + visaAreaH / 2 + 9;
+  const stampR  = Math.min(stampW, visaAreaH) / 2 - 2;
+
+  // Cercle extérieur (double trait style tampon)
+  page.drawCircle({ x: stampCX, y: stampCY, size: stampR,
+    borderColor: C.atex, borderWidth: 2.2, color: rgb(1, 1, 1) });
+  page.drawCircle({ x: stampCX, y: stampCY, size: stampR - 4,
+    borderColor: C.atex, borderWidth: 0.8, color: rgb(1, 1, 1) });
+
+  // Texte circulaire (haut) : "PREVENSIA FORMATION"
+  const stampText1 = "PREVENSIA FORMATION";
+  const st1Size = 6.2;
+  const st1R = stampR - 7;
+  const st1Count = stampText1.length;
+  const st1Arc = Math.PI * 0.85; // arc en haut
+  for (let i = 0; i < st1Count; i++) {
+    const angle = -st1Arc / 2 + (i / (st1Count - 1)) * st1Arc + Math.PI / 2;
+    const cx = stampCX + st1R * Math.cos(angle);
+    const cy = stampCY + st1R * Math.sin(angle);
+    const charW = R.widthOfTextAtSize(stampText1[i], st1Size);
+    page.drawText(stampText1[i], {
+      x: cx - charW / 2, y: cy - st1Size / 2,
+      size: st1Size, font: B, color: C.atex,
+    });
+  }
+
+  // Texte circulaire (bas) : "CERTIFIÉ"
+  const stampText2 = "CERTIFIÉ";
+  const st2Size = 6;
+  const st2R = stampR - 7;
+  const st2Arc = Math.PI * 0.55;
+  for (let i = 0; i < stampText2.length; i++) {
+    const angle = Math.PI + st2Arc / 2 - (i / (stampText2.length - 1)) * st2Arc + Math.PI / 2;
+    const cx = stampCX + st2R * Math.cos(angle);
+    const cy = stampCY + st2R * Math.sin(angle);
+    const charW = R.widthOfTextAtSize(stampText2[i], st2Size);
+    page.drawText(stampText2[i], {
+      x: cx - charW / 2, y: cy - st2Size / 2,
+      size: st2Size, font: B, color: C.atex,
+    });
+  }
+
+  // Texte central du tampon
+  const centerLabel = sp("FORMATION");
+  const centerLabelW = B.widthOfTextAtSize(centerLabel, 7.5);
+  page.drawText(centerLabel, {
+    x: stampCX - centerLabelW / 2, y: stampCY + 2,
+    size: 7.5, font: B, color: C.atex,
+  });
+  const centerSub = sp("ATEX");
+  const centerSubW = R.widthOfTextAtSize(centerSub, 6.5);
+  page.drawText(centerSub, {
+    x: stampCX - centerSubW / 2, y: stampCY - 8,
+    size: 6.5, font: R, color: C.atex,
+  });
+
+  // En-tête tampon
+  cell(page, sp("Cachet organisme"), stampX, visaAreaY + visaAreaH, stampW, 18,
+    { font: B, size: 8.3, border: C.line, bg: C.softGrey, va: "middle" });
+  page.drawRectangle({ x: stampX, y: visaAreaY, width: stampW, height: visaAreaH,
+    borderColor: C.line, borderWidth: 0.8 });
+
+  // Pied de page page 2
+  const fp2Y1 = 22, fp2Y2 = 13, fp2Y3 = 5;
+  page.drawText(sp("PREVENSIA FORMATION  |  33, avenue Philippe Auguste — 75011 Paris  |  01 89 62 94 92  |  contact@prevensia-formation.fr"), {
+    x: m, y: fp2Y1, size: 6.8, font: B, color: C.brand,
+  });
+  if (nda) {
+    page.drawText(sp(`N° déclaration d'activité : ${nda}`), {
+      x: m, y: fp2Y2, size: 6.5, font: R, color: C.muted,
+    });
+  }
+  const refLine = sp(`Référence : ${ref}`);
+  const refLineW = R.widthOfTextAtSize(refLine, 6.3);
+  page.drawText(refLine, { x: W - m - refLineW, y: fp2Y3, size: 6.3, font: R, color: C.muted });
 }
 
 // ─── Export principal ──────────────────────────────────────────────────────────
@@ -656,6 +765,7 @@ export async function generateAtexAttestationPdf(input: AttestationPdfInput) {
     employeeFirstName = "",
     employeeLastName = "",
     learnerEmail = "",
+    formateur = "",
   } = input;
 
   const learner = sp(
@@ -670,6 +780,8 @@ export async function generateAtexAttestationPdf(input: AttestationPdfInput) {
   const level          = detectAtexLevel(formation);
   const cfg            = LEVEL_CFG[level];
   const validityDate   = addYearsFr(validationDate, cfg.validityYears);
+  const nda            = (process.env.PREVENSIA_NDA ?? "").trim();
+  const formateurName  = sp((formateur ?? "").trim());
 
   const hasQuiz = Number.isFinite(total) && total > 0;
   const effPassing =
@@ -722,8 +834,8 @@ export async function generateAtexAttestationPdf(input: AttestationPdfInput) {
     } catch { /* no-op */ }
   }
 
-  drawPage1({ page: p1, R, B, C, logo, ref, issueDate, validationDate, validityDate, learner, employer, formation: safeFormation, level });
-  drawPage2({ page: p2, R, B, C, logo, sig, ref, validationDate, learner, employer, formation: safeFormation, resultText, successText, level });
+  drawPage1({ page: p1, R, B, C, logo, ref, issueDate, validationDate, validityDate, learner, employer, formation: safeFormation, level, formateur: formateurName, nda });
+  drawPage2({ page: p2, R, B, C, logo, sig, ref, validationDate, learner, employer, formation: safeFormation, resultText, successText, level, formateur: formateurName, nda });
 
   const pdfBytes   = await pdfDoc.save();
   const pdfBuffer  = Buffer.from(pdfBytes);
