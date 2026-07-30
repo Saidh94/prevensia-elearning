@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Formation = {
   id: string;
@@ -85,9 +85,18 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
   const [selected, setSelected] = useState<Set<string>>(() =>
     initialData?.formationInterest ? matchIds(initialData.formationInterest) : new Set()
   );
-  const [step,    setStep]    = useState<"form" | "preview" | "sent">("form");
-  const [loading, setLoading] = useState(false);
-  const [error,   setError]   = useState("");
+  const [step,      setStep]    = useState<"form" | "preview" | "sent">("form");
+  const [loading,   setLoading] = useState(false);
+  const [error,     setError]   = useState("");
+  const [tvaExempt, setTvaExempt] = useState<boolean | null>(null);
+  const [tvaRate,   setTvaRate]   = useState<number>(20);
+
+  useEffect(() => {
+    fetch("/api/admin/tva-config")
+      .then((r) => r.json())
+      .then((d) => { setTvaExempt(d.tvaExempt); setTvaRate(d.tvaRate ?? 20); })
+      .catch(() => {}); // garde 20% par défaut si erreur
+  }, []);
 
   const selectedFormations = FORMATIONS.filter((f) => selected.has(f.id));
   const totalHT = selectedFormations.reduce(
@@ -125,7 +134,7 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
       const res = await fetch("/api/devis/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ companyName, contactName, email, phone, participants, formations, totalHT, hasQuote, notes }),
+        body: JSON.stringify({ companyName, contactName, email, phone, participants, formations, totalHT, tvaRate, hasQuote, notes }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Erreur envoi");
@@ -205,20 +214,35 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
           </table>
 
           {/* Totaux */}
-          <div className="border-t border-slate-100 px-4 py-4 space-y-2">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-slate-500">Total HT</span>
-              <span className="font-semibold text-slate-900">{totalHT > 0 ? `${totalHT} €` : "—"}{hasQuote && <span className="ml-1.5 text-xs text-amber-600">+ prestations sur devis</span>}</span>
-            </div>
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-slate-500">TVA</span>
-              <span className="text-slate-400 italic text-xs">Non applicable — art. 261-4-4 CGI</span>
-            </div>
-            <div className="flex items-center justify-between rounded-xl bg-red-700 px-4 py-3">
-              <span className="text-sm font-bold text-white">TOTAL TTC</span>
-              <span className="text-sm font-bold text-white">{totalHT > 0 ? `${totalHT} €` : "Sur devis"}{hasQuote && <span className="ml-1.5 text-xs font-normal opacity-80">+ prestations sur devis</span>}</span>
-            </div>
-          </div>
+          {(() => {
+            const montantTVA = tvaRate > 0 ? Math.round(totalHT * tvaRate) / 100 : 0;
+            const totalTTC   = totalHT + montantTVA;
+            return (
+              <div className="border-t border-slate-100 px-4 py-4 space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-slate-500">Total HT</span>
+                  <span className="font-semibold text-slate-900">
+                    {totalHT > 0 ? `${totalHT.toFixed(2)} €` : "—"}
+                    {hasQuote && <span className="ml-1.5 text-xs text-amber-600">+ prestations sur devis</span>}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-slate-500">TVA {tvaRate > 0 ? `${tvaRate} %` : ""}</span>
+                  {tvaRate === 0
+                    ? <span className="text-slate-400 italic text-xs">Non applicable — art. 261-4-4 CGI</span>
+                    : <span className="font-semibold text-slate-900">{montantTVA.toFixed(2)} €</span>
+                  }
+                </div>
+                <div className="flex items-center justify-between rounded-xl bg-red-700 px-4 py-3">
+                  <span className="text-sm font-bold text-white">TOTAL TTC</span>
+                  <span className="text-sm font-bold text-white">
+                    {totalHT > 0 ? `${totalTTC.toFixed(2)} €` : "Sur devis"}
+                    {hasQuote && <span className="ml-1.5 text-xs font-normal opacity-80">+ prestations sur devis</span>}
+                  </span>
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
         {/* Notes */}
