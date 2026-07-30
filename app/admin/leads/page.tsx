@@ -119,6 +119,12 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
               >
                 ⬇️ Export CSV
               </a>
+              <Link
+                href="/admin/devis/nouveau"
+                className="inline-flex items-center gap-1 rounded-xl bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700"
+              >
+                📄 Nouveau devis
+              </Link>
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import { redirect, notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { LeadNoteForm } from "./LeadNoteForm";
 import { LeadStatusButton } from "../LeadStatusButton";
+import DevisGeneratorButton from "./DevisGeneratorButton";
 
 type Params = Promise<{ id: string }>;
 
@@ -103,6 +104,17 @@ export default async function LeadDetailPage({ params }: { params: Params }) {
 
           {/* Actions rapides */}
           <div className="mt-6 flex flex-wrap gap-3">
+            <DevisGeneratorButton
+              initialData={{
+                contactName:       [lead.first_name, lead.last_name].filter(Boolean).join(" "),
+                email:             lead.email ?? "",
+                phone:             lead.phone ?? "",
+                companyName:       lead.company ?? "",
+                participants:      (lead.metadata as { participants?: number } | null)?.participants ?? 1,
+                formationInterest: lead.formation_interest ?? "",
+                notes:             lead.notes ?? "",
+              }}
+            />
             <a
               href={`mailto:${lead.email}?subject=Suite à votre demande de formation PREVENSIA`}
               className="inline-flex items-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
