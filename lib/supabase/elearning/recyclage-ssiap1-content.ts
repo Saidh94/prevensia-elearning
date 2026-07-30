@@ -6,7 +6,7 @@ export const recyclageSsiap1ModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning de recyclage obligatoire pour les agents SSIAP1 (tous les 3 ans). Remise à niveau sur les évolutions réglementaires, l'approfondissement SSI/IGH, la gestion des travaux et les retours d'expérience incendie.",
   duration: "2 h 30 à 3 h",
-  deliveryFormat: "E-learning autonome + quiz de validation",
+  deliveryFormat: "E-learning préparatoire + formation présentielle 14h + validation jury SSIAP",
   level: "Intermédiaire — pour agents SSIAP1 certifiés",
   objective:
     "Actualiser les connaissances réglementaires et techniques de l'agent SSIAP1, maîtriser les spécificités IGH et les catégories SSI, approfondir la gestion des travaux par points chauds, renforcer les réflexes opérationnels à partir de cas pratiques et de retours d'expérience.",

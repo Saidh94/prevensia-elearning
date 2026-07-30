@@ -6,7 +6,7 @@ export const ssiap1ModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning de sensibilisation à la sécurité incendie destiné aux agents de service, salariés d'ERP et toute personne souhaitant acquérir les bases théoriques du rôle d'agent SSIAP1 (Service de Sécurité Incendie et d'Assistance à Personnes).",
   duration: "2 h 30 à 3 h",
-  deliveryFormat: "E-learning autonome + quiz de validation",
+  deliveryFormat: "E-learning préparatoire + formation présentielle 70h + examen jury officiel SSIAP",
   level: "Débutant à intermédiaire",
   objective:
     "Comprendre le cadre réglementaire ERP/IGH et le rôle du SSIAP1, maîtriser les classes de feux et les agents extincteurs, appliquer la méthode DAPS pour utiliser un extincteur, connaître les composants du Système de Sécurité Incendie, appliquer les procédures d'évacuation et adopter les bons réflexes en cas d'incendie.",

@@ -25,6 +25,7 @@ export const modulesContent: Record<string, ModuleContent> = {
   subtitle:
     "Parcours e-learning de sensibilisation au risque électrique destiné aux personnels non électriciens amenés à évoluer dans un environnement comportant des installations électriques.",
   duration: "1 h 20 à 1 h 45",
+  deliveryFormat: "E-learning autonome + entretien de validation 30 min",
   level: "Débutant",
   objective:
     "Comprendre le cadre du H0B0, distinguer les domaines de tension, reconnaître les situations dangereuses, identifier les effets du courant électrique, respecter les zones d’environnement et les limites d’approche, adopter les bons comportements et connaître la conduite à tenir en cas d’anomalie ou d’accident.",
@@ -866,6 +867,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     subtitle:
       "Parcours e-learning de préparation aux opérations d’ordre électrique, travaux, interventions et consignation selon les rôles et limites associées.",
     duration: "1 h 15 à 1 h 45",
+    deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Avancé",
     objective:
       "Comprendre les rôles, responsabilités, séquences de sécurité, principes de consignation et exigences de préparation avant travaux ou interventions d’ordre électrique.",
@@ -1008,6 +1010,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     subtitle:
       "Parcours e-learning structuré sur la prévention du risque incendie, l’alerte, l’alarme, les premiers moyens de secours, l’évacuation, les travaux par points chauds et les repères réglementaires utiles en exploitation.",
     duration: "65 à 85 minutes",
+    deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Débutant à intermédiaire",
     objective:
       "Comprendre comment naît et se propage un incendie, réagir correctement en cas d’alerte ou d’alarme, utiliser les premiers moyens dans le strict cadre prévu, appliquer les principes d’évacuation, encadrer les travaux par points chauds et intégrer les repères réglementaires essentiels du Code du travail, des ERP, des IGH et de l’habitation.",
@@ -1456,6 +1459,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d’un système de sécurité incendie, son exploitation au quotidien, ses limites et ses principaux repères réglementaires et normatifs.",
     duration: "65 à 90 minutes",
+    deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Intermédiaire",
     objective:
       "Comprendre le rôle d’un SSI, distinguer les grandes fonctions SDI / SMSI / CMSI / UGA / DAS, connaître les réflexes d’exploitation, savoir lire les états usuels d’une installation et situer les principaux référentiels français applicables.",
@@ -1692,6 +1696,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d’une installation sprinkler, sa surveillance, ses anomalies d’exploitation et les grands référentiels rencontrés sur les sites protégés.",
     duration: "90 à 120 minutes",
+    deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Intermediaire",
     objective:
       "Comprendre le rôle d’une installation sprinkler, reconnaître ses composants, suivre ses états d’exploitation, traiter les anomalies et garder une protection adaptée au risque réel, sans la confondre avec un système fixe d’extinction à gaz.",
@@ -2137,6 +2142,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d'un système fixe d'extinction automatique à gaz, la sécurité des personnes, l'intégrité du local protégé et les repères APSAD R13 / NF EN 15004-1.",
     duration: "55 à 75 minutes",
+    deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Intermédiaire",
     objective:
       "Comprendre la logique d'un système d'extinction à gaz, distinguer les familles d'agents (CO₂, inertes, chimiques), intégrer les contraintes de local protégé et appliquer les bons réflexes d'exploitation et de sécurité.",
@@ -2368,6 +2374,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     subtitle:
       "Parcours e-learning de préparation théorique au rôle de Sauveteur Secouriste du Travail : prévention, logique d'intervention et situations de secours courantes en milieu professionnel.",
     duration: "1 h 10 à 1 h 30",
+    deliveryFormat: "E-learning préparatoire + formation présentielle 2 jours + certification jury",
     level: "Débutant à intermédiaire",
     objective:
       "Comprendre le rôle du SST en entreprise, appliquer la démarche protéger-examiner-alerter-secourir, reconnaître les urgences vitales et adopter les bons gestes face aux situations les plus fréquentes : saignement, étouffement, inconscience, arrêt cardiaque, malaise, brûlure et traumatisme.",

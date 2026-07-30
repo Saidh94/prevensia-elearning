@@ -6,7 +6,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning destiné au personnel encadrant, aux responsables sécurité et aux référents ATEX chargés de piloter la prévention, rédiger le DRPCE, sélectionner les équipements certifiés, organiser les interventions et superviser le personnel en zone classée.",
   duration: "5 h à 6 h",
-  deliveryFormat: "E-learning autonome + classe virtuelle 2h",
+  deliveryFormat: "E-learning autonome + classe virtuelle 2h + entretien de validation 30 min",
   level: "Avancé",
   objective:
     "Maîtriser les responsabilités légales de l'encadrant ATEX, rédiger et mettre à jour le DRPCE, délimiter les zones par une méthodologie rigoureuse, sélectionner et qualifier les équipements Ex, organiser les interventions et gérer les entreprises extérieures en zone classée, former et sensibiliser les équipes.",

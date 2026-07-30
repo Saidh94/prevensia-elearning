@@ -7,6 +7,7 @@ export const vehiculesModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning destiné aux techniciens et mécaniciens amenés à intervenir sur des véhicules ou engins équipés d'une source d'énergie électrique embarquée : voitures électriques/hybrides, chariots élévateurs, PEMP, engins de travaux publics.",
   duration: "1 h 30 à 2 h",
+  deliveryFormat: "E-learning autonome + quiz de validation",
   level: "Intermédiaire",
   objective:
     "Comprendre le cadre réglementaire et normatif spécifique (NF C 18-550), identifier les symboles d'habilitation propres aux véhicules (lettre L), choisir le symbole adapté à l'opération et à la batterie, appliquer la démarche d'habilitation, connaître les règles de sécurité liées aux batteries et aux énergies embarquées.",

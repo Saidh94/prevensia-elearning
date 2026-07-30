@@ -51,8 +51,7 @@ export const bsbeModuleContent: ModuleContent = {
     "Parcours e-learning structuré selon la NF C 18-510 pour les personnels amenés à réaliser des remplacements simples, des raccordements élémentaires et des manœuvres d’exploitation en basse tension.",
   duration:
     "6 h de théorie guidée + quiz + séquence d’application encadrée",
-  deliveryFormat:
-    "E-learning technique + quiz + séquence d’application encadrée : classe virtuelle de 3 h à 4 h en initial groupe / entreprise, ou visio de 45 min à 1 h en recyclage",
+  deliveryFormat: "E-learning + classe virtuelle 3-4h (initial) / visio 45 min (recyclage)",
   level: "Intermédiaire",
   objective:
     "Respecter les prescriptions de sécurité liées aux habilitations BS et BE Manœuvre, comprendre les bases électriques utiles, reconnaître les situations à risque, identifier les limites d’autorisation, préparer une opération simple en sécurité et adopter la bonne conduite en cas d’anomalie ou d’accident.",

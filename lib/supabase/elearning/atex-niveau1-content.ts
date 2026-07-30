@@ -6,7 +6,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning approfondi destiné au personnel intervenant directement sur des appareils ou installations situés en zone ATEX : techniciens de maintenance, électriciens, monteurs, instrumentistes, sous-traitants effectuant des travaux en zone classée.",
   duration: "5 h à 6 h",
-  deliveryFormat: "E-learning autonome + entretien de validation 30 min",
+  deliveryFormat: "E-learning autonome + classe virtuelle 2h + entretien de validation 30 min",
   level: "Intermédiaire",
   objective:
     "Maîtriser les règles d'intervention en zone ATEX : lire un marquage Ex complet, sélectionner l'équipement adapté à la zone, utiliser correctement l'explosimètre, appliquer les procédures d'autorisation de travail et permis de feu, utiliser les EPI antistatiques et réagir face à une anomalie ou un incident.",
