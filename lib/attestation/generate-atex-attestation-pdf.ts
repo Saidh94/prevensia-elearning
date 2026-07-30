@@ -669,70 +669,69 @@ function drawPage2(p: {
     { font: formateur ? B : R, size: 9.5, border: C.line, align: "center", va: "middle",
       color: formateur ? C.text : C.muted });
 
-  // Tampon circulaire PREVENSIA
-  const stampX = fX + formateurW + 8;
-  const stampCX = stampX + stampW / 2;
-  const stampCY = visaAreaY + visaAreaH / 2 + 9;
-  const stampR  = Math.min(stampW, visaAreaH) / 2 - 2;
+  // ── Tampon PREVENSIA — design rectangulaire ──────────────────────────────────
+  const stampX  = fX + formateurW + 8;
+  const sInner  = 4;                    // padding intérieur
+  const sX      = stampX + sInner;
+  const sW      = stampW - sInner * 2;
 
-  // Cercle extérieur (double trait style tampon)
-  page.drawCircle({ x: stampCX, y: stampCY, size: stampR,
-    borderColor: C.atex, borderWidth: 2.2, color: rgb(1, 1, 1) });
-  page.drawCircle({ x: stampCX, y: stampCY, size: stampR - 4,
-    borderColor: C.atex, borderWidth: 0.8, color: rgb(1, 1, 1) });
-
-  // Texte circulaire (haut) : "PREVENSIA FORMATION"
-  const stampText1 = "PREVENSIA FORMATION";
-  const st1Size = 6.2;
-  const st1R = stampR - 7;
-  const st1Count = stampText1.length;
-  const st1Arc = Math.PI * 0.85; // arc en haut
-  for (let i = 0; i < st1Count; i++) {
-    const angle = -st1Arc / 2 + (i / (st1Count - 1)) * st1Arc + Math.PI / 2;
-    const cx = stampCX + st1R * Math.cos(angle);
-    const cy = stampCY + st1R * Math.sin(angle);
-    const charW = R.widthOfTextAtSize(stampText1[i], st1Size);
-    page.drawText(stampText1[i], {
-      x: cx - charW / 2, y: cy - st1Size / 2,
-      size: st1Size, font: B, color: C.atex,
-    });
-  }
-
-  // Texte circulaire (bas) : "CERTIFIÉ"
-  const stampText2 = "CERTIFIÉ";
-  const st2Size = 6;
-  const st2R = stampR - 7;
-  const st2Arc = Math.PI * 0.55;
-  for (let i = 0; i < stampText2.length; i++) {
-    const angle = Math.PI + st2Arc / 2 - (i / (stampText2.length - 1)) * st2Arc + Math.PI / 2;
-    const cx = stampCX + st2R * Math.cos(angle);
-    const cy = stampCY + st2R * Math.sin(angle);
-    const charW = R.widthOfTextAtSize(stampText2[i], st2Size);
-    page.drawText(stampText2[i], {
-      x: cx - charW / 2, y: cy - st2Size / 2,
-      size: st2Size, font: B, color: C.atex,
-    });
-  }
-
-  // Texte central du tampon
-  const centerLabel = sp("FORMATION");
-  const centerLabelW = B.widthOfTextAtSize(centerLabel, 7.5);
-  page.drawText(centerLabel, {
-    x: stampCX - centerLabelW / 2, y: stampCY + 2,
-    size: 7.5, font: B, color: C.atex,
-  });
-  const centerSub = sp("ATEX");
-  const centerSubW = R.widthOfTextAtSize(centerSub, 6.5);
-  page.drawText(centerSub, {
-    x: stampCX - centerSubW / 2, y: stampCY - 8,
-    size: 6.5, font: R, color: C.atex,
-  });
-
-  // En-tête tampon
+  // Étiquette de colonne (même style que les deux autres blocs)
   cell(page, sp("Cachet organisme"), stampX, visaAreaY + visaAreaH, stampW, 18,
     { font: B, size: 8.3, border: C.line, bg: C.softGrey, va: "middle" });
+
+  // Bordure extérieure du bloc
   page.drawRectangle({ x: stampX, y: visaAreaY, width: stampW, height: visaAreaH,
     borderColor: C.line, borderWidth: 0.8 });
+
+  // Bande rouge en haut : "PREVENSIA"
+  const bandH    = 18;
+  const bandY    = visaAreaY + visaAreaH - bandH;
+  page.drawRectangle({
+    x: sX, y: bandY, width: sW, height: bandH,
+    color: C.brand, borderWidth: 0,
+  });
+  const pLabel  = sp("PREVENSIA");
+  const pLabelW = B.widthOfTextAtSize(pLabel, 9.5);
+  page.drawText(pLabel, {
+    x: sX + sW / 2 - pLabelW / 2,
+    y: bandY + (bandH - 9.5) / 2 + 1,
+    size: 9.5, font: B, color: rgb(1, 1, 1),
+  });
+
+  // Ligne "FORMATION" sous la bande rouge
+  const formLabel  = sp("FORMATION");
+  const formLabelW = R.widthOfTextAtSize(formLabel, 8);
+  page.drawText(formLabel, {
+    x: sX + sW / 2 - formLabelW / 2,
+    y: bandY - 12,
+    size: 8, font: R, color: C.brand,
+  });
+
+  // Ligne de séparation
+  const sepY = bandY - 18;
+  page.drawLine({
+    start: { x: sX + 8,      y: sepY },
+    end:   { x: sX + sW - 8, y: sepY },
+    thickness: 0.5, color: C.brand,
+  });
+
+  // Ligne "ATTESTÉ" en gras rouge
+  const atLabel  = sp("ATTESTÉ");
+  const atLabelW = B.widthOfTextAtSize(atLabel, 9);
+  page.drawText(atLabel, {
+    x: sX + sW / 2 - atLabelW / 2,
+    y: sepY - 13,
+    size: 9, font: B, color: C.brand,
+  });
+
+  // Sous-texte : SIRET
+  const siretLabel  = sp("107 290 579 00013");
+  const siretLabelW = R.widthOfTextAtSize(siretLabel, 5.5);
+  page.drawText(siretLabel, {
+    x: sX + sW / 2 - siretLabelW / 2,
+    y: visaAreaY + 6,
+    size: 5.5, font: R, color: C.muted,
+  });
 
   // Pied de page page 2
   const fp2Y1 = 22, fp2Y2 = 13, fp2Y3 = 5;
