@@ -10,6 +10,7 @@ export type SlotCategory =
   | "bsbe_recyclage"
   | "b1b2brbc_initial"
   | "b1b2brbc_recyclage"
+  | "atex_n1_virtuel"   // Classe virtuelle ATEX Niveau 1 (session groupe imposée par l'admin)
   | "other";
 
 export type ReservationSlot = {

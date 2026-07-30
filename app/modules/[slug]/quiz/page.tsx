@@ -95,6 +95,17 @@ export default function QuizPage() {
   const canonicalSlug = useMemo(() => resolveModuleSlug(slug) ?? slug, [slug]);
   const isAtexN1 = canonicalSlug === "atex-niveau1";
 
+  /**
+   * Session de classe virtuelle ATEX N1 assignée par l'admin.
+   * undefined = en cours de chargement | null = aucune session trouvée | objet = session trouvée.
+   */
+  const [atexSession, setAtexSession] = useState<{
+    date: string;
+    startTime: string;
+    endTime: string;
+    meetingUrl?: string;
+  } | null | undefined>(undefined);
+
   const formationLabel = useMemo(
     () => getModuleLabelBySlug(canonicalSlug),
     [canonicalSlug]
@@ -537,6 +548,31 @@ export default function QuizPage() {
     shuffledQuiz,
     answers,
   ]);
+
+  /** Charge la session de classe virtuelle ATEX N1 imposée par l'admin (groupe). */
+  useEffect(() => {
+    if (!isAtexN1 || !finished || !success) return;
+    void (async () => {
+      try {
+        const res = await fetch("/api/virtual-sessions");
+        if (!res.ok) { setAtexSession(null); return; }
+        const all = (await res.json()) as Array<{
+          date: string;
+          startTime: string;
+          endTime: string;
+          meetingUrl?: string;
+          category?: string;
+        }>;
+        const today = new Date().toISOString().split("T")[0];
+        const upcoming = all
+          .filter((s) => s.category === "atex_n1_virtuel" && s.date >= today)
+          .sort((a, b) => a.date.localeCompare(b.date));
+        setAtexSession(upcoming[0] ?? null);
+      } catch {
+        setAtexSession(null);
+      }
+    })();
+  }, [isAtexN1, finished, success]);
 
   const handleRestoreProgress = () => {
     if (!savedProgress || quiz.length === 0) {
@@ -1176,16 +1212,42 @@ export default function QuizPage() {
                       </li>
                       <li className="flex items-center gap-3">
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-[11px] font-bold text-white">2</span>
-                        <span className="text-slate-700">Classe virtuelle (2h) — <span className="font-semibold text-blue-700">à planifier</span></span>
+                        <span className="text-slate-700">
+                          Classe virtuelle (2h) —{" "}
+                          {atexSession === undefined ? (
+                            <span className="font-semibold text-slate-400">chargement…</span>
+                          ) : atexSession ? (
+                            <span className="font-semibold text-blue-700">
+                              le{" "}
+                              {new Date(atexSession.date + "T00:00:00").toLocaleDateString("fr-FR", {
+                                day: "numeric",
+                                month: "short",
+                              })}{" "}
+                              à {atexSession.startTime.slice(0, 5)}
+                            </span>
+                          ) : (
+                            <span className="font-semibold text-blue-700">à planifier</span>
+                          )}
+                        </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-300 text-[11px] font-bold text-slate-600">3</span>
                         <span className="text-slate-500">Entretien individuel (30 min) — après la classe virtuelle</span>
                       </li>
                     </ol>
-                    <p className="mt-3 text-xs leading-5 text-blue-600">
-                      PREVENSIA vous contactera par e-mail avec votre lien Zoom. Vous pouvez aussi consulter les créneaux disponibles dans votre espace de réservation.
-                    </p>
+                    {atexSession?.meetingUrl ? (
+                      <p className="mt-3 text-xs leading-5 text-blue-600">
+                        Votre session est confirmée. Utilisez le bouton ci-dessous pour rejoindre la classe Zoom le jour J.
+                      </p>
+                    ) : atexSession ? (
+                      <p className="mt-3 text-xs leading-5 text-blue-600">
+                        Votre session est programmée. Le lien Zoom vous sera communiqué par e-mail avant la date.
+                      </p>
+                    ) : (
+                      <p className="mt-3 text-xs leading-5 text-blue-600">
+                        PREVENSIA vous contactera par e-mail avec votre lien Zoom. Vous pouvez aussi consulter les créneaux disponibles dans votre espace de réservation.
+                      </p>
+                    )}
                   </div>
                 )}
 
@@ -1364,12 +1426,30 @@ export default function QuizPage() {
                 {success && !saveError && !quizContext.orderedByEmployer && (
                   <>
                     {isAtexN1 && (
-                      <Link
-                        href="/reservation"
-                        className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-                      >
-                        Voir les classes virtuelles
-                      </Link>
+                      atexSession?.meetingUrl ? (
+                        <a
+                          href={atexSession.meetingUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                        >
+                          Rejoindre la classe Zoom
+                        </a>
+                      ) : atexSession ? (
+                        <Link
+                          href="/reservation"
+                          className="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                        >
+                          Session programmée — voir détails
+                        </Link>
+                      ) : (
+                        <Link
+                          href="/reservation"
+                          className="inline-flex items-center rounded-xl border border-blue-300 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
+                        >
+                          Voir les classes virtuelles
+                        </Link>
+                      )
                     )}
                     <Link
                       href="/booking"
