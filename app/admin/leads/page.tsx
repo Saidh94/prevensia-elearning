@@ -2,7 +2,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { LeadStatusButton } from "./LeadStatusButton";
+import LeadsTableWithDevis from "./LeadsTableWithDevis";
 
 type SearchParams = Promise<{ status?: string; q?: string }>;
 
@@ -143,54 +143,8 @@ export default async function AdminLeadsPage({ searchParams }: { searchParams?: 
             </button>
           </form>
 
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[900px] border-separate border-spacing-y-1.5 text-sm">
-              <thead>
-                <tr>
-                  {["Nom", "Email", "Téléphone", "Formation", "Source", "Score", "Statut", "Créé le"].map((h) => (
-                    <th key={h} className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-400 whitespace-nowrap">{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map((lead) => (
-                  <tr key={lead.id} className="bg-white transition hover:bg-slate-50">
-                    <td className="rounded-l-xl px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">
-                      <Link href={`/admin/leads/${lead.id}`} className="hover:text-blue-700 hover:underline">
-                        {[lead.first_name, lead.last_name].filter(Boolean).join(" ") || "—"}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-3 text-xs text-slate-500">{lead.email}</td>
-                    <td className="px-4 py-3 text-xs text-slate-500">{lead.phone ?? "—"}</td>
-                    <td className="px-4 py-3 text-slate-700">{lead.formation_interest ?? "—"}</td>
-                    <td className="px-4 py-3">
-                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600">
-                        {lead.source ?? "—"}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className={`text-sm font-bold ${(lead.score ?? 0) >= 70 ? "text-emerald-700" : (lead.score ?? 0) >= 40 ? "text-amber-700" : "text-slate-400"}`}>
-                        {lead.score ?? 0}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <LeadStatusButton leadId={lead.id} currentStatus={lead.status ?? "new"} />
-                    </td>
-                    <td className="rounded-r-xl px-4 py-3 text-xs text-slate-400 whitespace-nowrap">
-                      {new Date(lead.created_at).toLocaleDateString("fr-FR")}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            {filtered.length === 0 && (
-              <div className="mt-8 py-12 text-center">
-                <p className="text-4xl">👥</p>
-                <p className="mt-3 text-sm font-semibold text-slate-600">Aucun lead pour l&apos;instant</p>
-                <p className="mt-1 text-xs text-slate-400">Les prospects apparaîtront ici dès qu&apos;ils rempliront un formulaire.</p>
-              </div>
-            )}
+          <div className="mt-6">
+            <LeadsTableWithDevis leads={filtered} />
           </div>
         </section>
       </div>
