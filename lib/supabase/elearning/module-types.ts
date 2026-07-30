@@ -21,7 +21,9 @@ export type AnimationKey =
   | "evacuation-schema"
   | "permis-feu-etapes"
   | "ssi-chaine-fonctionnelle"
-  | "sprinkler-activation";
+  | "sprinkler-activation"
+  | "atex-domaine-explosivite"
+  | "atex-explosimetre";
 
 export type ModuleVisual = {
   title?: string;

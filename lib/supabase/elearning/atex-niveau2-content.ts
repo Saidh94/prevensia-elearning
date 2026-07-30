@@ -25,6 +25,12 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       estimatedMinutes: 20,
       chapterImagePath: "/elearning/atex/atex-hexagone-explosion.svg",
       chapterImageAlt: "Rappels Niveau 0 et 1 — mécanisme explosion, zones, marquages Ex",
+      visual: {
+        title: "Domaine d'explosivité — rappel fondamental",
+        subtitle: "LIE, LSE et seuil d'alarme à 20 % LIE : base de toute intervention ATEX.",
+        tone: "red" as const,
+        animationKey: "atex-domaine-explosivite" as const,
+      },
       intro:
         "L'encadrant ATEX doit maîtriser tous les éléments des Niveaux 0 et 1 avant d'aborder son rôle spécifique. Ce chapitre effectue une consolidation rapide des points essentiels.",
       content: [
@@ -249,6 +255,12 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       estimatedMinutes: 25,
       chapterImagePath: "/elearning/atex/atex-sources-inflammation.svg",
       chapterImageAlt: "Systèmes de détection de gaz fixes — technologies, implantation et seuils d'alarme",
+      visual: {
+        title: "Détection de gaz — seuils et alarme",
+        subtitle: "Simulation détecteur fixe : montée vers 20 % LIE, déclenchement alarme et arrêt process.",
+        tone: "red" as const,
+        animationKey: "atex-explosimetre" as const,
+      },
       intro:
         "Les systèmes de détection de gaz fixes sont une mesure de protection technique clé en zone ATEX. L'encadrant doit connaître les technologies disponibles, leurs limites et les exigences de maintenance.",
       content: [

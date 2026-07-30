@@ -120,8 +120,10 @@ export const atexModuleContent: ModuleContent = {
       chapterImagePath: "/elearning/atex/atex-explosion-dynamic.svg",
       chapterImageAlt: "Les 6 conditions simultanées de l'explosion — animation pulsante",
       visual: {
-        imagePath: "/elearning/atex/atex-domaine-ratex.svg",
-        imageAlt: "Domaine d'explosivité — LIE, LSE et risque ATEX (RATEX)",
+        title: "Domaine d'explosivité",
+        subtitle: "Entre LIE et LSE : explosion possible. Seuil alarme explosimètre = 20 % LIE.",
+        tone: "red" as const,
+        animationKey: "atex-domaine-explosivite" as const,
       },
       intro:
         "Une explosion n'est pas un phénomène aléatoire. Elle nécessite 6 conditions simultanées. Supprimer l'une d'elles suffit à empêcher l'explosion.",
@@ -358,6 +360,12 @@ export const atexModuleContent: ModuleContent = {
       estimatedMinutes: 15,
       chapterImagePath: "/elearning/atex/atex-peas-urgence.svg",
       chapterImageAlt: "Conduite à tenir en urgence ATEX : 4 étapes PEAS — Protéger, Examiner, Alerter, Secourir",
+      visual: {
+        title: "Réflexes PEAS en urgence",
+        subtitle: "4 étapes dans l'ordre : Protéger → Examiner → Alerter → Secourir",
+        tone: "red" as const,
+        animationKey: "peas-sst" as const,
+      },
       intro:
         "Face à une situation d'urgence ATEX, les réflexes doivent être automatiques. Chaque seconde compte et une mauvaise réaction peut aggraver la situation.",
       content: [

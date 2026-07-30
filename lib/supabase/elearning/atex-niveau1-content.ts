@@ -25,6 +25,12 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       estimatedMinutes: 25,
       chapterImagePath: "/elearning/atex/atex-hexagone-explosion.svg",
       chapterImageAlt: "Hexagone des 6 conditions simultanées d'une explosion ATEX",
+      visual: {
+        title: "Domaine d'explosivité",
+        subtitle: "Entre LIE et LSE : explosion possible. Seuil alarme = 20 % LIE.",
+        tone: "red" as const,
+        animationKey: "atex-domaine-explosivite" as const,
+      },
       intro:
         "Avant d'intervenir en zone ATEX, il est indispensable de maîtriser parfaitement le mécanisme d'une explosion. Ce chapitre consolide les acquis du Niveau 0 et approfondit les paramètres physico-chimiques essentiels pour un intervenant.",
       content: [
@@ -159,8 +165,14 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "explosimetre-detection",
       title: "5. L'explosimètre — Utilisation, étalonnage et interprétation",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-sources-inflammation.svg",
-      chapterImageAlt: "Courbes d'étalonnage explosimètre — écart entre valeur lue et valeur réelle selon le gaz",
+      chapterImagePath: "/elearning/atex/atex-domaine-explosivite.svg",
+      chapterImageAlt: "Explosimètre certifié Ex — lecture en % LIE et seuil d'alarme à 20%",
+      visual: {
+        title: "Explosimètre certifié Ex",
+        subtitle: "Simulation : montée vers 20 % LIE → déclenchement alarme. Arrêt immédiat des travaux.",
+        tone: "red" as const,
+        animationKey: "atex-explosimetre" as const,
+      },
       intro:
         "L'explosimètre est l'outil de détection indispensable avant toute intervention en zone ATEX. Un mauvais étalonnage ou une mauvaise utilisation peut donner une fausse sécurité aux conséquences mortelles.",
       content: [

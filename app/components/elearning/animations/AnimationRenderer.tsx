@@ -13,6 +13,8 @@ const ANIMATION_MAP: Record<AnimationKey, React.ComponentType> = {
   "permis-feu-etapes": dynamic(() => import("./PermisFeuEtapes")),
   "ssi-chaine-fonctionnelle": dynamic(() => import("./SsiChaineFonctionnelle")),
   "sprinkler-activation": dynamic(() => import("./SprinklerActivation")),
+  "atex-domaine-explosivite": dynamic(() => import("./AtexDomaineExplosivite")),
+  "atex-explosimetre": dynamic(() => import("./AtexExplosimetre")),
 };
 
 export default function AnimationRenderer({ animationKey }: { animationKey: AnimationKey }) {
