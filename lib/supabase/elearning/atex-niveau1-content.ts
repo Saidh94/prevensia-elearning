@@ -23,8 +23,8 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "rappels-approfondissement",
       title: "1. Rappels et approfondissement — Le mécanisme de l'explosion",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-hexagone-explosion.svg",
-      chapterImageAlt: "Hexagone des 6 conditions simultanées d'une explosion ATEX",
+      chapterImagePath: "/elearning/atex/atex-hexagone-lie-lse.png",
+      chapterImageAlt: "Les 6 conditions simultanées d'une explosion ATEX et le domaine d'explosivité LIE/LSE — source INRS",
       visual: {
         title: "Domaine d'explosivité",
         subtitle: "Entre LIE et LSE : explosion possible. Seuil alarme = 20 % LIE.",
@@ -58,13 +58,23 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Norme EN 80079-20-1 : paramètres physico-chimiques des gaz et liquides inflammables.",
         "Norme EN 80079-20-2 : paramètres d'explosivité des poussières.",
       ],
+      resourceVideos: [
+        {
+          title: "Explosion sur le lieu de travail — Zonage et marquage des appareils ATEX",
+          description:
+            "Vidéo INRS présentant les mécanismes d'explosion en milieu professionnel, le classement des zones ATEX et la lecture du marquage des matériels certifiés Ex.",
+          url: "https://youtu.be/MaieQIweE0A?si=-oXQk8VzGFjGrUOA",
+          provider: "INRS / YouTube",
+          ctaLabel: "Voir la vidéo INRS",
+        },
+      ],
     },
     {
       id: "classification-zones-avancee",
       title: "2. Classification des zones ATEX — Critères et délimitation",
       estimatedMinutes: 30,
-      chapterImagePath: "/elearning/atex/atex-zones-classification.svg",
-      chapterImageAlt: "Classification des zones ATEX gaz (0/1/2) et poussières (20/21/22) selon l'INERIS",
+      chapterImagePath: "/elearning/atex/atex-zones-batiment.png",
+      chapterImageAlt: "Schéma de zonage ATEX Z1/Z2 dans un bâtiment industriel — source INRS",
       intro:
         "La classification des zones est la base du choix des équipements. Un intervenant doit savoir lire un plan de zonage, comprendre les critères qui définissent chaque zone et adapter son comportement en conséquence.",
       content: [
@@ -97,8 +107,8 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "marquages-ex",
       title: "3. Lecture des marquages Ex — Décoder un équipement certifié",
       estimatedMinutes: 35,
-      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
-      chapterImageAlt: "Tableau de correspondance catégories ATEX / zones et décodage du marquage Ex",
+      chapterImagePath: "/elearning/atex/atex-marquage-ce.png",
+      chapterImageAlt: "Marquage CE ATEX : CE + n° organisme notifié + symbole Ex + groupe + catégorie + type d'atmosphère — source INRS",
       intro:
         "Utiliser un équipement non adapté à la zone classée peut provoquer une explosion. Savoir lire un marquage Ex complet est une compétence fondamentale pour tout intervenant en zone ATEX.",
       content: [
@@ -126,13 +136,23 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Code de l'environnement - Art. R.557-1-1 à R.557-5-5 : transposition de la directive 2014/34/UE.",
         "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : sélection et installation des équipements.",
       ],
+      resourceVideos: [
+        {
+          title: "Zonage et marquage des matériels ATEX — Lecture du marquage Ex complet",
+          description:
+            "Vidéo INRS expliquant comment déchiffrer le marquage Ex d'un équipement certifié ATEX : symbole Ex, groupe d'appareils, catégorie, mode de protection et classe de température.",
+          url: "https://youtu.be/vhswVTHEbRQ?si=iyeYJYqstsuEzHfT",
+          provider: "INRS / YouTube",
+          ctaLabel: "Voir la vidéo — Marquage Ex",
+        },
+      ],
     },
     {
       id: "autorisation-travail-permis-feu",
-      title: "4. Autorisation de travail et permis de feu en zone ATEX",
-      estimatedMinutes: 30,
-      chapterImagePath: "/elearning/atex/atex-peas-urgence.svg",
-      chapterImageAlt: "Procédure d'autorisation de travail et permis de feu en zone ATEX",
+      title: "4. DRPCE, autorisation de travail et permis de feu en zone ATEX",
+      estimatedMinutes: 35,
+      chapterImagePath: "/elearning/atex/atex-panneau-porte.png",
+      chapterImageAlt: "Panneau ATEX sur une porte industrielle : ce local contient des zones ou des équipements avec risque d'explosion",
       intro:
         "L'autorisation de travail et le permis de feu sont des outils organisationnels essentiels pour maîtriser les risques lors d'interventions en zone ATEX. Leur non-respect est à l'origine de nombreux accidents graves.",
       content: [
@@ -159,6 +179,52 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Arrêté du 8 juillet 2003 - Art. 11 : mesures organisationnelles de prévention.",
         "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4 : travaux et entreprises extérieures.",
         "INRS ED 6109 : consignation des énergies et des fluides.",
+      ],
+      resourceVideos: [
+        {
+          title: "Prévention du risque d'explosion ATEX — Mesures organisationnelles et DRPCE",
+          description:
+            "Vidéo INRS sur la démarche de prévention du risque explosion : rédaction du DRPCE, mesures de prévention (combustibles, sources d'inflammation), permis de feu et formation des salariés.",
+          url: "https://youtu.be/1A6lYzE29Qo?si=DQY9BsHMQHJUi3pC",
+          provider: "INRS / YouTube",
+          ctaLabel: "Voir la vidéo — DRPCE et prévention",
+        },
+      ],
+    },
+    {
+      id: "drpce-prevention",
+      title: "4bis. Le DRPCE et les mesures de prévention",
+      estimatedMinutes: 20,
+      chapterImagePath: "/elearning/atex/atex-chantier-inrs.png",
+      chapterImageAlt: "Chantier interdit au public — travaux de dégazage en zone ATEX — crédit photo INRS",
+      intro:
+        "Le Document Relatif à la Protection Contre les Explosions (DRPCE) est la pièce maîtresse de la prévention ATEX. Sa rédaction, sa mise à jour et son application concrète sont des obligations réglementaires de l'employeur.",
+      content: [
+        "Le DRPCE intègre l'ensemble de la démarche de prévention : analyse préliminaire des risques, évaluation, plan d'actions. Il est intégré au Document Unique d'Évaluation des Risques Professionnels (DUERP) et doit être actualisé annuellement, ou lors de tout changement (produits, procédés, organisation). Il est rédigé sous la responsabilité de l'employeur et soumis pour avis au CSE.",
+        "Le DRPCE doit obligatoirement contenir : les risques d'explosion identifiés et évalués, les mesures prises ou à prendre et leur calendrier de mise en œuvre, la validation et le suivi de ces mesures, les emplacements classés en zones avec leurs volumes, les procédures à appliquer avant exécution des travaux, et le contenu des formations dispensées aux salariés exposés.",
+        "Empêcher la formation d'une ATEX — agir sur les combustibles : remplacer le produit par un incombustible ou moins combustible, augmenter la granulométrie (passer de la poudre aux granulés), ajouter des solides inertes à des poussières combustibles, maîtriser les paramètres du procédé (température, pression), maintenir la concentration hors du domaine d'explosivité par captage à la source, dilution ou nettoyage régulier.",
+        "Agir sur le comburant : introduire un gaz inerte (azote, argon) en proportions suffisantes pour appauvrir l'atmosphère en oxygène et rendre l'inflammation impossible. Attention au risque d'hypoxie pour tout salarié présent dans la zone concernée.",
+        "Éviter les sources d'inflammation : mettre hors zone ATEX tout matériel qui n'a pas nécessité de s'y trouver. Éliminer flammes et feux nus, surfaces chaudes, étincelles mécaniques/électriques/électrostatiques, frottements mécaniques. Mettre en place des séparateurs magnétiques et gravitaires, des systèmes de refroidissement, et des détecteurs d'élévation de température et de pression.",
+        "Limiter les effets d'une explosion si la formation d'une ATEX n'a pu être évitée : évents d'explosion, extincteurs déclenchés (suppresseurs), appareils résistant à la surpression, systèmes de découplage (arrête-flammes, écluses rotatives, vannes à fermeture rapide, déviateurs d'explosion). Ces systèmes sont eux-mêmes certifiés ATEX et doivent figurer dans le DRPCE.",
+      ],
+      deepDive: [
+        "Mesures organisationnelles clés : modes opératoires d'exécution des tâches, permis de feu pour tous les travaux par points chauds, autorisation de travail pour toute opération en zone ATEX, limitation du nombre de travailleurs en zone, gestion de la coactivité avec les entreprises extérieures (plan de prévention, référent dédié), création de zones fumeurs à l'écart des zones ATEX.",
+        "Contrôles et détection : détecteurs d'élévation de température et de pression, thermographie infrarouge pour les réseaux électriques (détection des points chauds), détecteurs de monoxyde de carbone (début de fermentation), contrôles de vitesse des bandes transporteuses (prévention des échauffements et des charges électrostatiques).",
+        "Formation réglementaire (Code du travail) : le personnel travaillant en zone ATEX ou à proximité doit recevoir une formation sur le phénomène, les conditions de formation, les composantes et la prévention. Le personnel encadrant ou décisionnaire reçoit une formation spécifique sur les enjeux et les conséquences des choix d'équipements. Le personnel intervenant sur des appareils ATEX suit une formation adaptée aux modes de protection. La personne référente ATEX suit une formation complète.",
+      ],
+      keyPoints: [
+        "DRPCE = intégré au DUERP — actualisé annuellement et à chaque changement significatif.",
+        "Contenu obligatoire : risques identifiés, mesures, suivi, plans de zonage, procédures, formations.",
+        "Prévention primaire : agir sur les combustibles, le comburant, les sources d'inflammation.",
+        "Protection : évents, suppresseurs d'explosion, systèmes de découplage — tous certifiés ATEX.",
+        "Formation du personnel = obligation légale pour toute personne travaillant en zone ATEX.",
+      ],
+      legalRefs: [
+        "Code du travail - Art. R.4227-52 : contenu et mise à jour du DRPCE.",
+        "Code du travail - Art. R.4227-50 : classement des emplacements en zones.",
+        "Arrêté du 8 juillet 2003 : liste des mesures organisationnelles obligatoires.",
+        "INRS ED 6030 : permis de feu — conception et mise en œuvre.",
+        "INRS NT 33 : vêtements de travail antistatiques en zone ATEX.",
       ],
     },
     {
@@ -417,6 +483,16 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Arrêté du 8 juillet 2003 : obligations générales de l'employeur.",
         "Directive 99/92/CE : prescriptions minimales visant à améliorer la protection des travailleurs.",
       ],
+    },
+  ],
+  resourceFiles: [
+    {
+      title: "Livret Stagiaire ATEX Niveau 1",
+      description:
+        "Support de formation complet : 10 chapitres illustrés (photos INRS), lexique ATEX, QCM de 16 questions avec corrigé. À conserver comme référence après la formation.",
+      url: "/downloads/atex/ATEX_N1_Livret_Stagiaire.pdf",
+      fileType: "pdf",
+      ctaLabel: "Télécharger le livret (PDF)",
     },
   ],
 };
