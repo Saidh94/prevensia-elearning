@@ -226,6 +226,15 @@ export const atexModuleContent: ModuleContent = {
         "Vêtements antistatiques obligatoires en zone ATEX.",
         "Toute anomalie pouvant constituer une source d'inflammation doit être signalée immédiatement.",
       ],
+      resourceVideos: [
+        {
+          title: "INRS — Permis de feu et travaux par points chauds en zone ATEX",
+          description: "Les travaux par points chauds sont la première cause d'accidents ATEX. Cette vidéo INRS détaille les procédures : permis de feu, vérification atmosphère, conduite à tenir.",
+          url: "https://youtu.be/1A6lYzE29Qo",
+          provider: "INRS",
+          ctaLabel: "Voir la vidéo INRS",
+        },
+      ],
     },
     {
       id: "risques-mesures-prevention",
@@ -264,7 +273,7 @@ export const atexModuleContent: ModuleContent = {
       id: "choix-materiaux-equipements",
       title: "8. Marquage et adéquation des équipements en zone ATEX",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
+      chapterImagePath: "/elearning/atex/atex-marquage-ce.png",
       chapterImageAlt: "Tableau des catégories d'équipements ATEX par zone — 1G/2G/3G et 1D/2D/3D",
       visual: {
         imagePath: "/elearning/atex/atex-classes-temperature.svg",
@@ -299,6 +308,15 @@ export const atexModuleContent: ModuleContent = {
         "Guide INRS ED 945 — Mise en oeuvre de la réglementation relative aux atmosphères explosives.",
         "INRS ED 6028 — Atmosphères explosives au travail : tableau récapitulatif des équipements par zone.",
         "Norme IECEx — équivalences internationales hors Europe.",
+      ],
+      resourceVideos: [
+        {
+          title: "INRS — Marquage et sélection des équipements ATEX",
+          description: "Comment lire un marquage Ex et choisir le bon équipement selon la zone ATEX. Groupes de gaz, catégories, modes de protection et classes de température.",
+          url: "https://youtu.be/vhswVTHEbRQ",
+          provider: "INRS",
+          ctaLabel: "Voir la vidéo INRS",
+        },
       ],
     },
     {

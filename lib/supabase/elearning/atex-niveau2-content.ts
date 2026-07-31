@@ -23,7 +23,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "consolidation-n0-n1",
       title: "1. Consolidation Niveaux 0 et 1 — Bases essentielles pour l'encadrant",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/atex/atex-hexagone-explosion.svg",
+      chapterImagePath: "/elearning/atex/atex-hexagone-lie-lse.png",
       chapterImageAlt: "Rappels Niveau 0 et 1 — mécanisme explosion, zones, marquages Ex",
       visual: {
         title: "Domaine d'explosivité — rappel fondamental",
@@ -49,6 +49,15 @@ export const atexNiveau2ModuleContent: ModuleContent = {
         "Directive 99/92/CE : prescriptions minimales pour la protection des travailleurs.",
         "Arrêté du 8 juillet 2003 : obligations de l'employeur en matière de protection contre les explosions.",
         "Code du travail - Art. R.4227-42 à R.4227-54 : dispositions spécifiques aux atmosphères explosives.",
+      ],
+      resourceVideos: [
+        {
+          title: "INRS — Prévention du risque ATEX",
+          description: "Vidéo officielle INRS sur la prévention des risques ATEX : formation des ATEX, zonage, mesures de prévention et obligations réglementaires. Rappel fondamental pour l'encadrant.",
+          url: "https://youtu.be/MaieQIweE0A",
+          provider: "INRS",
+          ctaLabel: "Voir la vidéo INRS",
+        },
       ],
     },
     {
@@ -89,7 +98,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "evaluation-risques-methodologie",
       title: "3. Évaluation des risques ATEX — Méthodologie",
       estimatedMinutes: 35,
-      chapterImagePath: "/elearning/atex/atex-zones-classification.svg",
+      chapterImagePath: "/elearning/atex/atex-zones-batiment.png",
       chapterImageAlt: "Méthodologie d'évaluation des risques ATEX — critères de classement selon l'INERIS",
       intro:
         "L'évaluation des risques d'explosion est la première étape obligatoire. Elle conditionne le classement des zones et le contenu du DRPCE. L'encadrant doit maîtriser la méthodologie de l'INERIS.",
@@ -157,7 +166,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "selection-qualification-equipements",
       title: "5. Sélection et qualification des équipements Ex",
       estimatedMinutes: 35,
-      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
+      chapterImagePath: "/elearning/atex/atex-marquage-ce.png",
       chapterImageAlt: "Sélection des équipements Ex — tableau catégories, modes de protection et documentation",
       intro:
         "L'encadrant est responsable du choix des équipements installés et utilisés en zone ATEX. Ce choix doit être documenté et justifié dans le DRPCE. Une erreur de sélection peut rendre l'équipement inutilisable en zone et créer une source d'inflammation.",
@@ -186,12 +195,21 @@ export const atexNiveau2ModuleContent: ModuleContent = {
         "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5.1 et 5.2 : sélection et installation.",
         "Norme EN 60079-17 : vérification et maintenance des installations en zone ATEX.",
       ],
+      resourceVideos: [
+        {
+          title: "INRS — Marquage des équipements ATEX",
+          description: "Décryptage du marquage Ex : groupes de gaz, catégories, classes de température et modes de protection. Essentiel pour la sélection et qualification des équipements.",
+          url: "https://youtu.be/vhswVTHEbRQ",
+          provider: "INRS",
+          ctaLabel: "Voir la vidéo INRS",
+        },
+      ],
     },
     {
       id: "organisation-interventions",
       title: "6. Organisation des interventions en zone ATEX",
       estimatedMinutes: 30,
-      chapterImagePath: "/elearning/atex/atex-signalisation.svg",
+      chapterImagePath: "/elearning/atex/atex-panneau-porte.png",
       chapterImageAlt: "Procédure d'organisation d'une intervention en zone ATEX — autorisation, vérifications, surveillance",
       intro:
         "L'encadrant est responsable de l'organisation des interventions en zone ATEX. Il délivre (ou valide) les autorisations de travail, supervise les mesures de prévention et s'assure que toutes les conditions sont réunies avant de laisser les intervenants pénétrer en zone classée.",
@@ -213,6 +231,15 @@ export const atexNiveau2ModuleContent: ModuleContent = {
         "Arrêté du 8 juillet 2003 - Art. 9 et 11 : mesures organisationnelles.",
         "Code du travail - Art. R.4512-1 et suivants : plan de prévention.",
         "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4 : travaux et entreprises extérieures.",
+      ],
+      resourceVideos: [
+        {
+          title: "INRS — Permis de feu et autorisation de travail ATEX",
+          description: "Procédures d'autorisation de travail en zone ATEX : permis de feu, vérification de l'atmosphère, rôle de l'encadrant et consignation des interventions.",
+          url: "https://youtu.be/1A6lYzE29Qo",
+          provider: "INRS",
+          ctaLabel: "Voir la vidéo INRS",
+        },
       ],
     },
     {
@@ -253,7 +280,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "detection-gaz-systemes",
       title: "8. Systèmes de détection fixe — Choix, installation et maintenance",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-sources-inflammation.svg",
+      chapterImagePath: "/elearning/atex/atex-ex-sign.png",
       chapterImageAlt: "Systèmes de détection de gaz fixes — technologies, implantation et seuils d'alarme",
       visual: {
         title: "Détection de gaz — seuils et alarme",

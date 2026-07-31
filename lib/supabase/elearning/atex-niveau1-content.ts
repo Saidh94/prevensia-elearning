@@ -231,7 +231,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "explosimetre-detection",
       title: "5. L'explosimètre — Utilisation, étalonnage et interprétation",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-domaine-explosivite.svg",
+      chapterImagePath: "/elearning/atex/atex-marquage-ex-gaz.png",
       chapterImageAlt: "Explosimètre certifié Ex — lecture en % LIE et seuil d'alarme à 20%",
       visual: {
         title: "Explosimètre certifié Ex",
