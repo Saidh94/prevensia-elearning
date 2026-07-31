@@ -202,17 +202,17 @@ export default function FormationAtexPage() {
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">Niveau 0 — Sensibilisation</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">NIV 0 — Sensibilisation</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">129 € HT</p>
               <p className="mt-1 text-sm text-slate-600">E-learning 3h + quiz + attestation · Accès immédiat</p>
             </div>
             <div className="rounded-2xl border border-slate-300 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600">Niveau 1 — Intervenant</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-600">NIV 1 — Intervenant</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">490 € HT</p>
               <p className="mt-1 text-sm text-slate-600">E-learning + entretien 30 min · Avis d&apos;habilitation ATEX</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Niveau 2 — Référent / Encadrant</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">NIV 2 — Encadrant</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">790 € HT</p>
               <p className="mt-1 text-sm text-slate-600">E-learning + classe virtuelle · À partir de · Sur devis</p>
             </div>
@@ -402,7 +402,7 @@ export default function FormationAtexPage() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-lg font-bold text-slate-950">
                   0
                 </span>
-                <p className="text-xs font-bold uppercase tracking-widest text-amber-700">Formation ATEX Niveau 0</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-amber-700">Sensibilisation ATEX NIV 0</p>
               </div>
               <h3 className="font-bold text-slate-900 text-lg">Personnel en zone ATEX ou à proximité</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -430,7 +430,7 @@ export default function FormationAtexPage() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-lg font-bold text-white">
                   1
                 </span>
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation ATEX Niveau 1</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation ATEX NIV 1 Intervenant</p>
               </div>
               <h3 className="font-bold text-slate-900 text-lg">Personnel intervenant sur appareil ATEX</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -458,7 +458,7 @@ export default function FormationAtexPage() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-lg font-bold text-white">
                   2
                 </span>
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation ATEX Niveau 2</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation ATEX NIV 2 Encadrant</p>
               </div>
               <h3 className="font-bold text-slate-900 text-lg">Encadrant, décisionnaire et référent ATEX</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -521,19 +521,19 @@ export default function FormationAtexPage() {
               href="/modules/atex"
               className="rounded-xl bg-amber-500 px-8 py-4 font-semibold text-slate-950 hover:bg-amber-400 transition-colors"
             >
-              Niveau 0 — Démarrer maintenant · 129 € HT
+              NIV 0 Sensibilisation — Démarrer maintenant · 129 € HT
             </Link>
             <Link
               href="/demande-devis?type=atex&detail=atex-niveau1"
               className="rounded-xl border border-amber-400/40 bg-amber-400/10 px-8 py-4 font-semibold text-amber-300 hover:bg-amber-400/20 transition-colors"
             >
-              Niveau 1 — 490 € HT
+              NIV 1 Intervenant — 490 € HT
             </Link>
             <Link
               href="/demande-devis?type=atex&detail=atex-niveau2"
               className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Niveau 2 — À partir de 790 € HT
+              NIV 2 Encadrant — À partir de 790 € HT
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-400">

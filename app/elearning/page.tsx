@@ -337,7 +337,7 @@ const formations = [
   {
     slug: "atex",
     category: "Prévention des risques",
-    title: "ATEX Niveau 0 — Sensibilisation atmosphères explosives",
+    title: "Sensibilisation ATEX — NIV 0",
     duration: "Durée e-learning : 3 h",
     mode: "E-learning autonome + quiz de validation",
     price: "129 EUR HT",
@@ -366,7 +366,7 @@ const formations = [
   {
     slug: "atex-niveau1",
     category: "Prévention des risques",
-    title: "ATEX Niveau 1 — Travailleur exposé",
+    title: "Formation ATEX — NIV 1 Intervenant",
     duration: "E-learning 3 h + entretien individuel 30 min",
     mode: "E-learning + entretien de validation visio",
     price: "490 EUR HT",
@@ -395,7 +395,7 @@ const formations = [
   {
     slug: "atex-niveau2",
     category: "Prévention des risques",
-    title: "ATEX Niveau 2 — Chargé de travaux / Responsable",
+    title: "Formation ATEX — NIV 2 Encadrant",
     duration: "E-learning 3 h + classe virtuelle 2 h",
     mode: "E-learning + classe virtuelle collective",
     price: "À partir de 790 EUR HT",
