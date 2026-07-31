@@ -1,8 +1,8 @@
 import type { ModuleContent } from "./module-types";
 
 export const atexNiveau2ModuleContent: ModuleContent = {
-  title: "Formation ATEX Niveau 2 — Encadrant et Référent ATEX",
-  shortTitle: "ATEX Niv. 2",
+  title: "Formation ATEX — NIV 2 Encadrant",
+  shortTitle: "ATEX NIV 2",
   subtitle:
     "Parcours e-learning destiné au personnel encadrant, aux responsables sécurité et aux référents ATEX chargés de piloter la prévention, rédiger le DRPCE, sélectionner les équipements certifiés, organiser les interventions et superviser le personnel en zone classée.",
   duration: "5 h à 6 h",
@@ -13,11 +13,11 @@ export const atexNiveau2ModuleContent: ModuleContent = {
   audience:
     "Encadrants et superviseurs (chefs de chantier, chefs d'équipe, chargés d'intervention), responsables HSE/QHSE, responsables techniques et de maintenance, référents sécurité ATEX, ingénieurs d'exploitation, tout professionnel ayant à piloter ou superviser des travaux en zone ATEX.",
   certificationNote:
-    "Ce parcours constitue la composante théorique d'une habilitation ATEX Niveau 2, conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. À l'issue du e-learning, une classe virtuelle de 2 heures avec un formateur PREVENSIA valide les acquis sur des cas pratiques et permet de délivrer l'avis d'habilitation ATEX Niveau 2, valable 3 ans.",
-  heroBadge: "ATEX Niveau 2",
+    "Ce parcours constitue la composante théorique d'une habilitation ATEX NIV 2 (Encadrant / Référent), conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. Son contenu est élaboré en référence au Guide ISM-ATEX de l'INERIS, dont les recommandations encadrent les responsabilités de l'encadrant ATEX : rédaction du DRPCE, sélection des équipements Ex, organisation des interventions et gestion des entreprises extérieures. À l'issue du e-learning, une classe virtuelle de 2 heures avec un formateur PREVENSIA valide les acquis sur des cas pratiques et permet de délivrer l'avis d'habilitation ATEX NIV 2, valable 3 ans.",
+  heroBadge: "ATEX NIV 2",
   finalMessage:
     "L'encadrant ATEX est le pivot de la prévention sur le site. Sans DRPCE à jour, sans plan de prévention adapté, sans suivi des équipements Ex et sans formation des équipes, toutes les mesures techniques deviennent inefficaces. La classe virtuelle de 2h vous permettra d'appliquer ces connaissances à des cas concrets issus de votre secteur d'activité.",
-  quizCtaLabel: "Passer au quiz ATEX Niveau 2",
+  quizCtaLabel: "Passer au quiz ATEX NIV 2",
   sections: [
     {
       id: "consolidation-n0-n1",

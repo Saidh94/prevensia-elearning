@@ -1,8 +1,8 @@
 import type { ModuleContent } from "./module-types";
 
 export const atexModuleContent: ModuleContent = {
-  title: "Prévention des risques ATEX - Atmosphères Explosives",
-  shortTitle: "ATEX",
+  title: "Sensibilisation ATEX — NIV 0",
+  shortTitle: "ATEX NIV 0",
   subtitle:
     "Parcours e-learning de sensibilisation aux atmosphères explosives, destiné à toute personne amenée à travailler, intervenir ou évoluer dans un environnement susceptible de présenter un risque d'explosion lié à des gaz, vapeurs ou poussières inflammables.",
   duration: "2 h 30 à 3 h",
@@ -13,11 +13,11 @@ export const atexModuleContent: ModuleContent = {
   audience:
     "Tout personnel amené à intervenir, travailler ou circuler dans un environnement pouvant présenter un risque ATEX : industrie chimique, pétrochimique, agroalimentaire (farine, sucre, amidon), traitement des eaux, imprimerie, menuiserie, métallurgie, stockage de produits inflammables.",
   certificationNote:
-    "Ce parcours constitue une sensibilisation théorique conforme à la directive 99/92/CE et au Code du travail. La classification des zones ATEX, le choix des équipements et les procédures spécifiques relèvent de l'employeur, assisté si nécessaire d'un organisme compétent. Ce module ne remplace pas une formation pratique terrain ni une habilitation spécifique exigée par l'établissement.",
-  heroBadge: "Prévention ATEX",
+    "Ce parcours constitue une sensibilisation théorique conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. Son contenu est élaboré en référence au Guide ISM-ATEX de l'INERIS (Bonnes pratiques pour la maîtrise du risque ATEX). La classification des zones, le choix des équipements et les procédures spécifiques restent de la responsabilité de l'employeur. Ce module ne remplace pas une habilitation ou une formation pratique terrain exigée par l'établissement.",
+  heroBadge: "ATEX NIV 0",
   finalMessage:
     "En zone ATEX, chaque intervenant est un maillon de la prévention. Respecter les procédures, signaler toute anomalie, ne jamais utiliser un outil ou un équipement non adapté à la zone : ces réflexes simples évitent les accidents graves. La formation théorique doit être complétée par une sensibilisation terrain encadrée par l'employeur.",
-  quizCtaLabel: "Passer au quiz ATEX",
+  quizCtaLabel: "Passer au quiz ATEX NIV 0",
   sections: [
     {
       id: "introduction-atex",

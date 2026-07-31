@@ -69,12 +69,12 @@ const paymentRules: PaymentRule[] = [
   {
     envKey: "STRIPE_PRICE_ATEX_NIVEAU1_CENTS",
     kind: "direct",
-    label: "Formation ATEX Niveau 1 - Intervenant en zone ATEX",
+    label: "Formation ATEX - NIV 1 Intervenant",
     anyKeywords: ["atex-niveau1", "atex niveau1", "atex niveau 1"],
   },
   {
     kind: "quote",
-    label: "Formation ATEX Niveau 2 - Encadrant et Referent ATEX",
+    label: "Formation ATEX - NIV 2 Encadrant",
     anyKeywords: ["atex-niveau2", "atex niveau2", "atex niveau 2"],
     reason:
       "La formation ATEX Niveau 2 est adaptee selon le role, les responsabilites et les installations du site. Tarif a partir de 790 EUR HT.",
@@ -82,7 +82,7 @@ const paymentRules: PaymentRule[] = [
   {
     envKey: "STRIPE_PRICE_ATEX_ELEARNING_CENTS",
     kind: "direct",
-    label: "Prevention des risques ATEX - Atmospheres Explosives - Niveau 0",
+    label: "Sensibilisation ATEX - NIV 0",
     anyKeywords: ["atex", "atmosphere explosive", "atmospheres explosives"],
   },
   {
