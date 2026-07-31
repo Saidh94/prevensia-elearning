@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import FacturesFormateur from "./FacturesFormateur";
 
 type Profile = { first_name: string | null; last_name: string | null; email: string | null };
 type Enrollment = { id: string; status: string | null; module_slug: string | null } | null;
@@ -32,7 +33,8 @@ export default function FormateurDashboardClient({
   formateur, upcoming, past, userEmail,
 }: {
   formateur: Formateur; upcoming: Session[]; past: Session[]; userEmail: string;
-}) {
+})
+ {
   const [activeSession, setActiveSession] = useState<string | null>(
     upcoming.find(s => isToday(s.date))?.id ?? upcoming[0]?.id ?? past[0]?.id ?? null
   );
@@ -259,6 +261,14 @@ export default function FormateurDashboardClient({
             </div>
           )}
         </div>
+      </div>
+
+      {/* Section factures */}
+      <div className="mx-auto max-w-6xl px-6 pb-8">
+        <FacturesFormateur
+          formateurId={formateur.id}
+          sessions={[...upcoming, ...past].map(s => ({ id: s.id, formation: s.formation, date: s.date }))}
+        />
       </div>
     </div>
   );

@@ -252,6 +252,9 @@ export default async function AdminPage({
             <Link href="/admin/formateurs" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-purple-50 hover:text-purple-700 hover:border-purple-200">
               👤 Formateurs
             </Link>
+            <Link href="/admin/factures-formateurs" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-purple-50 hover:text-purple-700 hover:border-purple-200">
+              🧾 Factures sous-traitants
+            </Link>
           </nav>
           <Link href="/dashboard" className="shrink-0 text-xs font-medium text-slate-400 transition hover:text-slate-800">
             Mon espace →
