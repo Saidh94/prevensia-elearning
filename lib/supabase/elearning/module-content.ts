@@ -902,6 +902,8 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Chargé de consignation : met en sécurité"
           ],
           tone: "blue",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-roles.svg",
+          imageAlt: "Répartition des rôles : exécutant, chargé de travaux, chargé d’intervention, chargé de consignation",
         },
       },
       {
@@ -928,6 +930,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Vérifier l’absence de tension"
           ],
           tone: "amber",
+          animationKey: "consignation-chaine" as const,
         },
       },
       {
@@ -952,6 +955,8 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Maintenir la maîtrise de la zone"
           ],
           tone: "red",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-travaux.svg",
+          imageAlt: "Travaux en zone de voisinage électrique : balisage et organisation des intervenants",
         },
       },
       {
@@ -976,6 +981,8 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Contrôle et remise en service"
           ],
           tone: "green",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-remise-energie.svg",
+          imageAlt: "Cycle d’une opération électrique : préparation, consignation, exécution, remise en service",
         },
       },
       {
@@ -999,6 +1006,8 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Contrôler et tracer"
           ],
           tone: "blue",
+          imagePath: "/elearning/b1-b1v-b2-b2v-br-bc/b1b2-synthese.svg",
+          imageAlt: "Synthèse des réflexes de sécurité électrique B1/B2/BR/BC",
         },
       },
     ],
@@ -1245,6 +1254,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Habitation / autres prescriptions de site"
           ],
           tone: "blue",
+          animationKey: "alerte-incendie" as const,
         },
       },
       {
@@ -1277,6 +1287,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             "Rejouer les scénarios utiles"
           ],
           tone: "green",
+          animationKey: "evacuation-schema" as const,
         },
       },
       {

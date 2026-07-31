@@ -24,6 +24,8 @@ export type AttestationPdfInput = {
   employeeLastName?: string;
   orderedByEmployer?: boolean;
   learnerEmail?: string;
+  /** Nom du formateur PREVENSIA ayant animé la session */
+  formateur?: string;
 };
 
 type CellOptions = {

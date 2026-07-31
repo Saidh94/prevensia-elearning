@@ -24,10 +24,10 @@ export default async function AdminCalendrierGlobalPage() {
 
   if (profile?.role !== "admin") redirect("/");
 
-  // Sessions virtuelles (Supabase)
+  // Sessions virtuelles (Supabase) avec formateur assigné
   const { data: virtualSessions } = await supabase
     .from("virtual_sessions")
-    .select("*")
+    .select("*, formateur:formateurs(id, prenom, nom)")
     .order("date", { ascending: true });
 
   // Inscriptions pending_interview (avec formation)
@@ -83,7 +83,11 @@ export default async function AdminCalendrierGlobalPage() {
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-600">
               <span className="inline-block h-3 w-3 rounded-full bg-blue-500"></span>
-              Sessions virtuelles (BS/BE, B1/B2)
+              Sessions virtuelles (sans formateur)
+            </div>
+            <div className="flex items-center gap-2 text-sm text-slate-600">
+              <span className="inline-block h-3 w-3 rounded-full bg-purple-600"></span>
+              Sessions virtuelles (formateur assigné)
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-600">
               <span className="inline-block h-3 w-3 rounded-full bg-orange-500"></span>

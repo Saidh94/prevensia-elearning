@@ -853,26 +853,22 @@ export default function VisualCard({
                   compact ? "p-2" : "p-3"
                 }`}
               >
-                <div
-                  className={`relative w-full overflow-hidden ${
-                    compact ? "h-[240px]" : "h-[420px]"
-                  }`}
-                >
-                  <Image
-                    src={imagePath}
-                    alt={imageAlt}
-                    fill
-                    className="object-contain object-top"
-                    sizes="(max-width: 768px) 100vw, 720px"
-                    unoptimized={imagePath.toLowerCase().endsWith(".svg")}
-                    onError={() =>
-                      setImageErrorState({
-                        imagePath,
-                        hasError: true,
-                      })
-                    }
-                  />
-                </div>
+                <Image
+                  src={imagePath}
+                  alt={imageAlt}
+                  width={900}
+                  height={compact ? 240 : 500}
+                  className="w-full h-auto object-contain mx-auto block"
+                  style={{ maxHeight: compact ? "240px" : "500px" }}
+                  sizes="(max-width: 768px) 100vw, 720px"
+                  unoptimized={imagePath.toLowerCase().endsWith(".svg")}
+                  onError={() =>
+                    setImageErrorState({
+                      imagePath,
+                      hasError: true,
+                    })
+                  }
+                />
               </div>
             ) : shouldRenderAnimation ? (
               <div

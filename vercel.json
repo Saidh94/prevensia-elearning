@@ -39,6 +39,10 @@
     {
       "path": "/api/cron/sessions-cleanup",
       "schedule": "0 2 * * *"
+    },
+    {
+      "path": "/api/cron/rappel-formateurs",
+      "schedule": "0 6 * * *"
     }
   ]
 }

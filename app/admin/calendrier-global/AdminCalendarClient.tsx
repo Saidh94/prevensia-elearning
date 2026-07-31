@@ -8,6 +8,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import type { EventInput, EventClickArg } from "@fullcalendar/core";
 import { useEffect, useState, useRef } from "react";
 import frLocale from "@fullcalendar/core/locales/fr";
+import AssignFormateurButton from "@/app/admin/components/AssignFormateurButton";
 
 type VirtualSession = {
   id: string;
@@ -20,9 +21,11 @@ type VirtualSession = {
   format: string;
   note?: string | null;
   meeting_url?: string | null;
+  formateur?: { id: string; prenom: string; nom: string } | null;
 };
 
 type SelectedEvent = {
+  id?: string;
   title: string;
   start: string;
   end: string;
@@ -35,6 +38,8 @@ type SelectedEvent = {
   seats?: number;
   learnerName?: string;
   learnerEmail?: string;
+  formateurId?: string | null;
+  formateurName?: string | null;
 };
 
 export function AdminCalendarClient({
@@ -114,15 +119,18 @@ export function AdminCalendarClient({
     title: s.formation,
     start: `${s.date}T${s.start_time}`,
     end: `${s.date}T${s.end_time}`,
-    backgroundColor: "#3b82f6",
-    borderColor: "#2563eb",
+    backgroundColor: s.formateur ? "#7c3aed" : "#3b82f6",
+    borderColor: s.formateur ? "#6d28d9" : "#2563eb",
     textColor: "#fff",
     extendedProps: {
       type: "virtual",
+      sessionId: s.id,
       location: s.location,
       seats: s.seats,
       note: s.note,
       meetingUrl: s.meeting_url,
+      formateurId: s.formateur?.id ?? null,
+      formateurName: s.formateur ? `${s.formateur.prenom} ${s.formateur.nom}` : null,
     },
   }));
 
@@ -135,6 +143,7 @@ export function AdminCalendarClient({
   function handleEventClick(info: EventClickArg) {
     const p = info.event.extendedProps as {
       type: "interview" | "virtual" | "presentiel";
+      sessionId?: string;
       invitees?: number;
       limit?: number;
       location?: string;
@@ -143,8 +152,11 @@ export function AdminCalendarClient({
       seats?: number;
       learnerName?: string;
       learnerEmail?: string;
+      formateurId?: string | null;
+      formateurName?: string | null;
     };
     setSelected({
+      id: p.sessionId ?? info.event.id,
       title: info.event.title,
       start: info.event.startStr,
       end: info.event.endStr,
@@ -157,6 +169,8 @@ export function AdminCalendarClient({
       seats: p.seats,
       learnerName: p.learnerName,
       learnerEmail: p.learnerEmail,
+      formateurId: p.formateurId ?? null,
+      formateurName: p.formateurName ?? null,
     });
   }
 
@@ -276,6 +290,19 @@ export function AdminCalendarClient({
                 >
                   Démarrer / Rejoindre la visio →
                 </a>
+              )}
+              {selected.type === "virtual" && selected.id && (
+                <div className="pt-1">
+                  <p className="text-xs font-semibold text-slate-500 mb-1">Formateur assigné</p>
+                  <AssignFormateurButton
+                    sessionId={selected.id}
+                    currentFormateurId={selected.formateurId}
+                    currentFormateurName={selected.formateurName}
+                    onAssigned={(fId, fName) =>
+                      setSelected(prev => prev ? { ...prev, formateurId: fId, formateurName: fName } : prev)
+                    }
+                  />
+                </div>
               )}
             </div>
 

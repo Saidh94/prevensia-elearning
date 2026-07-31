@@ -281,15 +281,17 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                 className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
               >
                 {section.chapterImagePath ? (
-                  <div className="relative h-48 w-full overflow-hidden sm:h-56">
+                  <div className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-100">
                     <Image
                       src={section.chapterImagePath}
                       alt={section.chapterImageAlt ?? section.title}
-                      fill
-                      className="object-cover object-center"
+                      width={900}
+                      height={420}
+                      className="w-full h-auto object-contain"
+                      style={{ maxHeight: "420px" }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 900px"
+                      unoptimized={section.chapterImagePath.toLowerCase().endsWith(".svg")}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
                   </div>
                 ) : null}
 
