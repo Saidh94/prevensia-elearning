@@ -65,11 +65,23 @@ export async function POST(request: Request) {
     }
 
     // Upsert dans profiles avec rôle formateur
+    // NE PAS écraser le rôle si le profil existe déjà (ex : admin)
     if (userId) {
-      await admin.from("profiles").upsert({
-        id: userId, first_name: prenom, last_name: nom,
-        email, role: "formateur",
-      }, { onConflict: "id" });
+      const { data: existingProfile } = await admin
+        .from("profiles").select("role").eq("id", userId).single();
+      if (!existingProfile) {
+        // Nouveau profil — on peut créer avec rôle formateur
+        await admin.from("profiles").insert({
+          id: userId, first_name: prenom, last_name: nom,
+          email, role: "formateur",
+        });
+      } else if (existingProfile.role !== "admin") {
+        // Profil existant non-admin — on met à jour sans toucher un rôle admin
+        await admin.from("profiles").update({
+          first_name: prenom, last_name: nom, email, role: "formateur",
+        }).eq("id", userId);
+      }
+      // Si existingProfile.role === "admin" → on ne touche à rien
     }
   }
 
