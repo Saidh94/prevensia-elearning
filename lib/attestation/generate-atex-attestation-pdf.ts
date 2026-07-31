@@ -301,7 +301,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       { label: "Exécuter des travaux sur équipements en zone classée",                     ok: true },
       { label: "Diriger et superviser des interventions en zone ATEX",                     ok: true },
       { label: "Établir et valider des plans de prévention et permis de travail ATEX",     ok: true },
-      { label: "Élaborer ou faire évoluer le DRPE",                                        ok: true },
+      { label: "Élaborer ou faire évoluer le DRPCE",                                       ok: true },
       { label: "Coordonner les entreprises extérieures en zone classée",                   ok: true },
     ],
   },

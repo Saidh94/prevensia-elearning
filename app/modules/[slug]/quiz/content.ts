@@ -7525,7 +7525,7 @@ quizContent["atex"] = [
     timeLimit: 30,
   },
   {
-    question: "Qu'est-ce que le DRPE ?",
+    question: "Qu'est-ce que le DRPCE ?",
     choices: [
       "Document de Risques pour les Personnels Électriciens",
       "Document Relatif à la Protection contre les Explosions — obligatoire pour tout établissement disposant de zones ATEX",
@@ -7534,7 +7534,7 @@ quizContent["atex"] = [
     ],
     answer: [1],
     chapterLabel: "Réglementation ATEX",
-    explanation: "Le DRPE (Document Relatif à la Protection contre les Explosions) est obligatoire pour tout employeur dont les locaux comportent des zones ATEX. Il précise les risques identifiés, la classification des zones, les mesures de prévention et les équipements certifiés utilisés. Il doit être établi avant le début des travaux et tenu à jour.",
+    explanation: "Le DRPCE (Document Relatif à la Protection contre les Explosions) est obligatoire pour tout employeur dont les locaux comportent des zones ATEX. Il précise les risques identifiés, la classification des zones, les mesures de prévention et les équipements certifiés utilisés. Il doit être établi avant le début des travaux et tenu à jour.",
     timeLimit: 35,
   },
   {

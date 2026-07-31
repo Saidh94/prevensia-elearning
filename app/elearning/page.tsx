@@ -403,14 +403,14 @@ const formations = [
     audience:
       "Responsables de travaux, chargés de chantier, responsables sécurité, coordinateurs, responsables ATEX et personnel d'encadrement amené à planifier et superviser des interventions en zone ATEX.",
     description:
-      "Parcours ATEX Niveau 2 destiné aux encadrants et responsables de travaux en zone classée : réglementation approfondie, DRPE, plans de prévention, coordination des intervenants et gestion des situations d'urgence. Complété par une classe virtuelle collective de 2h.",
+      "Parcours ATEX Niveau 2 destiné aux encadrants et responsables de travaux en zone classée : réglementation approfondie, DRPCE, plans de prévention, coordination des intervenants et gestion des situations d'urgence. Complété par une classe virtuelle collective de 2h.",
     objectifs: [
       "Maîtriser le cadre réglementaire ATEX et les obligations de l'employeur",
-      "Élaborer ou valider le Document Relatif à la Protection contre les Explosions (DRPE)",
+      "Élaborer ou valider le Document Relatif à la Protection contre les Explosions (DRPCE)",
       "Organiser et superviser des interventions en zone classée (plans de prévention, permis de travail)",
     ],
     programme: [
-      "Approfondissement réglementaire : DRPE, classification, responsabilités employeur",
+      "Approfondissement réglementaire : DRPCE, classification, responsabilités employeur",
       "Coordination des entreprises extérieures en zone ATEX",
       "Plans de prévention et autorisations de travail",
       "Gestion des équipements certifiés Ex et EPI",

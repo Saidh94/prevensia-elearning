@@ -178,7 +178,7 @@ export const atexModuleContent: ModuleContent = {
         "Dépôts et couches de poussières = source ATEX même sans nuage visible.",
         "Zonage spécifique obligatoire pour les opérations de maintenance.",
         "Tout intervenant doit connaître la classification exacte de la zone avant d'entrer.",
-        "Le zonage doit figurer dans le DRPE et être accessible à tous les intervenants.",
+        "Le zonage doit figurer dans le DRPCE et être accessible à tous les intervenants.",
       ],
       legalRefs: [
         "Directive 99/92/CE (ATEX 137) — Annexe I : classification des emplacements dangereux.",

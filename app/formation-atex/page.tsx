@@ -18,7 +18,7 @@ export const metadata = {
     "directive 99/92/CE",
     "ATEX zones gaz poussières",
     "formation risque explosion",
-    "DRPE ATEX",
+    "DRPCE ATEX",
     "équipements certifiés ATEX",
   ],
   openGraph: {
@@ -43,7 +43,7 @@ const faqItems = [
   {
     question: "La formation ATEX e-learning est-elle conforme à la réglementation ?",
     answer:
-      "Le parcours e-learning constitue la sensibilisation théorique conforme aux exigences de la directive 99/92/CE et du Code du travail (Art. R4227-42 et suivants). Il couvre toutes les notions réglementaires : zonage, DRPE, marquage des équipements, EPI et conduite à tenir. La formation pratique terrain reste de la responsabilité de l'employeur.",
+      "Le parcours e-learning constitue la sensibilisation théorique conforme aux exigences de la directive 99/92/CE et du Code du travail (Art. R4227-42 et suivants). Il couvre toutes les notions réglementaires : zonage, DRPCE, marquage des équipements, EPI et conduite à tenir. La formation pratique terrain reste de la responsabilité de l'employeur.",
   },
   {
     question: "Quelle est la différence entre les zones 0, 1, 2 et les zones 20, 21, 22 ?",
@@ -51,9 +51,9 @@ const faqItems = [
       "Les zones 0, 1 et 2 concernent les gaz, vapeurs et brouillards inflammables. Les zones 20, 21 et 22 concernent les poussières combustibles. Dans chaque famille, le chiffre indique la fréquence du risque : zone 0/20 = présence permanente, zone 1/21 = présence occasionnelle en fonctionnement normal, zone 2/22 = présence accidentelle ou de courte durée.",
   },
   {
-    question: "Qu'est-ce que le DRPE ?",
+    question: "Qu'est-ce que le DRPCE ?",
     answer:
-      "Le Document Relatif à la Protection contre les Explosions (DRPE) est un document obligatoire que l'employeur doit établir avant le début des travaux dans les zones ATEX. Il recense les zones identifiées, les mesures de prévention mises en place, la liste des équipements certifiés utilisés et les procédures spécifiques aux interventions. Il doit être tenu à jour.",
+      "Le Document Relatif à la Protection contre les Explosions (DRPCE) est un document obligatoire que l'employeur doit établir avant le début des travaux dans les zones ATEX. Il recense les zones identifiées, les mesures de prévention mises en place, la liste des équipements certifiés utilisés et les procédures spécifiques aux interventions. Il doit être tenu à jour.",
   },
   {
     question: "Quel est le prix de la formation ATEX ?",
@@ -80,7 +80,7 @@ const programme = [
   },
   {
     titre: "La réglementation ATEX",
-    contenu: "Directives 99/92/CE et 2014/34/UE, obligations de l'employeur, DRPE, marquage CE + Ex, groupes de gaz IIA/IIB/IIC.",
+    contenu: "Directives 99/92/CE et 2014/34/UE, obligations de l'employeur, DRPCE, marquage CE + Ex, groupes de gaz IIA/IIB/IIC.",
   },
   {
     titre: "Le processus menant à l'accident",
@@ -350,7 +350,7 @@ export default function FormationAtexPage() {
               <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Directive 99/92/CE — ATEX 137</p>
               <p className="text-sm text-slate-700">
                 Concerne les <strong>lieux de travail</strong>. Impose à l&apos;employeur de classer les zones,
-                établir le DRPE, sélectionner les équipements adaptés et former le personnel.
+                établir le DRPCE, sélectionner les équipements adaptés et former le personnel.
               </p>
             </div>
             <div className="rounded-xl bg-white border border-amber-200 p-5">
@@ -370,12 +370,12 @@ export default function FormationAtexPage() {
               </p>
             </div>
             <div className="rounded-xl bg-white border border-amber-200 p-5">
-              <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Arrêté du 8 juillet 2003 + DRPE</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Arrêté du 8 juillet 2003 + DRPCE</p>
               <p className="text-sm text-slate-700">
                 L&apos;<strong>arrêté du 8 juillet 2003</strong> relatif à la protection des travailleurs susceptibles
                 d&apos;être exposés à une atmosphère explosive oblige l&apos;employeur à prévoir une formation
                 <em> suffisante et appropriée</em> pour toute personne travaillant dans un emplacement ATEX.
-                Le <strong>DRPE</strong> (Document Relatif à la Protection contre les Explosions) liste les zones,
+                Le <strong>DRPCE</strong> (Document Relatif à la Protection contre les Explosions) liste les zones,
                 les équipements certifiés et les procédures — à établir avant les travaux et à tenir à jour.
               </p>
             </div>
@@ -463,11 +463,11 @@ export default function FormationAtexPage() {
               <h3 className="font-bold text-slate-900 text-lg">Encadrant, décisionnaire et référent ATEX</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
                 Destinée au <strong>personnel encadrant, aux responsables sécurité et aux référents ATEX</strong>
-                {" "}chargés de piloter la prévention, rédiger le DRPE ou superviser les interventions en zone classée.
+                {" "}chargés de piloter la prévention, rédiger le DRPCE ou superviser les interventions en zone classée.
               </p>
               <ul className="mt-4 space-y-2 text-sm text-slate-600">
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Contenu des niveaux 0 et 1</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Rédaction et mise à jour du DRPE</li>
+                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Rédaction et mise à jour du DRPCE</li>
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Classement et délimitation des zones</li>
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Sélection et vérification des équipements Ex</li>
               </ul>
