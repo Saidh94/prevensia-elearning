@@ -402,7 +402,7 @@ export default function FormationAtexPage() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-lg font-bold text-slate-950">
                   0
                 </span>
-                <p className="text-xs font-bold uppercase tracking-widest text-amber-700">Sensibilisation ATEX NIV 0</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-amber-700">Formation et Sensibilisation ATEX NIV 0</p>
               </div>
               <h3 className="font-bold text-slate-900 text-lg">Personnel en zone ATEX ou à proximité</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -430,7 +430,7 @@ export default function FormationAtexPage() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-lg font-bold text-white">
                   1
                 </span>
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation ATEX NIV 1 Intervenant</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation et Sensibilisation ATEX NIV 1 Intervenant</p>
               </div>
               <h3 className="font-bold text-slate-900 text-lg">Personnel intervenant sur appareil ATEX</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
@@ -458,7 +458,7 @@ export default function FormationAtexPage() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-lg font-bold text-white">
                   2
                 </span>
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation ATEX NIV 2 Encadrant</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation et Sensibilisation ATEX NIV 2 Encadrant</p>
               </div>
               <h3 className="font-bold text-slate-900 text-lg">Encadrant, décisionnaire et référent ATEX</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">

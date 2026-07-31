@@ -1,7 +1,7 @@
 import type { ModuleContent } from "./module-types";
 
 export const atexModuleContent: ModuleContent = {
-  title: "Sensibilisation ATEX — NIV 0",
+  title: "Formation et Sensibilisation ATEX NIV 0",
   shortTitle: "ATEX NIV 0",
   subtitle:
     "Parcours e-learning de sensibilisation aux atmosphères explosives, destiné à toute personne amenée à travailler, intervenir ou évoluer dans un environnement susceptible de présenter un risque d'explosion lié à des gaz, vapeurs ou poussières inflammables.",

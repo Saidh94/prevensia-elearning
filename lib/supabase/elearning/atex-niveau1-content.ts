@@ -1,7 +1,7 @@
 import type { ModuleContent } from "./module-types";
 
 export const atexNiveau1ModuleContent: ModuleContent = {
-  title: "Formation ATEX — NIV 1 Intervenant",
+  title: "Formation et Sensibilisation ATEX NIV 1 Intervenant",
   shortTitle: "ATEX NIV 1",
   subtitle:
     "Parcours e-learning approfondi destiné au personnel intervenant directement sur des appareils ou installations situés en zone ATEX : techniciens de maintenance, électriciens, monteurs, instrumentistes, sous-traitants effectuant des travaux en zone classée.",

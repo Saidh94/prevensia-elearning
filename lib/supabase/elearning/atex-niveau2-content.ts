@@ -1,7 +1,7 @@
 import type { ModuleContent } from "./module-types";
 
 export const atexNiveau2ModuleContent: ModuleContent = {
-  title: "Formation ATEX — NIV 2 Encadrant",
+  title: "Formation et Sensibilisation ATEX NIV 2 Encadrant",
   shortTitle: "ATEX NIV 2",
   subtitle:
     "Parcours e-learning destiné au personnel encadrant, aux responsables sécurité et aux référents ATEX chargés de piloter la prévention, rédiger le DRPCE, sélectionner les équipements certifiés, organiser les interventions et superviser le personnel en zone classée.",

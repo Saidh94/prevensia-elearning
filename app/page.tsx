@@ -67,11 +67,11 @@ const formations = [
     imageClass: "object-cover object-center",
   },
   {
-    title: "Formation ATEX",
+    title: "Formation et Sensibilisation ATEX",
     href: "/formation-atex",
     badge: "Directive 99/92/CE",
     description:
-      "Prévention du risque d'explosion en zone ATEX : zonage, équipements certifiés Ex, EPI antistatiques et procédures de travail. Conforme directive 99/92/CE et arrêté du 8 juillet 2003.",
+      "Prévention du risque d'explosion en zone ATEX — 3 niveaux : NIV 0 Sensibilisation, NIV 1 Intervenant, NIV 2 Encadrant. Zonage, équipements certifiés Ex, EPI antistatiques, procédures. Conforme directive 99/92/CE.",
     image: "/elearning/commun/atex-accueil.png",
     imageClass: "object-cover object-center",
   },
