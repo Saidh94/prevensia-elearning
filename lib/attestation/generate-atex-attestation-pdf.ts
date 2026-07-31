@@ -715,13 +715,13 @@ function drawPage2(p: {
     thickness: 0.5, color: C.brand,
   });
 
-  // Ligne "ATTESTÉ" en gras rouge
-  const atLabel  = sp("ATTESTÉ");
-  const atLabelW = B.widthOfTextAtSize(atLabel, 9);
+  // Ligne "Organisme de Formation"
+  const atLabel  = sp("Organisme de Formation");
+  const atLabelW = R.widthOfTextAtSize(atLabel, 7.5);
   page.drawText(atLabel, {
     x: sX + sW / 2 - atLabelW / 2,
     y: sepY - 13,
-    size: 9, font: B, color: C.brand,
+    size: 7.5, font: R, color: C.dark,
   });
 
   // Sous-texte : SIRET
