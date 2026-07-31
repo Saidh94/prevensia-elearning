@@ -3,6 +3,7 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { type ReservationSlot } from "../../reservation/slots";
+import AssignFormateurButton from "@/app/admin/components/AssignFormateurButton";
 
 const formatOptions = [
   { value: "virtual", label: "Classe virtuelle" },
@@ -17,12 +18,18 @@ const audienceOptions = [
 ] as const;
 
 const categoryOptions = [
-  { value: "h0b0_validation", label: "H0B0 / H0V - validation 30 min" },
-  { value: "bsbe_initial", label: "BS / BE - initial" },
-  { value: "bsbe_recyclage", label: "BS / BE - recyclage" },
-  { value: "b1b2brbc_initial", label: "B1 / B2 / BR / BC - initial" },
-  { value: "b1b2brbc_recyclage", label: "B1 / B2 / BR / BC - recyclage" },
-  { value: "other", label: "Autre" },
+  { value: "h0b0_validation",   label: "H0B0 / H0V — validation 30 min" },
+  { value: "bsbe_initial",      label: "BS / BE — initial" },
+  { value: "bsbe_recyclage",    label: "BS / BE — recyclage" },
+  { value: "b1b2brbc_initial",  label: "B1 / B2 / BR / BC — initial" },
+  { value: "b1b2brbc_recyclage",label: "B1 / B2 / BR / BC — recyclage" },
+  { value: "atex_n0",           label: "ATEX Niveau 0 — Sensibilisation" },
+  { value: "atex_n1",           label: "ATEX Niveau 1 — Intervenant" },
+  { value: "atex_n2",           label: "ATEX Niveau 2 — Référent / Encadrant" },
+  { value: "ssiap1_initial",    label: "SSIAP 1 — Initial" },
+  { value: "ssiap1_recyclage",  label: "SSIAP 1 — Recyclage" },
+  { value: "sst",               label: "SST — Sauveteur Secouriste du Travail" },
+  { value: "other",             label: "Autre" },
 ] as const;
 
 function formatSlotType(slot: ReservationSlot) {
@@ -52,6 +59,7 @@ export default function AdminCalendrierPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+  const [formateurMap, setFormateurMap] = useState<Record<string, { id: string | null; name: string | null }>>({});
   const [meetingUrl, setMeetingUrl] = useState("");
   const [zoomStartUrl, setZoomStartUrl] = useState("");
   const [generatingZoom, setGeneratingZoom] = useState(false);
@@ -562,7 +570,7 @@ export default function AdminCalendrierPage() {
                         {slot.note}
                       </p>
                     ) : null}
-                    <div className="mt-3 flex gap-4">
+                    <div className="mt-3 flex flex-wrap items-center gap-3">
                       <button
                         type="button"
                         onClick={() => openEdit(slot)}
@@ -578,6 +586,14 @@ export default function AdminCalendrierPage() {
                       >
                         Supprimer
                       </button>
+                      <AssignFormateurButton
+                        sessionId={slot.id}
+                        currentFormateurId={formateurMap[slot.id]?.id ?? null}
+                        currentFormateurName={formateurMap[slot.id]?.name ?? null}
+                        onAssigned={(fId, fName) =>
+                          setFormateurMap(prev => ({ ...prev, [slot.id]: { id: fId, name: fName } }))
+                        }
+                      />
                     </div>
                   </div>
                 ))
