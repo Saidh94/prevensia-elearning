@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import FacturesFormateur from "./FacturesFormateur";
+import CalendrierFormateur from "./CalendrierFormateur";
 
 type Profile = { first_name: string | null; last_name: string | null; email: string | null };
 type Enrollment = { id: string; status: string | null; module_slug: string | null } | null;
@@ -261,6 +262,11 @@ export default function FormateurDashboardClient({
             </div>
           )}
         </div>
+      </div>
+
+      {/* Calendrier */}
+      <div className="mx-auto max-w-6xl px-6 pb-6">
+        <CalendrierFormateur sessions={[...upcoming, ...past]} />
       </div>
 
       {/* Section factures */}
