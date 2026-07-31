@@ -9173,6 +9173,48 @@ quizContent["atex-niveau1"] = [
       "La garniture double à fluide de barrage pressurisé fonctionne sur le principe de la contre-pression : le fluide de barrage est maintenu à une pression supérieure à la pression du produit pompé. En cas d'usure de la garniture primaire (côté produit), c'est le fluide de barrage (non inflammable ou peu dangereux) qui fuit vers le produit — jamais l'inverse. L'atmosphère extérieure ne reçoit donc que du fluide de barrage et non le produit inflammable. Cette conception est fondamentale pour les produits volatils à fort risque ATEX (hydrocarbures légers, solvants, GPL) en zone 1.",
     timeLimit: 40,
   },
+  {
+    question: "Quelle est la différence fondamentale entre une source d'inflammation ATEX électrique et une source d'inflammation ATEX mécanique ?",
+    choices: [
+      "Il n'y a pas de différence — toutes les sources d'inflammation sont traitées de la même façon par la directive 2014/34/UE",
+      "L'ATEX électrique vise à maîtriser les arcs, étincelles et échauffements de composants électriques ; l'ATEX mécanique vise à maîtriser la friction, les chocs et les charges électrostatiques liés aux pièces en mouvement",
+      "L'ATEX électrique concerne uniquement les moteurs, l'ATEX mécanique concerne uniquement les tuyauteries",
+      "L'ATEX mécanique est plus dangereuse que l'ATEX électrique car elle produit davantage d'énergie d'inflammation",
+    ],
+    answer: [1],
+    chapterLabel: "ATEX électrique vs mécanique",
+    explanation:
+      "Les deux domaines relèvent de la même directive 2014/34/UE mais avec des logiques très différentes. ATEX électrique : les risques viennent des arcs dans les contacts, des étincelles par défaut d'isolation et de l'échauffement des bobines/moteurs — on les maîtrise par des modes de protection normalisés (Ex d, Ex e, Ex i, Ex p…). ATEX mécanique : les risques viennent de la friction (roulement dégradé, garniture à sec), des chocs (pièce mal serrée, corps étranger dans un ventilateur) et des charges électrostatiques (courroie, pale) — on les maîtrise par le choix des matériaux, la conception et la limitation de température.",
+    timeLimit: 35,
+  },
+  {
+    question: "Pour quel type d'équipement la certification ATEX peut-elle être réalisée par auto-évaluation du fabricant, sans intervention d'un organisme notifié ?",
+    choices: [
+      "Tous les équipements électriques de catégorie 2 destinés à la Zone 1",
+      "Les équipements non électriques (mécaniques) de catégorie 2 et tous les équipements de catégorie 3 — les équipements électriques de catégorie 1 et 2 exigent toujours un organisme notifié",
+      "Aucun équipement ATEX ne peut être auto-certifié — l'organisme notifié est toujours obligatoire",
+      "Uniquement les équipements utilisés en Zone 2 gaz et Zone 22 poussières, quelle que soit leur nature",
+    ],
+    answer: [1],
+    chapterLabel: "ATEX électrique vs mécanique",
+    explanation:
+      "La directive 2014/34/UE distingue : équipements électriques de catégorie 1 et 2 → certification obligatoire par organisme notifié (ex. INERIS, TÜV…) ; équipements mécaniques non électriques de catégorie 2 → auto-évaluation possible avec dossier technique complet ; équipements de catégorie 3 (toutes natures) → auto-évaluation possible. C'est l'une des différences majeures entre l'ATEX électrique (toujours très strict) et l'ATEX mécanique (plus souple pour certaines catégories).",
+    timeLimit: 40,
+  },
+  {
+    question: "Un ventilateur industriel en Zone 1 est signalé avec une vibration anormale et les pales touchent légèrement le carter. Quel type de risque ATEX cela représente-t-il principalement ?",
+    choices: [
+      "Un risque ATEX électrique — le moteur du ventilateur peut créer une étincelle électrique",
+      "Un risque ATEX mécanique — le contact pale/carter peut générer une étincelle par choc ou provoquer un échauffement par friction, pouvant atteindre la TAI du gaz présent",
+      "Aucun risque ATEX particulier si l'équipement porte un marquage Ex valide",
+      "Un risque ATEX mécanique uniquement si le ventilateur transporte des poussières combustibles",
+    ],
+    answer: [1],
+    chapterLabel: "ATEX électrique vs mécanique",
+    explanation:
+      "Le contact entre les pales et le carter est une source d'inflammation mécanique classique : choc métal/métal = étincelle mécanique pouvant atteindre plusieurs centaines de degrés, et/ou friction prolongée générant un échauffement progressif de la surface. Les roues de ventilateurs ATEX sont conçues en matériaux non générateurs d'étincelles par choc (alliages aluminium-bronze) et avec un jeu roue/carter garanti. Une vibration anormale entraînant un contact = non-conformité immédiate exigeant l'arrêt de l'équipement, indépendamment du marquage Ex.",
+    timeLimit: 35,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
