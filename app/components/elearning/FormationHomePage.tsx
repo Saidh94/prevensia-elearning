@@ -137,30 +137,60 @@ export default function FormationHomePage({
               </div>
             ) : null}
 
-            {slug === "atex-niveau1" ? (
-              <div className="mt-8 rounded-3xl border border-blue-200 bg-blue-50 p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
-                  Votre parcours en 3 étapes
+            {slug === "atex" ? (
+              <div className="mt-8 rounded-3xl border border-amber-200 bg-amber-50 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-800">
+                  Votre parcours en 2 étapes
                 </p>
                 <ol className="mt-4 space-y-3">
                   {[
                     {
                       num: "1",
-                      label: "E-learning autonome",
-                      detail: "5 h à 6 h — 12 chapitres + quiz de validation",
+                      label: "E-learning autonome (2h)",
+                      detail: "12 chapitres illustrés + quiz de validation — à votre rythme",
                       color: "bg-slate-700",
                     },
                     {
                       num: "2",
-                      label: "Classe virtuelle (2h)",
-                      detail: "Session Zoom encadrée par un formateur PREVENSIA — mise en situation et cas pratiques",
-                      color: "bg-blue-600",
+                      label: "Entretien de validation (30 min)",
+                      detail: "Échange individuel avec un formateur PREVENSIA — vérification des acquis et délivrance de l'attestation",
+                      color: "bg-amber-600",
+                    },
+                  ].map((step) => (
+                    <li key={step.num} className="flex items-start gap-3">
+                      <span
+                        className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${step.color} text-[11px] font-bold text-white`}
+                      >
+                        {step.num}
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-amber-900">{step.label}</p>
+                        <p className="mt-0.5 text-xs leading-5 text-amber-700">{step.detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+
+            {slug === "atex-niveau1" ? (
+              <div className="mt-8 rounded-3xl border border-blue-200 bg-blue-50 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-800">
+                  Votre parcours en 2 étapes
+                </p>
+                <ol className="mt-4 space-y-3">
+                  {[
+                    {
+                      num: "1",
+                      label: "E-learning autonome (5h-6h)",
+                      detail: "12 chapitres + quiz de validation — à votre rythme, avant la session",
+                      color: "bg-slate-700",
                     },
                     {
-                      num: "3",
-                      label: "Entretien individuel (30 min)",
-                      detail: "Validation finale des acquis — délivrance de l'avis d'habilitation ATEX N1 (3 ans)",
-                      color: "bg-emerald-600",
+                      num: "2",
+                      label: "Classe virtuelle (4h) avec formateur",
+                      detail: "Session Zoom encadrée — cas pratiques, marquages Ex, mises en situation élec/méca, délivrance de l'avis d'habilitation ATEX N1 (3 ans)",
+                      color: "bg-blue-600",
                     },
                   ].map((step) => (
                     <li key={step.num} className="flex items-start gap-3">
@@ -172,6 +202,42 @@ export default function FormationHomePage({
                       <div>
                         <p className="text-sm font-semibold text-blue-900">{step.label}</p>
                         <p className="mt-0.5 text-xs leading-5 text-blue-700">{step.detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
+
+            {slug === "atex-niveau2" ? (
+              <div className="mt-8 rounded-3xl border border-slate-300 bg-slate-50 p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-700">
+                  Votre parcours en 2 étapes
+                </p>
+                <ol className="mt-4 space-y-3">
+                  {[
+                    {
+                      num: "1",
+                      label: "E-learning autonome (7h)",
+                      detail: "11 chapitres encadrant (DRPCE, équipements Ex, gestion interventions) + quiz de validation — à votre rythme",
+                      color: "bg-slate-700",
+                    },
+                    {
+                      num: "2",
+                      label: "Journée présentielle (7h) avec formateur",
+                      detail: "En présentiel sur site ou en centre — cas pratiques rédaction DRPCE, sélection Ex, simulation d'intervention, évaluation finale et délivrance de l'avis d'habilitation ATEX N2 (3 ans)",
+                      color: "bg-slate-900",
+                    },
+                  ].map((step) => (
+                    <li key={step.num} className="flex items-start gap-3">
+                      <span
+                        className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${step.color} text-[11px] font-bold text-white`}
+                      >
+                        {step.num}
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">{step.label}</p>
+                        <p className="mt-0.5 text-xs leading-5 text-slate-600">{step.detail}</p>
                       </div>
                     </li>
                   ))}

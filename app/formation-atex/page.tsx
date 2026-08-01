@@ -58,7 +58,7 @@ const faqItems = [
   {
     question: "Quel est le prix de la formation ATEX ?",
     answer:
-      "PREVENSIA propose trois niveaux : Niveau 0 (sensibilisation e-learning) à 129 € HT — accès immédiat, quiz et attestation inclus. Niveau 1 (intervenant sur équipements) à 490 € HT — e-learning + entretien 30 min + avis d'habilitation ATEX valable 3 ans. Niveau 2 (référent / encadrant) à partir de 790 € HT — e-learning + classe virtuelle 2h + avis d'habilitation ATEX valable 3 ans, sur devis selon l'effectif et le site.",
+      "PREVENSIA propose trois niveaux : Niveau 0 (sensibilisation) à 129 € HT — e-learning 2h + entretien de validation 30 min + attestation incluse. Niveau 1 (intervenant sur équipements) à 490 € HT — e-learning 5-6h + classe virtuelle 4h avec formateur + avis d'habilitation ATEX N1 valable 3 ans. Niveau 2 (référent / encadrant) à partir de 990 € HT — e-learning 7h + journée présentielle 7h avec formateur + avis d'habilitation ATEX N2 valable 3 ans, sur devis selon l'effectif et le site.",
   },
 ];
 
@@ -204,17 +204,17 @@ export default function FormationAtexPage() {
             <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">NIV 0 — Sensibilisation</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">129 € HT</p>
-              <p className="mt-1 text-sm text-slate-600">E-learning 3h + quiz + attestation · Accès immédiat</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning 2h + entretien 30 min · Attestation de sensibilisation</p>
             </div>
             <div className="rounded-2xl border border-slate-300 bg-slate-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-slate-600">NIV 1 — Intervenant</p>
               <p className="mt-2 text-3xl font-bold text-slate-900">490 € HT</p>
-              <p className="mt-1 text-sm text-slate-600">E-learning + entretien 30 min · Avis d&apos;habilitation ATEX</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning + classe virtuelle 4h · Avis d&apos;habilitation ATEX N1</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">NIV 2 — Encadrant</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">790 € HT</p>
-              <p className="mt-1 text-sm text-slate-600">E-learning + classe virtuelle · À partir de · Sur devis</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900">990 € HT</p>
+              <p className="mt-1 text-sm text-slate-600">E-learning + journée présentielle 7h · Avis d&apos;habilitation ATEX N2</p>
             </div>
           </div>
         </div>
@@ -445,7 +445,7 @@ export default function FormationAtexPage() {
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Permis de feu et autorisation de travail</li>
               </ul>
               <div className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-3">
-                <p className="text-xs text-slate-500">E-learning + entretien 30 min · Avis d&apos;habilitation ATEX Niveau 1 valable 3 ans.</p>
+                <p className="text-xs text-slate-500">E-learning 5-6h + classe virtuelle 4h avec formateur · Avis d&apos;habilitation ATEX Niveau 1 valable 3 ans.</p>
                 <Link href="/demande-devis?type=atex&detail=atex-niveau1" className="mt-1 inline-block text-sm font-semibold text-slate-700 hover:underline">
                   Démarrer — 490 € HT →
                 </Link>
@@ -472,9 +472,9 @@ export default function FormationAtexPage() {
                 <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Sélection et vérification des équipements Ex</li>
               </ul>
               <div className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-3">
-                <p className="text-xs text-slate-500">E-learning + classe virtuelle 2h · Avis d&apos;habilitation ATEX Niveau 2 valable 3 ans.</p>
+                <p className="text-xs text-slate-500">E-learning 7h + journée présentielle 7h avec formateur · Avis d&apos;habilitation ATEX Niveau 2 valable 3 ans.</p>
                 <Link href="/demande-devis?type=atex&detail=atex-niveau2" className="mt-1 inline-block text-sm font-semibold text-slate-700 hover:underline">
-                  À partir de 790 € HT — Devis →
+                  À partir de 990 € HT — Devis →
                 </Link>
               </div>
             </div>
@@ -533,7 +533,7 @@ export default function FormationAtexPage() {
               href="/demande-devis?type=atex&detail=atex-niveau2"
               className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              NIV 2 Encadrant — À partir de 790 € HT
+              NIV 2 Encadrant — À partir de 990 € HT
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-400">

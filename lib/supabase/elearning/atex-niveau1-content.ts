@@ -6,17 +6,17 @@ export const atexNiveau1ModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning approfondi destiné au personnel intervenant directement sur des appareils ou installations situés en zone ATEX : techniciens de maintenance, électriciens, monteurs, instrumentistes, sous-traitants effectuant des travaux en zone classée.",
   duration: "5 h à 6 h",
-  deliveryFormat: "E-learning autonome + classe virtuelle 2h + entretien de validation 30 min",
+  deliveryFormat: "E-learning autonome 5h-6h + classe virtuelle 4h avec formateur",
   level: "Intermédiaire",
   objective:
     "Maîtriser les règles d'intervention en zone ATEX : lire un marquage Ex complet, sélectionner l'équipement adapté à la zone, utiliser correctement l'explosimètre, appliquer les procédures d'autorisation de travail et permis de feu, utiliser les EPI antistatiques et réagir face à une anomalie ou un incident.",
   audience:
     "Personnel effectuant des travaux, de la maintenance ou des dépannages en zone ATEX : techniciens de maintenance industrielle, électriciens, instrumentistes, monteurs, chaudronniers, agents de nettoyage industriel, sous-traitants amenés à intervenir sur des équipements ou installations en zone classée.",
   certificationNote:
-    "Ce parcours constitue la composante théorique d'une habilitation ATEX NIV 1 (Intervenant), conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. Son contenu est élaboré en référence au Guide ISM-ATEX de l'INERIS, référentiel de bonnes pratiques reconnu pour la formation des intervenants en zone classée. À l'issue du e-learning, un entretien individuel de 30 minutes avec un formateur PREVENSIA valide les acquis et permet de délivrer l'avis d'habilitation ATEX NIV 1, valable 3 ans. La mise en situation pratique sur les installations du site et la prise en compte des spécificités terrain restent de la responsabilité de l'employeur.",
+    "Ce parcours constitue la composante théorique d'une habilitation ATEX NIV 1 (Intervenant), conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. Son contenu est élaboré en référence au Guide ISM-ATEX de l'INERIS, référentiel de bonnes pratiques reconnu pour la formation des intervenants en zone classée. À l'issue du e-learning, une classe virtuelle de 4 heures avec un formateur PREVENSIA (session Zoom) valide les acquis sur des cas pratiques et des mises en situation, et permet de délivrer l'avis d'habilitation ATEX NIV 1, valable 3 ans. La mise en situation pratique sur les installations du site et la prise en compte des spécificités terrain restent de la responsabilité de l'employeur.",
   heroBadge: "ATEX NIV 1",
   finalMessage:
-    "En zone ATEX, intervenir sans les bons équipements, sans autorisation de travail ou sans vérification préalable de l'atmosphère expose l'intervenant et ses collègues à un risque mortel. Chaque étape — vérification de l'explosimètre, port des EPI antistatiques, respect du permis de feu — est un maillon de la chaîne de prévention. L'entretien avec votre formateur PREVENSIA vous permettra de valider ces acquis appliqués à votre contexte réel.",
+    "En zone ATEX, intervenir sans les bons équipements, sans autorisation de travail ou sans vérification préalable de l'atmosphère expose l'intervenant et ses collègues à un risque mortel. Chaque étape — vérification de l'explosimètre, port des EPI antistatiques, respect du permis de feu — est un maillon de la chaîne de prévention. La classe virtuelle de 4 heures avec votre formateur PREVENSIA vous permettra de valider ces acquis appliqués à votre contexte réel, sur des cas pratiques issus de votre secteur d'activité.",
   quizCtaLabel: "Passer au quiz ATEX NIV 1",
   sections: [
     {
@@ -469,16 +469,16 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       chapterImagePath: "/elearning/atex/atex-bonnes-pratiques-inrs.png",
       chapterImageAlt: "INRS — Atmosphères explosives : les bonnes pratiques ATEX (affiche officielle de référence)",
       intro:
-        "Ce chapitre final consolide les points essentiels du Niveau 1 et vous prépare au quiz de validation et à l'entretien de 30 minutes avec votre formateur PREVENSIA.",
+        "Ce chapitre final consolide les points essentiels du Niveau 1 et vous prépare au quiz de validation et à la classe virtuelle de 4 heures avec votre formateur PREVENSIA.",
       content: [
         "Les 10 règles de l'intervenant en zone ATEX : (1) Consulter le DRPCE et le plan de zonage avant toute intervention. (2) Obtenir l'autorisation de travail ou le permis de feu signé. (3) Vérifier et tester l'explosimètre (étalonnage, batterie, gaz de référence). (4) Mesurer l'atmosphère avant d'entrer (< 20 % LIE). (5) Porter les EPI antistatiques (vêtements EN 1149-5, chaussures ESD). (6) N'apporter que des équipements et outils certifiés Ex adaptés à la zone. (7) Mettre à la terre tous les équipements conducteurs mobiles. (8) Respecter la zone de sécurité de 10 m pour les travaux par points chauds. (9) Surveiller l'atmosphère en continu pendant les travaux. (10) Signaler toute anomalie immédiatement.",
-        "L'avis d'habilitation ATEX Niveau 1 qui vous sera remis à l'issue de l'entretien atteste que vous possédez les connaissances théoriques nécessaires pour intervenir en zone ATEX de manière sécurisée. Il est valable 3 ans. L'employeur reste responsable de l'autorisation formelle d'intervenir en zone classée.",
-        "L'entretien de 30 minutes avec votre formateur PREVENSIA portera sur : votre compréhension des marquages Ex (décodage d'un marquage complet), votre connaissance des procédures d'autorisation de travail et permis de feu, la conduite à tenir en cas d'anomalie, les spécificités de votre domaine d'intervention (électrique ou mécanique), et les particularités de votre site.",
+        "L'avis d'habilitation ATEX Niveau 1 qui vous sera remis à l'issue de la classe virtuelle atteste que vous possédez les connaissances théoriques et pratiques nécessaires pour intervenir en zone ATEX de manière sécurisée. Il est valable 3 ans. L'employeur reste responsable de l'autorisation formelle d'intervenir en zone classée.",
+        "La classe virtuelle de 4 heures avec votre formateur PREVENSIA portera sur : des cas pratiques de décodage de marquages Ex, des exercices sur les procédures d'autorisation de travail et permis de feu, des mises en situation selon votre domaine (électrique ou mécanique), la conduite à tenir en cas d'anomalie, et les particularités de votre site.",
       ],
       keyPoints: [
         "10 règles de l'intervenant — à mémoriser et appliquer systématiquement.",
         "Avis d'habilitation ATEX N1 = attestation théorique valable 3 ans. L'employeur autorise formellement.",
-        "L'entretien de validation porte sur les marquages, les procédures, la conduite à tenir et votre domaine (élec/méca).",
+        "Classe virtuelle 4h : marquages Ex, procédures AT/permis feu, mises en situation élec/méca, spécificités site.",
         "Recyclage obligatoire tous les 3 ans pour maintenir l'habilitation.",
       ],
       legalRefs: [

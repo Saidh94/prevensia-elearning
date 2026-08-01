@@ -77,7 +77,7 @@ const paymentRules: PaymentRule[] = [
     label: "Formation et Sensibilisation ATEX NIV 2 Encadrant",
     anyKeywords: ["atex-niveau2", "atex niveau2", "atex niveau 2"],
     reason:
-      "La formation ATEX Niveau 2 est adaptee selon le role, les responsabilites et les installations du site. Tarif a partir de 790 EUR HT.",
+      "La formation ATEX Niveau 2 est adaptee selon le role, les responsabilites et les installations du site. Tarif a partir de 990 EUR HT (e-learning 7h + journee presentielle 7h avec formateur).",
   },
   {
     envKey: "STRIPE_PRICE_ATEX_ELEARNING_CENTS",

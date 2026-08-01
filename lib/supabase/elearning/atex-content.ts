@@ -6,14 +6,14 @@ export const atexModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning de sensibilisation aux atmosphères explosives, destiné à toute personne amenée à travailler, intervenir ou évoluer dans un environnement susceptible de présenter un risque d'explosion lié à des gaz, vapeurs ou poussières inflammables.",
   duration: "2 h 30 à 3 h",
-  deliveryFormat: "E-learning autonome + quiz de validation",
+  deliveryFormat: "E-learning autonome 2h + entretien de validation 30 min",
   level: "Débutant à intermédiaire",
   objective:
     "Comprendre ce qu'est une atmosphère explosive, identifier les zones ATEX (gaz et poussières), connaître le mécanisme d'une explosion et ses 6 conditions, appliquer les mesures de prévention adaptées, utiliser les EPI appropriés et respecter la signalisation réglementaire en zone ATEX.",
   audience:
     "Tout personnel amené à intervenir, travailler ou circuler dans un environnement pouvant présenter un risque ATEX : industrie chimique, pétrochimique, agroalimentaire (farine, sucre, amidon), traitement des eaux, imprimerie, menuiserie, métallurgie, stockage de produits inflammables.",
   certificationNote:
-    "Ce parcours constitue une sensibilisation théorique conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. Son contenu est élaboré en référence au Guide ISM-ATEX de l'INERIS (Bonnes pratiques pour la maîtrise du risque ATEX). La classification des zones, le choix des équipements et les procédures spécifiques restent de la responsabilité de l'employeur. Ce module ne remplace pas une habilitation ou une formation pratique terrain exigée par l'établissement.",
+    "Ce parcours constitue une sensibilisation théorique conforme à la directive 99/92/CE, à l'arrêté du 8 juillet 2003 et aux articles R.4227-42 à R.4227-54 du Code du travail. Son contenu est élaboré en référence au Guide ISM-ATEX de l'INERIS. À l'issue du e-learning, un entretien individuel de 30 minutes avec un formateur PREVENSIA permet de vérifier la compréhension des objectifs et de délivrer l'attestation de sensibilisation ATEX NIV 0. La classification des zones, le choix des équipements et les procédures spécifiques restent de la responsabilité de l'employeur.",
   heroBadge: "ATEX NIV 0",
   finalMessage:
     "En zone ATEX, chaque intervenant est un maillon de la prévention. Respecter les procédures, signaler toute anomalie, ne jamais utiliser un outil ou un équipement non adapté à la zone : ces réflexes simples évitent les accidents graves. La formation théorique doit être complétée par une sensibilisation terrain encadrée par l'employeur.",

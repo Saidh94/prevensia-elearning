@@ -20,7 +20,7 @@ const FORMATIONS: Formation[] = [
   // ATEX
   { id: "atex-n0",       label: "Formation et Sensibilisation ATEX NIV 0",          category: "ATEX",                    priceHT: 129,  priceNote: "E-learning 3h",                             perPerson: true  },
   { id: "atex-n1",       label: "Formation et Sensibilisation ATEX NIV 1 Intervenant", category: "ATEX",                    priceHT: 490,  priceNote: "E-learning + classe virtuelle + entretien", perPerson: true  },
-  { id: "atex-n2",       label: "Formation et Sensibilisation ATEX NIV 2 Encadrant",   category: "ATEX",                    priceHT: null, priceNote: "À partir de 790 € — sur devis (présentiel)", perPerson: false },
+  { id: "atex-n2",       label: "Formation et Sensibilisation ATEX NIV 2 Encadrant",   category: "ATEX",                    priceHT: null, priceNote: "À partir de 990 € — sur devis (e-learning + journée présentielle)", perPerson: false },
   // Sécurité incendie
   { id: "ssiap1",        label: "SSIAP1 initial",                      category: "Sécurité incendie",       priceHT: 1090, priceNote: "À partir de — 70h inter",                   perPerson: true  },
   { id: "recyclage-ssiap1",label:"Recyclage SSIAP1",                   category: "Sécurité incendie",       priceHT: 390,  priceNote: "À partir de — 14h inter",                   perPerson: true  },
