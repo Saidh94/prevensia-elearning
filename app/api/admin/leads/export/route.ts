@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/auth/require-admin";
 
 export const runtime = "nodejs";
 
 export async function GET(req: Request) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const supabase = createAdminClient();
   if (!supabase) return NextResponse.json({ error: "DB error" }, { status: 500 });
 

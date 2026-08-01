@@ -1,11 +1,14 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { requireAdmin } from "@/lib/auth/require-admin";
 
 export const runtime = "nodejs";
 
 const VALID_STATUSES = ["new", "contacted", "qualified", "converted", "lost"];
 
 export async function GET(req: Request) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const supabase = createAdminClient();
   if (!supabase) return NextResponse.json({ error: "DB error" }, { status: 500 });
 
@@ -27,6 +30,8 @@ export async function GET(req: Request) {
 }
 
 export async function PATCH(req: Request) {
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const supabase = createAdminClient();
   if (!supabase) return NextResponse.json({ error: "DB error" }, { status: 500 });
 
