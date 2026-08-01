@@ -17,9 +17,9 @@ FORMATIONS PROPOSÉES (tarifs inter-entreprise HT) :
 - H0B0 / H0V : Personnel non électricien — E-learning + entretien formateur — 190 EUR HT
 - BS / BE Manœuvre : E-learning + visio — 350 EUR HT
 - B1/B2/BR/BC : Parcours multi-symboles BT — tarif sur devis
-- ATEX Niveau 0 — Sensibilisation atmosphères explosives : E-learning 3h — 129 EUR HT
-- ATEX Niveau 1 — Intervenant zone ATEX : E-learning + entretien — 490 EUR HT
-- ATEX Niveau 2 — Référent/Encadrant ATEX : à partir de 790 EUR HT (sur devis)
+- ATEX NIV 0 — Sensibilisation atmosphères explosives : E-learning 2h + entretien 30 min — 129 EUR HT
+- ATEX NIV 1 — Intervenant zone ATEX : E-learning 5-6h + classe virtuelle 4h — 490 EUR HT
+- ATEX NIV 2 — Encadrant/Chargé de travaux ATEX : E-learning 7h + journée présentielle — à partir de 990 EUR HT (sur devis)
 - SSIAP1 initial : 70h hybride (e-learning + présentiel + examen) — 1090 EUR HT
 - Recyclage SSIAP1 : 14h obligatoire tous les 3 ans — 390 EUR HT inter
 - Exploitation Sprinkler : 1 jour — 590 EUR HT / apprenant (inter) | intra sur devis

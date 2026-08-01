@@ -130,6 +130,33 @@ function isAtexNiveau0(title: string) {
   );
 }
 
+function isAtexNiveau1(title: string) {
+  const normalized = title.toLowerCase();
+  return (
+    isAtex(title) &&
+    (normalized.includes("niveau 1") ||
+      normalized.includes("niveau1") ||
+      normalized.includes("niv 1") ||
+      normalized.includes("niv1") ||
+      normalized.includes("n1") ||
+      normalized.includes("intervenant"))
+  );
+}
+
+function isAtexNiveau2(title: string) {
+  const normalized = title.toLowerCase();
+  return (
+    isAtex(title) &&
+    (normalized.includes("niveau 2") ||
+      normalized.includes("niveau2") ||
+      normalized.includes("niv 2") ||
+      normalized.includes("niv2") ||
+      normalized.includes("n2") ||
+      normalized.includes("encadrant") ||
+      normalized.includes("chargé de travaux"))
+  );
+}
+
 function buildScenario(enrollment: BookingEnrollment): BookingScenario {
   const formation = normalizeFormation(enrollment.formation);
   const title = formation?.title ?? formation?.slug ?? "Formation PREVENSIA";
@@ -195,28 +222,56 @@ function buildScenario(enrollment: BookingEnrollment): BookingScenario {
   if (isAtex(title)) {
     if (isAtexNiveau0(title)) {
       return {
-        title: "ATEX Niveau 0 — Module e-learning",
+        title: "ATEX NIV 0 — Entretien de validation",
         summary:
-          "Votre parcours ATEX Niveau 0 est entièrement dématérialisé. Après validation du quiz, votre attestation de formation est générée automatiquement depuis votre espace apprenant.",
-        duration: "Auto-validation",
+          "Votre parcours e-learning ATEX NIV 0 est terminé. Prochaine étape : un entretien individuel de 30 min avec un formateur PREVENSIA pour valider vos acquis et délivrer l'attestation.",
+        duration: "30 min",
         audience: "Individuel",
-        ctaLabel: "Accéder au module ATEX",
-        ctaHref: "/modules/atex",
-        variant: "green" as const,
-        note: "Aucune séquence présentielle ni entretien n'est requis pour le Niveau 0. L'attestation ATEX est disponible dans votre espace apprenant dès la réussite du quiz.",
+        ctaLabel: "Réserver l'entretien de validation",
+        ctaHref: `/entretien?enrollment_id=${enrollment.id}&type=atex-n0`,
+        variant: "amber" as const,
+        note: "L'attestation de sensibilisation ATEX NIV 0 est délivrée à l'issue de l'entretien individuel avec le formateur.",
+      };
+    }
+
+    if (isAtexNiveau1(title)) {
+      return {
+        title: "ATEX NIV 1 — Classe virtuelle avec formateur",
+        summary:
+          "Votre e-learning ATEX NIV 1 est terminé. Prochaine étape : rejoindre votre session de classe virtuelle de 4 h avec un formateur PREVENSIA (Zoom) pour les cas pratiques et la délivrance de l'avis d'habilitation.",
+        duration: "4 h",
+        audience: "Groupe (jusqu'à 8 pers.)",
+        ctaLabel: "Accéder à ma session Zoom",
+        ctaHref: `/modules/atex-niveau1`,
+        variant: "blue" as const,
+        note: "L'avis d'habilitation ATEX NIV 1 (valable 3 ans) est délivré à l'issue de la classe virtuelle.",
+      };
+    }
+
+    if (isAtexNiveau2(title)) {
+      return {
+        title: "ATEX NIV 2 — Journée présentielle",
+        summary:
+          "Votre e-learning ATEX NIV 2 est terminé. Prochaine étape : la journée présentielle de 7 h avec un formateur PREVENSIA pour les cas pratiques, la rédaction DRPCE et la délivrance de l'avis d'habilitation.",
+        duration: "7 h (1 journée)",
+        audience: "Groupe (jusqu'à 8 pers.)",
+        ctaLabel: "Contacter PREVENSIA pour planifier",
+        ctaHref: `/demande-devis?type=atex-n2`,
+        variant: "amber" as const,
+        note: "L'avis d'habilitation ATEX NIV 2 (valable 3 ans) est délivré à l'issue de la journée présentielle. Contactez-nous pour fixer la date.",
       };
     }
 
     return {
-      title: "Entretien de validation ATEX",
+      title: "ATEX — Prochaine étape",
       summary:
-        "Parcours e-learning ATEX suivi, puis entretien individuel de validation avec un formateur spécialisé. L'entretien est obligatoire pour les niveaux 1 et 2.",
-      duration: "30 min",
+        "Votre parcours e-learning ATEX est terminé. Contactez PREVENSIA pour planifier la suite de votre parcours.",
+      duration: "—",
       audience: "Individuel",
-      ctaLabel: "Réserver l'entretien ATEX",
-      ctaHref: `/entretien?enrollment_id=${enrollment.id}&type=atex`,
+      ctaLabel: "Contacter PREVENSIA",
+      ctaHref: `/demande-devis?type=atex`,
       variant: "amber" as const,
-      note: "L'entretien valide la compréhension du zonage ATEX, des EPI requis et des procédures de travail en zone explosive.",
+      note: "Contactez contact@prevensia-formation.fr pour organiser la prochaine étape de votre habilitation ATEX.",
     };
   }
 

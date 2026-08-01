@@ -1184,7 +1184,7 @@ export default function QuizPage() {
                 {success ? (
                   <p className="mt-4 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
                     {isAtexN1
-                      ? "Validation réussie. Prochaine étape : classe virtuelle (2h), puis entretien individuel (30 min)."
+                      ? "Validation réussie. Prochaine étape : classe virtuelle (4h) avec formateur — votre session Zoom vous sera communiquée par email."
                       : "Validation réussie. Votre dossier passe maintenant à l’étape entretien."}
                   </p>
                 ) : failedEliminatory ? (

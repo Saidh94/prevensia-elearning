@@ -338,14 +338,14 @@ const formations = [
     slug: "atex",
     category: "Prévention des risques",
     title: "Formation et Sensibilisation ATEX NIV 0",
-    duration: "Durée e-learning : 3 h",
-    mode: "E-learning autonome + quiz de validation",
+    duration: "Durée e-learning : 2 h + entretien 30 min",
+    mode: "E-learning autonome + entretien de validation 30 min",
     price: "129 EUR HT",
     level: "Débutant",
     audience:
       "Tout personnel amené à circuler ou à travailler occasionnellement dans un environnement susceptible de présenter un risque d'explosion : industrie chimique, pétrochimique, agroalimentaire, traitement des eaux, menuiserie, métallurgie.",
     description:
-      "Sensibilisation aux atmosphères explosives conforme à la directive 99/92/CE. Le module couvre le mécanisme des explosions, la classification des zones ATEX (gaz et poussières), les mesures de prévention et la signalisation réglementaire.",
+      "Sensibilisation aux atmosphères explosives conforme à la directive 99/92/CE. Le module couvre le mécanisme des explosions, la classification des zones ATEX (gaz et poussières), les mesures de prévention et la signalisation réglementaire. Complété par un entretien individuel de validation de 30 min avec un formateur PREVENSIA.",
     objectifs: [
       "Comprendre ce qu'est une atmosphère explosive et le mécanisme d'une explosion",
       "Identifier les zones ATEX (0, 1, 2 gaz et 20, 21, 22 poussières) et leurs contraintes",
@@ -359,22 +359,23 @@ const formations = [
       "Sources d'inflammation et mesures de prévention",
       "Équipements certifiés Ex, EPI antistatiques et signalisation",
       "Conduite à tenir en cas d'alarme ou d'accident",
+      "Entretien de validation individuel (30 min)",
     ],
     note:
-      "Module e-learning autonome. Attestation de formation délivrée à l'issue du quiz de validation.",
+      "Attestation de sensibilisation ATEX délivrée à l'issue de l'entretien de validation (30 min) avec un formateur PREVENSIA.",
   },
   {
     slug: "atex-niveau1",
     category: "Prévention des risques",
     title: "Formation et Sensibilisation ATEX NIV 1 Intervenant",
-    duration: "E-learning 3 h + entretien individuel 30 min",
-    mode: "E-learning + entretien de validation visio",
+    duration: "E-learning 5-6 h + classe virtuelle 4 h avec formateur",
+    mode: "E-learning autonome + classe virtuelle 4 h (Zoom)",
     price: "490 EUR HT",
     level: "Intermédiaire",
     audience:
       "Travailleurs amenés à intervenir régulièrement en zone ATEX classée : techniciens de maintenance, opérateurs de production, électriciens, mécaniciens, sous-traitants intervenants.",
     description:
-      "Parcours ATEX Niveau 1 pour travailleurs exposés : bases réglementaires, identification des zones, mesures de prévention, EPI et comportements adaptés. Complété par un entretien individuel de validation donnant lieu à un avis d'habilitation ATEX valable 3 ans.",
+      "Parcours ATEX Niveau 1 pour travailleurs exposés : bases réglementaires, identification des zones, mesures de prévention, EPI et comportements adaptés. Complété par une classe virtuelle de 4 h avec un formateur PREVENSIA (cas pratiques élec/méca, mises en situation, délivrance de l'avis d'habilitation ATEX N1 valable 3 ans).",
     objectifs: [
       "Identifier les zones ATEX et comprendre les risques associés à son poste",
       "Appliquer les mesures de prévention et utiliser correctement les EPI certifiés Ex",
@@ -385,25 +386,25 @@ const formations = [
       "Réglementation : directive 99/92/CE et Code du travail",
       "Classification des zones ATEX gaz et poussières",
       "Équipements certifiés Ex et EPI antistatiques",
-      "Mesures de prévention adaptées au poste",
+      "Mesures de prévention adaptées au poste (élec et méca)",
       "Conduite à tenir en cas d'alarme ou d'accident",
-      "Entretien individuel de validation (30 min visio)",
+      "Classe virtuelle (4 h) : marquages Ex, mises en situation, évaluation finale",
     ],
     note:
-      "Avis d'habilitation ATEX Niveau 1 valable 3 ans délivré à l'issue de l'entretien de validation.",
+      "Avis d'habilitation ATEX Niveau 1 valable 3 ans délivré à l'issue de la classe virtuelle avec formateur.",
   },
   {
     slug: "atex-niveau2",
     category: "Prévention des risques",
     title: "Formation et Sensibilisation ATEX NIV 2 Encadrant",
-    duration: "E-learning 3 h + classe virtuelle 2 h",
-    mode: "E-learning + classe virtuelle collective",
-    price: "À partir de 790 EUR HT",
+    duration: "E-learning 7 h + journée présentielle 7 h avec formateur",
+    mode: "E-learning autonome + journée présentielle (sur site ou en centre)",
+    price: "À partir de 990 EUR HT",
     level: "Avancé",
     audience:
       "Responsables de travaux, chargés de chantier, responsables sécurité, coordinateurs, responsables ATEX et personnel d'encadrement amené à planifier et superviser des interventions en zone ATEX.",
     description:
-      "Parcours ATEX Niveau 2 destiné aux encadrants et responsables de travaux en zone classée : réglementation approfondie, DRPCE, plans de prévention, coordination des intervenants et gestion des situations d'urgence. Complété par une classe virtuelle collective de 2h.",
+      "Parcours ATEX Niveau 2 destiné aux encadrants et responsables de travaux en zone classée : réglementation approfondie, DRPCE, plans de prévention, coordination des intervenants et gestion des situations d'urgence. Complété par une journée présentielle de 7 h avec un formateur PREVENSIA.",
     objectifs: [
       "Maîtriser le cadre réglementaire ATEX et les obligations de l'employeur",
       "Élaborer ou valider le Document Relatif à la Protection contre les Explosions (DRPCE)",
@@ -415,10 +416,10 @@ const formations = [
       "Plans de prévention et autorisations de travail",
       "Gestion des équipements certifiés Ex et EPI",
       "Retour d'expérience et analyse d'accidents ATEX",
-      "Classe virtuelle collective (2 h) : cas pratiques et échanges",
+      "Journée présentielle (7 h) : quiz de positionnement, fiche de zone, sélection Ex, simulation d'intervention, évaluation finale",
     ],
     note:
-      "Avis d'habilitation ATEX Niveau 2 valable 3 ans délivré à l'issue de la classe virtuelle. Tarif sur devis pour les sessions intra-entreprise.",
+      "Avis d'habilitation ATEX Niveau 2 valable 3 ans délivré à l'issue de la journée présentielle. Tarif sur devis pour les sessions intra-entreprise.",
   },
   {
     slug: "ssiap1",
