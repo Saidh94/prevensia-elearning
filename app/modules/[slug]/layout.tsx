@@ -313,7 +313,7 @@ export default async function ModuleLayout({
               href="/dashboard"
               className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
             >
-              \u2190 Mon espace
+              {"\u2190 Mon espace"}
             </Link>
             <Link
               href="/"
