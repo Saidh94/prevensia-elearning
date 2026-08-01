@@ -176,8 +176,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
   ],
   atex: [
     {
-      title: "ATEX Niveau 1 — Sensibilisation atmosphères explosives",
-      duration: "3 h e-learning",
+      title: "ATEX NIV 0 — Sensibilisation atmosphères explosives",
+      duration: "2 h e-learning + entretien 30 min",
       price: "129 EUR HT",
       group: "Non applicable",
       participants: "Individuel",
@@ -186,8 +186,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       badge: "ATEX",
     },
     {
-      title: "ATEX Niveau 2 — Travailleur exposé en zone classée",
-      duration: "E-learning 3 h + entretien 30 min",
+      title: "ATEX NIV 1 — Intervenant en zone classée",
+      duration: "E-learning 5-6 h + classe virtuelle 4 h",
       price: "490 EUR HT",
       group: "Sur devis",
       participants: "Individuel",
@@ -196,9 +196,9 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
       badge: "ATEX",
     },
     {
-      title: "ATEX Niveau 3 — Chargé de travaux / Responsable",
-      duration: "E-learning 3 h + classe virtuelle 2 h",
-      price: "À partir de 790 EUR HT",
+      title: "ATEX NIV 2 — Encadrant / Chargé de travaux",
+      duration: "E-learning 7 h + journée présentielle 7 h",
+      price: "À partir de 990 EUR HT",
       group: "Sur devis",
       participants: "Jusqu'à 8",
       ctaHref: "/formation-atex",

@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Formation ATEX — Atmosphères Explosives E-learning",
     description:
-      "Parcours e-learning ATEX 3h conforme à la directive 99/92/CE. Zones gaz et poussières, marquage Ex, EPI, conduite à tenir. 129 € HT — attestation incluse.",
+      "Parcours e-learning ATEX 2h conforme à la directive 99/92/CE. Zones gaz et poussières, marquage Ex, EPI, conduite à tenir. 129 € HT — attestation incluse.",
     url: "https://prevensia-formation.fr/formation-atex",
   },
 };
@@ -167,7 +167,7 @@ export default function FormationAtexPage() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Parcours e-learning complet de 3h pour comprendre les risques ATEX, identifier
+            Parcours e-learning de 2h pour comprendre les risques ATEX, identifier
             les zones classées, utiliser les équipements certifiés Ex et adopter les bons
             comportements. Conforme à la directive 99/92/CE et au Code du travail.
           </p>
@@ -190,7 +190,7 @@ export default function FormationAtexPage() {
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <span>✓ Conforme directive 99/92/CE</span>
             <span>✓ Accès e-learning immédiat</span>
-            <span>✓ 3 heures de formation</span>
+            <span>✓ 2 heures de formation</span>
             <span>✓ Attestation incluse</span>
             <span>✓ Vidéo officielle INRS</span>
           </div>
