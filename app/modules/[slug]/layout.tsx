@@ -308,12 +308,18 @@ export default async function ModuleLayout({
     <main className="module-shell min-h-screen bg-slate-100">
       <header className="module-shell-header sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Link
-              href="/"
+              href="/dashboard"
               className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
             >
-              {"\u2190 Retour au site"}
+              \u2190 Mon espace
+            </Link>
+            <Link
+              href="/"
+              className="hidden sm:inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+            >
+              Site
             </Link>
 
             <div>
