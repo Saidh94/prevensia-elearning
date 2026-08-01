@@ -42,12 +42,32 @@ export default async function FormateurDashboardPage() {
   const admin = createAdminClient();
   if (!admin) return <div>Erreur serveur</div>;
 
-  // Récupérer l'entrée formateur
-  const { data: formateur } = await admin
+  // Récupérer l'entrée formateur — 1) par user_id, 2) fallback par email
+  let { data: formateur } = await admin
     .from("formateurs")
-    .select("id, prenom, nom, specialites")
+    .select("id, prenom, nom, specialites, user_id")
     .eq("user_id", user.id)
     .maybeSingle();
+
+  // Fallback : chercher par email si user_id ne correspond pas
+  if (!formateur && user.email) {
+    const { data: byEmail } = await admin
+      .from("formateurs")
+      .select("id, prenom, nom, specialites, user_id")
+      .ilike("email", user.email)
+      .maybeSingle();
+
+    if (byEmail) {
+      // Auto-corriger le user_id manquant ou erroné
+      if (!byEmail.user_id || byEmail.user_id !== user.id) {
+        await admin
+          .from("formateurs")
+          .update({ user_id: user.id })
+          .eq("id", byEmail.id);
+      }
+      formateur = byEmail;
+    }
+  }
 
   if (!formateur) {
     return (
@@ -58,6 +78,7 @@ export default async function FormateurDashboardPage() {
           <p className="text-sm text-slate-500">
             Votre compte n&apos;est pas encore lié à un profil formateur. Contactez l&apos;admin PREVENSIA.
           </p>
+          <p className="text-xs text-slate-400">{user.email}</p>
         </div>
       </div>
     );
