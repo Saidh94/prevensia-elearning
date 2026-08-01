@@ -73,8 +73,8 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "classification-zones-avancee",
       title: "2. Classification des zones ATEX — Critères et délimitation",
       estimatedMinutes: 30,
-      chapterImagePath: "/elearning/atex/atex-zones-batiment.png",
-      chapterImageAlt: "Schéma de zonage ATEX Z1/Z2 dans un bâtiment industriel — source INRS",
+      chapterImagePath: "/elearning/atex/atex-classification-zones-cercle.png",
+      chapterImageAlt: "Classification zones ATEX — cercles concentriques gaz/vapeurs/poussières zones 0-1-2 et 20-21-22",
       intro:
         "La classification des zones est la base du choix des équipements. Un intervenant doit savoir lire un plan de zonage, comprendre les critères qui définissent chaque zone et adapter son comportement en conséquence.",
       content: [
@@ -107,8 +107,8 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "marquages-ex",
       title: "3. Lecture des marquages Ex — Décoder un équipement certifié",
       estimatedMinutes: 35,
-      chapterImagePath: "/elearning/atex/atex-marquage-ce.png",
-      chapterImageAlt: "Marquage CE ATEX : CE + n° organisme notifié + symbole Ex + groupe + catégorie + type d'atmosphère — source INRS",
+      chapterImagePath: "/elearning/atex/atex-exemple-marquage-label.png",
+      chapterImageAlt: "Exemple réel d'étiquette ATEX annotée : II 2G Ex ib IIC T4 Gb / II 2D Ex ib IIIC T135°C Db IP64 — décodage complet",
       intro:
         "Utiliser un équipement non adapté à la zone classée peut provoquer une explosion. Savoir lire un marquage Ex complet est une compétence fondamentale pour tout intervenant en zone ATEX.",
       content: [
@@ -271,16 +271,17 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "epi-antistatiques",
       title: "6. EPI antistatiques — Sélection, port et entretien",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-epi-complet.svg",
-      chapterImageAlt: "Équipements de protection individuelle certifiés pour zones ATEX — vêtements, chaussures, gants",
+      chapterImagePath: "/elearning/atex/atex-fiche-epi-mabeo.png",
+      chapterImageAlt: "Fiche EPI ATEX complète (Mabéo Industries) : casque EN 397/A1, combinaison EN 1149 + EN ISO 14116 + EN ISO 11612, gants EN 60903, chaussures EN ISO 20345",
       intro:
-        "En zone ATEX, les EPI ont une double fonction : protéger l'intervenant et éviter d'être une source d'inflammation. Les décharges électrostatiques générées par des vêtements ou équipements ordinaires peuvent suffire à déclencher une explosion.",
+        "En zone ATEX, les EPI ont une double fonction : protéger l'intervenant et éviter d'être une source d'inflammation. Les décharges électrostatiques générées par des vêtements ou équipements ordinaires peuvent suffire à déclencher une explosion. Chaque EPI doit répondre à des normes précises vérifiables sur l'équipement.",
       content: [
         "L'électricité statique est l'une des principales sources d'inflammation en zone ATEX. Elle peut être générée par le frottement de vêtements synthétiques, la circulation de fluides dans des tuyaux, le déplacement de personnes sur un sol non antistatique, ou l'utilisation d'outils ou contenants non mis à la terre.",
-        "Vêtements de travail : les vêtements portés en zone ATEX doivent être conformes à la norme EN 1149-5 (dissipation électrostatique). Ils sont fabriqués à partir de fibres conductrices (fibres de carbone ou métal intégrées dans le tissu). Interdiction de porter des vêtements synthétiques non antistatiques (polyester, nylon) sous le vêtement de travail certifié.",
-        "Chaussures de sécurité antistatiques : conformes à la norme EN ISO 20345 avec propriétés ESD (Electrostatic Discharge). Elles permettent l'écoulement des charges vers le sol. À condition que le sol lui-même soit conducteur ou que l'opérateur soit relié à la terre. Résistance requise : 100 kΩ à 1 GΩ (norme EN 61340-4-3).",
-        "Gants : préférer des gants en matériaux naturels (cuir, coton) aux gants synthétiques. Si des gants isolants sont nécessaires pour d'autres risques, évaluer la compatibilité avec le risque ATEX. Pour les manipulations de solvants, utiliser des gants conducteurs mis à la terre.",
-        "Entretien des EPI antistatiques : laver les vêtements selon les instructions du fabricant (certains produits détergents altèrent les propriétés antistatiques). Vérifier après chaque lavage que les propriétés sont toujours conformes. Un vêtement antistatique endommagé (déchirure, réparation avec fil synthétique) perd ses propriétés — ne plus l'utiliser en zone ATEX.",
+        "Casque de protection : norme EN 397/A1 avec propriété ESD (antistatique). Les casques doivent dissiper les charges électrostatiques. Les casques en plastique non conducteur standard sont interdits en zone ATEX.",
+        "Vêtements de travail : les vêtements portés en zone ATEX doivent répondre à 3 normes cumulatives : EN 1149-5 (dissipation électrostatique — résistance superficielle < 2,5 × 10^9 Ω), EN ISO 14116 (comportement à flamme limitée) et EN ISO 11612 (protection contre la chaleur et les flammes). Ils sont fabriqués à partir de fibres conductrices. Interdiction formelle de porter des vêtements synthétiques non antistatiques (polyester, nylon) sous ou à la place du vêtement certifié.",
+        "Gants isolants : norme EN 60903 pour les travaux en présence de risques électriques en zone ATEX. Vérifier avant chaque utilisation l'absence de trou, de coupure ou de déformation. Pour les manipulations chimiques, utiliser des gants antistatiques adaptés aux produits présents — les gants en latex ou en nitrile synthétique peuvent accumuler des charges.",
+        "Chaussures de sécurité antistatiques : conformes à la norme EN ISO 20345 avec propriétés ESD (Electrostatic Discharge). La résistance électrique doit être comprise entre 100 kΩ et 1000 MΩ pour dissiper les charges sans constituer un risque de choc électrique. Efficacité conditionnée à l'utilisation sur un sol conducteur ou semi-conducteur.",
+        "Entretien des EPI antistatiques : laver les vêtements selon les instructions fabricant (certains détergents altèrent les propriétés antistatiques). Vérifier après chaque lavage que les propriétés sont conformes. Un vêtement endommagé (déchirure, réparation avec fil synthétique) perd ses propriétés — ne plus utiliser en zone ATEX. Durée de vie limitée : respecter les dates de péremption.",
       ],
       deepDive: [
         "Mise à la terre des équipements : tout équipement conducteur utilisé en zone ATEX (contenants, outils, équipements mobiles) doit être mis à la terre ou lié équipotentiellement au circuit pour éviter l'accumulation de charges électrostatiques. Cette liaison doit être vérifiée avant chaque utilisation.",
@@ -465,8 +466,8 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "synthese-quiz-n1",
       title: "12. Synthèse et préparation à l'évaluation",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
-      chapterImageAlt: "Synthèse des réflexes ATEX Niveau 1 — les 10 règles de l'intervenant",
+      chapterImagePath: "/elearning/atex/atex-bonnes-pratiques-inrs.png",
+      chapterImageAlt: "INRS — Atmosphères explosives : les bonnes pratiques ATEX (affiche officielle de référence)",
       intro:
         "Ce chapitre final consolide les points essentiels du Niveau 1 et vous prépare au quiz de validation et à l'entretien de 30 minutes avec votre formateur PREVENSIA.",
       content: [
@@ -491,7 +492,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
     {
       title: "Livret Stagiaire ATEX Niveau 1",
       description:
-        "Support de formation complet : 10 chapitres illustrés (photos INRS), lexique ATEX, QCM de 16 questions avec corrigé. À conserver comme référence après la formation.",
+        "Support de formation complet : 12 modules illustrés avec photos réelles (Mabéo, INERIS, INRS), normes EPI (EN 1149-5, EN ISO 14116, EN ISO 11612, EN 60903, EN ISO 20345), marquage Ex, DRPCE, PEAS et QCM de 15 questions. À conserver comme référence après la formation.",
       url: "/downloads/atex/ATEX_N1_Livret_Stagiaire.pdf",
       fileType: "pdf",
       ctaLabel: "Télécharger le livret (PDF)",

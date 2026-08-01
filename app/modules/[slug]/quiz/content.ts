@@ -7733,6 +7733,49 @@ quizContent["atex"] = [
     chapterLabel: "Contrôle atmosphérique",
     timeLimit: 45,
   },
+  // ── Questions INERIS Oméga 36 ──────────────────────────────────────────────
+  {
+    question: "Selon le guide INERIS Oméga 36, quelle est la différence entre une atmosphère 'explosive' et une atmosphère 'explosible' ?",
+    choices: [
+      "Ce sont deux termes strictement synonymes — la réglementation française utilise les deux indifféremment",
+      "Une atmosphère est 'explosible' lorsque les conditions chimiques d'explosion sont réunies (mélange air/combustible entre LIE et LSE) mais qu'aucune source d'inflammation n'est présente ; elle devient 'explosive' si une source d'inflammation est également présente",
+      "L'atmosphère 'explosive' désigne les zones à gaz et l'atmosphère 'explosible' désigne les zones à poussières",
+      "Le terme 'explosive' s'applique uniquement aux mélanges de gaz ; 'explosible' s'applique aux poussières",
+    ],
+    answer: [1],
+    chapterLabel: "Atmosphères explosives",
+    explanation: "L'INERIS (guide Oméga 36, §1.2) précise cette distinction : une atmosphère est dite 'explosible' lorsque la concentration en combustible est comprise entre la LIE et la LSE — les conditions chimiques sont réunies. Elle devient 'explosive' (c'est-à-dire susceptible d'exploser effectivement) uniquement lorsqu'une source d'inflammation est également présente. La prévention ATEX vise à empêcher la conjonction de ces deux conditions.",
+    timeLimit: 40,
+    contextLabel: "Guide INERIS Oméga 36 — §1.2 Terminologie",
+  },
+  {
+    question: "Quelles normes doivent être réunies pour valider un équipement de protection du corps complet en zone ATEX (vêtements antistatiques) ?",
+    choices: [
+      "EN 1149-5 seule suffit pour valider la protection antistatique en toute zone ATEX",
+      "EN 1149-5 (antistatique) + EN ISO 14116 (flamme limitée) + EN ISO 11612 (chaleur et flammes) — les 3 normes sont complémentaires et requises en zone ATEX",
+      "EN 471 (haute visibilité) + EN 1149-5 (antistatique)",
+      "ISO 9001 (qualité fabricant) + EN 1149-5 (antistatique)",
+    ],
+    answer: [1],
+    chapterLabel: "EPI ATEX",
+    explanation: "En zone ATEX, la protection du corps requiert 3 normes complémentaires : EN 1149-5 (dissipation électrostatique — résistance surfacique < 2,5×10⁹ Ω) ; EN ISO 14116 (comportement des matériaux à flamme limitée — indice de propagation de flamme) ; EN ISO 11612 (protection contre la chaleur et les flammes — tests A1/A2, B, C, D, E, F selon l'exposition). Ces 3 normes sont mentionnées sur la fiche EPI ATEX des équipementiers professionnels (ex. Mabéo Industries).",
+    timeLimit: 40,
+    contextLabel: "Fiche EPI ATEX Mabéo — Normes vêtements zone ATEX",
+  },
+  {
+    question: "Selon INERIS Oméga 36 (§3.2), quel niveau de formation correspond au personnel qui pénètre ponctuellement dans une zone ATEX mais n'y réalise aucune opération de maintenance ou d'intervention ?",
+    choices: [
+      "Niveau 2 — formation encadrant ATEX",
+      "Niveau 1 — formation intervenant ATEX",
+      "Niveau 0 — formation minimale / sensibilisation ATEX",
+      "Aucune formation n'est requise pour les passages ponctuels",
+    ],
+    answer: [2],
+    chapterLabel: "Réglementation ATEX",
+    explanation: "Le guide INERIS Oméga 36 (§3.2.3) définit le Niveau 0 comme la 'formation minimale' : elle concerne tout personnel amené à circuler ou travailler dans une zone ATEX sans réaliser d'opérations techniques (opérateurs de production, personnel logistique, visiteurs accompagnés). Elle couvre la reconnaissance des zones, des panneaux ATEX, les comportements à adopter (EPI, interdictions) et la conduite à tenir en cas d'alarme. C'est le niveau de cette formation (NIV 0).",
+    timeLimit: 35,
+    contextLabel: "Guide INERIS Oméga 36 — §3.2.3 Formation minimale",
+  },
 ];
 
 // ─── SSIAP1 ──────────────────────────────────────────────────────────────────
@@ -9215,6 +9258,35 @@ quizContent["atex-niveau1"] = [
       "Le contact entre les pales et le carter est une source d'inflammation mécanique classique : choc métal/métal = étincelle mécanique pouvant atteindre plusieurs centaines de degrés, et/ou friction prolongée générant un échauffement progressif de la surface. Les roues de ventilateurs ATEX sont conçues en matériaux non générateurs d'étincelles par choc (alliages aluminium-bronze) et avec un jeu roue/carter garanti. Une vibration anormale entraînant un contact = non-conformité immédiate exigeant l'arrêt de l'équipement, indépendamment du marquage Ex.",
     timeLimit: 35,
   },
+  // ── Questions INERIS Oméga 36 ──────────────────────────────────────────────
+  {
+    question: "Selon l'INERIS (guide Oméga 36, §3.2.4), quel profil correspond précisément au Niveau 1 de formation ATEX ?",
+    choices: [
+      "Tout salarié présent sur un site comportant des zones ATEX, quelle que soit son activité",
+      "Le personnel réalisant des opérations de maintenance, d'entretien ou de contrôle sur des appareils certifiés Ex en zone ATEX — il doit maîtriser le zonage, les EPI, les AT et la lecture des marquages Ex",
+      "Uniquement les électriciens habilités BR ou B2 travaillant en zone classée",
+      "Les encadrants responsables de la rédaction du DRPCE et du pilotage de la démarche ATEX",
+    ],
+    answer: [1],
+    chapterLabel: "Réglementation ATEX",
+    explanation: "L'INERIS Oméga 36 (§3.2.4) définit le Niveau 1 comme la 'formation maintenance' : elle concerne les intervenants qui réalisent des travaux techniques (maintenance, entretien, mesures, nettoyage industriel) directement sur ou à proximité d'équipements certifiés Ex en zone ATEX. Ces personnes doivent connaître le zonage du site, lire un marquage Ex, choisir et utiliser les EPI adaptés, appliquer les procédures d'autorisation de travail et de permis de feu, et utiliser un explosimètre certifié.",
+    timeLimit: 40,
+    contextLabel: "Guide INERIS Oméga 36 — §3.2.4 Formation Niveau 1",
+  },
+  {
+    question: "Un intervenant ATEX N1 porte une combinaison conforme EN 1149-5 mais des sous-vêtements en polyester et des chaussures de sécurité standard (non ESD). Quelle est la situation ?",
+    choices: [
+      "La combinaison EN 1149-5 suffit — les sous-vêtements et les chaussures n'ont pas d'impact sur le risque électrostatique",
+      "Le système EPI antistatique est incomplet et non conforme : les sous-vêtements synthétiques génèrent des charges qui ne peuvent pas être dissipées car les chaussures non ESD ne permettent pas leur évacuation vers le sol",
+      "Seules les chaussures sont non conformes — les sous-vêtements sont sans importance si la combinaison externe est certifiée",
+      "Seuls les sous-vêtements posent un problème — les chaussures standard sont acceptables en Zone 2",
+    ],
+    answer: [1],
+    chapterLabel: "EPI ATEX",
+    explanation: "La norme EN 1149-5 précise que le système de protection antistatique doit être considéré dans son ensemble : vêtement externe antistatique + sous-vêtements non synthétiques (ou antistatiques) + chaussures ESD (EN ISO 20345) + sol conducteur. Des sous-vêtements en polyester accumulent des charges électrostatiques sous la combinaison — et sans chaussures ESD, ces charges ne peuvent pas être évacuées vers la terre. Le résultat est un risque d'étincelle de décharge même si la combinaison externe est certifiée EN 1149-5.",
+    timeLimit: 40,
+    contextLabel: "Fiche EPI ATEX Mabéo / EN 1149-5 — Système antistatique complet",
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -9497,6 +9569,36 @@ quizContent["atex-niveau2"] = [
     explanation: "Analyse complète : (1) Catégorie 2G → adaptée à la Zone 1 ✓ ; (2) Groupe IIA → propane est groupe IIA ✓ (IIA correspond aux hydrocarbures aliphatiques comme propane, butane, éthane) ; (3) Classe T4 → température de surface max. 135 °C, très inférieure à la TAI du propane (470 °C) → large marge de sécurité ✓. L'équipement est correctement sélectionné. Note : un T5 (100 °C max) ou T6 (85 °C max) serait surdimensionné mais aussi acceptable. Un T1 (450 °C max) serait à la limite et risqué pour le propane.",
     timeLimit: 50,
     contextLabel: "Cas pratique — Vérification d'adéquation équipement/zone",
+  },
+  // ── Questions INERIS Oméga 36 ──────────────────────────────────────────────
+  {
+    question: "Selon l'INERIS (guide Oméga 36, §3.2.1), quelle est la mission principale de l'encadrant ATEX Niveau 2 qui le distingue des Niveaux 0 et 1 ?",
+    choices: [
+      "Réaliser lui-même les opérations de maintenance certifiées en Zone 0",
+      "Piloter la démarche globale de prévention ATEX de l'établissement : élaborer ou faire évoluer le DRPCE, superviser le zonage, gérer les entreprises extérieures et assurer la formation du personnel",
+      "Vérifier les EPI de chaque intervenant avant toute entrée en zone ATEX",
+      "Assurer la veille réglementaire sans intervenir dans les décisions opérationnelles",
+    ],
+    answer: [1],
+    chapterLabel: "Responsabilités & droit",
+    explanation: "L'INERIS (Oméga 36, §3.2.1) définit le Niveau 2 comme la 'formation encadrant' : l'encadrant/référent ATEX est responsable du pilotage global de la démarche — élaborer et tenir à jour le DRPCE, superviser le zonage ATEX avec les experts internes ou externes, sélectionner les équipements Ex adéquats, gérer les interfaces avec les entreprises extérieures (plan de prévention, AT, permis de feu), et définir la cartographie des besoins en formation par niveau pour chaque poste.",
+    timeLimit: 40,
+    contextLabel: "Guide INERIS Oméga 36 — §3.2.1 Formation Niveau 2",
+  },
+  {
+    question: "L'INERIS recommande dans le guide Oméga 36 que le DRPCE soit révisé dans quelles circonstances ? (plusieurs réponses possibles)",
+    choices: [
+      "Uniquement lors de la visite annuelle de l'inspection du travail",
+      "Lors de toute modification significative de l'installation (nouveau produit, changement de process, nouvelle source de dégagement) ou après tout accident ou incident ATEX",
+      "Lors de chaque changement de chef d'établissement",
+      "Lors de toute modification significative ET après tout accident ou incident ATEX",
+    ],
+    answer: [3],
+    multiple: true,
+    chapterLabel: "DRPCE",
+    explanation: "L'INERIS précise que le DRPCE doit être mis à jour dans deux circonstances principales : (1) toute modification significative de l'installation ou des procédés susceptible de modifier les risques ATEX (nouveau produit chimique, changement de débit, nouvel équipement, modification de zonage) ; (2) après tout accident ou incident ATEX — la révision du DRPCE fait partie de la démarche de retour d'expérience obligatoire. L'Art. R.4227-52 du Code du travail confirme cette obligation.",
+    timeLimit: 40,
+    contextLabel: "Guide INERIS Oméga 36 — Mise à jour du DRPCE",
   },
 ];
 

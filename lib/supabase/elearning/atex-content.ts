@@ -23,12 +23,12 @@ export const atexModuleContent: ModuleContent = {
       id: "introduction-atex",
       title: "1. Qu'est-ce qu'une atmosphère explosive ?",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/atex/atex-objectifs.svg",
-      chapterImageAlt: "Les 5 objectifs de la formation ATEX",
+      chapterImagePath: "/elearning/atex/atex-formation-lie-lse.png",
+      chapterImageAlt: "Formation d'une ATEX — triangle du feu, domaine d'explosivité LIE/LSE",
       intro:
-        "Une atmosphère explosive (ATEX) est un mélange d'air et de substances inflammables sous forme de gaz, vapeurs ou poussières. Lorsqu'elle s'enflamme, la réaction peut provoquer une explosion aux conséquences dévastatrices.",
+        "Une atmosphère explosive (ATEX) est un mélange d'air et de substances inflammables sous forme de gaz, vapeurs ou poussières. Lorsqu'elle s'enflamme, la réaction peut provoquer une explosion aux conséquences dévastatrices. Comprendre ce mécanisme est la première ligne de défense.",
       content: [
-        "Une atmosphère explosive se forme lorsque des substances combustibles (gaz, vapeurs, brouillards ou poussières) se mélangent à l'air dans des proportions suffisantes pour s'enflammer. Cette situation peut survenir lors du stockage, du transfert, de l'utilisation ou de la production de produits inflammables.",
+        "Une atmosphère explosive (ATEX) se forme lorsque des substances combustibles — gaz, vapeurs, brouillards ou poussières — se mélangent à l'air dans des proportions situées entre la Limite Inférieure d'Explosivité (LIE) et la Limite Supérieure d'Explosivité (LSE). En-dessous de la LIE, le mélange est trop pauvre ; au-dessus de la LSE, il est trop riche. Seule la plage entre ces deux valeurs est explosive. Le guide INERIS Oméga 36 (octobre 2025) distingue « atmosphère explosive » (mélange dans son domaine d'explosivité) et « atmosphère explosible » (susceptible de le devenir par évolution des concentrations).",
         "Les ATEX sont présentes dans de nombreux secteurs professionnels : industrie chimique et pétrochimique, industries agroalimentaires (silos de farine, de sucre, d'amidon), traitement des eaux et du gaz, imprimerie, menuiserie fine, métallurgie, stations-service et dépôts de carburant.",
         "Les accidents liés aux ATEX provoquent chaque année en France des dizaines d'accidents du travail graves. Les explosions surviennent principalement en usine/atelier (43 AT recensés), lors d'opérations de maintenance ou de réparation (17 AT), et sur chantiers de construction (15 AT).",
         "La prévention des risques ATEX repose sur trois piliers : supprimer ou réduire la formation d'atmosphères explosives, éviter toute source d'inflammation, et mettre en place des mesures atténuant les effets d'une explosion éventuelle.",
@@ -57,8 +57,8 @@ export const atexModuleContent: ModuleContent = {
       id: "statistiques-reglementation",
       title: "2. La réglementation ATEX",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-marquage-categories.svg",
-      chapterImageAlt: "Tableau des catégories d'équipements ATEX / IECEx par zone (1G/2G/3G - 1D/2D/3D)",
+      chapterImagePath: "/elearning/atex/atex-exemple-marquage-label.png",
+      chapterImageAlt: "Exemple de marquage ATEX : II 2G Ex ib IIC T4 Gb / II 2D Ex ib IIIC T135°C Db IP64",
       intro:
         "Deux directives européennes constituent le socle de la réglementation ATEX. L'une concerne les employeurs, l'autre les fabricants d'équipements. Les connaître est indispensable pour agir conformément à la loi.",
       content: [
@@ -155,8 +155,8 @@ export const atexModuleContent: ModuleContent = {
       id: "zones-atex",
       title: "5. Zonage ATEX — classification et délimitation",
       estimatedMinutes: 30,
-      chapterImagePath: "/elearning/atex/atex-zones-classification.svg",
-      chapterImageAlt: "Classification des zones ATEX gaz (0/1/2) et poussières (20/21/22)",
+      chapterImagePath: "/elearning/atex/atex-classification-zones-semicercle.png",
+      chapterImageAlt: "Classification des zones ATEX gaz (0/1/2) et poussières (20/21/22) — demi-cercle INERIS",
       intro:
         "L'une des étapes primordiales de la démarche d'évaluation du risque d'explosion est la délimitation des zones à risques (zonage ATEX). Ce zonage caractérise la possibilité de formation d'une atmosphère explosive, son volume et sa fréquence d'apparition.",
       content: [
@@ -273,8 +273,8 @@ export const atexModuleContent: ModuleContent = {
       id: "choix-materiaux-equipements",
       title: "8. Marquage et adéquation des équipements en zone ATEX",
       estimatedMinutes: 25,
-      chapterImagePath: "/elearning/atex/atex-marquage-ce.png",
-      chapterImageAlt: "Tableau des catégories d'équipements ATEX par zone — 1G/2G/3G et 1D/2D/3D",
+      chapterImagePath: "/elearning/atex/atex-exemple-marquage-label.png",
+      chapterImageAlt: "Exemple réel de marquage ATEX : II 2G Ex ib IIC T4 Gb / II 2D Ex ib IIIC T135°C Db IP64",
       visual: {
         imagePath: "/elearning/atex/atex-classes-temperature.svg",
         imageAlt: "Classes de température T1 à T6 — valeurs maximales de surface",
@@ -323,32 +323,34 @@ export const atexModuleContent: ModuleContent = {
       id: "epi-atex",
       title: "9. Équipements de Protection Individuelle (EPI) en zone ATEX",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/atex/atex-epi-complet.svg",
-      chapterImageAlt: "EPI obligatoires en zone ATEX : vêtements antistatiques, chaussures ESD, explosimètre certifié Ex",
+      chapterImagePath: "/elearning/atex/atex-fiche-epi-mabeo.png",
+      chapterImageAlt: "Fiche EPI ATEX Mabéo : casque EN 397/A1, vêtements antistatiques EN ISO 14116 + EN ISO 11612, gants isolants EN 60903, chaussures EN ISO 20345, tenue EN 1149",
       intro:
-        "Les EPI en zone ATEX ont des exigences spécifiques. Ils doivent être antistatiques, certifiés et adaptés aux risques chimiques et thermiques de la zone.",
+        "Les EPI en zone ATEX ont des exigences spécifiques et normées. Chaque article doit être antistatique, certifié et adapté aux risques chimiques et thermiques de la zone. Les normes sont vérifiables sur chaque équipement.",
       content: [
-        "Les vêtements de travail en zone ATEX doivent être antistatiques (résistance superficielle inférieure à 10^9 Ω) et ne pas accumuler de charges électrostatiques susceptibles de générer une étincelle. Ils doivent être conformes à la norme EN 1149-5.",
-        "La chaussure de sécurité en zone ATEX doit être antistatique (norme EN 20345 avec propriété ESD) et, selon les risques chimiques présents, résistante aux hydrocarbures.",
-        "Les gants de protection doivent être antistatiques et adaptés aux produits chimiques présents. Les gants en latex naturel ne sont pas adaptés à l'environnement chimique des zones ATEX pétrolières.",
-        "La protection respiratoire : selon la nature et la concentration des produits présents, un appareil de protection respiratoire (ARI ou masque avec filtre adapté) peut être nécessaire. En atmosphère IDLH (Immediately Dangerous to Life or Health), l'ARI autonome est obligatoire.",
-        "Le détecteur de gaz portable (explosimètre) est indispensable pour tout intervenant en zone ATEX. Il doit être certifié Ex et étalonné régulièrement. L'alarme doit être réglée à 20% de la LIE pour permettre une évacuation sans danger.",
-        "Tous les EPI doivent être vérifiés avant utilisation, entretenus conformément aux notices fabricants et remplacés dès qu'ils présentent une anomalie ou qu'ils ont dépassé leur durée de vie.",
+        "Casque de protection : norme EN 397/A1 avec mention ESD (antistatique). Le casque doit dissiper les charges électrostatiques accumulées pour ne pas constituer une source d'inflammation. Les casques en plastique non conducteur sont interdits en zone ATEX.",
+        "Vêtements de travail antistatiques : deux normes complémentaires s'appliquent. EN ISO 14116 (protection contre la chaleur et les flammes — comportement des matériaux à flamme limitée) et EN ISO 11612 (vêtements de protection contre la chaleur et les flammes pour les travaux dans l'industrie). La norme EN 1149-5 régit la résistance antistatique des vêtements : la résistance superficielle doit être inférieure à 2,5 × 10^9 Ω. Les vêtements synthétiques non conformes sont strictement interdits.",
+        "Gants isolants : norme EN 60903 (gants en matériaux isolants pour les travaux sous tension). En zone ATEX avec risques électriques, les gants doivent être testés à la tension appropriée et vérifiés avant chaque utilisation. Les gants en latex naturel ne sont pas adaptés aux produits chimiques des zones ATEX pétrolières.",
+        "Chaussures de sécurité antistatiques : norme EN ISO 20345 avec propriété ESD (Electrostatic Dissipative). La résistance électrique doit être comprise entre 100 kΩ et 1000 MΩ pour dissiper les charges sans constituer un risque de choc électrique. Selon les risques chimiques présents, une résistance aux hydrocarbures est également requise.",
+        "Détecteur de gaz portable (explosimètre) : indispensable pour tout intervenant en zone ATEX. L'appareil doit être certifié Ex (marquage ATEX), adapté aux gaz ou poussières présents, et étalonné régulièrement selon les préconisations du fabricant. L'alarme basse doit être réglée à 20 % de la LIE pour permettre l'évacuation en toute sécurité avant l'atteinte du domaine explosif.",
+        "Protection respiratoire : selon la nature et la concentration des produits présents, un appareil de protection respiratoire (demi-masque avec filtre adapté, masque complet, ARI) peut être nécessaire. En atmosphère IDLH (Immediately Dangerous to Life or Health), l'ARI autonome à air comprimé est obligatoire. Le filtre doit correspondre aux produits en présence (A pour solvants organiques, B pour gaz acides, P pour particules).",
+        "Tous les EPI doivent être vérifiés avant chaque utilisation, entretenus conformément aux notices fabricants, stockés dans des conditions adaptées et remplacés dès qu'ils présentent une anomalie, une dégradation ou qu'ils ont dépassé leur date de péremption.",
       ],
       keyPoints: [
-        "Vêtements antistatiques EN 1149-5 obligatoires en zone ATEX.",
-        "Chaussures antistatiques (ESD) et adaptées aux produits présents.",
-        "Détecteur de gaz portable certifié Ex : alarme à 20% de la LIE.",
-        "Protection respiratoire selon la nature des produits et la concentration.",
-        "EPI vérifiés, entretenus et remplacés selon les prescriptions fabricant.",
+        "Casque ESD : EN 397/A1 — dissipation des charges électrostatiques.",
+        "Vêtements antistatiques : EN 1149-5 + EN ISO 14116 + EN ISO 11612 (protection thermique et flammes).",
+        "Gants isolants : EN 60903 — vérification avant chaque utilisation.",
+        "Chaussures ESD : EN ISO 20345 — résistance 100 kΩ à 1000 MΩ.",
+        "Explosimètre certifié Ex : alarme basse à 20 % de la LIE — étalonnage régulier.",
+        "Filtres respiratoires adaptés aux produits présents — ARI obligatoire en IDLH.",
       ],
     },
     {
       id: "signalisation-atex",
       title: "10. Signalisation et comportements en zone ATEX",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/atex/atex-signalisation.svg",
-      chapterImageAlt: "Signalisation Zone ATEX - interdictions (fumer, flamme nue, téléphone non certifié)",
+      chapterImagePath: "/elearning/atex/atex-panneau-zone-interdictions.png",
+      chapterImageAlt: "Panneau Zone ATEX avec 3 interdictions réglementaires : no fumer, pas de flamme nue, pas de téléphone non certifié",
       intro:
         "La signalisation ATEX est réglementaire et identique sur tous les sites. La connaître, la respecter et adopter les bons comportements peut éviter une catastrophe.",
       content: [
@@ -405,8 +407,8 @@ export const atexModuleContent: ModuleContent = {
       id: "recapitulatif",
       title: "12. Synthèse — Les 13 réflexes en zone ATEX",
       estimatedMinutes: 10,
-      chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
-      chapterImageAlt: "Les 13 réflexes ATEX — mémo complet avant d'entrer, en zone et en urgence",
+      chapterImagePath: "/elearning/atex/atex-bonnes-pratiques-inrs.png",
+      chapterImageAlt: "INRS — Atmosphères explosives : les bonnes pratiques ATEX (affiche officielle)",
       intro:
         "Mémo des comportements essentiels à retenir et à appliquer systématiquement lors de toute intervention en zone ATEX.",
       content: [
@@ -430,6 +432,16 @@ export const atexModuleContent: ModuleContent = {
         "Signalement systématique de toute anomalie, même mineure.",
         "La prévention ATEX est l'affaire de tous : employeur ET salarié.",
       ],
+    },
+  ],
+  resourceFiles: [
+    {
+      title: "Livret Stagiaire ATEX Niveau 0",
+      description:
+        "Support de formation complet : 12 modules illustrés avec photos réelles (INERIS/INRS), tableaux de zonage, normes EPI, réflexes PEAS et QCM de 10 questions. À conserver comme référence après la formation.",
+      url: "/downloads/atex/ATEX_N0_Livret_Stagiaire.pdf",
+      fileType: "pdf",
+      ctaLabel: "Télécharger le livret (PDF)",
     },
   ],
 };

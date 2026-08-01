@@ -98,8 +98,8 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "evaluation-risques-methodologie",
       title: "3. Évaluation des risques ATEX — Méthodologie",
       estimatedMinutes: 35,
-      chapterImagePath: "/elearning/atex/atex-zones-batiment.png",
-      chapterImageAlt: "Méthodologie d'évaluation des risques ATEX — critères de classement selon l'INERIS",
+      chapterImagePath: "/elearning/atex/atex-schema-zones-atelier-bois.png",
+      chapterImageAlt: "Exemple réel de zonage ATEX poussières en atelier bois — zones 20/21/22 autour des machines, aspiration et silo",
       intro:
         "L'évaluation des risques d'explosion est la première étape obligatoire. Elle conditionne le classement des zones et le contenu du DRPCE. L'encadrant doit maîtriser la méthodologie de l'INERIS.",
       content: [
@@ -166,8 +166,8 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "selection-qualification-equipements",
       title: "5. Sélection et qualification des équipements Ex",
       estimatedMinutes: 35,
-      chapterImagePath: "/elearning/atex/atex-marquage-ce.png",
-      chapterImageAlt: "Sélection des équipements Ex — tableau catégories, modes de protection et documentation",
+      chapterImagePath: "/elearning/atex/atex-exemple-marquage-label.png",
+      chapterImageAlt: "Exemple réel d'étiquette ATEX annotée — lecture et vérification du marquage Ex pour sélection d'un équipement certifié",
       intro:
         "L'encadrant est responsable du choix des équipements installés et utilisés en zone ATEX. Ce choix doit être documenté et justifié dans le DRPCE. Une erreur de sélection peut rendre l'équipement inutilisable en zone et créer une source d'inflammation.",
       content: [
@@ -375,8 +375,8 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       id: "synthese-classe-virtuelle",
       title: "11. Synthèse et préparation à la classe virtuelle",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/atex/atex-synthese-reflexes.svg",
-      chapterImageAlt: "Synthèse ATEX Niveau 2 — responsabilités encadrant, DRPCE, gestion équipes et urgences",
+      chapterImagePath: "/elearning/atex/atex-bonnes-pratiques-inrs.png",
+      chapterImageAlt: "INRS — Atmosphères explosives : les bonnes pratiques ATEX (référence officielle pour les encadrants)",
       intro:
         "Ce chapitre final prépare l'encadrant à la classe virtuelle de 2 heures avec le formateur PREVENSIA. Il synthétise les points essentiels et présente les cas pratiques qui seront traités lors de la session.",
       content: [
@@ -395,6 +395,16 @@ export const atexNiveau2ModuleContent: ModuleContent = {
         "Arrêté du 8 juillet 2003 : obligations générales de l'employeur.",
         "Directive 99/92/CE : prescriptions minimales pour la protection des travailleurs.",
       ],
+    },
+  ],
+  resourceFiles: [
+    {
+      title: "Livret Stagiaire ATEX Niveau 2",
+      description:
+        "Support de formation encadrant : 11 modules (responsabilités légales, rédaction DRPCE, sélection équipements Ex, gestion sous-traitants, REX accidents) avec photos réelles et QCM de 15 questions (seuil 80%). À conserver comme référence de l'encadrant ATEX.",
+      url: "/downloads/atex/ATEX_N2_Livret_Stagiaire.pdf",
+      fileType: "pdf",
+      ctaLabel: "Télécharger le livret (PDF)",
     },
   ],
 };
