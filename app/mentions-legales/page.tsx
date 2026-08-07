@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Mentions légales | PREVENSIA FORMATION",
@@ -21,18 +22,22 @@ export default function MentionsLegalesPage() {
         </p>
         <p><strong>Raison sociale :</strong> PREVENSIA Groupe SAS</p>
         <p><strong>Forme juridique :</strong> SAS — Société par actions simplifiée</p>
-        <p><strong>Capital social :</strong> 500,00 €</p>
-        <p><strong>SIREN :</strong> 107 290 579</p>
-        <p><strong>SIRET (siège) :</strong> 107 290 579 00013</p>
+        <p><strong>Capital social :</strong> {COMPANY.capital}</p>
+        <p><strong>SIREN :</strong> {COMPANY.siren}</p>
+        <p><strong>SIRET (siège) :</strong> {COMPANY.siret}</p>
         <p><strong>Numéro de TVA intracommunautaire :</strong> FR44107290579</p>
-        <p><strong>RCS :</strong> 107 290 579 R.C.S. Paris</p>
+        <p><strong>RCS :</strong> {COMPANY.siren} R.C.S. Paris</p>
         <p><strong>Code NAF / APE :</strong> 85.59A — Formation continue d'adultes</p>
         <p><strong>Convention collective :</strong> Organismes de formation — IDCC 1516</p>
-        <p><strong>Adresse du siège social :</strong> 33, avenue Philippe-Auguste, 75011 Paris</p>
-        <p><strong>Numéro de déclaration d'activité de formation :</strong> [À compléter — préfecture de région]</p>
+        <p><strong>Adresse du siège social :</strong> {COMPANY.addressFull}</p>
+        {COMPANY.nda ? (
+          <p><strong>Numéro de déclaration d'activité de formation :</strong> {COMPANY.nda}</p>
+        ) : (
+          <p><strong>Numéro de déclaration d'activité de formation :</strong> <em className="text-slate-400">En cours d&apos;obtention</em></p>
+        )}
         <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi — Actions de formation</p>
-        <p><strong>Téléphone :</strong> 01 89 62 94 92</p>
-        <p><strong>Email :</strong> contact@prevensia-formation.fr</p>
+        <p><strong>Téléphone :</strong> {COMPANY.phone}</p>
+        <p><strong>Email :</strong> {COMPANY.email}</p>
         <p><strong>Dirigeants :</strong> Hachiba Said, Hachiba Karim</p>
       </section>
 

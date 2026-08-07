@@ -80,8 +80,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Exploitation SSI",
       duration: "1 jour",
-      price: "350 EUR HT",
-      group: "À partir de 1 800 EUR HT",
+      price: "650 EUR HT",
+      group: "À partir de 2 200 EUR HT",
       participants: "12 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
@@ -90,8 +90,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "SSI avancé : architecture, réglementation et normes",
       duration: "2 jours",
-      price: "690 EUR HT",
-      group: "À partir de 2 800 EUR HT",
+      price: "1 190 EUR HT",
+      group: "Sur devis",
       participants: "10 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
@@ -102,8 +102,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Exploitation sprinkler",
       duration: "1 jour",
-      price: "490 EUR HT",
-      group: "À partir de 1 800 EUR HT",
+      price: "590 EUR HT",
+      group: "À partir de 2 200 EUR HT",
       participants: "6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
@@ -112,8 +112,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Sprinkler technique + visite terrain",
       duration: "2 jours",
-      price: "990 EUR HT",
-      group: "À partir de 3 200 EUR HT",
+      price: "1 190 EUR HT",
+      group: "Sur devis",
       participants: "6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
@@ -155,8 +155,8 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
   ssiap1: [
     {
       title: "SSIAP1 initial — Agent de sécurité incendie",
-      duration: "105 h (e-learning + présentiel)",
-      price: "À partir de 1 490 EUR HT",
+      duration: "70 h (e-learning + présentiel)",
+      price: "À partir de 1 090 EUR HT",
       group: "Sur devis",
       participants: "6 à 12",
       ctaHref: "/formation-ssiap1",
@@ -166,7 +166,7 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Recyclage SSIAP1 — Remise à niveau (MAC)",
       duration: "14 h (e-learning + présentiel)",
-      price: "À partir de 250 EUR HT",
+      price: "À partir de 390 EUR HT",
       group: "Sur devis",
       participants: "6 à 12",
       ctaHref: "/formation-recyclage-ssiap1",

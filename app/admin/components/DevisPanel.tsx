@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { COMPANY } from "@/lib/company";
 
 type Formation = {
   id: string;
@@ -166,10 +167,10 @@ export default function DevisPanel({ initialData, fullPage = false, onClose }: P
           <div className="grid gap-4 p-6 sm:grid-cols-2">
             <div>
               <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">De</p>
-              <p className="text-sm font-bold text-slate-900">PREVENSIA FORMATION</p>
-              <p className="text-xs text-slate-500">33, av. Philippe Auguste — 75011 Paris</p>
-              <p className="text-xs text-slate-500">SIRET : 107 290 579 00013</p>
-              <p className="text-xs text-slate-500">contact@prevensia-formation.fr</p>
+              <p className="text-sm font-bold text-slate-900">{COMPANY.name}</p>
+              <p className="text-xs text-slate-500">{COMPANY.addressShort}</p>
+              <p className="text-xs text-slate-500">SIRET : {COMPANY.siret}</p>
+              <p className="text-xs text-slate-500">{COMPANY.email}</p>
             </div>
             <div>
               <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">À</p>

@@ -89,7 +89,7 @@ const formations = [
     href: "/formation-recyclage-ssiap1",
     badge: "Recyclage obligatoire · 14h / 3 ans",
     description:
-      "Remise à niveau SSIAP1 obligatoire tous les 3 ans (arrêté du 2 mai 2005). 14 heures hybrides : e-learning théorique + présentiel pratique. À partir de 250 € HT.",
+      "Remise à niveau SSIAP1 obligatoire tous les 3 ans (arrêté du 2 mai 2005). 14 heures hybrides : e-learning théorique + présentiel pratique. À partir de 390 € HT.",
     image: "/elearning/commun/ssiap1-accueil.png",
     imageClass: "object-cover object-center",
   },
@@ -647,7 +647,7 @@ export default function Home() {
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { titre: "H0B0 / H0V", desc: "Non-électriciens, caristes, agents de nettoyage, maintenance mécanique", href: "/formation-h0b0", prix: "dès 220 € HT" },
+                { titre: "H0B0 / H0V", desc: "Non-électriciens, caristes, agents de nettoyage, maintenance mécanique", href: "/formation-h0b0", prix: "dès 190 € HT" },
                 { titre: "BS / BE Manœuvre", desc: "Interventions élémentaires, remplacement de fusibles, manœuvres d'exploitation", href: "/formation-bs-be-manoeuvre", prix: "dès 350 € HT" },
                 { titre: "B1 / B2 / BR / BC", desc: "Électriciens BT : travaux, dépannage, consignation, vérification", href: "/formation-b1-b2-br-bc", prix: "dès 790 € HT" },
                 { titre: "Île-de-France", desc: "Formation intra-entreprise dans vos locaux, 8 départements franciliens", href: "/formation-habilitation-electrique-ile-de-france", prix: "Devis 48h" },

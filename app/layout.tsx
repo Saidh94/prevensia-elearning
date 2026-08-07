@@ -4,6 +4,7 @@ import ChatWidget from "@/components/site/ChatWidget";
 import CookieBanner from "@/components/site/CookieBanner";
 import BackToTop from "@/components/site/BackToTop";
 import { Footer } from "@/components/site/Footer";
+import { COMPANY } from "@/lib/company";
 
 const SITE_URL = "https://prevensia-formation.fr";
 
@@ -108,9 +109,9 @@ const organizationJsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "33, avenue Philippe Auguste",
-    addressLocality: "Paris",
-    postalCode: "75011",
+    streetAddress: COMPANY.address,
+    addressLocality: COMPANY.city,
+    postalCode: COMPANY.postalCode,
     addressRegion: "Île-de-France",
     addressCountry: "FR",
   },

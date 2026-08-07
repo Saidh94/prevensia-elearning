@@ -38,7 +38,7 @@ export const electricalCommercialOffers: ElectricalCommercialOffer[] = [
     delivery: "E-learning + entretien de validation 30 min",
     initialDuration: "1 jour en initiale",
     recycleDuration: "1 jour en recyclage",
-    interPrice: "220 EUR HT",
+    interPrice: "190 EUR HT",
     intraPrice: "À partir de 890 EUR HT / groupe",
     participants: "Individuel ou groupe",
     availability: "direct",
