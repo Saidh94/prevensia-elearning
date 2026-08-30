@@ -19,10 +19,10 @@ const THEMES = [
     angle: "Quelles sont les obligations réglementaires ATEX ? Différences entre ATEX niveau 1, 2 et 3. Comment choisir la bonne formation selon le poste de travail.",
   },
   {
-    title: "SSIAP1 en 2026 : tarifs, durée et financement CPF",
-    keywords: ["SSIAP1", "formation sécurité incendie", "financement OPCO", "agent de sécurité incendie"],
+    title: "Coordinateur SSI (CSSI) : rôle, missions et formation NF S 61-931",
+    keywords: ["coordinateur SSI", "CSSI", "NF S 61-931", "formation coordinateur SSI", "bureau d'études SSI"],
     category: "ssi",
-    angle: "Tout savoir sur la formation SSIAP1 en 2026 : durée (70h), tarifs, financement OPCO, débouchés et comment s'inscrire chez un organisme certifié Qualiopi.",
+    angle: "Qui est le Coordinateur SSI (CSSI) ? Quel est son rôle dans la conception et l'installation d'un Système de Sécurité Incendie ? Pourquoi les ingénieurs de bureaux d'études, les SSIAP 3 en évolution et les architectes doivent se former au CCF, à la matrice de corrélation ZDA/ZDM × DAS et au Dossier d'Identité SSI (DIS) selon la norme NF S 61-931.",
   },
   {
     title: "SST Sauveteur Secouriste du Travail : pourquoi former vos salariés",
@@ -109,7 +109,10 @@ Règles :
 - Mentionner les financements OPCO et FNE-Formation disponibles
 - Mentionner la certification Qualiopi de PREVENSIA FORMATION
 - Terminer par un CTA : "Demandez un devis sur prevensia-formation.fr"
-- Ne pas inventer de chiffres ou statistiques non vérifiables
+- Ne jamais inventer de chiffres, statistiques ou références normatives non vérifiables
+- Seules références autorisées : NF C 18-510 (A1/A2), NF S 61-931, NF S 61-932, Code du travail, directive ATEX 1999/92/CE, règles APSAD
+- Ne jamais citer APAVE, ne jamais citer le guide AFNOR N0366
+- Pour la formation Coordinateur SSI : insister sur la CONCEPTION et la COORDINATION d'un SSI neuf ou en rénovation (CCF, matrice ZDA/ZDM × DAS, DIS) — pas l'exploitation d'un bâtiment existant
 - Écrire en français`;
 
     const res = await fetch("https://api.anthropic.com/v1/messages", {
