@@ -424,15 +424,15 @@ const formations = [
   {
     slug: "ssiap1",
     category: "Prévention des risques",
-    title: "SSIAP1 Initial — Module e-learning inclus dans la formation certifiante",
+    title: "Préparation SSIAP1 — Offert avec toute formation sécurité incendie PREVENSIA",
     duration: "Durée e-learning : 2 h 30 à 3 h",
-    mode: "Support e-learning inclus dans la formation initiale (70h)",
-    price: "À partir de 1 090 EUR HT",
+    mode: "🎁 OFFERT avec SSI / Sprinkler / Extincteurs / EPI / Évacuation",
+    price: "OFFERT avec vos formations sécurité incendie",
     level: "Débutant",
     audience:
-      "Agents de sécurité incendie débutants, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux) souhaitant obtenir la qualification SSIAP1 via la formation certifiante complète (70h).",
+      "Tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Module également inclus pour les stagiaires inscrits à la formation certifiante SSIAP1 (70h).",
     description:
-      "Module e-learning théorique inclus dans la formation SSIAP1 certifiante (70h) dispensée par PREVENSIA FORMATION, certifié Qualiopi. Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation et rôle de l'agent SSIAP1 en ERP.",
+      "Module e-learning de préparation théorique à la formation SSIAP1 et à l'examen officiel (épreuve QCM). Offert gratuitement à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation ERP et rôle de l'agent SSIAP1.",
     objectifs: [
       "Identifier les classes de feux et choisir l'agent extincteur adapté",
       "Appliquer la méthode DAPS pour utiliser un extincteur en sécurité",
@@ -449,7 +449,7 @@ const formations = [
       "Conduite à tenir en cas d'incendie — séquence Alarmer/Alerter/Attaquer",
     ],
     note:
-      "Support e-learning inclus pour chaque stagiaire inscrit à la formation SSIAP1 (70h). PREVENSIA FORMATION est certifié Qualiopi. La qualification officielle SSIAP1 est délivrée à l'issue de l'examen, dès l'obtention de notre agrément préfectoral.",
+      "Module offert sans surcoût à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Pour les stagiaires de la formation certifiante SSIAP1 (70h, à partir de 1 090 EUR HT dès l'obtention de l'agrément préfectoral), le module est également inclus.",
   },
   {
     slug: "recyclage-ssiap1",
@@ -477,7 +477,35 @@ const formations = [
       "Quiz de révision avant la session présentielle",
     ],
     note:
-      "Support e-learning inclus dans le recyclage SSIAP1 (14h). Le recyclage complet (e-learning + présentiel) est proposé à 250 EUR HT.",
+      "Support e-learning inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans). Le recyclage complet (e-learning + présentiel) est proposé à partir de 390 EUR HT.",
+  },
+  {
+    slug: "coordinateur-ssi",
+    category: "SSI",
+    title: "Coordinateur SSI — Pilotage du Système de Sécurité Incendie",
+    duration: "3 jours en salle + 12–15 h e-learning préparatoire",
+    mode: "Principalement présentiel (inter ou intra) · E-learning inclus",
+    price: "À partir de 1 590 EUR HT",
+    level: "Avancé",
+    audience:
+      "Responsables techniques, responsables sécurité, chefs de service maintenance, gestionnaires de patrimoine ayant la charge de la supervision globale du SSI.",
+    description:
+      "Parcours complet pour former le Coordinateur SSI de votre établissement : rôle et responsabilités, architecture des SSI (NF S 61-931), réglementation ERP/IGH, maintenance NF S 61-933, gestion des intervenants et des situations dégradées. 12 à 15 h d'e-learning préparatoire + 3 jours de présentiel sur dossiers réels.",
+    objectifs: [
+      "Maîtriser le rôle et les responsabilités du Coordinateur SSI",
+      "Appliquer la réglementation ERP, IGH et Code du travail applicable au SSI",
+      "Organiser la maintenance et les vérifications selon NF S 61-933",
+    ],
+    programme: [
+      "Rôle et responsabilités du Coordinateur SSI",
+      "Architecture et fonctionnement des SSI (SDI, CMSI, UGA, DAS)",
+      "Réglementation ERP, IGH, Code du travail, ICPE",
+      "Maintenance et vérifications périodiques — NF S 61-933",
+      "Coordination des intervenants et gestion des travaux",
+      "Situations dégradées et gestion de crise",
+    ],
+    note:
+      "Aucune obligation réglementaire spécifique n'impose ce titre à ce jour. La formation répond à l'exigence de compétence documentée attendue par les commissions de sécurité et les bureaux de contrôle. Tarif intra-entreprise sur devis.",
   },
   {
     slug: "sst",

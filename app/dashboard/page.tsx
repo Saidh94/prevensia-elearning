@@ -70,6 +70,33 @@ function getStatusConfig(f: DashboardFormation): {
   return { label: "⏳ Non commencé", color: "bg-slate-100 text-slate-600" };
 }
 
+const SLUG_LABELS: Record<string, string> = {
+  h0b0: "H0B0 / H0V",
+  bsbe: "BS / BE Manoeuvre",
+  "b1b2brbc": "B1 / B2 / BR / BC",
+  "b1-b1v": "B1 / B1V",
+  "b2-b2v": "B2 / B2V",
+  br: "BR",
+  bc: "BC",
+  "be-verification-mesurage": "BE Vérification / Mesurage",
+  ssiap1: "Préparation SSIAP1",
+  "recyclage-ssiap1": "Recyclage SSIAP1",
+  "ssi-exploitation": "SSI Exploitation",
+  "coordinateur-ssi": "Coordinateur SSI",
+  sprinkler: "Sprinkler",
+  "extinction-automatique-gaz": "Extinction automatique à gaz",
+  sst: "SST — Secouriste du Travail",
+  "securite-incendie": "Sécurité incendie",
+  atex: "ATEX Niveau 0",
+  "atex-niveau1": "ATEX Niveau 1",
+  "atex-niveau2": "ATEX Niveau 2",
+};
+
+function slugLabel(slug: string | null): string {
+  if (!slug) return "—";
+  return SLUG_LABELS[slug] ?? slug;
+}
+
 /** Retourne le nombre de jours avant expiration de l'accès */
 function daysUntilExpiry(accessEnd: string | null): number | null {
   if (!accessEnd) return null;
@@ -184,6 +211,17 @@ export default function DashboardPage() {
       (f.completion_percent > 0 && f.completion_percent < 100)
   ).length;
 
+  const totalHours = formations.reduce((acc, f) => acc + (f.duration_hours ?? 0), 0);
+
+  const SSI_SPRINKLER_SLUGS = ["ssi-exploitation", "ssi", "sprinkler", "securite-incendie"];
+  const hasSsiOrSprinkler = formations.some(
+    (f) => f.slug && SSI_SPRINKLER_SLUGS.some((s) => (f.slug ?? "").includes(s))
+  );
+  const hasSSIAP1 = formations.some(
+    (f) => f.slug && ((f.slug ?? "").includes("ssiap1") || (f.slug ?? "").includes("ssiap-1"))
+  );
+  const showSSIAP1Bonus = hasSsiOrSprinkler && !hasSSIAP1;
+
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
       {/* Header */}
@@ -230,7 +268,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
           <div className="rounded-2xl bg-white/10 p-4">
             <p className="text-sm text-slate-300">Formations attribuées</p>
             <p className="mt-2 text-3xl font-bold">{formations.length}</p>
@@ -245,6 +283,13 @@ export default function DashboardPage() {
             <p className="text-sm text-slate-300">Terminées</p>
             <p className="mt-2 text-3xl font-bold">{completedCount}</p>
           </div>
+
+          {totalHours > 0 ? (
+            <div className="rounded-2xl bg-white/10 p-4">
+              <p className="text-sm text-slate-300">Heures de formation</p>
+              <p className="mt-2 text-3xl font-bold">{totalHours}h</p>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -421,7 +466,9 @@ export default function DashboardPage() {
                           <span className="font-semibold text-slate-800">
                             Dernier module :
                           </span>{" "}
-                          {formation.last_module_slug || "Aucun pour le moment"}
+                          {formation.last_module_slug
+                            ? slugLabel(formation.last_module_slug)
+                            : "Aucun pour le moment"}
                         </div>
 
                         <div>
@@ -501,6 +548,33 @@ export default function DashboardPage() {
           </div>
         )}
       </section>
+
+      {/* Bonus SSIAP1 */}
+      {showSSIAP1Bonus ? (
+        <section className="mt-6 rounded-3xl border border-green-200 bg-green-50 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-green-700">
+                🎁 Bonus inclus avec votre formation
+              </p>
+              <h3 className="mt-2 text-lg font-bold text-green-900">
+                Module e-learning SSIAP1 — accès gratuit
+              </h3>
+              <p className="mt-1 text-sm text-green-800">
+                En tant qu&apos;apprenant inscrit à une formation sécurité incendie PREVENSIA,
+                vous bénéficiez gratuitement du module e-learning de préparation SSIAP1 (2h30–3h) :
+                théorie incendie, classes de feux, SSI, procédures ERP, examen QCM.
+              </p>
+            </div>
+            <Link
+              href="/elearning"
+              className="shrink-0 rounded-xl border border-green-400 bg-white px-4 py-2 text-sm font-semibold text-green-700 hover:bg-green-100 transition-colors"
+            >
+              Accéder au module SSIAP1 →
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       {/* Support */}
       <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">

@@ -599,6 +599,39 @@ export default function FormationSsiap1Page() {
         </div>
       </section>
 
+      {/* Bonus e-learning offert */}
+      <section className="bg-green-50 border-y border-green-200 py-12">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div className="flex-1">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-green-700 mb-2">
+                🎁 Module e-learning inclus — Préparation théorique complète
+              </p>
+              <h2 className="text-xl font-bold text-green-900">
+                E-learning SSIAP1 : préparation à la formation et à l&apos;examen
+              </h2>
+              <p className="mt-3 text-green-800 leading-7">
+                Chaque stagiaire inscrit à la formation SSIAP1 (initiale ou recyclage) accède
+                au module e-learning de préparation théorique — conçu spécifiquement pour
+                faciliter la compréhension du programme et préparer l&apos;épreuve QCM de l&apos;examen
+                officiel. Classes de feux, extincteurs, SSI, évacuation ERP, cadre réglementaire :
+                tout le socle théorique est couvert avant même d&apos;arriver en salle.
+              </p>
+              <p className="mt-3 text-sm text-green-700 font-medium">
+                Ce module est également offert gratuitement à tout apprenant inscrit à une
+                formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation).
+              </p>
+            </div>
+            <Link
+              href="/elearning"
+              className="shrink-0 rounded-xl border border-green-400 bg-white px-5 py-3 text-sm font-semibold text-green-700 hover:bg-green-50 transition-colors"
+            >
+              Voir le module e-learning →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="bg-slate-950 py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">

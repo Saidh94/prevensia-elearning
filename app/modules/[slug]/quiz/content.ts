@@ -9989,3 +9989,332 @@ quizContent["sst"] = [
   },
 ];
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// QUIZ — Coordinateur SSI
+// NF S 61-931/932/933/970 · Arrêté 25/06/1980 · CCH · CDT · ICPE · IGH/IMH/ITGH · Habitation
+// ─────────────────────────────────────────────────────────────────────────────
+quizContent["coordinateur-ssi"] = [
+  // ── NF S 61-931 : Architecture ──
+  {
+    question: "Selon la NF S 61-931, quelles sont les deux parties constitutives d'un SSI de catégorie A ?",
+    choices: [
+      "Le SDI et le CMSI",
+      "Le CMSI et l'équipement d'alarme",
+      "Le SDI et l'équipement d'alarme",
+      "La centrale et le système de désenfumage",
+    ],
+    answer: [0],
+    chapterLabel: "Architecture SSI — NF S 61-931",
+    explanation: "Un SSI de catégorie A est composé d'un SDI (Système de Détection Incendie) et d'un CMSI (Centralisateur de Mise en Sécurité Incendie). Ces deux sous-systèmes doivent être conformes à leurs normes respectives (NF S 61-950 pour le SDI, NF S 61-934 pour le CMSI).",
+    timeLimit: 45,
+  },
+  {
+    question: "La NF S 61-931 distingue les SSI en 5 catégories (A à E). Laquelle est la plus complète et exigeante ?",
+    choices: ["Catégorie A", "Catégorie B", "Catégorie C", "Catégorie E"],
+    answer: [0],
+    chapterLabel: "Architecture SSI — NF S 61-931",
+    explanation: "La catégorie A est la plus complète : elle exige un SDI complet (détection automatique généralisée) et un CMSI capable de commander tous les DAS. Les catégories B à E sont des systèmes simplifiés avec des fonctions réduites.",
+    timeLimit: 35,
+  },
+  {
+    question: "Un DAS (Dispositif Actionné de Sécurité) est :",
+    choices: [
+      "Un détecteur automatique de fumée",
+      "Un équipement commandé par le CMSI pour réaliser une fonction de mise en sécurité (porte coupe-feu, volet de désenfumage…)",
+      "Un déclencheur manuel (bris de glace)",
+      "Une centrale de détection incendie",
+    ],
+    answer: [1],
+    chapterLabel: "Architecture SSI — NF S 61-931",
+    explanation: "Le DAS est tout dispositif actionné par le CMSI pour réaliser une fonction de mise en sécurité : fermeture d'une porte coupe-feu, ouverture d'un exutoire de désenfumage, déverrouillage d'une issue de secours, arrêt de CTA, etc.",
+    timeLimit: 40,
+  },
+  // ── NF S 61-932 : CMSI ──
+  {
+    question: "Selon la NF S 61-932, le CMSI doit recevoir les informations du SDI et commander les DAS. Il comprend notamment :",
+    choices: [
+      "Une UGA et une US (Unité de Signalisation) uniquement",
+      "Une US, des UCMCs (Unités de Commande et de Contrôle Manuelles de Zone), et éventuellement une UGA",
+      "Un coffret de relayage et une alarme sonore",
+      "Seulement les boutons poussoirs d'alarme manuelle",
+    ],
+    answer: [1],
+    chapterLabel: "CMSI — NF S 61-932",
+    explanation: "Le CMSI comprend une US (Unité de Signalisation) affichant l'état du système, des UCMCs permettant la commande manuelle par zone de mise en sécurité, et éventuellement une UGA (Unité de Gestion d'Alarme) pour la gestion de l'alarme sonore.",
+    timeLimit: 50,
+  },
+  {
+    question: "Dans le cadre de la NF S 61-932, la 'position de sécurité' d'un DAS est :",
+    choices: [
+      "La position dans laquelle il se trouve en fonctionnement normal",
+      "La position dans laquelle il doit se trouver après actionnement pour assurer la sécurité incendie",
+      "La position de test uniquement",
+      "La position imposée par le bureau de contrôle",
+    ],
+    answer: [1],
+    chapterLabel: "CMSI — NF S 61-932",
+    explanation: "La position de sécurité est celle que doit atteindre le DAS après actionnement pour remplir sa fonction de sécurité. Pour une porte coupe-feu, c'est la position fermée. Pour un volet de désenfumage, c'est la position ouverte (selon le schéma de désenfumage).",
+    timeLimit: 45,
+  },
+  // ── NF S 61-933 : Exploitation et maintenance ──
+  {
+    question: "Selon la NF S 61-933, la vérification périodique du SSI doit être effectuée par :",
+    choices: [
+      "L'exploitant seul, sans intervention extérieure",
+      "Un organisme accrédité COFRAC uniquement",
+      "Un technicien qualifié du mainteneur, au minimum une fois par an",
+      "Le SDIS lors de sa visite de prévention",
+    ],
+    answer: [2],
+    chapterLabel: "Maintenance SSI — NF S 61-933",
+    explanation: "La NF S 61-933 impose une vérification périodique au moins annuelle par le mainteneur (technicien qualifié). Cette vérification est distincte des essais périodiques (mensuels/trimestriels) que l'exploitant peut réaliser. Elle donne lieu à un rapport consigné dans le carnet de bord.",
+    timeLimit: 45,
+  },
+  {
+    question: "Le 'carnet de bord SSI' prévu par la NF S 61-933 doit notamment contenir :",
+    choices: [
+      "Uniquement les dates de vérification annuelle",
+      "Les interventions de maintenance, les essais périodiques, les modifications apportées, les alarmes et les défauts",
+      "Les plans d'évacuation uniquement",
+      "Les coordonnées des intervenants de sécurité",
+    ],
+    answer: [1],
+    chapterLabel: "Maintenance SSI — NF S 61-933",
+    explanation: "Le carnet de bord SSI est un document essentiel qui recense toutes les informations relatives à la vie du système : interventions de maintenance, essais périodiques avec résultats, modifications (ajout de détecteurs, reconfiguration), alarmes déclenchées et défauts constatés. Il est consultable par la commission de sécurité.",
+    timeLimit: 40,
+  },
+  {
+    question: "En cas d'indisponibilité partielle d'un SSI (panne d'un ou plusieurs DAS), la NF S 61-933 recommande :",
+    choices: [
+      "D'attendre la prochaine visite annuelle pour régulariser",
+      "De mettre immédiatement hors service l'ensemble du SSI",
+      "De prendre des mesures compensatoires (ronde, surveillance renforcée) et de consigner l'incident dans le carnet de bord",
+      "D'informer la mairie uniquement",
+    ],
+    answer: [2],
+    chapterLabel: "Maintenance SSI — NF S 61-933",
+    explanation: "En cas d'indisponibilité partielle, la NF S 61-933 impose des mesures compensatoires proportionnelles au niveau de risque (surveillance humaine renforcée, rondes, limitation de l'effectif…) et la consignation de l'incident. Le coordonnateur SSI doit informer la direction et évaluer la nécessité d'informer la commission de sécurité.",
+    timeLimit: 45,
+    eliminatory: false,
+  },
+  // ── NF S 61-970 : Désenfumage ──
+  {
+    question: "La NF S 61-970 (Systèmes de désenfumage) distingue deux types principaux de désenfumage naturel. Lesquels ?",
+    choices: [
+      "Désenfumage mécanique et désenfumage par pression",
+      "Désenfumage par tirage naturel (exutoires) et désenfumage par balayage naturel (amenées/évacuations d'air)",
+      "Désenfumage intérieur et désenfumage de façade",
+      "Désenfumage ERP et désenfumage IGH",
+    ],
+    answer: [1],
+    chapterLabel: "Désenfumage — NF S 61-970",
+    explanation: "La NF S 61-970 couvre le désenfumage naturel (tirage thermique via exutoires en toiture ou en façade haute) et le désenfumage mécanique (extraction forcée par ventilateur). Le désenfumage par balayage associe des amenées d'air basses et des évacuations hautes pour créer un flux efficace.",
+    timeLimit: 50,
+  },
+  {
+    question: "Dans le cadre du désenfumage des escaliers encloisonnés (NF S 61-970 et arrêté ERP), l'objectif est de :",
+    choices: [
+      "Évacuer rapidement la fumée pour permettre l'accès des pompiers uniquement",
+      "Maintenir une pression positive dans l'escalier pour empêcher l'entrée des fumées et garantir un chemin d'évacuation",
+      "Extraire les fumées au niveau de chaque palier",
+      "Créer un courant d'air depuis le bas vers le haut",
+    ],
+    answer: [1],
+    chapterLabel: "Désenfumage — NF S 61-970",
+    explanation: "Pour les escaliers encloisonnés, le désenfumage vise à les maintenir à une pression légèrement supérieure à celle du couloir, de façon à ce que les fumées ne pénètrent pas dans la cage d'escalier (qui constitue le seul chemin d'évacuation). On parle de 'mise en surpression d'escalier'.",
+    timeLimit: 50,
+  },
+  // ── Arrêté du 25 juin 1980 — ERP ──
+  {
+    question: "L'arrêté du 25 juin 1980 portant règlement de sécurité contre l'incendie dans les ERP classe les établissements selon deux critères. Lesquels ?",
+    choices: [
+      "La surface et la hauteur",
+      "Le type d'activité (type J, L, M, N, O, P, R, S, T, U, V, W, X, Y) et la capacité d'accueil (5 catégories)",
+      "Le nombre d'étages et la présence d'un sprinkler",
+      "La nature de la construction et l'effectif du personnel",
+    ],
+    answer: [1],
+    chapterLabel: "Réglementation ERP — Arrêté 25/06/1980",
+    explanation: "L'arrêté du 25/06/1980 classe les ERP selon le TYPE (activité : J = structures d'accueil personnes âgées, L = salles, M = magasins, R = enseignement, U = hôpitaux, etc.) et la CATÉGORIE (1 à 5 selon l'effectif public). Les catégories 1 à 4 sont les grands établissements, la 5e catégorie concerne les petits établissements recevant moins de seuils réglementaires.",
+    timeLimit: 50,
+  },
+  {
+    question: "Dans un ERP de 1ère catégorie, le service de sécurité incendie est constitué :",
+    choices: [
+      "D'un seul agent SSIAP 1",
+      "D'un chef de service (SSIAP 3) et d'un nombre défini d'agents SSIAP 1 et 2 selon l'établissement",
+      "Uniquement d'agents formés en interne sans qualification obligatoire",
+      "D'un prestataire externe de surveillance uniquement",
+    ],
+    answer: [1],
+    chapterLabel: "Réglementation ERP — Arrêté 25/06/1980",
+    explanation: "Les ERP de grande capacité doivent disposer d'un service de sécurité avec un chef de service (SSIAP 3), des chefs d'équipe (SSIAP 2) et des agents (SSIAP 1), dont les effectifs minimaux sont fixés par le règlement de sécurité selon le type et la catégorie de l'établissement.",
+    timeLimit: 45,
+  },
+  {
+    question: "Dans un ERP, la commission de sécurité a pour mission :",
+    choices: [
+      "De réaliser la maintenance des équipements de sécurité",
+      "De donner un avis sur l'ouverture ou la poursuite d'exploitation de l'établissement et de vérifier le respect des prescriptions réglementaires",
+      "De former le personnel de sécurité",
+      "D'homologuer le SSI installé",
+    ],
+    answer: [1],
+    chapterLabel: "Réglementation ERP — Arrêté 25/06/1980",
+    explanation: "La commission de sécurité (sous-commission départementale) est chargée de visiter les ERP pour vérifier le respect des règles de sécurité, et d'émettre un avis (favorable ou défavorable) sur l'ouverture ou la poursuite d'exploitation. Ses observations constituent une exigence réglementaire que le coordinateur SSI doit impérativement traiter.",
+    timeLimit: 40,
+  },
+  // ── Code de la construction (CCH) ──
+  {
+    question: "Le Code de la construction et de l'habitation (CCH) définit les 'immeubles de grande hauteur' (IGH) comme :",
+    choices: [
+      "Tout immeuble dépassant 20 mètres de hauteur",
+      "Tout immeuble à usage d'habitation dont le plancher du dernier niveau est situé à plus de 50 m du sol, ou à usage autre qu'habitation à plus de 28 m",
+      "Tout immeuble de plus de 10 étages",
+      "Tout bâtiment industriel de plus de 15 mètres",
+    ],
+    answer: [1],
+    chapterLabel: "CCH — IGH / IMH / Habitation",
+    explanation: "Selon l'article R.122-2 du CCH, constituent des IGH : les immeubles à usage d'habitation dont le plancher bas du dernier niveau dépasse 50 m, et les immeubles à autres usages (bureaux, commerce, hôtel…) dont le plancher bas du dernier niveau dépasse 28 m par rapport au niveau du sol le plus bas accessible aux engins de secours.",
+    timeLimit: 50,
+  },
+  {
+    question: "La réglementation applicable aux IGH en matière de sécurité incendie est fixée par :",
+    choices: [
+      "L'arrêté du 25 juin 1980 (ERP uniquement)",
+      "L'arrêté du 30 décembre 2011 et le Code de la construction (CCH Articles R.122-1 et suivants)",
+      "La seule NF S 61-931",
+      "Le plan local d'urbanisme (PLU)",
+    ],
+    answer: [1],
+    chapterLabel: "CCH — IGH / IMH / Habitation",
+    explanation: "Les IGH sont soumis à une réglementation spécifique : le Code de la construction (CCH articles R.122-1 et suivants) et l'arrêté du 30 décembre 2011 qui fixe les règles de sécurité incendie applicables aux IGH. La réglementation ERP (arrêté 25/06/1980) ne s'applique pas directement aux parties non ERP d'un IGH.",
+    timeLimit: 45,
+  },
+  {
+    question: "Les immeubles d'habitation sont classés en familles selon la hauteur. À quelle famille appartient un immeuble d'habitation avec un plancher bas du dernier niveau entre 28 m et 50 m ?",
+    choices: [
+      "1ère famille (maisons individuelles)",
+      "2ème famille (immeubles jusqu'à R+3)",
+      "3ème famille (4e et 5e familles selon variantes)",
+      "4ème famille (plus de 28 m jusqu'à 50 m)",
+    ],
+    answer: [3],
+    chapterLabel: "CCH — IGH / IMH / Habitation",
+    explanation: "Les immeubles d'habitation sont classés en 4 familles : 1ère (maisons individuelles isolées ou jumelées), 2ème (collectifs R+3 max ou maisons groupées R+3), 3ème famille A et B (collectifs de 4 à 10 étages selon présence d'escalier protégé), 4ème famille (plancher bas > 28 m et ≤ 50 m). Au-delà de 50 m, c'est un IGH habitation.",
+    timeLimit: 50,
+    eliminatory: false,
+  },
+  // ── Code du travail ──
+  {
+    question: "Selon le Code du travail (Art. R.4227-28 et suivants), l'employeur doit établir une consigne de sécurité incendie. Dans les établissements accueillant plus de 50 personnes ou certains établissements à risques, des exercices d'évacuation sont obligatoires. Quelle est leur fréquence minimale ?",
+    choices: [
+      "Une fois tous les 2 ans",
+      "Au moins une fois par an",
+      "Au moins deux fois par an",
+      "Tous les trimestres",
+    ],
+    answer: [2],
+    chapterLabel: "Code du travail — Incendie",
+    explanation: "L'article R.4227-39 du Code du travail impose des exercices d'évacuation au moins deux fois par an dans les établissements concernés (plus de 50 personnes, établissements à risques particuliers). Ces exercices permettent de vérifier l'efficacité des consignes et la connaissance des procédures par le personnel.",
+    timeLimit: 40,
+  },
+  {
+    question: "Selon le Code du travail, qui est responsable de l'organisation des secours et de la mise en place des moyens de lutte contre l'incendie dans un établissement ?",
+    choices: [
+      "Le service de sécurité incendie (SSIAP)",
+      "L'employeur, qui peut déléguer cette mission mais en conserve la responsabilité",
+      "Le bureau de contrôle agréé",
+      "La commune via le SDIS",
+    ],
+    answer: [1],
+    chapterLabel: "Code du travail — Incendie",
+    explanation: "En vertu du Code du travail (Art. L.4121-1 et R.4227-28 et suivants), c'est l'employeur qui est responsable de la sécurité incendie dans son établissement : organisation des secours, formation des travailleurs désignés, entretien des moyens de lutte. Il peut déléguer mais reste pénalement responsable.",
+    timeLimit: 40,
+  },
+  // ── ICPE ──
+  {
+    question: "Les ICPE (Installations Classées pour la Protection de l'Environnement) sont soumises, en matière d'incendie, à :",
+    choices: [
+      "Uniquement l'arrêté du 25 juin 1980",
+      "Des arrêtés ministériels sectoriels (par type d'activité), complétés par des arrêtés préfectoraux d'autorisation ou d'enregistrement fixant les prescriptions propres au site",
+      "La seule réglementation IGH",
+      "La NF S 61-931 exclusivement",
+    ],
+    answer: [1],
+    chapterLabel: "ICPE — Réglementation",
+    explanation: "Les ICPE relèvent du Code de l'environnement (Livre V, Titre 1er) et sont soumises à des arrêtés ministériels de prescriptions générales par rubrique (par type d'activité et seuil), complétés par les arrêtés préfectoraux d'autorisation ou d'enregistrement qui fixent les prescriptions spécifiques au site. La réglementation ICPE intègre des exigences SSI souvent plus strictes que la réglementation ERP.",
+    timeLimit: 50,
+  },
+  {
+    question: "Dans une ICPE soumise à autorisation, le Plan d'Opération Interne (POI) est :",
+    choices: [
+      "Facultatif et laissé à l'appréciation de l'exploitant",
+      "Obligatoire pour certaines ICPE (Seveso, stockages importants) et doit prévoir l'organisation des secours internes en cas d'accident majeur",
+      "Équivalent au plan d'évacuation ERP",
+      "Établi uniquement par la préfecture",
+    ],
+    answer: [1],
+    chapterLabel: "ICPE — Réglementation",
+    explanation: "Le POI (Plan d'Opération Interne) est obligatoire pour les ICPE soumises à autorisation dès lors que le préfet l'exige (notamment ICPE Seveso et certains stockages à risques). Il définit l'organisation interne des secours, les procédures d'urgence, et l'articulation avec le PPI (Plan Particulier d'Intervention) des autorités.",
+    timeLimit: 50,
+    eliminatory: false,
+  },
+  // ── IGH / ITGH ──
+  {
+    question: "Un ITGH (Immeuble de Très Grande Hauteur) désigne :",
+    choices: [
+      "Tout bâtiment de plus de 100 mètres",
+      "Un IGH dont la hauteur dépasse un seuil fixé par un décret spécifique (généralement 200 m)",
+      "Il n'existe pas de catégorie ITGH dans la réglementation française actuelle — le terme est parfois utilisé pour les IGH dépassant 200 m, sans statut réglementaire autonome distinct",
+      "Tout immeuble de bureaux de plus de 28 m",
+    ],
+    answer: [2],
+    chapterLabel: "CCH — IGH / ITGH",
+    explanation: "La réglementation française distingue les IGH habitation (> 50 m) et les IGH autres usages (> 28 m), mais ne prévoit pas de catégorie réglementaire 'ITGH' autonome. Le terme 'ITGH' est parfois utilisé dans la littérature professionnelle pour les très grands IGH (> 200 m) sans constituer une catégorie réglementaire propre. Les prescriptions renforcées pour ces ouvrages sont généralement fixées par arrêté préfectoral ou par dérogation au cas par cas.",
+    timeLimit: 55,
+    eliminatory: false,
+  },
+  {
+    question: "Dans un IGH, l'exigence de compartimentage SSI vise à :",
+    choices: [
+      "Éviter la propagation horizontale des fumées entre compartiments, en utilisant des portes et cloisons coupe-feu commandées par le CMSI",
+      "Protéger uniquement les accès pompiers",
+      "Alimenter les sprinklers par zones",
+      "Gérer les flux de personnes lors de l'évacuation",
+    ],
+    answer: [0],
+    chapterLabel: "CCH — IGH / ITGH",
+    explanation: "Dans les IGH, le compartimentage est fondamental : chaque niveau (ou groupe de niveaux) constitue un compartiment isolé par des parois coupe-feu. En cas d'alarme, le CMSI commande la fermeture des DAS (portes coupe-feu, clapets coupe-feu sur gaines) pour confiner l'incendie dans le compartiment sinistré et permettre une évacuation progressive et sécurisée.",
+    timeLimit: 45,
+  },
+  // ── Coordinateur SSI — Responsabilités et pilotage ──
+  {
+    question: "Le Coordinateur SSI est principalement responsable de :",
+    choices: [
+      "La maintenance technique directe des équipements SSI",
+      "La supervision globale du dispositif SSI : interface avec le mainteneur, les autorités, gestion des documents réglementaires, suivi des non-conformités et des travaux impactant le SSI",
+      "La conduite à tenir en cas d'alarme pendant les rondes nocturnes",
+      "L'installation et le câblage des détecteurs",
+    ],
+    answer: [1],
+    chapterLabel: "Rôle Coordinateur SSI",
+    explanation: "Le Coordinateur SSI n'est pas un technicien de maintenance mais un pilote de dispositif : il organise et suit les maintenances, coordonne les intervenants, gère les documents (carnet de bord, registre de sécurité, plans), prépare les visites de commission de sécurité, identifie et suit les non-conformités, et supervise les travaux qui impactent le SSI. Son rôle est documenté dans la NF S 61-933.",
+    timeLimit: 45,
+    eliminatory: true,
+  },
+  {
+    question: "Lors d'une visite de la commission de sécurité d'un ERP, le Coordinateur SSI doit être en mesure de présenter :",
+    choices: [
+      "Uniquement l'attestation de conformité initiale du SSI",
+      "Le registre de sécurité, le carnet de bord SSI, les rapports de vérification annuelle, les levées de réserves, et tout document attestant du bon entretien du système",
+      "Seulement les factures des prestataires de maintenance",
+      "Le plan d'évacuation affiché dans les couloirs",
+    ],
+    answer: [1],
+    chapterLabel: "Rôle Coordinateur SSI",
+    explanation: "La commission de sécurité consulte le registre de sécurité (obligatoire dans les ERP, Art. R.123-51 CCH) et peut demander le carnet de bord SSI, les rapports de vérification annuelle du mainteneur, les attestations de conformité, et la preuve des levées de réserves des visites précédentes. Le Coordinateur SSI doit avoir ces documents à jour et disponibles.",
+    timeLimit: 45,
+  },
+];

@@ -335,6 +335,52 @@ export default function FormationSprinkler() {
           </div>
         </div>
       </section>
+
+      {/* Bonus SSIAP1 e-learning */}
+      <section className="bg-green-50 border-y border-green-200 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex-1">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-green-700">
+                🎁 Inclus avec votre formation Sprinkler
+              </p>
+              <h3 className="mt-2 text-lg font-bold text-green-900">
+                Module e-learning SSIAP1 offert — Préparation théorique à la formation et à l&apos;examen
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-green-800">
+                Chaque apprenant inscrit à la formation Sprinkler PREVENSIA reçoit gratuitement l&apos;accès
+                au module e-learning de préparation SSIAP1 (2h30–3h) : classes de feux, extincteurs, SSI,
+                procédures d&apos;évacuation ERP et cadre réglementaire. Un bonus pour renforcer la culture
+                sécurité incendie de vos équipes — et faciliter la préparation à l&apos;épreuve QCM SSIAP1.
+              </p>
+            </div>
+            <Link
+              href="/elearning"
+              className="shrink-0 rounded-xl border border-green-400 bg-white px-4 py-2 text-sm font-semibold text-green-700 hover:bg-green-100 transition-colors"
+            >
+              Accéder au module e-learning →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Autres formations */}
+      <section className="bg-white py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-slate-900">Autres formations sécurité incendie</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <a href="/formation-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
+              Formation Exploitation SSI
+            </a>
+            <a href="/formation-coordinateur-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
+              Formation Coordinateur SSI — Pilotage &amp; référentiels
+            </a>
+            <a href="/formation-ssiap1" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
+              Formation SSIAP1 — Agent sécurité incendie
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 

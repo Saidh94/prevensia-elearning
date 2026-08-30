@@ -525,6 +525,41 @@ export default function FormationSSI() {
             >
               Formation exploitation sprinkler
             </a>
+
+            <a
+              href="/formation-coordinateur-ssi"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Formation Coordinateur SSI — Pilotage &amp; référentiels
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Bonus SSIAP1 e-learning */}
+      <section className="bg-green-50 border-y border-green-200 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex-1">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-green-700">
+                🎁 Inclus avec votre formation SSI
+              </p>
+              <h3 className="mt-2 text-lg font-bold text-green-900">
+                Module e-learning SSIAP1 offert — Préparation théorique à la formation et à l&apos;examen
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-green-800">
+                Chaque apprenant inscrit à la formation SSI PREVENSIA reçoit gratuitement l&apos;accès au
+                module e-learning de préparation SSIAP1 (2h30–3h) : classes de feux, extincteurs, SSI,
+                procédures d&apos;évacuation ERP et cadre réglementaire. Idéal pour consolider la culture
+                sécurité incendie — et préparer l&apos;épreuve QCM de l&apos;examen officiel SSIAP1.
+              </p>
+            </div>
+            <Link
+              href="/elearning"
+              className="shrink-0 rounded-xl border border-green-400 bg-white px-4 py-2 text-sm font-semibold text-green-700 hover:bg-green-100 transition-colors"
+            >
+              Accéder au module e-learning →
+            </Link>
           </div>
         </div>
       </section>

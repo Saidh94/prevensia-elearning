@@ -85,6 +85,15 @@ const MODULE_ALIASES: Record<string, string[]> = {
   sst: ["sst"],
   "securite-incendie": ["incendie", "securite-incendie"],
   "ssi-exploitation": ["ssi-exploitation", "ssi_exploitation", "ssi"],
+  "coordinateur-ssi": [
+    "coordinateur-ssi",
+    "coordinateur_ssi",
+    "coord-ssi",
+    "coord_ssi",
+    "pilotage-ssi",
+    "referent-ssi",
+    "responsable-ssi",
+  ],
   "habilitation-vehicules": [
     "habilitation-vehicules",
     "habilitation_vehicules",

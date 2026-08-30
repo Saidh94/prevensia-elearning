@@ -8,6 +8,7 @@ import { atexNiveau1ModuleContent } from "./atex-niveau1-content";
 import { atexNiveau2ModuleContent } from "./atex-niveau2-content";
 import { ssiap1ModuleContent } from "./ssiap1-content";
 import { recyclageSsiap1ModuleContent } from "./recyclage-ssiap1-content";
+import { coordinateurSsiModuleContent } from "./coordinateur-ssi-content";
 
 export const modulesContent: Record<string, ModuleContent> = {
   ...electricalCommercialModuleContent,
@@ -19,6 +20,7 @@ export const modulesContent: Record<string, ModuleContent> = {
   "atex-niveau2": atexNiveau2ModuleContent,
   ssiap1: ssiap1ModuleContent,
   "recyclage-ssiap1": recyclageSsiap1ModuleContent,
+  "coordinateur-ssi": coordinateurSsiModuleContent,
   h0b0: {
   title: "H0B0 - Exécuter en sécurité des travaux d’ordre non électrique",
   shortTitle: "H0B0",
@@ -1580,21 +1582,27 @@ export const modulesContent: Record<string, ModuleContent> = {
         intro:
           "Un exploitant n’a pas besoin de réciter toutes les normes, mais il doit savoir sur quels repères repose le SSI de son bâtiment.",
         content: [
-          "La famille NF S 61 sert de base de référence dans le domaine SSI. Elle couvre notamment les dispositions générales, les règles d’installation et certaines exigences techniques selon les fonctions considérées.",
-          "La NF S 61-931 constitue une référence générale du SSI, la NF S 61-932 traite des règles d’installation du SMSI et la NF S 61-970 des règles d’installation du SDI.",
-          "Le SSI s’inscrit aussi dans un contexte réglementaire de bâtiment. En ERP, en IGH ou dans certains établissements techniques, la présence, la catégorie ou les fonctions attendues du SSI dépendent du règlement applicable et de l’analyse de risque associée.",
-          "L’exploitant doit donc retenir une idée simple: le SSI n’est pas un équipement isolé, c’est un maillon d’un dispositif réglementaire global de sécurité incendie."
+          "La famille NF S 61 sert de base de référence dans le domaine SSI. Elle couvre les dispositions générales, les règles d’installation et les exigences techniques de chaque famille de composants du système.",
+          "NF S 61-931 (février 2014) fixe les définitions, les catégories de SSI (A à E) et les niveaux d’accès (0 à IV). C’est le texte de référence générale. NF S 61-932 (mise à jour décembre 2024) traite des règles d’installation du SMSI : zones de mise en sécurité, alimentation, liaisons DAS, règles CMSI. NF S 61-933 (septembre 2011) fixe les règles d’exploitation et de maintenance : essais périodiques, carnet de bord, vérification annuelle. NF S 61-970 (février 2013) concerne les règles d’installation du SDI : détecteurs, déclencheurs manuels, liaisons et dossier d’identité.",
+          "Les autres normes de la famille couvrent chaque composant spécifique : NF S 61-934 (CMSI — règles de conception), NF S 61-936 + A1 (EA — équipements d’alarme pour l’évacuation, mise à jour décembre 2024), NF S 61-937 (DAS — dispositifs actionnés de sécurité), NF S 61-938 + A1 (DCM — dispositifs de commande manuelle), NF S 61-939-1 (alimentations pneumatiques), NF S 61-940 (AES — alimentations électriques de sécurité), NF E 37-312 (GSS — groupes électrogènes source de sécurité).",
+          "Le SSI s’inscrit dans un contexte réglementaire de bâtiment. En ERP, en IGH ou dans certains établissements industriels, la présence, la catégorie ou les fonctions attendues du SSI dépendent du règlement applicable. L’exploitant doit retenir une idée simple : le SSI n’est pas un équipement isolé, c’est un maillon d’un dispositif réglementaire global de sécurité incendie."
         ],
         keyPoints: [
-          "NF S 61-931 : cadre général SSI.",
-          "NF S 61-932 : règles d’installation du SMSI.",
-          "NF S 61-970 : règles d’installation du SDI.",
+          "NF S 61-931 : cadre général SSI — catégories A à E, niveaux d’accès 0 à IV.",
+          "NF S 61-932 (déc. 2024) : règles d’installation du SMSI.",
+          "NF S 61-933 : exploitation et maintenance — essais, carnet de bord, vérification annuelle.",
+          "NF S 61-970 : règles d’installation du SDI (détection).",
+          "Chaque composant SSI a sa norme propre : 934 (CMSI), 936 (EA), 937 (DAS), 940 (AES).",
           "ERP et IGH imposent des exigences d’exploitation cohérentes avec le bâtiment."
         ],
         legalRefs: [
-          "Famille NF S 61 - références françaises courantes en matière de SSI.",
-          "Arrêté du 25 juin 1980 modifié - règlement de sécurité contre les risques d’incendie et de panique dans les ERP.",
-          "Arrêté du 30 décembre 2011 - règlement de sécurité pour les IGH.",
+          "NF S 61-931 (fév. 2014) — Dispositions générales SSI : catégories, niveaux d’accès, coordination.",
+          "NF S 61-932 (déc. 2024) — Règles d’installation du SMSI.",
+          "NF S 61-933 (sept. 2011) — Exploitation et maintenance des SSI.",
+          "NF S 61-970 (fév. 2013) — Règles d’installation du SDI.",
+          "NF S 61-934 — CMSI. NF S 61-936 + A1 (déc. 2024) — EA. NF S 61-937 — DAS. NF S 61-940 — AES.",
+          "Arrêté du 25 juin 1980 modifié (MS 53 à MS 60) — règlement de sécurité ERP, exigences SSI.",
+          "Arrêté du 30 décembre 2011 — règlement de sécurité IGH.",
           "Consignes et dossier de sécurité propres au site exploité."
         ],
         chapterImagePath: "/images/niveau-ssi.jpg",

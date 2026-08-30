@@ -402,6 +402,7 @@ function getFormationFrameLabelBySlug(moduleSlug: string): string | null {
   const s = moduleSlug.toLowerCase().trim();
 
   const labels: Record<string, string> = {
+    // Habilitation électrique
     h0b0: "H0B0 / H0V",
     bsbe: "BS / BE Manoeuvre",
     "bs-be": "BS / BE Manoeuvre",
@@ -423,9 +424,271 @@ function getFormationFrameLabelBySlug(moduleSlug: string): string | null {
     "be-verification": "BE Verification",
     "be-mesurage": "BE Mesurage",
     be: "BE Verification / BE Mesurage",
+    // Sécurité incendie
+    ssiap1: "Agent SSIAP 1 — Arrete 2 mai 2005",
+    "recyclage-ssiap1": "Recyclage SSIAP 1",
+    "ssi-exploitation": "Exploitation SSI — NF S 61-931/932/933",
+    "coordinateur-ssi": "Coordinateur SSI — NF S 61-933",
+    sprinkler: "Exploitation Sprinkler — EN 12845 / APSAD R1",
+    "extinction-automatique-gaz": "Extinction auto. gaz — NF EN 15004-1",
+    "securite-incendie": "Securite Incendie",
+    // ATEX
+    atex: "ATEX Niveau 0",
+    "atex-niveau1": "ATEX Niveau 1",
+    "atex-niveau2": "ATEX Niveau 2",
+    // SST
+    sst: "SST — Sauveteur Secouriste du Travail",
   };
 
   return labels[s] ?? null;
+}
+
+/** Références réglementaires par module */
+const REGULATORY_REFS: Record<string, string[]> = {
+  ssiap1: [
+    "Arrete du 2 mai 2005 — Missions, emploi et qualification du personnel SSIAP",
+    "Code de la construction et de l'habitation — ERP",
+    "Instruction technique IT n°246",
+  ],
+  "recyclage-ssiap1": [
+    "Arrete du 2 mai 2005 (recyclage triennal obligatoire)",
+    "Code de la construction et de l'habitation",
+  ],
+  "ssi-exploitation": [
+    "NF S 61-931 : SSI — Regles d'installation",
+    "NF S 61-932 : SSI — Regles d'installation des CMSI",
+    "NF S 61-933 : SSI — Regles d'exploitation",
+    "Arrete du 25 juin 1980 (ERP) — Titre II, Chapitre 2",
+  ],
+  "coordinateur-ssi": [
+    "NF S 61-931 / 932 / 933 — Systemes de Securite Incendie",
+    "NF S 61-970 — Systemes de desenfumage",
+    "Arrete du 25 juin 1980 (ERP) et Code de la construction",
+    "Code du travail — Dispositions incendie / ICPE",
+  ],
+  sprinkler: [
+    "EN 12845 — Systemes fixes d'extinction auto a eau (sprinkler)",
+    "APSAD R1 — Regle d'installation sprinkler",
+    "NFPA 13 — Standard for the Installation of Sprinkler Systems",
+  ],
+  "extinction-automatique-gaz": [
+    "NF EN 15004-1 — Systemes d'extinction auto a gaz",
+    "APSAD R13 — Regle d'installation extinction a gaz",
+  ],
+  sst: [
+    "Arrete du 24 juillet 2007 et du 5 decembre 2019 (SST)",
+    "Code du travail — Art. R4224-14 et R4224-15",
+  ],
+  "securite-incendie": [
+    "Arrete du 25 juin 1980 (ERP)",
+    "Code du travail — Incendie et evacuation",
+  ],
+  atex: [
+    "Directive 1999/92/CE (ATEX utilisateurs)",
+    "NF EN 60079-10 et NF EN 13463-1",
+    "Code du travail — Art. R4227-41 a R4227-57",
+  ],
+  "atex-niveau1": [
+    "Directive 1999/92/CE — Atmospheres explosives",
+    "NF EN 60079-10, -14, -17",
+    "IEC 60079-17 — Verification des installations electriques ATEX",
+  ],
+  "atex-niveau2": [
+    "Directive 1999/92/CE et 2014/34/UE (ATEX produits)",
+    "NF EN 60079-14 — Installation electrique en zone ATEX",
+    "NF EN 13463-1 — ATEX non electrique",
+  ],
+};
+
+const ELECTRICAL_SLUGS = new Set([
+  "h0b0", "bsbe", "bs-be", "bsbe-manoeuvre", "bs-be-manoeuvre",
+  "b1b2brbc", "bt-multi-symboles", "b1-b2-br-bc", "b1-b1v-b2-b2v-br-bc",
+  "b1-b1v", "b1", "b1v", "b2-b2v", "b2", "b2v", "br", "bc",
+  "be-verification-mesurage", "be-verification", "be-mesurage", "be",
+  "habilitation-vehicules",
+]);
+
+function isElectricalSlug(slug: string): boolean {
+  return ELECTRICAL_SLUGS.has(slug.toLowerCase().trim());
+}
+
+function drawAttestationSuiviPage(params: {
+  page: PDFPage;
+  fontRegular: PDFFont;
+  fontBold: PDFFont;
+  colors: Record<string, ReturnType<typeof rgb>>;
+  logoImage: PDFImage | null;
+  signatureImage: PDFImage | null;
+  attestationId: string;
+  issueDate: string;
+  validationDate: string;
+  learnerFullName: string;
+  learnerEmail: string;
+  employerName: string;
+  formation: string;
+  frameText: string;
+  moduleSlug: string;
+  formateur: string;
+  resultText: string;
+  successText: string;
+  durationHint: string;
+}) {
+  const {
+    page, fontRegular, fontBold, colors, logoImage, signatureImage,
+    attestationId, issueDate, validationDate, learnerFullName, learnerEmail,
+    employerName, formation, frameText, moduleSlug, formateur,
+    resultText, successText, durationHint,
+  } = params;
+
+  const pageWidth = page.getWidth();
+  const pageHeight = page.getHeight();
+  const margin = 34;
+  const contentW = pageWidth - margin * 2;
+
+  // Fond blanc + bordure fine
+  page.drawRectangle({
+    x: 18, y: 18,
+    width: pageWidth - 36, height: pageHeight - 36,
+    borderColor: colors.line, borderWidth: 1, color: colors.page,
+  });
+
+  // Bande navy en haut
+  const bandH = 88;
+  page.drawRectangle({
+    x: margin, y: pageHeight - margin - bandH,
+    width: contentW, height: bandH,
+    color: colors.brand,
+  });
+
+  // Logo dans la bande
+  if (logoImage) {
+    try {
+      const dims = logoImage.scale(1);
+      const maxW = 160; const maxH = 64;
+      const scale = Math.min(maxW / dims.width, maxH / dims.height);
+      const iw = dims.width * scale; const ih = dims.height * scale;
+      const cx = margin + iw / 2 + 10;
+      const cy = pageHeight - margin - bandH + bandH / 2;
+      const padX = 7; const padY = 4;
+      page.drawRectangle({ x: cx - iw / 2 - padX, y: cy - ih / 2 - padY, width: iw + padX * 2, height: ih + padY * 2, color: colors.page });
+      page.drawImage(logoImage, { x: cx - iw / 2, y: cy - ih / 2, width: iw, height: ih });
+    } catch { /* no-op */ }
+  }
+
+  // Titre dans la bande
+  page.drawText("ATTESTATION DE SUIVI DE FORMATION", {
+    x: margin + 182, y: pageHeight - margin - 38,
+    size: 13, font: fontBold, color: rgb(1, 1, 1),
+  });
+  page.drawText("Document de formation professionnelle — PREVENSIA FORMATION", {
+    x: margin + 182, y: pageHeight - margin - 56,
+    size: 8, font: fontRegular, color: rgb(0.78, 0.84, 0.96),
+  });
+
+  // Boîte référence (haut droit dans la bande)
+  const refBoxW = 152;
+  drawCell(page, `Ref. : ${attestationId}\nEmis le : ${issueDate}`,
+    pageWidth - margin - refBoxW, pageHeight - margin - bandH + 14, refBoxW, 60, {
+      font: fontRegular, size: 7.8,
+      textColor: rgb(1, 1, 1), borderColor: rgb(0.5, 0.6, 0.8), borderWidth: 0.8,
+      align: "right", verticalAlign: "middle", lineHeight: 11,
+    });
+
+  // --- Section informations ---
+  let y = pageHeight - margin - bandH - 18;
+
+  const rowH = 22; const labelW = 138;
+
+  const infoRows: [string, string][] = [
+    ["Apprenant", learnerFullName],
+    ["Email apprenant", learnerEmail],
+    ["Entreprise / Employeur", employerName || "—"],
+    ["Intitule de la formation", formation],
+    ["Cadre reglementaire", frameText],
+    ["Formateur PREVENSIA", formateur || "PREVENSIA FORMATION"],
+    ["Duree indicative", durationHint || "—"],
+    ["Date de validation", validationDate],
+    ["Organisme de formation", "PREVENSIA FORMATION — Certifie Qualiopi"],
+  ];
+
+  for (const [label, value] of infoRows) {
+    drawCell(page, label, margin, y - rowH, labelW, rowH, {
+      font: fontRegular, size: 8, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle",
+    });
+    drawCell(page, value, margin + labelW, y - rowH, contentW - labelW, rowH, {
+      font: fontBold, size: 9, borderColor: colors.line, verticalAlign: "middle",
+    });
+    y -= rowH;
+  }
+
+  y -= 10;
+
+  // Références réglementaires
+  const refs = REGULATORY_REFS[moduleSlug.toLowerCase().trim()] ?? [];
+  if (refs.length > 0) {
+    drawCell(page, "REFERENCES REGLEMENTAIRES APPLICABLES", margin, y - 20, contentW, 20, {
+      font: fontBold, size: 8.5, borderColor: colors.line, fillColor: colors.softBlue, verticalAlign: "middle", align: "center",
+    });
+    y -= 20;
+    for (const ref of refs) {
+      drawCell(page, "  •  " + ref, margin, y - 18, contentW, 18, {
+        font: fontRegular, size: 7.8, borderColor: colors.line, verticalAlign: "middle",
+      });
+      y -= 18;
+    }
+    y -= 8;
+  }
+
+  // Résultats quiz
+  if (resultText && resultText !== "Validation administrative") {
+    const qH = 42;
+    const qW = (contentW - 8) / 2;
+    drawCell(page, "Reussite", margin, y - qH, qW, qH, {
+      font: fontRegular, size: 8, borderColor: colors.line, fillColor: colors.pale, verticalAlign: "top",
+    });
+    page.drawText(successText, {
+      x: margin + (qW - fontBold.widthOfTextAtSize(successText, 20)) / 2,
+      y: y - qH + 10,
+      size: 20, font: fontBold,
+      color: successText === "OUI" ? rgb(0.1, 0.5, 0.25) : rgb(0.72, 0.16, 0.16),
+    });
+    drawCell(page, "Resultat obtenu : " + resultText, margin + qW + 8, y - qH, qW, qH, {
+      font: fontBold, size: 10, borderColor: colors.line, fillColor: colors.pale, verticalAlign: "middle", align: "center",
+    });
+    y -= qH + 8;
+  }
+
+  // Mention légale
+  const mentionY = 130;
+  const mentionH = 56;
+  drawCell(
+    page,
+    "La presente attestation certifie que l'apprenant designe ci-dessus a suivi et valide, dans sa totalite, le parcours de formation indique, dispensee par PREVENSIA FORMATION dans le cadre de la reglementation applicable. Ce document est delivre par PREVENSIA FORMATION, organisme de formation professionnelle continue certifie Qualiopi. Il ne constitue pas un titre d'habilitation, une autorisation de conduite, ni une certification reglementaire necessitant un agrement specifique separe.",
+    margin, mentionY, contentW, mentionH,
+    { font: fontRegular, size: 7.4, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle", lineHeight: 9 }
+  );
+
+  // Visa PREVENSIA
+  drawCell(page, "Visa PREVENSIA FORMATION", margin, 78, 210, 18, {
+    font: fontBold, size: 8.3, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle",
+  });
+  drawCell(page, "", margin, 34, 210, 44, { font: fontRegular, size: 8, borderColor: colors.line });
+  drawLine(page, margin + 12, 48, margin + 198, 48, colors.line);
+  if (signatureImage) {
+    try {
+      const dims = signatureImage.scale(1);
+      const scale = Math.min(160 / dims.width, 24 / dims.height);
+      page.drawImage(signatureImage, { x: margin + 22, y: 50, width: dims.width * scale, height: dims.height * scale });
+    } catch { /* no-op */ }
+  }
+
+  // Référence dossier
+  drawCell(page, "Reference dossier", pageWidth - margin - 180, 78, 180, 18, {
+    font: fontBold, size: 8.3, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle",
+  });
+  drawCell(page, attestationId, pageWidth - margin - 180, 34, 180, 44, {
+    font: fontBold, size: 11, borderColor: colors.line, align: "center", verticalAlign: "middle",
+  });
 }
 
 function getSuggestedRows(formation: string): Record<string, SuggestedRow> {
@@ -1457,20 +1720,47 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
     }
   }
 
-  drawFirstPage({
-    page: pageOne,
-    fontRegular,
-    fontBold,
-    colors,
-    logoImage,
-    attestationId,
-    issueDate,
-    validationDate,
-    learnerFullName,
-    employerName,
-    formation: sanitizedFormation,
-    suggestedRows,
-  });
+  const canonicalSlug = moduleSlug?.toLowerCase().trim() ?? "";
+  const isElectrical = canonicalSlug ? isElectricalSlug(canonicalSlug) : false;
+
+  if (isElectrical) {
+    drawFirstPage({
+      page: pageOne,
+      fontRegular,
+      fontBold,
+      colors,
+      logoImage,
+      attestationId,
+      issueDate,
+      validationDate,
+      learnerFullName,
+      employerName,
+      formation: sanitizedFormation,
+      suggestedRows,
+    });
+  } else {
+    drawAttestationSuiviPage({
+      page: pageOne,
+      fontRegular,
+      fontBold,
+      colors,
+      logoImage,
+      signatureImage,
+      attestationId,
+      issueDate,
+      validationDate,
+      learnerFullName,
+      learnerEmail: sanitizePdfText(learnerEmail),
+      employerName,
+      formation: sanitizedFormation,
+      frameText: sanitizePdfText(frameText),
+      moduleSlug: canonicalSlug,
+      formateur: sanitizePdfText(input.formateur ?? ""),
+      resultText,
+      successText,
+      durationHint: "",
+    });
+  }
 
   drawSuccessPage({
     page: pageTwo,
