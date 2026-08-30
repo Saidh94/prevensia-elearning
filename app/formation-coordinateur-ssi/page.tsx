@@ -110,7 +110,7 @@ const tarifs = [
     prix: "1 790 € HT / apprenant",
     detail:
       "7 jours de présentiel intensif en salle + 1 journée d'examen + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation de formation PREVENSIA remise à l'issue de l'examen.",
-    badge: "Tarif 2025",
+    badge: "Tarif 2026",
   },
   {
     format: "E-learning préparatoire",
@@ -339,7 +339,7 @@ export default function FormationCoordinateurSSI() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-400">Tarifs</p>
           <h2 className="mt-3 text-2xl font-bold text-white">
-            Formation Coordinateur SSI — grille tarifaire 2025
+            Formation Coordination SSI — grille tarifaire 2026
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-300">
             Toutes nos formations sont certifiées Qualiopi et finançables OPCO.
