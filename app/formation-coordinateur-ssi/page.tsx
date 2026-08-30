@@ -48,7 +48,7 @@ const faqItems = [
   {
     question: "Quelle est la durée de la formation ?",
     answer:
-      "La formation Coordinateur SSI se déroule sur 5 jours au total : un parcours e-learning autonome de 12 à 15 heures (à compléter avant la session présentielle), suivi de 3 jours de présentiel intensif incluant des cas pratiques, mises en situation et travaux sur des dossiers réels. Le format intra-entreprise sur 3 jours présentiel seul est également disponible.",
+      "La formation Coordinateur SSI se déroule sur 7 jours de présentiel, avec un parcours e-learning autonome inclus (à compléter avant la session présentielle). 7 jours de présentiel intensif incluant des cas pratiques, mises en situation et travaux sur des dossiers réels. Format inter et intra-entreprise disponible.",
   },
 ];
 
@@ -105,24 +105,24 @@ const programme = [
 
 const tarifs = [
   {
-    format: "Inter-entreprise — 3 jours en salle",
+    format: "Inter-entreprise — 7 jours en salle",
     prix: "1 590 € HT / apprenant",
     detail:
-      "3 jours de présentiel intensif en salle + 12 à 15 h d'e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation Qualiopi incluse.",
+      "7 jours de présentiel intensif en salle + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation Qualiopi incluse.",
     badge: "Recommandé",
   },
   {
-    format: "Intra-entreprise — 3 jours sur site",
+    format: "Intra-entreprise — 7 jours sur site",
     prix: "À partir de 2 900 € HT / groupe",
     detail:
-      "3 jours de présentiel sur vos locaux ou un centre partenaire. Programme calé sur vos installations, vos référentiels réglementaires et vos enjeux. E-learning préparatoire inclus par participant. Jusqu'à 8 participants.",
+      "7 jours de présentiel sur vos locaux ou un centre partenaire. Programme calé sur vos installations, vos référentiels réglementaires et vos enjeux. E-learning préparatoire inclus par participant. Jusqu'à 8 participants.",
     badge: null,
   },
   {
     format: "E-learning préparatoire",
     prix: "Inclus avec la formation",
     detail:
-      "Le module e-learning Coordinateur SSI (12 à 15 h) est inclus gratuitement pour tous les participants inscrits en session présentielle. Il couvre les fondamentaux (NF S 61-931/932/933/970, réglementation ERP/IGH/ICPE) avant les 3 jours de mise en pratique.",
+      "Le module e-learning Coordinateur SSI est inclus gratuitement pour tous les participants inscrits en session présentielle. Il couvre les fondamentaux (NF S 61-931/932/933/970, réglementation ERP/IGH/ICPE) avant les 7 jours de mise en pratique.",
     badge: null,
   },
 ];
@@ -170,7 +170,7 @@ export default function FormationCoordinateurSSI() {
             Formation au pilotage du Système de Sécurité Incendie — <strong className="text-white">dispensée principalement en salle</strong>,
             avec des cas pratiques sur dossiers réels. Réglementations ERP (arrêté 25 juin 1980),
             IGH, ICPE, Code du travail, normes NF S 61-931 / 932 / 933 / 970.
-            E-learning préparatoire inclus (12–15 h) pour optimiser les 3 jours de présentiel intensif.
+            E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-2 text-sm text-amber-300">
@@ -214,8 +214,8 @@ export default function FormationCoordinateurSSI() {
           <div className="grid gap-6 md:grid-cols-4">
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-700">Durée</p>
-              <p className="mt-2 text-lg font-bold">3 jours en salle</p>
-              <p className="mt-1 text-sm text-slate-600">+ 12–15 h e-learning préparatoire inclus</p>
+              <p className="mt-2 text-lg font-bold">7 jours en salle</p>
+              <p className="mt-1 text-sm text-slate-600">+ e-learning préparatoire inclus</p>
             </div>
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-700">Modalités</p>

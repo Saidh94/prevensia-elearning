@@ -39,7 +39,7 @@ const FORMATIONS: Formation[] = [
   { id: "mac-sst", label: "MAC SST (recyclage)", category: "SST", priceHT: 130, priceNote: "1 jour — inter-entreprises", perPerson: true },
   // COORDINATEUR SSI
   { id: "coordinateur-ssi-elearning", label: "Coordinateur SSI e-learning (préparation)", category: "Coordinateur SSI", priceHT: 290, priceNote: "E-learning 20h — NF S 61-931", perPerson: true },
-  { id: "coordinateur-ssi-presentiel", label: "Coordinateur SSI en salle (3 jours)", category: "Coordinateur SSI", priceHT: null, priceNote: "À partir de 1 490 € — sur devis (intra/inter)", perPerson: false },
+  { id: "coordinateur-ssi-presentiel", label: "Coordinateur SSI en salle (7 jours)", category: "Coordinateur SSI", priceHT: null, priceNote: "À partir de 1 590 € — sur devis (intra/inter)", perPerson: false },
 ];
 
 const CATEGORIES = Array.from(new Set(FORMATIONS.map((f) => f.category)));

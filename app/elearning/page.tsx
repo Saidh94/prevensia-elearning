@@ -483,14 +483,14 @@ const formations = [
     slug: "coordinateur-ssi",
     category: "SSI",
     title: "Coordinateur SSI — Pilotage du Système de Sécurité Incendie",
-    duration: "3 jours en salle + 12–15 h e-learning préparatoire",
+    duration: "7 jours en présentiel + e-learning inclus",
     mode: "Principalement présentiel (inter ou intra) · E-learning inclus",
     price: "À partir de 1 590 EUR HT",
     level: "Avancé",
     audience:
       "Responsables techniques, responsables sécurité, chefs de service maintenance, gestionnaires de patrimoine ayant la charge de la supervision globale du SSI.",
     description:
-      "Parcours complet pour former le Coordinateur SSI de votre établissement : rôle et responsabilités, architecture des SSI (NF S 61-931), réglementation ERP/IGH, maintenance NF S 61-933, gestion des intervenants et des situations dégradées. 12 à 15 h d'e-learning préparatoire + 3 jours de présentiel sur dossiers réels.",
+      "Parcours complet pour former le Coordinateur SSI de votre établissement : rôle et responsabilités, architecture des SSI (NF S 61-931), réglementation ERP/IGH, maintenance NF S 61-933, gestion des intervenants et des situations dégradées. E-learning préparatoire + 7 jours de présentiel sur dossiers réels.",
     objectifs: [
       "Maîtriser le rôle et les responsabilités du Coordinateur SSI",
       "Appliquer la réglementation ERP, IGH et Code du travail applicable au SSI",
