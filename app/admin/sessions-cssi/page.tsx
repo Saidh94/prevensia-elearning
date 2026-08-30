@@ -65,12 +65,18 @@ export default function SessionsCssiPage() {
 
   useEffect(() => { void load(); }, [load]);
 
-  // Auto-calculer date de fin = date_début + 6 jours quand on change dateDebut
+  const [dateExamen, setDateExamen] = useState("");
+
+  // Auto-calculer date de fin = date_début + 6 jours (J7 = dernier jour de cours)
+  // Auto-calculer date d'examen = date_début + 7 jours (J8)
   useEffect(() => {
     if (!dateDebut) return;
-    const d = new Date(`${dateDebut}T12:00:00`);
-    d.setDate(d.getDate() + 6);
-    setDateFin(d.toISOString().slice(0, 10));
+    const fin = new Date(`${dateDebut}T12:00:00`);
+    fin.setDate(fin.getDate() + 6);
+    setDateFin(fin.toISOString().slice(0, 10));
+    const exam = new Date(`${dateDebut}T12:00:00`);
+    exam.setDate(exam.getDate() + 7);
+    setDateExamen(exam.toISOString().slice(0, 10));
   }, [dateDebut]);
 
   const handleAdd = async (e: FormEvent<HTMLFormElement>) => {
@@ -79,7 +85,7 @@ export default function SessionsCssiPage() {
     setMessage("");
 
     const noteComposed = [
-      `Session 7 jours — du ${frDate(dateDebut)} au ${frDate(dateFin)}`,
+      `Session 7 jours + examen — du ${frDate(dateDebut)} au ${frDate(dateFin)} · Examen : ${frDate(dateExamen)}`,
       note ? `Note : ${note}` : "",
     ].filter(Boolean).join(" | ");
 
@@ -150,7 +156,7 @@ export default function SessionsCssiPage() {
                 Planification des sessions Coordination SSI
               </h1>
               <p className="mt-2 text-sm text-slate-500">
-                Formation inter-entreprise · 7 jours en salle · Max 8 participants · 1 790 € HT / apprenant
+                Formation inter-entreprise · 7 jours en salle + 1 journée examen · Max 8 participants · 1 790 € HT / apprenant
               </p>
             </div>
             <div className="flex gap-2 text-sm">
@@ -175,9 +181,9 @@ export default function SessionsCssiPage() {
 
             <form className="mt-5 space-y-4" onSubmit={handleAdd}>
               {/* Dates */}
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-3">
                 <label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
-                  Date de début (J1)
+                  Début (J1)
                   <input
                     type="date"
                     required
@@ -187,13 +193,23 @@ export default function SessionsCssiPage() {
                   />
                 </label>
                 <label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
-                  Date de fin (J7)
+                  Fin cours (J7)
                   <input
                     type="date"
                     required
                     value={dateFin}
                     onChange={(e) => setDateFin(e.target.value)}
                     className="rounded-xl border border-slate-300 px-4 py-2.5 text-sm outline-none focus:border-orange-400"
+                  />
+                </label>
+                <label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
+                  📝 Examen (J8)
+                  <input
+                    type="date"
+                    required
+                    value={dateExamen}
+                    onChange={(e) => setDateExamen(e.target.value)}
+                    className="rounded-xl border border-orange-300 px-4 py-2.5 text-sm outline-none focus:border-orange-500 bg-orange-50"
                   />
                 </label>
               </div>
@@ -332,8 +348,9 @@ export default function SessionsCssiPage() {
           <ul className="mt-2 space-y-1 list-disc list-inside text-orange-700">
             <li>Formation exclusivement en inter-entreprise (jamais en intra — les clients n&apos;ont jamais plusieurs CSSI)</li>
             <li>Minimum 3 participants pour ouvrir, maximum 8</li>
+            <li>Durée : 7 jours de cours en salle + 1 journée d&apos;examen (J8)</li>
             <li>Tarif : 1 790 € HT / apprenant — finançable OPCO / FNE-Formation</li>
-            <li>Attestation de formation PREVENSIA remise (pas d&apos;attestation RNCP)</li>
+            <li>Attestation de formation PREVENSIA remise après l&apos;examen (pas de titre RNCP)</li>
             <li>E-learning préparatoire inclus — à compléter avant le J1</li>
             <li>Pour gérer les devis et inscrits : <Link href="/admin/leads" className="underline font-semibold">→ Leads / Devis</Link></li>
           </ul>

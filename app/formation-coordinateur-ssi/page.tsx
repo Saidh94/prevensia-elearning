@@ -49,7 +49,7 @@ const faqItems = [
   {
     question: "Quelle est la durée de la formation ?",
     answer:
-      "La formation Coordinateur SSI se déroule sur 7 jours de présentiel en salle (inter-entreprise), avec un parcours e-learning autonome inclus à compléter avant la session. La session inclut des cas pratiques, mises en situation et travaux sur des dossiers réels.",
+      "La formation Coordination SSI se déroule sur 7 jours de présentiel en salle + 1 journée d'examen (inter-entreprise), avec un parcours e-learning autonome inclus à compléter avant la session. Les 7 jours incluent des cas pratiques, mises en situation et travaux sur des dossiers réels.",
   },
 ];
 
@@ -109,7 +109,7 @@ const tarifs = [
     format: "Session inter-entreprise — 7 jours en salle",
     prix: "1 790 € HT / apprenant",
     detail:
-      "7 jours de présentiel intensif en salle + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation de formation PREVENSIA remise à l'issue de la session.",
+      "7 jours de présentiel intensif en salle + 1 journée d'examen + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation de formation PREVENSIA remise à l'issue de l'examen.",
     badge: "Tarif 2025",
   },
   {
@@ -164,7 +164,7 @@ export default function FormationCoordinateurSSI() {
             Formation à la <strong className="text-white">conception et à la coordination</strong>{" "}d&apos;un Système de Sécurité Incendie —
             dispensée principalement en salle, sur dossiers réels. Cadre réglementaire ERP (arrêté du 25 juin 1980, MS 53 à MS 60),
             IGH (arrêté du 30 décembre 2011), CCH, Code du travail, normes NF S 61-931 et NF S 61-932.
-            E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif.
+            E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif + 1 journée d&apos;examen.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-500/40 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
@@ -207,7 +207,7 @@ export default function FormationCoordinateurSSI() {
           <div className="grid gap-6 md:grid-cols-4">
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-700">Durée</p>
-              <p className="mt-2 text-lg font-bold">7 jours en salle</p>
+              <p className="mt-2 text-lg font-bold">7 jours en salle + examen</p>
               <p className="mt-1 text-sm text-slate-600">+ e-learning préparatoire inclus</p>
             </div>
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
