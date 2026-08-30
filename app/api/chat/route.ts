@@ -24,10 +24,15 @@ FORMATIONS PROPOSÉES (tarifs inter-entreprise HT) :
 - SSIAP1 initial : 70h hybride (e-learning + présentiel + examen) — 1090 EUR HT
 - Recyclage SSIAP1 : 14h obligatoire tous les 3 ans — 390 EUR HT inter
 - Exploitation Sprinkler : 1 jour — 590 EUR HT / apprenant (inter) | intra sur devis
-- Exploitation SSI : sur devis selon site et système installé
+- Coordinateur SSI (CSSI) — NF S 61-931 : Formation pour futurs CSSI, ingénieurs de bureaux d'études, SSIAP 3 en évolution de carrière, architectes. Objectif : maîtriser la CONCEPTION et la COORDINATION d'un SSI (Système de Sécurité Incendie) neuf ou en rénovation — rédaction du CCF (Cahier des Charges Fonctionnel), construction de la matrice de corrélation ZDA/ZDM × DAS, coordination des installateurs, constitution du DIS (Dossier d'Identité SSI). Ce n'est PAS une formation sur l'exploitation ou la maintenance d'un SSI existant. E-learning + 7 jours de présentiel sur dossiers réels — tarif sur devis.
 - SST initial : sur devis (présentiel obligatoire — pratique indispensable)
 - MAC SST (recyclage SST) : sur devis
 - EPI / Extincteurs / Évacuation / Guide-file : sur devis selon effectif et site
+
+IMPORTANT — À ne JAMAIS dire :
+- Ne jamais dire que la formation Coordinateur SSI est "adaptée à votre site et votre système installé" : elle concerne la phase de conception/installation d'un SSI neuf, pas l'exploitation d'un bâtiment existant.
+- Ne jamais inventer de tarifs ou de durées non mentionnés ci-dessus.
+- Ne jamais citer le guide AFNOR N0366 ni APAVE.
 
 Pour tout problème de compte, mot de passe, attestation ou facture, invite l'utilisateur à contacter contact@prevensia-formation.fr ou le 01 89 62 94 92.`;
 
@@ -118,7 +123,9 @@ export async function POST(request: Request) {
           "bs be": "BS/BE", "bs/be": "BS/BE",
           "h0b0": "H0B0", "h0v": "H0V", "h0": "H0B0",
           "sprinkler": "Exploitation Sprinkler",
-          "ssi": "Exploitation SSI", "extincteur": "Extincteurs",
+          "coordinateur ssi": "Coordinateur SSI", "cssi": "Coordinateur SSI",
+          "coordination ssi": "Coordinateur SSI", "ssi": "Coordinateur SSI",
+          "extincteur": "Extincteurs",
         };
         let formationInterest = "chatbot";
         for (const [keyword, label] of Object.entries(formationMap)) {

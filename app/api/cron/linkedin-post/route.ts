@@ -5,42 +5,58 @@ import { randomUUID } from "crypto";
 
 export const runtime = "nodejs";
 
+// RÈGLE ABSOLUE POUR TOUS LES POSTS : ne jamais inventer de normes, d'articles ou de chiffres réglementaires.
+// Seules références autorisées : NF S 61-931, NF S 61-932, NF C 15-100, NF C 18-510 (et A1+A2), Code du travail R.4534-x, APSAD.
+// Ne jamais citer APAVE, ne jamais citer le guide AFNOR N0366.
+
 const THEMES_LINKEDIN = [
+  {
+    formation: "Coordinateur SSI",
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation Coordinateur SSI (CSSI) conforme à la norme NF S 61-931.
+
+POSITIONNEMENT EXACT À RESPECTER (ne pas dévier) :
+- Public : ingénieurs de bureaux d'études, techniciens confirmés, SSIAP 3 souhaitant évoluer, architectes, maîtres d'ouvrage
+- La formation concerne la CONCEPTION et la COORDINATION d'un SSI neuf ou en rénovation (phase projet/installation), PAS l'exploitation d'un SSI existant
+- Compétences visées : rédaction du CCF (Cahier des Charges Fonctionnel), construction de la matrice de corrélation ZDA/ZDM × DAS, coordination des installateurs SSI, constitution du DIS (Dossier d'Identité SSI)
+- Ne pas dire que le CSSI "opère" ou "exploite" un système — il conçoit, coordonne et documente
+
+Format : accroche forte (1 ligne), corps 3-4 paragraphes courts, CTA vers https://prevensia-formation.fr/formation-coordinateur-ssi, 5 hashtags.
+Ton : expert technique, s'adresse à des professionnels du bâtiment et de l'ingénierie. ~250-300 mots. Commence par un emoji accrocheur.
+Ne jamais inventer de chiffres réglementaires ni citer APAVE ou le guide AFNOR N0366.`,
+  },
   {
     formation: "ATEX",
     prompt: `Rédige un post LinkedIn professionnel en français pour la page PREVENSIA FORMATION sur le thème de la formation ATEX (zones explosives ATEX Niveaux 1, 2 et 3).
 Format : accroche forte (1 ligne), corps du post (3-4 paragraphes courts), call-to-action vers https://prevensia-formation.fr/formation-atex, 5 hashtags pertinents.
-Ton : expert, direct, professionnel. Environ 250-300 mots. Parle des obligations légales, des métiers concernés (pétrochimie, pharma, agro-alimentaire). Commence par un emoji accrocheur.`,
-  },
-  {
-    formation: "SSIAP1",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation SSIAP1.
-Accroche forte, corps 3-4 paragraphes courts, CTA vers https://prevensia-formation.fr/formation-ssiap1, 5 hashtags.
-Évoque : 70h de formation, financement OPCO possible, les métiers de la sécurité incendie, les débouchés. Commence par un emoji. ~250-300 mots.`,
+Ton : expert, direct, professionnel. Environ 250-300 mots. Parle des obligations légales (directive ATEX 1999/92/CE, Code du travail), des métiers concernés (pétrochimie, pharma, agro-alimentaire). Commence par un emoji accrocheur.
+Ne jamais inventer de normes ou articles réglementaires non reconnus.`,
   },
   {
     formation: "Habilitation électrique",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur les habilitations électriques (H0B0, BS/BE, B1/B2/BR/BC).
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur les habilitations électriques (H0B0, BS/BE, B1/B2/BR/BC) conformément à la norme NF C 18-510 et ses amendements A1 (2012) et A2 (2022 — obligatoire depuis octobre 2024).
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-habilitation-electrique, 5 hashtags.
-Parle des accidents électriques, de l'obligation légale, de l'e-learning Qualiopi. Commence par un emoji. ~250-300 mots.`,
+Parle des accidents électriques, de l'obligation légale, de l'e-learning Qualiopi, de la mise à jour obligatoire liée à A2. Commence par un emoji. ~250-300 mots.
+Ne jamais inventer de chiffres d'accidents ou de normes hors NF C 18-510.`,
   },
   {
     formation: "SST",
     prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation SST (Sauveteur Secouriste du Travail).
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-sst, 5 hashtags.
-Parle de l'obligation d'avoir des SST en entreprise, 2 jours de formation, recyclage 24 mois. Commence par un emoji. ~250-300 mots.`,
+Parle de l'obligation légale (Code du travail), de la pratique indispensable en présentiel, du recyclage 24 mois (MAC SST). Commence par un emoji. ~250-300 mots.
+Ne jamais inventer de chiffres ni de références réglementaires non vérifiées.`,
   },
   {
     formation: "CPF et Qualiopi",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la certification Qualiopi et le financement CPF des formations sécurité.
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la certification Qualiopi et le financement OPCO / FNE-Formation des formations sécurité.
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr, 5 hashtags.
-Explique comment un RH ou un responsable formation peut faire financer les formations sécurité obligatoires. Commence par un emoji. ~250-300 mots.`,
+Explique comment un RH ou un responsable formation peut faire financer les formations sécurité obligatoires via l'OPCO. Commence par un emoji. ~250-300 mots.`,
   },
   {
-    formation: "Sprinkler & SSI",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur les formations exploitation Sprinkler et SSI.
+    formation: "Sprinkler",
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation Exploitation Sprinkler (règles APSAD R1).
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-exploitation-sprinkler, 5 hashtags.
-Cible les responsables sécurité ERP, facility managers, directeurs techniques. Commence par un emoji. ~250-300 mots.`,
+Cible les responsables sécurité ERP, facility managers, directeurs techniques d'IGH ou sites industriels. Mentionne les obligations de vérification périodique APSAD. Commence par un emoji. ~250-300 mots.
+Ne jamais inventer de normes hors APSAD R1.`,
   },
 ];
 
