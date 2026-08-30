@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import Stripe from "stripe";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -101,7 +102,7 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
             <hr style="border:none;border-top:1px solid #e2e8f0;margin:28px 0;" />
             <p style="font-size:12px;color:#94a3b8;">
               PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
-              33, avenue Philippe Auguste — 75011 Paris<br />
+              ${COMPANY.addressShort}<br />
               Organisme certifié Qualiopi
             </p>
           </div>
@@ -163,7 +164,7 @@ async function markEnrollmentPending(session: Stripe.Checkout.Session) {
             <hr style="border:none;border-top:1px solid #e2e8f0;margin:28px 0;" />
             <p style="font-size:12px;color:#94a3b8;">
               PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
-              33, avenue Philippe Auguste — 75011 Paris<br />
+              ${COMPANY.addressShort}<br />
               Organisme certifié Qualiopi
             </p>
           </div>
@@ -218,7 +219,7 @@ async function markEnrollmentFailed(session: Stripe.Checkout.Session) {
             <hr style="border:none;border-top:1px solid #e2e8f0;margin:28px 0;" />
             <p style="font-size:12px;color:#94a3b8;">
               PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
-              33, avenue Philippe Auguste — 75011 Paris<br />
+              ${COMPANY.addressShort}<br />
               Organisme certifié Qualiopi
             </p>
           </div>

@@ -2,6 +2,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -117,7 +118,7 @@ export async function PATCH(
               <p style="margin:0;font-size:12px;color:#64748b;line-height:1.8;">
                 L'équipe PREVENSIA FORMATION<br/>
                 01 89 62 94 92 — contact@prevensia-formation.fr<br/>
-                33, avenue Philippe Auguste, 75011 Paris
+                ${COMPANY.addressFull}
               </p>
             </td>
           </tr>

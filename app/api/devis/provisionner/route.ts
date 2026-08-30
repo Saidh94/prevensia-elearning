@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -221,6 +222,6 @@ function buildWelcomeEmail(
       </a>
     </p>
     <hr style="margin:24px 0;border:none;border-top:1px solid #e2e8f0;"/>
-    <p style="font-size:12px;color:#64748b;">PREVENSIA FORMATION · 33, av. Philippe Auguste — 75011 Paris</p>
+    <p style="font-size:12px;color:#64748b;">${COMPANY.name} · ${COMPANY.addressShort}</p>
   `;
 }

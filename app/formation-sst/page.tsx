@@ -406,6 +406,48 @@ export default function FormationSST() {
         </div>
       </section>
 
+      {/* Tarifs */}
+      <section className="bg-white py-16 border-t border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">Tarifs indicatifs</p>
+          <h2 className="mt-3 text-3xl font-bold text-slate-900">Formations SST et MAC SST</h2>
+          <p className="mt-4 max-w-2xl text-slate-600">
+            Toutes nos formations SST sont dispensées en intra-entreprise. Le tarif groupe couvre jusqu&apos;à 10 participants sur site.
+          </p>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-red-700">SST initial</p>
+              <p className="mt-4 text-3xl font-bold text-slate-900">240 € <span className="text-lg font-medium text-slate-500">HT / personne</span></p>
+              <p className="mt-1 text-sm text-slate-500">À partir de 1 190 € HT / groupe (intra)</p>
+              <ul className="mt-4 space-y-1 text-sm text-slate-600">
+                <li>✓ 14 heures (2 jours) en présentiel</li>
+                <li>✓ 4 à 10 participants</li>
+                <li>✓ Certification INRS incluse</li>
+                <li>✓ France entière</li>
+              </ul>
+              <Link href="/demande-devis?type=sst&detail=initial" className="mt-5 inline-flex rounded-xl bg-red-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-800 transition-colors">
+                Devis SST initial →
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-orange-600">MAC SST (recyclage)</p>
+              <p className="mt-4 text-3xl font-bold text-slate-900">130 € <span className="text-lg font-medium text-slate-500">HT / personne</span></p>
+              <p className="mt-1 text-sm text-slate-500">À partir de 690 € HT / groupe (intra)</p>
+              <ul className="mt-4 space-y-1 text-sm text-slate-600">
+                <li>✓ 7 heures (1 jour) en présentiel</li>
+                <li>✓ Obligatoire tous les 2 ans</li>
+                <li>✓ Mise à jour des gestes SST</li>
+                <li>✓ France entière</li>
+              </ul>
+              <Link href="/demande-devis?type=sst&detail=mac" className="mt-5 inline-flex rounded-xl border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:border-red-300 hover:text-red-700 transition-colors">
+                Devis MAC SST →
+              </Link>
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-slate-400">Tarifs HT indicatifs · Frais de déplacement hors Île-de-France en sus · Devis personnalisé sous 48h</p>
+        </div>
+      </section>
+
       <section className="bg-red-50 border-y border-red-200 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">Besoin d&apos;un devis rapide ?</h2>

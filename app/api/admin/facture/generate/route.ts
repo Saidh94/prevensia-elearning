@@ -4,6 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { Resend } from "resend";
 import { generateFacturePdf } from "@/lib/facture/generate-facture-pdf";
 import type { FactureLine } from "@/lib/facture/generate-facture-pdf";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -121,7 +122,7 @@ export async function POST(req: Request) {
         ${iban ? `<p><strong>IBAN :</strong> ${iban}${bic ? ` — <strong>BIC :</strong> ${bic}` : ""}</p>` : ""}
         <hr />
         <p style="font-size:12px;color:#64748b;">
-          PREVENSIA FORMATION — 33, avenue Philippe Auguste, 75011 Paris<br/>
+          ${COMPANY.name} — ${COMPANY.addressFull}<br/>
           01 89 62 94 92 — contact@prevensia-formation.fr
         </p>
       `,

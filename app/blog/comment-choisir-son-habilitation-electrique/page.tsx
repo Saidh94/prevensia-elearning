@@ -48,7 +48,7 @@ const symboles = [
     titre: "Non-électriciens",
     public: "Caristes, agents de nettoyage, peintres, maçons, magasiniers",
     travaux: "Aucun travail électrique. Évolution en environnement à risque.",
-    prix: "220 € HT",
+    prix: "190 € HT",
     href: "/formation-h0b0",
     color: "bg-slate-600",
   },

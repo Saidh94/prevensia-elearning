@@ -6,6 +6,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -111,7 +112,7 @@ export async function POST(request: Request) {
                 📄 Télécharger mon attestation
               </a>
               <p style="font-size:12px;color:#64748b;margin-top:20px;">
-                PREVENSIA FORMATION · 33, avenue Philippe Auguste — 75011 Paris<br/>
+                ${COMPANY.name} · ${COMPANY.addressShort}<br/>
                 contact@prevensia-formation.fr · 01 89 62 94 92
               </p>
             `,

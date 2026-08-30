@@ -427,7 +427,7 @@ const formations = [
     title: "SSIAP1 Initial — Module e-learning inclus dans la formation certifiante",
     duration: "Durée e-learning : 2 h 30 à 3 h",
     mode: "Support e-learning inclus dans la formation initiale (70h)",
-    price: "À partir de 690 EUR HT",
+    price: "À partir de 1 090 EUR HT",
     level: "Débutant",
     audience:
       "Agents de sécurité incendie débutants, personnel d'ERP (hôtels, centres commerciaux, écoles, hôpitaux) souhaitant obtenir la qualification SSIAP1 via la formation certifiante complète (70h).",
@@ -457,7 +457,7 @@ const formations = [
     title: "Recyclage SSIAP1 — Remise à niveau sécurité incendie ERP",
     duration: "Durée e-learning : 2 h 30 à 3 h",
     mode: "Support e-learning inclus dans le recyclage (14h)",
-    price: "À partir de 250 EUR HT",
+    price: "À partir de 390 EUR HT",
     level: "Intermédiaire",
     audience:
       "Agents SSIAP1 titulaires devant effectuer leur recyclage obligatoire tous les 3 ans pour maintenir leur titre de qualification.",

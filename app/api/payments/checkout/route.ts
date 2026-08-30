@@ -2,6 +2,7 @@ import { getEnrollmentPaymentOption } from "@/lib/payments/catalog";
 import { getStripeClient } from "@/lib/payments/stripe";
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -214,7 +215,7 @@ export async function POST(request: Request) {
         invoice_data: {
           description: `Formation : ${paymentOption.label}`,
           footer:
-            "PREVENSIA FORMATION — Groupe PREVENSIA SAS — 33, avenue Philippe Auguste, 75011 Paris — Organisme certifié Qualiopi — contact@prevensia-formation.fr",
+            "${COMPANY.name} — ${COMPANY.legalName} — ${COMPANY.addressFull} — Organisme certifié Qualiopi — ${COMPANY.email}",
           metadata: {
             enrollmentId: enrollment.id,
             formationSlug: formation?.slug ?? "",

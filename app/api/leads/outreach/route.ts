@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -150,7 +151,7 @@ RÈGLES IMPÉRATIVES :
       <td style="padding:3px 0">
         <strong style="color:#1e293b">Said Hachiba</strong><br/>
         Directeur — PREVENSIA FORMATION<br/>
-        📍 33, avenue Philippe Auguste — 75011 Paris<br/>
+        📍 ${COMPANY.addressShort}<br/>
         🌐 <a href="https://prevensia-formation.fr" style="color:#2563eb">prevensia-formation.fr</a>
       </td>
     </tr>
@@ -162,7 +163,7 @@ RÈGLES IMPÉRATIVES :
   </div>
 
   <p style="font-size:11px;color:#94a3b8;margin-top:20px">
-    PREVENSIA FORMATION — 33 av. Philippe Auguste, 75011 Paris<br/>
+    ${COMPANY.name} — ${COMPANY.addressShort}<br/>
     Pour ne plus recevoir nos communications : <a href="mailto:contact@prevensia-formation.fr?subject=Désinscription&body=Je souhaite me désinscrire" style="color:#94a3b8">se désinscrire</a>
   </p>
 </body>

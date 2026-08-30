@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { COMPANY } from "@/lib/company";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr";
 
@@ -240,7 +241,7 @@ export async function POST(request: Request) {
       <hr style="margin:24px 0;border:none;border-top:1px solid #e2e8f0;" />
       <p style="font-size:13px;color:#64748b;">
         PREVENSIA FORMATION<br />
-        33, avenue Philippe Auguste — 75011 Paris<br />
+        ${COMPANY.addressShort}<br />
         01 89 62 94 92 — contact@prevensia-formation.fr
       </p>
     `;

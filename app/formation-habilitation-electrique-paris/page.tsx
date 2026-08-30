@@ -98,7 +98,7 @@ export default function FormationHabilitationParis() {
           <h2 className="text-3xl font-bold text-slate-900">Formations disponibles à Paris</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
-              { titre: "H0B0 / H0V", desc: "Non-électriciens, caristes, maintenance mécanique, nettoyage", href: "/formation-h0b0", prix: "220 € HT" },
+              { titre: "H0B0 / H0V", desc: "Non-électriciens, caristes, maintenance mécanique, nettoyage", href: "/formation-h0b0", prix: "190 € HT" },
               { titre: "BS / BE Manœuvre", desc: "Interventions élémentaires, remplacement fusibles, manœuvres", href: "/formation-bs-be-manoeuvre", prix: "350 € HT" },
               { titre: "B1 / B2 / BR / BC", desc: "Électriciens BT : travaux, dépannage, consignation, vérification", href: "/formation-b1-b2-br-bc", prix: "790 € HT" },
             ].map((f) => (

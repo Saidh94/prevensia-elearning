@@ -2,6 +2,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -147,7 +148,7 @@ export async function POST(req: NextRequest) {
         <tr><td style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:20px 32px">
           <p style="margin:0;font-size:12px;color:#94a3b8;line-height:1.6">
             PREVENSIA FORMATION<br>
-            33 avenue Philippe Auguste — 75011 Paris<br>
+            ${COMPANY.addressShort}<br>
             Tél. : 01 89 62 94 92
           </p>
         </td></tr>

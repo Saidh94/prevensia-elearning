@@ -121,7 +121,7 @@ export default function FormationSsiap1Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation SSIAP1 Certifiante — Agent de Sécurité Incendie ERP"
-        description="Formation SSIAP1 complète et certifiante (70h) dispensée par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
+        description="Formation SSIAP1 complète et certifiante (70h) à dispenser par PREVENSIA FORMATION dès l'obtention de l'agrément préfectoral. Certifié Qualiopi. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
         courseCode="SSIAP1"
         url="/formation-ssiap1"
         timeRequired="P10D"

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { COMPANY } from "@/lib/company";
 
 export const runtime = "nodejs";
 
@@ -8,7 +9,7 @@ const SYSTEM_PROMPT = `Tu es l'assistant virtuel de PREVENSIA FORMATION, organis
 Tu réponds toujours en français, avec un ton professionnel mais chaleureux. Tu es concis (max 3-4 phrases). Si tu ne sais pas, invite l'utilisateur à contacter PREVENSIA.
 
 PREVENSIA FORMATION
-- Adresse : 33, avenue Philippe Auguste, 75011 Paris
+- Adresse : ${COMPANY.addressFull}
 - Téléphone : 01 89 62 94 92
 - Email : contact@prevensia-formation.fr
 - Certifié Qualiopi — financement OPCO et FNE-Formation

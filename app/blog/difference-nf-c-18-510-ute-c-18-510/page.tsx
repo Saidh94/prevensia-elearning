@@ -39,7 +39,7 @@ const faqItems = [
   {
     question: "Quelle est la dernière version de la NF C 18-510 ?",
     answer:
-      "La version en vigueur est la NF C 18-510 de 2012. Des travaux de révision sont en cours au sein du comité UTE (Union Technique de l'Électricité) mais la version 2012 reste la référence officielle à ce jour.",
+      "La base normative est la NF C 18-510 de 2012, complétée par l'amendement A1 puis par l'amendement A2, publié par l'AFNOR et obligatoire depuis octobre 2024. L'amendement A2 intègre notamment les travaux sur installations photovoltaïques et les risques liés aux batteries. La version consolidée NF C 18-510 + A1 + A2 est la référence officielle à prendre en compte pour toute nouvelle habilitation.",
   },
   {
     question: "La NF C 18-510 s'applique-t-elle aux installations haute tension ?",
@@ -90,7 +90,7 @@ export default function ArticleDifferenceNfcUtePage() {
         <div className="rounded-2xl border-l-4 border-red-600 bg-red-50 p-6">
           <p className="font-bold text-red-800 text-lg">En résumé</p>
           <ul className="mt-3 space-y-1 text-sm text-red-700 leading-7">
-            <li>✓ <strong>NF C 18-510</strong> = norme AFNOR de référence pour les habilitations électriques (2012)</li>
+            <li>✓ <strong>NF C 18-510 + A2</strong> = norme AFNOR de référence pour les habilitations électriques (2012 + amendement A2 obligatoire depuis oct. 2024)</li>
             <li>✓ <strong>UTE C 18-510</strong> = guide d&apos;application pratique qui complète la norme</li>
             <li>✓ La norme est <strong>la référence opposable</strong> devant les tribunaux</li>
             <li>✓ Le guide apporte des <strong>clarifications et exemples concrets</strong> d&apos;application</li>
