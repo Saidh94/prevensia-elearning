@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique B1 B2 BR BC — Électriciens BT | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique B1, B2, BR, BC conforme NF C 18-510. Travaux BT, dépannage, consignation, vérification. E-learning + présentiel. Dès 790 € HT. Qualiopi.",
+    "Formation habilitation électrique B1, B2, BR, BC conforme NF C 18-510 + A2. Travaux BT, dépannage, consignation, vérification. E-learning + présentiel. Dès 790 € HT. Qualiopi.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-b1-b2-br-bc",
   },
@@ -58,6 +58,11 @@ const faqItems = [
     question: "Quelle est la durée de validité de l'habilitation B1/B2/BR/BC ?",
     answer:
       "La norme NF C 18-510 recommande un recyclage tous les 3 ans. L'employeur peut réduire cette périodicité en cas de changement de poste, d'évolution des installations ou d'incident relevé. Le titre d'habilitation reste délivré par l'employeur.",
+  },
+  {
+    question: "Qu'est-ce que le suivi individuel renforcé (SIS) pour les travailleurs habilités ?",
+    answer:
+      "Depuis octobre 2025, les travailleurs exposés aux risques électriques relèvent du suivi individuel renforcé (SIS), qui remplace l'ancien dispositif SIR. Le SIS implique un examen médical d'aptitude avant affectation à un poste exposé aux risques électriques, renouvelé régulièrement selon les recommandations du médecin du travail. L'employeur doit s'assurer que le salarié dispose d'une aptitude médicale valide avant de lui délivrer ou renouveler une habilitation électrique.",
   },
 ];
 
@@ -133,7 +138,7 @@ export default function FormationB1B2BrBcPage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Habilitation électrique électriciens BT · NF C 18-510
+            Habilitation électrique électriciens BT · NF C 18-510 + A2
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">

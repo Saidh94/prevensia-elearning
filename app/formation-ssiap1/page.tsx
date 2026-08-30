@@ -13,7 +13,7 @@ export const metadata = {
   keywords: [
     "formation SSIAP1 certifiante",
     "formation agent sécurité incendie ERP",
-    "organisme agréé SSIAP1",
+    "organisme formation SSIAP1 Qualiopi",
     "formation SSIAP1 70 heures",
     "recyclage SSIAP1 14h",
     "certification SSIAP1",
@@ -182,7 +182,7 @@ export default function FormationSsiap1Page() {
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <span>✓ Qualiopi · Agrément en cours</span>
-            <span>✓ 93 % de réussite à l&apos;examen</span>
+            <span>✓ Premières sessions dès agrément obtenu</span>
             <span>✓ Formation certifiante 70h</span>
             <span>✓ Recyclage 14h / 3 ans</span>
             <span>✓ E-learning inclus</span>
@@ -222,13 +222,14 @@ export default function FormationSsiap1Page() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-200 mb-2">Pourquoi choisir PREVENSIA FORMATION</p>
               <h2 className="text-2xl font-bold">Formation complète vers la qualification officielle SSIAP1</h2>
               <p className="mt-3 text-red-100 leading-7">
-                Certifié Qualiopi, nous préparons la formation SSIAP1 dans son intégralité, dès l'obtention de notre agrément préfectoral :
-                théorie, exercices pratiques sur matériel réel et examen final devant jury. Nos stagiaires
-                repartent avec la{" "}<strong>qualification officielle SSIAP1</strong>{" "}reconnue par
-                le Ministère de l&apos;Intérieur — exigée dans tous les ERP de catégorie 1 à 4.
+                Certifié Qualiopi, nous préparons la formation SSIAP1 dans son intégralité :
+                théorie, exercices pratiques sur matériel réel et examen final devant jury.
+                Le programme est calé sur le référentiel officiel de l&apos;arrêté du 2 mai 2005 modifié.
               </p>
-              <p className="mt-3 text-red-200 text-sm font-semibold">
-                ✓ 93 % de taux de réussite à l&apos;examen SSIAP1 — sessions 2023/2024
+              <p className="mt-3 text-red-200 text-sm leading-6">
+                <strong className="text-white">Agrément préfectoral en cours d&apos;obtention.</strong>{" "}
+                Les premières sessions seront ouvertes dès validation administrative. Vous pouvez
+                dès à présent soumettre une demande de devis pour être informé en priorité.
               </p>
             </div>
             <Link

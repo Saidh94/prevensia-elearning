@@ -7,9 +7,9 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-habilitation-electrique" },
-  title: "Formation Habilitation Électrique NF C 18-510 | PREVENSIA",
+  title: "Formation Habilitation Électrique NF C 18-510 + A2 | PREVENSIA",
   description:
-    "Habilitation électrique NF C 18-510 : H0B0, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Qualiopi. Île-de-France. Devis 48h.",
+    "Habilitation électrique NF C 18-510 (version consolidée + A2) : H0B0, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Qualiopi. Île-de-France. Devis 48h.",
   openGraph: {
     title: "Formation Habilitation Électrique — H0B0, BS, B1, B2, BR, BC",
     description:
@@ -126,6 +126,11 @@ const faqItemsHabilitation = [
       "Non. L'e-learning et le quiz constituent la préparation théorique de la formation — ils ne délivrent pas l'habilitation. Pour H0B0 / H0V, le parcours doit être complété par un entretien de validation avec le formateur (inclus dans notre formule). L'habilitation est ensuite délivrée exclusivement par l'employeur. Pour les autres symboles (B1, B2, BR, BC, BE), une séquence pratique encadrée est obligatoire en complément du e-learning.",
   },
   {
+    question: "Qu'est-ce que le suivi individuel renforcé (SIS) pour les travailleurs habilités ?",
+    answer:
+      "Depuis octobre 2025, les travailleurs exposés aux risques électriques relèvent du suivi individuel renforcé (SIS), qui remplace l'ancien suivi individuel renforcé (SIR). Le SIS implique un examen médical d'aptitude avant toute affectation à un poste exposé aux risques électriques, renouvelé régulièrement selon les recommandations du médecin du travail. L'employeur doit s'assurer que le salarié dispose d'une aptitude médicale valide avant de lui délivrer ou renouveler une habilitation électrique.",
+  },
+  {
     question: "Pouvez-vous intervenir directement sur notre site ?",
     answer:
       "Oui, en intra-entreprise partout en France. Le devis intègre les frais de déplacement et l'adaptation du contenu à vos installations réelles, vos consignes et vos retours d'expérience.",
@@ -175,7 +180,7 @@ export default function FormationHabilitationElectriquePage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Habilitation électrique · NF C 18-510
+            Habilitation électrique · NF C 18-510 + A2
           </p>
 
           <div className="mt-6 max-w-5xl">
@@ -196,7 +201,9 @@ export default function FormationHabilitationElectriquePage() {
               La formation prépare l&apos;apprenant aux prescriptions de sécurité.
               Le titre d&apos;habilitation reste délivré par l&apos;employeur après
               vérification de l&apos;aptitude, de la pratique et de l&apos;adéquation au
-              poste, dans l&apos;esprit du Code du travail et de la NF C 18-510.
+              poste, dans l&apos;esprit du Code du travail et de la norme
+              NF C 18-510 (version consolidée + A1 + A2, amendement A2
+              obligatoire depuis octobre 2024 pour les nouvelles habilitations).
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
