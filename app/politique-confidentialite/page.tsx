@@ -11,7 +11,7 @@ export default function PolitiqueConfidentialitePage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-slate-900">Politique de confidentialité</h1>
-      <p className="mt-2 text-sm text-slate-500">Dernière mise à jour : mai 2025</p>
+      <p className="mt-2 text-sm text-slate-500">Dernière mise à jour : août 2026</p>
 
       <section className="mt-10 space-y-3 text-sm text-slate-700">
         <h2 className="text-lg font-semibold text-slate-900">1. Responsable du traitement</h2>

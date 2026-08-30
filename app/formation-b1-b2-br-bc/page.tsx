@@ -62,7 +62,7 @@ const faqItems = [
   {
     question: "Qu'est-ce que le suivi individuel renforcé (SIS) pour les travailleurs habilités ?",
     answer:
-      "Depuis octobre 2025, les travailleurs exposés aux risques électriques relèvent du suivi individuel renforcé (SIS), qui remplace l'ancien dispositif SIR. Le SIS implique un examen médical d'aptitude avant affectation à un poste exposé aux risques électriques, renouvelé régulièrement selon les recommandations du médecin du travail. L'employeur doit s'assurer que le salarié dispose d'une aptitude médicale valide avant de lui délivrer ou renouveler une habilitation électrique.",
+      "Depuis octobre 2024, les travailleurs exposés aux risques électriques relèvent du suivi individuel renforcé (SIS), qui remplace l'ancien dispositif SIR. Le SIS implique un examen médical d'aptitude avant affectation à un poste exposé aux risques électriques, renouvelé régulièrement selon les recommandations du médecin du travail. L'employeur doit s'assurer que le salarié dispose d'une aptitude médicale valide avant de lui délivrer ou renouveler une habilitation électrique.",
   },
 ];
 
