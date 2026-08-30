@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/formation-atex", label: "ATEX" },
   { href: "/formation-sst", label: "SST" },
   { href: "/formation-securite-incendie", label: "Incendie" },
-  { href: "/formation-coordinateur-ssi", label: "Coordinateur SSI" },
+  { href: "/formation-coordinateur-ssi", label: "Coordination SSI" },
   { href: "/formation-ssi", label: "SSI" },
   { href: "/formation-sprinkler", label: "Sprinkler" },
   { href: "/planning", label: "Planning" },
