@@ -4,7 +4,7 @@
  * Déclenche l'email de notification au formateur.
  */
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -12,21 +12,12 @@ export const runtime = "nodejs";
 const SITE_URL   = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr";
 const FROM_EMAIL = "PREVENSIA <contact@prevensia-formation.fr>";
 
-async function assertAdmin() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  const { data: p } = await supabase.from("profiles").select("role").eq("id", user.id).single();
-  return p?.role === "admin" ? user : null;
-}
-
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const adminUser = await assertAdmin();
-  if (!adminUser) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
-
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const { id: sessionId } = await params;
   const { formateur_id } = await request.json();
 

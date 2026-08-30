@@ -3,6 +3,7 @@
  * Liste toutes les factures formateurs (admin uniquement)
  */
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -11,12 +12,10 @@ export const runtime = "nodejs";
 export async function GET() {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
+    const auth = await requireAdmin();
+    if ("error" in auth) return auth.error;
+    const { userId } = auth;
 
-    const { data: profile } = await supabase
-      .from("profiles").select("role").eq("id", user.id).single();
-    if (profile?.role !== "admin") return NextResponse.json({ error: "Non autorisé" }, { status: 403 });
 
     const admin = createAdminClient();
     if (!admin) return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });

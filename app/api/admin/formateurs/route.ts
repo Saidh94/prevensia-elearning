@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
@@ -7,20 +7,10 @@ export const runtime = "nodejs";
 const SITE_URL   = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formation.fr";
 const FROM_EMAIL = "PREVENSIA <contact@prevensia-formation.fr>";
 
-async function assertAdmin() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  const { data: profile } = await supabase
-    .from("profiles").select("role").eq("id", user.id).single();
-  return profile?.role === "admin" ? user : null;
-}
-
 // GET — liste tous les formateurs
 export async function GET() {
-  const user = await assertAdmin();
-  if (!user) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
-
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const admin = createAdminClient();
   if (!admin) return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
 
@@ -35,9 +25,8 @@ export async function GET() {
 
 // POST — créer un formateur (+ invite Supabase Auth optionnelle)
 export async function POST(request: Request) {
-  const adminUser = await assertAdmin();
-  if (!adminUser) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
-
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const body = await request.json();
   const { prenom, nom, email, phone, specialites, bio, inviteAuth } = body;
 

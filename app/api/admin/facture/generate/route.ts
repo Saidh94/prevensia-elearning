@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { Resend } from "resend";
 import { generateFacturePdf } from "@/lib/facture/generate-facture-pdf";
@@ -35,16 +35,10 @@ async function nextNumero(admin: ReturnType<typeof createAdminClient>): Promise<
 }
 
 export async function POST(req: Request) {
-  // Auth — admin uniquement
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
 
-  const { data: profile } = await supabase
-    .from("profiles").select("role").eq("id", user.id).single();
-  if (profile?.role !== "admin") {
-    return NextResponse.json({ error: "Accès réservé aux admins" }, { status: 403 });
-  }
+
 
   const body = await req.json() as {
     leadId?: string;

@@ -1,26 +1,16 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const runtime = "nodejs";
-
-async function assertAdmin() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return null;
-  const { data: profile } = await supabase
-    .from("profiles").select("role").eq("id", user.id).single();
-  return profile?.role === "admin" ? user : null;
-}
 
 // PATCH — modifier un formateur
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const adminUser = await assertAdmin();
-  if (!adminUser) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
-
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const { id } = await params;
   const body = await request.json();
   const { prenom, nom, email, phone, specialites, bio, actif } = body;
@@ -53,9 +43,8 @@ export async function DELETE(
   _request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const adminUser = await assertAdmin();
-  if (!adminUser) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
-
+  const auth = await requireAdmin();
+  if ("error" in auth) return auth.error;
   const { id } = await params;
   const admin = createAdminClient();
   if (!admin) return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });

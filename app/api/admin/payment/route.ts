@@ -1,6 +1,7 @@
 import { checkCsrfOrigin } from "@/lib/security/csrf";
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { logAdminAction } from "@/lib/supabase/audit";
 
 export async function POST(req: Request) {
@@ -10,31 +11,10 @@ export async function POST(req: Request) {
 
     const supabase = await createClient();
 
-    const {
-      data: { user },
-      error: userError,
-    } = await supabase.auth.getUser();
+    const auth = await requireAdmin();
+    if ("error" in auth) return auth.error;
+    const { userId } = auth;
 
-    if (userError || !user) {
-      return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
-    }
-
-    const { data: profile, error: profileError } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", user.id)
-      .maybeSingle();
-
-    if (profileError) {
-      return NextResponse.json(
-        { error: `Erreur lecture profil: ${profileError.message}` },
-        { status: 500 }
-      );
-    }
-
-    if (profile?.role !== "admin") {
-      return NextResponse.json({ error: "Accès interdit" }, { status: 403 });
-    }
 
     // Lire soit JSON soit formData
     let id = "";
@@ -64,7 +44,7 @@ export async function POST(req: Request) {
     }
 
     await logAdminAction({
-      adminId: user.id,
+      adminId: userId,
       action: "payment_confirmed",
       targetType: "enrollment",
       targetId: id,

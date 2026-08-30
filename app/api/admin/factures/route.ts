@@ -1,3 +1,4 @@
+import { requireAdmin } from "@/lib/auth/require-admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { generateFacturePdf } from "@/lib/pdf/generate-facture";
@@ -9,23 +10,10 @@ export async function POST(req: NextRequest) {
   try {
     // ── Auth check ─────────────────────────────────────────────────────────
     const supabase = await createClient();
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json({ error: "Non authentifie" }, { status: 401 });
-    }
+    const auth = await requireAdmin();
+    if ("error" in auth) return auth.error;
+    const { userId } = auth;
 
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", user.id)
-      .maybeSingle();
-
-    if (profile?.role !== "admin") {
-      return NextResponse.json({ error: "Acces refuse" }, { status: 403 });
-    }
 
     const adminClient = createAdminClient();
     if (!adminClient) {
@@ -103,7 +91,7 @@ export async function POST(req: NextRequest) {
       enrollment_id: enrollmentId ?? null,
       notes: notes ?? null,
       statut: "emise",
-      created_by: user.id,
+      created_by: userId,
     });
 
     // ── Réponse PDF ────────────────────────────────────────────────────────
