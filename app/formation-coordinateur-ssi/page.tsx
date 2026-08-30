@@ -168,7 +168,7 @@ export default function FormationCoordinateurSSI() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Formation à la <strong className="text-white">conception et à la coordination</strong> d&apos;un Système de Sécurité Incendie —
+            Formation à la <strong className="text-white">conception et à la coordination</strong>{" "}d&apos;un Système de Sécurité Incendie —
             dispensée principalement en salle, sur dossiers réels. Cadre réglementaire ERP (arrêté du 25 juin 1980, MS 53 à MS 60),
             IGH (arrêté du 30 décembre 2011), CCH, Code du travail, normes NF S 61-931 et NF S 61-932.
             E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif.
@@ -177,7 +177,7 @@ export default function FormationCoordinateurSSI() {
           <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-500/40 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
             <span className="font-semibold">ℹ</span>
             <span>
-              La mission de coordinateur SSI est <strong>obligatoire</strong> pour tout projet de création, modification ou extension d&apos;un SSI en ERP (art. MS 53 à MS 60) et en IGH (arrêté du 30 décembre 2011).
+              La mission de coordination SSI est <strong>obligatoire</strong>{" "}pour tout projet de création, modification ou extension d&apos;un SSI en ERP (art. MS 53 à MS 60) et en IGH (arrêté du 30 décembre 2011).
               Elle est également recommandée pour tout bâtiment complexe, multi-corps d&apos;état ou en réhabilitation.
             </span>
           </div>
