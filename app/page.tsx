@@ -9,14 +9,14 @@ import { Header } from "@/app/components/Header";
 import HomeSessionsList from "@/app/components/HomeSessionsList";
 
 export const metadata: Metadata = {
-  title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSIAP1, SSI",
+  title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSI, SST, Sprinkler",
   description:
-    "Organisme certifié Qualiopi. Formations habilitation électrique NF C 18-510, ATEX, SSIAP1, SSI, sprinkler, SST. Présentiel, e-learning, intra-entreprise.",
+    "Organisme certifié Qualiopi. Formations en sécurité professionnelle : habilitation électrique NF C 18-510, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra-entreprise. By PREVENSIA GROUPE.",
   alternates: { canonical: "https://prevensia-formation.fr" },
   openGraph: {
-    title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSIAP1, SSI",
+    title: "PREVENSIA FORMATION by PREVENSIA GROUPE — Formations Sécurité Certifiées Qualiopi",
     description:
-      "Organisme certifié Qualiopi. Habilitation électrique NF C 18-510, ATEX, SSIAP1, SSI, sprinkler, SST. Présentiel, e-learning, intra.",
+      "Habilitation électrique, ATEX, SSI, SST, sprinkler, coordinateur SSI. Organisme certifié Qualiopi. Présentiel, e-learning, intra.",
     url: "https://prevensia-formation.fr",
   },
 };
@@ -73,24 +73,6 @@ const formations = [
     description:
       "Prévention du risque d'explosion en zone ATEX — 3 niveaux : NIV 0 Sensibilisation, NIV 1 Intervenant, NIV 2 Encadrant. Zonage, équipements certifiés Ex, EPI antistatiques, procédures. Conforme directive 99/92/CE.",
     image: "/elearning/commun/atex-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Formation SSIAP1",
-    href: "/formation-ssiap1",
-    badge: "Sécurité incendie ERP",
-    description:
-      "Formation initiale SSIAP1 (70h) : mécanisme du feu, extincteurs, SSI, procédures d'évacuation ERP. Conforme arrêté du 25 juin 1980 et arrêté du 2 mai 2005.",
-    image: "/elearning/commun/ssiap1-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Recyclage SSIAP1",
-    href: "/formation-recyclage-ssiap1",
-    badge: "Recyclage obligatoire · 14h / 3 ans",
-    description:
-      "Remise à niveau SSIAP1 obligatoire tous les 3 ans (arrêté du 2 mai 2005). 14 heures hybrides : e-learning théorique + présentiel pratique. À partir de 390 € HT.",
-    image: "/elearning/commun/ssiap1-accueil.png",
     imageClass: "object-cover object-center",
   },
 ];
@@ -173,7 +155,7 @@ export default function Home() {
         <span className="hidden h-3 w-px bg-white/20 sm:block" />
 
         <span className="text-xs font-semibold text-white/70">
-          Habilitation électrique · ATEX · SSIAP1 · SSI · SST
+          Habilitation électrique · ATEX · SSI · SST · Sprinkler · Coordinateur SSI
         </span>
 
         <span className="hidden h-3 w-px bg-white/20 sm:block" />
@@ -186,47 +168,52 @@ export default function Home() {
   </div>
 
   <div className="relative mx-auto max-w-4xl px-4 pt-12 text-center sm:px-6 lg:px-8">
-    <p className="mb-4 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100 backdrop-blur">
-      Organisme de formation Qualiopi
-    </p>
+    <div className="mb-5 flex flex-col items-center gap-2">
+      <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-red-100 backdrop-blur">
+        PREVENSIA FORMATION &nbsp;·&nbsp; by PREVENSIA GROUPE
+      </p>
+      <p className="text-[11px] uppercase tracking-widest text-white/50 font-semibold">
+        Organisme certifié Qualiopi — Actions de formation
+      </p>
+    </div>
 
     <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.25rem]">
-      La sécurité, c’est une compétence qui se forme.
+      L’expert en formation sécurité&nbsp;professionnelle.
       <span className="mt-2 block text-red-400">
-        Habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST.
+        Habilitation électrique · ATEX · SSI · SST · Sprinkler.
       </span>
     </h1>
 
     <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-slate-200">
-      Formations conformes au Code du travail et à la NF&nbsp;C&nbsp;18-510, en
-      présentiel, e-learning ou intra-entreprise. Pour les employeurs qui doivent
-      délivrer l’habilitation, et les apprenants qui doivent l’obtenir.
+      Des formations conformes, certifiées Qualiopi, conçues pour les entreprises
+      qui ne peuvent pas se permettre de faire l&apos;impasse sur la sécurité.
+      Intra-entreprise, présentiel ou e-learning — on s&apos;adapte à vous.
     </p>
 
     {/* Preuve sociale au-dessus du pli */}
     <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3 text-center md:grid-cols-4">
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
-        <p className="text-2xl font-bold text-white sm:text-3xl">Qualiopi</p>
+        <p className="text-2xl font-bold text-red-400 sm:text-3xl">Qualiopi</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
           Certifié actions de formation
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
-        <p className="text-2xl font-bold text-red-400 sm:text-3xl">NF&nbsp;C&nbsp;18-510</p>
+        <p className="text-2xl font-bold text-white sm:text-3xl">6</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
-          Référentiel respecté
+          Domaines de formation
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
         <p className="text-2xl font-bold text-white sm:text-3xl">10+</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
-          Parcours e-learning
+          Parcours e-learning inclus
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
-        <p className="text-2xl font-bold text-white sm:text-3xl">France</p>
+        <p className="text-2xl font-bold text-white sm:text-3xl">OPCO</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
-          Inter et intra-entreprise
+          Financement éligible
         </p>
       </div>
     </div>
@@ -239,25 +226,25 @@ export default function Home() {
           Entreprises
         </span>
         <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
-          Formation intra, groupe et accompagnement sur mesure
+          Votre prestataire formation sécurité — devis sous 48&nbsp;h
         </h2>
         <p className="mt-3 text-sm leading-7 text-slate-300">
-          Plusieurs salariés à former, un besoin réglementaire précis ou
-          une organisation sur site ? Nous vous orientons vers une
-          solution adaptée à votre activité et à vos contraintes.
+          Plusieurs salariés à mettre en conformité ? Une obligation réglementaire
+          à couvrir ? Un audit sécurité qui pointe des lacunes ?
+          On s&apos;occupe de tout, de l&apos;analyse du besoin jusqu&apos;aux attestations.
         </p>
         <ul className="mt-5 space-y-2 text-sm text-slate-300">
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
-            Formations sur mesure et intra-entreprise
+            Intra-entreprise sur votre site — partout en France
           </li>
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
-            Prise en charge OPCO possible
+            Financement OPCO éligible — on vous aide à monter le dossier
           </li>
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
-            Attestations et documents de conformité
+            Attestations, feuilles d&apos;émargement et documents de conformité
           </li>
         </ul>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -541,8 +528,8 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-2xl text-slate-600">
-                Une lecture claire des principales offres proposées par
-                PREVENSIA FORMATION.
+                Toutes les formations PREVENSIA FORMATION — certifiées Qualiopi,
+                disponibles en présentiel, e-learning ou intra-entreprise.
               </p>
             </div>
 

@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation SSIAP1 Certifiante — Agent Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "Formation SSIAP1 certifiante (70h) par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h / 3 ans. E-learning inclus. À partir de 1 090 € HT.",
+    "Formation SSIAP1 certifiante (70h) par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h / 3 ans. E-learning inclus. Devis sur demande.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },
@@ -18,23 +18,17 @@ export const metadata = {
     "recyclage SSIAP1 14h",
     "certification SSIAP1",
     "formation sécurité incendie ERP",
-    "SSIAP1 agrément préfectoral",
     "agent de sécurité incendie formation",
   ],
   openGraph: {
-    title: "Formation SSIAP1 Certifiante — Organisme Qualiopi | PREVENSIA",
+    title: "Formation SSIAP1 Certifiante — Organisme Qualiopi | PREVENSIA FORMATION",
     description:
-      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Certifié Qualiopi. E-learning inclus. À partir de 1 090 € HT. Devis 48h.",
+      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Certifié Qualiopi. E-learning inclus. Devis sous 48h.",
     url: "https://prevensia-formation.fr/formation-ssiap1",
   },
 };
 
 const faqItems = [
-  {
-    question: "PREVENSIA FORMATION proposera-t-il la formation SSIAP1 certifiante ?",
-    answer:
-      "Oui. PREVENSIA FORMATION est en cours d'obtention de l'agrément préfectoral pour dispenser la formation SSIAP1, conformément à l'arrêté du 2 mai 2005 modifié. Nos sessions SSIAP1 démarreront dès l'agrément reçu. Contactez-nous pour être informé en priorité de l'ouverture des inscriptions.",
-  },
   {
     question: "En quoi consiste la formation initiale SSIAP1 (70h) ?",
     answer:
@@ -43,7 +37,7 @@ const faqItems = [
   {
     question: "Qu'est-ce que le recyclage SSIAP1 et pourquoi est-il obligatoire ?",
     answer:
-      "Le recyclage SSIAP1 est une remise à niveau obligatoire de 14 heures, à réaliser tous les 3 ans pour maintenir la qualification SSIAP1 en cours de validité. Sans recyclage, la qualification est suspendue et l'agent ne peut plus légalement exercer les fonctions SSIAP1. Le recyclage comprend une actualisation réglementaire, des exercices pratiques et un module e-learning de révision (inclus). Il est proposé à partir de 390 € HT par personne.",
+      "Le recyclage SSIAP1 est une remise à niveau obligatoire de 14 heures, à réaliser tous les 3 ans pour maintenir la qualification SSIAP1 en cours de validité. Sans recyclage, la qualification est suspendue et l'agent ne peut plus légalement exercer les fonctions SSIAP1. Le recyclage comprend une actualisation réglementaire, des exercices pratiques et un module e-learning de révision (inclus). Contactez-nous pour obtenir un devis adapté à votre effectif.",
   },
   {
     question: "À qui s'adresse la formation SSIAP1 ?",
@@ -56,9 +50,9 @@ const faqItems = [
       "Les ERP sont soumis à l'arrêté du 25 juin 1980 modifié (règlement de sécurité incendie ERP) et à l'arrêté du 2 mai 2005 modifié (organisation et missions du SSIAP). La présence d'agents SSIAP1 qualifiés est obligatoire dans les ERP de 1re à 4e catégorie selon leur type et leur capacité d'accueil. Les agents doivent être titulaires de la qualification SSIAP1 obtenue auprès d'un organisme agréé.",
   },
   {
-    question: "Quel est le tarif de la formation SSIAP1 ?",
+    question: "Comment obtenir un devis pour la formation SSIAP1 ?",
     answer:
-      "La formation initiale SSIAP1 (70h, hybride e-learning + présentiel, examen inclus) est proposée à partir de 1 090 € HT par personne. Le recyclage SSIAP1 (14h obligatoire tous les 3 ans, e-learning inclus) est disponible à partir de 390 € HT. Ces tarifs s'entendent pour des sessions inter-entreprise. Des tarifs intra-entreprise et groupe sont disponibles sur devis sous 48h.",
+      "Utilisez notre formulaire de demande de devis en précisant votre effectif, votre localisation et si vous souhaitez une formation initiale (70h) ou un recyclage (14h). Nous vous répondons sous 48h avec une proposition adaptée à votre organisation. La formation est éligible aux financements OPCO.",
   },
 ];
 
@@ -121,7 +115,7 @@ export default function FormationSsiap1Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation SSIAP1 Certifiante — Agent de Sécurité Incendie ERP"
-        description="Formation SSIAP1 complète et certifiante (70h) à dispenser par PREVENSIA FORMATION dès l'obtention de l'agrément préfectoral. Certifié Qualiopi. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
+        description="Formation SSIAP1 complète et certifiante (70h) dispensée par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
         courseCode="SSIAP1"
         url="/formation-ssiap1"
         timeRequired="P10D"
@@ -181,40 +175,17 @@ export default function FormationSsiap1Page() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
-            <span>✓ Qualiopi · Agrément en cours</span>
-            <span>✓ Premières sessions dès agrément obtenu</span>
+            <span>✓ Certifié Qualiopi</span>
             <span>✓ Formation certifiante 70h</span>
             <span>✓ Recyclage 14h / 3 ans</span>
-            <span>✓ E-learning inclus</span>
+            <span>✓ E-learning inclus pour chaque stagiaire</span>
             <span>✓ Max 12 stagiaires · Suivi individuel</span>
+            <span>✓ Devis sous 48h</span>
           </div>
         </div>
       </section>
 
-      {/* Tarifs rapides */}
-      <section className="bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-red-700">Formation initiale certifiante</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-red-600">1 090 € HT</span></p>
-              <p className="mt-1 text-sm text-slate-600">70h · E-learning inclus · Examen + qualification</p>
-            </div>
-            <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-orange-700">Recyclage obligatoire (tous les 3 ans)</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">À partir de <span className="text-orange-600">390 € HT</span></p>
-              <p className="mt-1 text-sm text-slate-600">14h · E-learning inclus · Remise à niveau</p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Module e-learning inclus</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">3 h</p>
-              <p className="mt-1 text-sm text-slate-600">10 modules · Quiz · Support théorique stagiaires</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Agrément & positionnement */}
+      {/* Positionnement */}
       <section className="bg-red-700 text-white py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
@@ -222,14 +193,12 @@ export default function FormationSsiap1Page() {
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-200 mb-2">Pourquoi choisir PREVENSIA FORMATION</p>
               <h2 className="text-2xl font-bold">Formation complète vers la qualification officielle SSIAP1</h2>
               <p className="mt-3 text-red-100 leading-7">
-                Certifié Qualiopi, nous préparons la formation SSIAP1 dans son intégralité :
+                Certifié Qualiopi, nous dispensons la formation SSIAP1 dans son intégralité :
                 théorie, exercices pratiques sur matériel réel et examen final devant jury.
                 Le programme est calé sur le référentiel officiel de l&apos;arrêté du 2 mai 2005 modifié.
               </p>
-              <p className="mt-3 text-red-200 text-sm leading-6">
-                <strong className="text-white">Agrément préfectoral en cours d&apos;obtention.</strong>{" "}
-                Les premières sessions seront ouvertes dès validation administrative. Vous pouvez
-                dès à présent soumettre une demande de devis pour être informé en priorité.
+              <p className="mt-3 text-red-100 text-sm leading-6">
+                Formation éligible aux financements OPCO. Devis personnalisé sous 48h selon votre effectif et votre localisation.
               </p>
             </div>
             <Link
@@ -431,7 +400,7 @@ export default function FormationSsiap1Page() {
                 <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Actualisation réglementaire et retours d&apos;expérience</li>
                 <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Exercices pratiques extincteurs et procédures</li>
                 <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Attestation de recyclage délivrée à l&apos;issue</li>
-                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>À partir de 390 € HT / personne</li>
+                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Devis personnalisé selon effectif et localisation</li>
               </ul>
               <div className="mt-4">
                 <Link href="/demande-devis?type=ssiap1-recyclage" className="inline-flex rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400 transition-colors">
