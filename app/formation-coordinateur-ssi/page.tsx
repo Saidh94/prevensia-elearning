@@ -11,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: "Formation Coordinateur SSI — NF S 61, ERP, IGH | PREVENSIA",
     description:
-      "Formez votre coordinateur SSI : CCF, matrice de corrélation, dossier SSI, réception, exploitation. Architecture, réglementation ERP/IGH. Qualiopi. Intra ou inter-entreprise.",
+      "Formation Coordination SSI : CCF, matrice de corrélation ZDA/ZDM × DAS, DIS. Ingénieurs BET, SSIAP 3, architectes. 7 jours en salle. Qualiopi. 1 790 € HT.",
     url: "https://prevensia-formation.fr/formation-coordinateur-ssi",
   },
   keywords: [
@@ -49,7 +49,7 @@ const faqItems = [
   {
     question: "Quelle est la durée de la formation ?",
     answer:
-      "La formation Coordinateur SSI se déroule sur 7 jours de présentiel, avec un parcours e-learning autonome inclus (à compléter avant la session présentielle). 7 jours de présentiel intensif incluant des cas pratiques, mises en situation et travaux sur des dossiers réels. Format inter et intra-entreprise disponible.",
+      "La formation Coordinateur SSI se déroule sur 7 jours de présentiel en salle (inter-entreprise), avec un parcours e-learning autonome inclus à compléter avant la session. La session inclut des cas pratiques, mises en situation et travaux sur des dossiers réels.",
   },
 ];
 
@@ -106,24 +106,17 @@ const programme = [
 
 const tarifs = [
   {
-    format: "Inter-entreprise — 7 jours en salle",
-    prix: "1 590 € HT / apprenant",
+    format: "Session inter-entreprise — 7 jours en salle",
+    prix: "1 790 € HT / apprenant",
     detail:
-      "7 jours de présentiel intensif en salle + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation Qualiopi incluse.",
-    badge: "Recommandé",
-  },
-  {
-    format: "Intra-entreprise — 7 jours sur site",
-    prix: "À partir de 2 900 € HT / groupe",
-    detail:
-      "7 jours de présentiel sur vos locaux ou un centre partenaire. Programme calé sur vos installations, vos référentiels réglementaires et vos enjeux. E-learning préparatoire inclus par participant. Jusqu'à 8 participants.",
-    badge: null,
+      "7 jours de présentiel intensif en salle + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation de formation PREVENSIA remise à l'issue de la session.",
+    badge: "Tarif 2025",
   },
   {
     format: "E-learning préparatoire",
     prix: "Inclus avec la formation",
     detail:
-      "Le module e-learning Coordinateur SSI est inclus gratuitement pour tous les participants inscrits en session présentielle. Il couvre les fondamentaux (NF S 61-931/932, réglementation ERP/IGH/ICPE, CCF, matrice de corrélation) avant les 7 jours de mise en pratique.",
+      "Le module e-learning Coordination SSI est inclus pour tous les participants inscrits en session présentielle. Il couvre les fondamentaux (NF S 61-931/932, réglementation ERP/IGH/ICPE, CCF, matrice de corrélation) avant les 7 jours de mise en pratique.",
     badge: null,
   },
 ];
@@ -353,7 +346,7 @@ export default function FormationCoordinateurSSI() {
             Pour les entreprises éligibles au FNE-Formation, nous accompagnons le montage du dossier.
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             {tarifs.map((item) => (
               <div
                 key={item.format}
@@ -388,8 +381,7 @@ export default function FormationCoordinateurSSI() {
           </div>
 
           <p className="mt-8 text-sm text-slate-400">
-            💡 Pour un groupe de 4 à 8 personnes sur le même site, l&apos;intra est souvent
-            plus économique et permet d&apos;adapter le contenu à vos installations réelles.
+            💡 Formation dispensée exclusivement en inter-entreprise (salle). Tarif finançable OPCO et FNE-Formation sur devis.
           </p>
         </div>
       </section>

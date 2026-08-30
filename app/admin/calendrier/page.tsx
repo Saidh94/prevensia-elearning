@@ -29,6 +29,7 @@ const categoryOptions = [
   { value: "ssiap1_initial",    label: "SSIAP 1 — Initial" },
   { value: "ssiap1_recyclage",  label: "SSIAP 1 — Recyclage" },
   { value: "sst",               label: "SST — Sauveteur Secouriste du Travail" },
+  { value: "cssi",              label: "Coordination SSI — 7 jours en salle" },
   { value: "other",             label: "Autre" },
 ] as const;
 

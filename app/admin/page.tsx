@@ -243,6 +243,9 @@ export default async function AdminPage({
             <Link href="/admin/calendrier-global" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-blue-50 hover:text-blue-700 hover:border-blue-200">
               📅 Calendrier
             </Link>
+            <Link href="/admin/sessions-cssi" className="inline-flex items-center gap-1.5 rounded-lg border border-orange-200 bg-orange-50 px-3 py-1.5 text-xs font-semibold text-orange-700 transition hover:bg-orange-100">
+              🏛️ Sessions CSSI
+            </Link>
             <Link href="/admin/entretiens" className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200">
               🎥 Entretiens
             </Link>
