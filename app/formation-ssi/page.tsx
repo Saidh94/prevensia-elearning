@@ -78,7 +78,7 @@ export default function FormationSSI() {
           </nav>
 
           <p className="inline-flex rounded-full border border-blue-400/30 bg-blue-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-blue-300">
-            Exploitation SSI · NF S 61-931
+            Exploitation SSI · NF S 61-933
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -362,7 +362,7 @@ export default function FormationSSI() {
             Tarifs
           </p>
           <h2 className="mt-3 text-2xl font-bold text-white">
-            Formations SSI — grille tarifaire 2025
+            Formations SSI — grille tarifaire 2026
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-300">
             Trois formats selon votre niveau technique et vos contraintes d&apos;organisation.
@@ -383,7 +383,7 @@ export default function FormationSSI() {
                 <li>✓ Conduite à tenir en cas d&apos;alarme</li>
                 <li>✓ Normes NF S 61 applicables</li>
                 <li>✓ E-learning inclus</li>
-                <li>✓ Attestation Qualiopi</li>
+                <li>✓ Attestation de formation</li>
               </ul>
               <Link
                 href="/demande-devis?type=ssi&format=1j"
@@ -409,7 +409,7 @@ export default function FormationSSI() {
                 <li>✓ Scénarios défaut / alarme / travaux</li>
                 <li>✓ Module e-learning extinction gaz inclus</li>
                 <li>✓ ERP · IGH · ICPE · logistique</li>
-                <li>✓ Attestation Qualiopi</li>
+                <li>✓ Attestation de formation</li>
               </ul>
               <Link
                 href="/demande-devis?type=ssi&format=2j"
