@@ -168,13 +168,16 @@ export default function Home() {
   </div>
 
   <div className="relative mx-auto max-w-4xl px-4 pt-12 text-center sm:px-6 lg:px-8">
-    <div className="mb-5 flex flex-col items-center gap-2">
-      <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.22em] text-red-100 backdrop-blur">
-        PREVENSIA FORMATION &nbsp;·&nbsp; by PREVENSIA GROUPE
+    <div className="mb-6 flex flex-col items-center gap-3">
+      <p className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+        PREVENSIA FORMATION
       </p>
-      <p className="text-[11px] uppercase tracking-widest text-white/50 font-semibold">
+      <p className="text-base font-semibold text-red-300 sm:text-lg">
+        by PREVENSIA GROUPE
+      </p>
+      <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white/80 backdrop-blur">
         Organisme certifié Qualiopi — Actions de formation
-      </p>
+      </span>
     </div>
 
     <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.25rem]">
