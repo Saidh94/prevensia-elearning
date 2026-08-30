@@ -1,0 +1,145 @@
+<svg viewBox="0 0 860 500" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+  <rect width="860" height="500" fill="#f8fafc" rx="12"/>
+  <text x="430" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Zones SSI — Plan de principe (NF S 61-931 / 932)</text>
+  <text x="430" y="44" text-anchor="middle" font-size="9.5" fill="#64748b">ZDA = Zone Détection Automatique · ZDM = Zone Détection Manuelle · ZC = Zone de Compartimentage · ZF = Zone de Désenfumage · ZA = Zone d'Alarme</text>
+
+  <!-- Building outline -->
+  <rect x="20" y="58" width="570" height="390" fill="white" stroke="#334155" stroke-width="2.5" rx="4"/>
+
+  <!-- Zone Vente A (large, ground floor left) -->
+  <rect x="22" y="60" width="280" height="185" fill="#dbeafe" fill-opacity="0.6" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="90" y="80" font-size="10" font-weight="700" fill="#1d4ed8">ZDA1 — Zone de Détection A</text>
+  <text x="90" y="93" font-size="9" fill="#1e40af">DA Optique · Zone Vente RDC</text>
+  <!-- DA detector icons in ZD1 -->
+  <circle cx="80" cy="130" r="10" fill="#3b82f6"/>
+  <text x="80" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="130" cy="130" r="10" fill="#3b82f6"/>
+  <text x="130" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="180" cy="130" r="10" fill="#3b82f6"/>
+  <text x="180" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="230" cy="130" r="10" fill="#3b82f6"/>
+  <text x="230" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="80" cy="195" r="10" fill="#3b82f6"/>
+  <text x="80" y="200" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="160" cy="195" r="10" fill="#3b82f6"/>
+  <text x="160" y="200" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="240" cy="195" r="10" fill="#3b82f6"/>
+  <text x="240" y="200" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+
+  <!-- DM on wall ZD1 -->
+  <rect x="35" y="160" width="18" height="22" fill="#ef4444" rx="2"/>
+  <text x="44" y="175" text-anchor="middle" font-size="7" fill="white" font-weight="700">DM</text>
+  <rect x="270" y="160" width="18" height="22" fill="#ef4444" rx="2"/>
+  <text x="279" y="175" text-anchor="middle" font-size="7" fill="white" font-weight="700">DM</text>
+
+  <!-- Compartimentage overlay on ZD1 -->
+  <rect x="22" y="60" width="280" height="185" fill="none" stroke="#f97316" stroke-width="2.5" stroke-dasharray="2,4"/>
+
+  <!-- Porte CF (PCF) between ZD1 and ZD2 -->
+  <rect x="296" y="115" width="6" height="45" fill="#f97316"/>
+  <text x="320" y="132" font-size="8" fill="#c2410c" font-weight="600">PCF</text>
+  <text x="320" y="144" font-size="7" fill="#ea580c">EI60</text>
+
+  <!-- Zone Vente B -->
+  <rect x="302" y="60" width="284" height="185" fill="#dbeafe" fill-opacity="0.4" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="400" y="80" font-size="10" font-weight="700" fill="#1d4ed8">ZDA2 — Zone de Détection B</text>
+  <text x="400" y="93" font-size="9" fill="#1e40af">DA Optique · Zone Vente N1</text>
+  <circle cx="340" cy="130" r="10" fill="#3b82f6"/>
+  <text x="340" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="400" cy="130" r="10" fill="#3b82f6"/>
+  <text x="400" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="460" cy="130" r="10" fill="#3b82f6"/>
+  <text x="460" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+  <circle cx="520" cy="130" r="10" fill="#3b82f6"/>
+  <text x="520" y="135" text-anchor="middle" font-size="8" fill="white" font-weight="700">DA</text>
+
+  <!-- Zone Cuisine / local risque -->
+  <rect x="22" y="247" width="160" height="100" fill="#fef3c7" fill-opacity="0.8" stroke="#f59e0b" stroke-width="2"/>
+  <text x="102" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">ZDA3 — Cuisine</text>
+  <text x="102" y="281" text-anchor="middle" font-size="9" fill="#b45309">DA Thermovéloci</text>
+  <text x="102" y="293" text-anchor="middle" font-size="8.5" fill="#d97706">Local à risque particulier</text>
+  <circle cx="80" cy="320" r="10" fill="#f59e0b"/>
+  <text x="80" y="325" text-anchor="middle" font-size="7" fill="white" font-weight="700">DTV</text>
+  <circle cx="130" cy="320" r="10" fill="#f59e0b"/>
+  <text x="130" y="325" text-anchor="middle" font-size="7" fill="white" font-weight="700">DTV</text>
+  <!-- CTA arrêt -->
+  <rect x="22" y="335" width="80" height="18" fill="#7c3aed" rx="2"/>
+  <text x="62" y="348" text-anchor="middle" font-size="8" fill="white" font-weight="700">Arrêt CTA</text>
+
+  <!-- Couloir / circulations -->
+  <rect x="22" y="350" width="568" height="96" fill="#f0fdf4" fill-opacity="0.7" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="306" y="370" text-anchor="middle" font-size="10" font-weight="700" fill="#15803d">ZF — Zone de Désenfumage · Couloir / Circulations</text>
+  <text x="306" y="384" text-anchor="middle" font-size="9" fill="#16a34a">Volets de désenfumage + Amenées d'air bas / Extraction haute</text>
+  <!-- Volets désenf -->
+  <rect x="120" y="395" width="50" height="20" fill="#22c55e" rx="3"/>
+  <text x="145" y="410" text-anchor="middle" font-size="8" fill="white" font-weight="700">VDF 1</text>
+  <rect x="280" y="395" width="50" height="20" fill="#22c55e" rx="3"/>
+  <text x="305" y="410" text-anchor="middle" font-size="8" fill="white" font-weight="700">VDF 2</text>
+  <rect x="440" y="395" width="50" height="20" fill="#22c55e" rx="3"/>
+  <text x="465" y="410" text-anchor="middle" font-size="8" fill="white" font-weight="700">VDF 3</text>
+  <!-- Amenée air -->
+  <rect x="60" y="420" width="40" height="16" fill="#bbf7d0" stroke="#16a34a" rx="2"/>
+  <text x="80" y="432" text-anchor="middle" font-size="7.5" fill="#166534">Amenée</text>
+  <rect x="510" y="420" width="40" height="16" fill="#bbf7d0" stroke="#16a34a" rx="2"/>
+  <text x="530" y="432" text-anchor="middle" font-size="7.5" fill="#166534">Amenée</text>
+
+  <!-- ECS / Centrale position -->
+  <rect x="440" y="250" width="145" height="90" fill="#1e293b" rx="6"/>
+  <text x="512" y="272" text-anchor="middle" font-size="10" font-weight="700" fill="white">ECS / CMSI</text>
+  <text x="512" y="286" text-anchor="middle" font-size="9" fill="#94a3b8">Centrale de détection</text>
+  <rect x="450" y="292" width="125" height="16" fill="#374151" rx="3"/>
+  <text x="512" y="304" text-anchor="middle" font-size="8" fill="#6ee7b7">● ZDA1 Normal</text>
+  <rect x="450" y="310" width="125" height="16" fill="#ef4444" rx="3"/>
+  <text x="512" y="322" text-anchor="middle" font-size="8" fill="white">⚠ ZDA3 ALARME</text>
+
+  <!-- Zone Alarme boundary (full building) -->
+  <rect x="22" y="60" width="568" height="384" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="8,5"/>
+  <text x="560" y="78" font-size="9" font-weight="700" fill="#ef4444" text-anchor="end">ZA</text>
+  <text x="560" y="90" font-size="8" fill="#dc2626" text-anchor="end">Zone d'Alarme</text>
+  <text x="560" y="101" font-size="7.5" fill="#dc2626" text-anchor="end">(UGA → DVDA)</text>
+
+  <!-- Legend panel -->
+  <rect x="600" y="58" width="252" height="390" fill="#f1f5f9" stroke="#e2e8f0" rx="8"/>
+  <text x="726" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#1e293b">Légende des zones</text>
+
+  <rect x="612" y="94" width="16" height="16" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="635" y="106" font-size="9" fill="#1e293b" font-weight="600">ZDA — Zone de Détection Automatique</text>
+  <text x="635" y="118" font-size="8" fill="#475569">Périmètre des détecteurs auto/DM</text>
+
+  <rect x="612" y="130" width="16" height="16" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="635" y="142" font-size="9" fill="#1e293b" font-weight="600">ZF — Zone Désenfumage</text>
+  <text x="635" y="154" font-size="8" fill="#475569">Volets + extracteurs commandés</text>
+
+  <rect x="612" y="166" width="16" height="16" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="2,3"/>
+  <text x="635" y="178" font-size="9" fill="#1e293b" font-weight="600">ZC — Compartimentage</text>
+  <text x="635" y="190" font-size="8" fill="#475569">PCF, clapets, DAS compartiment.</text>
+
+  <rect x="612" y="202" width="16" height="16" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="635" y="214" font-size="9" fill="#1e293b" font-weight="600">ZA — Zone d'Alarme</text>
+  <text x="635" y="226" font-size="8" fill="#475569">UGA déclenche DVDA (alarme son.)</text>
+
+  <circle cx="620" cy="247" r="8" fill="#3b82f6"/>
+  <text x="620" y="251" text-anchor="middle" font-size="7" fill="white" font-weight="700">DA</text>
+  <text x="635" y="251" font-size="9" fill="#1e293b">Détecteur Automatique</text>
+
+  <rect x="612" y="262" width="16" height="16" fill="#ef4444" rx="2"/>
+  <text x="620" y="274" text-anchor="middle" font-size="7" fill="white" font-weight="700">DM</text>
+  <text x="635" y="273" font-size="9" fill="#1e293b">Déclencheur Manuel</text>
+
+  <rect x="612" y="284" width="16" height="16" fill="#22c55e" rx="2"/>
+  <text x="620" y="296" text-anchor="middle" font-size="7" fill="white" font-weight="700">VDF</text>
+  <text x="635" y="295" font-size="9" fill="#1e293b">Volet Désenfumage</text>
+
+  <rect x="612" y="306" width="16" height="16" fill="#f97316" rx="2"/>
+  <text x="620" y="318" text-anchor="middle" font-size="7" fill="white" font-weight="700">PCF</text>
+  <text x="635" y="317" font-size="9" fill="#1e293b">Porte Coupe-Feu</text>
+
+  <rect x="612" y="328" width="16" height="16" fill="#7c3aed" rx="2"/>
+  <text x="635" y="339" font-size="9" fill="#1e293b">Arrêt technique (CTA…)</text>
+
+  <rect x="612" y="370" width="228" height="68" fill="#fef3c7" stroke="#fbbf24" rx="6"/>
+  <text x="726" y="388" text-anchor="middle" font-size="9" font-weight="700" fill="#92400e">Rôle du CSSI sur les zones</text>
+  <text x="618" y="402" font-size="8" fill="#78350f">• Définit les zones dans le CCF</text>
+  <text x="618" y="415" font-size="8" fill="#78350f">• Vérifie cohérence ZDA/ZDM ↔ ZC/ZF en réalisation</text>
+  <text x="618" y="428" font-size="8" fill="#78350f">• Contrôle plans à jour à chaque modification</text>
+</svg>

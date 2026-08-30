@@ -1,0 +1,96 @@
+<svg viewBox="0 0 860 480" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+  <rect width="860" height="480" fill="#f8fafc" rx="12"/>
+  <text x="430" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">CCF — Cahier des Charges Fonctionnel SSI (NF S 61-931 §5.3.2.1)</text>
+  <text x="430" y="44" text-anchor="middle" font-size="9.5" fill="#64748b">Document obligatoire rédigé par le CSSI — définit les fonctions et scénarios AVANT toute réalisation</text>
+
+  <!-- Left: CCF structure -->
+  <rect x="12" y="56" width="380" height="406" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5" rx="8"/>
+  <text x="202" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">Structure type d'un CCF</text>
+
+  <!-- Sections CCF -->
+  <rect x="22" y="88" width="360" height="36" fill="#7c3aed" rx="5"/>
+  <text x="202" y="103" text-anchor="middle" font-size="10" fill="white" font-weight="700">1. Identification de l'établissement</text>
+  <text x="202" y="117" text-anchor="middle" font-size="8.5" fill="#ddd6fe">Adresse, type ERP/IGH/ICPE, catégorie, effectif</text>
+
+  <rect x="22" y="130" width="360" height="36" fill="#6d28d9" rx="5"/>
+  <text x="202" y="145" text-anchor="middle" font-size="10" fill="white" font-weight="700">2. Catégorie SSI retenue</text>
+  <text x="202" y="159" text-anchor="middle" font-size="8.5" fill="#ddd6fe">A, B, C, D ou E — justification réglementaire</text>
+
+  <rect x="22" y="172" width="360" height="36" fill="#5b21b6" rx="5"/>
+  <text x="202" y="187" text-anchor="middle" font-size="10" fill="white" font-weight="700">3. Zones de Détection Automatique (ZDA) et Manuelle (ZDM)</text>
+  <text x="202" y="201" text-anchor="middle" font-size="8.5" fill="#ddd6fe">N° zone, localisation, type détecteurs, surface</text>
+
+  <rect x="22" y="214" width="360" height="36" fill="#4c1d95" rx="5"/>
+  <text x="202" y="229" text-anchor="middle" font-size="10" fill="white" font-weight="700">4. Zones de Mise en Sécurité (ZC)</text>
+  <text x="202" y="243" text-anchor="middle" font-size="8.5" fill="#ddd6fe">N° zone, DAS associés, position sécurité, temporisation</text>
+
+  <rect x="22" y="256" width="360" height="36" fill="#3b0764" rx="5"/>
+  <text x="202" y="271" text-anchor="middle" font-size="10" fill="white" font-weight="700">5. Matrice de corrélation ZDA/ZDM × ZC</text>
+  <text x="202" y="285" text-anchor="middle" font-size="8.5" fill="#ddd6fe">Tableau croisé : quelle ZDA/ZDM → quels DAS actionnés</text>
+
+  <rect x="22" y="298" width="360" height="36" fill="#1e1b4b" rx="5"/>
+  <text x="202" y="313" text-anchor="middle" font-size="10" fill="white" font-weight="700">6. Zones de Désenfumage (ZF)</text>
+  <text x="202" y="327" text-anchor="middle" font-size="8.5" fill="#c7d2fe">Type naturel/mécanique, surface, débits, points d'extraction</text>
+
+  <rect x="22" y="340" width="360" height="36" fill="#312e81" rx="5"/>
+  <text x="202" y="355" text-anchor="middle" font-size="10" fill="white" font-weight="700">7. Zones d'Alarme (ZA)</text>
+  <text x="202" y="369" text-anchor="middle" font-size="8.5" fill="#c7d2fe">UGA, diffuseurs, niveaux alarme restreinte / générale</text>
+
+  <rect x="22" y="382" width="360" height="36" fill="#1e293b" rx="5"/>
+  <text x="202" y="397" text-anchor="middle" font-size="10" fill="white" font-weight="700">8. Alimentation électrique de sécurité</text>
+  <text x="202" y="411" text-anchor="middle" font-size="8.5" fill="#94a3b8">AES, autonomie, groupe électrogène (NF S 61-940)</text>
+
+  <rect x="22" y="424" width="360" height="30" fill="#7c3aed" rx="5"/>
+  <text x="202" y="443" text-anchor="middle" font-size="9" fill="white" font-weight="600">→ Annexes : plans ZDA/ZDM, ZF, compartimentage, liste DAS</text>
+
+  <!-- Right: CCF in project lifecycle -->
+  <rect x="402" y="56" width="446" height="406" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5" rx="8"/>
+  <text x="625" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">Place du CCF dans le projet SSI</text>
+
+  <!-- Timeline vertical -->
+  <line x1="440" y1="92" x2="440" y2="448" stroke="#fed7aa" stroke-width="2"/>
+
+  <!-- Step 1 -->
+  <circle cx="440" cy="108" r="10" fill="#7c3aed"/>
+  <text x="440" y="112" text-anchor="middle" font-size="9" fill="white" font-weight="700">C</text>
+  <rect x="455" y="96" width="378" height="38" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="466" y="111" font-size="10" font-weight="700" fill="#4c1d95">CSSI rédige le CCF</text>
+  <text x="466" y="126" font-size="8.5" fill="#5b21b6">Avant consultation des entreprises — document contractuel</text>
+
+  <!-- Step 2 -->
+  <circle cx="440" cy="160" r="10" fill="#0369a1"/>
+  <text x="440" y="164" text-anchor="middle" font-size="9" fill="white" font-weight="700">R</text>
+  <rect x="455" y="148" width="378" height="38" fill="#eff6ff" stroke="#0369a1" stroke-width="1" rx="5"/>
+  <text x="466" y="163" font-size="10" font-weight="700" fill="#0c4a6e">Installateur reçoit et exécute le CCF</text>
+  <text x="466" y="178" font-size="8.5" fill="#0369a1">Programme le CMSI selon la matrice · câble les DAS</text>
+
+  <!-- Step 3 -->
+  <circle cx="440" cy="212" r="10" fill="#0369a1"/>
+  <text x="440" y="216" text-anchor="middle" font-size="9" fill="white" font-weight="700">R</text>
+  <rect x="455" y="200" width="378" height="38" fill="#eff6ff" stroke="#0369a1" stroke-width="1" rx="5"/>
+  <text x="466" y="215" font-size="10" font-weight="700" fill="#0c4a6e">CSSI vérifie conformité CCF ↔ installation</text>
+  <text x="466" y="230" font-size="8.5" fill="#0369a1">Essais fonctionnels · ZDA/ZDM correctes · Temporisations OK</text>
+
+  <!-- Step 4 -->
+  <circle cx="440" cy="264" r="10" fill="#059669"/>
+  <text x="440" y="268" text-anchor="middle" font-size="9" fill="white" font-weight="700">Rx</text>
+  <rect x="455" y="252" width="378" height="52" fill="#f0fdf4" stroke="#059669" stroke-width="1" rx="5"/>
+  <text x="466" y="267" font-size="10" font-weight="700" fill="#064e3b">CSSI constitue le Dossier d'Identité SSI</text>
+  <text x="466" y="281" font-size="8.5" fill="#059669">CCF final + plans AS-BUILT + fiches DAS + PV essais</text>
+  <text x="466" y="295" font-size="8.5" fill="#059669">Remis à l'exploitant · présenté à la commission de sécu.</text>
+
+  <!-- Step 5 -->
+  <circle cx="440" cy="330" r="10" fill="#c2410c"/>
+  <text x="440" y="334" text-anchor="middle" font-size="8" fill="white" font-weight="700">Exp</text>
+  <rect x="455" y="318" width="378" height="52" fill="#fff7ed" stroke="#c2410c" stroke-width="1" rx="5"/>
+  <text x="466" y="333" font-size="10" font-weight="700" fill="#7c2d12">CSSI met à jour le CCF/DIS</text>
+  <text x="466" y="347" font-size="8.5" fill="#c2410c">Après toute modification du bâtiment ou du SSI</text>
+  <text x="466" y="361" font-size="8.5" fill="#c2410c">Le DIS doit refléter l'état réel du système à tout moment</text>
+
+  <!-- Warning box -->
+  <rect x="410" y="384" width="428" height="70" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="6"/>
+  <text x="624" y="402" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">⚠ Points clés pour la commission de sécurité</text>
+  <text x="416" y="420" font-size="8.5" fill="#78350f">• Le bureau de contrôle demande systématiquement le CCF et la matrice de corrélation</text>
+  <text x="416" y="434" font-size="8.5" fill="#78350f">• Un DIS non à jour = réserve majeure lors de la visite périodique</text>
+  <text x="416" y="448" font-size="8.5" fill="#78350f">• L'absence de CCF pour un projet de modification = non-conformité réglementaire (arrêté ERP MS 53)</text>
+</svg>

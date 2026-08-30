@@ -1,0 +1,99 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+  <rect width="860" height="420" fill="#f8fafc" rx="12"/>
+  <text x="430" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Situations dégradées — Réflexes du CSSI</text>
+  <text x="430" y="44" text-anchor="middle" font-size="9.5" fill="#64748b">Conduite à tenir selon le type d'incident · le CSSI facilite, il ne commande pas les secours</text>
+
+  <!-- Scenario 1: Alarme feu -->
+  <rect x="12" y="58" width="195" height="348" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5" rx="8"/>
+  <rect x="12" y="58" width="195" height="38" fill="#e11d48" rx="8 8 0 0"/>
+  <text x="109" y="74" text-anchor="middle" font-size="10" fill="white" font-weight="700">🔴 Alarme Feu</text>
+  <text x="109" y="88" text-anchor="middle" font-size="8.5" fill="#fecaca">Déclenchement SSI</text>
+  <text x="22" y="112" font-size="8.5" fill="#9f1239" font-weight="600">Immédiat :</text>
+  <text x="22" y="126" font-size="8" fill="#be123c">→ Confirmer réalité du feu</text>
+  <text x="22" y="139" font-size="8" fill="#be123c">→ Déclencher évacuation</text>
+  <text x="22" y="152" font-size="8" fill="#be123c">→ Appeler 18 si feu confirmé</text>
+  <text x="22" y="172" font-size="8.5" fill="#9f1239" font-weight="600">Pendant intervention :</text>
+  <text x="22" y="186" font-size="8" fill="#be123c">→ Rejoindre poste de sécu.</text>
+  <text x="22" y="199" font-size="8" fill="#be123c">→ Mettre plans à dispo SDIS</text>
+  <text x="22" y="212" font-size="8" fill="#be123c">→ Informer zones en défaut</text>
+  <text x="22" y="225" font-size="8" fill="#be123c">→ Ne PAS interférer avec</text>
+  <text x="22" y="237" font-size="8" fill="#be123c">   commandement pompiers</text>
+  <text x="22" y="257" font-size="8.5" fill="#9f1239" font-weight="600">Après :</text>
+  <text x="22" y="271" font-size="8" fill="#be123c">→ Rapport d'incident</text>
+  <text x="22" y="284" font-size="8" fill="#be123c">→ Analyse causes</text>
+  <text x="22" y="297" font-size="8" fill="#be123c">→ Actions correctives</text>
+  <text x="22" y="310" font-size="8" fill="#be123c">→ Consigner dans registre</text>
+  <rect x="20" y="368" width="179" height="32" fill="#e11d48" rx="5"/>
+  <text x="109" y="388" text-anchor="middle" font-size="8" fill="white">⚠ Ne PAS remettre le SSI</text>
+  <text x="109" y="398" text-anchor="middle" font-size="8" fill="white">en veille sans vérification</text>
+
+  <!-- Scenario 2: Défaut majeur -->
+  <rect x="217" y="58" width="195" height="348" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5" rx="8"/>
+  <rect x="217" y="58" width="195" height="38" fill="#ea580c" rx="8 8 0 0"/>
+  <text x="314" y="74" text-anchor="middle" font-size="10" fill="white" font-weight="700">🟠 Défaut Majeur SSI</text>
+  <text x="314" y="88" text-anchor="middle" font-size="8.5" fill="#fed7aa">Panne critique / DAS bloqué</text>
+  <text x="227" y="112" font-size="8.5" fill="#7c2d12" font-weight="600">Immédiat :</text>
+  <text x="227" y="126" font-size="8" fill="#c2410c">→ Évaluer le niveau de risque</text>
+  <text x="227" y="139" font-size="8" fill="#c2410c">→ Appeler le mainteneur</text>
+  <text x="227" y="152" font-size="8" fill="#c2410c">→ Mesures compensatoires</text>
+  <text x="227" y="172" font-size="8.5" fill="#7c2d12" font-weight="600">Mesures compensatoires :</text>
+  <text x="227" y="186" font-size="8" fill="#c2410c">→ Rondes humaines renforcées</text>
+  <text x="227" y="199" font-size="8" fill="#c2410c">→ Surveillance zone concernée</text>
+  <text x="227" y="212" font-size="8" fill="#c2410c">→ Réduction effectif si grave</text>
+  <text x="227" y="225" font-size="8" fill="#c2410c">→ Consigner dans carnet bord</text>
+  <text x="227" y="245" font-size="8.5" fill="#7c2d12" font-weight="600">Si non résolu rapidement :</text>
+  <text x="227" y="259" font-size="8" fill="#c2410c">→ Informer la direction</text>
+  <text x="227" y="272" font-size="8" fill="#c2410c">→ Informer bureau contrôle</text>
+  <text x="227" y="285" font-size="8" fill="#c2410c">→ Envisager fermeture zone</text>
+  <text x="227" y="305" font-size="8.5" fill="#7c2d12" font-weight="600">Après réparation :</text>
+  <text x="227" y="319" font-size="8" fill="#c2410c">→ Essai fonctionnel de remise</text>
+  <text x="227" y="332" font-size="8" fill="#c2410c">   en service obligatoire</text>
+  <rect x="225" y="368" width="179" height="32" fill="#ea580c" rx="5"/>
+  <text x="314" y="384" text-anchor="middle" font-size="8" fill="white">Tracer TOUTES les décisions</text>
+  <text x="314" y="396" text-anchor="middle" font-size="8" fill="white">dans le carnet de bord SSI</text>
+
+  <!-- Scenario 3: Visite inopinée -->
+  <rect x="422" y="58" width="195" height="348" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" rx="8"/>
+  <rect x="422" y="58" width="195" height="38" fill="#16a34a" rx="8 8 0 0"/>
+  <text x="519" y="74" text-anchor="middle" font-size="10" fill="white" font-weight="700">🟢 Visite Inopinée</text>
+  <text x="519" y="88" text-anchor="middle" font-size="8.5" fill="#bbf7d0">Commission / SDIS / Inspection</text>
+  <text x="432" y="112" font-size="8.5" fill="#064e3b" font-weight="600">Documents à avoir prêts :</text>
+  <text x="432" y="126" font-size="8" fill="#16a34a">→ Registre de sécurité à jour</text>
+  <text x="432" y="139" font-size="8" fill="#16a34a">→ Carnet de bord SSI</text>
+  <text x="432" y="152" font-size="8" fill="#16a34a">→ Dernier rapport de vérif.</text>
+  <text x="432" y="165" font-size="8" fill="#16a34a">→ Plans SSI (ZDA/ZDM, ZF, ZC)</text>
+  <text x="432" y="178" font-size="8" fill="#16a34a">→ Dossier d'Identité SSI (DIS)</text>
+  <text x="432" y="198" font-size="8.5" fill="#064e3b" font-weight="600">Pendant la visite :</text>
+  <text x="432" y="212" font-size="8" fill="#16a34a">→ Accompagner les inspecteurs</text>
+  <text x="432" y="225" font-size="8" fill="#16a34a">→ Expliquer les non-conformités</text>
+  <text x="432" y="238" font-size="8" fill="#16a34a">→ Présenter le plan de levée</text>
+  <text x="432" y="258" font-size="8.5" fill="#064e3b" font-weight="600">Réserves antérieures :</text>
+  <text x="432" y="272" font-size="8" fill="#16a34a">→ Justifier leur levée ou</text>
+  <text x="432" y="285" font-size="8" fill="#16a34a">→ Présenter plan d'action daté</text>
+  <rect x="430" y="368" width="179" height="32" fill="#16a34a" rx="5"/>
+  <text x="519" y="384" text-anchor="middle" font-size="8" fill="white">Un CSSI organisé ne craint</text>
+  <text x="519" y="396" text-anchor="middle" font-size="8" fill="white">pas la visite inopinée</text>
+
+  <!-- Scenario 4: Travaux impactant SSI -->
+  <rect x="627" y="58" width="221" height="348" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" rx="8"/>
+  <rect x="627" y="58" width="221" height="38" fill="#2563eb" rx="8 8 0 0"/>
+  <text x="737" y="74" text-anchor="middle" font-size="10" fill="white" font-weight="700">🔵 Travaux sur SSI</text>
+  <text x="737" y="88" text-anchor="middle" font-size="8.5" fill="#bfdbfe">Modification / extension</text>
+  <text x="637" y="112" font-size="8.5" fill="#1e3a8a" font-weight="600">Avant les travaux :</text>
+  <text x="637" y="126" font-size="8" fill="#2563eb">→ Évaluer impact sur SSI</text>
+  <text x="637" y="139" font-size="8" fill="#2563eb">→ Mettre à jour CCF / matrice</text>
+  <text x="637" y="152" font-size="8" fill="#2563eb">→ Plan de prévention (Cd. travail)</text>
+  <text x="637" y="165" font-size="8" fill="#2563eb">→ Définir MHS et comp. mesures</text>
+  <text x="637" y="185" font-size="8.5" fill="#1e3a8a" font-weight="600">Pendant les travaux :</text>
+  <text x="637" y="199" font-size="8" fill="#2563eb">→ Tracer MHS dans carnet bord</text>
+  <text x="637" y="212" font-size="8" fill="#2563eb">→ Vérifier respect plan prévent.</text>
+  <text x="637" y="225" font-size="8" fill="#2563eb">→ Référent SSI joignable</text>
+  <text x="637" y="245" font-size="8.5" fill="#1e3a8a" font-weight="600">Après les travaux :</text>
+  <text x="637" y="259" font-size="8" fill="#2563eb">→ Essai fonctionnel remise en svc</text>
+  <text x="637" y="272" font-size="8" fill="#2563eb">→ Mettre à jour plans AS-BUILT</text>
+  <text x="637" y="285" font-size="8" fill="#2563eb">→ Informer bureau de contrôle</text>
+  <text x="637" y="298" font-size="8" fill="#2563eb">→ Actualiser DIS complet</text>
+  <rect x="635" y="368" width="205" height="32" fill="#2563eb" rx="5"/>
+  <text x="737" y="384" text-anchor="middle" font-size="8" fill="white">Pas de réouverture sans essai</text>
+  <text x="737" y="396" text-anchor="middle" font-size="8" fill="white">fonctionnel et DIS à jour</text>
+</svg>

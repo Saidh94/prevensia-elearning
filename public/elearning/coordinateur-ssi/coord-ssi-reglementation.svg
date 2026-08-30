@@ -1,0 +1,103 @@
+<svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+  <rect width="860" height="440" fill="#f8fafc" rx="12"/>
+  <text x="430" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Cadres réglementaires SSI applicables</text>
+  <text x="430" y="44" text-anchor="middle" font-size="9.5" fill="#64748b">Le CSSI identifie le cadre applicable · plusieurs cadres peuvent se cumuler sur un même site</text>
+
+  <!-- ERP -->
+  <rect x="12" y="58" width="200" height="368" fill="#fff7ed" stroke="#ea580c" stroke-width="2" rx="8"/>
+  <rect x="12" y="58" width="200" height="40" fill="#ea580c" rx="8 8 0 0"/>
+  <text x="112" y="75" text-anchor="middle" font-size="11" fill="white" font-weight="700">ERP</text>
+  <text x="112" y="90" text-anchor="middle" font-size="8.5" fill="#fed7aa">Établissements Recevant du Public</text>
+  <text x="22" y="114" font-size="9" font-weight="600" fill="#9a3412">Texte de référence :</text>
+  <text x="22" y="127" font-size="8.5" fill="#c2410c">Arrêté du 25 juin 1980</text>
+  <text x="22" y="139" font-size="8.5" fill="#c2410c">+ Arrêtés de type J,L,M,R,U…</text>
+  <line x1="22" y1="148" x2="200" y2="148" stroke="#fed7aa"/>
+  <text x="22" y="163" font-size="9" font-weight="600" fill="#9a3412">Classification :</text>
+  <text x="22" y="176" font-size="8.5" fill="#c2410c">Type (activité) × Catégorie (effectif)</text>
+  <text x="22" y="188" font-size="8.5" fill="#c2410c">Cat 1 : &gt; 1 500 p.   Cat 5 : petits ét.</text>
+  <line x1="22" y1="198" x2="200" y2="198" stroke="#fed7aa"/>
+  <text x="22" y="213" font-size="9" font-weight="600" fill="#9a3412">SSI obligatoire :</text>
+  <text x="22" y="226" font-size="8.5" fill="#c2410c">Selon type et catégorie</text>
+  <text x="22" y="238" font-size="8.5" fill="#c2410c">MS 53 à MS 60 — rôle CSSI</text>
+  <line x1="22" y1="248" x2="200" y2="248" stroke="#fed7aa"/>
+  <text x="22" y="263" font-size="9" font-weight="600" fill="#9a3412">Vérification :</text>
+  <text x="22" y="276" font-size="8.5" fill="#c2410c">Annuelle par organisme agréé</text>
+  <text x="22" y="288" font-size="8.5" fill="#c2410c">Commission de sécurité</text>
+  <text x="22" y="300" font-size="8.5" fill="#c2410c">selon type/catégorie</text>
+  <line x1="22" y1="310" x2="200" y2="310" stroke="#fed7aa"/>
+  <text x="22" y="325" font-size="9" font-weight="600" fill="#9a3412">Particularités :</text>
+  <text x="22" y="338" font-size="8.5" fill="#c2410c">Registre de sécurité obligatoire</text>
+  <text x="22" y="350" font-size="8.5" fill="#c2410c">SSIAP obligatoire cat 1-4</text>
+  <text x="22" y="362" font-size="8.5" fill="#c2410c">Affichage plan évacuation</text>
+
+  <!-- IGH -->
+  <rect x="222" y="58" width="200" height="368" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2" rx="8"/>
+  <rect x="222" y="58" width="200" height="40" fill="#1d4ed8" rx="8 8 0 0"/>
+  <text x="322" y="75" text-anchor="middle" font-size="11" fill="white" font-weight="700">IGH</text>
+  <text x="322" y="90" text-anchor="middle" font-size="8.5" fill="#bfdbfe">Immeubles de Grande Hauteur</text>
+  <text x="232" y="114" font-size="9" font-weight="600" fill="#1e3a8a">Texte de référence :</text>
+  <text x="232" y="127" font-size="8.5" fill="#1d4ed8">Arrêté du 30 décembre 2011</text>
+  <text x="232" y="139" font-size="8.5" fill="#1d4ed8">CCH Art. R.122-1 et suivants</text>
+  <line x1="232" y1="148" x2="412" y2="148" stroke="#bfdbfe"/>
+  <text x="232" y="163" font-size="9" font-weight="600" fill="#1e3a8a">Seuils IGH :</text>
+  <text x="232" y="176" font-size="8.5" fill="#1d4ed8">Habitation : &gt; 50 m du sol</text>
+  <text x="232" y="188" font-size="8.5" fill="#1d4ed8">Autres usages : &gt; 28 m</text>
+  <line x1="232" y1="198" x2="412" y2="198" stroke="#bfdbfe"/>
+  <text x="232" y="213" font-size="9" font-weight="600" fill="#1e3a8a">SSI obligatoire :</text>
+  <text x="232" y="226" font-size="8.5" fill="#1d4ed8">Catégorie A systématique</text>
+  <text x="232" y="238" font-size="8.5" fill="#1d4ed8">Télésignalisation poste sécu.</text>
+  <line x1="232" y1="248" x2="412" y2="248" stroke="#bfdbfe"/>
+  <text x="232" y="263" font-size="9" font-weight="600" fill="#1e3a8a">Exigences renforcées :</text>
+  <text x="232" y="276" font-size="8.5" fill="#1d4ed8">Service sécu permanent 24h/24</text>
+  <text x="232" y="288" font-size="8.5" fill="#1d4ed8">Sprinkler / désenfumage renforcé</text>
+  <text x="232" y="300" font-size="8.5" fill="#1d4ed8">Chef de sécu (SSIAP 3 min.)</text>
+
+  <!-- Code du travail -->
+  <rect x="432" y="58" width="200" height="368" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="8"/>
+  <rect x="432" y="58" width="200" height="40" fill="#16a34a" rx="8 8 0 0"/>
+  <text x="532" y="75" text-anchor="middle" font-size="11" fill="white" font-weight="700">Code du travail</text>
+  <text x="532" y="90" text-anchor="middle" font-size="8.5" fill="#bbf7d0">Locaux de travail (BUP)</text>
+  <text x="442" y="114" font-size="9" font-weight="600" fill="#064e3b">Textes de référence :</text>
+  <text x="442" y="127" font-size="8.5" fill="#16a34a">Art. R.4227-1 et suivants</text>
+  <text x="442" y="139" font-size="8.5" fill="#16a34a">Art. L.4121-1 (resp. employeur)</text>
+  <line x1="442" y1="148" x2="622" y2="148" stroke="#bbf7d0"/>
+  <text x="442" y="163" font-size="9" font-weight="600" fill="#064e3b">Obligations :</text>
+  <text x="442" y="176" font-size="8.5" fill="#16a34a">Détection adaptée aux risques</text>
+  <text x="442" y="188" font-size="8.5" fill="#16a34a">Extincteurs vérifiés annuellement</text>
+  <text x="442" y="200" font-size="8.5" fill="#16a34a">Exercices évacuation ≥ 2/an</text>
+  <line x1="442" y1="210" x2="622" y2="210" stroke="#bbf7d0"/>
+  <text x="442" y="225" font-size="9" font-weight="600" fill="#064e3b">Vérification :</text>
+  <text x="442" y="238" font-size="8.5" fill="#16a34a">Installations de détection : 1/an</text>
+  <text x="442" y="250" font-size="8.5" fill="#16a34a">Par organisme compétent</text>
+  <line x1="442" y1="260" x2="622" y2="260" stroke="#bbf7d0"/>
+  <text x="442" y="275" font-size="9" font-weight="600" fill="#064e3b">Cumul avec ERP :</text>
+  <text x="442" y="288" font-size="8.5" fill="#16a34a">Si bâtiment = ERP + locaux travail</text>
+  <text x="442" y="300" font-size="8.5" fill="#16a34a">→ obligations les + contraignantes</text>
+  <text x="442" y="312" font-size="8.5" fill="#16a34a">prévalent selon les zones</text>
+
+  <!-- ICPE -->
+  <rect x="642" y="58" width="206" height="368" fill="#fdf4ff" stroke="#a21caf" stroke-width="2" rx="8"/>
+  <rect x="642" y="58" width="206" height="40" fill="#a21caf" rx="8 8 0 0"/>
+  <text x="745" y="75" text-anchor="middle" font-size="11" fill="white" font-weight="700">ICPE</text>
+  <text x="745" y="90" text-anchor="middle" font-size="8.5" fill="#f0abfc">Installations Classées Env.</text>
+  <text x="652" y="114" font-size="9" font-weight="600" fill="#701a75">Textes de référence :</text>
+  <text x="652" y="127" font-size="8.5" fill="#a21caf">Arrêtés ministériels sectoriels</text>
+  <text x="652" y="139" font-size="8.5" fill="#a21caf">+ Arrêté préfectoral propre au site</text>
+  <line x1="652" y1="148" x2="838" y2="148" stroke="#f0abfc"/>
+  <text x="652" y="163" font-size="9" font-weight="600" fill="#701a75">Régimes :</text>
+  <text x="652" y="176" font-size="8.5" fill="#a21caf">Déclaration / Enregistrement</text>
+  <text x="652" y="188" font-size="8.5" fill="#a21caf">Autorisation (A) — + contraignant</text>
+  <line x1="652" y1="198" x2="838" y2="198" stroke="#f0abfc"/>
+  <text x="652" y="213" font-size="9" font-weight="600" fill="#701a75">Exigences SSI :</text>
+  <text x="652" y="226" font-size="8.5" fill="#a21caf">Sprinkler souvent obligatoire</text>
+  <text x="652" y="238" font-size="8.5" fill="#a21caf">Détection gaz + incendie</text>
+  <text x="652" y="250" font-size="8.5" fill="#a21caf">APSAD R1/R7/R17 références</text>
+  <line x1="652" y1="260" x2="838" y2="260" stroke="#f0abfc"/>
+  <text x="652" y="275" font-size="9" font-weight="600" fill="#701a75">Inspection :</text>
+  <text x="652" y="288" font-size="8.5" fill="#a21caf">DREAL (Direction Régionale</text>
+  <text x="652" y="300" font-size="8.5" fill="#a21caf">Environnement, Aménagement)</text>
+  <text x="652" y="312" font-size="8.5" fill="#a21caf">+ Inspecteur des installations</text>
+
+  <!-- Bottom bar -->
+  <rect x="12" y="436" width="836" height="0" fill="none"/>
+</svg>

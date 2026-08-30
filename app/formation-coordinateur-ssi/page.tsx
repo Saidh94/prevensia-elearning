@@ -7,20 +7,21 @@ export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-coordinateur-ssi" },
   title: "Formation Coordinateur SSI — Pilotage Système Sécurité Incendie | PREVENSIA",
   description:
-    "Formation Coordinateur SSI : pilotage du système de sécurité incendie, gestion des intervenants, maintenance NF S 61-933, ERP / IGH. Qualiopi. Intra-entreprise. Devis 48h.",
+    "Formation Coordinateur SSI : CCF, matrice de corrélation, dossier d'identité SSI, coordination des intervenants, ERP / IGH. Qualiopi. 7 jours en présentiel. Devis 48h.",
   openGraph: {
     title: "Formation Coordinateur SSI — NF S 61, ERP, IGH | PREVENSIA",
     description:
-      "Formez votre coordinateur SSI : architecture, réglementation, maintenance, gestion des intervenants et situations dégradées. Qualiopi. Intra ou inter-entreprise.",
+      "Formez votre coordinateur SSI : CCF, matrice de corrélation, dossier SSI, réception, exploitation. Architecture, réglementation ERP/IGH. Qualiopi. Intra ou inter-entreprise.",
     url: "https://prevensia-formation.fr/formation-coordinateur-ssi",
   },
   keywords: [
     "formation coordinateur SSI",
     "formation coordinateur système sécurité incendie",
     "formation pilotage SSI",
-    "formation NF S 61-933",
+    "CCF coordinateur SSI",
+    "matrice de corrélation SSI",
+    "dossier identité SSI",
     "formation responsable SSI ERP IGH",
-    "formation maintenance SSI",
   ],
 };
 
@@ -33,7 +34,7 @@ const faqItems = [
   {
     question: "Quelle est la différence entre la formation Exploitation SSI et la formation Coordinateur SSI ?",
     answer:
-      "La formation Exploitation SSI est destinée aux utilisateurs quotidiens du système (lire les signaux, réagir en cas d'alarme, appliquer les consignes). La formation Coordinateur SSI est destinée aux personnes qui pilotent l'ensemble du dispositif : coordonner les entreprises de maintenance, planifier les vérifications réglementaires, gérer les non-conformités, tenir les registres de sécurité, assurer l'interface avec le bureau de contrôle et les autorités, et piloter la mise à jour du SSI lors de travaux.",
+      "La formation Exploitation SSI est destinée aux utilisateurs quotidiens du système (lire les signaux, réagir en cas d'alarme, appliquer les consignes). La formation Coordinateur SSI est destinée aux personnes qui pilotent l'ensemble du dispositif : rédiger le CCF et la matrice de corrélation, coordonner les installateurs lors des travaux, vérifier la conformité fonctionnelle du SSI, constituer le Dossier d'Identité SSI, gérer les non-conformités, assurer l'interface avec les bureaux de contrôle et les commissions de sécurité, et mettre à jour la documentation SSI après toute modification.",
   },
   {
     question: "À qui s'adresse la formation Coordinateur SSI ?",
@@ -56,50 +57,50 @@ const programme = [
   {
     titre: "Module 1 — Rôle et responsabilités du Coordinateur SSI",
     detail:
-      "Définition du rôle, positionnement dans l'organisation, obligations réglementaires et responsabilités civile et pénale. Interface avec les autorités, bureaux de contrôle et commissions de sécurité.",
+      "Définition du rôle CSSI (NF S 61-931/932) : chef d'orchestre du SSI, indépendant des installateurs, mandaté par le maître d'ouvrage. Responsabilités civile et pénale. Interface avec bureaux de contrôle, commissions de sécurité, SDIS.",
     duree: "E-learning — 2h",
   },
   {
     titre: "Module 2 — Architecture et fonctionnement des SSI",
     detail:
-      "SDI (Système de Détection Incendie), CMSI (Centralisateur de Mise en Sécurité), UGA, DAS (Dispositifs Actionnés de Sécurité), ECS. Lecture des plans SSI et des schémas de principe. Classification NF S 61-931.",
+      "Catégories SSI A→E. SDI, CMSI, UGA, DAS (portes coupe-feu, clapets, volets), DCT/DCM, désenfumage, extinction automatique, interfaces ascenseurs et process. Lecture des plans SSI et schémas de principe.",
     duree: "E-learning — 3h",
   },
   {
     titre: "Module 3 — Réglementation applicable",
     detail:
-      "Arrêté ERP du 25 juin 1980, arrêté IGH du 30 décembre 2011, Code du travail, ICPE. Obligations de vérification périodique, rôle des organismes de contrôle et des commissions de sécurité. Registre de sécurité.",
+      "Arrêté ERP du 25 juin 1980, arrêté IGH du 30 décembre 2011, Code du travail, ICPE. Normes NF S 61-931/932/933/970. Registre de sécurité, obligations documentaires, rôle des organismes de contrôle.",
     duree: "E-learning — 2h30",
   },
   {
-    titre: "Module 4 — Maintenance et vérifications NF S 61-933",
+    titre: "Module 4 — CCF et Matrice de Corrélation",
     detail:
-      "Organisation de la maintenance préventive et corrective, essais périodiques, vérifications réglementaires annuelles, tenue du carnet de bord SSI, gestion des indisponibilités et des mesures compensatoires.",
+      "Cahier des Charges Fonctionnel SSI (CCF) : document obligatoire définissant fonctions, scénarios de mise en sécurité et exigences normatives. Matrice de corrélation : qui déclenche quoi, dans quel ordre, avec quelles temporisations. Dossier d'Identité SSI.",
     duree: "E-learning — 2h30",
   },
   {
-    titre: "Module 5 — Gestion des intervenants et des travaux",
+    titre: "Module 5 — Coordination des intervenants et suivi des travaux",
     detail:
-      "Coordination des entreprises de maintenance, gestion des travaux impactant le SSI, plan de prévention, gestion des remises en service, mise à jour documentaire après modification du système.",
+      "Coordination des corps d'état (installateurs SSI, électriciens, ascensoristes, climaticiens, désenfumage). Gestion des travaux impactant le SSI, permis de feu, mesures compensatoires, mise à jour du CCF et de la matrice après modification.",
     duree: "E-learning — 2h",
   },
   {
-    titre: "Présentiel Jour 1 — Approfondissement technique et réglementaire",
+    titre: "Présentiel — Phase conception : CCF et matrice sur dossiers réels",
     detail:
-      "Lecture de dossiers SSI réels, analyse de schémas et plans, exercices sur les obligations réglementaires par type d'établissement. Cas pratiques ERP catégorie 1 et 2, IGH.",
-    duree: "Présentiel — 7h",
+      "Analyse de besoins de sécurité sur bâtiments ERP/IGH réels. Rédaction d'un CCF, élaboration d'une matrice de corrélation, choix de l'architecture SSI (catégorie, équipements, interfaces). Cas pratiques multi-établissements.",
+    duree: "Présentiel — 14h (2 jours)",
   },
   {
-    titre: "Présentiel Jour 2 — Gestion opérationnelle et situations dégradées",
+    titre: "Présentiel — Phase réalisation et réception",
     detail:
-      "Simulation de gestion d'une non-conformité majeure, d'une vérification périodique et d'un incident grave. Rédaction de rapports, levée de réserves, communication avec le bureau de contrôle et le SDIS.",
-    duree: "Présentiel — 7h",
+      "Vérification de conformité des installations (câblage, interfaces, DAS, désenfumage). Suivi des essais fonctionnels (détection, mise en sécurité, temporisations, report d'information). Organisation des essais de réception, rédaction du Dossier d'Identité SSI, présentation à la commission de sécurité.",
+    duree: "Présentiel — 21h (3 jours)",
   },
   {
-    titre: "Présentiel Jour 3 — Mises en situation et évaluation finale",
+    titre: "Présentiel — Phase exploitation et situations dégradées",
     detail:
-      "Mise en situation complète sur un dossier de site fictif complet. Élaboration d'un plan de coordination SSI. Évaluation finale et remise de l'attestation de formation.",
-    duree: "Présentiel — 7h",
+      "Mise à jour du dossier SSI après modification. Assistance au chef d'établissement : comprendre les scénarios, gérer les alarmes, préparer les commissions de sécurité. Gestion des non-conformités, levée de réserves, communication avec bureaux de contrôle et SDIS. Mise en situation complète + évaluation finale.",
+    duree: "Présentiel — 14h (2 jours)",
   },
 ];
 
@@ -139,10 +140,10 @@ export default function FormationCoordinateurSSI() {
       <FaqJsonLd items={faqItems} />
       <CourseJsonLd
         name="Formation Coordinateur SSI"
-        description="Formation au pilotage du Système de Sécurité Incendie : architecture SSI, réglementation ERP/IGH, maintenance NF S 61-933, gestion des intervenants et des vérifications périodiques."
+        description="Formation Coordinateur SSI : CCF, matrice de corrélation, dossier d'identité SSI, coordination des installateurs, réception et exploitation du SSI. ERP/IGH. Qualiopi. 7 jours en présentiel."
         courseCode="COORD-SSI"
         url="/formation-coordinateur-ssi"
-        timeRequired="P5D"
+        timeRequired="P7D"
         educationalLevel="Advanced"
         audience="Responsables techniques, responsables sécurité, chefs de service maintenance, gestionnaires de patrimoine"
         educationalCredentialAwarded="Attestation de formation Prevensia — Coordinateur SSI"
@@ -244,8 +245,8 @@ export default function FormationCoordinateurSSI() {
             <div>
               <p className="leading-8 text-slate-700">
                 Dans les ERP, IGH et sites industriels, le SSI est un système complexe dont le
-                bon fonctionnement repose sur une supervision organisée. Entre les entreprises
-                de maintenance, les vérifications périodiques obligatoires, les travaux qui
+                bon fonctionnement repose sur une supervision organisée. Entre les installateurs
+                qui interviennent, les vérifications périodiques obligatoires, les travaux qui
                 modifient le système et les exigences des commissions de sécurité, un pilotage
                 structuré est indispensable.
               </p>
@@ -265,7 +266,7 @@ export default function FormationCoordinateurSSI() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 text-orange-600">✓</span>
-                  Coordination des contrats de maintenance
+                  Coordination des installateurs et corps d&apos;état intervenants sur le SSI
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-0.5 text-orange-600">✓</span>
@@ -405,8 +406,8 @@ export default function FormationCoordinateurSSI() {
               À ce jour, aucune réglementation française n&apos;impose une certification spécifique
               intitulée « Coordinateur SSI » (contrairement au SSIAP, régi par l&apos;arrêté du
               2 mai 2005). Le terme est utilisé dans les normes NF S 61-932 et NF S 61-933
-              pour désigner la personne responsable de la coordination des opérations de
-              maintenance du SSI.
+              pour désigner la personne chargée de coordonner les intervenants et de veiller
+              à la conformité et à la disponibilité du SSI — sans être elle-même prestataire de maintenance.
             </p>
             <p className="mt-4 leading-8 text-amber-800">
               En pratique, les commissions de sécurité, les bureaux de contrôle et les assureurs
