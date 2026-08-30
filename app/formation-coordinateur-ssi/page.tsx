@@ -27,9 +27,9 @@ export const metadata = {
 
 const faqItems = [
   {
-    question: "Le titre de Coordinateur SSI est-il réglementairement obligatoire ?",
+    question: "La mission de coordinateur SSI est-elle obligatoire ?",
     answer:
-      "Il n'existe pas, à ce jour, d'obligation réglementaire spécifique imposant une certification « Coordinateur SSI » comme c'est le cas pour le SSIAP. Cependant, la réglementation ERP (arrêté du 25 juin 1980), les règles IGH, le Code du travail et les normes NF S 61 imposent que les personnels chargés d'exploiter et de superviser un SSI soient compétents. La formation « Coordinateur SSI » répond à cette exigence de compétence documentée, en cohérence avec les recommandations du CNPP et des bureaux de contrôle.",
+      "Oui, pour les projets soumis à la réglementation ERP et IGH. L'arrêté du 25 juin 1980 modifié (articles MS 53 à MS 60) impose que la conception et la réalisation du SSI soient coordonnées par une personne compétente et indépendante des installateurs. L'arrêté du 30 décembre 2011 (IGH) reprend la même obligation pour tout projet de création, modification ou extension du SSI. Le recours à un coordinateur SSI est également requis par le Code de la construction et de l'habitation (articles R.143-38 à R.143-44). En dehors de l'ERP et de l'IGH, la mission est fortement recommandée pour tout bâtiment complexe, multi-corps d'état ou en réhabilitation.",
   },
   {
     question: "Quelle est la différence entre la formation Exploitation SSI et la formation Coordinateur SSI ?",
@@ -39,12 +39,12 @@ const faqItems = [
   {
     question: "À qui s'adresse la formation Coordinateur SSI ?",
     answer:
-      "La formation s'adresse aux responsables techniques, responsables sécurité, chefs de service maintenance, directeurs techniques et gestionnaires de patrimoine qui ont en charge la supervision globale du SSI d'un ou plusieurs établissements ERP, IGH, industriels ou logistiques.",
+      "La formation s'adresse aux professionnels qui souhaitent exercer ou approfondir la mission de coordinateur SSI : ingénieurs et techniciens de bureaux d'études SSI, agents de maîtrise et conducteurs de travaux en charge de projets SSI, SSIAP 3 souhaitant évoluer vers un rôle de conception et de coordination, architectes et maîtres d'œuvre intervenant sur des projets ERP ou IGH, ainsi que les responsables techniques de grandes structures souhaitant internaliser la coordination SSI de leurs projets.",
   },
   {
     question: "La formation couvre-t-elle la réglementation ERP et IGH ?",
     answer:
-      "Oui. La formation intègre les exigences réglementaires ERP (arrêté du 25 juin 1980 et ses modificatifs), IGH (arrêté du 30 décembre 2011), Code du travail, et les normes de la série NF S 61 (931, 932, 933) applicables aux SSI. Les obligations de vérification périodique, la relation avec les organismes de contrôle et la commission de sécurité sont abordées.",
+      "Oui. La formation intègre les exigences réglementaires ERP (arrêté du 25 juin 1980 modifié, articles MS 53 à MS 60), IGH (arrêté du 30 décembre 2011), CCH (R.143-38 à R.143-44), Code du travail, ICPE, et les normes NF S 61-931 (missions du CSSI) et NF S 61-932 (méthodologie d'ingénierie SSI). La relation avec les organismes de contrôle, les commissions de sécurité et le SDIS est abordée.",
   },
   {
     question: "Quelle est la durée de la formation ?",
@@ -69,7 +69,7 @@ const programme = [
   {
     titre: "Module 3 — Réglementation applicable",
     detail:
-      "Arrêté ERP du 25 juin 1980, arrêté IGH du 30 décembre 2011, Code du travail, ICPE. Normes NF S 61-931/932/933/970. Registre de sécurité, obligations documentaires, rôle des organismes de contrôle.",
+      "Arrêté ERP du 25 juin 1980 (MS 53 à MS 60), arrêté IGH du 30 décembre 2011, CCH (R.143-38 à R.143-44), Code du travail, ICPE. Normes NF S 61-931 (missions CSSI) et NF S 61-932 (ingénierie SSI). Rôle des organismes de contrôle, commissions de sécurité, SDIS.",
     duree: "E-learning — 2h30",
   },
   {
@@ -123,7 +123,7 @@ const tarifs = [
     format: "E-learning préparatoire",
     prix: "Inclus avec la formation",
     detail:
-      "Le module e-learning Coordinateur SSI est inclus gratuitement pour tous les participants inscrits en session présentielle. Il couvre les fondamentaux (NF S 61-931/932/933/970, réglementation ERP/IGH/ICPE) avant les 7 jours de mise en pratique.",
+      "Le module e-learning Coordinateur SSI est inclus gratuitement pour tous les participants inscrits en session présentielle. Il couvre les fondamentaux (NF S 61-931/932, réglementation ERP/IGH/ICPE, CCF, matrice de corrélation) avant les 7 jours de mise en pratique.",
     badge: null,
   },
 ];
@@ -159,7 +159,7 @@ export default function FormationCoordinateurSSI() {
           </nav>
 
           <p className="inline-flex rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-orange-300">
-            Principalement en salle · NF S 61-931 / 932 / 933 / 970 · ERP · IGH · ICPE
+            Principalement en salle · NF S 61-931 / 932 · ERP · IGH · ICPE
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -168,18 +168,17 @@ export default function FormationCoordinateurSSI() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Formation au pilotage du Système de Sécurité Incendie — <strong className="text-white">dispensée principalement en salle</strong>,
-            avec des cas pratiques sur dossiers réels. Réglementations ERP (arrêté 25 juin 1980),
-            IGH, ICPE, Code du travail, normes NF S 61-931 / 932 / 933 / 970.
+            Formation à la <strong className="text-white">conception et à la coordination</strong> d&apos;un Système de Sécurité Incendie —
+            dispensée principalement en salle, sur dossiers réels. Cadre réglementaire ERP (arrêté du 25 juin 1980, MS 53 à MS 60),
+            IGH (arrêté du 30 décembre 2011), CCH, Code du travail, normes NF S 61-931 et NF S 61-932.
             E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif.
           </p>
 
-          <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-2 text-sm text-amber-300">
+          <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-500/40 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
             <span className="font-semibold">ℹ</span>
             <span>
-              Aucune obligation réglementaire spécifique n&apos;impose ce titre à ce jour —
-              la formation répond néanmoins à une exigence de compétence documentée reconnue
-              par les commissions de sécurité et les bureaux de contrôle.
+              La mission de coordinateur SSI est <strong>obligatoire</strong> pour tout projet de création, modification ou extension d&apos;un SSI en ERP (art. MS 53 à MS 60) et en IGH (arrêté du 30 décembre 2011).
+              Elle est également recommandée pour tout bâtiment complexe, multi-corps d&apos;état ou en réhabilitation.
             </span>
           </div>
 
@@ -199,9 +198,9 @@ export default function FormationCoordinateurSSI() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
-            <span>✓ NF S 61-931 / 932 / 933 / 970</span>
-            <span>✓ ERP / IGH / IMH / ICPE / Habitation</span>
-            <span>✓ Arrêté 25/06/1980 · CCH · Code du travail</span>
+            <span>✓ NF S 61-931 / 932</span>
+            <span>✓ ERP (MS 53-60) / IGH / ICPE</span>
+            <span>✓ Arrêté 25/06/1980 · Arrêté 30/12/2011 · CCH</span>
             <span>✓ E-learning préparatoire inclus</span>
             <span>✓ Cas pratiques sur dossiers réels</span>
             <span>✓ Qualiopi</span>

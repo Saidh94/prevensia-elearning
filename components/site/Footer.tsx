@@ -92,11 +92,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/formation-sprinkler" className="hover:text-white">
-                  Exploitation sprinkler
-                </Link>
-              </li>
-              <li>
                 <Link href="/formation-atex" className="hover:text-white">
                   ATEX — Atmosphères explosives
                 </Link>
