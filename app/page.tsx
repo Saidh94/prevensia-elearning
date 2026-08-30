@@ -75,6 +75,15 @@ const formations = [
     image: "/elearning/commun/atex-accueil.png",
     imageClass: "object-cover object-center",
   },
+  {
+    title: "Coordinateur SSI",
+    href: "/formation-coordinateur-ssi",
+    badge: "NF S 61-931",
+    description:
+      "Piloter un SSI en ERP, IGH ou site industriel : rédaction du CCF, matrice de corrélation ZDA/ZDM × DAS, coordination des installateurs, constitution du Dossier d'Identité SSI. E-learning + 7 jours de présentiel sur dossiers réels.",
+    image: "/elearning/commun/coordinateur-ssi-accueil.png",
+    imageClass: "object-cover object-center",
+  },
 ];
 
 const testimonials = [
