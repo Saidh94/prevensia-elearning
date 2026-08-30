@@ -490,17 +490,17 @@ const formations = [
     audience:
       "Responsables techniques, responsables sécurité, chefs de service maintenance, gestionnaires de patrimoine ayant la charge de la supervision globale du SSI.",
     description:
-      "Parcours complet pour former le Coordinateur SSI de votre établissement : rôle et responsabilités, architecture des SSI (NF S 61-931), réglementation ERP/IGH, maintenance NF S 61-933, gestion des intervenants et des situations dégradées. E-learning préparatoire + 7 jours de présentiel sur dossiers réels.",
+      "Parcours complet pour former le Coordinateur SSI de votre établissement : rôle et responsabilités, architecture des SSI (NF S 61-931), réglementation ERP/IGH, rédaction du CCF et de la matrice de corrélation, coordination des installateurs, constitution du Dossier d'Identité SSI. E-learning préparatoire + 7 jours de présentiel sur dossiers réels.",
     objectifs: [
       "Maîtriser le rôle et les responsabilités du Coordinateur SSI",
       "Appliquer la réglementation ERP, IGH et Code du travail applicable au SSI",
-      "Organiser la maintenance et les vérifications selon NF S 61-933",
+      "Rédiger le CCF, construire la matrice de corrélation et constituer le Dossier d'Identité SSI",
     ],
     programme: [
       "Rôle et responsabilités du Coordinateur SSI",
       "Architecture et fonctionnement des SSI (SDI, CMSI, UGA, DAS)",
       "Réglementation ERP, IGH, Code du travail, ICPE",
-      "Maintenance et vérifications périodiques — NF S 61-933",
+      "CCF et matrice de corrélation (ZDA/ZDM × DAS)",
       "Coordination des intervenants et gestion des travaux",
       "Situations dégradées et gestion de crise",
     ],
