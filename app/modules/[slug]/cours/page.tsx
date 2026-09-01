@@ -112,7 +112,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre le périmètre de l’habilitation, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
     minSeconds: 240,
-    image: "/elearning/h0b0/h0b0-perimetre.svg",
+    image: "/elearning/h0b0/risque-electrique.png",
     imageAlt: "Périmètre H0B0 : ce qui est autorisé vs interdit",
     highlights: [
       "Le B0, le H0 et le H0V concernent exclusivement des opérations d’ordre non électrique.",
@@ -149,7 +149,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre précisément ce que signifient B, H, 0 et V, et ce qu’un symbole n’autorise jamais",
     minSeconds: 210,
-    image: "/elearning/h0b0/h0b0-symboles.svg",
+    image: "/elearning/h0b0/symboles-habilitation.png",
     imageAlt: "Symboles B0, H0 et H0V — lecture du titre d’habilitation",
     highlights: [
       "B = basse tension, H = haute tension.",
@@ -187,7 +187,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Identifier qui fait quoi dans la prévention du risque électrique et comprendre la chaîne de responsabilité",
     minSeconds: 180,
-    image: "/elearning/h0b0/h0b0-roles.svg",
+    image: "/elearning/h0b0/roles-responsabilites.png",
     imageAlt:
       "Organigramme des rôles et responsabilités — employeur, encadrement, salarié H0B0, formateur",
     highlights: [
@@ -223,7 +223,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Distinguer BT et HT en alternatif et en continu, et comprendre les conséquences pratiques sur le niveau de danger",
     minSeconds: 240,
-    image: "/elearning/h0b0/h0b0-domaines-tension.svg",
+    image: "/elearning/h0b0/courant-alternatif-continu.png",
     imageAlt:
       "Tableau comparatif des domaines de tension NF C 18-510 — TBT, BT et HT en courant alternatif et continu",
     highlights: [
@@ -335,7 +335,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre que la sécurité ne repose pas seulement sur la mémoire du cours, mais aussi sur les consignes et dispositifs du site",
     minSeconds: 240,
-    image: "/elearning/h0b0/h0b0-consignes.svg",
+    image: "/elearning/h0b0/signalisation-electrique.png",
     imageAlt:
       "Signalisation, consignes et documents applicables en environnement H0B0",
     highlights: [
@@ -372,7 +372,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Reconnaître les contextes où le risque varie selon le lieu, l’activité, l’humidité, l’état des matériels et l’organisation",
     minSeconds: 210,
-    image: "/elearning/h0b0/h0b0-environnements.svg",
+    image: "/elearning/h0b0/environnement-travail.png",
     imageAlt: "Types d’environnements électriques et niveaux de risque H0B0",
     highlights: [
       "Le niveau de risque dépend aussi du contexte de travail.",
@@ -439,7 +439,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Différencier les principaux mécanismes d’exposition et comprendre pourquoi un matériel apparemment banal peut devenir dangereux",
     minSeconds: 180,
-    image: "/elearning/h0b0/h0b0-contacts.svg",
+    image: "/elearning/h0b0/armoire-electrique.png",
     imageAlt: "Contact direct et contact indirect — mécanismes d'exposition électrique",
     highlights: [
       "Le contact direct concerne une partie active normalement sous tension.",
@@ -471,7 +471,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre comment l’intensité, la durée de passage et le trajet du courant conditionnent la gravité des effets",
     minSeconds: 210,
-    image: "/elearning/h0b0/h0b0-intensite.svg",
+    image: "/elearning/h0b0/intensites-effets.png",
     imageAlt: "Échelle intensité courant et effets sur le corps humain — 0,5 mA à 75 mA",
     highlights: [
       "Les effets dépendent de l’intensité, de la durée et du trajet du courant.",
@@ -502,7 +502,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Distinguer le passage du courant dans le corps et l’issue mortelle, et comprendre pourquoi toute électrisation est grave",
     minSeconds: 150,
-    image: "/elearning/h0b0/h0b0-electrisation.svg",
+    image: "/elearning/h0b0/electrisation-electrocution.png",
     imageAlt:
       "Distinction électrisation / électrocution — mécanismes, facteurs aggravants et réaction attendue",
     highlights: [
@@ -531,7 +531,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre l’influence de l’état du corps, du milieu et de l’humidité sur le niveau réel de danger",
     minSeconds: 180,
-    image: "/elearning/h0b0/h0b0-resistance-corps.svg",
+    image: "/elearning/h0b0/milieu-sec-humide.png",
     imageAlt:
       "Tableau résistance du corps humain — peau sèche / humide / mouillée avec tensions limites et courants résultants",
     highlights: [
@@ -564,7 +564,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Reconnaître rapidement un matériel dangereux et adopter la bonne réaction sans bricolage ni improvisation",
     minSeconds: 180,
-    image: "/elearning/h0b0/h0b0-materiel-defectueux.svg",
+    image: "/elearning/h0b0/materiel-defectueux.png",
     imageAlt:
       "6 signaux d'alerte matériels défectueux — gaine abîmée, échauffement, étincelles, déclenchements répétés",
     highlights: [
@@ -599,7 +599,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Identifier les protections qui réduisent le risque et comprendre leur hiérarchie dans la prévention",
     minSeconds: 180,
-    image: "/elearning/h0b0/h0b0-epi-epc.svg",
+    image: "/elearning/h0b0/epi-epc.png",
     imageAlt:
       "Hiérarchie EPC / EPI — protections collectives prioritaires, EPI en complément, règles H0B0",
     highlights: [
@@ -629,7 +629,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Savoir précisément ce qu’un titulaire B0 / H0 / H0V peut faire, ne peut pas faire, et doit immédiatement signaler",
     minSeconds: 240,
-    image: "/elearning/h0b0/h0b0-comportements.svg",
+    image: "/elearning/h0b0/autorise-interdit.png",
     imageAlt:
       "Tableau comportements autorisés et interdits H0/B0/H0V — ce qui est dans le périmètre et ce qui ne l'est jamais",
     highlights: [
@@ -734,7 +734,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Consolider les réflexes essentiels avant l’évaluation finale et fixer les règles à retenir durablement",
     minSeconds: 180,
-    image: "/elearning/h0b0/h0b0-synthese.svg",
+    image: "/elearning/h0b0/reflexes-h0b0.png",
     imageAlt: "Synthèse opérationnelle B0/H0/H0V — 4 réflexes fondamentaux",
     highlights: [
       "L’habilitation est délivrée par l’employeur, pas par la formation seule.",
