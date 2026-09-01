@@ -31,6 +31,15 @@ const formations = [
     imageClass: "object-cover object-center",
   },
   {
+    title: "Formation SST",
+    href: "/formation-sst",
+    badge: "Secourisme · INRS",
+    description:
+      "SST initial et MAC SST — former vos salariés aux gestes de premiers secours et satisfaire l'obligation réglementaire (R.4224-15).",
+    image: "/elearning/commun/sst-accueil.png",
+    imageClass: "object-cover object-center",
+  },
+  {
     title: "Sécurité incendie",
     href: "/formation-securite-incendie",
     badge: "Extincteurs · EPI",
@@ -42,37 +51,28 @@ const formations = [
   {
     title: "Formation SSI",
     href: "/formation-ssi",
-    badge: "NF S 61",
+    badge: "NF S 61-933",
     description:
       "Exploitation du SSI, logiques SDI / CMSI / UGA / DAS et conduite à tenir en cas d'alarme.",
     image: "/elearning/commun/ssi-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
-    title: "Exploitation sprinkler",
-    href: "/formation-sprinkler",
-    badge: "APSAD · NFPA · FM",
-    description:
-      "Formation sur l'exploitation des installations sprinkler et les principaux référentiels techniques.",
-    image: "/elearning/commun/sprinkler-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Formation SST",
-    href: "/formation-sst",
-    badge: "Secourisme",
-    description:
-      "SST initial et MAC SST pour les entreprises et les apprenants souhaitant se former aux premiers secours.",
-    image: "/elearning/commun/sst-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Formation et Sensibilisation ATEX",
+    title: "Formation ATEX",
     href: "/formation-atex",
     badge: "Directive 99/92/CE",
     description:
-      "Prévention du risque d'explosion en zone ATEX — 3 niveaux : NIV 0 Sensibilisation, NIV 1 Intervenant, NIV 2 Encadrant. Zonage, équipements certifiés Ex, EPI antistatiques, procédures. Conforme directive 99/92/CE.",
+      "3 niveaux : Sensibilisation (N0), Intervenant en zone (N1), Encadrement et coordination (N2). Zonage, équipements Ex, procédures sécurité.",
     image: "/elearning/commun/atex-accueil.png",
+    imageClass: "object-cover object-center",
+  },
+  {
+    title: "Exploitation sprinkler",
+    href: "/formation-sprinkler",
+    badge: "APSAD R1 · EN 12845",
+    description:
+      "Exploitation des installations sprinkler : référentiels APSAD R1, EN 12845 et NFPA 13. Pour exploitants et responsables techniques.",
+    image: "/elearning/commun/sprinkler-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
@@ -80,7 +80,7 @@ const formations = [
     href: "/formation-coordinateur-ssi",
     badge: "NF S 61-931",
     description:
-      "Piloter un SSI en ERP, IGH ou site industriel : rédaction du CCF, matrice de corrélation ZDA/ZDM × DAS, coordination des installateurs, constitution du Dossier d'Identité SSI. E-learning + 7 jours de présentiel sur dossiers réels.",
+      "Piloter un SSI en ERP ou IGH : CCF, matrice DAS, coordination installateurs, Dossier d'Identité SSI. 7 jours de présentiel sur dossiers réels.",
     image: "/elearning/commun/coordinateur-ssi-accueil.png",
     imageClass: "object-cover object-center",
   },
@@ -476,12 +476,13 @@ export default function Home() {
 
               <details className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-md">
                 <summary className="cursor-pointer list-none text-base font-semibold text-slate-900">
-                  Est-ce finançable par l’OPCO ou Pôle emploi ?
+                  Est-ce finançable par l’OPCO ou France Travail ?
                   <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
                 </summary>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   Prevensia étant certifié Qualiopi, nos formations sont éligibles aux
-                  dispositifs de financement par OPCO et France Travail. Nous fournissons
+                  dispositifs de financement (OPCO, France Travail) selon votre situation,
+                  votre OPCO de rattachement et les dispositifs mobilisables. Nous fournissons
                   les documents justificatifs nécessaires sur demande lors du devis.
                 </p>
               </details>

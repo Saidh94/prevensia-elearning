@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { COMPANY } from "@/lib/company";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -168,8 +169,16 @@ export function Footer() {
             <p className="mt-6 text-xs leading-5 text-slate-500">
               PREVENSIA FORMATION est une marque du<br />
               <span className="font-medium text-slate-300">PREVENSIA Groupe SAS</span><br />
-              33, avenue Philippe Auguste — 75011 Paris
+              {COMPANY.addressFull}
             </p>
+            <p className="mt-3 text-xs leading-5 text-slate-500">
+              SIRET : {COMPANY.siret}
+            </p>
+            {COMPANY.nda && (
+              <p className="mt-1 text-xs leading-5 text-slate-500">
+                N° déclaration d&apos;activité : {COMPANY.nda}
+              </p>
+            )}
           </div>
         </div>
 
