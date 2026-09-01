@@ -107,7 +107,7 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.bsbe, VIDEO.symboles],
       practicalCase:
         "Exemple : un agent multi-technique sait remplacer une prise simple hors tension. Sur place, il découvre un coffret mal repéré et un câblage ancien. L’opération doit être stoppée : le cadre BS n’autorise pas une recherche de panne ni une adaptation improvisée.",
-      chapterImagePath: "/elearning/bsbe/bsbe-cadre.svg",
+      chapterImagePath: "/elearning/bsbe/signalétiques.jpg",
       chapterImageAlt:
         "Cadre BS et BE Manœuvre : formation, évaluation, validation et habilitation par l’employeur",
       visual: {
@@ -196,7 +196,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 5.4 — énergies résiduelles et sources autonomes : VAT obligatoire avant intervention BS",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/bsbe-bases.svg",
+      chapterImagePath: "/elearning/bsbe/cours-electrique.jpg",
       chapterImageAlt:
         "Bases électriques utiles au BS et au BE Manœuvre",
       visual: {
@@ -367,7 +367,7 @@ export const bsbeModuleContent: ModuleContent = {
       resourceVideos: [VIDEO.chocElectrique],
       practicalCase:
         "Exemple : lors d’un remplacement simple, un opérateur ressent une décharge en retirant un accessoire endommagé. L’action est interrompue, la situation est signalée et l’équipement n’est pas réutilisé.",
-      chapterImagePath: "/elearning/bsbe/bsbe-effets.svg",
+      chapterImagePath: "/elearning/bsbe/intervention-sous-tension.jpg",
       chapterImageAlt:
         "Effets du courant électrique sur le corps humain selon l’intensité et le temps de contact",
       visual: {
@@ -659,7 +659,7 @@ export const bsbeModuleContent: ModuleContent = {
           "Classe III : TBTS ≤ 50 V AC / 120 V DC",
         ],
       },
-      chapterImagePath: "/elearning/bsbe/bsbe-ip.svg",
+      chapterImagePath: "/elearning/bsbe/appareil-défectueux.jpg",
       chapterImageAlt: "Structure de l'indice de protection IP — premier chiffre corps solides, second chiffre liquides",
     },
 
@@ -844,7 +844,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 5.4 — sources multiples et VAT : toute source d'alimentation doit être identifiée et coupée",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/bsbe-vat.svg",
+      chapterImagePath: "/elearning/bsbe/un-vat.jpg",
       chapterImageAlt:
         "Mise hors tension pour son propre compte, VAT et documents en BS",
       visual: {
@@ -1079,7 +1079,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 5.4 — prévention de la remise sous tension et condamnation dans le cadre d'une intervention BS",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/bsbe-limites.svg",
+      chapterImagePath: "/elearning/bsbe/voisinage-exterieur.jpg",
       chapterImageAlt:
         "Types d’opérations électriques et limites entre opération simple, manœuvre et intervention hors cadre",
       visual: {
@@ -1155,7 +1155,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 9 et § 4.6 — EPI et EPC en environnement humide",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/bsbe-epi.svg",
+      chapterImagePath: "/elearning/bsbe/epi-intervention.jpg",
       chapterImageAlt:
         "EPI d'intervention en environnement électrique et hiérarchie des protections",
       visual: {
@@ -1217,7 +1217,7 @@ export const bsbeModuleContent: ModuleContent = {
       ],
       practicalCase:
         "Exemple : un opérateur doit réaliser un remplacement simple prévu par une procédure. Sur place, le repérage du circuit ne correspond pas au tableau et l’équipement présente une trace d’échauffement. Même si le geste paraît facile, l’opération doit être suspendue : le cadre BS n’est plus suffisamment maîtrisé.",
-      chapterImagePath: "/elearning/bsbe/synthese-pedagogique.svg",
+      chapterImagePath: "/elearning/bsbe/pratique-terrain2.jpg",
       chapterImageAlt:
         "Synthèse pédagogique BS et BE Manœuvre : comprendre le cadre, vérifier les limites, refuser l’improvisation et transmettre.",
       visual: {
@@ -1326,7 +1326,7 @@ export const bsbeModuleContent: ModuleContent = {
           normRef: "NF C 18-510 § 10 — conduite à tenir en cas d'incident électrique",
         },
       ],
-      chapterImagePath: "/elearning/bsbe/bsbe-urgence.svg",
+      chapterImagePath: "/elearning/bsbe/outils-électricien.jpg",
       chapterImageAlt:
         "Armoire électrique présentant un danger et imposant arrêt, protection et alerte",
       visual: {

@@ -52,6 +52,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "intro",
       title: "1. Cadre du H0B0 et logique de l’habilitation",
+      chapterImagePath: "/elearning/h0b0/risque-electrique.png",
+      chapterImageAlt: "Environnement de travail avec risque électrique — cadre du H0B0",
       intro:
         "Le H0B0 n’est pas une habilitation d’électricien. Il concerne des opérations d’ordre non électrique réalisées dans un environnement où existe un risque électrique.",
       content: [
@@ -92,6 +94,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "symbols",
       title: "2. Symboles d’habilitation électrique",
+      chapterImagePath: "/elearning/h0b0/symboles-habilitation.png",
+      chapterImageAlt: "Symboles d'habilitation électrique H0, B0, H0V — lecture du titre",
       intro:
         "Les symboles d’habilitation traduisent le domaine de tension, la nature des opérations et certaines conditions particulières de voisinage.",
       content: [
@@ -130,6 +134,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "roles",
       title: "3. Rôles et responsabilités",
+      chapterImagePath: "/elearning/h0b0/roles-responsabilites.png",
+      chapterImageAlt: "Répartition des rôles et responsabilités en habilitation électrique",
       intro:
         "L’employeur, le salarié, le formateur et l’encadrement ont chacun un rôle précis dans la prévention du risque électrique.",
       content: [
@@ -180,6 +186,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "voltage-domains",
       title: "4. Domaines de tension en BT et HT",
+      chapterImagePath: "/elearning/h0b0/courant-alternatif-continu.png",
+      chapterImageAlt: "Domaines de tension BT et HT — courant alternatif et continu",
       intro:
         "La distinction entre BT et HT structure l’analyse du risque et conditionne les distances, les accès et les mesures de prévention.",
       content: [
@@ -228,6 +236,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "zones",
       title: "5. Zones d’environnement électrique et distances d’approche",
+      chapterImagePath: "/elearning/h0b0/zones-approche.png",
+      chapterImageAlt: "Zones d'environnement électrique et distances d'approche",
       intro:
         "Les zones d’environnement électrique et les distances d’approche servent à prévenir le risque avant même le contact avec l’installation.",
    content: [
@@ -299,6 +309,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "access",
       title: "6. Accès aux locaux et zones électriques",
+      chapterImagePath: "/elearning/h0b0/armoire-electrique.png",
+      chapterImageAlt: "Accès réglementé aux locaux et armoires électriques",
       intro:
         "L’accès à un local ou à une zone électrique n’est jamais banal et suppose le respect strict des restrictions et de la signalisation.",
       content: [
@@ -348,6 +360,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "environments",
       title: "7. Types d’environnements électriques",
+      chapterImagePath: "/elearning/h0b0/environnement-travail.png",
+      chapterImageAlt: "Types d'environnements de travail présentant un risque électrique",
       intro:
         "Le niveau de risque dépend aussi du contexte de travail : local technique, atelier, chantier, zone humide, installation provisoire ou environnement logistique.",
       content: [
@@ -387,6 +401,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "contacts",
       title: "8. Contacts directs et indirects",
+      chapterImagePath: "/elearning/h0b0/outillage-risque.png",
+      chapterImageAlt: "Contacts directs et indirects — risques électriques en milieu de travail",
       intro:
         "Le risque électrique ne se manifeste pas seulement lorsqu’on touche un fil. Il faut distinguer clairement contact direct et contact indirect.",
       content: [
@@ -426,6 +442,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "current-effects",
       title: "9. Intensité du courant, durée d’exposition et dommages",
+      chapterImagePath: "/elearning/h0b0/intensites-effets.png",
+      chapterImageAlt: "Effets du courant électrique selon l'intensité et la durée d'exposition",
       intro:
         "La gravité d’un accident électrique ne dépend pas uniquement de la tension affichée. L’intensité du courant, la durée de passage et le trajet dans le corps sont déterminants.",
       content: [
@@ -483,6 +501,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "electrisation",
       title: "10. Électrisation et électrocution",
+      chapterImagePath: "/elearning/h0b0/conduite-tenir.png",
+      chapterImageAlt: "Électrisation et conduite à tenir face à un accident électrique",
       intro:
         "Ces deux termes ne sont pas synonymes. Il faut les distinguer clairement, car toute électrisation doit être considérée comme un événement potentiellement grave.",
       content: [
@@ -536,6 +556,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "body-resistance",
       title: "11. Résistance du corps humain, peau sèche ou humide",
+      chapterImagePath: "/elearning/h0b0/milieu-sec-humide.png",
+      chapterImageAlt: "Résistance du corps humain — influence du milieu sec ou humide",
       intro:
         "La résistance du corps humain n’est pas fixe. Elle varie selon l’état de la peau, l’humidité, la surface de contact, le milieu et les conditions d’exposition.",
       content: [
@@ -595,6 +617,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "equipment",
       title: "12. Matériels, câbles et équipements défectueux",
+      chapterImagePath: "/elearning/h0b0/materiel-defectueux.png",
+      chapterImageAlt: "Matériels, câbles et équipements électriques défectueux à repérer",
       intro:
         "Un matériel électrique défectueux peut devenir dangereux immédiatement, même s’il semble encore fonctionner normalement.",
       content: [
@@ -649,6 +673,8 @@ export const modulesContent: Record<string, ModuleContent> = {
    {
   id: "epi-epc",
   title: "13. Équipements de protection collective et individuelle",
+  chapterImagePath: "/elearning/h0b0/epi-epc.png",
+  chapterImageAlt: "Équipements de protection collective et individuelle en environnement H0B0",
   intro:
     "La protection contre le risque électrique repose d'abord sur des protections collectives. Les EPI viennent en complément, jamais en remplacement.",
   content: [
@@ -698,6 +724,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "authorized-forbidden",
       title: "14. Comportements autorisés et interdits",
+      chapterImagePath: "/elearning/h0b0/autorise-interdit.png",
+      chapterImageAlt: "Comportements autorisés et interdits pour le titulaire H0B0",
       intro:
         "Le cœur du H0B0 est comportemental : rester dans ses limites, observer, ne pas improviser et alerter.",
       content: [
@@ -746,6 +774,8 @@ export const modulesContent: Record<string, ModuleContent> = {
  {
   id: "conduct",
   title: "15. Conduite à tenir en cas d'accident électrique",
+  chapterImagePath: "/elearning/h0b0/signalisation-electrique.png",
+  chapterImageAlt: "Conduite à tenir en cas d'accident électrique — protéger, alerter, ne pas improviser",
   intro:
     "Face à un accident électrique, la priorité est de protéger sans devenir une seconde victime. Le titulaire H0B0 ne se substitue pas aux secours : il sécurise, alerte et applique les gestes formés.",
   content: [
@@ -815,6 +845,8 @@ export const modulesContent: Record<string, ModuleContent> = {
     {
       id: "summary",
       title: "16. Synthèse opérationnelle",
+      chapterImagePath: "/elearning/h0b0/reflexes-h0b0.png",
+      chapterImageAlt: "Synthèse opérationnelle H0B0 — réflexes fondamentaux",
       intro:
         "Cette synthèse reprend l’ensemble des notions essentielles du parcours H0B0 sous une forme directement exploitable sur le terrain.",
       content: [
