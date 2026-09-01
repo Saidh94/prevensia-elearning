@@ -128,7 +128,7 @@ export default function FormationSST() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
-            <span>✓ Certifié INRS</span>
+            <span>✓ Formateurs certifiés INRS</span>
             <span>✓ SST initial 14h</span>
             <span>✓ MAC SST 7h</span>
             <span>✓ Intra-entreprise France entière</span>

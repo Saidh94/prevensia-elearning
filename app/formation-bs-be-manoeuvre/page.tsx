@@ -39,6 +39,11 @@ const faqItems = [
       "BS concerne les interventions élémentaires (remplacement de fusibles, lampes, prises) réalisées sans risque d'arc ou d'explosion. BE Manœuvre concerne les manœuvres d'exploitation sur des installations basse tension : ouverture et fermeture de disjoncteurs, sectionneurs, contacteurs dans le cadre de l'exploitation normale.",
   },
   {
+    question: "Quelles sont les variantes du symbole BE ?",
+    answer:
+      "La norme NF C 18-510 définit plusieurs types d'habilitation BE selon la nature des opérations spécifiques réalisées : BE Manœuvre (manœuvres d'exploitation), BE Mesurage (mesurages électriques : tension, courant, résistance d'isolement), BE Vérification (vérifications initiales ou périodiques d'installations), BE Essai (essais et mise en service). Chaque variante est adaptée à un public précis — techniciens instrumentistes pour le mesurage, vérificateurs pour les vérifications, ingénieurs de mise en service pour les essais. Le titre d'habilitation mentionne explicitement la ou les variantes autorisées.",
+  },
+  {
     question: "La formation BS / BE Manœuvre est-elle disponible en e-learning ?",
     answer:
       "Oui. PREVENSIA FORMATION propose un parcours e-learning pour la préparation théorique, complété par une classe virtuelle pour les mises en situation et la validation. Attention : l'e-learning et le quiz ne délivrent pas d'habilitation. L'habilitation BS / BE Manœuvre est délivrée exclusivement par l'employeur, après formation complète et vérification de l'adéquation au poste.",
@@ -57,10 +62,11 @@ const faqItems = [
 
 const programme = [
   { titre: "Rappels H0B0 et domaines de tension", contenu: "Zones, distances, voisinage, contacts directs et indirects." },
-  { titre: "Définition des interventions élémentaires (BS)", contenu: "Remplacement fusibles, lampes, prises. Limites d'application." },
-  { titre: "Manœuvres d'exploitation (BE Manœuvre)", contenu: "Nature des manœuvres autorisées, appareillage BT, organes de coupure." },
-  { titre: "Équipements de protection", contenu: "EPC et EPI requis, VAT, outillage isolant." },
-  { titre: "Consignation partielle et mise hors tension", contenu: "Vérification d'absence de tension, cadenas, condamnation." },
+  { titre: "Définition des interventions élémentaires (BS)", contenu: "Remplacement fusibles, lampes, prises. Limites d'application. Distinction BS ≠ BR." },
+  { titre: "Manœuvres d'exploitation (BE Manœuvre)", contenu: "Nature des manœuvres autorisées, appareillage BT, organes de coupure (disjoncteurs, sectionneurs, contacteurs)." },
+  { titre: "Opérations spécifiques (BE Mesurage / Vérification / Essai)", contenu: "BE Mesurage : mesures de tension, courant, isolement. BE Vérification : contrôles réglementaires. BE Essai : mise en service, essais fonctionnels. Instruments et sécurisation de la zone." },
+  { titre: "Équipements de protection", contenu: "EPC et EPI requis, VAT, outillage isolant, gants isolants, écran facial." },
+  { titre: "Consignation partielle et mise hors tension", contenu: "Vérification d'absence de tension, cadenas, condamnation, balises." },
   { titre: "Conduite à tenir en cas d'incident", contenu: "Protéger, alerter, ne pas improviser, signalement systématique." },
 ];
 
