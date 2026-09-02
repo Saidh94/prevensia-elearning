@@ -38,7 +38,7 @@ const faqItems = [
   {
     question: "L'employeur peut-il délivrer l'habilitation sans formation ?",
     answer:
-      "Non. La NF C 18-510 et le Code du travail (R.4544-10) imposent que l'employeur s'assure que le salarié a bien reçu une formation adéquate avant de lui délivrer un titre d'habilitation. La formation par un organisme certifié Qualiopi constitue la preuve de cette formation.",
+      "Non. La NF C 18-510 et le Code du travail (R.4544-10) imposent que l'employeur s'assure que le salarié a bien reçu une formation adéquate avant de lui délivrer un titre d'habilitation. La formation par un organisme de formation déclaré constitue la preuve de cette formation.",
   },
 ];
 

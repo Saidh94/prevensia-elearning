@@ -6,7 +6,7 @@ import { COMPANY } from "@/lib/company";
 export const metadata = {
   title: "Qui sommes-nous — PREVENSIA FORMATION, organisme Qualiopi | Paris",
   description:
-    "PREVENSIA FORMATION est un organisme de formation certifié Qualiopi, basé à Paris. Habilitation électrique NF C 18-510, SST, SSIAP1, sécurité incendie, SSI, sprinkler, ATEX.",
+    "PREVENSIA FORMATION est un organisme de formation basé à Paris, en démarche Qualiopi. Habilitation électrique NF C 18-510, SST, sécurité incendie, SSI, sprinkler, ATEX.",
   alternates: {
     canonical: "https://prevensia-formation.fr/qui-sommes-nous",
   },

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | PREVENSIA FORMATION",
   },
   description:
-    "Organisme de formation Qualiopi certifié — habilitation électrique H0B0, BS/BE, B1, B2, BR, BC conforme NF C 18-510. SST, sécurité incendie, SSI, sprinkler. Présentiel, visio et e-learning. Île-de-France et intra-entreprise France entière.",
+    "Organisme de formation — habilitation électrique H0B0, BS/BE, B1, B2, BR, BC conforme NF C 18-510. SST, sécurité incendie, SSI, sprinkler. Présentiel, visio et e-learning. Île-de-France et intra-entreprise France entière.",
   keywords: [
     "habilitation électrique",
     "formation H0B0",
@@ -97,12 +97,8 @@ const organizationJsonLd = {
   currenciesAccepted: "EUR",
   paymentAccepted: "Carte bancaire, virement, OPCO",
   description:
-    "Organisme de formation Qualiopi certifié, spécialisé en habilitation électrique (H0B0, BS/BE, B1, B2, BR, BC), sécurité incendie, SSI, sprinkler et SST. Formations en présentiel, visio et e-learning.",
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "Certification Qualiopi",
-    name: "Qualiopi — Certification qualité des organismes de formation",
-  },
+    "Organisme de formation spécialisé en habilitation électrique (H0B0, BS/BE, B1, B2, BR, BC), sécurité incendie, SSI, sprinkler et SST. Formations en présentiel, visio et e-learning.",
+  hasCredential: undefined,
   sameAs: [
     "https://www.linkedin.com/in/prevensia-formation-3450a0385/",
     "https://prevensia-formation.fr",

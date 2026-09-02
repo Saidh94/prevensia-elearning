@@ -42,7 +42,7 @@ const THEMES_GBP = [
   },
   {
     formation: "Qualiopi & financement OPCO",
-    title: "Formations certifiées Qualiopi — PREVENSIA",
+    title: "Démarche qualité & financement — PREVENSIA",
     cta_text: "Voir les formations",
     cta_url: "https://prevensia-formation.fr",
     prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la démarche qualité et le financement OPCO possible (selon critères du financeur) des formations sécurité. Explique comment un employeur peut faire financer la formation de ses salariés via son OPCO. Mentionne le dispositif FNE-Formation. Termine par 3 hashtags.",

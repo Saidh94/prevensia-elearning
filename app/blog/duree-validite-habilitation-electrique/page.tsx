@@ -38,7 +38,7 @@ const faqItems = [
   {
     question: "Faut-il une formation avant chaque renouvellement d'habilitation ?",
     answer:
-      "Oui. Le recyclage passe par une formation de remise à niveau (théorique et/ou pratique selon les symboles) chez un organisme certifié Qualiopi, suivie du renouvellement du titre par l'employeur. Un simple examen interne sans formation n'est pas conforme.",
+      "Oui. Le recyclage passe par une formation de remise à niveau (théorique et/ou pratique selon les symboles) chez un organisme de formation déclaré, suivie du renouvellement du titre par l'employeur. Un simple examen interne sans formation n'est pas conforme.",
   },
   {
     question: "Le changement de poste oblige-t-il à reformer le salarié ?",

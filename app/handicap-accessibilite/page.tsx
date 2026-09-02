@@ -22,7 +22,7 @@ export default function HandicapAccessibilitePage() {
         <p>
           PREVENSIA FORMATION s&apos;engage à rendre ses formations accessibles à toute personne en
           situation de handicap (PSH), conformément aux dispositions de la loi n° 2005-102 du
-          11 février 2005 et aux exigences de la certification Qualiopi.
+          11 février 2005 et aux exigences du référentiel qualité applicable aux organismes de formation.
         </p>
         <p>
           Chaque situation est traitée individuellement, en amont de l&apos;inscription, afin de

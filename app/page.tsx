@@ -197,8 +197,8 @@ export default function Home() {
     </h1>
 
     <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-slate-200">
-      Des formations conformes, certifiées Qualiopi, conçues pour les entreprises
-      qui ne peuvent pas se permettre de faire l&apos;impasse sur la sécurité.
+      Des formations structurées dans une démarche qualité engagée, conçues pour
+      les entreprises qui ne peuvent pas se permettre de faire l&apos;impasse sur la sécurité.
       Intra-entreprise, présentiel ou e-learning — on s&apos;adapte à vous.
     </p>
 
@@ -538,8 +538,8 @@ export default function Home() {
                 </h2>
               </div>
               <p className="max-w-2xl text-slate-600">
-                Toutes les formations PREVENSIA FORMATION — certifiées Qualiopi,
-                disponibles en présentiel, e-learning ou intra-entreprise.
+                Toutes les formations PREVENSIA FORMATION — disponibles en
+                présentiel, e-learning ou intra-entreprise.
               </p>
             </div>
 

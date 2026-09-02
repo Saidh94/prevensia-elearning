@@ -44,7 +44,7 @@ const faqItems = [
   {
     question: "La formation SST peut-elle être financée par l'OPCO ?",
     answer:
-      "Oui. La formation SST, dispensée par un organisme certifié Qualiopi comme PREVENSIA FORMATION, est éligible aux financements OPCO (Plan de développement des compétences). Elle peut également être prise en charge dans le cadre du CPF pour les salariés.",
+      "Oui. La formation SST dispensée par PREVENSIA FORMATION est susceptible d'être prise en charge selon les critères de votre OPCO (Plan de développement des compétences). La prise en charge dépend de votre OPCO et de votre situation.",
   },
 ];
 

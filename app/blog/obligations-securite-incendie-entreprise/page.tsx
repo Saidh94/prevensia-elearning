@@ -44,7 +44,7 @@ const faqItems = [
   {
     question: "La formation incendie doit-elle être réalisée par un organisme certifié ?",
     answer:
-      "Pour être éligible aux financements OPCO et CPF, la formation doit être dispensée par un organisme certifié Qualiopi. Pour les ERP (Établissements Recevant du Public), des exigences spécifiques peuvent s'appliquer selon la catégorie et le type d'établissement.",
+      "La prise en charge par un OPCO dépend de votre situation, de votre OPCO de rattachement et du dispositif mobilisable. Pour les ERP (Établissements Recevant du Public), des exigences spécifiques peuvent s'appliquer selon la catégorie et le type d'établissement.",
   },
 ];
 
