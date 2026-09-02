@@ -164,7 +164,7 @@ function OutilsTab({
   const [devisClientCompany, setDevisClientCompany] = useState("");
   const [devisFormation, setDevisFormation] = useState("");
   const [devisMontantHT, setDevisMontantHT] = useState("");
-  const [devisTvaRate, setDevisTvaRate] = useState("0");
+  const [devisTvaRate, setDevisTvaRate] = useState("20");
   const [devisValidite, setDevisValidite] = useState("30");
   const [devisNotes, setDevisNotes] = useState("");
   const [devisLoading, setDevisLoading] = useState(false);
@@ -175,7 +175,7 @@ function OutilsTab({
   const [factClientCompany, setFactClientCompany] = useState("");
   const [factFormation, setFactFormation] = useState("");
   const [factMontantHT, setFactMontantHT] = useState("");
-  const [factTvaRate, setFactTvaRate] = useState("0");
+  const [factTvaRate, setFactTvaRate] = useState("20");
   const [factEnrollmentId, setFactEnrollmentId] = useState("");
   const [factNotes, setFactNotes] = useState("");
   const [factLoading, setFactLoading] = useState(false);
@@ -468,8 +468,8 @@ function OutilsTab({
               onChange={(e) => setDevisTvaRate(e.target.value)}
               className={inputCls}
             >
-              <option value="0">0 % — Exonéré art. 261-4-4 CGI (formation)</option>
-              <option value="20">20 % — TVA standard (prestation hors formation)</option>
+              <option value="20">20 % — TVA applicable (défaut)</option>
+              <option value="0">0 % — Exonéré art. 261-4-4 CGI (NDA obtenu uniquement)</option>
             </select>
           </div>
 
@@ -573,8 +573,8 @@ function OutilsTab({
               onChange={(e) => setFactTvaRate(e.target.value)}
               className={inputCls}
             >
-              <option value="0">0 % — Exonéré art. 261-4-4 CGI (formation)</option>
-              <option value="20">20 % — TVA standard (prestation hors formation)</option>
+              <option value="20">20 % — TVA applicable (défaut)</option>
+              <option value="0">0 % — Exonéré art. 261-4-4 CGI (NDA obtenu uniquement)</option>
             </select>
           </div>
 

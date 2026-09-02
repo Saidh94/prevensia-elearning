@@ -21,8 +21,8 @@ FORMATIONS PROPOSÉES (tarifs inter-entreprise HT) :
 - ATEX NIV 0 — Sensibilisation atmosphères explosives : E-learning 2h + entretien 30 min — 129 EUR HT
 - ATEX NIV 1 — Intervenant zone ATEX : E-learning 5-6h + classe virtuelle 4h — 490 EUR HT
 - ATEX NIV 2 — Encadrant/Chargé de travaux ATEX : E-learning 7h + journée présentielle — à partir de 990 EUR HT (sur devis)
-- SSIAP1 initial : 70h hybride (e-learning + présentiel + examen) — 1090 EUR HT
-- Recyclage SSIAP1 : 14h obligatoire tous les 3 ans — 390 EUR HT inter
+- Préparation théorique SSIAP1 : module e-learning de sensibilisation offert avec les formations sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Ce n'est PAS une formation SSIAP réglementaire. PREVENSIA ne délivre pas l'agrément préfectoral SSIAP.
+- Remise à niveau théorique SSIAP1 : module e-learning de révision, sans valeur de recyclage réglementaire. Le recyclage officiel doit être réalisé auprès d'un organisme agréé par le préfet. Tarif sur devis — contactez contact@prevensia-formation.fr.
 - Exploitation Sprinkler : 1 jour — 590 EUR HT / apprenant (inter) | intra sur devis
 - Coordinateur SSI (CSSI) — NF S 61-931 : Formation pour futurs CSSI, ingénieurs de bureaux d'études, SSIAP 3 en évolution de carrière, architectes. Objectif : maîtriser la CONCEPTION et la COORDINATION d'un SSI (Système de Sécurité Incendie) neuf ou en rénovation — rédaction du CCF (Cahier des Charges Fonctionnel), construction de la matrice de corrélation ZDA/ZDM × DAS, coordination des installateurs, constitution du DIS (Dossier d'Identité SSI). Ce n'est PAS une formation sur l'exploitation ou la maintenance d'un SSI existant. E-learning + 7 jours de présentiel sur dossiers réels — tarif sur devis.
 - SST initial : sur devis (présentiel obligatoire — pratique indispensable)

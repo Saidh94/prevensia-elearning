@@ -130,8 +130,8 @@ export default function ArticleFormationSSIAPPage() {
         <div className="rounded-2xl border-l-4 border-red-600 bg-red-50 p-6">
           <p className="font-bold text-red-800 text-lg">L&apos;essentiel en un coup d&apos;œil</p>
           <ul className="mt-3 space-y-1 text-sm text-red-700 leading-7">
-            <li>✓ <strong>SSIAP 1</strong> : agent terrain ERP, 70 h, dès 1 090 € HT, accessible sans expérience préalable</li>
-            <li>✓ <strong>Recyclage obligatoire</strong> tous les 3 ans (arrêté du 2 mai 2005) — 14 h, dès 390 € HT</li>
+            <li>✓ <strong>SSIAP 1</strong> : agent terrain ERP, 70 h de formation réglementaire, délivrée par un organisme agréé préfectoral</li>
+            <li>✓ <strong>Recyclage obligatoire</strong> tous les 3 ans (arrêté du 2 mai 2005) — 14 h auprès d&apos;un organisme agréé</li>
             <li>✓ <strong>Finançable OPCO</strong> — Renseignez-vous pour les dispositifs disponibles</li>
             <li>✓ <strong>Débouchés solides</strong> : hôpitaux, centres commerciaux, hôtels, gares, IGH</li>
             <li>✓ <strong>Salaires</strong> : 1 600 €/mois (SSIAP 1 débutant) → 3 800 €/mois (SSIAP 3)</li>
@@ -185,21 +185,15 @@ export default function ArticleFormationSSIAPPage() {
             <p className="font-bold text-amber-800">Important — arrêté du 2 mai 2005</p>
             <p className="mt-2 text-sm text-amber-700 leading-7">
               Le SSIAP doit être recyclé <strong>tous les 3 ans</strong> pour rester valide. Un SSIAP périmé
-              rend impossible l&apos;exercice légal du métier. Le recyclage SSIAP 1 dure <strong>14 heures</strong>
-              (e-learning théorique + présentiel pratique). Il peut être financé via votre OPCO ou FNE-Formation.
+              rend impossible l&apos;exercice légal du métier. Le recyclage réglementaire dure <strong>14 heures</strong>
+              et doit être réalisé auprès d&apos;un <strong>organisme agréé par le préfet</strong>. Il peut être financé via votre OPCO ou FNE-Formation.
             </p>
           </div>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-bold text-slate-900">Formation initiale SSIAP 1</p>
-              <p className="mt-1 text-2xl font-bold text-red-700">1 090 € HT</p>
-              <p className="text-sm text-slate-500">70 heures · hybride</p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-bold text-slate-900">Recyclage SSIAP 1 (14h / 3 ans)</p>
-              <p className="mt-1 text-2xl font-bold text-red-700">390 € HT</p>
-              <p className="text-sm text-slate-500">14 heures · hybride</p>
-            </div>
+          <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p className="text-sm font-semibold text-slate-700">ℹ PREVENSIA FORMATION et le SSIAP</p>
+            <p className="mt-2 text-sm text-slate-600 leading-7">
+              Le recyclage réglementaire SSIAP relève exclusivement d&apos;un organisme agréé par le préfet. PREVENSIA FORMATION propose uniquement un <strong>module de préparation et de révision théorique</strong> intégré à ses formations sécurité incendie (SSI, Sprinkler, Extincteurs, EPI, Évacuation) — sans valeur de certification SSIAP réglementaire. Pour le SSIAP réglementaire, rapprochez-vous d&apos;un organisme agréé préfectoral.
+            </p>
           </div>
         </section>
 
