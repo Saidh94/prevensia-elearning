@@ -25,9 +25,9 @@ function getServerMinSeconds(
   if (typeof explicit === "number") return explicit;
 
   // 2 — Modules générés depuis modulesContent
-  const module = modulesContent[formationSlug];
-  if (!module) return null;
-  const section = module.sections.find((s) => s.id === chapterKey);
+  const moduleContent = modulesContent[formationSlug];
+  if (!moduleContent) return null;
+  const section = moduleContent.sections.find((s) => s.id === chapterKey);
   if (typeof section?.estimatedMinutes !== "number") return null;
   return section.estimatedMinutes * 60;
 }

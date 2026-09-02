@@ -22,6 +22,7 @@ const categoryLabels: Record<SlotCategory, string> = {
   bsbe_recyclage: "BS / BE Manoeuvre - recyclage",
   b1b2brbc_initial: "BT electricien - initiale ou parcours cible",
   b1b2brbc_recyclage: "BT electricien - recyclage",
+  atex_n1_virtuel: "ATEX Niveau 1 - classe virtuelle",
   other: "Autres validations",
 };
 
@@ -44,6 +45,7 @@ const canonicalFormationsByCategory: Record<SlotCategory, string> = {
   b1b2brbc_initial: "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles",
   b1b2brbc_recyclage:
     "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
+  atex_n1_virtuel: "ATEX Niveau 1 - E-learning + classe virtuelle",
   other: "Habilitation électrique - accompagnement sur mesure",
 };
 

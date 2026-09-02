@@ -9210,7 +9210,6 @@ quizContent["atex-niveau1"] = [
     explanation:
       "La norme EN 60079-17 est la référence pour l'inspection et l'entretien des installations électriques en zone ATEX. Elle définit 3 niveaux d'inspection : visuelle (externe, sans démontage), rapprochée (avec accès à l'intérieur) et détaillée (démontage complet selon instructions fabricant). EN 60079-14 couvre la conception et l'installation initiale, NF C 15-100 les installations BT classiques (hors ATEX), et EN 60529 les indices de protection IP — tous complémentaires mais sans rapport direct avec les vérifications périodiques ATEX.",
     timeLimit: 35,
-    chapterLabel: "Installations électriques Ex",
   },
   // ── Track mécanique (N1M) ─────────────────────────────────────────────────
   {

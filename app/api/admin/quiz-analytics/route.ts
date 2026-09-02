@@ -3,7 +3,8 @@ import { requireAdmin } from "@/lib/auth/require-admin";
 import { createClient } from "@/lib/supabase/server";
 
 type QuestionResult = {
-  q: string;
+  questionId?: string; // nouveau format (quiz/submit v2)
+  q?: string;          // ancien format (rétrocompatibilité)
   correct: boolean;
 };
 

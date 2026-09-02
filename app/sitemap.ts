@@ -88,20 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    // Modules e-learning
-    {
-      url: `${siteUrl}/modules/atex`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
     // Réservation entretien
-    {
-      url: `${siteUrl}/booking`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.65,
-    },
     // Devis & inscription
     {
       url: `${siteUrl}/demande-devis`,
@@ -136,18 +123,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    // Pages légales
-    {
-      url: `${siteUrl}/mentions-legales`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${siteUrl}/politique-confidentialite`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    // Pages légales noindex — exclues du sitemap
   ];
 }

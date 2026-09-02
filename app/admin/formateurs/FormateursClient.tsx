@@ -228,7 +228,7 @@ export default function FormateursClient({ formateursInit }: { formateursInit: F
                 ].map(({ label, key, placeholder }) => (
                   <div key={key}>
                     <label className="block text-xs font-medium text-slate-500 mb-1">{label}</label>
-                    <input type="text" required value={(form as Record<string,string>)[key]}
+                    <input type="text" required value={(form as unknown as Record<string,string>)[key]}
                       onChange={e => setForm(p => ({ ...p, [key]: e.target.value }))}
                       placeholder={placeholder}
                       className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500" />

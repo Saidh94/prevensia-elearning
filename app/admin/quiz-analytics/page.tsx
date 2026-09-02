@@ -35,7 +35,7 @@ type AttemptRow = {
   passed: boolean;
   score_percent: number;
   attempted_at: string;
-  question_results: Array<{ q: string; correct: boolean }>;
+  question_results: Array<{ questionId?: string; q?: string; correct: boolean }>;
 };
 
 type FormationStat = {
