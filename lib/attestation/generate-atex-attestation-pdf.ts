@@ -162,7 +162,7 @@ const loadSig = () => loadAsset([
 
 // ─── Configuration par niveau ATEX ────────────────────────────────────────────
 
-export type AtexLevel = 0 | 1 | 2 | 3;
+export type AtexLevel = 0 | 1 | 2;
 
 export function isAtexFormation(formation: string): boolean {
   return formation.toLowerCase()
@@ -173,22 +173,20 @@ export function isAtexFormation(formation: string): boolean {
 export function detectAtexLevel(formation: string): AtexLevel {
   const n = formation.toLowerCase()
     .normalize("NFD").replace(/[̀-ͯ]/g, "");
-  if (
-    n.includes("niveau3") || n.includes("niveau 3") || n.includes("niveau-3") ||
-    n.includes("niv3") || n.includes("niv. 3") ||
-    n.includes("charge") || n.includes("responsable")
-  ) return 3;
+  // N2 = Encadrant / Référent — slug "atex-niveau2"
   if (
     n.includes("niveau2") || n.includes("niveau 2") || n.includes("niveau-2") ||
-    n.includes("niv2") || n.includes("niv. 2") ||
-    n.includes("travailleur") || n.includes("expose")
+    n.includes("niv2") || n.includes("niv. 2") || n.includes("-n2") ||
+    n.includes("encadrant") || n.includes("referent") ||
+    n.includes("charge") || n.includes("responsable")
   ) return 2;
+  // N1 = Intervenant — slug "atex-niveau1"
   if (
     n.includes("niveau1") || n.includes("niveau 1") || n.includes("niveau-1") ||
-    n.includes("niv1") || n.includes("niv. 1") ||
-    n.includes("sensibilisation")
+    n.includes("niv1") || n.includes("niv. 1") || n.includes("-n1") ||
+    n.includes("intervenant") || n.includes("travailleur") || n.includes("expose")
   ) return 1;
-  // "ATEX" sans numéro de niveau → Level 0 (initiation)
+  // N0 = Sensibilisation — slug "atex" (sans numéro) ou "atex-n0" / "sensibilisation"
   return 0;
 }
 
@@ -206,41 +204,17 @@ type LevelCfg = {
 };
 
 const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
+  // N0 — Sensibilisation — slug "atex"
   0: {
     badge: "N0",
-    title: "ATEX NIVEAU 0",
-    subtitle: "Initiation — Personnel non exposé",
-    description:
-      "Initiation aux risques liés aux atmosphères explosives. " +
-      "Personnel amené à traverser occasionnellement des zones ATEX " +
-      "sans y réaliser de travaux. Sensibilisation aux risques et aux " +
-      "comportements à adopter en présence de zones classées " +
-      "(industrie chimique, pétrochimique, agroalimentaire, logistique...).",
-    validityYears: 3,
-    zones: [
-      { cat: "Gaz / vapeurs inflammables",  zones: "Zone 2 uniquement" },
-      { cat: "Poussières combustibles",     zones: "Zone 22 uniquement" },
-    ],
-    interventions: [
-      { label: "Identifier la signalisation réglementaire ATEX",              ok: true  },
-      { label: "Traverser ponctuellement une zone ATEX (Zone 2 / Zone 22)",   ok: true  },
-      { label: "Respecter les consignes de comportement en zone ATEX",        ok: true  },
-      { label: "Circuler de manière prolongée en zones ATEX classées",        ok: false },
-      { label: "Utiliser des EPI antistatiques certifiés Ex",                 ok: false },
-      { label: "Exécuter des travaux sur équipements en zone classée",        ok: false },
-      { label: "Appliquer des permis de travail ou autorisations ATEX",       ok: false },
-      { label: "Diriger ou superviser des interventions en zone ATEX",        ok: false },
-    ],
-  },
-  1: {
-    badge: "N1",
     title: "ATEX N0 – Sensibilisation",
     subtitle: "Sensibilisation — Atmosphères explosives",
     description:
       "Sensibilisation aux risques liés aux atmosphères explosives. " +
       "Personnel amené à circuler ou à travailler ponctuellement dans un " +
       "environnement susceptible de présenter un risque d'explosion " +
-      "(industrie chimique, pétrochimique, agroalimentaire, métallurgie…).",
+      "(industrie chimique, pétrochimique, agroalimentaire, métallurgie…). " +
+      "Recyclage recommandé selon l'évolution du DRPCE et du poste.",
     validityYears: 3,
     zones: [
       { cat: "Gaz / vapeurs inflammables",  zones: "Zone 1  —  Zone 2" },
@@ -257,15 +231,16 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       { label: "Élaborer ou valider un plan de prévention / DRPCE",                 ok: false },
     ],
   },
-  2: {
-    badge: "N2",
+  // N1 — Intervenant — slug "atex-niveau1"
+  1: {
+    badge: "N1",
     title: "ATEX N1 – Intervenant",
-    subtitle: "Travailleur exposé — Zone classée",
+    subtitle: "Intervenant en zone classée",
     description:
       "Travailleur intervenant régulièrement en zone ATEX classée. " +
-      "Habilité à exécuter des travaux conformément aux plans de prévention " +
-      "et sous respect du Document Relatif à la Protection Contre les Explosions (DRPCE). " +
-      "Recyclage recommandé tous les 3 ans.",
+      "Formé pour exécuter des travaux conformément aux plans de prévention " +
+      "et dans le respect du Document Relatif à la Protection Contre les Explosions (DRPCE). " +
+      "Recyclage recommandé tous les 3 ans ou selon l'évolution du poste et du DRPCE.",
     validityYears: 3,
     zones: [
       { cat: "Gaz / vapeurs inflammables",  zones: "Zone 1  —  Zone 2" },
@@ -281,15 +256,17 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       { label: "Élaborer ou valider le DRPCE",                                       ok: false },
     ],
   },
-  3: {
-    badge: "N3",
+  // N2 — Encadrant / Référent — slug "atex-niveau2"
+  2: {
+    badge: "N2",
     title: "ATEX N2 – Encadrant / Référent",
-    subtitle: "Chargé de travaux — Responsable ATEX",
+    subtitle: "Encadrant et Référent ATEX",
     description:
-      "Encadrant et responsable de travaux en zone ATEX. " +
-      "Habilité à superviser les interventions, élaborer et valider " +
-      "les plans de prévention ainsi que le Document Relatif à la Protection " +
-      "Contre les Explosions (DRPCE). Recyclage recommandé tous les 3 ans.",
+      "Encadrant et référent ATEX. " +
+      "Formé pour superviser les interventions, participer à l'élaboration et à la mise à jour " +
+      "des plans de prévention ainsi que du Document Relatif à la Protection " +
+      "Contre les Explosions (DRPCE). " +
+      "Recyclage recommandé tous les 3 ans ou selon l'évolution du DRPCE et des installations.",
     validityYears: 3,
     zones: [
       { cat: "Gaz / vapeurs inflammables",  zones: "Zone 0  —  Zone 1  —  Zone 2" },
@@ -301,13 +278,13 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
       { label: "Exécuter des travaux sur équipements en zone classée",                     ok: true },
       { label: "Diriger et superviser des interventions en zone ATEX",                     ok: true },
       { label: "Établir et valider des plans de prévention et permis de travail ATEX",     ok: true },
-      { label: "Élaborer ou faire évoluer le DRPCE",                                       ok: true },
+      { label: "Participer à l'élaboration ou à la mise à jour du DRPCE",                 ok: true },
       { label: "Coordonner les entreprises extérieures en zone classée",                   ok: true },
     ],
   },
 };
 
-// ─── Page 1 : Avis d'habilitation ─────────────────────────────────────────────
+// ─── Page 1 : Avis de formation ATEX ───────────────────────────────────────────
 
 function drawPage1(p: {
   page: PDFPage; R: PDFFont; B: PDFFont;
@@ -412,7 +389,7 @@ function drawPage1(p: {
   const zSecH = 20, zColH = 18, zRowH = 27;
   const zCatW = 162;
 
-  cell(page, sp("ZONES ATEX COUVERTES PAR L'HABILITATION"), m, y - zSecH, cw, zSecH,
+  cell(page, sp("Périmètre pédagogique couvert par la formation"), m, y - zSecH, cw, zSecH,
     { font: B, size: 8.5, border: C.line, bg: C.navyLight, va: "middle" });
   y -= zSecH;
 

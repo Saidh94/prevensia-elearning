@@ -106,7 +106,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
         "La démarche d'évaluation des risques ATEX se déroule en 4 étapes : (1) Identifier les substances inflammables utilisées, produites ou stockées sur le site (gaz, vapeurs, poussières). (2) Évaluer la probabilité de formation d'une atmosphère explosive (fréquence, durée, quantité libérée). (3) Classer les zones selon les critères des normes EN 60079-10-1 (gaz) et EN 60079-10-2 (poussières). (4) Définir les mesures de prévention et de protection adaptées à chaque zone.",
         "Critères de classement des zones gaz (EN 60079-10-1) : les paramètres à prendre en compte sont la quantité de substance inflammable pouvant se libérer, le taux de ventilation disponible, la densité du gaz (plus léger ou plus lourd que l'air), la température du produit par rapport au point d'éclair, la pression du système (une fuite sous pression augmente la zone).",
         "Critères spécifiques aux poussières (EN 60079-10-2) : taille des particules (< 500 µm), concentration minimale d'explosion (CME), nature de la poussière (conductrice ou non), probabilité de mise en suspension (manutention, nettoyage, dysfonctionnement), présence de couches de dépôts. Pour les poussières conductrices, utiliser des équipements de catégorie 1D même en zone 21.",
-        "La méthode INERIS (Guide Omega 36, octobre 2025) préconise de considérer les paramètres suivants pour la délimitation : les produits utilisés/émis, les conditions de stockage, la température et la pression du procédé, les réactions exothermiques, les conditions de refroidissement, les systèmes de ventilation, la détection de gaz. La description précise du fonctionnement des équipements (en fonctionnement normal ET en dysfonctionnement) est indispensable.",
+        "La méthode INERIS (référentiel INERIS ATEX) préconise de considérer les paramètres suivants pour la délimitation : les produits utilisés/émis, les conditions de stockage, la température et la pression du procédé, les réactions exothermiques, les conditions de refroidissement, les systèmes de ventilation, la détection de gaz. La description précise du fonctionnement des équipements (en fonctionnement normal ET en dysfonctionnement) est indispensable.",
         "Pour les liquides inflammables : l'INERIS recommande de retrancher 15 °C au point d'éclair pour les produits complexes et mélanges, et 5 °C pour les produits purs bien documentés, pour tenir compte des incertitudes de mesure et des variations de composition.",
       ],
       deepDive: [
@@ -124,7 +124,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       legalRefs: [
         "Code du travail - Art. R.4227-43 : définition de l'atmosphère explosive. Art. R.4227-46 : évaluation des risques d'explosion.",
         "Normes EN 60079-10-1 et EN 60079-10-2 : classification des zones ATEX.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 3 : démarche de classement des zones.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : démarche de classement des zones.",
         "Arrêté du 8 juillet 2003 - Art. 2 : définition et classement des emplacements dangereux.",
       ],
     },
@@ -159,7 +159,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
         "Code du travail - Art. R.4227-47 : obligation d'établir le DRPCE.",
         "Arrêté du 8 juillet 2003 - Art. 6 : contenu du DRPCE.",
         "Arrêté du 28 juillet 2003 : installations électriques — devenir des matériels existants.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 6 : DRPCE et responsabilités.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : DRPCE et responsabilités.",
       ],
     },
     {
@@ -192,7 +192,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       legalRefs: [
         "Directive 2014/34/UE : exigences pour la mise sur le marché des appareils ATEX.",
         "Code du travail - Art. R.4321-1 : responsabilité de l'employeur pour le choix des équipements.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5.1 et 5.2 : sélection et installation.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX et 5.2 : sélection et installation.",
         "Norme EN 60079-17 : vérification et maintenance des installations en zone ATEX.",
       ],
       resourceVideos: [
@@ -230,7 +230,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       legalRefs: [
         "Arrêté du 8 juillet 2003 - Art. 9 et 11 : mesures organisationnelles.",
         "Code du travail - Art. R.4512-1 et suivants : plan de prévention.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4 : travaux et entreprises extérieures.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : travaux et entreprises extérieures.",
       ],
       resourceVideos: [
         {
@@ -272,7 +272,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       legalRefs: [
         "Code du travail - Art. R.4512-6 : plan de prévention.",
         "Code du travail - Art. R.4515-8 : protocole de sécurité (chargement/déchargement). Art. R.4512-6 à R.4512-12 : plan de prévention pour les interventions d'entreprises extérieures.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.2 : entreprises extérieures.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : entreprises extérieures.",
         "Arrêté du 29 mai 2009 : transport terrestre de marchandises dangereuses (TMD).",
       ],
     },
@@ -306,7 +306,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       ],
       legalRefs: [
         "Arrêté du 8 juillet 2003 - Art. 8 : mesures de détection et d'alarme.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.3 : détection de la LIE.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : détection de la LIE.",
         "INRS ED 116 : appareils de détection des gaz et vapeurs inflammables.",
         "Norme EN 60079-29-1 : exigences pour les détecteurs de gaz combustibles.",
       ],
@@ -368,7 +368,7 @@ export const atexNiveau2ModuleContent: ModuleContent = {
       legalRefs: [
         "INRS ED 335 : prévention des risques d'explosion — bilan et statistiques.",
         "Base de données ARIA (BARPI) : accidents industriels incluant les accidents ATEX.",
-        "Guide INERIS Omega 36 (octobre 2025) : retours d'expérience et bonnes pratiques.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX : retours d'expérience et bonnes pratiques.",
       ],
     },
     {

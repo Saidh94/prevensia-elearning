@@ -115,7 +115,7 @@ export async function POST(request: Request) {
         // Détecter la formation citée dans la conversation
         const fullText = messages.map((m) => m.content).join(" ").toLowerCase();
         const formationMap: Record<string, string> = {
-          "atex 3": "ATEX Niveau 3", "atex3": "ATEX Niveau 3",
+          "atex 2": "ATEX N2 – Encadrant / Référent", "atex2": "ATEX N2 – Encadrant / Référent",
           "atex 2": "ATEX Niveau 2", "atex2": "ATEX Niveau 2",
           "atex 1": "ATEX Niveau 1", "atex1": "ATEX Niveau 1", "atex": "ATEX",
           "ssiap1": "SSIAP1", "ssiap 1": "SSIAP1", "ssiap": "SSIAP1",

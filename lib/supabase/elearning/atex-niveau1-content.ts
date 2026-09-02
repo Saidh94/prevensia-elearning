@@ -99,7 +99,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       legalRefs: [
         "Arrêté du 8 juillet 2003 - Art. 2 : définition et classification des emplacements dangereux.",
         "Code du travail - Art. R.4227-44 : signalisation des zones ATEX.",
-        "Guide INERIS Omega 36 (octobre 2025) : méthodologie de classification et exemples.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX : méthodologie de classification et exemples.",
         "Normes EN 60079-10-1 (zones gaz) et EN 60079-10-2 (zones poussières).",
       ],
     },
@@ -134,7 +134,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Directive 2014/34/UE : exigences pour les appareils ATEX destinés aux atmosphères explosibles.",
         "Code du travail - Art. R.4321-1 : responsabilité de l'employeur pour le choix des équipements.",
         "Code de l'environnement - Art. R.557-1-1 à R.557-5-5 : transposition de la directive 2014/34/UE.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : sélection et installation des équipements.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : sélection et installation des équipements.",
       ],
       resourceVideos: [
         {
@@ -177,7 +177,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       legalRefs: [
         "Code du travail - Art. R.4515-8 : protocole de sécurité pour les opérations d'entreprises extérieures.",
         "Arrêté du 8 juillet 2003 - Art. 11 : mesures organisationnelles de prévention.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4 : travaux et entreprises extérieures.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : travaux et entreprises extérieures.",
         "INRS ED 6109 : consignation des énergies et des fluides.",
       ],
       resourceVideos: [
@@ -243,7 +243,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "L'explosimètre est l'outil de détection indispensable avant toute intervention en zone ATEX. Un mauvais étalonnage ou une mauvaise utilisation peut donner une fausse sécurité aux conséquences mortelles.",
       content: [
         "L'explosimètre (ou détecteur de gaz combustibles) mesure la concentration de gaz dans l'air en pourcentage de la LIE. Le seuil d'alerte préconisé est de 20 % de la LIE (circulaire du 9 mai 1985). En dessous de ce seuil, le risque est considéré comme maîtrisé. Au-dessus, les travaux doivent être interrompus immédiatement.",
-        "Problème critique d'étalonnage (source INERIS Omega 36) : un explosimètre étalonné au propane utilisé dans une atmosphère de méthane peut donner des lectures faussées. Exemple : lire 10 % sur un appareil étalonné au propane peut correspondre à une concentration réelle de 50 % dans du méthane — l'opérateur est EN DANGER alors qu'il croit être en sécurité. Inversement, un explosimètre étalonné au méthane utilisé dans du méthanol peut surestimer le danger.",
+        "Problème critique d'étalonnage (source INERIS / INRS) : un explosimètre étalonné au propane utilisé dans une atmosphère de méthane peut donner des lectures faussées. Exemple : lire 10 % sur un appareil étalonné au propane peut correspondre à une concentration réelle de 50 % dans du méthane — l'opérateur est EN DANGER alors qu'il croit être en sécurité. Inversement, un explosimètre étalonné au méthane utilisé dans du méthanol peut surestimer le danger.",
         "L'étalonnage doit être réalisé avec le gaz présent sur le site (ou un gaz étalon identique). L'INRS (document ED 116) préconise de spécifier le gaz étalon utilisé, les seuils d'alerte choisis et les corrections à appliquer selon les atmosphères potentiellement rencontrées.",
         "Contrôles avant utilisation : vérifier la date de la dernière vérification périodique (généralement 6 mois à 1 an selon fabricant), tester l'appareil avec un gaz de référence avant utilisation, s'assurer que la batterie est suffisamment chargée, et vérifier que la tête de détection n'est pas obstruée.",
         "Utilisation pratique : mesurer l'atmosphère dans les points bas (gaz plus lourds que l'air : hydrocarbures, LPG) ET dans les points hauts (gaz plus légers que l'air : hydrogène, méthane). En espace confiné, mesurer à plusieurs niveaux. Surveiller en continu pendant les travaux et déclencher l'évacuation dès l'alarme de premier seuil.",
@@ -262,7 +262,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       ],
       legalRefs: [
         "Circulaire du 9 mai 1985 : seuil d'alerte à 20 % de la LIE pour les détecteurs de gaz.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.3 : détection de la LIE.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : détection de la LIE.",
         "INRS ED 116 : choix et utilisation des détecteurs de gaz et vapeurs inflammables.",
         "Norme EN 60079-29-1 : exigences pour les détecteurs de gaz inflammables.",
       ],
@@ -327,7 +327,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       legalRefs: [
         "Arrêté du 8 juillet 2003 - Art. 11 : choix et utilisation des équipements de travail en zone ATEX.",
         "Code du travail - Art. L.4311-2 : définition des équipements de travail.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : appareils ATEX.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : appareils ATEX.",
       ],
     },
     {
@@ -358,7 +358,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Après maintenance : vérification visuelle du mode de protection avant remise en service.",
       ],
       legalRefs: [
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 4.4 : interventions de maintenance.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : interventions de maintenance.",
         "Norme EN 60079-17 : vérification et maintenance des installations électriques en zone ATEX.",
         "INRS ED 6109 : consignation des énergies — mise en sécurité des machines.",
         "Arrêté du 8 juillet 2003 - Art. 11 : entretien des équipements en zone ATEX.",
@@ -459,7 +459,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Norme EN 13463-1 (et EN ISO 80079-36) : équipements non électriques pour atmosphères explosives — règles générales.",
         "Norme EN 13463-5 (et EN ISO 80079-37) : protection par sécurité de construction 'c'.",
         "Directive 2014/34/UE : champ d'application incluant les équipements non électriques depuis 2003.",
-        "Guide INERIS Omega 36 (octobre 2025) - Chapitre 5 : appareils et systèmes de protection non électriques.",
+        "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : appareils et systèmes de protection non électriques.",
       ],
     },
     {
