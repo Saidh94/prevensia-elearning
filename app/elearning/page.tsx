@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Modules E-learning Sécurité & Prévention — Catalogue | PREVENSIA",
   description:
-    "Catalogue e-learning Prevensia : habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST. Modules autonomes ou inclus dans la formation présentielle. Qualiopi.",
+    "Catalogue e-learning PREVENSIA FORMATION : habilitation électrique, ATEX, sécurité incendie, SSI, sprinkler, SST. Modules autonomes ou inclus dans la formation présentielle.",
   alternates: { canonical: "https://prevensia-formation.fr/elearning" },
   openGraph: {
     title: "Modules E-learning Sécurité & Prévention — PREVENSIA FORMATION",
     description:
-      "Habilitation électrique, ATEX, SSIAP1, SSI, sprinkler, SST. Modules e-learning autonomes ou inclus dans la formation présentielle. Qualiopi.",
+      "Habilitation électrique, ATEX, sécurité incendie, SSI, sprinkler, SST. Modules e-learning autonomes ou inclus dans la formation présentielle.",
     url: "https://prevensia-formation.fr/elearning",
   },
 };
@@ -430,7 +430,7 @@ const formations = [
     price: "OFFERT avec vos formations sécurité incendie",
     level: "Débutant",
     audience:
-      "Tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Module également inclus pour les stagiaires inscrits à la formation certifiante SSIAP1 (70h).",
+      "Tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation).",
     description:
       "Module e-learning de préparation théorique à la formation SSIAP1 et à l'examen officiel (épreuve QCM). Offert gratuitement à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation ERP et rôle de l'agent SSIAP1.",
     objectifs: [
@@ -449,24 +449,24 @@ const formations = [
       "Conduite à tenir en cas d'incendie — séquence Alarmer/Alerter/Attaquer",
     ],
     note:
-      "Module offert sans surcoût à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Pour les stagiaires de la formation certifiante SSIAP1 (70h, à partir de 1 090 EUR HT dès l'obtention de l'agrément préfectoral), le module est également inclus.",
+      "Module offert sans surcoût à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Ce module de préparation théorique ne constitue pas une formation SSIAP1 réglementaire et ne permet pas d'obtenir la qualification SSIAP1. La formation SSIAP réglementaire relève d'un organisme agréé par le préfet.",
   },
   {
     slug: "recyclage-ssiap1",
     category: "Prévention des risques",
-    title: "Recyclage SSIAP1 — Remise à niveau sécurité incendie ERP",
+    title: "Remise à niveau SSIAP1 — Module théorique préparatoire",
     duration: "Durée e-learning : 2 h 30 à 3 h",
-    mode: "Support e-learning inclus dans le recyclage (14h)",
-    price: "À partir de 390 EUR HT",
+    mode: "Support e-learning de préparation théorique",
+    price: "Sur devis — contactez-nous",
     level: "Intermédiaire",
     audience:
-      "Agents SSIAP1 titulaires devant effectuer leur recyclage obligatoire tous les 3 ans pour maintenir leur titre de qualification.",
+      "Agents SSIAP1 souhaitant réviser les fondamentaux théoriques de la sécurité incendie ERP dans le cadre d'une mise à niveau continue.",
     description:
-      "Module e-learning de remise à niveau théorique inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans) dispensé par PREVENSIA FORMATION. Révision des fondamentaux, actualisation réglementaire et préparation à la partie théorique du recyclage encadré.",
+      "Module e-learning de remise à niveau théorique sur les fondamentaux SSIAP1. Révision des classes de feux, agents extincteurs, SSI, procédures d'évacuation ERP et actualisation réglementaire. Ce module est un support de préparation théorique — il ne constitue pas et ne remplace pas le recyclage SSIAP1 réglementaire (14h), lequel doit être effectué auprès d'un organisme agréé par le préfet.",
     objectifs: [
       "Réviser les fondamentaux du SSIAP1 : classes de feux, agents extincteurs, SSI",
       "Se mettre à jour sur les évolutions réglementaires ERP et les nouvelles consignes",
-      "Préparer la partie théorique du recyclage encadré (14h) en présentiel",
+      "Renforcer ses connaissances théoriques avant tout recyclage encadré",
     ],
     programme: [
       "Rappel du cadre réglementaire SSIAP et évolutions récentes",
@@ -474,10 +474,10 @@ const formations = [
       "Actualisation sur les équipements SSI — détection, alarme, désenfumage",
       "Procédures d'évacuation : points de contrôle et retours d'expérience",
       "Gestes professionnels SSIAP1 — points clés de la remise à niveau",
-      "Quiz de révision avant la session présentielle",
+      "Quiz de révision",
     ],
     note:
-      "Support e-learning inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans). Le recyclage complet (e-learning + présentiel) est proposé à partir de 390 EUR HT.",
+      "⚠ Ce module de préparation théorique ne constitue pas et ne remplace pas le recyclage SSIAP1 réglementaire (14h obligatoires tous les 3 ans). Le recyclage officiel doit être effectué auprès d'un organisme agréé par le préfet. PREVENSIA FORMATION ne délivre pas l'agrément préfectoral permettant d'assurer le recyclage réglementaire SSIAP.",
   },
   {
     slug: "coordinateur-ssi",
