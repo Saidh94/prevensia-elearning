@@ -4,7 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Recyclage SSIAP1 — Remise à niveau Sécurité Incendie ERP | PREVENSIA FORMATION",
+  title: "Recyclage SSIAP1 — Remise à niveau Sécurité Incendie ERP",
   description:
     "Recyclage SSIAP1 obligatoire (14h/3 ans) : e-learning + présentiel. Remise à niveau réglementaire, SSI catégories A→E, IGH, gestion des travaux. Attestation incluse. Devis sur demande.",
   alternates: {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getStripeClient } from "@/lib/payments/stripe";
 
 export const metadata: Metadata = {
-  title: "Paiement confirmé | PREVENSIA FORMATION",
+  title: "Paiement confirmé",
   description: "Votre paiement a bien été enregistré. Votre accès à la formation PREVENSIA est en cours d'activation.",
   robots: { index: false, follow: false },
 };

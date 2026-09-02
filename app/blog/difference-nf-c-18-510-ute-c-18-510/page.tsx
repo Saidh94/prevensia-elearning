@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
-  title: "Différence entre NF C 18-510 et UTE C 18-510 — Guide | PREVENSIA FORMATION",
+  title: "Différence entre NF C 18-510 et UTE C 18-510 — Guide",
   description:
     "Quelle est la différence entre la norme NF C 18-510 et le guide UTE C 18-510 ? Laquelle est obligatoire ? Ce que les employeurs et formateurs doivent savoir.",
   alternates: {

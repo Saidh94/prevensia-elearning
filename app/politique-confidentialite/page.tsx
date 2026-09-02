@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité | PREVENSIA FORMATION",
+  title: "Politique de confidentialité",
   description: "Politique de confidentialité et protection des données personnelles (RGPD) — PREVENSIA FORMATION.",
   robots: { index: false, follow: false },
 };

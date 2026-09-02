@@ -2,7 +2,7 @@ import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Blog Sécurité Électrique & Prévention des Risques | PREVENSIA FORMATION",
+  title: "Blog Sécurité Électrique & Prévention des Risques",
   description:
     "Conseils, guides et actualités sur l'habilitation électrique, la sécurité au travail et la prévention des risques. Ressources gratuites pour entreprises et salariés.",
   alternates: {

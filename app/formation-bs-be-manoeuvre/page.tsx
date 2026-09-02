@@ -4,7 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Formation Habilitation Électrique BS / BE Manœuvre — E-learning | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique BS / BE Manœuvre — E-learning",
   description:
     "Formation habilitation électrique BS et BE Manœuvre conforme NF C 18-510 + A1:2020 + A2:2023. Remplacement de fusibles, manœuvres sur armoires. E-learning + classe virtuelle. Dès 350 € HT. Qualiopi.",
   alternates: {

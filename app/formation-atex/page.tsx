@@ -4,7 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Formation ATEX — Atmosphères Explosives E-learning | PREVENSIA FORMATION",
+  title: "Formation ATEX — Atmosphères Explosives E-learning",
   description:
     "Formation ATEX e-learning : zonage, marquage équipements Ex, EPI, directive 99/92/CE. Niveaux 0, 1 et 2. À partir de 129 € HT — Attestation incluse. Qualiopi.",
   alternates: {

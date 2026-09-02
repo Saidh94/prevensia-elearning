@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
-  title: "Planifier mon entretien de validation | PREVENSIA FORMATION",
+  title: "Planifier mon entretien de validation",
   description:
     "Réservez votre créneau d'entretien de validation après votre parcours e-learning PREVENSIA. Choisissez la date et l'heure qui vous conviennent.",
   robots: { index: false, follow: false },

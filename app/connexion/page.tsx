@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import ConnexionForm from "./connexion-form";
 
 export const metadata: Metadata = {
-  title: "Connexion à votre espace apprenant | PREVENSIA FORMATION",
+  title: "Connexion à votre espace apprenant",
   description:
     "Connectez-vous à votre espace apprenant PREVENSIA pour accéder à vos formations e-learning, suivre votre progression et télécharger vos attestations.",
   robots: { index: false, follow: false },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Paiement annulé | PREVENSIA FORMATION",
+  title: "Paiement annulé",
   description: "Votre paiement a été annulé. Aucun débit n'a été effectué. Vous pouvez reprendre votre inscription à tout moment.",
   robots: { index: false, follow: false },
 };

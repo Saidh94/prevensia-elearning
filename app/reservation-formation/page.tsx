@@ -8,7 +8,7 @@ import {
 } from "../reservation/slots";
 
 export const metadata: Metadata = {
-  title: "Réserver une formation | PREVENSIA FORMATION",
+  title: "Réserver une formation",
   description:
     "Choisissez votre session de formation et réservez votre place en quelques clics. Habilitation électrique, ATEX, SSI, sécurité incendie, SST — présentiel et distanciel.",
   alternates: {

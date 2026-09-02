@@ -4,7 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Formation Habilitation Électrique B1 B2 BR BC — Électriciens BT | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique B1 B2 BR BC — Électriciens BT",
   description:
     "Formation habilitation électrique B1, B2, BR, BC conforme NF C 18-510 + A1:2020 + A2:2023. Travaux BT, dépannage, consignation, vérification. E-learning + présentiel. Dès 790 € HT. Qualiopi.",
   alternates: {

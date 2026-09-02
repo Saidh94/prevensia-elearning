@@ -4,7 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Formation Habilitation Électrique H0B0 / H0V — E-learning | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique H0B0 / H0V — E-learning",
   description:
     "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510 + A1:2020 + A2:2023. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation 30 min inclus. Dès 150 € HT.",
   alternates: {

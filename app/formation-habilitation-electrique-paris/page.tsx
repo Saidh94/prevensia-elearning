@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
-  title: "Formation Habilitation Électrique Paris (75) — Intra & Inter | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique Paris (75) — Intra & Inter",
   description:
     "Formation habilitation électrique à Paris (75) et en petite couronne. Organisme Qualiopi basé à Paris. H0B0, BS/BE, B1/B2/BR/BC. Intra-entreprise sur site. Devis 48h.",
   alternates: {

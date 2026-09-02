@@ -3,7 +3,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Mentions légales | PREVENSIA FORMATION",
+  title: "Mentions légales",
   description: "Mentions légales de PREVENSIA FORMATION, marque du Groupe PREVENSIA SAS — organisme de formation.",
   robots: { index: false, follow: false },
 };

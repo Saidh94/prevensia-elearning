@@ -3,7 +3,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 
 export const metadata = {
-  title: "Formation Habilitation Électrique Seine-Saint-Denis (93) | PREVENSIA FORMATION",
+  title: "Formation Habilitation Électrique Seine-Saint-Denis (93)",
   description:
     "Formation habilitation électrique en Seine-Saint-Denis (93). Organisme Qualiopi basé à Paris. H0B0, BS/BE, B1/B2/BR/BC. Intra sur site. Devis 48h.",
   alternates: {

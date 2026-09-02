@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Page introuvable (404) | PREVENSIA FORMATION",
+  title: "Page introuvable (404)",
   robots: { index: false, follow: false },
 };
 

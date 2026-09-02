@@ -5,7 +5,7 @@ import { InterviewBookingClient } from "./InterviewBookingClient";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Réserver mon entretien de validation | PREVENSIA FORMATION",
+  title: "Réserver mon entretien de validation",
   description: "Choisissez un créneau pour votre entretien de validation avec un formateur PREVENSIA.",
   robots: { index: false, follow: false },
 };
