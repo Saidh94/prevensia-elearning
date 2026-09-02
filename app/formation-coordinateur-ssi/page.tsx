@@ -7,11 +7,11 @@ export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-coordinateur-ssi" },
   title: "Formation Coordinateur SSI — Pilotage Système Sécurité Incendie | PREVENSIA",
   description:
-    "Formation Coordinateur SSI : CCF, matrice de corrélation, dossier d'identité SSI, coordination des intervenants, ERP / IGH. Qualiopi. 7 jours en présentiel. Devis 48h.",
+    "Formation Coordinateur SSI : CCF, matrice de corrélation, dossier d'identité SSI, coordination des intervenants, ERP / IGH. 7 jours en présentiel. Devis 48h.",
   openGraph: {
     title: "Formation Coordinateur SSI — NF S 61, ERP, IGH | PREVENSIA",
     description:
-      "Formation Coordination SSI : CCF, matrice de corrélation ZDA/ZDM × DAS, DIS. Ingénieurs BET, SSIAP 3, architectes. 7 jours en salle. Qualiopi. 1 790 € HT.",
+      "Formation Coordination SSI : CCF, matrice de corrélation ZDA/ZDM × DAS, DIS. Ingénieurs BET, SSIAP 3, architectes. 7 jours en salle. 1 790 € HT.",
     url: "https://prevensia-formation.fr/formation-coordinateur-ssi",
   },
   keywords: [
@@ -49,7 +49,7 @@ const faqItems = [
   {
     question: "Quelle est la durée de la formation ?",
     answer:
-      "La formation Coordination SSI se déroule sur 7 jours de présentiel en salle + 1 journée d'examen (inter-entreprise), avec un parcours e-learning autonome inclus à compléter avant la session. Les 7 jours incluent des cas pratiques, mises en situation et travaux sur des dossiers réels.",
+      "La formation Coordination SSI se déroule sur 7 jours de présentiel en salle (inter-entreprise), avec un parcours e-learning autonome inclus à compléter avant la session. Les 7 jours incluent des cas pratiques, mises en situation, travaux sur des dossiers réels et une évaluation finale.",
   },
 ];
 
@@ -109,7 +109,7 @@ const tarifs = [
     format: "Session inter-entreprise — 7 jours en salle",
     prix: "1 790 € HT / apprenant",
     detail:
-      "7 jours de présentiel intensif en salle + 1 journée d'examen + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation de formation PREVENSIA remise à l'issue de l'examen.",
+      "7 jours de présentiel intensif en salle (évaluation finale incluse dans le parcours) + e-learning préparatoire inclus. Maximum 8 participants. Études de cas sur dossiers ERP/IGH/ICPE réels. Attestation de formation PREVENSIA remise à l'issue de la session.",
     badge: "Tarif 2026",
   },
   {
@@ -133,7 +133,7 @@ export default function FormationCoordinateurSSI() {
       <FaqJsonLd items={faqItems} />
       <CourseJsonLd
         name="Formation Coordinateur SSI"
-        description="Formation Coordinateur SSI : CCF, matrice de corrélation, dossier d'identité SSI, coordination des installateurs, réception et exploitation du SSI. ERP/IGH. Qualiopi. 7 jours en présentiel."
+        description="Formation Coordinateur SSI : CCF, matrice de corrélation, dossier d'identité SSI, coordination des installateurs, réception et exploitation du SSI. ERP/IGH. 7 jours en présentiel."
         courseCode="COORD-SSI"
         url="/formation-coordinateur-ssi"
         timeRequired="P7D"
@@ -164,14 +164,14 @@ export default function FormationCoordinateurSSI() {
             Formation à la <strong className="text-white">conception et à la coordination</strong>{" "}d&apos;un Système de Sécurité Incendie —
             dispensée principalement en salle, sur dossiers réels. Cadre réglementaire ERP (arrêté du 25 juin 1980, MS 53 à MS 60),
             IGH (arrêté du 30 décembre 2011), CCH, Code du travail, normes NF S 61-931 et NF S 61-932.
-            E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif + 1 journée d&apos;examen.
+            E-learning préparatoire inclus pour optimiser les 7 jours de présentiel intensif (évaluation finale incluse dans le parcours).
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-500/40 bg-blue-500/10 px-4 py-2 text-sm text-blue-200">
             <span className="font-semibold">ℹ</span>
             <span>
-              La mission de coordination SSI est <strong>obligatoire</strong>{" "}pour tout projet de création, modification ou extension d&apos;un SSI en ERP (art. MS 53 à MS 60) et en IGH (arrêté du 30 décembre 2011).
-              Elle est également recommandée pour tout bâtiment complexe, multi-corps d&apos;état ou en réhabilitation.
+              La coordination SSI est requise dans les cas prévus par la réglementation ERP (art. MS 53 à MS 60) et IGH (arrêté du 30 décembre 2011), et recommandée pour tout bâtiment complexe, multi-corps d&apos;état ou en réhabilitation.
+              Les cas de mise en œuvre sont définis par les référentiels applicables au projet.
             </span>
           </div>
 
@@ -196,7 +196,7 @@ export default function FormationCoordinateurSSI() {
             <span>✓ Arrêté 25/06/1980 · Arrêté 30/12/2011 · CCH</span>
             <span>✓ E-learning préparatoire inclus</span>
             <span>✓ Cas pratiques sur dossiers réels</span>
-            <span>✓ Qualiopi</span>
+            <span>✓ Attestation de formation PREVENSIA</span>
           </div>
         </div>
       </section>
@@ -207,8 +207,8 @@ export default function FormationCoordinateurSSI() {
           <div className="grid gap-6 md:grid-cols-4">
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-700">Durée</p>
-              <p className="mt-2 text-lg font-bold">7 jours en salle + examen</p>
-              <p className="mt-1 text-sm text-slate-600">+ e-learning préparatoire inclus</p>
+              <p className="mt-2 text-lg font-bold">7 jours en salle</p>
+              <p className="mt-1 text-sm text-slate-600">Évaluation finale incluse · e-learning préparatoire inclus</p>
             </div>
             <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-700">Modalités</p>
@@ -314,7 +314,7 @@ export default function FormationCoordinateurSSI() {
             {/* Présentiel */}
             <div className="mt-6 rounded-2xl border-2 border-slate-300 bg-slate-100 px-6 py-3">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-700">
-                Phase 2 — Présentiel intensif (3 × 7 h)
+                Phase 2 — Présentiel intensif (7 jours · 2 + 3 + 2)
               </p>
             </div>
             {programme.slice(5).map((item) => (
@@ -342,8 +342,7 @@ export default function FormationCoordinateurSSI() {
             Formation Coordination SSI — grille tarifaire 2026
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-            Nos formations sont susceptibles d'être prises en charge selon les critères de votre OPCO de rattachement.
-            Pour les entreprises éligibles au FNE-Formation, nous accompagnons le montage du dossier.
+            La formation peut être financée sur fonds propres entreprise. Le financement via OPCO ou FNE-Formation est possible sous réserve d&apos;accord du financeur — la certification Qualiopi est requise par les OPCO (art. L6316-1 C. trav.) et fait l&apos;objet d&apos;une démarche en cours chez PREVENSIA FORMATION.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -381,7 +380,7 @@ export default function FormationCoordinateurSSI() {
           </div>
 
           <p className="mt-8 text-sm text-slate-400">
-            💡 Formation dispensée exclusivement en inter-entreprise (salle). Tarif finançable OPCO et FNE-Formation sur devis.
+            💡 Formation dispensée exclusivement en inter-entreprise (salle). Tarif sur devis — financement OPCO ou FNE-Formation possible sous réserve d&apos;obtention Qualiopi et accord du financeur.
           </p>
         </div>
       </section>
@@ -409,6 +408,9 @@ export default function FormationCoordinateurSSI() {
             <p className="mt-4 text-sm text-amber-700 font-medium">
               ℹ PREVENSIA suit l&apos;évolution réglementaire et mettra à jour ce programme
               si une obligation formelle venait à être instaurée.
+            </p>
+            <p className="mt-3 text-sm text-amber-800 border-t border-amber-200 pt-3">
+              ⚠ Cette formation ne remplace pas une mission réglementaire de coordination SSI confiée dans le cadre d&apos;un projet, ni une prestation de bureau de contrôle ou de maîtrise d&apos;œuvre.
             </p>
           </div>
         </div>
@@ -464,7 +466,7 @@ export default function FormationCoordinateurSSI() {
             Formez votre Coordinateur SSI avec PREVENSIA
           </h2>
           <p className="mt-3 text-orange-100">
-            Organisme de formation · Financement OPCO possible · Devis sous 48 h
+            Organisme de formation · Démarche Qualiopi en cours · Devis sous 48 h
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
