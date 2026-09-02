@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "ERP agent sécurité incendie",
   ],
   openGraph: {
-    title: "Formation certifiante SSIAP sécurité incendie : guide complet",
+    title: "SSIAP et sécurité incendie : comprendre les niveaux et préparer ses bases",
     description:
       "SSIAP 1, 2 et 3 : niveaux, conditions d'accès, financement OPCO et FNE-Formation, débouchés et salaires. Le guide complet pour devenir agent de sécurité incendie ERP.",
     url: "https://prevensia-formation.fr/blog/formation-ssiap-securite-incendie",
@@ -114,7 +114,7 @@ export default function ArticleFormationSSIAPPage() {
             <span className="text-slate-400">8 min de lecture · 28 mars 2026</span>
           </div>
           <h1 className="mt-6 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-            Formation certifiante SSIAP sécurité incendie : guide complet
+            SSIAP et sécurité incendie : comprendre les niveaux et préparer ses bases
           </h1>
           <p className="mt-4 text-lg text-slate-300">
             Guide des formations SSIAP 1, 2 et 3, conditions d&apos;accès, financement OPCO

@@ -608,7 +608,7 @@ function drawAttestationSuiviPage(params: {
     ["Formateur PREVENSIA", formateur || "PREVENSIA FORMATION"],
     ["Duree indicative", durationHint || "—"],
     ["Date de validation", validationDate],
-    ["Organisme de formation", "PREVENSIA FORMATION — Certifie Qualiopi"],
+    ["Organisme de formation", "PREVENSIA FORMATION"],
   ];
 
   for (const [label, value] of infoRows) {
@@ -663,7 +663,7 @@ function drawAttestationSuiviPage(params: {
   const mentionH = 56;
   drawCell(
     page,
-    "La presente attestation certifie que l'apprenant designe ci-dessus a suivi et valide, dans sa totalite, le parcours de formation indique, dispensee par PREVENSIA FORMATION dans le cadre de la reglementation applicable. Ce document est delivre par PREVENSIA FORMATION, organisme de formation professionnelle continue certifie Qualiopi. Il ne constitue pas un titre d'habilitation, une autorisation de conduite, ni une certification reglementaire necessitant un agrement specifique separe.",
+    "La presente attestation certifie que l'apprenant designe ci-dessus a suivi et valide, dans sa totalite, le parcours de formation indique, dispensee par PREVENSIA FORMATION dans le cadre de la reglementation applicable. Ce document est delivre par PREVENSIA FORMATION, organisme de formation professionnelle continue. Il ne constitue pas un titre d'habilitation, une autorisation de conduite, ni une certification reglementaire necessitant un agrement specifique separe.",
     margin, mentionY, contentW, mentionH,
     { font: fontRegular, size: 7.4, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle", lineHeight: 9 }
   );

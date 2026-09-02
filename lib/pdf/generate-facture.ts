@@ -186,7 +186,7 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
   y -= 13;
   page.drawText("33, avenue Philippe Auguste — 75011 Paris", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
   y -= 13;
-  page.drawText("SIRET : 107 290 579 00013 | Organisme certifie Qualiopi", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
+  page.drawText("SIRET : 107 290 579 00013", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
   y -= 13;
   page.drawText("contact@prevensia-formation.fr | 01 89 62 94 92", { x: margin, y, size: 9, font: fontRegular, color: MUTED });
 
@@ -430,8 +430,8 @@ export async function generateFacturePdf(input: FacturePdfInput): Promise<Uint8A
       color: MUTED,
     }
   );
-  page.drawText("Organisme certifie Qualiopi", {
-    x: pageW - margin - fontBold.widthOfTextAtSize("Organisme certifie Qualiopi", 7.5),
+  page.drawText("Organisme de formation", {
+    x: pageW - margin - fontBold.widthOfTextAtSize("Organisme de formation", 7.5),
     y: footerY + 10,
     size: 7.5,
     font: fontBold,

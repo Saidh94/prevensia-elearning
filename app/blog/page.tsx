@@ -67,9 +67,9 @@ const articles = [
   },
   {
     slug: "formation-ssiap-securite-incendie",
-    titre: "Formation certifiante SSIAP sécurité incendie : guide complet",
+    titre: "SSIAP et sécurité incendie : comprendre les niveaux et préparer ses bases",
     description:
-      "Guide des formations SSIAP 1, 2 et 3 : niveaux, conditions d'accès, coût, financement CPF et débouchés métiers dans la sécurité incendie ERP.",
+      "Guide des niveaux SSIAP, connaissances attendues et préparation aux bases de la sécurité incendie en ERP.",
     date: "2026-03-28",
     duree: "8 min",
     categorie: "Guide",

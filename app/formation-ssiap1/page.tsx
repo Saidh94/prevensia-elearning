@@ -32,12 +32,12 @@ const faqItems = [
   {
     question: "En quoi consiste la formation initiale SSIAP1 (70h) ?",
     answer:
-      "La formation initiale SSIAP1 dure 70 heures (environ 10 à 12 jours ouvrés), pour 12 stagiaires maximum par session. Elle comprend : le module e-learning théorique (inclus pour chaque stagiaire), des apports théoriques en salle, des exercices pratiques (manipulation d'extincteurs, désenfumage, gestes professionnels, mises en situation ERP) et un examen final composé d'une épreuve écrite (QCM), d'une épreuve pratique d'identification d'anomalies et d'un oral devant jury. La qualification SSIAP1 est obtenue par les stagiaires ayant validé l'examen devant jury habilité par la préfecture.",
+      "La formation initiale SSIAP1 dure 70 heures (environ 10 à 12 jours ouvrés), pour 12 stagiaires maximum par session. Elle comprend : le module e-learning théorique (inclus pour chaque stagiaire), des apports théoriques en salle, des exercices pratiques (manipulation d'extincteurs, désenfumage, gestes professionnels, mises en situation ERP) et une évaluation finale (QCM + pratique). La qualification SSIAP1 est obtenue après réussite à l'examen devant un jury habilité par la préfecture — organisé par un organisme agréé partenaire ou selon les modalités locales en vigueur.",
   },
   {
     question: "Qu'est-ce que le recyclage SSIAP1 et pourquoi est-il obligatoire ?",
     answer:
-      "Le recyclage SSIAP1 est une remise à niveau obligatoire de 14 heures, à réaliser tous les 3 ans pour maintenir la qualification SSIAP1 en cours de validité. Sans recyclage, la qualification est suspendue et l'agent ne peut plus légalement exercer les fonctions SSIAP1. Le recyclage comprend une actualisation réglementaire, des exercices pratiques et un module e-learning de révision (inclus). Contactez-nous pour obtenir un devis adapté à votre effectif.",
+      "Le recyclage SSIAP1 est une remise à niveau obligatoire de 14 heures, à réaliser tous les 3 ans pour maintenir la qualification SSIAP1 en cours de validité. Sans recyclage, la qualification est suspendue et l'agent ne peut plus légalement exercer les fonctions SSIAP1. Ce module de remise à niveau inclut une actualisation réglementaire, des exercices pratiques et un module e-learning de révision. Contactez-nous pour un devis adapté à votre effectif.",
   },
   {
     question: "À qui s'adresse la formation SSIAP1 ?",
@@ -47,7 +47,7 @@ const faqItems = [
   {
     question: "Quelle est la réglementation applicable aux ERP en matière de SSIAP ?",
     answer:
-      "Les ERP sont soumis à l'arrêté du 25 juin 1980 modifié (règlement de sécurité incendie ERP) et à l'arrêté du 2 mai 2005 modifié (organisation et missions du SSIAP). La présence d'agents SSIAP1 qualifiés est obligatoire dans les ERP de 1re à 4e catégorie selon leur type et leur capacité d'accueil. Les agents doivent être titulaires de la qualification SSIAP1, obtenue après examen devant jury habilité par la préfecture.",
+      "Les ERP sont soumis à l'arrêté du 25 juin 1980 modifié (règlement de sécurité incendie ERP) et à l'arrêté du 2 mai 2005 modifié (organisation et missions du SSIAP). La présence d'agents SSIAP1 qualifiés est obligatoire dans les ERP de 1re à 4e catégorie selon leur type et leur capacité d'accueil. Les agents doivent être titulaires de la qualification SSIAP1, délivrée après examen devant jury auprès d'un organisme agréé par la préfecture.",
   },
   {
     question: "Comment obtenir un devis pour la formation SSIAP1 ?",
@@ -57,10 +57,10 @@ const faqItems = [
 ];
 
 const metiers = [
-  "Agent de sécurité incendie souhaitant obtenir la qualification SSIAP1",
+  "Agent de sécurité incendie souhaitant se préparer au SSIAP1",
   "Personnel reconverti vers la sécurité incendie en ERP",
   "Gardien d'immeuble souhaitant évoluer vers le SSIAP1",
-  "Agent SSIAP1 certifié devant effectuer son recyclage (3 ans)",
+  "Agent SSIAP1 qualifié souhaitant effectuer sa remise à niveau (3 ans)",
   "Responsable sécurité souhaitant comprendre les obligations SSIAP",
   "Directeur d'établissement ERP gérant une équipe SSIAP",
   "RH / responsable formation gérant les recyclages SSIAP1",
@@ -97,7 +97,7 @@ const programme = [
     contenu: "Signal d'alarme, phases d'évacuation, rôles guide-file et serre-file, point de rassemblement, PMR, exercices obligatoires.",
   },
   {
-    titre: "Rôle et missions de l'agent SSIAP1",
+    titre: "Rôle et missions d'un agent de sécurité incendie en ERP (référentiel SSIAP1)",
     contenu: "Rondes de surveillance, levée de doute, intervention de première main, consignes du poste de sécurité, transmission aux secours.",
   },
   {
@@ -115,20 +115,20 @@ export default function FormationSsiap1Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Préparation SSIAP1 — Sécurité Incendie ERP"
-        description="Préparation au SSIAP1 (70h) : e-learning théorique + présentiel pratique. Recyclage 14h inclus. Examen devant jury agréé."
+        description="Préparation aux connaissances SSIAP1 (70h) : e-learning théorique + présentiel pratique. Module de remise à niveau 14h inclus."
         courseCode="SSIAP1"
         url="/formation-ssiap1"
         timeRequired="P10D"
         educationalLevel="Beginner"
         audience="Agents de sécurité incendie, personnel souhaitant exercer les fonctions SSIAP1 en ERP"
-        educationalCredentialAwarded="Qualification SSIAP1 — Titre délivré après examen et jury officiel"
+        educationalCredentialAwarded="Attestation de formation PREVENSIA FORMATION — la qualification SSIAP1 est délivrée par l'organisme agréé après examen"
       />
       <FaqJsonLd items={faqItems} />
       <BreadcrumbJsonLd
         items={[
           { name: "Accueil", url: "/" },
           { name: "Nos formations", url: "/" },
-          { name: "Formation SSIAP1", url: "/formation-ssiap1" },
+          { name: "Préparation SSIAP1", url: "/formation-ssiap1" },
         ]}
       />
 
@@ -140,7 +140,7 @@ export default function FormationSsiap1Page() {
             <span className="mx-2">›</span>
             <Link href="/" className="hover:text-white">Nos formations</Link>
             <span className="mx-2">›</span>
-            <span className="text-white">Formation SSIAP1</span>
+            <span className="text-white">Préparation SSIAP1</span>
           </nav>
 
           <p className="inline-flex rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-300">
@@ -153,7 +153,7 @@ export default function FormationSsiap1Page() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Obtenez la qualification SSIAP1 reconnue par le Ministère de l&apos;Intérieur, exigée
+            Préparez-vous à la qualification SSIAP1 reconnue par le Ministère de l&apos;Intérieur, exigée
             dans tous les ERP de catégorie 1 à 4. Formation complète en 70h : théorie, pratique sur
             matériel réel, examen devant jury. Module e-learning inclus pour chaque stagiaire.
             Recyclage obligatoire (14h / 3 ans) également disponible.
