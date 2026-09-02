@@ -19,6 +19,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Sous-projets indépendants — compilés séparément
+    "si-riskconsulting/**",
+    "prevensia-duerp/**",
   ]),
 ]);
 

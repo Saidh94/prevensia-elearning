@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import AdminLoginForm from "./admin-login-form";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Accès administration — PREVENSIA",
@@ -58,9 +59,9 @@ export default async function ConnexionAdminPage() {
 
         {/* Lien retour discret */}
         <p className="mt-6 text-center text-xs text-slate-600">
-          <a href="/" className="transition hover:text-slate-400">
+          <Link href="/" className="transition hover:text-slate-400">
             ← Retour au site
-          </a>
+          </Link>
         </p>
       </div>
     </main>

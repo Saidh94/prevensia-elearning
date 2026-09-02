@@ -31,12 +31,15 @@ export default function FloatingContactButtons() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem(
-      FLOATING_CONTACT_STORAGE_KEY,
-      String(isDesktopPanelCollapsed)
-    );
-  }, [isDesktopPanelCollapsed]);
+  function collapsePanel() {
+    setIsDesktopPanelCollapsed(true);
+    window.localStorage.setItem(FLOATING_CONTACT_STORAGE_KEY, "true");
+  }
+
+  function expandPanel() {
+    setIsDesktopPanelCollapsed(false);
+    window.localStorage.setItem(FLOATING_CONTACT_STORAGE_KEY, "false");
+  }
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function FloatingContactButtons() {
         {isDesktopPanelCollapsed ? (
           <button
             type="button"
-            onClick={() => setIsDesktopPanelCollapsed(false)}
+            onClick={expandPanel}
             className="group inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/82 px-4 py-3 text-sm font-semibold text-slate-800 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white"
             aria-label="Afficher le panneau de contact PREVENSIA"
           >
@@ -69,7 +72,7 @@ export default function FloatingContactButtons() {
             <div className="relative bg-gradient-to-r from-slate-950/88 via-slate-900/86 to-red-900/82 px-5 py-4 text-white">
               <button
                 type="button"
-                onClick={() => setIsDesktopPanelCollapsed(true)}
+                onClick={collapsePanel}
                 className="absolute right-4 top-4 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white transition hover:bg-white/20"
                 aria-label="Reduire le panneau de contact PREVENSIA"
               >

@@ -26,7 +26,7 @@ export default async function EntretienPage({
 
   // Vérifier l'inscription si fournie
   let formationTitle = "Formation PREVENSIA";
-  let enrollmentId = enrollment_id ?? "";
+  const enrollmentId = enrollment_id ?? "";
 
   if (enrollmentId) {
     const { data: enrollment } = await supabase

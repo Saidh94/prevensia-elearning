@@ -167,7 +167,7 @@ export default function AtexDomaineExplosivite() {
         <g clipPath="url(#clip-center)">
           <rect x={CENTER_X} y={ZONE_Y} width={CENTER_W} height={ZONE_H} rx="4" fill="#fca5a5" />
           <rect x={CENTER_X} y={ZONE_Y} width={CENTER_W} height={ZONE_H} rx="4"
-            fill="#ef4444" opacity={0.25 * Math.abs(Math.sin(Date.now() / 700))} />
+            fill="#ef4444" opacity={0.25 * alarmOp} />
         </g>
         <text x="290" y="126" textAnchor="middle" fontSize="12" fontWeight="900"
           fill="#991b1b" opacity={centerOp}>DOMAINE</text>

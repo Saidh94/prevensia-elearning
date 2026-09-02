@@ -4,6 +4,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
+type GscRow = { keys: string[]; clicks: number; impressions: number; position: number; ctr: number };
+
 async function getAccessToken(): Promise<string | null> {
   const res = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
@@ -71,7 +73,7 @@ export async function GET(req: Request) {
 
     // Insérer dans seo_tracking
     if (rows.length > 0) {
-      const records = rows.map((row: any) => ({
+      const records = rows.map((row: GscRow) => ({
         keyword: row.keys[0],
         page_url: row.keys[1],
         clicks: Math.round(row.clicks),
@@ -86,11 +88,11 @@ export async function GET(req: Request) {
     }
 
     // Totaux pour kpi_daily d'aujourd'hui
-    const totalClics = rows.reduce((s: number, r: any) => s + r.clicks, 0);
-    const totalImpressions = rows.reduce((s: number, r: any) => s + r.impressions, 0);
+    const totalClics = rows.reduce((s: number, r: GscRow) => s + r.clicks, 0);
+    const totalImpressions = rows.reduce((s: number, r: GscRow) => s + r.impressions, 0);
     const avgPosition =
       rows.length > 0
-        ? parseFloat((rows.reduce((s: number, r: any) => s + r.position, 0) / rows.length).toFixed(1))
+        ? parseFloat((rows.reduce((s: number, r: GscRow) => s + r.position, 0) / rows.length).toFixed(1))
         : null;
 
     await supabase.from("kpi_daily").upsert(

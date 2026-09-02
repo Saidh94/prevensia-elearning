@@ -35,7 +35,7 @@ export async function GET(req: Request) {
 
   // Enrichir avec le nom de l'admin
   const adminIds = [...new Set((data ?? []).map((r) => r.admin_id))];
-  let adminNames: Record<string, string> = {};
+  const adminNames: Record<string, string> = {};
   if (adminIds.length > 0) {
     const { data: profiles } = await supabase
       .from("profiles")
