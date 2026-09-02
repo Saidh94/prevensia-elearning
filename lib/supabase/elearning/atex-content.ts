@@ -5,7 +5,7 @@ export const atexModuleContent: ModuleContent = {
   shortTitle: "ATEX NIV 0",
   subtitle:
     "Parcours e-learning de sensibilisation aux atmosphères explosives, destiné à toute personne amenée à travailler, intervenir ou évoluer dans un environnement susceptible de présenter un risque d'explosion lié à des gaz, vapeurs ou poussières inflammables.",
-  duration: "3 h à 4 h + entretien de validation : 30 min",
+  duration: "E-learning 2h + entretien de validation 30 min",
   deliveryFormat: "E-learning autonome 2h + entretien de validation 30 min",
   level: "Débutant à intermédiaire",
   objective:
@@ -30,7 +30,7 @@ export const atexModuleContent: ModuleContent = {
       content: [
         "Une atmosphère explosive (ATEX) se forme lorsque des substances combustibles — gaz, vapeurs, brouillards ou poussières — se mélangent à l'air dans des proportions situées entre la Limite Inférieure d'Explosivité (LIE) et la Limite Supérieure d'Explosivité (LSE). En-dessous de la LIE, le mélange est trop pauvre ; au-dessus de la LSE, il est trop riche. Seule la plage entre ces deux valeurs est explosive. Le guide INERIS Oméga 36 (octobre 2025) distingue « atmosphère explosive » (mélange dans son domaine d'explosivité) et « atmosphère explosible » (susceptible de le devenir par évolution des concentrations).",
         "Les ATEX sont présentes dans de nombreux secteurs professionnels : industrie chimique et pétrochimique, industries agroalimentaires (silos de farine, de sucre, d'amidon), traitement des eaux et du gaz, imprimerie, menuiserie fine, métallurgie, stations-service et dépôts de carburant.",
-        "Les accidents liés aux ATEX provoquent chaque année en France des dizaines d'accidents du travail graves. Les explosions surviennent principalement en usine/atelier (43 AT recensés), lors d'opérations de maintenance ou de réparation (17 AT), et sur chantiers de construction (15 AT).",
+        "Les accidents liés aux ATEX provoquent chaque année en France des dizaines d'accidents du travail graves. Les explosions surviennent principalement en usine/atelier, lors d'opérations de maintenance ou de réparation, et sur chantiers de construction (données INRS / BARPI).",
         "La prévention des risques ATEX repose sur trois piliers : supprimer ou réduire la formation d'atmosphères explosives, éviter toute source d'inflammation, et mettre en place des mesures atténuant les effets d'une explosion éventuelle.",
         "Le Code du travail (articles L4121-1 et suivants) impose à l'employeur d'évaluer les risques liés aux atmosphères explosives et de prendre les mesures nécessaires pour assurer la sécurité des travailleurs exposés.",
       ],

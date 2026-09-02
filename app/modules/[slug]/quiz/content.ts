@@ -9045,7 +9045,7 @@ quizContent["atex-niveau1"] = [
     timeLimit: 40,
   },
   {
-    question: "Quelle est la durée de validité d'un avis d'habilitation ATEX et quelle action est requise à son échéance ?",
+    question: "Quelle pratique est recommandée pour maintenir la pertinence d'une attestation de formation ATEX après sa délivrance ?",
     choices: [
       "5 ans — renouvellement automatique si pas d'accident",
       "3 ans — recyclage et réévaluation des compétences avant reconduction par l'employeur",
@@ -9054,7 +9054,7 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [1],
     chapterLabel: "Intervention en zone",
-    explanation: "L'avis d'habilitation ATEX est valable 3 ans. Son renouvellement exige un recyclage avec réévaluation des compétences, prenant en compte les évolutions réglementaires, technologiques et les retours d'expérience du site. L'employeur reste responsable de la reconduction ou du refus de reconduction selon les résultats de la réévaluation.",
+    explanation: "La directive 99/92/CE et le Code du travail (R.4227-42 à R.4227-54) exigent une formation suffisante et appropriée sans fixer de durée de validité réglementaire. En pratique, un recyclage est recommandé tous les 3 ans (pratique courante de branche) ou plus tôt en cas de changement de poste, de DRPCE ou d'installations. L'employeur reste responsable d'évaluer la nécessité de renouveler la formation selon le contexte réel du site.",
     timeLimit: 30,
   },
   {
@@ -9101,13 +9101,13 @@ quizContent["atex-niveau1"] = [
     question: "Quel article du Code du travail fixe l'obligation pour l'employeur d'établir le Document Relatif à la Protection Contre les Explosions (DRPCE) ?",
     choices: [
       "Article R.4227-42 du Code du travail",
-      "Article L.4121-3 (évaluation générale des risques) combiné avec l'article R.4227-50 spécifique ATEX",
+      "Article L.4121-3 (évaluation générale des risques) combiné avec l'article R.4227-52 spécifique ATEX (DRPCE)",
       "Article R.4515-8 (autorisation de travail)",
       "Article L.4131-1 (droit de retrait)",
     ],
     answer: [1],
     chapterLabel: "Zonage ATEX",
-    explanation: "L'article R.4227-50 du Code du travail (transposant la directive 99/92/CE) exige que l'employeur établisse et tienne à jour le DRPCE (Document Relatif à la Protection Contre les Explosions) pour tout établissement comportant des zones ATEX. Ce document fait partie de l'évaluation des risques de l'article L.4121-3. Il doit être établi avant le début des travaux, mis à jour lors de modifications significatives et accessible aux travailleurs concernés.",
+    explanation: "L'article R.4227-52 du Code du travail (transposant la directive 99/92/CE) exige que l'employeur établisse et tienne à jour le DRPCE (Document Relatif à la Protection Contre les Explosions) pour tout établissement comportant des zones ATEX. Ce document fait partie de l'évaluation des risques de l'article L.4121-3. Il doit être établi avant le début des travaux, mis à jour lors de modifications significatives et accessible aux travailleurs concernés.",
     timeLimit: 40,
   },
   {
@@ -9575,7 +9575,7 @@ quizContent["atex-niveau2"] = [
     timeLimit: 40,
   },
   {
-    question: "Comment le référent ATEX organise-t-il le suivi des recyclages (renouvellement des avis d'habilitation ATEX à 3 ans) pour l'ensemble du personnel ?",
+    question: "Comment le référent ATEX organise-t-il le suivi des recyclages (attestations de formation ATEX) pour l'ensemble du personnel ?",
     choices: [
       "Il attend que les salariés signalent eux-mêmes l'échéance de leur habilitation",
       "En tenant un tableau de bord des dates de formation et d'échéance pour chaque salarié, avec des alertes anticipées (6 mois avant) pour planifier les recyclages",
@@ -9591,13 +9591,13 @@ quizContent["atex-niveau2"] = [
     question: "Un sous-traitant doit intervenir en Zone 1 pour une opération de maintenance sur une pompe. Son chef d'équipe présente une attestation de formation ATEX N1 datée de 4 ans. Quelle action le référent ATEX doit-il prendre ?",
     choices: [
       "Accepter l'intervention — l'attestation est valable car il n'y a pas de date limite précisée dans la loi",
-      "Refuser l'accès à la Zone 1 et exiger une preuve de recyclage récent (< 3 ans) avant toute autorisation de travail",
+      "Refuser l'accès à la Zone 1 et exiger une preuve de recyclage récent (< 3 ans recommandés ou selon le DRPCE site) avant toute autorisation de travail",
       "Autoriser l'intervention mais doubler la surveillance",
       "Contacter le formateur initial pour vérifier si la personne est encore compétente",
     ],
     answer: [1],
     chapterLabel: "Formation & habilitation",
-    explanation: "L'avis d'habilitation ATEX est valable 3 ans. Une attestation datée de 4 ans est expirée. Le référent ATEX doit refuser l'accès à la Zone 1 et exiger un justificatif de recyclage récent (< 3 ans). Cette obligation s'applique également aux entreprises extérieures. Le plan de prévention et l'autorisation de travail doivent systématiquement vérifier la validité des habilitations ATEX du personnel intervenant. Autoriser une personne sans habilitation valide engage la responsabilité du référent ATEX et du chef d'établissement.",
+    explanation: "Aucune durée de validité réglementaire n'est fixée par le Code du travail pour les formations ATEX. En pratique, un recyclage tous les 3 ans est recommandé (pratique de branche courante). Une attestation datée de 4 ans mérite une revue : le référent ATEX doit vérifier si le DRPCE, le poste ou les installations ont évolué depuis la dernière formation et décider avec l'employeur si un recyclage est nécessaire avant d'autoriser l'accès en Zone 1. Cette démarche s'applique également aux entreprises extérieures. Autoriser l'accès sans vérification engage la responsabilité du référent ATEX et du chef d'établissement.",
     timeLimit: 35,
   },
   {

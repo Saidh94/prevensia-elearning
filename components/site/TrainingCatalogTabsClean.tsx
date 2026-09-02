@@ -369,9 +369,9 @@ const audienceByTab: Record<TabKey, string[]> = {
     "Salariés désignés par leur employeur pour assurer la fonction d'agent SSIAP",
   ],
   atex: [
-    "Tout personnel circulant en zone ATEX (Niveau 1)",
-    "Travailleurs intervenant régulièrement en zone classée (Niveau 2)",
-    "Responsables de travaux et chargés de chantier en zone ATEX (Niveau 3)",
+    "Tout personnel circulant en zone ATEX (N0 – Sensibilisation)",
+    "Travailleurs intervenant régulièrement en zone classée (N1 – Intervenant)",
+    "Responsables de travaux et chargés de chantier en zone ATEX (N2 – Encadrant)",
     "Techniciens de maintenance, opérateurs, électriciens, mécaniciens",
     "Responsables sécurité et coordinateurs ATEX",
     "Sous-traitants et intervenants extérieurs en site classé",

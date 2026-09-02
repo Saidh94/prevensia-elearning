@@ -234,7 +234,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
   },
   1: {
     badge: "N1",
-    title: "ATEX NIVEAU 1",
+    title: "ATEX N0 – Sensibilisation",
     subtitle: "Sensibilisation — Atmosphères explosives",
     description:
       "Sensibilisation aux risques liés aux atmosphères explosives. " +
@@ -259,7 +259,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
   },
   2: {
     badge: "N2",
-    title: "ATEX NIVEAU 2",
+    title: "ATEX N1 – Intervenant",
     subtitle: "Travailleur exposé — Zone classée",
     description:
       "Travailleur intervenant régulièrement en zone ATEX classée. " +
@@ -283,7 +283,7 @@ const LEVEL_CFG: Record<AtexLevel, LevelCfg> = {
   },
   3: {
     badge: "N3",
-    title: "ATEX NIVEAU 3",
+    title: "ATEX N2 – Encadrant / Référent",
     subtitle: "Chargé de travaux — Responsable ATEX",
     description:
       "Encadrant et responsable de travaux en zone ATEX. " +
