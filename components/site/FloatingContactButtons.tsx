@@ -13,12 +13,10 @@ function getInitialCollapsedState() {
 
 export default function FloatingContactButtons() {
   const [showDesktopPanel, setShowDesktopPanel] = useState(false);
-  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(false);
-
-  useEffect(() => {
-    // Lire localStorage apres hydratation pour eviter le mismatch serveur/client
-    setIsDesktopPanelCollapsed(getInitialCollapsedState());
-  }, []);
+  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return getInitialCollapsedState();
+  });
 
   useEffect(() => {
     const handleScroll = () => {

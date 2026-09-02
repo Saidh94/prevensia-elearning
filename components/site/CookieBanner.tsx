@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const STORAGE_KEY = "prevensia-cookie-consent";
 
@@ -15,13 +15,10 @@ function readStoredConsent(): ConsentValue {
 }
 
 export default function CookieBanner() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (readStoredConsent() === null) {
-      setVisible(true);
-    }
-  }, []);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return readStoredConsent() === null;
+  });
 
   function handleAccept() {
     localStorage.setItem(STORAGE_KEY, "accepted");
