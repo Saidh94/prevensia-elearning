@@ -46,7 +46,7 @@ export const electricalCommercialOffers: ElectricalCommercialOffer[] = [
     ctaLabel: "Découvrir la formation",
     detailValue: "h0b0-h0v",
     note:
-      "Positionnée comme une offre non-électricien courte, avec validation encadree et logique conforme a la NF C 18-510.",
+      "Positionnée comme une offre non-électricien courte, avec validation encadrée et logique conforme à la NF C 18-510 + A1:2020 + A2:2023.",
   },
   {
     slug: "bs-be-manoeuvre",
@@ -263,4 +263,4 @@ export const electricalCommercialOffers: ElectricalCommercialOffer[] = [
 ];
 
 export const homepageElectricalSummary =
-  "Offres distinctes pour H0 B0 H0V, BS / BE Manœuvre, BF / HF, B1 / B1V, B2 / B2V, BR, BC, B2T, BE Essai / Mesure / Vérification et HTA. Chaque parcours est adapté au périmètre d'habilitation, au niveau de responsabilité et aux exigences de la NF C 18-510.";
+  "Offres distinctes pour H0 B0 H0V, BS / BE Manœuvre, BF / HF, B1 / B1V, B2 / B2V, BR, BC, B2T, BE Essai / Mesure / Vérification et HTA. Chaque parcours est adapté au périmètre d'habilitation, au niveau de responsabilité et aux exigences de la NF C 18-510 + A1:2020 + A2:2023.";

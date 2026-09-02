@@ -58,10 +58,10 @@ export const bsbeModuleContent: ModuleContent = {
   audience:
     "Agents de maintenance, techniciens polyvalents, gardiens, personnels de sites tertiaires ou industriels, personnels d’exploitation, services généraux et salariés amenés à effectuer des opérations simples ou des manœuvres en basse tension sans être électriciens exécutants.",
   certificationNote:
-    "Ce parcours constitue la préparation théorique. L’habilitation BS ou BE Manœuvre est délivrée uniquement par l’employeur après vérification des acquis, adéquation au poste, analyse du risque et évaluation adaptée au poste.",
+    "PREVENSIA FORMATION délivre une attestation de réussite théorique et un avis après formation (conformément à la NF C 18-510 + A1:2020 + A2:2023), transmis à l’employeur à l’issue de la classe virtuelle. Le titre d’habilitation BS ou BE Manœuvre est délivré exclusivement par l’employeur, en application de l’article R.4544-9 du Code du travail, après vérification des acquis, adéquation au poste, analyse du risque et évaluation des savoir-faire.",
   heroBadge: "Habilitation électrique",
   finalMessage:
-    "Le bon réflexe en BS ou en BE Manœuvre n’est pas d’improviser une solution. C’est d’identifier le bon organe, de vérifier le contexte, d’appliquer la procédure prévue et de s’arrêter immédiatement si l’action n’entre plus dans le cadre autorisé.",
+    "Le bon réflexe en BS ou en BE Manœuvre n’est pas d’improviser une solution. C’est d’identifier le bon organe, de vérifier le contexte, d’appliquer la procédure prévue et de s’arrêter immédiatement si l’action n’entre plus dans le cadre autorisé. La NF C 18-510 impose une étape obligatoire de validation des savoir-faire pratiques (classe virtuelle de 3 à 4 h), préalable à l’avis après formation transmis à l’employeur.",
   quizCtaLabel: "Passer au quiz BS et BE Manœuvre",
 
   sections: [
@@ -1124,6 +1124,9 @@ export const bsbeModuleContent: ModuleContent = {
         "Protection collective d’abord, EPI ensuite.",
         "EPI en complément.",
         "Contexte et état du matériel avant toute action.",
+        "Arc-flash (A2:2023) : en BT, le risque d’arc électrique existe lors de court-circuit. Pour BS/BE Manœuvre, l’EPI anti-arc (gants classe 00, écran facial catégorie 1) est requis dès lors que l’on est au voisinage d’un organe sous tension. Vérifier les consignes du site.",
+        "Installations PV (A2:2023) : une installation solaire photovoltaïque ne peut pas être mise hors tension côté DC par simple coupure réseau. Les modules restent sous tension sous éclairage. BS/BE Manœuvre : aucune intervention sur une installation PV sans consignation DC validée et habilitation adaptée.",
+        "Batteries stationnaires (A2:2023) : risques spécifiques — dégagement d’hydrogène, courant continu non interruptible, résistance d’arc très faible. Toute action sur un coffret batterie doit être couverte par des consignes spécifiques.",
       ],
       forbiddenPoints: [
         "Compter sur l’EPI pour justifier une action interdite.",

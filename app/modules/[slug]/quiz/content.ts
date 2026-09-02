@@ -15,6 +15,33 @@ export type QuizQuestion = {
    * quel que soit le score global (question éliminatoire).
    */
   eliminatory?: boolean;
+  /**
+   * Symbole(s) d'habilitation concerné(s) par cette question.
+   * Ex : "H0B0", "BS", "BR", "BC", "B1/B2"
+   * Permet le filtrage par symbole dans les exports Qualiopi.
+   */
+  symbol?: string;
+  /**
+   * Thème normatif de la question.
+   * Ex : "habilitation-employeur", "risque-electrique", "EPI", "consignation",
+   *      "zones-voisinage", "DMAC", "courant-continu", "photovoltaïque", "batteries"
+   */
+  normatifTheme?: string;
+  /**
+   * Si true, la question porte sur un point fondamental de sécurité
+   * dont la maîtrise est vérifiée en priorité lors d'un audit Qualiopi.
+   */
+  isFondamentale?: boolean;
+  /**
+   * Référence normative ou réglementaire source de la question.
+   * Ex : "NF C 18-510 § 5.1", "Code du travail R.4544-9"
+   */
+  source?: string;
+  /**
+   * Objectif pédagogique évalué par cette question.
+   * Ex : "Identifier le rôle de l'employeur dans la délivrance de l'habilitation"
+   */
+  objectifEvalue?: string;
 };
 
 export const quizContent: Record<string, QuizQuestion[]> = {
@@ -33,6 +60,11 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "La formation prépare à l'habilitation, mais c'est l'employeur qui la délivre.",
       timeLimit: 40,
+      symbol: "B1/B2/BR/BC",
+      normatifTheme: "habilitation-employeur",
+      isFondamentale: true,
+      source: "Code du travail R.4544-9 ; NF C 18-510 § 5.1",
+      objectifEvalue: "Identifier le rôle de l'employeur dans la délivrance des habilitations B1/B2/BR/BC",
     },
     {
       question: "Le symbole B1 correspond principalement à :",
@@ -913,6 +945,11 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       imagePath: "/elearning/bsbe/bsbe-cadre.svg",
       imageAlt:
         "Cadre BS et BE Manœuvre avec formation, évaluation, validation et habilitation par l’employeur",
+      symbol: "BS/BE Manœuvre",
+      normatifTheme: "habilitation-employeur",
+      isFondamentale: true,
+      source: "Code du travail R.4544-9 ; NF C 18-510 § 5",
+      objectifEvalue: "Identifier le rôle exclusif de l’employeur dans la délivrance du titre BS/BE Manœuvre",
     },
     {
       question: "Le symbole BS correspond principalement à :",
@@ -1983,6 +2020,12 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       timeLimit: 45,
     },
   ],
+  // ── H0B0 Quiz — métadonnées Qualiopi ────────────────────────────────────
+  // symbol: "H0B0" | "H0" | "B0" | "H0V"
+  // normatifTheme: thème de la question (risque-electrique, habilitation-employeur, etc.)
+  // isFondamentale: true = point de sécurité critique vérifié en audit Qualiopi
+  // source: référence normative ou réglementaire
+  // objectifEvalue: objectif pédagogique évalué
   h0b0: [
     {
       question:
@@ -1998,6 +2041,11 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "L’habilitation est délivrée par l’employeur. La formation prépare à l’habilitation mais ne vaut jamais habilitation à elle seule.",
       timeLimit: 45,
+      symbol: "H0B0",
+      normatifTheme: "habilitation-employeur",
+      isFondamentale: true,
+      source: "Code du travail R.4544-9 ; NF C 18-510 § 5.1",
+      objectifEvalue: "Identifier le rôle de l’employeur dans la délivrance de l’habilitation électrique",
     },
     {
       question:
@@ -2013,6 +2061,11 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "La formation seule ne suffit pas. L’habilitation est une décision de l’employeur.",
       timeLimit: 40,
+      symbol: "H0B0",
+      normatifTheme: "habilitation-employeur",
+      isFondamentale: true,
+      source: "NF C 18-510 § 5.1 ; Code du travail R.4544-9",
+      objectifEvalue: "Distinguer attestation de formation et titre d’habilitation",
     },
     {
       question:
@@ -2030,6 +2083,11 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       explanation:
         "L’expérience seule ne remplace pas les vérifications nécessaires avant habilitation.",
       timeLimit: 75,
+      symbol: "H0B0",
+      normatifTheme: "habilitation-employeur",
+      isFondamentale: true,
+      source: "NF C 18-510 § 5 ; Code du travail R.4544-9",
+      objectifEvalue: "Lister les conditions préalables à la délivrance d’une habilitation par l’employeur",
     },
     {
       question:
@@ -2046,10 +2104,15 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le premier caractère précise le domaine de tension concerné.",
       timeLimit: 35,
       contextLabel:
-        "Le tableau des symboles aide à distinguer clairement les opérations d'ordre non électrique selon la zone et le voisinage.",
+        "Le tableau des symboles aide à distinguer clairement les opérations d’ordre non électrique selon la zone et le voisinage.",
       imagePath: "/elearning/references/symboles-travaux-non-electriques.jpg",
       imageAlt:
-        "Tableau des symboles d'habilitation utilisés pour les travaux d'ordre non électrique",
+        "Tableau des symboles d’habilitation utilisés pour les travaux d’ordre non électrique",
+      symbol: "H0B0",
+      normatifTheme: "lecture-symbole",
+      isFondamentale: true,
+      source: "NF C 18-510 — tableau des symboles",
+      objectifEvalue: "Déchiffrer la structure d’un symbole d’habilitation (domaine, rôle, attribut)",
     },
     {
       question: "Dans un symbole d’habilitation, la lettre B correspond à :",
@@ -2063,6 +2126,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       chapterLabel: "Symboles",
       explanation: "B = basse tension ; H = haute tension.",
       timeLimit: 30,
+      symbol: "B0",
+      normatifTheme: "lecture-symbole",
+      source: "NF C 18-510 — tableau des symboles",
+      objectifEvalue: "Associer les lettres B et H aux domaines de tension BT et HT",
     },
     {
       question: "Dans un symbole d’habilitation, la lettre H correspond à :",
@@ -2076,6 +2143,10 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       chapterLabel: "Symboles",
       explanation: "H = haute tension.",
       timeLimit: 30,
+      symbol: "H0",
+      normatifTheme: "lecture-symbole",
+      source: "NF C 18-510 — tableau des symboles",
+      objectifEvalue: "Associer les lettres B et H aux domaines de tension BT et HT",
     },
     {
       question:

@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique BS / BE Manœuvre — E-learning | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique BS et BE Manœuvre conforme NF C 18-510. Remplacement de fusibles, manœuvres sur armoires. E-learning + classe virtuelle. Dès 350 € HT. Qualiopi.",
+    "Formation habilitation électrique BS et BE Manœuvre conforme NF C 18-510 + A1:2020 + A2:2023. Remplacement de fusibles, manœuvres sur armoires. E-learning + classe virtuelle. Dès 350 € HT. Qualiopi.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-bs-be-manoeuvre",
   },
@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     title: "Formation BS / BE Manœuvre — Habilitation électrique interventions élémentaires",
     description:
-      "Habilitation BS et BE Manœuvre conforme NF C 18-510. Interventions élémentaires et manœuvres. E-learning + classe virtuelle. Dès 350 € HT.",
+      "Habilitation BS et BE Manœuvre conforme NF C 18-510 + A1:2020 + A2:2023. Interventions élémentaires et manœuvres. E-learning + classe virtuelle. Dès 350 € HT.",
     url: "https://prevensia-formation.fr/formation-bs-be-manoeuvre",
   },
 };
@@ -46,7 +46,7 @@ const faqItems = [
   {
     question: "La formation BS / BE Manœuvre est-elle disponible en e-learning ?",
     answer:
-      "Oui. PREVENSIA FORMATION propose un parcours e-learning pour la préparation théorique, complété par une classe virtuelle pour les mises en situation et la validation. Attention : l'e-learning et le quiz ne délivrent pas d'habilitation. L'habilitation BS / BE Manœuvre est délivrée exclusivement par l'employeur, après formation complète et vérification de l'adéquation au poste.",
+      "Oui. PREVENSIA FORMATION propose un parcours e-learning pour la préparation théorique, complété par une classe virtuelle pour les mises en situation et la validation des savoir-faire. À l'issue, PREVENSIA délivre une attestation de réussite et un avis après formation transmis à l'employeur. Le titre d'habilitation BS / BE Manœuvre est délivré exclusivement par l'employeur, en application de l'article R.4544-9 du Code du travail.",
   },
   {
     question: "Peut-on avoir BS et BE Manœuvre en même temps ?",
@@ -104,7 +104,7 @@ export default function FormationBsBeManoeuvrePage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Habilitation électrique · NF C 18-510
+            Habilitation électrique · NF C 18-510 + A1:2020 + A2:2023
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -115,7 +115,7 @@ export default function FormationBsBeManoeuvrePage() {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Les symboles BS et BE Manœuvre permettent à un salarié de réaliser des interventions
             élémentaires (remplacement de fusibles, prises) et des manœuvres d&apos;exploitation
-            sur des installations basse tension, dans un cadre strictement défini par la NF C 18-510.
+            sur des installations basse tension, dans un cadre strictement défini par la NF C 18-510 + A1:2020 + A2:2023.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">

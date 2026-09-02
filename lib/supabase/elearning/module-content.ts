@@ -34,10 +34,10 @@ export const modulesContent: Record<string, ModuleContent> = {
   audience:
     "Personnel non électricien amené à circuler, nettoyer, manutentionner, peindre, intervenir en maintenance non électrique, logistique, production ou travaux généraux à proximité d’installations électriques.",
   certificationNote:
-    "Ce parcours constitue une base théorique. La délivrance de l’habilitation relève de l’employeur après formation adaptée, vérification des acquis et prise en compte de l’activité réelle. La partie pratique et l’échange avec formateur restent indispensables.",
+    "PREVENSIA FORMATION délivre une attestation de réussite théorique et un avis après formation (conformément à la NF C 18-510 + A1:2020 + A2:2023), transmis à l’employeur à l’issue de l’entretien de validation. Le titre d’habilitation H0B0 / H0V est délivré exclusivement par l’employeur, en application de l’article R.4544-9 du Code du travail, après évaluation des acquis, adéquation au poste réel et analyse du risque. La partie pratique et les exercices en situation réelle restent indispensables.",
   heroBadge: "Habilitation électrique",
   finalMessage:
-    "Le parcours H0B0 a pour finalité de faire reconnaître le risque, respecter strictement son périmètre, ne jamais improviser et alerter correctement. La validation passe ensuite par le quiz puis, selon l’organisation retenue, par la mise en situation et l’évaluation pratique.",
+    "Le parcours H0B0 a pour finalité de faire reconnaître le risque, respecter strictement son périmètre, ne jamais improviser et alerter correctement. La validation théorique se conclut par le quiz (80 % minimum). La NF C 18-510 impose ensuite une étape obligatoire d’évaluation pratique et comportementale (entretien de validation avec le formateur), préalable à l’avis après formation transmis à l’employeur.",
   quizCtaLabel: "Passer au quiz H0B0",
   resourceFiles: [
     {
@@ -261,6 +261,10 @@ export const modulesContent: Record<string, ModuleContent> = {
 
   "Le schéma associé illustre de manière pédagogique les distances de sécurité autour d’une installation électrique. Il permet de visualiser la notion de voisinage. Cette représentation reste simplifiée : les distances réelles dépendent du domaine de tension et des prescriptions de la norme NF C 18-510.",
 
+  "L’amendement A2:2023 de la norme NF C 18-510 a introduit la notion de DMAC (Distance Minimale d’Approche Corrigée) pour les travaux à proximité d’ouvrages électriques aériens. La DMAC remplace la DMA dans les contextes haute tension : elle tient compte de la tension réelle de l’ouvrage et des moyens de protection mis en place. Pour le titulaire H0B0 ou H0V, le principe reste le même : ne jamais approcher une ligne ou un équipement aérien non balisé sans avoir vérifié la distance autorisée avec le responsable de l’opération.",
+
+  "A2:2023 a également renforcé la prise en compte des risques liés aux installations photovoltaïques. Contrairement au réseau classique, une installation photovoltaïque produit du courant continu dès qu’elle est exposée à la lumière : il est impossible de la mettre hors tension simplement en coupant le disjoncteur côté réseau. Les modules, les câbles DC et les coffrets de jonction restent sous tension tant que la lumière est présente. Le titulaire H0B0 qui intervient à proximité (toiture, chevalets, local technique) doit le savoir et ne jamais toucher ces équipements sans consignation DC préalable effectuée par du personnel qualifié.",
+
   "Le titulaire H0B0 ou H0V doit être capable d’identifier ces situations, de reconnaître les limites de sécurité, de ne jamais les franchir et d’alerter immédiatement en cas de protection manquante, de balisage absent ou de situation anormale."
 ],
 
@@ -279,7 +283,9 @@ export const modulesContent: Record<string, ModuleContent> = {
         "DLVS HTA = 3 m — zone de voisinage simple haute tension A (1 kV à 50 kV).",
         "DLVR HTA = 2 m — zone de danger renforcé haute tension A.",
         "DLVS HTB = 5 m — zone de voisinage simple haute tension B (> 50 kV).",
-        "En HT, le risque d'amorçage existe à distance, même sans contact physique."
+        "En HT, le risque d'amorçage existe à distance, même sans contact physique.",
+        "DMAC (A2:2023) — Distance Minimale d'Approche Corrigée : remplace la DMA pour les travaux à proximité d'ouvrages aériens HT. La valeur dépend de la tension de l'ouvrage et des protections mises en place ; toujours vérifier avec le responsable avant toute approche.",
+        "Installations PV (A2:2023) — modules et câbles DC restent sous tension même disjoncteur réseau ouvert. Consignation DC préalable obligatoire ; H0B0 : ne pas toucher sans validation du responsable."
       ],
       forbiddenPoints: [
         "Franchir une limite de balisage.",
@@ -683,16 +689,18 @@ export const modulesContent: Record<string, ModuleContent> = {
     "Les équipements de protection individuelle (EPI) électriques classiques en environnement BT sont les chaussures de sécurité diélectriques, les vêtements de travail couvrants, et selon les sites un casque de chantier. Le titulaire H0B0 ne porte généralement pas de gants isolants ni d'écran facial anti-arc, qui relèvent des opérations électriques.",
     "L'EPI ne dispense jamais du respect des règles d'environnement : un EPI ne change pas le périmètre de l'habilitation et ne donne aucune autorisation supplémentaire d'intervention.",
     "Avant chaque mission, le titulaire H0B0 vérifie visuellement son équipement : intégrité des chaussures, propreté des vêtements, état du casque si requis. Tout EPI dégradé ou périmé est mis hors service et signalé.",
+    "L'amendement A2:2023 renforce la prise en compte du risque d'arc électrique (arc-flash). Pour le titulaire H0B0, cela ne modifie pas les EPI requis (le non-électricien n'intervient pas sur des parties actives), mais cela renforce la vigilance à avoir en présence d'armoires ouvertes, de travaux sous tension à proximité ou d'installations HT : un arc peut se produire sans contact et projeter une onde thermique violente dans un rayon de plusieurs mètres. S'éloigner immédiatement et alerter restent les seules consignes applicables.",
   ],
   deepDive: [
     "L'INRS rappelle que la hiérarchie des mesures de prévention place toujours les protections collectives au-dessus des protections individuelles. La supprimer ou la contourner annule la chaîne de prévention.",
-    "Pour les opérations d'ordre non électrique, les EPI électriques (gants isolants classés, écran facial) ne sont pas systématiquement requis car le titulaire H0B0 ne touche pas aux pièces actives. C'est l'environnement qui est sécurisé, pas l'opérateur qui se protège du contact.",
+    "Pour les opérations d'ordre non électrique, les EPI électriques (gants isolants classés, écran facial anti-arc) ne sont pas systématiquement requis car le titulaire H0B0 ne touche pas aux pièces actives. C'est l'environnement qui est sécurisé, pas l'opérateur qui se protège du contact. L'arc-flash (A2:2023) concerne les électriciens opérant à proximité immédiate de parties actives.",
   ],
   keyPoints: [
     "Les EPC priment toujours sur les EPI.",
     "Ne jamais retirer un capot, balisage ou signalisation existant.",
     "Chaussures diélectriques + vêtements couvrants pour H0B0 en BT.",
     "Un EPI ne donne aucune autorisation supplémentaire d'intervention.",
+    "Arc-flash (A2:2023) : risque thermique à distance en cas d'amorçage — s'écarter immédiatement si armoire ouverte ou travaux sous tension à proximité.",
   ],
   forbiddenPoints: [
     "Compter sur l'EPI pour intervenir hors de son périmètre.",

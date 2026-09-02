@@ -960,7 +960,7 @@ export default function ElearningPage() {
             De H0B0 à B2 : une progression pédagogique structurée
           </h2>
           <p className="mt-4 max-w-3xl leading-7 text-slate-600">
-            Les habilitations NF C 18-510 suivent une logique de responsabilité
+            Les habilitations NF C 18-510 + A1:2020 + A2:2023 suivent une logique de responsabilité
             croissante, du personnel non électricien jusqu&apos;au chargé de travaux.
             Chaque niveau conditionne les opérations autorisées et les mesures
             de prévention associées.

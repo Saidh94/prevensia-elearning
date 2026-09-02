@@ -148,7 +148,7 @@ const H0B0_SLIDES: React.ReactNode[] = [
       <div>
         <h2 style={{ fontSize: 23, fontWeight: 600, color: "#f1f5f9", marginBottom: 10 }}>Habilitation électrique H0B0</h2>
         <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.75 }}>H0B0, c'est le titre pour les non-électriciens. Il ne vous autorise pas à toucher à l'électricité. Il vous autorise à évoluer en sécurité dans un environnement où le risque électrique existe. C'est une nuance essentielle.</p>
-        <span style={{ fontSize: 10, color: "#475569", textTransform: "uppercase", letterSpacing: 1, display: "block", marginTop: 10 }}>NF C 18-510</span>
+        <span style={{ fontSize: 10, color: "#475569", textTransform: "uppercase", letterSpacing: 1, display: "block", marginTop: 10 }}>NF C 18-510 + A1:2020 + A2:2023</span>
       </div>
     </div>
   </SlideWrap>,
@@ -202,7 +202,7 @@ const H0B0_SLIDES: React.ReactNode[] = [
     <div style={{ flex: 1, padding: "20px 24px", display: "flex", flexDirection: "column", gap: 10 }}>
       <div style={{ fontSize: 18, fontWeight: 600, color: "#f1f5f9" }}>Ce qu'il faut retenir</div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 9, flex: 1 }}>
-        {[{ icon: "📋", label: "Norme", val: "NF C 18-510", sub: "Recyclage tous les 3 ans", bg: "rgba(56,189,248,.08)", bc: "rgba(56,189,248,.15)", lc: "#38bdf8" }, { icon: "✅", label: "Habilitation", val: "Délivrée par l'employeur", sub: "Pas par la formation seule", bg: "rgba(34,197,94,.08)", bc: "rgba(34,197,94,.15)", lc: "#22c55e" }, { icon: "🚫", label: "Interdit", val: "Toute intervention électrique", sub: "Même simple, même ponctuelle", bg: "rgba(248,113,113,.08)", bc: "rgba(248,113,113,.15)", lc: "#f87171" }, { icon: "⚡", label: "Réflexe", val: "Doute → s'écarter → alerter", sub: "Jamais improviser", bg: "rgba(250,204,21,.08)", bc: "rgba(250,204,21,.15)", lc: "#facc15" }].map((c) => (
+        {[{ icon: "📋", label: "Norme", val: "NF C 18-510 + A1 + A2", sub: "Recyclage tous les 3 ans", bg: "rgba(56,189,248,.08)", bc: "rgba(56,189,248,.15)", lc: "#38bdf8" }, { icon: "✅", label: "Habilitation", val: "Délivrée par l'employeur", sub: "Pas par la formation seule", bg: "rgba(34,197,94,.08)", bc: "rgba(34,197,94,.15)", lc: "#22c55e" }, { icon: "🚫", label: "Interdit", val: "Toute intervention électrique", sub: "Même simple, même ponctuelle", bg: "rgba(248,113,113,.08)", bc: "rgba(248,113,113,.15)", lc: "#f87171" }, { icon: "⚡", label: "Réflexe", val: "Doute → s'écarter → alerter", sub: "Jamais improviser", bg: "rgba(250,204,21,.08)", bc: "rgba(250,204,21,.15)", lc: "#facc15" }].map((c) => (
           <div key={c.label} style={{ borderRadius: 10, padding: "11px 13px", display: "flex", flexDirection: "column", gap: 4, background: c.bg, border: `1px solid ${c.bc}` }}>
             <span style={{ fontSize: 20 }}>{c.icon}</span>
             <span style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: .8, color: c.lc }}>{c.label}</span>
@@ -284,7 +284,7 @@ const BSBE_SLIDES: React.ReactNode[] = [
     <div style={{ flex: 1, padding: "20px 24px", display: "flex", flexDirection: "column", gap: 10 }}>
       <div style={{ fontSize: 18, fontWeight: 600, color: "#f1f5f9" }}>Ce qu'il faut retenir</div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 9, flex: 1 }}>
-        {[{ icon: "🔌", label: "BS", val: "Interventions élémentaires", sub: "Hors tension, matériel identifié", bg: "rgba(167,139,250,.08)", bc: "rgba(167,139,250,.15)", lc: "#a78bfa" }, { icon: "🔀", label: "BE Manœuvre", val: "Manœuvres d'exploitation", sub: "Organe prévu et documenté", bg: "rgba(251,146,60,.08)", bc: "rgba(251,146,60,.15)", lc: "#fb923c" }, { icon: "🚫", label: "Jamais", val: "Diagnostic, consignation, dépannage", sub: "≠ B1, BR, BC", bg: "rgba(248,113,113,.08)", bc: "rgba(248,113,113,.15)", lc: "#f87171" }, { icon: "📋", label: "Norme", val: "NF C 18-510", sub: "Habilitation = titre employeur", bg: "rgba(52,211,153,.08)", bc: "rgba(52,211,153,.15)", lc: "#34d399" }].map((c) => (
+        {[{ icon: "🔌", label: "BS", val: "Interventions élémentaires", sub: "Hors tension, matériel identifié", bg: "rgba(167,139,250,.08)", bc: "rgba(167,139,250,.15)", lc: "#a78bfa" }, { icon: "🔀", label: "BE Manœuvre", val: "Manœuvres d'exploitation", sub: "Organe prévu et documenté", bg: "rgba(251,146,60,.08)", bc: "rgba(251,146,60,.15)", lc: "#fb923c" }, { icon: "🚫", label: "Jamais", val: "Diagnostic, consignation, dépannage", sub: "≠ B1, BR, BC", bg: "rgba(248,113,113,.08)", bc: "rgba(248,113,113,.15)", lc: "#f87171" }, { icon: "📋", label: "Norme", val: "NF C 18-510 + A1 + A2", sub: "Habilitation = titre employeur", bg: "rgba(52,211,153,.08)", bc: "rgba(52,211,153,.15)", lc: "#34d399" }].map((c) => (
           <div key={c.label} style={{ borderRadius: 10, padding: "11px 13px", display: "flex", flexDirection: "column", gap: 4, background: c.bg, border: `1px solid ${c.bc}` }}>
             <span style={{ fontSize: 20 }}>{c.icon}</span>
             <span style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: .8, color: c.lc }}>{c.label}</span>

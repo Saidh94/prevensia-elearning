@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique B1 B2 BR BC — Électriciens BT | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique B1, B2, BR, BC conforme NF C 18-510 + A2. Travaux BT, dépannage, consignation, vérification. E-learning + présentiel. Dès 790 € HT. Qualiopi.",
+    "Formation habilitation électrique B1, B2, BR, BC conforme NF C 18-510 + A1:2020 + A2:2023. Travaux BT, dépannage, consignation, vérification. E-learning + présentiel. Dès 790 € HT. Qualiopi.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-b1-b2-br-bc",
   },
@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Formation B1 / B2 / BR / BC — Habilitation électrique électriciens BT",
     description:
-      "Habilitation B1, B2, BR, BC conforme NF C 18-510. Exécutants, chargés de travaux, dépannage, consignation. E-learning + présentiel. Dès 790 € HT.",
+      "Habilitation B1, B2, BR, BC conforme NF C 18-510 + A1:2020 + A2:2023. Exécutants, chargés de travaux, dépannage, consignation. E-learning + présentiel. Dès 790 € HT.",
     url: "https://prevensia-formation.fr/formation-b1-b2-br-bc",
   },
 };
@@ -42,7 +42,7 @@ const faqItems = [
   {
     question: "La formation B1 B2 BR BC est-elle disponible en e-learning ?",
     answer:
-      "La partie théorique est disponible en e-learning. Elle est complétée obligatoirement par une séquence encadrée (présentiel ou visio selon le symbole) avec mises en situation pratiques, évaluations et validation par le formateur. L'e-learning est inclus dans le tarif de la formation.",
+      "La partie théorique est disponible en e-learning. Elle est complétée obligatoirement par une journée présentielle d'évaluation pratique (mises en situation réelles : consignation, vérification d'absence de tension, conduite d'opération), conforme aux exigences de la NF C 18-510 + A1:2020 + A2:2023. À l'issue, PREVENSIA délivre un avis après formation transmis à l'employeur, qui délivre ensuite le titre d'habilitation (article R.4544-9 du Code du travail).",
   },
   {
     question: "Quelle est la durée de la formation B1/B2/BR/BC ?",
@@ -138,7 +138,7 @@ export default function FormationB1B2BrBcPage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Habilitation électrique électriciens BT · NF C 18-510 + A2
+            Habilitation électrique électriciens BT · NF C 18-510 + A1:2020 + A2:2023
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -149,7 +149,7 @@ export default function FormationB1B2BrBcPage() {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Les symboles B couvrent l&apos;ensemble des travaux électriques basse tension :
             exécution (B1), direction de chantier (B2), dépannage et interventions générales (BR),
-            consignation (BC). Formation conforme NF C 18-510, e-learning inclus + séquence
+            consignation (BC). Formation conforme NF C 18-510 + A1:2020 + A2:2023, e-learning inclus + séquence
             encadrée obligatoire.
           </p>
 

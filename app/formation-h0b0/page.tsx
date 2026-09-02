@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique H0B0 / H0V — E-learning | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation 30 min inclus. Dès 150 € HT.",
+    "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510 + A1:2020 + A2:2023. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation 30 min inclus. Dès 150 € HT.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-h0b0",
   },
@@ -22,7 +22,7 @@ export const metadata = {
   openGraph: {
     title: "Formation H0B0 / H0V — Habilitation électrique non-électricien",
     description:
-      "Parcours e-learning H0B0/H0V conforme NF C 18-510. Pour caristes, agents de nettoyage, peintres, techniciens. Dès 190 € HT.",
+      "Parcours e-learning H0B0/H0V conforme NF C 18-510 + A1:2020 + A2:2023. Pour caristes, agents de nettoyage, peintres, techniciens. Dès 190 € HT.",
     url: "https://prevensia-formation.fr/formation-h0b0",
   },
 };
@@ -41,7 +41,7 @@ const faqItems = [
   {
     question: "La formation H0B0 en e-learning est-elle suffisante ?",
     answer:
-      "Le parcours e-learning constitue la partie théorique conforme à la NF C 18-510. L'habilitation elle-même est délivrée par l'employeur après évaluation du poste réel. PREVENSIA FORMATION propose un parcours encadré avec entretien de validation pour vous accompagner jusqu'à la délivrance.",
+      "Le parcours e-learning constitue la préparation théorique conforme à la NF C 18-510 + A1:2020 + A2:2023. À l'issue de l'entretien de validation, PREVENSIA FORMATION délivre une attestation de réussite et un avis après formation transmis à l'employeur. Le titre d'habilitation est ensuite délivré exclusivement par l'employeur, conformément à l'article R.4544-9 du Code du travail.",
   },
   {
     question: "Quelle est la durée de validité de l'habilitation H0B0 ?",
@@ -111,7 +111,7 @@ export default function FormationH0B0Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation Habilitation Électrique H0B0 / H0V"
-        description="Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation inclus."
+        description="Formation habilitation électrique H0B0 et H0V conforme NF C 18-510 + A1:2020 + A2:2023. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation inclus."
         courseCode="H0B0"
         url="/formation-h0b0"
         timeRequired="PT7H"
@@ -140,7 +140,7 @@ export default function FormationH0B0Page() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Habilitation électrique · NF C 18-510
+            Habilitation électrique · NF C 18-510 + A1:2020 + A2:2023
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">

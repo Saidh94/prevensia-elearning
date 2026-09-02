@@ -13,10 +13,10 @@ export const b1b2brbcModuleContent: ModuleContent = {
   audience:
     "Électriciens, techniciens de maintenance, responsables techniques et personnels amenés à exécuter des travaux, conduire une intervention générale, préparer une consignation ou assurer un rôle d'encadrement électrique en basse tension.",
   certificationNote:
-    "Ce parcours constitue la base théorique. La délivrance de l'habilitation relève de l'employeur après évaluation des acquis, vérification de l'adéquation entre les tâches réelles et le niveau retenu, ainsi qu'après mise en situation pratique adaptée et séquence présentielle d'application.",
+    "PREVENSIA FORMATION délivre une attestation de réussite théorique et un avis après formation (conformément à la NF C 18-510 + A1:2020 + A2:2023), transmis à l'employeur à l'issue de la journée présentielle obligatoire. Le titre d'habilitation B1 / B1V / B2 / B2V / BR / BC est délivré exclusivement par l'employeur, en application de l'article R.4544-9 du Code du travail, après évaluation des acquis théoriques et pratiques, et vérification de l'adéquation entre les tâches réelles et le symbole retenu.",
   heroBadge: "Habilitation électrique",
   finalMessage:
-    "À l'issue du parcours B1 / B1V / B2 / B2V / BR / BC, l'apprenant doit retenir une logique de sécurité exigeante : préparation, vérification, respect du rôle attribué, rigueur documentaire et refus de toute improvisation sur une installation électrique.",
+    "À l'issue du parcours B1 / B1V / B2 / B2V / BR / BC, l'apprenant doit retenir une logique de sécurité exigeante : préparation, vérification, respect du rôle attribué, rigueur documentaire et refus de toute improvisation sur une installation électrique. La NF C 18-510 impose une étape obligatoire d'évaluation pratique en présentiel (mises en situation réelles : consignation, vérification d'absence de tension, conduite d'opération), préalable à l'avis après formation transmis à l'employeur.",
   quizCtaLabel: "Passer au quiz B1 / B1V / B2 / B2V / BR / BC",
   sections: [
     {
@@ -223,6 +223,9 @@ export const b1b2brbcModuleContent: ModuleContent = {
         "Un symbole ne s'interprete jamais au-dela de ce qu'il dit.",
         "L'attribut V renforce les exigences de sécurité en voisinage.",
         "Un B1V ne devient pas un BR par simple habitude de terrain.",
+        "DMAC (A2:2023) — Distance Minimale d'Approche Corrigée : pour les travaux à proximité de lignes aériennes HT, la DMAC remplace la DMA. Elle est calculée en fonction de la tension de l'ouvrage. Pour B1V/B2V en voisinage HTA/HTB, vérifier la DMAC applicable avant toute approche.",
+        "Arc-flash (A2:2023) — risque d'arc électrique en BT lors d'une intervention sous tension ou au voisinage : EPI anti-arc obligatoires (vêtement catégorie 1 minimum, gants isolants, écran facial). Le B1V/B2V/BR doit vérifier le niveau d'arc requis selon l'analyse de risque du site.",
+        "BF/HF (A1:2020) — habilitations Basse Fréquence et Haute Fréquence pour travaux sur réseaux de traction ferroviaire ou installations spécifiques. Symboles distincts ; non couverts par les habilitations B1/B2/BR/BC standard.",
       ],
       forbiddenPoints: [
         "Deviner le sens d'un symbole au lieu de le lire strictement.",

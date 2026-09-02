@@ -900,7 +900,7 @@ function drawFirstPage(params: {
     font: fontBold,
     color: colors.text,
   });
-  page.drawText("Conforme NF C 18-510", {
+  page.drawText("Conforme NF C 18-510 + A1:2020 + A2:2023", {
     x: margin + logoColWidth + 10,
     y: headerY + 18,
     size: 8,
@@ -1223,7 +1223,7 @@ function drawFirstPage(params: {
   drawCell(
     page,
     "Ce document est une trame pré-remplie préparée à l'issue de la validation théorique du parcours le " +
-      `${validationDate}. Les informations suggérées ci-dessus ne valent pas habilitation. Les symboles retenus, les limites d'intervention, le domaine de tension, les dates, l'affectation et les signatures doivent être déterminés, validés et formalisés exclusivement par l'employeur conformément au Code du travail, à l'analyse de risque du poste et à la NF C 18-510.`,
+      `${validationDate}. Les informations suggérées ci-dessus ne valent pas habilitation. Les symboles retenus, les limites d'intervention, le domaine de tension, les dates, l'affectation et les signatures doivent être déterminés, validés et formalisés exclusivement par l'employeur conformément au Code du travail, à l'analyse de risque du poste et à la NF C 18-510 + A1:2020 + A2:2023.`,
     margin,
     discBottomY,
     contentWidth,
