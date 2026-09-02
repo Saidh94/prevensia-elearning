@@ -3,7 +3,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Accessibilité & Handicap (PSH) | PREVENSIA FORMATION",
+  title: "Accessibilité & Handicap (PSH)",
   description:
     "Politique handicap de PREVENSIA FORMATION : référent handicap, adaptations pédagogiques, modalités d'accès pour les personnes en situation de handicap.",
   alternates: { canonical: "https://prevensia-formation.fr/handicap-accessibilite" },

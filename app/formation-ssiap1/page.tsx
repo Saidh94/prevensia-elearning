@@ -4,7 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Préparation théorique SSIAP1 — Bases sécurité incendie ERP | PREVENSIA FORMATION",
+  title: "Préparation théorique SSIAP1 — Bases sécurité incendie ERP",
   description:
     "Module de préparation théorique aux bases SSIAP1 : classes de feux, extincteurs, SSI, évacuation ERP. Inclus dans nos formations sécurité incendie. Ne remplace pas un organisme agréé SSIAP.",
   alternates: {
@@ -19,7 +19,7 @@ export const metadata = {
     "SSI évacuation ERP",
   ],
   openGraph: {
-    title: "Préparation théorique SSIAP1 | PREVENSIA FORMATION",
+    title: "Préparation théorique SSIAP1",
     description:
       "Module de sensibilisation aux bases SSIAP1 inclus dans nos formations sécurité incendie. Ne remplace pas un organisme agréé.",
     url: "https://prevensia-formation.fr/formation-ssiap1",

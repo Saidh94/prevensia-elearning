@@ -3,7 +3,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Conditions générales de vente (CGV) | PREVENSIA FORMATION",
+  title: "Conditions générales de vente (CGV)",
   description: "Conditions générales de vente de PREVENSIA FORMATION — modalités d'inscription, paiement, annulation, financement.",
   alternates: { canonical: "https://prevensia-formation.fr/cgv" },
 };

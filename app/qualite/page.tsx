@@ -3,7 +3,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Qualité & Qualiopi | PREVENSIA FORMATION",
+  title: "Qualité & Qualiopi",
   description:
     "Démarche qualité de PREVENSIA FORMATION : certification Qualiopi visée (Actions de formation), indicateurs qualité, règlement intérieur, CGV, procédure réclamation, accessibilité handicap.",
   alternates: { canonical: "https://prevensia-formation.fr/qualite" },

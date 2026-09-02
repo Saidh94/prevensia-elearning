@@ -3,7 +3,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Règlement intérieur | PREVENSIA FORMATION",
+  title: "Règlement intérieur",
   description: "Règlement intérieur de PREVENSIA FORMATION — obligations des stagiaires, discipline, réclamations, santé et sécurité.",
   alternates: { canonical: "https://prevensia-formation.fr/reglement-interieur" },
 };

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Procédure de réclamation | PREVENSIA FORMATION",
+  title: "Procédure de réclamation",
   description:
     "Procédure de réclamation de PREVENSIA FORMATION : comment déposer une réclamation, délais de traitement, responsable, suivi et amélioration continue.",
   alternates: { canonical: "https://prevensia-formation.fr/reclamation" },
