@@ -528,9 +528,34 @@ export async function POST(request: Request) {
       );
     }
 
-    const score = payload.score ?? 0;
-    const scorePercent = payload.scorePercent ?? 0;
-    const total = payload.total ?? estimateQuizTotal(score, scorePercent) ?? 0;
+    // ── Score depuis quiz_attempts (autorité serveur) ────────────────────────
+    // On ne lit jamais score/total/passed depuis le payload client.
+    // On requête la dernière tentative réussie liée à cet enrollment.
+    let score = 0;
+    let total = 0;
+    let scorePercent = 0;
+    let serverPassed: boolean | undefined = undefined;
+    let serverPassingScore: number | undefined = undefined;
+
+    if (enrollment.id !== "admin-preview") {
+      const { data: latestAttempt } = await attestationReadClient
+        .from("quiz_attempts")
+        .select("score, total, passing_score, passed, score_percent")
+        .eq("enrollment_id", enrollment.id)
+        .eq("passed", true)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+
+      if (latestAttempt) {
+        score = latestAttempt.score ?? 0;
+        total = latestAttempt.total ?? 0;
+        scorePercent = latestAttempt.score_percent ?? (total > 0 ? Math.round((score / total) * 100) : 0);
+        serverPassed = latestAttempt.passed ?? true;
+        serverPassingScore = latestAttempt.passing_score ?? undefined;
+      }
+    }
+
     const completionDate =
       enrollment.validated_at ?? payload.date ?? enrollment.access_end ?? undefined;
 
@@ -577,8 +602,8 @@ export async function POST(request: Request) {
       score,
       total,
       scorePercent,
-      passingScore: payload.passingScore,
-      passed: payload.passed,
+      passingScore: serverPassingScore,
+      passed: serverPassed,
       companyName,
       employeeFirstName,
       employeeLastName,

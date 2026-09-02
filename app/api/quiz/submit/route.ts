@@ -52,28 +52,53 @@ function evaluateAnswersServerSide(
   const questions = quizContent[formationSlug];
   if (!questions || questions.length === 0) return null;
 
+  const expectedTotal = questions.length;
+
   // Lookup : texte complet de la question → {answer, eliminatory}
   const lookup = new Map<string, { answer: number[]; eliminatory?: boolean }>();
   for (const q of questions) {
     lookup.set(q.question, { answer: q.answer, eliminatory: q.eliminatory });
   }
 
+  // ── Contrôles stricts sur le payload ─────────────────────────────────────
+  // 1. Nombre exact de réponses
+  if (answers.length !== expectedTotal) {
+    console.error(
+      `[QUIZ SECURITY] Nombre de réponses incorrect pour "${formationSlug}" : ` +
+      `reçu ${answers.length}, attendu ${expectedTotal}`
+    );
+    return null;
+  }
+
+  // 2. Pas de doublon de questionId
+  const seenIds = new Set<string>();
+  for (const a of answers) {
+    if (seenIds.has(a.questionId)) {
+      console.error(
+        `[QUIZ SECURITY] Doublon détecté pour "${formationSlug}" : "${a.questionId.slice(0, 60)}"`
+      );
+      return null;
+    }
+    seenIds.add(a.questionId);
+  }
+
+  // 3. Toutes les questions doivent être connues du référentiel serveur
+  for (const a of answers) {
+    if (!lookup.has(a.questionId)) {
+      console.error(
+        `[QUIZ SECURITY] Question inconnue dans "${formationSlug}" : "${a.questionId.slice(0, 60)}"`
+      );
+      return null;
+    }
+  }
+
+  // ── Évaluation — total = questions.length (autorité serveur) ─────────────
   let score = 0;
   let eliminatoryFailed = false;
-  let verifiableCount = 0;
   const questionResults: QuestionResult[] = [];
 
   for (const a of answers) {
-    const ref = lookup.get(a.questionId);
-    if (!ref) {
-      // Question inconnue — ignorée (log pour détection de manipulation)
-      console.warn(
-        `[QUIZ SECURITY] Question inconnue dans "${formationSlug}" : "${a.questionId.slice(0, 60)}…"`
-      );
-      continue;
-    }
-
-    verifiableCount++;
+    const ref = lookup.get(a.questionId)!;
     const correct = answersEqual(a.selectedChoices, ref.answer);
     if (correct) score++;
     if (!correct && ref.eliminatory) eliminatoryFailed = true;
@@ -86,16 +111,7 @@ function evaluateAnswersServerSide(
     });
   }
 
-  // Refus si moins de 50 % des réponses sont reconnues (manipulation probable)
-  if (verifiableCount < answers.length * 0.5) {
-    console.error(
-      `[QUIZ SECURITY] Seulement ${verifiableCount}/${answers.length} questions reconnues ` +
-      `pour "${formationSlug}" — évaluation abandonnée`
-    );
-    return null;
-  }
-
-  return { score, total: verifiableCount, eliminatoryFailed, questionResults };
+  return { score, total: expectedTotal, eliminatoryFailed, questionResults };
 }
 
 const resend = process.env.RESEND_API_KEY

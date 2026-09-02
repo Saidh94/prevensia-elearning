@@ -146,6 +146,26 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: fetchError.message }, { status: 500 });
   }
 
+  // ── Rate-limiting basé sur le temps réel écoulé ──────────────────────────
+  // Si une ligne existante a un updated_at récent, le delta déclaré ne peut pas
+  // dépasser le temps réel écoulé + 5 s de tolérance réseau.
+  const TOLERANCE_S = 5;
+  if (existing?.updated_at) {
+    const lastUpdate = new Date(existing.updated_at).getTime();
+    const realElapsed = Math.round((Date.now() - lastUpdate) / 1000);
+    const maxAllowed = realElapsed + TOLERANCE_S;
+    if (safeDelta > maxAllowed) {
+      console.warn(
+        `[CHAPTER-PROGRESS] Rafale détectée pour user=${user.id} ` +
+        `chap="${chapter_key}" : delta=${safeDelta}s mais seulement ${realElapsed}s écoulés`
+      );
+      return NextResponse.json(
+        { error: "Trop de requêtes — patientez avant d'envoyer la suivante." },
+        { status: 429 }
+      );
+    }
+  }
+
   const newSeconds = (existing?.seconds_spent ?? 0) + safeDelta;
   const isCompleted = newSeconds >= serverMinSeconds;
 
