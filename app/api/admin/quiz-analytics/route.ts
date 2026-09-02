@@ -149,8 +149,10 @@ export async function GET() {
     for (const a of attempts) {
       if (!Array.isArray(a.question_results)) continue;
       for (const qr of a.question_results) {
-        if (typeof qr.q !== "string" || typeof qr.correct !== "boolean") continue;
-        const key = qr.q.slice(0, 80).toLowerCase();
+        // quiz_attempts stocke questionId (texte complet) — fallback qr.q pour anciennes entrées
+        const questionText = typeof qr.questionId === "string" ? qr.questionId : (typeof qr.q === "string" ? qr.q : null);
+        if (!questionText || typeof qr.correct !== "boolean") continue;
+        const key = questionText.slice(0, 80).toLowerCase();
         if (!questionFailMap.has(key)) {
           questionFailMap.set(key, { total: 0, failed: 0 });
         }
