@@ -5,7 +5,7 @@ export const coordinateurSsiModuleContent: ModuleContent = {
   shortTitle: "Coordinateur SSI",
   subtitle:
     "Parcours e-learning de préparation destiné aux responsables techniques, responsables sécurité et gestionnaires amenés à piloter un Système de Sécurité Incendie dans un ERP, IGH, site industriel ou logistique. Complété par 7 jours de présentiel intensif sur dossiers réels.",
-  duration: "12 h 00 à 15 h 00 de théorie guidée",
+  duration: "3 h 30 à 5 h de théorie guidée (module e-learning)",
   deliveryFormat: "E-learning guidé + quiz + 7 jours de présentiel intensif",
   level: "Avancé",
   objective:

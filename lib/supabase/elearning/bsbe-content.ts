@@ -50,7 +50,7 @@ export const bsbeModuleContent: ModuleContent = {
   subtitle:
     "Parcours e-learning structuré selon la NF C 18-510 pour les personnels amenés à réaliser des remplacements simples, des raccordements élémentaires et des manœuvres d’exploitation en basse tension.",
   duration:
-    "6 h de théorie guidée + quiz + séquence d’application encadrée",
+    "4 h 30 à 6 h de théorie guidée + quiz + séquence encadrée",
   deliveryFormat: "E-learning + classe virtuelle 3-4h (initial) / visio 45 min (recyclage)",
   level: "Intermédiaire",
   objective:

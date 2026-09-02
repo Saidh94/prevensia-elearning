@@ -47,6 +47,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Missing data" }, { status: 400 });
   }
 
+  // ── Sécurité : plancher server-side pour min_seconds_required ──────────
+  // Le client ne peut pas abaisser le seuil en dessous de 30 secondes.
+  // Au-dessus de 3600 s (1h) par chapitre, on tronque — valeur aberrante.
+  const SERVER_MIN_SECONDS_FLOOR = 30;
+  const SERVER_MAX_SECONDS_FLOOR = 3600;
+  const safeMinSeconds = Math.max(
+    SERVER_MIN_SECONDS_FLOOR,
+    Math.min(Math.round(Number(min_seconds_required)), SERVER_MAX_SECONDS_FLOOR)
+  );
+
+  // Le nombre de secondes d'une seule session ne peut pas dépasser 2× le seuil
+  // (protection contre des valeurs gonflées envoyées d'un coup).
+  const safeSeconds = Math.max(
+    0,
+    Math.min(Math.round(Number(seconds)), safeMinSeconds * 2)
+  );
+
   const { data: profile } = await supabase
     .from("profiles")
     .select("role")
@@ -98,15 +115,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: fetchError.message }, { status: 500 });
   }
 
-  const newSeconds = (existing?.seconds_spent ?? 0) + seconds;
-  const isCompleted = newSeconds >= min_seconds_required;
+  const newSeconds = (existing?.seconds_spent ?? 0) + safeSeconds;
+  const isCompleted = newSeconds >= safeMinSeconds;
 
   if (existing) {
     const { error } = await supabase
       .from("user_chapter_progress")
       .update({
         seconds_spent: newSeconds,
-        min_seconds_required,
+        min_seconds_required: safeMinSeconds,
         is_completed: isCompleted,
         completed_at:
           isCompleted && !existing.completed_at
@@ -126,7 +143,7 @@ export async function POST(req: Request) {
       chapter_key,
       chapter_order,
       seconds_spent: newSeconds,
-      min_seconds_required,
+      min_seconds_required: safeMinSeconds,
       is_completed: isCompleted,
       completed_at: isCompleted ? new Date().toISOString() : null,
       updated_at: new Date().toISOString(),

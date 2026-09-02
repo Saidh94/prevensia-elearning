@@ -6,7 +6,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique H0B0 / H0V — E-learning | PREVENSIA FORMATION",
   description:
-    "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning certifiant pour non-électriciens, caristes, agents de nettoyage, maintenance. Dès 190 € HT. Attestation incluse.",
+    "Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation 30 min inclus. Dès 150 € HT.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-h0b0",
   },
@@ -111,7 +111,7 @@ export default function FormationH0B0Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation Habilitation Électrique H0B0 / H0V"
-        description="Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning certifiant pour non-électriciens. Entretien de validation inclus."
+        description="Formation habilitation électrique H0B0 et H0V conforme NF C 18-510. Parcours e-learning de sensibilisation au risque électrique pour non-électriciens. Entretien de validation inclus."
         courseCode="H0B0"
         url="/formation-h0b0"
         timeRequired="PT7H"

@@ -5,7 +5,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
   shortTitle: "B1 / B1V / B2 / B2V / BR / BC",
   subtitle:
     "Parcours e-learning de préparation théorique destiné aux électriciens et personnels techniques appelés à exécuter, encadrer, consigner ou intervenir en basse tension dans un cadre professionnel formalisé, complété par une journée présentielle de validation et d'application.",
-  duration: "8 h 00 à 11 h 00 de théorie guidée",
+  duration: "7 h à 10 h de théorie guidée",
   deliveryFormat: "E-learning guidé + quiz + journée présentielle d'application",
   level: "Avancé",
   objective:

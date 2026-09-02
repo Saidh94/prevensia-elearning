@@ -5,7 +5,7 @@ export const atexModuleContent: ModuleContent = {
   shortTitle: "ATEX NIV 0",
   subtitle:
     "Parcours e-learning de sensibilisation aux atmosphères explosives, destiné à toute personne amenée à travailler, intervenir ou évoluer dans un environnement susceptible de présenter un risque d'explosion lié à des gaz, vapeurs ou poussières inflammables.",
-  duration: "2 h + entretien 30 min",
+  duration: "3 h à 4 h + entretien de validation : 30 min",
   deliveryFormat: "E-learning autonome 2h + entretien de validation 30 min",
   level: "Débutant à intermédiaire",
   objective:

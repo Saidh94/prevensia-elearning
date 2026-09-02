@@ -2,6 +2,7 @@
 import { formatFrenchDisplayText } from "../../../lib/french-display";
 import type { ModuleContent } from "../../../lib/supabase/elearning/module-types";
 import InfoCard from "./InfoCard";
+import { COMPANY } from "../../../lib/company";
 
 type FormationHomePageProps = {
   slug: string;
@@ -288,6 +289,107 @@ export default function FormationHomePage({
               >
                 Voir l&apos;attestation
               </Link>
+            </div>
+          </div>
+        </section>
+        {/* ── Modalités FOAD (art. D6313-3-1 Code du travail) ── */}
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Modalités d&apos;organisation de la formation à distance (FOAD)
+          </p>
+          <p className="mt-2 text-xs text-slate-400">
+            Informations communiquées conformément à l&apos;article D6313-3-1 du Code du travail.
+          </p>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Référent pédagogique */}
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Référent pédagogique
+              </p>
+              <p className="mt-2 text-sm font-semibold text-slate-900">
+                {COMPANY.name}
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                <a href={`mailto:${COMPANY.email}`} className="underline decoration-slate-300 hover:decoration-slate-500">
+                  {COMPANY.email}
+                </a>
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hover:underline">
+                  {COMPANY.phone}
+                </a>
+              </p>
+              <p className="mt-2 text-xs text-slate-400">Disponible lun–ven, 9 h – 18 h</p>
+            </div>
+
+            {/* Assistance technique */}
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Assistance technique
+              </p>
+              <p className="mt-2 text-sm text-slate-700">
+                En cas de difficulté d&apos;accès ou de dysfonctionnement, contactez-nous :
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                <a href={`mailto:${COMPANY.email}`} className="underline decoration-slate-300 hover:decoration-slate-500">
+                  {COMPANY.email}
+                </a>
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="hover:underline">
+                  {COMPANY.phone}
+                </a>
+              </p>
+              <p className="mt-2 text-xs text-slate-400">Lun–ven, 9 h – 18 h</p>
+            </div>
+
+            {/* Prérequis techniques */}
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Prérequis techniques
+              </p>
+              <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                <li>Navigateur récent (Chrome, Firefox, Edge, Safari)</li>
+                <li>Connexion internet stable</li>
+                <li>Son activé (animations audio)</li>
+                <li>Écran ≥ 768 px recommandé</li>
+              </ul>
+              <p className="mt-3 text-xs text-slate-400">
+                Accès 24 h/24, 7 j/7 — durée d&apos;accès : 90 jours après inscription
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {/* Modalités d'évaluation */}
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Modalités d&apos;évaluation
+              </p>
+              <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                <li>Quiz interactifs par chapitre (validation progressive)</li>
+                <li>Quiz final — score minimum 70 % requis pour l&apos;attestation</li>
+                {moduleData.certificationNote ? (
+                  <li>Étape complémentaire selon le parcours (entretien ou classe virtuelle)</li>
+                ) : null}
+              </ul>
+            </div>
+
+            {/* Ressources pédagogiques */}
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                Ressources pédagogiques
+              </p>
+              <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                <li>Cours structuré en chapitres avec synthèses</li>
+                <li>Illustrations et animations pédagogiques</li>
+                <li>Quiz de validation par chapitre</li>
+                <li>Récapitulatifs audio-visuels (selon module)</li>
+                {moduleData.deliveryFormat ? (
+                  <li>Séquence encadrée par un formateur (selon parcours)</li>
+                ) : null}
+              </ul>
             </div>
           </div>
         </section>

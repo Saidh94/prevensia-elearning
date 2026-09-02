@@ -1052,7 +1052,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     shortTitle: "Sécurité incendie",
     subtitle:
       "Parcours e-learning structuré sur la prévention du risque incendie, l’alerte, l’alarme, les premiers moyens de secours, l’évacuation, les travaux par points chauds et les repères réglementaires utiles en exploitation.",
-    duration: "65 à 85 minutes",
+    duration: "1 h 30 à 2 h",
     deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Débutant à intermédiaire",
     objective:
@@ -1503,7 +1503,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     shortTitle: "SSI",
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d’un système de sécurité incendie, son exploitation au quotidien, ses limites et ses principaux repères réglementaires et normatifs.",
-    duration: "65 à 90 minutes",
+    duration: "1 h 30 à 2 h",
     deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Intermédiaire",
     objective:
@@ -2192,7 +2192,7 @@ export const modulesContent: Record<string, ModuleContent> = {
     shortTitle: "Extinction à gaz",
     subtitle:
       "Parcours e-learning structuré sur le fonctionnement d'un système fixe d'extinction automatique à gaz, la sécurité des personnes, l'intégrité du local protégé et les repères APSAD R13 / NF EN 15004-1.",
-    duration: "55 à 75 minutes",
+    duration: "1 h 30 à 2 h",
     deliveryFormat: "E-learning autonome + quiz de validation",
     level: "Intermédiaire",
     objective:

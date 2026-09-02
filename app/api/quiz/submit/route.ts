@@ -7,6 +7,16 @@ import {
   getCanonicalModuleSlug,
 } from "@/lib/supabase/elearning/module-access";
 
+/**
+ * Seuils de validation calculés côté serveur.
+ * Le seuil transmis par le client n'est jamais utilisé directement :
+ * on le vérifie contre cette table de référence.
+ * BSBE → 85 % (NF C 18-510/A2) ; tous les autres → 80 %.
+ */
+function getServerPassingThreshold(slug: string): number {
+  return slug === "bsbe" ? 0.85 : 0.8;
+}
+
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
@@ -32,10 +42,7 @@ export async function POST(req: Request) {
       resolveModuleSlug(requestedFormationSlug) ??
       requestedFormationSlug.toLowerCase()
     );
-    const passed = Boolean(body?.passed);
-    const score = Number(body?.score ?? 0);
-    const total = Number(body?.total ?? 0);
-    const passingScore = Number(body?.passingScore ?? 0);
+
     if (!formationSlug) {
       return NextResponse.json(
         { error: "formationSlug manquant" },
@@ -43,12 +50,30 @@ export async function POST(req: Request) {
       );
     }
 
-    const safeScore = Number.isFinite(score) ? score : 0;
-    const safeTotal = Number.isFinite(total) ? total : 0;
-    const safePassingScore = Number.isFinite(passingScore) ? passingScore : 0;
-    const scorePercent =
-      safeTotal > 0 ? Math.round((safeScore / safeTotal) * 100) : 0;
+    // ── Validation des valeurs numériques ──────────────────────────────────
+    const rawScore = Number(body?.score ?? 0);
+    const rawTotal = Number(body?.total ?? 0);
 
+    const safeScore = Number.isFinite(rawScore) && rawScore >= 0 ? Math.round(rawScore) : 0;
+    const safeTotal = Number.isFinite(rawTotal) && rawTotal > 0 ? Math.round(rawTotal) : 0;
+
+    // Sanity check : le score ne peut pas dépasser le total
+    if (safeScore > safeTotal) {
+      console.warn(
+        `[QUIZ SECURITY] score>${safeTotal} reçu pour ${formationSlug} par user ${user.id} — rejeté`
+      );
+      return NextResponse.json(
+        { error: "Score invalide." },
+        { status: 400 }
+      );
+    }
+
+    // ── Recalcul côté serveur : NE JAMAIS faire confiance à body.passed ───
+    const serverThreshold = getServerPassingThreshold(formationSlug);
+    const serverPassingScore = safeTotal > 0 ? Math.ceil(safeTotal * serverThreshold) : 1;
+    const scorePercent = safeTotal > 0 ? Math.round((safeScore / safeTotal) * 100) : 0;
+
+    // questionResults : vérification de cohérence
     const questionResults = Array.isArray(body?.questionResults)
       ? body.questionResults.filter(
           (r: unknown) =>
@@ -58,6 +83,39 @@ export async function POST(req: Request) {
             typeof (r as Record<string, unknown>).correct === "boolean"
         )
       : [];
+
+    // Si questionResults est fourni, vérifier que le score déclaré correspond
+    // au nombre de bonnes réponses (tolérance ±0 — doit être exact)
+    if (questionResults.length > 0) {
+      const computedScore = questionResults.filter(
+        (r: Record<string, unknown>) => r.correct === true
+      ).length;
+      if (computedScore !== safeScore) {
+        console.warn(
+          `[QUIZ SECURITY] Score déclaré (${safeScore}) ≠ score calculé (${computedScore}) ` +
+          `pour ${formationSlug} user ${user.id}`
+        );
+        return NextResponse.json(
+          { error: "Incohérence de score détectée." },
+          { status: 400 }
+        );
+      }
+    }
+
+    // ── Résultat final — calculé côté serveur uniquement ──────────────────
+    const safePassingScore = serverPassingScore;
+    // Le client peut signaler qu'une question éliminatoire a été échouée ;
+    // le serveur l'utilise seulement pour journaliser, jamais pour assouplir le seuil.
+    const clientClaimedPassed = Boolean(body?.passed);
+    const passed = safeScore >= safePassingScore && safeTotal > 0;
+
+    if (clientClaimedPassed !== passed) {
+      console.warn(
+        `[QUIZ SECURITY] body.passed=${clientClaimedPassed} mais calcul serveur=${passed} ` +
+        `(score=${safeScore}/${safeTotal} seuil=${safePassingScore}) ` +
+        `formation=${formationSlug} user=${user.id}`
+      );
+    }
 
     const { data: formations, error: formationError } = await supabase
       .from("formations")
