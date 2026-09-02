@@ -493,10 +493,12 @@ export default function QuizPage() {
         localStorage.setItem(resultStorageKey, JSON.stringify(payload));
         localStorage.removeItem(progressStorageKey);
 
-        // Résultats par question : extrait court du texte + correct/incorrect
+        // Résultats par question : extrait court du texte + réponses choisies (vérification serveur)
         const questionResults = shuffledQuiz.map((q, idx) => ({
           q: q.question.slice(0, 80),
+          selectedAnswers: answers[idx] ?? [],
           correct: arraysEqual(answers[idx] ?? [], q.answer),
+          eliminatory: q.eliminatory ?? false,
         }));
 
         if (isAdminPreview) {

@@ -4,6 +4,26 @@ import {
   canFormationAccessModule,
   getCanonicalModuleSlug,
 } from "@/lib/supabase/elearning/module-access";
+import { modulesContent } from "@/lib/supabase/elearning/module-content";
+
+/**
+ * Retrouve la durée minimale d'un chapitre depuis la configuration interne
+ * (ModuleSection.estimatedMinutes). Le client ne contrôle jamais ce seuil.
+ *
+ * Règle : 80 % du temps estimé, plancher 30 s, plafond 3 600 s.
+ * Retourne null si le module ou la section est inconnu(e) (fallback côté client clampé).
+ */
+function getServerMinSeconds(
+  formationSlug: string,
+  chapterKey: string
+): number | null {
+  const module = modulesContent[formationSlug];
+  if (!module) return null;
+  const section = module.sections.find((s) => s.id === chapterKey);
+  if (!section?.estimatedMinutes) return null;
+  const computed = Math.round(section.estimatedMinutes * 60 * 0.8);
+  return Math.min(Math.max(computed, 30), 3600);
+}
 
 function getEnrollmentFormationSlug(formation: unknown): string {
   if (Array.isArray(formation)) {
@@ -32,6 +52,8 @@ export async function POST(req: Request) {
     chapter_key,
     chapter_order,
     seconds,
+    // min_seconds_required est accepté du client uniquement comme fallback
+    // si le chapitre n'est pas trouvé dans la configuration interne.
     min_seconds_required,
   } = body;
 
@@ -41,21 +63,28 @@ export async function POST(req: Request) {
     !requestedFormationSlug ||
     !chapter_key ||
     typeof chapter_order !== "number" ||
-    typeof seconds !== "number" ||
-    typeof min_seconds_required !== "number"
+    typeof seconds !== "number"
   ) {
     return NextResponse.json({ error: "Missing data" }, { status: 400 });
   }
 
-  // ── Sécurité : plancher server-side pour min_seconds_required ──────────
-  // Le client ne peut pas abaisser le seuil en dessous de 30 secondes.
-  // Au-dessus de 3600 s (1h) par chapitre, on tronque — valeur aberrante.
-  const SERVER_MIN_SECONDS_FLOOR = 30;
-  const SERVER_MAX_SECONDS_FLOOR = 3600;
-  const safeMinSeconds = Math.max(
-    SERVER_MIN_SECONDS_FLOOR,
-    Math.min(Math.round(Number(min_seconds_required)), SERVER_MAX_SECONDS_FLOOR)
-  );
+  // ── Durée minimale : issue de la configuration interne (serveur) ────────
+  // La valeur transmise par le client n'est utilisée qu'en fallback si le
+  // chapitre n'est pas trouvé dans modulesContent (module sans config).
+  const serverMin = getServerMinSeconds(requestedFormationSlug, chapter_key);
+
+  let safeMinSeconds: number;
+  if (serverMin !== null) {
+    safeMinSeconds = serverMin;
+  } else {
+    // Fallback : valeur client clampée (plancher 30 s, plafond 3 600 s)
+    const clientMin = typeof min_seconds_required === "number" ? min_seconds_required : 30;
+    safeMinSeconds = Math.max(30, Math.min(Math.round(clientMin), 3600));
+    console.warn(
+      `[CHAPTER-PROGRESS] Chapitre "${chapter_key}" (${requestedFormationSlug}) ` +
+      `absent de modulesContent — min_seconds client utilisé : ${safeMinSeconds}s`
+    );
+  }
 
   // Le nombre de secondes d'une seule session ne peut pas dépasser 2× le seuil
   // (protection contre des valeurs gonflées envoyées d'un coup).

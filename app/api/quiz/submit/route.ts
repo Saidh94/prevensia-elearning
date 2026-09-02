@@ -6,6 +6,7 @@ import {
   canFormationAccessModule,
   getCanonicalModuleSlug,
 } from "@/lib/supabase/elearning/module-access";
+import { quizContent } from "@/app/modules/[slug]/quiz/content";
 
 /**
  * Seuils de validation calculés côté serveur.
@@ -15,6 +16,76 @@ import {
  */
 function getServerPassingThreshold(slug: string): number {
   return slug === "bsbe" ? 0.85 : 0.8;
+}
+
+/** Compare deux tableaux triés d'entiers — ordre-indépendant. */
+function answersEqual(a: number[], b: number[]): boolean {
+  if (a.length !== b.length) return false;
+  const sa = [...a].sort((x, y) => x - y);
+  const sb = [...b].sort((x, y) => x - y);
+  return sa.every((v, i) => v === sb[i]);
+}
+
+/**
+ * Évalue les réponses côté serveur à partir du référentiel de questions.
+ * Retourne { score, total, eliminatoryFailed } calculés par le serveur.
+ * Si les questions ne peuvent pas être retrouvées (quiz inconnu, question hors
+ * référentiel), la fonction retourne null et le flux de secours s'applique.
+ */
+function evaluateAnswersServerSide(
+  formationSlug: string,
+  questionResults: Array<{
+    q: string;
+    selectedAnswers?: number[];
+    correct?: boolean;
+    eliminatory?: boolean;
+  }>
+): { score: number; total: number; eliminatoryFailed: boolean } | null {
+  const questions = quizContent[formationSlug];
+  if (!questions || questions.length === 0) return null;
+
+  // Construire la table de lookup : extrait 80 chars → {answer, eliminatory}
+  const lookup = new Map<string, { answer: number[]; eliminatory?: boolean }>();
+  for (const q of questions) {
+    lookup.set(q.question.slice(0, 80), {
+      answer: q.answer,
+      eliminatory: q.eliminatory,
+    });
+  }
+
+  // Vérifier que suffisamment de questions sont trouvables (≥ 50 %)
+  const verifiableCount = questionResults.filter((r) =>
+    lookup.has(r.q)
+  ).length;
+  if (verifiableCount < questionResults.length * 0.5) return null;
+
+  let score = 0;
+  let eliminatoryFailed = false;
+
+  for (const r of questionResults) {
+    const ref = lookup.get(r.q);
+    let correct: boolean;
+
+    if (ref && Array.isArray(r.selectedAnswers)) {
+      // Vérification serveur réelle
+      correct = answersEqual(r.selectedAnswers, ref.answer);
+      if (!correct && ref.eliminatory) eliminatoryFailed = true;
+    } else if (ref && typeof r.correct === "boolean") {
+      // selectedAnswers absent : fallback sur r.correct mais log
+      correct = r.correct;
+      console.warn(
+        `[QUIZ SECURITY] selectedAnswers absent pour "${r.q.slice(0, 40)}…" ` +
+          `— utilisation du correct déclaré`
+      );
+    } else {
+      // Question inconnue — on l'exclut du score (ni bonne ni mauvaise)
+      continue;
+    }
+
+    if (correct) score++;
+  }
+
+  return { score, total: verifiableCount, eliminatoryFailed };
 }
 
 const resend = process.env.RESEND_API_KEY
@@ -50,21 +121,67 @@ export async function POST(req: Request) {
       );
     }
 
-    // ── Validation des valeurs numériques ──────────────────────────────────
-    const rawScore = Number(body?.score ?? 0);
-    const rawTotal = Number(body?.total ?? 0);
+    // ── Extraction des questionResults fournis par le client ──────────────
+    type RawResult = {
+      q: string;
+      selectedAnswers?: number[];
+      correct?: boolean;
+      eliminatory?: boolean;
+    };
+    const rawQR: RawResult[] = Array.isArray(body?.questionResults)
+      ? (body.questionResults as unknown[]).filter(
+          (r): r is RawResult =>
+            r !== null &&
+            typeof r === "object" &&
+            typeof (r as Record<string, unknown>).q === "string"
+        )
+      : [];
 
-    const safeScore = Number.isFinite(rawScore) && rawScore >= 0 ? Math.round(rawScore) : 0;
-    const safeTotal = Number.isFinite(rawTotal) && rawTotal > 0 ? Math.round(rawTotal) : 0;
+    // ── Évaluation serveur : vérifier les réponses depuis quizContent ─────
+    const serverEval = evaluateAnswersServerSide(formationSlug, rawQR);
 
-    // Sanity check : le score ne peut pas dépasser le total
-    if (safeScore > safeTotal) {
+    let safeScore: number;
+    let safeTotal: number;
+    let eliminatoryFailed = false;
+
+    if (serverEval) {
+      // Chemin principal : score entièrement calculé côté serveur
+      safeScore = serverEval.score;
+      safeTotal = serverEval.total;
+      eliminatoryFailed = serverEval.eliminatoryFailed;
+    } else {
+      // Chemin de secours : le référentiel de questions est absent (module sans quiz
+      // côté serveur) — on accepte le score client avec sanity checks stricts.
+      const rawScore = Number(body?.score ?? 0);
+      const rawTotal = Number(body?.total ?? 0);
+      safeScore = Number.isFinite(rawScore) && rawScore >= 0 ? Math.round(rawScore) : 0;
+      safeTotal = Number.isFinite(rawTotal) && rawTotal > 0 ? Math.round(rawTotal) : 0;
+
+      if (safeScore > safeTotal) {
+        console.warn(
+          `[QUIZ SECURITY] score>${safeTotal} (secours) pour ${formationSlug} user ${user.id} — rejeté`
+        );
+        return NextResponse.json({ error: "Score invalide." }, { status: 400 });
+      }
+
+      // Cross-check sur correct déclaré si disponible
+      if (rawQR.length > 0) {
+        const computedScore = rawQR.filter((r) => r.correct === true).length;
+        if (computedScore !== safeScore) {
+          console.warn(
+            `[QUIZ SECURITY] Score déclaré (${safeScore}) ≠ score calculé (${computedScore}) ` +
+            `(secours) pour ${formationSlug} user ${user.id}`
+          );
+          return NextResponse.json(
+            { error: "Incohérence de score détectée." },
+            { status: 400 }
+          );
+        }
+      }
+
       console.warn(
-        `[QUIZ SECURITY] score>${safeTotal} reçu pour ${formationSlug} par user ${user.id} — rejeté`
-      );
-      return NextResponse.json(
-        { error: "Score invalide." },
-        { status: 400 }
+        `[QUIZ SECURITY] Évaluation serveur impossible pour "${formationSlug}" ` +
+        `(quiz absent du référentiel) — score client utilisé : ${safeScore}/${safeTotal}`
       );
     }
 
@@ -73,49 +190,23 @@ export async function POST(req: Request) {
     const serverPassingScore = safeTotal > 0 ? Math.ceil(safeTotal * serverThreshold) : 1;
     const scorePercent = safeTotal > 0 ? Math.round((safeScore / safeTotal) * 100) : 0;
 
-    // questionResults : vérification de cohérence
-    const questionResults = Array.isArray(body?.questionResults)
-      ? body.questionResults.filter(
-          (r: unknown) =>
-            r !== null &&
-            typeof r === "object" &&
-            typeof (r as Record<string, unknown>).q === "string" &&
-            typeof (r as Record<string, unknown>).correct === "boolean"
-        )
-      : [];
-
-    // Si questionResults est fourni, vérifier que le score déclaré correspond
-    // au nombre de bonnes réponses (tolérance ±0 — doit être exact)
-    if (questionResults.length > 0) {
-      const computedScore = questionResults.filter(
-        (r: Record<string, unknown>) => r.correct === true
-      ).length;
-      if (computedScore !== safeScore) {
-        console.warn(
-          `[QUIZ SECURITY] Score déclaré (${safeScore}) ≠ score calculé (${computedScore}) ` +
-          `pour ${formationSlug} user ${user.id}`
-        );
-        return NextResponse.json(
-          { error: "Incohérence de score détectée." },
-          { status: 400 }
-        );
-      }
-    }
-
     // ── Résultat final — calculé côté serveur uniquement ──────────────────
     const safePassingScore = serverPassingScore;
-    // Le client peut signaler qu'une question éliminatoire a été échouée ;
-    // le serveur l'utilise seulement pour journaliser, jamais pour assouplir le seuil.
-    const clientClaimedPassed = Boolean(body?.passed);
-    const passed = safeScore >= safePassingScore && safeTotal > 0;
+    // Une question éliminatoire échouée invalide le quiz même si le score global est suffisant.
+    const passed =
+      safeScore >= safePassingScore && safeTotal > 0 && !eliminatoryFailed;
 
+    const clientClaimedPassed = Boolean(body?.passed);
     if (clientClaimedPassed !== passed) {
       console.warn(
         `[QUIZ SECURITY] body.passed=${clientClaimedPassed} mais calcul serveur=${passed} ` +
-        `(score=${safeScore}/${safeTotal} seuil=${safePassingScore}) ` +
+        `(score=${safeScore}/${safeTotal} seuil=${safePassingScore} eliminatoryFailed=${eliminatoryFailed}) ` +
         `formation=${formationSlug} user=${user.id}`
       );
     }
+
+    // questionResults enrichis (correct recomputed) pour la traçabilité
+    const questionResults = rawQR;
 
     const { data: formations, error: formationError } = await supabase
       .from("formations")
