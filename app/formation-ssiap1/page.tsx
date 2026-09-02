@@ -4,26 +4,26 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Formation SSIAP1 Certifiante — Agent Sécurité Incendie ERP | PREVENSIA FORMATION",
+  title: "Préparation SSIAP1 — Sécurité Incendie ERP | PREVENSIA FORMATION",
   description:
-    "Formation SSIAP1 certifiante (70h) par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h / 3 ans. E-learning inclus. Devis sur demande.",
+    "Préparation au SSIAP1 (70h) : théorie e-learning + présentiel pratique. Recyclage 14h / 3 ans. E-learning inclus. Devis sur demande.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },
   keywords: [
-    "formation SSIAP1 certifiante",
+    "préparation SSIAP1",
     "formation agent sécurité incendie ERP",
-    "organisme formation SSIAP1 Qualiopi",
+    "organisme formation SSIAP1",
     "formation SSIAP1 70 heures",
     "recyclage SSIAP1 14h",
-    "certification SSIAP1",
+    "qualification SSIAP1",
     "formation sécurité incendie ERP",
     "agent de sécurité incendie formation",
   ],
   openGraph: {
-    title: "Formation SSIAP1 Certifiante — Organisme Qualiopi | PREVENSIA FORMATION",
+    title: "Préparation SSIAP1 — Sécurité Incendie ERP | PREVENSIA FORMATION",
     description:
-      "Formation SSIAP1 complète et certifiante : 70h initiale + recyclage 14h. Certifié Qualiopi. E-learning inclus. Devis sous 48h.",
+      "Préparation au SSIAP1 : 70h initiale + recyclage 14h. E-learning inclus. Devis sous 48h.",
     url: "https://prevensia-formation.fr/formation-ssiap1",
   },
 };
@@ -115,7 +115,7 @@ export default function FormationSsiap1Page() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation SSIAP1 Certifiante — Agent de Sécurité Incendie ERP"
-        description="Formation SSIAP1 complète et certifiante (70h) dispensée par PREVENSIA FORMATION, certifié Qualiopi. Recyclage 14h inclus. E-learning inclus pour chaque stagiaire."
+        description="Préparation au SSIAP1 (70h) : e-learning théorique + présentiel pratique. Recyclage 14h inclus. Examen devant jury agréé."
         courseCode="SSIAP1"
         url="/formation-ssiap1"
         timeRequired="P10D"
@@ -144,7 +144,7 @@ export default function FormationSsiap1Page() {
           </nav>
 
           <p className="inline-flex rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-300">
-            Certifié Qualiopi · Formation certifiante · Arrêté du 2 mai 2005
+            Arrêté du 2 mai 2005 · Examen devant jury agréé
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -176,7 +176,7 @@ export default function FormationSsiap1Page() {
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <span>✓ Certifié Qualiopi</span>
-            <span>✓ Formation certifiante 70h</span>
+            <span>✓ Préparation complète 70h</span>
             <span>✓ Recyclage 14h / 3 ans</span>
             <span>✓ E-learning inclus pour chaque stagiaire</span>
             <span>✓ Max 12 stagiaires · Suivi individuel</span>
@@ -191,14 +191,14 @@ export default function FormationSsiap1Page() {
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-200 mb-2">Pourquoi choisir PREVENSIA FORMATION</p>
-              <h2 className="text-2xl font-bold">Formation complète vers la qualification officielle SSIAP1</h2>
+              <h2 className="text-2xl font-bold">Préparation complète vers la qualification SSIAP1</h2>
               <p className="mt-3 text-red-100 leading-7">
                 Certifié Qualiopi, nous dispensons la formation SSIAP1 dans son intégralité :
                 théorie, exercices pratiques sur matériel réel et examen final devant jury.
                 Le programme est calé sur le référentiel officiel de l&apos;arrêté du 2 mai 2005 modifié.
               </p>
               <p className="mt-3 text-red-100 text-sm leading-6">
-                Formation éligible aux financements OPCO. Devis personnalisé sous 48h selon votre effectif et votre localisation.
+                Prise en charge OPCO possible selon votre situation. Devis personnalisé sous 48h selon votre effectif et votre localisation.
               </p>
             </div>
             <Link
@@ -366,7 +366,7 @@ export default function FormationSsiap1Page() {
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-white text-lg font-bold">3</span>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-red-700">Qualification officielle</p>
-                  <p className="font-bold text-slate-900 text-lg">Examen de certification SSIAP1</p>
+                  <p className="font-bold text-slate-900 text-lg">Examen de qualification SSIAP1</p>
                 </div>
               </div>
               <p className="text-sm text-slate-600">
@@ -606,7 +606,7 @@ export default function FormationSsiap1Page() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Former vos agents à la sécurité incendie ERP ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Formation certifiante 70h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Certifié Qualiopi
+            Préparation complète 70h · Recyclage 14h · E-learning inclus · Max 12 stagiaires · Certifié Qualiopi
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link

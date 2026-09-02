@@ -23,4 +23,7 @@ export const COMPANY = {
   capital: "500,00 €",
   /** Numéro de déclaration d'activité — à renseigner après obtention préfecture */
   nda: "", // ex: "11 75 XXXXX 75"
+  /** Passer à true dès obtention du certificat Qualiopi */
+  qualiopiObtenu: false,
+  qualiopiCategorie: "Actions de formation",
 } as const;

@@ -252,7 +252,7 @@ export default function Home() {
           </li>
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
-            Financement OPCO éligible — on vous aide à monter le dossier
+            Financement OPCO possible selon votre situation — on vous aide à monter le dossier
           </li>
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
@@ -480,10 +480,7 @@ export default function Home() {
                   <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
                 </summary>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Prevensia étant certifié Qualiopi, nos formations sont éligibles aux
-                  dispositifs de financement (OPCO, France Travail) selon votre situation,
-                  votre OPCO de rattachement et les dispositifs mobilisables. Nous fournissons
-                  les documents justificatifs nécessaires sur demande lors du devis.
+                  Nos formations sont susceptibles d'être prises en charge selon les critères de votre OPCO de rattachement ou d'autres financeurs (France Travail, FNE-Formation). La prise en charge dépend de votre situation, du dispositif mobilisable et de votre OPCO. Nous fournissons les documents justificatifs nécessaires sur demande lors du devis.
                 </p>
               </details>
 

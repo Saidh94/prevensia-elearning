@@ -9,7 +9,7 @@ export default function OGImage() {
   return generateOgImage({
     title: "Formation SST",
     subtitle:
-      "Sauveteur Secouriste du Travail — Formation initiale 14h et MAC SST 7h. Certifié INRS, éligible OPCO et CPF.",
+      "Sauveteur Secouriste du Travail — Formation initiale 14h et MAC SST 7h. Certifié INRS. Prise en charge OPCO possible.",
     badge: "SST",
     accent: "#b91c1c",
   });

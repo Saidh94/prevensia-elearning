@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Mentions légales | PREVENSIA FORMATION",
-  description: "Mentions légales de PREVENSIA FORMATION, marque du Groupe PREVENSIA SAS, organisme de formation certifié Qualiopi.",
+  description: "Mentions légales de PREVENSIA FORMATION, marque du Groupe PREVENSIA SAS — organisme de formation.",
   robots: { index: false, follow: false },
 };
 
@@ -35,7 +35,11 @@ export default function MentionsLegalesPage() {
         ) : (
           <p><strong>Numéro de déclaration d'activité de formation :</strong> <em className="text-slate-400">En cours d&apos;obtention</em></p>
         )}
-        <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi — Actions de formation</p>
+        {COMPANY.qualiopiObtenu ? (
+          <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi au titre de la catégorie Actions de formation — Cet enregistrement ne vaut pas agrément de l&apos;État.</p>
+        ) : (
+          <p><strong>Démarche Qualiopi :</strong> Certification visée — Actions de formation (audit prévu prochainement).</p>
+        )}
         <p><strong>Téléphone :</strong> {COMPANY.phone}</p>
         <p><strong>Email :</strong> {COMPANY.email}</p>
         <p><strong>Dirigeants :</strong> Hachiba Said, Hachiba Karim</p>

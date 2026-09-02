@@ -366,7 +366,7 @@ export default function FormationSSI() {
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-300">
             Trois formats selon votre niveau technique et vos contraintes d&apos;organisation.
-            Toutes nos formations SSI sont certifiées Qualiopi et finançables OPCO.
+            Nos formations SSI sont susceptibles d'être prises en charge selon les critères de votre OPCO de rattachement.
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -431,7 +431,7 @@ export default function FormationSSI() {
                 <li>✓ Adapté à votre SSI installé</li>
                 <li>✓ Jusqu&apos;à 10 participants / session</li>
                 <li>✓ Contenu calé sur vos consignes</li>
-                <li>✓ Financement OPCO possible</li>
+                <li>✓ Prise en charge OPCO possible selon votre situation</li>
                 <li>✓ Devis sous 48h</li>
               </ul>
               <Link

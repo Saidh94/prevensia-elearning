@@ -21,8 +21,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-6">
-              Organisme de formation certifié <span className="font-semibold text-white">Qualiopi</span>.
-              Habilitation électrique, ATEX, sécurité incendie, Coordination SSI, SST, Sprinkler.
+              Organisme de formation — habilitation électrique, ATEX, sécurité incendie, Coordination SSI, SST, Sprinkler.{COMPANY.qualiopiObtenu && <>{" "}<span className="font-semibold text-white">Certifié Qualiopi.</span></>}
             </p>
             <p className="mt-3 text-sm">
               <a href="tel:+33189629492" className="hover:text-white">
@@ -163,6 +162,21 @@ export function Footer() {
               <li>
                 <Link href="/politique-confidentialite" className="hover:text-white">
                   Politique de confidentialité
+                </Link>
+              </li>
+              <li>
+                <Link href="/qualite" className="hover:text-white">
+                  Qualité &amp; Qualiopi
+                </Link>
+              </li>
+              <li>
+                <Link href="/handicap-accessibilite" className="hover:text-white">
+                  Accessibilité handicap
+                </Link>
+              </li>
+              <li>
+                <Link href="/reclamation" className="hover:text-white">
+                  Réclamation
                 </Link>
               </li>
             </ul>

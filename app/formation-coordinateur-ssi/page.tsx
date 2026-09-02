@@ -342,7 +342,7 @@ export default function FormationCoordinateurSSI() {
             Formation Coordination SSI — grille tarifaire 2026
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-            Toutes nos formations sont certifiées Qualiopi et finançables OPCO.
+            Nos formations sont susceptibles d'être prises en charge selon les critères de votre OPCO de rattachement.
             Pour les entreprises éligibles au FNE-Formation, nous accompagnons le montage du dossier.
           </p>
 
@@ -464,7 +464,7 @@ export default function FormationCoordinateurSSI() {
             Formez votre Coordinateur SSI avec PREVENSIA
           </h2>
           <p className="mt-3 text-orange-100">
-            Organisme certifié Qualiopi · Financement OPCO et FNE-Formation · Devis sous 48 h
+            Organisme de formation · Financement OPCO possible · Devis sous 48 h
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
