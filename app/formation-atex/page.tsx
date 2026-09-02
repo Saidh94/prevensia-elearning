@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Formation ATEX — Atmosphères Explosives E-learning",
     description:
-      "Parcours e-learning ATEX 2h conforme à la directive 99/92/CE. Zones gaz et poussières, marquage Ex, EPI, conduite à tenir. 129 € HT — attestation incluse.",
+      "Parcours e-learning ATEX 2h conforme aux objectifs de formation de la directive 1999/92/CE. Zones gaz et poussières, marquage Ex, EPI, conduite à tenir. 129 € HT — attestation incluse.",
     url: "https://prevensia-formation.fr/formation-atex",
   },
 };
@@ -129,7 +129,7 @@ export default function FormationAtexPage() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
         name="Formation ATEX — Atmosphères Explosives"
-        description="Formation e-learning ATEX conforme à la directive 99/92/CE. Zonage, marquage équipements, EPI, conduite à tenir. Attestation incluse."
+        description="Formation e-learning ATEX conforme aux objectifs de formation de la directive 1999/92/CE. Zonage, marquage équipements, EPI, conduite à tenir. Attestation incluse."
         courseCode="ATEX"
         url="/formation-atex"
         timeRequired="PT3H"
