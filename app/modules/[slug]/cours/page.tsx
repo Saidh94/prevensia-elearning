@@ -1122,8 +1122,7 @@ export default function CoursPage() {
             formation_slug: canonicalSlug,
             chapter_key: currentChapter.key,
             chapter_order: currentIndex + 1,
-            seconds: 5,
-            min_seconds_required: currentChapter.minSeconds,
+            deltaSeconds: 5,
           }),
         });
 
