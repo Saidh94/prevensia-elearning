@@ -112,7 +112,7 @@ const H0B0_CHAPTERS: Chapter[] = [
     subtitle:
       "Comprendre le périmètre de l’habilitation, la place de la formation et le rôle de l’employeur dans la prévention du risque électrique",
     minSeconds: 240,
-    image: "/elearning/h0b0/risque-electrique.png",
+    image: "/elearning/h0b0/h0b0-perimetre.svg",
     imageAlt: "Périmètre H0B0 : ce qui est autorisé vs interdit",
     highlights: [
       "Le B0, le H0 et le H0V concernent exclusivement des opérations d’ordre non électrique.",
