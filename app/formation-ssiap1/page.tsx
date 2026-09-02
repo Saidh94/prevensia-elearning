@@ -4,67 +4,54 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "Préparation SSIAP1 — Sécurité Incendie ERP | PREVENSIA FORMATION",
+  title: "Préparation théorique SSIAP1 — Bases sécurité incendie ERP | PREVENSIA FORMATION",
   description:
-    "Préparation au SSIAP1 (70h) : théorie e-learning + présentiel pratique. Recyclage 14h / 3 ans. E-learning inclus. Devis sur demande.",
+    "Module de préparation théorique aux bases SSIAP1 : classes de feux, extincteurs, SSI, évacuation ERP. Inclus dans nos formations sécurité incendie. Ne remplace pas un organisme agréé SSIAP.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-ssiap1",
   },
   keywords: [
-    "préparation SSIAP1",
-    "formation agent sécurité incendie ERP",
-    "organisme formation SSIAP1",
-    "formation SSIAP1 70 heures",
-    "recyclage SSIAP1 14h",
-    "qualification SSIAP1",
+    "préparation théorique SSIAP1",
+    "bases sécurité incendie ERP",
+    "sensibilisation SSIAP1",
     "formation sécurité incendie ERP",
-    "agent de sécurité incendie formation",
+    "classes de feux extincteurs",
+    "SSI évacuation ERP",
   ],
   openGraph: {
-    title: "Préparation SSIAP1 — Sécurité Incendie ERP | PREVENSIA FORMATION",
+    title: "Préparation théorique SSIAP1 | PREVENSIA FORMATION",
     description:
-      "Préparation au SSIAP1 : 70h initiale + recyclage 14h. E-learning inclus. Devis sous 48h.",
+      "Module de sensibilisation aux bases SSIAP1 inclus dans nos formations sécurité incendie. Ne remplace pas un organisme agréé.",
     url: "https://prevensia-formation.fr/formation-ssiap1",
   },
 };
 
 const faqItems = [
   {
-    question: "En quoi consiste la formation initiale SSIAP1 (70h) ?",
+    question: "Ce module remplace-t-il une formation SSIAP1 réglementaire ?",
     answer:
-      "La formation initiale SSIAP1 dure 70 heures (environ 10 à 12 jours ouvrés), pour 12 stagiaires maximum par session. Elle comprend : le module e-learning théorique (inclus pour chaque stagiaire), des apports théoriques en salle, des exercices pratiques (manipulation d'extincteurs, désenfumage, gestes professionnels, mises en situation ERP) et une évaluation finale (QCM + pratique). La qualification SSIAP1 est obtenue après réussite à l'examen devant un jury habilité par la préfecture — organisé par un organisme agréé partenaire ou selon les modalités locales en vigueur.",
+      "Non. Ce module de préparation théorique ne constitue pas une formation SSIAP réglementaire et ne permet pas d'obtenir ou de renouveler la qualification SSIAP1. La qualification SSIAP1 est délivrée après examen devant un jury habilité par la préfecture, auprès d'un organisme agréé — ce n'est pas PREVENSIA FORMATION. Notre module couvre les bases théoriques (classes de feux, extincteurs, SSI, évacuation ERP) en complément de la formation réglementaire.",
   },
   {
-    question: "Qu'est-ce que le recyclage SSIAP1 et pourquoi est-il obligatoire ?",
+    question: "Où obtenir la qualification SSIAP1 réglementaire ?",
     answer:
-      "Le recyclage SSIAP1 est une remise à niveau obligatoire de 14 heures, à réaliser tous les 3 ans pour maintenir la qualification SSIAP1 en cours de validité. Sans recyclage, la qualification est suspendue et l'agent ne peut plus légalement exercer les fonctions SSIAP1. Ce module de remise à niveau inclut une actualisation réglementaire, des exercices pratiques et un module e-learning de révision. Contactez-nous pour un devis adapté à votre effectif.",
+      "La qualification SSIAP1 est délivrée après réussite à un examen devant jury habilité par la préfecture, organisé par un organisme agréé. Pour trouver un organisme agréé SSIAP dans votre département, rapprochez-vous de la préfecture ou du CNPP. PREVENSIA FORMATION n'organise pas cet examen.",
   },
   {
-    question: "À qui s'adresse la formation SSIAP1 ?",
+    question: "À qui s'adresse ce module de préparation ?",
     answer:
-      "La formation initiale SSIAP1 s'adresse à toute personne souhaitant exercer les fonctions d'agent de sécurité incendie en ERP : agents de sécurité, personnels reconvertis, gardiens d'immeuble souhaitant évoluer vers la sécurité incendie. Le recyclage s'adresse aux agents SSIAP1 déjà qualifiés dont la qualification arrive à échéance (tous les 3 ans).",
+      "Ce module est inclus dans nos formations sécurité incendie pour le personnel d'ERP souhaitant acquérir les bases théoriques SSIAP1 : classes de feux, extincteurs, SSI, procédures d'évacuation. Il s'adresse aux agents de sécurité, personnel d'accueil, responsables d'établissement souhaitant comprendre les enjeux SSIAP1 avant d'engager une démarche de qualification auprès d'un organisme agréé.",
   },
   {
     question: "Quelle est la réglementation applicable aux ERP en matière de SSIAP ?",
     answer:
-      "Les ERP sont soumis à l'arrêté du 25 juin 1980 modifié (règlement de sécurité incendie ERP) et à l'arrêté du 2 mai 2005 modifié (organisation et missions du SSIAP). La présence d'agents SSIAP1 qualifiés est obligatoire dans les ERP de 1re à 4e catégorie selon leur type et leur capacité d'accueil. Les agents doivent être titulaires de la qualification SSIAP1, délivrée après examen devant jury auprès d'un organisme agréé par la préfecture.",
+      "Les ERP sont soumis à l'arrêté du 25 juin 1980 modifié (règlement de sécurité incendie ERP) et à l'arrêté du 2 mai 2005 modifié (organisation et missions du SSIAP). La présence d'agents SSIAP1 qualifiés est obligatoire dans les ERP de 1re à 4e catégorie selon leur type. Les agents doivent être titulaires de la qualification SSIAP1, délivrée après examen devant jury habilité par la préfecture auprès d'un organisme agréé.",
   },
   {
-    question: "Comment obtenir un devis pour la formation SSIAP1 ?",
+    question: "Comment nous contacter pour nos formations sécurité incendie ?",
     answer:
-      "Utilisez notre formulaire de demande de devis en précisant votre effectif, votre localisation et si vous souhaitez une formation initiale (70h) ou un recyclage (14h). Nous vous répondons sous 48h avec une proposition adaptée à votre organisation. La formation est éligible aux financements OPCO.",
+      "Contactez-nous via notre formulaire de demande de devis ou par téléphone. Nous proposons des formations sécurité incendie adaptées aux ERP : sensibilisation, manipulation d'extincteurs, procédures d'évacuation, SSI. Devis sous 48h.",
   },
-];
-
-const metiers = [
-  "Agent de sécurité incendie souhaitant se préparer au SSIAP1",
-  "Personnel reconverti vers la sécurité incendie en ERP",
-  "Gardien d'immeuble souhaitant évoluer vers le SSIAP1",
-  "Agent SSIAP1 qualifié souhaitant effectuer sa remise à niveau (3 ans)",
-  "Responsable sécurité souhaitant comprendre les obligations SSIAP",
-  "Directeur d'établissement ERP gérant une équipe SSIAP",
-  "RH / responsable formation gérant les recyclages SSIAP1",
-  "Personnel de sécurité en reconversion professionnelle",
 ];
 
 const programme = [
@@ -97,7 +84,7 @@ const programme = [
     contenu: "Signal d'alarme, phases d'évacuation, rôles guide-file et serre-file, point de rassemblement, PMR, exercices obligatoires.",
   },
   {
-    titre: "Rôle et missions d'un agent de sécurité incendie en ERP (référentiel SSIAP1)",
+    titre: "Rôle et missions d'un agent de sécurité incendie en ERP",
     contenu: "Rondes de surveillance, levée de doute, intervention de première main, consignes du poste de sécurité, transmission aux secours.",
   },
   {
@@ -105,7 +92,7 @@ const programme = [
     contenu: "Donner l'alarme, attaquer le feu si possible, diriger l'évacuation, accueillir les secours. Gestes interdits (ascenseur, porte ouverte).",
   },
   {
-    titre: "Synthèse — 10 réflexes SSIAP1",
+    titre: "Synthèse — 10 réflexes sécurité incendie",
     contenu: "Mémo opérationnel : reconnaissance feu, alarme, extinction, évacuation, accueil secours, rapport d'incident.",
   },
 ];
@@ -114,21 +101,21 @@ export default function FormationSsiap1Page() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <CourseJsonLd
-        name="Préparation SSIAP1 — Sécurité Incendie ERP"
-        description="Préparation aux connaissances SSIAP1 (70h) : e-learning théorique + présentiel pratique. Module de remise à niveau 14h inclus."
-        courseCode="SSIAP1"
+        name="Préparation théorique SSIAP1 — Bases sécurité incendie ERP"
+        description="Module de préparation théorique aux bases SSIAP1 inclus dans les formations sécurité incendie PREVENSIA. Ne constitue pas une formation SSIAP réglementaire."
+        courseCode="SSIAP1-PREP"
         url="/formation-ssiap1"
-        timeRequired="P10D"
+        timeRequired="P1D"
         educationalLevel="Beginner"
-        audience="Agents de sécurité incendie, personnel souhaitant exercer les fonctions SSIAP1 en ERP"
-        educationalCredentialAwarded="Attestation de formation PREVENSIA FORMATION — la qualification SSIAP1 est délivrée par l'organisme agréé après examen"
+        audience="Personnel d'ERP, agents de sécurité souhaitant acquérir les bases théoriques SSIAP1"
+        educationalCredentialAwarded="Attestation de suivi du module de préparation théorique PREVENSIA FORMATION — ne confère pas la qualification SSIAP1"
       />
       <FaqJsonLd items={faqItems} />
       <BreadcrumbJsonLd
         items={[
           { name: "Accueil", url: "/" },
           { name: "Nos formations", url: "/" },
-          { name: "Préparation SSIAP1", url: "/formation-ssiap1" },
+          { name: "Préparation théorique SSIAP1", url: "/formation-ssiap1" },
         ]}
       />
 
@@ -140,76 +127,78 @@ export default function FormationSsiap1Page() {
             <span className="mx-2">›</span>
             <Link href="/" className="hover:text-white">Nos formations</Link>
             <span className="mx-2">›</span>
-            <span className="text-white">Préparation SSIAP1</span>
+            <span className="text-white">Préparation théorique SSIAP1</span>
           </nav>
 
-          <p className="inline-flex rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-300">
-            Arrêté du 2 mai 2005 · Préparation théorique &amp; pratique
+          <p className="inline-flex rounded-full border border-slate-400/30 bg-slate-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-slate-300">
+            Module de sensibilisation · Inclus dans nos formations sécurité incendie
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Préparation SSIAP1<br className="hidden lg:block" />{" "}
-            <span className="text-red-400">Théorie + Pratique</span>
+            Préparation théorique<br className="hidden lg:block" />{" "}
+            <span className="text-red-400">aux bases SSIAP1</span>
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Préparez-vous aux connaissances théoriques et pratiques attendues pour la qualification
-            SSIAP1, exigée dans tous les ERP de catégorie 1 à 4. Parcours de préparation complet en 70h :
-            théorie, pratique sur matériel réel. Module e-learning inclus pour chaque stagiaire.
-            Recyclage 14h / 3 ans également disponible. La qualification SSIAP1 est délivrée après
-            examen devant jury auprès d&apos;un organisme agréé par la préfecture — PREVENSIA FORMATION ne
-            délivre pas elle-même la qualification SSIAP1.
+            Ce module couvre les bases théoriques attendues pour comprendre les enjeux SSIAP1 en ERP :
+            classes de feux, extincteurs, SSI, procédures d&apos;évacuation. Il est inclus dans nos
+            formations sécurité incendie pour le personnel d&apos;ERP.
           </p>
+
+          {/* Disclaimer bien visible */}
+          <div className="mt-8 rounded-xl border border-amber-400/40 bg-amber-400/10 p-4 max-w-3xl">
+            <p className="text-sm text-amber-200 leading-6">
+              <strong className="text-amber-300">Important :</strong> Ce module ne constitue pas une
+              formation SSIAP réglementaire et ne permet pas d&apos;obtenir ou de renouveler la
+              qualification SSIAP1. La qualification SSIAP1 est délivrée par un organisme agréé
+              après examen devant jury habilité par la préfecture — pas par PREVENSIA FORMATION.
+            </p>
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/demande-devis?type=ssiap1-initial"
+              href="/formation-securite-incendie"
               className="rounded-xl bg-red-500 px-6 py-3 font-semibold text-white hover:bg-red-400 transition-colors"
             >
-              Demander la formation initiale SSIAP1
+              Voir nos formations sécurité incendie →
             </Link>
             <Link
-              href="/demande-devis?type=ssiap1-recyclage"
+              href="/demande-devis"
               className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Recyclage SSIAP1 (14h / 3 ans)
+              Demander un devis
             </Link>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-slate-300">
             <span>✓ Démarche Qualiopi engagée</span>
-            <span>✓ Préparation complète 70h</span>
-            <span>✓ Recyclage 14h / 3 ans</span>
-            <span>✓ E-learning inclus pour chaque stagiaire</span>
+            <span>✓ Bases théoriques SSIAP1</span>
+            <span>✓ E-learning inclus dans nos formations</span>
             <span>✓ Max 12 stagiaires · Suivi individuel</span>
             <span>✓ Devis sous 48h</span>
           </div>
         </div>
       </section>
 
-      {/* Positionnement */}
-      <section className="bg-red-700 text-white py-10">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div className="flex-1">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-200 mb-2">Pourquoi choisir PREVENSIA FORMATION</p>
-              <h2 className="text-2xl font-bold">Préparation complète vers la qualification SSIAP1</h2>
-              <p className="mt-3 text-red-100 leading-7">
-                Nous préparons aux connaissances théoriques et pratiques attendues pour la qualification SSIAP1 :
-                théorie, exercices pratiques sur matériel réel et examen final devant jury.
-                Le programme est calé sur le référentiel officiel de l&apos;arrêté du 2 mai 2005 modifié.
-              </p>
-              <p className="mt-3 text-red-100 text-sm leading-6">
-                Prise en charge OPCO possible selon votre situation. Devis personnalisé sous 48h selon votre effectif et votre localisation.
-              </p>
-            </div>
-            <Link
-              href="/demande-devis?type=ssiap1-initial"
-              className="shrink-0 rounded-xl bg-white px-6 py-3 font-semibold text-red-700 hover:bg-red-50 transition-colors"
-            >
-              Demander un devis →
-            </Link>
-          </div>
+      {/* Avertissement réglementaire */}
+      <section className="bg-amber-50 border-y border-amber-200 py-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-lg font-bold text-slate-900 mb-3">
+            Ce module n&apos;est pas une formation SSIAP réglementaire
+          </h2>
+          <p className="text-sm text-slate-700 leading-7">
+            La qualification SSIAP1 est obligatoire pour exercer les fonctions d&apos;agent de sécurité
+            incendie en ERP (arrêté du 2 mai 2005 modifié). Elle est délivrée après examen devant un
+            jury habilité par la préfecture, auprès d&apos;un <strong>organisme agréé</strong> — ce n&apos;est
+            pas PREVENSIA FORMATION. Ce module de préparation théorique couvre les connaissances de base
+            du programme SSIAP1 mais <strong>ne remplace pas</strong> une formation SSIAP dispensée
+            par un organisme agréé et <strong>ne permet pas à lui seul</strong> d&apos;obtenir ou
+            renouveler la qualification SSIAP1.
+          </p>
+          <p className="mt-3 text-sm text-slate-600">
+            Pour une formation SSIAP réglementaire, rapprochez-vous d&apos;un organisme agréé par la
+            préfecture de votre département (CNPP, organismes habilités locaux).
+          </p>
         </div>
       </section>
 
@@ -217,31 +206,31 @@ export default function FormationSsiap1Page() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900">
-            Pourquoi former vos agents à la sécurité incendie SSIAP1 ?
+            Pourquoi sensibiliser votre personnel aux bases SSIAP1 ?
           </h2>
           <p className="mt-4 max-w-3xl text-lg text-slate-600">
-            Un incendie en ERP peut tuer en quelques minutes. La réglementation impose des agents
-            SSIAP1 qualifiés dans les ERP de 1re à 4e catégorie. Employer un agent sans qualification
-            valide expose l&apos;exploitant à des sanctions pénales.
+            Même hors obligation réglementaire SSIAP, tout le personnel d&apos;un ERP gagne à comprendre
+            les fondamentaux de la sécurité incendie : réagir vite et bien en cas de départ de feu
+            peut sauver des vies.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                titre: "Obligation réglementaire",
-                texte: "L'arrêté du 2 mai 2005 modifié impose la présence d'agents SSIAP1 qualifiés dans les ERP de 1re à 4e catégorie selon leur type. Une qualification expirée (non recyclée) équivaut à une absence de qualification.",
+                titre: "Obligation réglementaire SSIAP",
+                texte: "L'arrêté du 2 mai 2005 impose des agents SSIAP1 qualifiés dans les ERP de 1re à 4e catégorie. Ce module prépare à comprendre ces enjeux avant d'engager une démarche de qualification auprès d'un organisme agréé.",
                 couleur: "border-red-200 bg-red-50",
                 icon: "⚖️",
               },
               {
                 titre: "Enjeu vital",
-                texte: "En France, les incendies en ERP causent chaque année des dizaines de décès et des centaines de blessés. Un agent SSIAP1 qualifié et entraîné peut faire la différence entre une évacuation réussie et un drame.",
+                texte: "Un incendie en ERP peut tuer en quelques minutes. Comprendre les classes de feux, le bon extincteur à utiliser et les procédures d'évacuation permet à tout membre du personnel d'agir efficacement.",
                 couleur: "border-orange-200 bg-orange-50",
                 icon: "🔥",
               },
               {
                 titre: "Tous les ERP concernés",
-                texte: "Hôtels, grandes surfaces, établissements scolaires, hôpitaux, cinémas, musées, parkings couverts : tous les ERP de catégorie 1 à 4 sont soumis à l'obligation de disposer d'agents SSIAP1 qualifiés.",
+                texte: "Hôtels, grandes surfaces, établissements scolaires, hôpitaux, cinémas, musées, parkings couverts : tous les ERP ont intérêt à former leur personnel aux bases de la sécurité incendie.",
                 couleur: "border-slate-200 bg-slate-50",
                 icon: "🏢",
               },
@@ -256,41 +245,18 @@ export default function FormationSsiap1Page() {
         </div>
       </section>
 
-      {/* À qui s'adresse */}
+      {/* Programme */}
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900">
-            À qui s&apos;adresse la formation SSIAP1 ?
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
-            La formation initiale est ouverte à toute personne souhaitant exercer les fonctions
-            d&apos;agent de sécurité incendie en ERP. Le recyclage s&apos;adresse aux agents SSIAP1
-            déjà qualifiés dont la qualification arrive à échéance.
-          </p>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {metiers.map((m) => (
-              <div key={m} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3">
-                <span className="text-red-500 font-bold">✓</span>
-                <span className="text-sm font-medium text-slate-700">{m}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Programme */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900">Programme de la formation SSIAP1</h2>
+          <h2 className="text-3xl font-bold text-slate-900">Contenu du module de préparation théorique</h2>
           <p className="mt-4 text-lg text-slate-600">
-            10 modules théoriques structurés (e-learning inclus), conformes au référentiel de
-            formation SSIAP défini par l&apos;arrêté du 2 mai 2005 modifié.
+            10 modules théoriques structurés (e-learning inclus dans nos formations), couvrant les bases
+            du programme SSIAP1 défini par l&apos;arrêté du 2 mai 2005 modifié.
           </p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {programme.map((p, i) => (
-              <div key={p.titre} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <div key={p.titre} className="rounded-2xl border border-slate-200 bg-white p-5">
                 <div className="flex items-start gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-500 text-sm font-bold text-white">
                     {i + 1}
@@ -306,158 +272,10 @@ export default function FormationSsiap1Page() {
         </div>
       </section>
 
-      {/* Déroulement de la formation */}
-      <section className="bg-slate-50 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900">Comment se déroule la formation SSIAP1 ?</h2>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
-            La formation SSIAP1 chez PREVENSIA suit un parcours hybride structuré : module e-learning
-            théorique en amont, puis formation encadrée en présentiel, et enfin examen de qualification.
-          </p>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-
-            {/* Module e-learning inclus */}
-            <div className="rounded-2xl border-2 border-slate-200 bg-white p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-700 text-lg font-bold">1</span>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Inclus pour chaque stagiaire</p>
-                  <p className="font-bold text-slate-900 text-lg">Module e-learning théorique (3h)</p>
-                </div>
-              </div>
-              <p className="text-sm text-slate-600">
-                Chaque stagiaire inscrit à une formation SSIAP1 (initiale ou recyclage) reçoit
-                un accès individuel au module e-learning. Il permet d&apos;acquérir les bases théoriques
-                avant les journées de formation encadrée, à son rythme.
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-slate-600">
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Accès activé dès la confirmation d&apos;inscription</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>10 modules + quiz de validation des acquis</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Accessible 24h/24 depuis PC, tablette ou mobile</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Suivi de progression accessible à l&apos;employeur</li>
-              </ul>
-            </div>
-
-            {/* Formation encadrée */}
-            <div className="rounded-2xl border-2 border-slate-200 bg-white p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-white text-lg font-bold">2</span>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Formation encadrée</p>
-                  <p className="font-bold text-slate-900 text-lg">Présentiel théorie + pratique</p>
-                </div>
-              </div>
-              <p className="text-sm text-slate-600">
-                Les journées en présentiel (intra-entreprise ou inter-entreprise) permettent
-                d&apos;approfondir les apports théoriques et de réaliser les exercices pratiques
-                réglementaires.
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-slate-600">
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Théorie approfondie en salle (réglementation, SSI, ERP)</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Manipulation d&apos;extincteurs sur feux réels simulés</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Exercices désenfumage, gestes professionnels, mises en situation</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>Disponible en intra (formateur chez vous) ou inter (nos locaux)</li>
-                <li className="flex items-start gap-2"><span className="text-slate-500 font-bold mt-0.5">›</span>12 stagiaires maximum par session</li>
-              </ul>
-            </div>
-
-            {/* Examen */}
-            <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-white text-lg font-bold">3</span>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-red-700">Étape externe — organisme agréé</p>
-                  <p className="font-bold text-slate-900 text-lg">Examen SSIAP1 (jury habilité par la préfecture)</p>
-                </div>
-              </div>
-              <p className="text-sm text-slate-600">
-                L&apos;examen SSIAP1 est organisé conformément à l&apos;arrêté du 2 mai 2005 modifié,
-                devant un jury habilité par la préfecture, auprès d&apos;un organisme agréé.
-                <strong> PREVENSIA FORMATION ne délivre pas elle-même la qualification SSIAP1.</strong>
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-slate-600">
-                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><strong>Épreuve écrite</strong> : QCM portant sur les connaissances théoriques</li>
-                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><strong>Épreuve pratique</strong> : contrôle et identification d&apos;anomalies</li>
-                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><strong>Oral devant jury</strong> : mise en situation professionnelle</li>
-                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>La qualification est délivrée par l&apos;organisme agréé, non par PREVENSIA</li>
-              </ul>
-            </div>
-
-            {/* Recyclage */}
-            <div className="rounded-2xl border-2 border-orange-200 bg-orange-50 p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white text-lg font-bold">↺</span>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-orange-700">Tous les 3 ans</p>
-                  <p className="font-bold text-slate-900 text-lg">Recyclage SSIAP1 — 14h obligatoires</p>
-                </div>
-              </div>
-              <p className="text-sm text-slate-600">
-                Le recyclage est obligatoire pour maintenir la qualification SSIAP1 en cours de
-                validité. PREVENSIA organise des sessions de recyclage incluant le module e-learning
-                de révision et les exercices pratiques réglementaires.
-              </p>
-              <ul className="mt-3 space-y-1 text-sm text-slate-600">
-                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>14h de remise à niveau (e-learning + présentiel)</li>
-                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Actualisation réglementaire et retours d&apos;expérience</li>
-                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Exercices pratiques extincteurs et procédures</li>
-                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Attestation de recyclage délivrée à l&apos;issue</li>
-                <li className="flex items-start gap-2"><span className="text-orange-500 font-bold mt-0.5">›</span>Devis personnalisé selon effectif et localisation</li>
-              </ul>
-              <div className="mt-4">
-                <Link href="/demande-devis?type=ssiap1-recyclage" className="inline-flex rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-400 transition-colors">
-                  Demander un recyclage →
-                </Link>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Tableau comparatif */}
-          <div className="mt-10 overflow-x-auto">
-            <table className="w-full rounded-2xl border border-slate-200 text-sm bg-white overflow-hidden">
-              <thead>
-                <tr className="bg-slate-900 text-white">
-                  <th className="px-4 py-3 text-left font-semibold">Formule</th>
-                  <th className="px-4 py-3 text-center font-semibold">E-learning</th>
-                  <th className="px-4 py-3 text-center font-semibold">Pratique extincteurs</th>
-                  <th className="px-4 py-3 text-center font-semibold">Adapté au site</th>
-                  <th className="px-4 py-3 text-center font-semibold">Qualification / Attestation</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100">
-                <tr>
-                  <td className="px-4 py-3 font-medium text-slate-900">Initiale inter-entreprise (nos locaux)</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-slate-400">—</td>
-                  <td className="px-4 py-3 text-center text-slate-600 font-medium text-xs">Attestation PREVENSIA + examen organisme agréé</td>
-                </tr>
-                <tr className="bg-slate-50">
-                  <td className="px-4 py-3 font-medium text-slate-900">Initiale intra-entreprise (vos locaux)</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-slate-600 font-medium text-xs">Attestation PREVENSIA + examen organisme agréé</td>
-                </tr>
-                <tr className="bg-orange-50">
-                  <td className="px-4 py-3 font-medium text-slate-900">Recyclage (14h / 3 ans)</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-orange-600 font-bold">Attestation recyclage</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* Ce que comprend la formation */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900">Ce que comprend chaque formation</h2>
+          <h2 className="text-3xl font-bold text-slate-900">Ce que comprend le module</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               {
@@ -465,12 +283,12 @@ export default function FormationSsiap1Page() {
                 texte: "10 chapitres théoriques avec schémas pédagogiques SVG animés (tétraèdre du feu, classes de feux, extincteurs, SSI, évacuation). Accès individuel activé à l'inscription, accessible depuis PC, tablette ou mobile.",
               },
               {
-                titre: "Formation encadrée par formateur SSIAP expérimenté",
-                texte: "Journées en présentiel : apports théoriques complémentaires, exercices pratiques sur extincteurs, mises en situation professionnelles. Formation conduite par un formateur SSIAP expérimenté.",
+                titre: "Formation encadrée par formateur sécurité incendie",
+                texte: "Journées en présentiel : apports théoriques complémentaires, exercices pratiques sur extincteurs, mises en situation professionnelles. Formation conduite par un formateur expérimenté.",
               },
               {
-                titre: "Attestation + rapport employeur",
-                texte: "Document nominatif délivré à l'issue de la formation. Pour les employeurs, un rapport de formation détaillé est transmis automatiquement. L'examen de qualification SSIAP1 est passé devant un jury habilité par la préfecture.",
+                titre: "Attestation de suivi + rapport employeur",
+                texte: "Attestation de suivi du module délivrée à l'issue. Pour les employeurs, un rapport de formation est transmis automatiquement. Cette attestation ne confère pas la qualification SSIAP1.",
               },
             ].map((c) => (
               <div key={c.titre} className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -494,8 +312,8 @@ export default function FormationSsiap1Page() {
               <p className="text-sm text-slate-700">
                 Définit les missions, qualifications et conditions d&apos;emploi des agents SSIAP.
                 SSIAP1 (agent de service), SSIAP2 (chef d&apos;équipe), SSIAP3 (chef de service).
-                La qualification SSIAP1 est obtenue après réussite à l'examen devant jury — obligatoire dans les ERP de 1re à 4e catégorie.
-                Recyclage de 14h obligatoire tous les 3 ans.
+                La qualification SSIAP1 est obtenue après réussite à l&apos;examen devant jury habilité
+                par la préfecture, auprès d&apos;un organisme agréé.
               </p>
             </div>
             <div className="rounded-xl bg-white border border-red-200 p-5">
@@ -517,7 +335,7 @@ export default function FormationSsiap1Page() {
             <div className="rounded-xl bg-white border border-red-200 p-5">
               <p className="text-xs font-bold uppercase tracking-widest text-red-600 mb-2">Normes SSI — NF S 61-931 à 938</p>
               <p className="text-sm text-slate-700">
-                Normes AFNOR encadrant la conception, l&apos;installation et l&apos;exploitation des Systèmes
+                Normes encadrant la conception, l&apos;installation et l&apos;exploitation des Systèmes
                 de Sécurité Incendie. Catégories A à E selon le niveau de protection. Obligatoires
                 pour les ERP et IGH soumis à la réglementation SSIAP.
               </p>
@@ -529,9 +347,9 @@ export default function FormationSsiap1Page() {
       {/* Objectifs pédagogiques */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900">Objectifs pédagogiques</h2>
+          <h2 className="text-3xl font-bold text-slate-900">Objectifs pédagogiques du module</h2>
           <p className="mt-4 text-lg text-slate-600">
-            À l&apos;issue de la formation SSIAP1, le stagiaire sera capable de :
+            À l&apos;issue de ce module de préparation théorique, le stagiaire sera capable de :
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -540,7 +358,7 @@ export default function FormationSsiap1Page() {
               "Mettre en œuvre un extincteur portatif et un RIA selon la méthode DAPS",
               "Décrire les composantes d'un SSI et leur rôle dans la détection et l'alarme",
               "Appliquer les procédures d'évacuation ERP : alarme, guide-file, serre-file, PMR",
-              "Assurer les missions réglementaires de l'agent SSIAP1 : rondes, poste de sécurité, accueil secours",
+              "Comprendre les missions réglementaires de l'agent SSIAP1 en ERP",
             ].map((obj) => (
               <div key={obj} className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs text-white font-bold">✓</span>
@@ -555,7 +373,7 @@ export default function FormationSsiap1Page() {
       <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900">
-            Questions fréquentes — Formation SSIAP1
+            Questions fréquentes
           </h2>
           <div className="mt-8 space-y-4">
             {faqItems.map((item) => (
@@ -571,27 +389,22 @@ export default function FormationSsiap1Page() {
         </div>
       </section>
 
-      {/* Bonus e-learning offert */}
+      {/* Bonus e-learning */}
       <section className="bg-green-50 border-y border-green-200 py-12">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-green-700 mb-2">
-                🎁 Module e-learning inclus — Préparation théorique complète
+                🎁 Module e-learning inclus dans nos formations
               </p>
               <h2 className="text-xl font-bold text-green-900">
-                E-learning SSIAP1 : préparation à la formation et à l&apos;examen
+                E-learning sécurité incendie : préparation théorique complète
               </h2>
               <p className="mt-3 text-green-800 leading-7">
-                Chaque stagiaire inscrit à la formation SSIAP1 (initiale ou recyclage) accède
-                au module e-learning de préparation théorique — conçu spécifiquement pour
-                faciliter la compréhension du programme et préparer l&apos;épreuve QCM de l&apos;examen
-                officiel. Classes de feux, extincteurs, SSI, évacuation ERP, cadre réglementaire :
-                tout le socle théorique est couvert avant même d&apos;arriver en salle.
-              </p>
-              <p className="mt-3 text-sm text-green-700 font-medium">
-                Ce module est également offert gratuitement à tout apprenant inscrit à une
-                formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation).
+                Chaque stagiaire inscrit à une formation sécurité incendie PREVENSIA accède
+                au module e-learning de préparation théorique. Classes de feux, extincteurs,
+                SSI, évacuation ERP, cadre réglementaire : tout le socle théorique est couvert
+                avant même d&apos;arriver en salle.
               </p>
             </div>
             <Link
@@ -607,22 +420,22 @@ export default function FormationSsiap1Page() {
       {/* CTA final */}
       <section className="bg-slate-950 py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold">Former vos agents à la sécurité incendie ERP ?</h2>
+          <h2 className="text-3xl font-bold">Former votre personnel à la sécurité incendie ?</h2>
           <p className="mt-4 text-lg text-slate-300">
-            Préparation complète 70h · Recyclage 14h · E-learning inclus · Max 12 stagiaires
+            Sensibilisation, manipulation d&apos;extincteurs, évacuation ERP · E-learning inclus · Devis sous 48h
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              href="/demande-devis?type=ssiap1-initial"
+              href="/formation-securite-incendie"
               className="rounded-xl bg-red-500 px-8 py-4 font-semibold text-white hover:bg-red-400 transition-colors"
             >
-              Formation initiale SSIAP1 — Devis
+              Nos formations sécurité incendie
             </Link>
             <Link
-              href="/demande-devis?type=ssiap1-recyclage"
+              href="/demande-devis"
               className="rounded-xl border border-white/30 bg-white/10 px-8 py-4 font-semibold text-white hover:bg-white/20 transition-colors"
             >
-              Recyclage SSIAP1 — Devis
+              Demander un devis
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-400">
