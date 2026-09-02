@@ -371,7 +371,7 @@ function drawPage1(p: {
     { font: R, size: 7, color: C.muted, border: C.line, bg: C.softGrey });
   cell(page, sp("Entreprise / Affectation"), m + col1, y - lbH, col2, lbH,
     { font: R, size: 7, color: C.muted, border: C.line, bg: C.softGrey });
-  cell(page, sp("Validité (3 ans)"), m + col1 + col2, y - lbH, col3, lbH,
+  cell(page, sp("Recyclage recommandé"), m + col1 + col2, y - lbH, col3, lbH,
     { font: R, size: 7, color: C.muted, border: C.line, bg: C.softGrey });
   y -= lbH;
 
@@ -380,7 +380,7 @@ function drawPage1(p: {
     { font: B, size: 11, border: C.line, va: "middle" });
   cell(page, employer, m + col1, y - valH, col2, valH,
     { font: B, size: 9.5, border: C.line, va: "middle" });
-  cell(page, sp(`${validationDate}  au  ${validityDate}`), m + col1 + col2, y - valH, col3, valH,
+  cell(page, sp(`Recommandé avant le ${validityDate}`), m + col1 + col2, y - valH, col3, valH,
     { font: B, size: 8.2, border: C.line, va: "middle" });
   y -= valH;
 

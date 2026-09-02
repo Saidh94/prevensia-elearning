@@ -7804,9 +7804,9 @@ quizContent["atex"] = [
     chapterLabel: "Contrôle atmosphérique",
     timeLimit: 45,
   },
-  // ── Questions INERIS Oméga 36 ──────────────────────────────────────────────
+  // ── Questions INERIS ATEX / bonnes pratiques INRS-INERIS
   {
-    question: "Selon le guide INERIS Oméga 36, quelle est la différence entre une atmosphère 'explosive' et une atmosphère 'explosible' ?",
+    question: "Selon le référentiel INERIS ATEX / bonnes pratiques INRS-INERIS, , quelle est la différence entre une atmosphère 'explosive' et une atmosphère 'explosible' ?",
     choices: [
       "Ce sont deux termes strictement synonymes — la réglementation française utilise les deux indifféremment",
       "Une atmosphère est 'explosible' lorsque les conditions chimiques d'explosion sont réunies (mélange air/combustible entre LIE et LSE) mais qu'aucune source d'inflammation n'est présente ; elle devient 'explosive' si une source d'inflammation est également présente",
@@ -7815,9 +7815,9 @@ quizContent["atex"] = [
     ],
     answer: [1],
     chapterLabel: "Atmosphères explosives",
-    explanation: "L'INERIS (guide Oméga 36, §1.2) précise cette distinction : une atmosphère est dite 'explosible' lorsque la concentration en combustible est comprise entre la LIE et la LSE — les conditions chimiques sont réunies. Elle devient 'explosive' (c'est-à-dire susceptible d'exploser effectivement) uniquement lorsqu'une source d'inflammation est également présente. La prévention ATEX vise à empêcher la conjonction de ces deux conditions.",
+    explanation: "L'INERIS (référentiel INERIS ATEX, §1.2) précise cette distinction : une atmosphère est dite 'explosible' lorsque la concentration en combustible est comprise entre la LIE et la LSE — les conditions chimiques sont réunies. Elle devient 'explosive' (c'est-à-dire susceptible d'exploser effectivement) uniquement lorsqu'une source d'inflammation est également présente. La prévention ATEX vise à empêcher la conjonction de ces deux conditions.",
     timeLimit: 40,
-    contextLabel: "Guide INERIS Oméga 36 — §1.2 Terminologie",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— §1.2 Terminologie",
   },
   {
     question: "Quelles normes doivent être réunies pour valider un équipement de protection du corps complet en zone ATEX (vêtements antistatiques) ?",
@@ -7834,7 +7834,7 @@ quizContent["atex"] = [
     contextLabel: "Fiche EPI ATEX Mabéo — Normes vêtements zone ATEX",
   },
   {
-    question: "Selon INERIS Oméga 36 (§3.2), quel niveau de formation correspond au personnel qui pénètre ponctuellement dans une zone ATEX mais n'y réalise aucune opération de maintenance ou d'intervention ?",
+    question: "Selon INERIS ATEX / bonnes pratiques INRS-INERIS",
     choices: [
       "Niveau 2 — formation encadrant ATEX",
       "Niveau 1 — formation intervenant ATEX",
@@ -7843,9 +7843,9 @@ quizContent["atex"] = [
     ],
     answer: [2],
     chapterLabel: "Réglementation ATEX",
-    explanation: "Le guide INERIS Oméga 36 (§3.2.3) définit le Niveau 0 comme la 'formation minimale' : elle concerne tout personnel amené à circuler ou travailler dans une zone ATEX sans réaliser d'opérations techniques (opérateurs de production, personnel logistique, visiteurs accompagnés). Elle couvre la reconnaissance des zones, des panneaux ATEX, les comportements à adopter (EPI, interdictions) et la conduite à tenir en cas d'alarme. C'est le niveau de cette formation (NIV 0).",
+    explanation: "le référentiel INERIS ATEX) définit le Niveau 0 comme la 'formation minimale' : elle concerne tout personnel amené à circuler ou travailler dans une zone ATEX sans réaliser d'opérations techniques (opérateurs de production, personnel logistique, visiteurs accompagnés). Elle couvre la reconnaissance des zones, des panneaux ATEX, les comportements à adopter (EPI, interdictions) et la conduite à tenir en cas d'alarme. C'est le niveau de cette formation (NIV 0).",
     timeLimit: 35,
-    contextLabel: "Guide INERIS Oméga 36 — §3.2.3 Formation minimale",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— §3.2.3 Formation minimale",
   },
 ];
 
@@ -8860,7 +8860,7 @@ quizContent["atex-niveau1"] = [
     timeLimit: 40,
   },
   {
-    question: "Selon le guide INERIS Omega 36, pour un liquide inflammable, quelle règle de classification en Zone 1 s'applique en conditions normales d'exploitation ?",
+    question: "Selon le référentiel INERIS ATEX / bonnes pratiques INRS-INERIS, , pour un liquide inflammable, quelle règle de classification en Zone 1 s'applique en conditions normales d'exploitation ?",
     choices: [
       "La zone est classée 1 si le liquide est stocké à une température supérieure à son point éclair",
       "La zone est classée 1 si la température du liquide dépasse son point éclair moins 15 °C",
@@ -8869,7 +8869,7 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [1],
     chapterLabel: "Zonage ATEX",
-    explanation: "Selon INERIS Omega 36, pour les liquides inflammables, le critère principal de classification Zone 1 est la température d'exploitation par rapport au point éclair : si la température de stockage ou d'utilisation est supérieure au point éclair moins 15 °C (Tf − 15 °C), une Zone 1 doit être envisagée autour du liquide. Ce critère conduit à classer de nombreuses installations de solvants ou d'hydrocarbures légers.",
+    explanation: "Selon INERIS ATEX / bonnes pratiques INRS-INERIS",
     timeLimit: 40,
   },
   {
@@ -8899,7 +8899,7 @@ quizContent["atex-niveau1"] = [
     timeLimit: 40,
   },
   {
-    question: "Selon l'INERIS (Omega 36), quel est le risque majeur lié à l'utilisation d'un explosimètre étalonné au propane pour détecter du méthane ?",
+    question: "Selon le référentiel INERIS ATEX, quel est le risque majeur lié à l'utilisation d'un explosimètre étalonné au propane pour détecter du méthane ?",
     choices: [
       "Le propane et le méthane ont les mêmes caractéristiques — aucun risque de déviation",
       "L'appareil peut afficher une concentration de 20 % de la LIE alors que le méthane a déjà atteint 40 à 50 % de sa propre LIE — risque d'explosion avant l'alarme",
@@ -8908,9 +8908,9 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [1],
     chapterLabel: "Contrôle atmosphérique",
-    explanation: "Point critique INERIS Omega 36 : chaque gaz a un facteur de réponse spécifique. Un explosimètre étalonné au propane affichera environ 40-50 % de la LIE méthane réelle pour une lecture de 20 % LIE propane. L'opérateur peut croire être en sécurité alors que la concentration est déjà dangereuse. L'étalonnage doit être réalisé avec le gaz effectivement présent ou avec un gaz de référence dont le facteur de conversion est parfaitement connu.",
+    explanation: "Point critique INERIS ATEX / bonnes pratiques INRS-INERIS",
     timeLimit: 45,
-    contextLabel: "Point critique INERIS Omega 36 — Étalonnage explosimètre",
+    contextLabel: "Point critique INERIS ATEX / bonnes pratiques INRS-INERIS— Étalonnage explosimètre",
   },
   {
     question: "À quelle fréquence minimale un explosimètre portable doit-il être étalonné selon les bonnes pratiques et les recommandations INERIS ?",
@@ -8926,7 +8926,7 @@ quizContent["atex-niveau1"] = [
     timeLimit: 35,
   },
   {
-    question: "Que couvre exactement l'Autorisation de Travail (AT) en zone ATEX selon l'article R.4515-8 du Code du travail ?",
+    question: "Que couvre l'Autorisation de Travail (AT) en zone ATEX, telle que définie par les bonnes pratiques professionnelles et l'arrêté du 8 juillet 2003 ?",
     choices: [
       "Elle remplace le plan de prévention pour les petits chantiers",
       "Elle formalise les conditions d'exécution d'une opération spécifique en zone dangereuse : périmètre, mesures de sécurité, personnes autorisées, durée, vérifications atmosphériques",
@@ -8935,7 +8935,7 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [1],
     chapterLabel: "Intervention en zone",
-    explanation: "L'Autorisation de Travail (AT) est un document formalisant les conditions d'exécution sécurisée d'une opération en zone ATEX : identification de la zone, conditions atmosphériques vérifiées, EPI requis, outillage autorisé, personnes habilitées, durée, mesures de consignation. Elle est délivrée par le responsable de site ou le référent ATEX. Pour les travaux par points chauds, elle est complétée par un permis de feu spécifique.",
+    explanation: "L'Autorisation de Travail (AT) est un document interne formalisant les conditions d'exécution sécurisée d'une opération en zone ATEX : identification de la zone, vérifications atmosphériques, EPI requis, outillage autorisé, personnes formées, durée, mesures de consignation. Elle est délivrée par le responsable de site ou le référent ATEX. Pour les travaux par points chauds, un permis de feu la complète. Note : l'article R.4515-8 concerne spécifiquement le protocole de sécurité pour chargement/déchargement ; les AT en zone ATEX relèvent des procédures internes encadrées par l'arrêté du 8 juillet 2003.",
     timeLimit: 40,
   },
   {
@@ -8948,9 +8948,9 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [2],
     chapterLabel: "Permis de feu",
-    explanation: "Le guide INERIS Omega 36 et les bonnes pratiques professionnelles retiennent une distance de sécurité de 10 mètres entre les travaux par points chauds (soudure, meulage, découpe) et toute source potentielle de gaz ou vapeur inflammable. Cette distance peut être réduite si un contrôle atmosphérique continu est mis en place et si les zones voisines sont dégazées ou isolées.",
+    explanation: "le référentiel INERIS ATEX) et toute source potentielle de gaz ou vapeur inflammable. Cette distance peut être réduite si un contrôle atmosphérique continu est mis en place et si les zones voisines sont dégazées ou isolées.",
     timeLimit: 35,
-    contextLabel: "Guide INERIS Omega 36 — Travaux par points chauds",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— Travaux par points chauds",
   },
   {
     question: "Quelle norme définit les exigences pour les vêtements antistatiques à porter en zone ATEX ?",
@@ -8988,9 +8988,9 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [1],
     chapterLabel: "Équipements Ex",
-    explanation: "Le guide INERIS Omega 36 distingue 3 situations de maintenance des équipements Ex : (1) la maintenance de base — inspections, nettoyage, vérification du serrage, lubrification, sans modification ; (2) la maintenance après défaut ou incident — réparation suite à une anomalie détectée, avec remise en conformité obligatoire ; (3) la révision générale — démontage complet, remplacement de pièces usées, vérification complète de l'intégrité Ex. Chaque situation exige un niveau de qualification différent.",
+    explanation: "le référentiel INERIS ATEX) la maintenance de base — inspections, nettoyage, vérification du serrage, lubrification, sans modification ; (2) la maintenance après défaut ou incident — réparation suite à une anomalie détectée, avec remise en conformité obligatoire ; (3) la révision générale — démontage complet, remplacement de pièces usées, vérification complète de l'intégrité Ex. Chaque situation exige un niveau de qualification différent.",
     timeLimit: 40,
-    contextLabel: "Guide INERIS Omega 36 — Maintenance équipements Ex",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— Maintenance équipements Ex",
   },
   {
     question: "Quelle norme encadre la vérification initiale et périodique des installations électriques en zone ATEX (appareillage Ex) ?",
@@ -9328,9 +9328,9 @@ quizContent["atex-niveau1"] = [
       "Le contact entre les pales et le carter est une source d'inflammation mécanique classique : choc métal/métal = étincelle mécanique pouvant atteindre plusieurs centaines de degrés, et/ou friction prolongée générant un échauffement progressif de la surface. Les roues de ventilateurs ATEX sont conçues en matériaux non générateurs d'étincelles par choc (alliages aluminium-bronze) et avec un jeu roue/carter garanti. Une vibration anormale entraînant un contact = non-conformité immédiate exigeant l'arrêt de l'équipement, indépendamment du marquage Ex.",
     timeLimit: 35,
   },
-  // ── Questions INERIS Oméga 36 ──────────────────────────────────────────────
+  // ── Questions INERIS ATEX / bonnes pratiques INRS-INERIS
   {
-    question: "Selon l'INERIS (guide Oméga 36, §3.2.4), quel profil correspond précisément au Niveau 1 de formation ATEX ?",
+    question: "Selon l'INERIS (référentiel INERIS ATEX, §3.2.4), quel profil correspond précisément au Niveau 1 de formation ATEX ?",
     choices: [
       "Tout salarié présent sur un site comportant des zones ATEX, quelle que soit son activité",
       "Le personnel réalisant des opérations de maintenance, d'entretien ou de contrôle sur des appareils certifiés Ex en zone ATEX — il doit maîtriser le zonage, les EPI, les AT et la lecture des marquages Ex",
@@ -9339,9 +9339,9 @@ quizContent["atex-niveau1"] = [
     ],
     answer: [1],
     chapterLabel: "Réglementation ATEX",
-    explanation: "L'INERIS Oméga 36 (§3.2.4) définit le Niveau 1 comme la 'formation maintenance' : elle concerne les intervenants qui réalisent des travaux techniques (maintenance, entretien, mesures, nettoyage industriel) directement sur ou à proximité d'équipements certifiés Ex en zone ATEX. Ces personnes doivent connaître le zonage du site, lire un marquage Ex, choisir et utiliser les EPI adaptés, appliquer les procédures d'autorisation de travail et de permis de feu, et utiliser un explosimètre certifié.",
+    explanation: "L'INERIS ATEX / bonnes pratiques INRS-INERIS",
     timeLimit: 40,
-    contextLabel: "Guide INERIS Oméga 36 — §3.2.4 Formation Niveau 1",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— §3.2.4 Formation Niveau 1",
   },
   {
     question: "Un intervenant ATEX N1 porte une combinaison conforme EN 1149-5 mais des sous-vêtements en polyester et des chaussures de sécurité standard (non ESD). Quelle est la situation ?",
@@ -9508,7 +9508,7 @@ quizContent["atex-niveau2"] = [
     timeLimit: 45,
   },
   {
-    question: "Quels sont les 2 seuils d'alarme réglementaires typiques pour les détecteurs de gaz fixes en zone ATEX et leurs significations ?",
+    question: "Quels sont les 2 seuils d'alarme usuels pour les détecteurs de gaz fixes en zone ATEX et leurs significations ?",
     choices: [
       "5 % LIE (pré-alarme) et 10 % LIE (alarme principale)",
       "10 % LIE (pré-alarme / alerte) et 25 à 50 % LIE (alarme principale déclenchant l'arrêt d'urgence)",
@@ -9519,7 +9519,7 @@ quizContent["atex-niveau2"] = [
     chapterLabel: "Détection & surveillance",
     explanation: "Les seuils usuels pour les systèmes de détection fixe : (1) 10 % LIE — pré-alarme (alerte), déclenchant une alarme sonore/visuelle et la mise en alerte du personnel ; (2) 25 à 50 % LIE — alarme principale déclenchant des actions automatiques : mise à l'arrêt des équipements de production, ventilation de secours, alarme générale. Ces seuils permettent une marge de sécurité significative avant d'atteindre le seuil explosive réel. Les valeurs exactes dépendent de l'analyse des risques et sont définies dans le DRPCE.",
     timeLimit: 40,
-    contextLabel: "Guide INERIS Omega 36 — Systèmes de détection fixe",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— Systèmes de détection fixe",
   },
   {
     question: "Comment établissez-vous la cartographie des besoins en formation ATEX pour votre site selon les niveaux 0, 1 et 2 ?",
@@ -9640,9 +9640,9 @@ quizContent["atex-niveau2"] = [
     timeLimit: 50,
     contextLabel: "Cas pratique — Vérification d'adéquation équipement/zone",
   },
-  // ── Questions INERIS Oméga 36 ──────────────────────────────────────────────
+  // ── Questions INERIS ATEX / bonnes pratiques INRS-INERIS
   {
-    question: "Selon l'INERIS (guide Oméga 36, §3.2.1), quelle est la mission principale de l'encadrant ATEX Niveau 2 qui le distingue des Niveaux 0 et 1 ?",
+    question: "Selon l'INERIS (référentiel INERIS ATEX, §3.2.1), quelle est la mission principale de l'encadrant ATEX Niveau 2 qui le distingue des Niveaux 0 et 1 ?",
     choices: [
       "Réaliser lui-même les opérations de maintenance certifiées en Zone 0",
       "Piloter la démarche globale de prévention ATEX de l'établissement : élaborer ou faire évoluer le DRPCE, superviser le zonage, gérer les entreprises extérieures et assurer la formation du personnel",
@@ -9651,12 +9651,12 @@ quizContent["atex-niveau2"] = [
     ],
     answer: [1],
     chapterLabel: "Responsabilités & droit",
-    explanation: "L'INERIS (Oméga 36, §3.2.1) définit le Niveau 2 comme la 'formation encadrant' : l'encadrant/référent ATEX est responsable du pilotage global de la démarche — élaborer et tenir à jour le DRPCE, superviser le zonage ATEX avec les experts internes ou externes, sélectionner les équipements Ex adéquats, gérer les interfaces avec les entreprises extérieures (plan de prévention, AT, permis de feu), et définir la cartographie des besoins en formation par niveau pour chaque poste.",
+    explanation: "L'INERIS (référentiel INERIS ATEX, §3.2.1) définit le Niveau 2 comme la 'formation encadrant' : l'encadrant/référent ATEX est responsable du pilotage global de la démarche — élaborer et tenir à jour le DRPCE, superviser le zonage ATEX avec les experts internes ou externes, sélectionner les équipements Ex adéquats, gérer les interfaces avec les entreprises extérieures (plan de prévention, AT, permis de feu), et définir la cartographie des besoins en formation par niveau pour chaque poste.",
     timeLimit: 40,
-    contextLabel: "Guide INERIS Oméga 36 — §3.2.1 Formation Niveau 2",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— §3.2.1 Formation Niveau 2",
   },
   {
-    question: "L'INERIS recommande dans le guide Oméga 36 que le DRPCE soit révisé dans quelles circonstances ? (plusieurs réponses possibles)",
+    question: "L'INERIS recommande dans le référentiel INERIS ATEX que le DRPCE soit révisé dans quelles circonstances ? (plusieurs réponses possibles)",
     choices: [
       "Uniquement lors de la visite annuelle de l'inspection du travail",
       "Lors de toute modification significative de l'installation (nouveau produit, changement de process, nouvelle source de dégagement) ou après tout accident ou incident ATEX",
@@ -9668,7 +9668,7 @@ quizContent["atex-niveau2"] = [
     chapterLabel: "DRPCE",
     explanation: "L'INERIS précise que le DRPCE doit être mis à jour dans deux circonstances principales : (1) toute modification significative de l'installation ou des procédés susceptible de modifier les risques ATEX (nouveau produit chimique, changement de débit, nouvel équipement, modification de zonage) ; (2) après tout accident ou incident ATEX — la révision du DRPCE fait partie de la démarche de retour d'expérience obligatoire. L'Art. R.4227-52 du Code du travail confirme cette obligation.",
     timeLimit: 40,
-    contextLabel: "Guide INERIS Oméga 36 — Mise à jour du DRPCE",
+    contextLabel: "Guide INERIS ATEX / bonnes pratiques INRS-INERIS— Mise à jour du DRPCE",
   },
 ];
 
