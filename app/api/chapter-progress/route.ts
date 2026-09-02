@@ -5,24 +5,31 @@ import {
   getCanonicalModuleSlug,
 } from "@/lib/supabase/elearning/module-access";
 import { modulesContent } from "@/lib/supabase/elearning/module-content";
+import { CHAPTER_TIMING } from "@/lib/elearning/chapter-timing";
 
 /**
- * Retrouve la durée minimale d'un chapitre depuis la configuration interne
- * (ModuleSection.estimatedMinutes). Le client ne contrôle jamais ce seuil.
+ * Durée minimale officielle d'un chapitre, déterminée entièrement côté serveur.
  *
- * Règle : 80 % du temps estimé, plancher 30 s, plafond 3 600 s.
- * Retourne null si le module ou la section est inconnu(e) (fallback côté client clampé).
+ * Ordre de priorité :
+ * 1. Table CHAPTER_TIMING (chapitres hardcodés comme H0B0)
+ * 2. modulesContent[slug].sections[id].estimatedMinutes * 60
+ *
+ * Retourne null si le chapitre est inconnu — la requête sera rejetée.
  */
 function getServerMinSeconds(
   formationSlug: string,
   chapterKey: string
 ): number | null {
+  // 1 — Chapitres hardcodés (ex: H0B0)
+  const explicit = CHAPTER_TIMING[formationSlug]?.[chapterKey];
+  if (typeof explicit === "number") return explicit;
+
+  // 2 — Modules générés depuis modulesContent
   const module = modulesContent[formationSlug];
   if (!module) return null;
   const section = module.sections.find((s) => s.id === chapterKey);
-  if (!section?.estimatedMinutes) return null;
-  const computed = Math.round(section.estimatedMinutes * 60 * 0.8);
-  return Math.min(Math.max(computed, 30), 3600);
+  if (typeof section?.estimatedMinutes !== "number") return null;
+  return section.estimatedMinutes * 60;
 }
 
 function getEnrollmentFormationSlug(formation: unknown): string {
@@ -46,52 +53,47 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const body = await req.json();
+  const body = await req.json().catch(() => null);
+
   const {
     formation_slug,
     chapter_key,
     chapter_order,
-    seconds,
-    // min_seconds_required est accepté du client uniquement comme fallback
-    // si le chapitre n'est pas trouvé dans la configuration interne.
-    min_seconds_required,
-  } = body;
+    deltaSeconds,
+  } = body ?? {};
 
-  const requestedFormationSlug = getCanonicalModuleSlug(formation_slug);
+  const requestedFormationSlug = getCanonicalModuleSlug(
+    typeof formation_slug === "string" ? formation_slug : ""
+  );
 
   if (
     !requestedFormationSlug ||
+    typeof chapter_key !== "string" ||
     !chapter_key ||
     typeof chapter_order !== "number" ||
-    typeof seconds !== "number"
+    typeof deltaSeconds !== "number"
   ) {
     return NextResponse.json({ error: "Missing data" }, { status: 400 });
   }
 
-  // ── Durée minimale : issue de la configuration interne (serveur) ────────
-  // La valeur transmise par le client n'est utilisée qu'en fallback si le
-  // chapitre n'est pas trouvé dans modulesContent (module sans config).
-  const serverMin = getServerMinSeconds(requestedFormationSlug, chapter_key);
+  // ── Durée minimale : source de vérité côté serveur uniquement ───────────
+  const serverMinSeconds = getServerMinSeconds(requestedFormationSlug, chapter_key);
 
-  let safeMinSeconds: number;
-  if (serverMin !== null) {
-    safeMinSeconds = serverMin;
-  } else {
-    // Fallback : valeur client clampée (plancher 30 s, plafond 3 600 s)
-    const clientMin = typeof min_seconds_required === "number" ? min_seconds_required : 30;
-    safeMinSeconds = Math.max(30, Math.min(Math.round(clientMin), 3600));
+  if (serverMinSeconds === null) {
+    // Chapitre inconnu de la configuration serveur — refus strict
     console.warn(
-      `[CHAPTER-PROGRESS] Chapitre "${chapter_key}" (${requestedFormationSlug}) ` +
-      `absent de modulesContent — min_seconds client utilisé : ${safeMinSeconds}s`
+      `[CHAPTER-PROGRESS] Chapitre inconnu : "${chapter_key}" (${requestedFormationSlug}) — rejeté`
+    );
+    return NextResponse.json(
+      { error: `Chapitre inconnu : ${chapter_key}` },
+      { status: 400 }
     );
   }
 
-  // Le nombre de secondes d'une seule session ne peut pas dépasser 2× le seuil
-  // (protection contre des valeurs gonflées envoyées d'un coup).
-  const safeSeconds = Math.max(
-    0,
-    Math.min(Math.round(Number(seconds)), safeMinSeconds * 2)
-  );
+  // deltaSeconds par requête : plafonné à 2× l'intervalle d'envoi (max 30 s)
+  // pour bloquer les incréments artificiellement gonflés.
+  const MAX_DELTA = 30;
+  const safeDelta = Math.max(0, Math.min(Math.round(deltaSeconds), MAX_DELTA));
 
   const { data: profile } = await supabase
     .from("profiles")
@@ -144,15 +146,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: fetchError.message }, { status: 500 });
   }
 
-  const newSeconds = (existing?.seconds_spent ?? 0) + safeSeconds;
-  const isCompleted = newSeconds >= safeMinSeconds;
+  const newSeconds = (existing?.seconds_spent ?? 0) + safeDelta;
+  const isCompleted = newSeconds >= serverMinSeconds;
 
   if (existing) {
     const { error } = await supabase
       .from("user_chapter_progress")
       .update({
         seconds_spent: newSeconds,
-        min_seconds_required: safeMinSeconds,
+        min_seconds_required: serverMinSeconds,
         is_completed: isCompleted,
         completed_at:
           isCompleted && !existing.completed_at
@@ -172,7 +174,7 @@ export async function POST(req: Request) {
       chapter_key,
       chapter_order,
       seconds_spent: newSeconds,
-      min_seconds_required: safeMinSeconds,
+      min_seconds_required: serverMinSeconds,
       is_completed: isCompleted,
       completed_at: isCompleted ? new Date().toISOString() : null,
       updated_at: new Date().toISOString(),

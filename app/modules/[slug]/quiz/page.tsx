@@ -493,12 +493,12 @@ export default function QuizPage() {
         localStorage.setItem(resultStorageKey, JSON.stringify(payload));
         localStorage.removeItem(progressStorageKey);
 
-        // Résultats par question : extrait court du texte + réponses choisies (vérification serveur)
-        const questionResults = shuffledQuiz.map((q, idx) => ({
-          q: q.question.slice(0, 80),
-          selectedAnswers: answers[idx] ?? [],
-          correct: arraysEqual(answers[idx] ?? [], q.answer),
-          eliminatory: q.eliminatory ?? false,
+        // Réponses à envoyer : texte complet de la question + indices choisis.
+        // Le serveur évalue les réponses depuis quizContent et calcule le score.
+        // Aucune valeur de score, passed, correct ou passingScore n'est envoyée.
+        const answers_payload = shuffledQuiz.map((q, idx) => ({
+          questionId: q.question,
+          selectedChoices: answers[idx] ?? [],
         }));
 
         if (isAdminPreview) {
@@ -512,12 +512,7 @@ export default function QuizPage() {
           },
           body: JSON.stringify({
             formationSlug: canonicalSlug,
-            score,
-            total: quiz.length,
-            passingScore,
-            passed: success,
-            completedAt: nowIso,
-            questionResults,
+            answers: answers_payload,
           }),
         });
 
