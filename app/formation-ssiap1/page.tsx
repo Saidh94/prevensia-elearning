@@ -144,19 +144,21 @@ export default function FormationSsiap1Page() {
           </nav>
 
           <p className="inline-flex rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-300">
-            Arrêté du 2 mai 2005 · Examen final inclus
+            Arrêté du 2 mai 2005 · Préparation théorique &amp; pratique
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-            Formation SSIAP1<br className="hidden lg:block" />{" "}
+            Préparation SSIAP1<br className="hidden lg:block" />{" "}
             <span className="text-red-400">Théorie + Pratique</span>
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Préparez-vous à la qualification SSIAP1 reconnue par le Ministère de l&apos;Intérieur, exigée
-            dans tous les ERP de catégorie 1 à 4. Formation complète en 70h : théorie, pratique sur
-            matériel réel, examen devant jury. Module e-learning inclus pour chaque stagiaire.
-            Recyclage obligatoire (14h / 3 ans) également disponible.
+            Préparez-vous aux connaissances théoriques et pratiques attendues pour la qualification
+            SSIAP1, exigée dans tous les ERP de catégorie 1 à 4. Parcours de préparation complet en 70h :
+            théorie, pratique sur matériel réel. Module e-learning inclus pour chaque stagiaire.
+            Recyclage 14h / 3 ans également disponible. La qualification SSIAP1 est délivrée après
+            examen devant jury auprès d&apos;un organisme agréé par la préfecture — PREVENSIA FORMATION ne
+            délivre pas elle-même la qualification SSIAP1.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -365,19 +367,20 @@ export default function FormationSsiap1Page() {
               <div className="flex items-center gap-3 mb-4">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 text-white text-lg font-bold">3</span>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-red-700">Qualification officielle</p>
-                  <p className="font-bold text-slate-900 text-lg">Examen de qualification SSIAP1</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-red-700">Étape externe — organisme agréé</p>
+                  <p className="font-bold text-slate-900 text-lg">Examen SSIAP1 (jury habilité par la préfecture)</p>
                 </div>
               </div>
               <p className="text-sm text-slate-600">
-                L&apos;examen SSIAP1 est organisé conformément à l&apos;arrêté du 2 mai 2005 modifié.
-                Il comporte trois épreuves distinctes.
+                L&apos;examen SSIAP1 est organisé conformément à l&apos;arrêté du 2 mai 2005 modifié,
+                devant un jury habilité par la préfecture, auprès d&apos;un organisme agréé.
+                <strong> PREVENSIA FORMATION ne délivre pas elle-même la qualification SSIAP1.</strong>
               </p>
               <ul className="mt-3 space-y-1 text-sm text-slate-600">
                 <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><strong>Épreuve écrite</strong> : QCM portant sur les connaissances théoriques</li>
                 <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><strong>Épreuve pratique</strong> : contrôle et identification d&apos;anomalies</li>
                 <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span><strong>Oral devant jury</strong> : mise en situation professionnelle</li>
-                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>Qualification SSIAP1 délivrée aux stagiaires reçus</li>
+                <li className="flex items-start gap-2"><span className="text-red-500 font-bold mt-0.5">›</span>La qualification est délivrée par l&apos;organisme agréé, non par PREVENSIA</li>
               </ul>
             </div>
 
@@ -429,14 +432,14 @@ export default function FormationSsiap1Page() {
                   <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
                   <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
                   <td className="px-4 py-3 text-center text-slate-400">—</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">Qualification SSIAP1</td>
+                  <td className="px-4 py-3 text-center text-slate-600 font-medium text-xs">Attestation PREVENSIA + examen organisme agréé</td>
                 </tr>
                 <tr className="bg-slate-50">
                   <td className="px-4 py-3 font-medium text-slate-900">Initiale intra-entreprise (vos locaux)</td>
                   <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
                   <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
                   <td className="px-4 py-3 text-center text-green-600 font-bold">✓</td>
-                  <td className="px-4 py-3 text-center text-green-600 font-bold">Qualification SSIAP1</td>
+                  <td className="px-4 py-3 text-center text-slate-600 font-medium text-xs">Attestation PREVENSIA + examen organisme agréé</td>
                 </tr>
                 <tr className="bg-orange-50">
                   <td className="px-4 py-3 font-medium text-slate-900">Recyclage (14h / 3 ans)</td>

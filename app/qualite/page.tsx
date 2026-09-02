@@ -15,7 +15,7 @@ const sections = [
     title: "Certification Qualiopi",
     content: COMPANY.qualiopiObtenu
       ? `PREVENSIA FORMATION est certifié Qualiopi au titre de la catégorie « ${COMPANY.qualiopiCategorie} ».`
-      : "PREVENSIA FORMATION a engagé sa démarche de certification Qualiopi au titre de la catégorie « Actions de formation ». L'audit de certification est prévu prochainement. En attendant l'obtention du certificat, la formulation « certifié Qualiopi » n'est pas utilisée sur ce site.",
+      : "PREVENSIA FORMATION a engagé sa démarche de certification Qualiopi au titre de la catégorie « Actions de formation ». L'audit de certification est prévu prochainement. En attendant l'obtention du certificat, la mention de certification obtenue n'est pas utilisée sur ce site.",
   },
 ];
 
