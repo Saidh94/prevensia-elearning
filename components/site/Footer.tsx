@@ -179,6 +179,16 @@ export function Footer() {
                   Réclamation
                 </Link>
               </li>
+              <li>
+                <Link href="/cgv" className="hover:text-white">
+                  CGV
+                </Link>
+              </li>
+              <li>
+                <Link href="/reglement-interieur" className="hover:text-white">
+                  Règlement intérieur
+                </Link>
+              </li>
             </ul>
             <p className="mt-6 text-xs leading-5 text-slate-500">
               PREVENSIA FORMATION est une marque du<br />

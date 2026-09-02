@@ -86,7 +86,7 @@ export default function FormationHabilitation93() {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             PREVENSIA FORMATION est basé à Paris, intervenant au cœur du 93. Nous intervenons
             dans toutes les communes de Seine-Saint-Denis pour les formations intra-entreprise
-            habilitation électrique. Certifié Qualiopi, devis en 48h.
+            habilitation électrique. Devis en 48h.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">

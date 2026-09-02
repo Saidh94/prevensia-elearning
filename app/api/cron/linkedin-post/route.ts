@@ -47,7 +47,7 @@ Ne jamais inventer de chiffres ni de références réglementaires non vérifiée
   },
   {
     formation: "CPF et Qualiopi",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la certification Qualiopi et le financement OPCO / FNE-Formation des formations sécurité.
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la démarche qualité et le financement OPCO possible (selon critères du financeur) des formations sécurité.
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr, 5 hashtags.
 Explique comment un RH ou un responsable formation peut faire financer les formations sécurité obligatoires via l'OPCO. Commence par un emoji. ~250-300 mots.`,
   },

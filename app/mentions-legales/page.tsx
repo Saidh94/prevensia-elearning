@@ -36,7 +36,7 @@ export default function MentionsLegalesPage() {
           <p><strong>Numéro de déclaration d'activité de formation :</strong> <em className="text-slate-400">En cours d&apos;obtention</em></p>
         )}
         {COMPANY.qualiopiObtenu ? (
-          <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi au titre de la catégorie Actions de formation — Cet enregistrement ne vaut pas agrément de l&apos;État.</p>
+          <p><strong>Certification Qualiopi :</strong> Organisme certifié Qualiopi au titre de la catégorie Actions de formation.</p>
         ) : (
           <p><strong>Démarche Qualiopi :</strong> Certification visée — Actions de formation (audit prévu prochainement).</p>
         )}

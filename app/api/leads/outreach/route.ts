@@ -132,7 +132,7 @@ RÈGLES IMPÉRATIVES :
 
   <div style="margin-bottom:28px">
     <p style="font-weight:bold;font-size:18px;color:#1e293b;margin:0">PREVENSIA FORMATION</p>
-    <p style="font-size:13px;color:#64748b;margin:2px 0 0">Formation sécurité incendie · Certifié Qualiopi · Paris 11e</p>
+    <p style="font-size:13px;color:#64748b;margin:2px 0 0">Formation sécurité incendie · Paris 11e</p>
   </div>
 
   ${corpsEmail}
@@ -158,7 +158,7 @@ RÈGLES IMPÉRATIVES :
   </table>
 
   <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px;margin-top:20px;font-size:13px;color:#166534">
-    ✅ <strong>Organisme certifié Qualiopi</strong> — Financement OPCO et FNE-Formation disponibles.<br/>
+    Financement OPCO possible selon les critères de votre financeur.<br/>
     <a href="https://prevensia-formation.fr/demande-devis?type=ssi" style="color:#16a34a;font-size:13px">→ Demander un devis en ligne (réponse sous 48h)</a>
   </div>
 

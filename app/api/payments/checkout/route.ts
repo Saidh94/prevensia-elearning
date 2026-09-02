@@ -215,7 +215,7 @@ export async function POST(request: Request) {
         invoice_data: {
           description: `Formation : ${paymentOption.label}`,
           footer:
-            "${COMPANY.name} — ${COMPANY.legalName} — ${COMPANY.addressFull} — Organisme certifié Qualiopi — ${COMPANY.email}",
+            "${COMPANY.name} — ${COMPANY.legalName} — ${COMPANY.addressFull} — ${COMPANY.email}",
           metadata: {
             enrollmentId: enrollment.id,
             formationSlug: formation?.slug ?? "",

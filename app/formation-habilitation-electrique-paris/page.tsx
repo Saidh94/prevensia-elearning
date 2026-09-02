@@ -37,7 +37,7 @@ const faqItems = [
   {
     question: "Les formations sont-elles finançables par un OPCO ?",
     answer:
-      "Oui. PREVENSIA FORMATION est certifié Qualiopi, ce qui rend nos formations éligibles aux financements OPCO. Nous fournissons tous les documents justificatifs nécessaires lors de la demande de devis.",
+      "Oui. Nos formations sont susceptibles d'être prises en charge selon les critères de votre OPCO. Nous fournissons tous les documents justificatifs nécessaires lors de la demande de devis.",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function FormationHabilitationParis() {
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             PREVENSIA FORMATION intervient dans vos locaux à Paris pour les formations
-            intra-entreprise habilitation électrique. Formateur certifié Qualiopi, déplacement
+            intra-entreprise habilitation électrique. Formateur qualifié, déplacement
             dans tous les arrondissements. H0B0, BS/BE Manœuvre, B1/B2/BR/BC.
           </p>
 
@@ -155,7 +155,7 @@ export default function FormationHabilitationParis() {
       <section className="bg-slate-950 py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Formation habilitation électrique à Paris</h2>
-          <p className="mt-4 text-lg text-slate-300">Devis intra sous 48h · Formateur certifié Qualiopi · Tous arrondissements</p>
+          <p className="mt-4 text-lg text-slate-300">Devis intra sous 48h · Formateur qualifié · Tous arrondissements</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/demande-devis" className="rounded-xl bg-red-600 px-8 py-4 font-semibold hover:bg-red-700 transition-colors">
               Demander un devis

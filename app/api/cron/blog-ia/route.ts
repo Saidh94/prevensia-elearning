@@ -107,7 +107,7 @@ Structure requise (en Markdown) :
 Règles :
 - Ton professionnel mais accessible
 - Mentionner les financements OPCO et FNE-Formation disponibles
-- Mentionner la certification Qualiopi de PREVENSIA FORMATION
+- Mentionner la démarche qualité de PREVENSIA FORMATION (audit Qualiopi en cours)
 - Terminer par un CTA : "Demandez un devis sur prevensia-formation.fr"
 - Ne jamais inventer de chiffres, statistiques ou références normatives non vérifiables
 - Seules références autorisées : NF C 18-510 (A1/A2), NF S 61-931, NF S 61-932, Code du travail, directive ATEX 1999/92/CE, règles APSAD

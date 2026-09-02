@@ -462,7 +462,7 @@ const formations = [
     audience:
       "Agents SSIAP1 titulaires devant effectuer leur recyclage obligatoire tous les 3 ans pour maintenir leur titre de qualification.",
     description:
-      "Module e-learning de remise à niveau théorique inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans) dispensé par PREVENSIA FORMATION, certifié Qualiopi. Révision des fondamentaux, actualisation réglementaire et préparation à la partie théorique du recyclage encadré.",
+      "Module e-learning de remise à niveau théorique inclus dans le recyclage SSIAP1 (14h obligatoires tous les 3 ans) dispensé par PREVENSIA FORMATION. Révision des fondamentaux, actualisation réglementaire et préparation à la partie théorique du recyclage encadré.",
     objectifs: [
       "Réviser les fondamentaux du SSIAP1 : classes de feux, agents extincteurs, SSI",
       "Se mettre à jour sur les évolutions réglementaires ERP et les nouvelles consignes",

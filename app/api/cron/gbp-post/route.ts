@@ -24,7 +24,7 @@ const THEMES_GBP = [
     title: "Habilitation électrique B1/B2/BR/BC",
     cta_text: "Demander un devis",
     cta_url: "https://prevensia-formation.fr/formation-habilitation-electrique",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur les habilitations électriques (H0B0, BS/BE, B1/B2). Explique l'obligation légale et les risques. Parle de la certification Qualiopi. Termine par 3 hashtags.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur les habilitations électriques (H0B0, BS/BE, B1/B2). Explique l'obligation légale et les risques. Mentionne la démarche qualité de l'organisme (audit Qualiopi en cours). Termine par 3 hashtags.",
   },
   {
     formation: "SST",
@@ -45,7 +45,7 @@ const THEMES_GBP = [
     title: "Formations certifiées Qualiopi — PREVENSIA",
     cta_text: "Voir les formations",
     cta_url: "https://prevensia-formation.fr",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la certification Qualiopi et le financement OPCO de nos formations sécurité. Explique comment un employeur peut faire financer la formation de ses salariés via son OPCO. Mentionne le dispositif FNE-Formation. Termine par 3 hashtags.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la démarche qualité et le financement OPCO possible (selon critères du financeur) des formations sécurité. Explique comment un employeur peut faire financer la formation de ses salariés via son OPCO. Mentionne le dispositif FNE-Formation. Termine par 3 hashtags.",
   },
 ];
 

@@ -103,7 +103,6 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
             <p style="font-size:12px;color:#94a3b8;">
               PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
               ${COMPANY.addressShort}<br />
-              Organisme certifié Qualiopi
             </p>
           </div>
         `,
@@ -165,7 +164,6 @@ async function markEnrollmentPending(session: Stripe.Checkout.Session) {
             <p style="font-size:12px;color:#94a3b8;">
               PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
               ${COMPANY.addressShort}<br />
-              Organisme certifié Qualiopi
             </p>
           </div>
         `,
@@ -220,7 +218,6 @@ async function markEnrollmentFailed(session: Stripe.Checkout.Session) {
             <p style="font-size:12px;color:#94a3b8;">
               PREVENSIA FORMATION — Groupe PREVENSIA SAS<br />
               ${COMPANY.addressShort}<br />
-              Organisme certifié Qualiopi
             </p>
           </div>
         `,

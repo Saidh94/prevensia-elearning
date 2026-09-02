@@ -123,6 +123,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
+    // Pages qualité / légales indexables
+    {
+      url: `${siteUrl}/qualite`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${siteUrl}/handicap-accessibilite`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.65,
+    },
+    {
+      url: `${siteUrl}/reclamation`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${siteUrl}/cgv`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    },
+    {
+      url: `${siteUrl}/reglement-interieur`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    },
     // Pages légales noindex — exclues du sitemap
   ];
 }

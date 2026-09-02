@@ -98,7 +98,7 @@ export default function QuiSommesNousPage() {
           </nav>
 
           <p className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-red-100">
-            Organisme certifié Qualiopi · Paris (75)
+            Organisme de formation · Paris (75)
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
@@ -107,7 +107,7 @@ export default function QuiSommesNousPage() {
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Organisme de formation spécialisé en prévention des risques professionnels,
-            certifié Qualiopi et basé à Paris, marque du PREVENSIA Groupe SAS. Nous accompagnons
+            basé à Paris (démarche Qualiopi engagée), marque du PREVENSIA Groupe SAS. Nous accompagnons
             les entreprises et leurs équipes dans leurs obligations réglementaires
             en habilitation électrique, sécurité incendie, SST, SSIAP1, SSI, sprinkler et ATEX.
           </p>
@@ -126,7 +126,7 @@ export default function QuiSommesNousPage() {
               </h2>
               <p className="mt-5 text-lg leading-8 text-slate-600">
                 PREVENSIA FORMATION est une marque du <strong>PREVENSIA Groupe SAS</strong>,
-                organisme de formation professionnel certifié Qualiopi pour les actions
+                organisme de formation professionnel (démarche Qualiopi — Actions de formation) pour les actions
                 de formation. Basé à Paris, nous intervenons principalement en Île-de-France, avec
                 des déplacements sur toute la France pour les formations intra-entreprise.
               </p>
@@ -155,7 +155,7 @@ export default function QuiSommesNousPage() {
                   className="h-16 w-auto shrink-0"
                 />
                 <div>
-                  <p className="font-bold text-slate-900">Certifié Qualiopi</p>
+                  <p className="font-bold text-slate-900">Démarche Qualiopi</p>
                   <p className="text-sm text-slate-600">Actions de formation</p>
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function QuiSommesNousPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-400">Certification qualité</p>
               <h2 className="mt-2 text-3xl font-bold">Qualiopi — Actions de formation</h2>
               <p className="mt-4 max-w-3xl text-lg text-slate-300 leading-8">
-                La certification Qualiopi atteste de la qualité des processus mis en œuvre
+                La démarche Qualiopi vise à attester de la qualité des processus mis en œuvre
                 par notre organisme pour les actions de formation. Elle est exigée pour
                 accéder aux financements publics et mutualistes (OPCO, France Travail).
               </p>

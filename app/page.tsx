@@ -11,12 +11,12 @@ import HomeSessionsList from "@/app/components/HomeSessionsList";
 export const metadata: Metadata = {
   title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSI, SST, Sprinkler",
   description:
-    "Organisme certifié Qualiopi. Formations en sécurité professionnelle : habilitation électrique NF C 18-510, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra-entreprise. By PREVENSIA GROUPE.",
+    "Organisme de formation — démarche Qualiopi engagée. Formations en sécurité professionnelle : habilitation électrique NF C 18-510, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra-entreprise. By PREVENSIA GROUPE.",
   alternates: { canonical: "https://prevensia-formation.fr" },
   openGraph: {
     title: "PREVENSIA FORMATION by PREVENSIA GROUPE — Formations Sécurité Certifiées Qualiopi",
     description:
-      "Habilitation électrique, ATEX, SSI, SST, sprinkler, coordinateur SSI. Organisme certifié Qualiopi. Présentiel, e-learning, intra.",
+      "Habilitation électrique, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra.",
     url: "https://prevensia-formation.fr",
   },
 };
@@ -151,7 +151,7 @@ export default function Home() {
             className="h-auto w-9 shrink-0"
           />
           <span className="text-xs font-bold uppercase tracking-wide text-white">
-            Certifié Qualiopi
+            Démarche Qualiopi engagée
           </span>
         </div>
 
@@ -185,7 +185,7 @@ export default function Home() {
         by PREVENSIA GROUPE
       </p>
       <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white/80 backdrop-blur">
-        Organisme certifié Qualiopi — Actions de formation
+        Démarche Qualiopi engagée — Actions de formation
       </span>
     </div>
 
@@ -332,7 +332,7 @@ export default function Home() {
                 />
                 <div>
                   <p className="text-sm font-bold text-slate-900">
-                    Organisme certifié Qualiopi
+                    Démarche Qualiopi engagée
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
                     Pour les actions de formation.

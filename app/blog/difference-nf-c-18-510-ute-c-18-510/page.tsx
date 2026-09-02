@@ -215,7 +215,7 @@ export default function ArticleDifferenceNfcUtePage() {
       <section className="bg-slate-950 py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold">Formation habilitation électrique conforme NF C 18-510</h2>
-          <p className="mt-3 text-slate-300">Organisme certifié Qualiopi · Île-de-France et France entière</p>
+          <p className="mt-3 text-slate-300">Organisme de formation · Île-de-France et France entière</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link href="/demande-devis" className="rounded-xl bg-red-600 px-6 py-3 font-semibold hover:bg-red-700 transition-colors">
               Demander un devis

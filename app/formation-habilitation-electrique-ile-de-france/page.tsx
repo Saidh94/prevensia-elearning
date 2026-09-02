@@ -5,7 +5,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata = {
   title: "Formation Habilitation Électrique Île-de-France — Présentiel & Intra | PREVENSIA",
   description:
-    "Formation habilitation électrique en Île-de-France : présentiel, intra-entreprise et e-learning. Organisme certifié Qualiopi basé à Paris. H0B0, BS/BE, B1, B2, BR, BC. Devis rapide.",
+    "Formation habilitation électrique en Île-de-France : présentiel, intra-entreprise et e-learning. Organisme de formation basé à Paris. H0B0, BS/BE, B1, B2, BR, BC. Devis rapide.",
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-habilitation-electrique-ile-de-france",
   },
@@ -167,7 +167,7 @@ export default function FormationHabilitationIleDeFrancePage() {
       <section className="bg-slate-950 py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold">Formation habilitation électrique en Île-de-France</h2>
-          <p className="mt-4 text-lg text-slate-300">Devis intra-entreprise sous 48h. Formateur certifié Qualiopi.</p>
+          <p className="mt-4 text-lg text-slate-300">Devis intra-entreprise sous 48h. Formateur qualifié.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/demande-devis" className="rounded-xl bg-red-600 px-8 py-4 font-semibold hover:bg-red-700 transition-colors">
               Demander un devis

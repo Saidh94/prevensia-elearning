@@ -14,7 +14,7 @@ const sections = [
     id: "certification",
     title: "Certification Qualiopi",
     content: COMPANY.qualiopiObtenu
-      ? `PREVENSIA FORMATION est certifié Qualiopi au titre de la catégorie « ${COMPANY.qualiopiCategorie} ». Cet enregistrement ne vaut pas agrément de l'État.`
+      ? `PREVENSIA FORMATION est certifié Qualiopi au titre de la catégorie « ${COMPANY.qualiopiCategorie} ».`
       : "PREVENSIA FORMATION a engagé sa démarche de certification Qualiopi au titre de la catégorie « Actions de formation ». L'audit de certification est prévu prochainement. En attendant l'obtention du certificat, la formulation « certifié Qualiopi » n'est pas utilisée sur ce site.",
   },
 ];
@@ -76,7 +76,7 @@ export default function QualitePage() {
       {/* 3. Indicateurs qualité */}
       <SectionBlock title="3. Indicateurs qualité">
         <p>
-          Conformément aux exigences Qualiopi (critère 32), PREVENSIA FORMATION collecte et analyse les indicateurs suivants :
+          Conformément aux exigences Qualiopi (indicateur 32, critère 7), PREVENSIA FORMATION collecte et analyse les indicateurs suivants :
         </p>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li>Taux de satisfaction stagiaires (questionnaire de fin de formation)</li>
@@ -155,16 +155,14 @@ export default function QualitePage() {
             </Link>
           </li>
           <li>
-            Règlement intérieur — disponible sur demande à{" "}
-            <a href="mailto:contact@prevensia-formation.fr" className="text-red-700 underline underline-offset-2">
-              contact@prevensia-formation.fr
-            </a>
+            <Link href="/reglement-interieur" className="text-red-700 underline underline-offset-2">
+              Règlement intérieur
+            </Link>
           </li>
           <li>
-            Conditions générales de vente (CGV) — disponibles sur demande à{" "}
-            <a href="mailto:contact@prevensia-formation.fr" className="text-red-700 underline underline-offset-2">
-              contact@prevensia-formation.fr
-            </a>
+            <Link href="/cgv" className="text-red-700 underline underline-offset-2">
+              Conditions générales de vente (CGV)
+            </Link>
           </li>
           {COMPANY.qualiopiObtenu && (
             <li>

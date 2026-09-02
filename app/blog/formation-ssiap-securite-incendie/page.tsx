@@ -355,7 +355,7 @@ export default function ArticleFormationSSIAPPage() {
       <section className="bg-slate-950 py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold">Formation SSIAP1 initiale ou recyclage ?</h2>
-          <p className="mt-3 text-slate-300">Organisme certifié Qualiopi · Financement OPCO disponible · Hybride e-learning + présentiel</p>
+          <p className="mt-3 text-slate-300">Organisme de formation · Financement OPCO possible · Hybride e-learning + présentiel</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
               href="/formation-ssiap1"
