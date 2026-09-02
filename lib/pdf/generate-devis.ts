@@ -367,7 +367,7 @@ export async function generateDevisPdf(input: DevisPdfInput): Promise<Uint8Array
   if (tvaRate === 0) {
     page.drawRectangle({ x: margin, y: y - 6, width: contentW, height: 28, color: rgb(0.995, 0.97, 0.97) });
     page.drawText(
-      "TVA non applicable - art. 261-4-4 du CGI (organisme de formation enregistre)",
+      "TVA non applicable - art. 261-4-4 du CGI - Organisme de formation (NDA obtenu)",
       { x: margin + 8, y: y + 6, size: 8, font: fontRegular, color: rgb(0.7, 0.15, 0.15) }
     );
     y -= 30;

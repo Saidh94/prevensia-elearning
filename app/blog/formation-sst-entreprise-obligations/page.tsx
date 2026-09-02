@@ -93,7 +93,7 @@ export default function ArticleSstObligationsPage() {
             <li>✓ <strong>R.4224-15</strong> : SST obligatoire dans les ateliers dangereux et chantiers ≥ 20 personnes sur 15 jours</li>
             <li>✓ Recommandation INRS : <strong>1 SST pour 10 salariés</strong>, présent à toutes les heures de travail</li>
             <li>✓ Certificat valable <strong>2 ans</strong>, renouvelable par MAC SST (7h)</li>
-            <li>✓ Formation éligible <strong>OPCO et CPF</strong> avec organisme Qualiopi</li>
+            <li>✓ Prise en charge possible selon les critères de votre OPCO ou financeur</li>
           </ul>
         </div>
 
@@ -180,8 +180,8 @@ export default function ArticleSstObligationsPage() {
           <h2 className="text-2xl font-bold text-slate-900">Comment financer la formation SST ?</h2>
           <div className="mt-6 space-y-3">
             {[
-              { titre: "OPCO (Plan de développement des compétences)", desc: "Pour les entreprises : la formation SST avec un organisme Qualiopi est prise en charge dans le cadre du plan de formation annuel, selon les modalités de l'OPCO de la branche." },
-              { titre: "CPF (Compte Personnel de Formation)", desc: "Pour les salariés à titre individuel : le SST est inscrit au répertoire spécifique RS6459. Les droits CPF peuvent financer tout ou partie de la formation." },
+              { titre: "OPCO (Plan de développement des compétences)", desc: "Pour les entreprises : la prise en charge est possible selon les critères de votre OPCO de rattachement, dans le cadre du plan de développement des compétences. Contactez votre OPCO pour vérifier les conditions." },
+              { titre: "CPF (Compte Personnel de Formation)", desc: "Pour les salariés à titre individuel : le SST est inscrit au répertoire spécifique RS6459. Vérifiez l'éligibilité de votre parcours auprès de votre financeur avant inscription." },
               { titre: "France Travail (anciennement Pôle Emploi)", desc: "Pour les demandeurs d'emploi en reconversion vers des postes nécessitant le SST (industrie, logistique, BTP, services à la personne)." },
             ].map((item) => (
               <div key={item.titre} className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -225,7 +225,7 @@ export default function ArticleSstObligationsPage() {
       <section className="bg-slate-950 py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold">Former vos équipes SST</h2>
-          <p className="mt-3 text-slate-300">SST initial · MAC SST · Intra-entreprise · Qualiopi · Éligible OPCO</p>
+          <p className="mt-3 text-slate-300">SST initial · MAC SST · Intra-entreprise · Prise en charge OPCO possible</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link href="/demande-devis?type=sst" className="rounded-xl bg-red-600 px-6 py-3 font-semibold hover:bg-red-700 transition-colors">
               Demander un devis SST
