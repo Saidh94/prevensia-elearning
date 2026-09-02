@@ -90,14 +90,14 @@ const paymentRules: PaymentRule[] = [
     label: "Recyclage SSIAP1 - Remise a niveau Securite Incendie ERP",
     anyKeywords: ["recyclage-ssiap1", "recyclage ssiap1", "recyclage ssiap 1", "recyclage ssiap"],
     reason:
-      "Le recyclage SSIAP1 (14 heures obligatoires tous les 3 ans selon l'arrete du 2 mai 2005) comprend une partie pratique encadree. La tarification depend de l'effectif et du format choisi (inter 390 EUR HT ou intra sur devis).",
+      "PREVENSIA FORMATION propose un module e-learning de remise a niveau theorique sur les bases SSIAP1. Ce module ne constitue pas le recyclage SSIAP1 reglementaire, lequel doit etre realise aupres d'un organisme agree par le prefet. Tarif sur devis — contactez contact@prevensia-formation.fr.",
   },
   {
     kind: "quote",
     label: "Sensibilisation SSIAP1 - Securite Incendie ERP",
     anyKeywords: ["ssiap1", "ssiap 1", "sensibilisation ssiap", "securite incendie erp"],
     reason:
-      "L'acces e-learning SSIAP1 est inclus avec la formation initiale (67h) ou le recyclage (14h/3 ans). Il n'est pas vendu separement.",
+      "Le module e-learning SSIAP1 est une preparation theorique offerte avec les formations securite incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Evacuation). Ce n'est pas une formation SSIAP reglementaire. Il n'est pas vendu separement.",
   },
   {
     envKey: "STRIPE_PRICE_H0B0_RECYCLAGE_CENTS",

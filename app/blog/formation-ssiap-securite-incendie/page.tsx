@@ -6,7 +6,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 export const metadata: Metadata = {
   title: "Formation SSIAP : guide complet SSIAP 1, 2 et 3 | PREVENSIA",
   description:
-    "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), coût (dès 390 € HT pour le recyclage), financement OPCO, débouchés et salaires 2025-2026.",
+    "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), financement OPCO, débouchés et salaires 2025-2026.",
   alternates: {
     canonical: "https://prevensia-formation.fr/blog/formation-ssiap-securite-incendie",
   },
@@ -341,11 +341,11 @@ export default function ArticleFormationSSIAPPage() {
             <Link href="/blog/obligations-securite-incendie-entreprise" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 hover:border-red-200 hover:text-red-700 transition-colors">
               Obligations sécurité incendie en entreprise →
             </Link>
-            <Link href="/formation-recyclage-ssiap1" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 hover:border-red-200 hover:text-red-700 transition-colors">
-              Recyclage SSIAP1 (14h / 3 ans) →
-            </Link>
             <Link href="/formation-ssiap1" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 hover:border-red-200 hover:text-red-700 transition-colors">
-              Formation SSIAP1 initiale →
+              Préparation théorique SSIAP1 →
+            </Link>
+            <Link href="/formation-securite-incendie" className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 hover:border-red-200 hover:text-red-700 transition-colors">
+              Nos formations sécurité incendie →
             </Link>
           </div>
         </section>
@@ -354,23 +354,23 @@ export default function ArticleFormationSSIAPPage() {
       {/* CTA */}
       <section className="bg-slate-950 py-12 text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold">Formation SSIAP1 initiale ou recyclage ?</h2>
-          <p className="mt-3 text-slate-300">Organisme de formation · Financement OPCO possible · Hybride e-learning + présentiel</p>
+          <h2 className="text-2xl font-bold">Bases SSIAP intégrées aux formations sécurité incendie</h2>
+          <p className="mt-3 text-slate-300">Module de préparation théorique SSIAP1 offert avec nos formations sécurité incendie · Financement OPCO possible</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
               href="/formation-ssiap1"
               className="rounded-xl bg-red-600 px-6 py-3 font-semibold hover:bg-red-700 transition-colors"
             >
-              Formation initiale SSIAP1
+              Préparer les bases SSIAP1
             </Link>
             <Link
-              href="/formation-recyclage-ssiap1"
+              href="/formation-securite-incendie"
               className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-colors"
             >
-              Recyclage SSIAP1 (14h)
+              Nos formations sécurité incendie
             </Link>
             <Link
-              href="/demande-devis?type=ssiap1"
+              href="/demande-devis"
               className="rounded-xl border border-white/30 bg-white/10 px-6 py-3 font-semibold hover:bg-white/20 transition-colors"
             >
               Demander un devis

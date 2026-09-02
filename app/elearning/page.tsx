@@ -462,7 +462,7 @@ const formations = [
     audience:
       "Agents SSIAP1 souhaitant réviser les fondamentaux théoriques de la sécurité incendie ERP dans le cadre d'une mise à niveau continue.",
     description:
-      "Module e-learning de remise à niveau théorique sur les fondamentaux SSIAP1. Révision des classes de feux, agents extincteurs, SSI, procédures d'évacuation ERP et actualisation réglementaire. Ce module est un support de préparation théorique — il ne constitue pas et ne remplace pas le recyclage SSIAP1 réglementaire (14h), lequel doit être effectué auprès d'un organisme agréé par le préfet.",
+      "Module e-learning de remise à niveau théorique sur les fondamentaux SSIAP1. Révision des classes de feux, agents extincteurs, SSI, procédures d'évacuation ERP. Ce module est un support de préparation théorique sans valeur de recyclage réglementaire — il ne constitue pas et ne remplace pas le recyclage SSIAP obligatoire, lequel doit être effectué auprès d'un organisme agréé par le préfet.",
     objectifs: [
       "Réviser les fondamentaux du SSIAP1 : classes de feux, agents extincteurs, SSI",
       "Se mettre à jour sur les évolutions réglementaires ERP et les nouvelles consignes",
@@ -477,7 +477,7 @@ const formations = [
       "Quiz de révision",
     ],
     note:
-      "⚠ Ce module de préparation théorique ne constitue pas et ne remplace pas le recyclage SSIAP1 réglementaire (14h obligatoires tous les 3 ans). Le recyclage officiel doit être effectué auprès d'un organisme agréé par le préfet. PREVENSIA FORMATION ne délivre pas l'agrément préfectoral permettant d'assurer le recyclage réglementaire SSIAP.",
+      "⚠ Ce module de remise à niveau théorique n'a pas de valeur de recyclage réglementaire SSIAP. Le recyclage officiel doit être effectué auprès d'un organisme agréé par le préfet. PREVENSIA FORMATION ne délivre pas cet agrément.",
   },
   {
     slug: "coordinateur-ssi",
