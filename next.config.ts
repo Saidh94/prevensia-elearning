@@ -35,6 +35,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/formation-recyclage-ssiap1",
+        destination: "/formation-securite-incendie",
+        permanent: true,
+      },
+      {
         source: "/habilitation-electrique",
         destination: "/formation-habilitation-electrique",
         permanent: true,

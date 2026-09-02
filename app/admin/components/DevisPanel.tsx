@@ -23,8 +23,8 @@ const FORMATIONS: Formation[] = [
   { id: "atex-n1",       label: "Formation et Sensibilisation ATEX NIV 1 Intervenant", category: "ATEX",                    priceHT: 490,  priceNote: "E-learning + classe virtuelle 4h",          perPerson: true  },
   { id: "atex-n2",       label: "Formation et Sensibilisation ATEX NIV 2 Encadrant",   category: "ATEX",                    priceHT: null, priceNote: "À partir de 990 € — sur devis (e-learning + journée présentielle)", perPerson: false },
   // Sécurité incendie
-  { id: "ssiap1",        label: "SSIAP1 initial",                      category: "Sécurité incendie",       priceHT: 1090, priceNote: "À partir de — 70h inter",                   perPerson: true  },
-  { id: "recyclage-ssiap1",label:"Recyclage SSIAP1",                   category: "Sécurité incendie",       priceHT: 390,  priceNote: "À partir de — 14h inter",                   perPerson: true  },
+  { id: "ssiap1-theo",        label: "Préparation théorique SSIAP1",    category: "Sécurité incendie",       priceHT: null, priceNote: "Incluse dans formation sécurité incendie — sans valeur SSIAP réglementaire", perPerson: false },
+  { id: "recyclage-ssiap1-theo",label:"Remise à niveau théorique SSIAP1", category: "Sécurité incendie",    priceHT: null, priceNote: "Sans valeur de recyclage réglementaire — sur devis",                         perPerson: false },
   { id: "extincteurs",   label: "Manipulation extincteurs",            category: "Sécurité incendie",       priceHT: 149,  priceNote: "0,5 jour",                                  perPerson: true  },
   { id: "guide-file",    label: "Guide-file / Serre-file",             category: "Sécurité incendie",       priceHT: 150,  priceNote: "0,5 jour",                                  perPerson: true  },
   { id: "epi",           label: "Équipier de Première Intervention",   category: "Sécurité incendie",       priceHT: 220,  priceNote: "1 jour",                                    perPerson: true  },
@@ -51,7 +51,7 @@ function matchIds(interest: string): Set<string> {
       (f.id === "atex-n1" && (lower.includes("atex") && (lower.includes("n1") || lower.includes("niveau 1") || lower.includes("intervenant")))) ||
       (f.id === "atex-n0" && lower.includes("sensibilisation")) ||
       (f.id === "h0b0"    && (lower.includes("h0b0") || lower.includes("h0v"))) ||
-      (f.id === "ssiap1"  && lower.includes("ssiap1") && !lower.includes("recyclage"))
+      (f.id === "ssiap1-theo" && lower.includes("ssiap1") && !lower.includes("recyclage"))
     ) {
       matched.add(f.id);
     }

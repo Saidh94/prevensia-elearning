@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "formation-sprinkler",
     "formation-ssi",
     "formation-atex",
-    "formation-recyclage-ssiap1",
+    "formation-securite-incendie",
   ];
 
   const formationEntries: MetadataRoute.Sitemap = formationPages.map(
