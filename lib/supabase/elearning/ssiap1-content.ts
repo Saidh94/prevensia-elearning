@@ -298,7 +298,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "main-courante",
       title: "10. La main courante — Document réglementaire obligatoire",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-poste-securite.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-organisation.svg",
       chapterImageAlt: "Poste de sécurité incendie — main courante, tableaux de signalisation, registre de sécurité",
       intro:
         "La main courante est le document réglementaire central du service SSIAP. Sa tenue quotidienne est une obligation légale prévue par l'arrêté du 2 mai 2005. Elle constitue la mémoire écrite de tous les événements liés à la sécurité incendie de l'établissement.",

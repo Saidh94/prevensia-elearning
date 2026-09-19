@@ -260,6 +260,24 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Mesurer en points bas (gaz lourds) ET en points hauts (gaz légers) et en continu pendant les travaux.",
         "Détecteur catalytique inefficace en atmosphère appauvrie en O₂ — utiliser IR ou PID.",
       ],
+      scenarios: [
+        {
+          situation:
+            "Vous intervenez sur un site où le gaz réellement présent est du méthane. Votre explosimètre, étalonné au propane, affiche 10 % de la LIE. Le seuil d'alerte de 20 % n'est pas atteint.",
+          question: "Pouvez-vous considérer que le site est sûr et poursuivre l'intervention ?",
+          wrongActions: [
+            "Faire confiance à la lecture de 10 % et poursuivre les travaux, puisqu'elle est sous le seuil de 20 %.",
+            "Considérer qu'un explosimètre donne toujours une mesure fiable, quel que soit le gaz d'étalonnage.",
+          ],
+          correctActions: [
+            "Vérifier systématiquement que le gaz d'étalonnage de l'appareil correspond au gaz réellement présent sur le site avant de faire confiance à une lecture.",
+            "En cas de doute ou de non-correspondance, traiter la situation comme dangereuse : arrêter, utiliser un appareil étalonné au bon gaz ou faire confirmer la mesure par un autre moyen.",
+          ],
+          explanation:
+            "Un explosimètre étalonné au propane utilisé dans une atmosphère de méthane peut donner une lecture de 10 % alors que la concentration réelle atteint 50 % — l'opérateur se croit en sécurité alors qu'il est en danger. L'étalonnage doit toujours correspondre au gaz présent sur site.",
+          normRef: "INRS ED 116 — choix et étalonnage des détecteurs de gaz et vapeurs inflammables",
+        },
+      ],
       legalRefs: [
         "Circulaire du 9 mai 1985 : seuil d'alerte à 20 % de la LIE pour les détecteurs de gaz.",
         "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : détection de la LIE.",
@@ -294,6 +312,24 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Vérifier l'état des EPI après chaque lavage — les propriétés antistatiques peuvent se dégrader.",
         "Tout équipement conducteur mobile doit être mis à la terre avant utilisation en zone ATEX.",
         "Le détecteur de gaz portatif lui-même doit être certifié Ex pour la zone concernée.",
+      ],
+      scenarios: [
+        {
+          situation:
+            "Il fait froid sur le site. Avant d'entrer en zone ATEX 1, un collègue vous propose d'enfiler un pull en polaire (fibre synthétique) sous votre combinaison certifiée EN 1149-5, pour plus de confort. Le pull ne sera pas visible une fois la combinaison fermée.",
+          question: "Que faites-vous ?",
+          wrongActions: [
+            "Enfiler le pull en polaire sous la combinaison certifiée, puisqu'il ne sera pas visible de l'extérieur.",
+            "Considérer que seule la couche extérieure visible compte pour la conformité antistatique.",
+          ],
+          correctActions: [
+            "Refuser tout vêtement synthétique non certifié, y compris sous la combinaison — la certification antistatique s'applique à toutes les couches portées en zone ATEX.",
+            "Se couvrir uniquement avec des couches également certifiées, ou renoncer à la couche supplémentaire.",
+          ],
+          explanation:
+            "L'électricité statique est l'une des principales sources d'inflammation en zone ATEX. Un vêtement synthétique non certifié porté sous la combinaison certifiée peut générer et accumuler une charge électrostatique, quelle que soit sa visibilité — l'interdiction est formelle, sans exception liée à la position de la couche.",
+          normRef: "Norme EN 1149-5 — vêtements de protection antistatiques",
+        },
       ],
       legalRefs: [
         "Code du travail - Art. R.4321-4 : obligation de l'employeur de fournir des EPI adaptés.",
@@ -357,6 +393,24 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Vérifications EN 60079-17 : initiales, de routine, détaillées, approfondies.",
         "Après maintenance : vérification visuelle du mode de protection avant remise en service.",
       ],
+      scenarios: [
+        {
+          situation:
+            "Vous devez remplacer un joint d'étanchéité endommagé sur un équipement Ex d (enveloppe antidéflagrante). Le magasin n'a pas la référence exacte en stock, mais un joint de dimensions très proches, visuellement quasi identique, est disponible immédiatement.",
+          question: "Pouvez-vous monter ce joint de remplacement pour ne pas retarder l'intervention ?",
+          wrongActions: [
+            "Monter le joint proche disponible, en estimant qu'une petite différence de dimensions ne change rien en pratique.",
+            "Considérer que l'essentiel est de refermer le boîtier, quel que soit le joint utilisé.",
+          ],
+          correctActions: [
+            "N'utiliser que des joints identiques à l'original (même matériau, mêmes dimensions, même référence).",
+            "Si la référence exacte n'est pas disponible, suspendre l'intervention et commander la pièce correcte plutôt que d'improviser.",
+          ],
+          explanation:
+            "Un joint de dimensions différentes altère les jeux d'étanchéité qui définissent le mode de protection antidéflagrant. L'équipement perd alors son niveau de protection certifié, même si la différence semble minime à l'œil.",
+          normRef: "EN 60079-17 — vérification et maintenance des installations électriques en zone ATEX",
+        },
+      ],
       legalRefs: [
         "référentiel INERIS / bonnes pratiques INRS-INERIS ATEX - référentiel technique INERIS ATEX : interventions de maintenance.",
         "Norme EN 60079-17 : vérification et maintenance des installations électriques en zone ATEX.",
@@ -385,6 +439,27 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Incendie ATEX : CO₂ si feu maîtrisable, ÉVACUER et appeler 18/112 si non maîtrisable.",
         "PEAS : Protéger, Examiner, Alerter, Secourir — préciser 'zone ATEX' aux secours.",
         "Toute anomalie = signalement immédiat et consignation dans le registre. Pas de 'bricolage' sur site.",
+      ],
+      scenarios: [
+        {
+          situation:
+            "Vous êtes en intervention lorsque votre explosimètre déclenche l'alarme à 22 % de la LIE. Un équipement électrique non Ex se trouve à proximité immédiate, toujours alimenté.",
+          question: "Quelle est la séquence d'actions à respecter dans les premières secondes ?",
+          wrongActions: [
+            "Se précipiter sur le disjoncteur le plus proche pour couper l'équipement non Ex avant de sortir.",
+            "Rester quelques instants de plus pour terminer le geste en cours, puisque l'alarme vient juste de se déclencher.",
+            "Utiliser son téléphone portable personnel, non certifié Ex, pour prévenir immédiatement depuis la zone.",
+          ],
+          correctActions: [
+            "Stopper immédiatement les travaux, sans manipuler de disjoncteur sur place (risque d'étincelle).",
+            "Évacuer la zone en remontant contre le vent.",
+            "Alerter le PC sécurité ou le responsable sécurité du site une fois sorti de la zone.",
+            "Ne pas réintégrer la zone sans autorisation et sans nouvelle vérification à l'explosimètre.",
+          ],
+          explanation:
+            "La séquence Stopper → Évacuer → Alerter doit s'exécuter sans improvisation : manipuler un disjoncteur non Ex ou utiliser un téléphone non certifié dans la zone peut lui-même provoquer l'étincelle d'inflammation que l'on cherche à éviter.",
+          normRef: "Circulaire du 9 mai 1985 — seuil d'alerte à 20 % de la LIE ; Code du travail Art. L.4131-1",
+        },
       ],
       legalRefs: [
         "Code du travail - Art. L.4131-1 : droit de retrait du salarié face au danger grave et imminent.",
@@ -418,6 +493,27 @@ export const atexNiveau1ModuleContent: ModuleContent = {
         "Circuit Ex ia : ne jamais connecter à un circuit non-intrinsèquement sûr — énergie extérieure = protection annulée.",
         "EN 60079-17 : 3 niveaux d'inspection — visuelle, rapprochée, détaillée — périodicité définie par l'employeur.",
         "Moteur Ex : vibration, surchauffe ou bruit anormal = arrêt immédiat + signalement avant toute remise en service.",
+      ],
+      scenarios: [
+        {
+          situation:
+            "Un défaut électrique se déclare dans une armoire Ex p en zone ATEX. La production est à l'arrêt à cause de ce défaut et le responsable de site demande une intervention urgente. L'armoire est toujours sous tension et sous pression interne.",
+          question: "Comment procédez-vous pour ouvrir l'armoire et intervenir sur le défaut ?",
+          wrongActions: [
+            "Ouvrir directement l'armoire pour gagner du temps, la pression positive étant censée empêcher l'entrée de gaz.",
+            "Couper seulement l'alimentation électrique et ouvrir aussitôt, sans attendre la purge.",
+            "Arrêter la pressurisation puis ouvrir immédiatement sans vérifier l'équilibrage de pression.",
+          ],
+          correctActions: [
+            "Couper l'alimentation électrique de l'armoire.",
+            "Arrêter le circuit de pressurisation.",
+            "Attendre la durée de purge définie par le fabricant (généralement 5 à 15 minutes selon le volume de l'armoire).",
+            "Vérifier l'équilibrage de pression avant d'ouvrir l'armoire.",
+          ],
+          explanation:
+            "L'urgence de production ne justifie jamais de raccourcir le protocole : ouvrir une armoire Ex p sous tension et sous pression expose à un risque d'étincelle d'ouverture en atmosphère potentiellement explosive. Les quatre étapes doivent être respectées dans l'ordre, sans exception.",
+          normRef: "Norme EN 60079-14 — conception et construction des installations électriques en atmosphères explosives",
+        },
       ],
       legalRefs: [
         "Norme EN 60079-17 : inspection et entretien des installations électriques en atmosphères explosives.",
@@ -497,7 +593,7 @@ export const atexNiveau1ModuleContent: ModuleContent = {
       id: "substances-dangereuses-zone-atex",
       title: "13. Substances dangereuses et comportements en zone ATEX",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/atex/atex-signalisation-zone.png",
+      chapterImagePath: "/elearning/atex/atex-panneau-zone-interdictions.png",
       chapterImageAlt: "Signalisation zone ATEX et interdictions — alcool, téléphone, outils non conformes",
       intro:
         "La zone ATEX impose une discipline comportementale stricte qui va au-delà du port des EPI. Certaines substances légales en dehors du travail deviennent des facteurs de risque graves en zone classée. Ce chapitre couvre les règles de tolérance zéro applicables aux intervenants.",

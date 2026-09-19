@@ -15,6 +15,28 @@ type ChapterProgress = {
   is_completed: boolean;
 };
 
+function ChapterImage({ src, alt }: { src: string; alt: string }) {
+  const [broken, setBroken] = useState(false);
+
+  if (broken) return null;
+
+  return (
+    <div className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-100">
+      <Image
+        src={src}
+        alt={alt}
+        width={900}
+        height={420}
+        className="w-full h-auto object-contain"
+        style={{ maxHeight: "420px" }}
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 900px"
+        unoptimized={src.toLowerCase().endsWith(".svg")}
+        onError={() => setBroken(true)}
+      />
+    </div>
+  );
+}
+
 function ResourceVideoCard({ video }: { video: ModuleResourceVideo }) {
   return (
     <a
@@ -281,18 +303,10 @@ export default function CoursePage({ slug, moduleData }: CoursePageProps) {
                 className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm"
               >
                 {section.chapterImagePath ? (
-                  <div className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-100">
-                    <Image
-                      src={section.chapterImagePath}
-                      alt={section.chapterImageAlt ?? section.title}
-                      width={900}
-                      height={420}
-                      className="w-full h-auto object-contain"
-                      style={{ maxHeight: "420px" }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 900px"
-                      unoptimized={section.chapterImagePath.toLowerCase().endsWith(".svg")}
-                    />
-                  </div>
+                  <ChapterImage
+                    src={section.chapterImagePath}
+                    alt={section.chapterImageAlt ?? section.title}
+                  />
                 ) : null}
 
                 <div className="border-b border-slate-200 px-6 py-6 sm:px-8">

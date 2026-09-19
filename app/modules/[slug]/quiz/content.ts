@@ -3022,6 +3022,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Couper soi-même tous les équipements sans consigne",
       ],
       answer: [1],
+      eliminatory: true,
       chapterLabel: "Alerte & évacuation",
       explanation:
         "L'alerte doit partir vite. La reconnaissance ne doit pas se faire au prix d'une exposition inutile.",
@@ -3043,6 +3044,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 2, 3],
       multiple: true,
+      eliminatory: true,
       chapterLabel: "Alerte & évacuation",
       explanation:
         "Une évacuation réussie repose sur le calme, la discipline, l'aide adaptée et l'interdiction de retour intempestif.",
@@ -3059,6 +3061,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 2],
       multiple: true,
+      eliminatory: true,
       chapterLabel: "Moyens d'extinction",
       explanation:
         "On n'intervient que dans un cadre maîtrisé, sans s'exposer et sans retarder l'alerte ou l'évacuation.",
@@ -3195,6 +3198,7 @@ export const quizContent: Record<string, QuizQuestion[]> = {
       ],
       answer: [0, 1, 2],
       multiple: true,
+      eliminatory: true,
       explanation:
         "La sécurité incendie se joue aussi dans les comportements quotidiens et le traitement des anomalies visibles.",
       timeLimit: 70,
@@ -6313,9 +6317,138 @@ export const quizContent: Record<string, QuizQuestion[]> = {
         "Le risque électrique disparaît dès que la batterie principale est déconnectée",
       ],
       answer: [0],
+      eliminatory: true,
       explanation:
         "Un véhicule hybride ou électrique accidenté peut présenter des câbles endommagés, des condensateurs chargés ou des batteries dont l'isolation est compromise. Le retrait de la clé ou la déconnexion de la batterie principale ne garantit pas l'absence de tension résiduelle sur l'ensemble du circuit.",
       timeLimit: 55,
+    },
+    {
+      question:
+        "Quelles sont les distances de voisinage à respecter par rapport à une pièce nue sous tension (PNST) sur un véhicule ou engin ?",
+      choices: [
+        "Voisinage renforcé à 30 cm et voisinage simple à 3 m (ou 1 m de la périphérie du véhicule si balisage)",
+        "Voisinage renforcé à 1 m et voisinage simple à 5 m",
+        "Ces distances ne s'appliquent qu'aux installations fixes, pas aux véhicules",
+        "50 cm dans tous les cas, quelle que soit la configuration",
+      ],
+      answer: [0],
+      eliminatory: true,
+      explanation:
+        "Les zones de voisinage sur véhicules et engins reprennent celles de la NF C 18-510 : 30 cm pour le voisinage renforcé, 3 m pour le voisinage simple (ramené à 1 m de la périphérie du véhicule en cas de balisage).",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Dans la démarche d'habilitation en 7 étapes de la NF C 18-550, quel document le formateur remet-il à l'issue de la formation ?",
+      choices: [
+        "Un avis après formation, favorable ou défavorable, transmis à l'employeur et à l'apprenant",
+        "Le titre d'habilitation directement signé",
+        "Un certificat de conformité électrique du véhicule",
+        "Rien : le formateur n'a aucune obligation documentaire",
+      ],
+      answer: [0],
+      explanation:
+        "Le formateur rédige un « avis après formation » (favorable ou défavorable) et le remet à l'employeur et à l'apprenant. C'est ensuite l'employeur, et lui seul, qui délivre le titre d'habilitation.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Que doit remettre l'employeur au travailleur au moment de l'habilitation ?",
+      choices: [
+        "Le titre d'habilitation, le carnet de prescriptions (NF C 18-550) et les EPI adaptés",
+        "Uniquement le titre d'habilitation signé",
+        "Un simple accord verbal suffit, sans document écrit",
+        "Le carnet de prescriptions uniquement, les EPI restant à la charge du salarié",
+      ],
+      answer: [0],
+      explanation:
+        "L'habilitation s'accompagne de trois éléments remis ensemble : le titre d'habilitation, le carnet de prescriptions basé sur la NF C 18-550, et les équipements de protection individuelle adaptés à l'opération.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Un technicien intérimaire intervient sur des véhicules électriques chez une entreprise utilisatrice (EU). Qui l'habilite, et pour combien de temps ?",
+      choices: [
+        "L'entreprise utilisatrice, uniquement pour la durée de la mission",
+        "Son agence d'intérim, de façon permanente",
+        "Il n'a pas besoin d'habilitation s'il est déjà expérimenté",
+        "L'entreprise utilisatrice, de façon permanente même après la mission",
+      ],
+      answer: [0],
+      explanation:
+        "L'entreprise utilisatrice vérifie les connaissances de l'intérimaire, assure son accueil et sa formation d'adaptation au poste, et délivre l'habilitation pour la durée de la mission uniquement.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Une entreprise extérieure intervient sur le site d'un client pour des opérations sur engins électriques. Qui est responsable de l'habilitation de son personnel ?",
+      choices: [
+        "L'entreprise extérieure habilite son propre personnel ; l'entreprise utilisatrice coordonne les mesures de prévention",
+        "L'entreprise utilisatrice habilite systématiquement tout le personnel externe",
+        "Aucune habilitation n'est requise pour le personnel d'une entreprise extérieure",
+        "Le client final doit habiliter personnellement chaque intervenant",
+      ],
+      answer: [0],
+      explanation:
+        "Chaque entreprise extérieure a la responsabilité de l'habilitation de son propre personnel. L'entreprise utilisatrice, elle, coordonne les mesures de prévention entre les différents intervenants (Art. R4511-5 du Code du travail).",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quel suivi médical est obligatoire pour un travailleur habilité électrique sur véhicules et engins ?",
+      choices: [
+        "Un suivi individuel renforcé, avec examen d'aptitude par le médecin du travail",
+        "Aucun suivi médical spécifique n'est requis",
+        "Une simple visite médicale d'embauche standard suffit",
+        "Le suivi médical est facultatif si le travailleur porte ses EPI",
+      ],
+      answer: [0],
+      explanation:
+        "Le risque électrique impose un suivi individuel renforcé (Art. R4544-10 et R4624-22 à R4624-28 du Code du travail), avec un examen d'aptitude réalisé par le médecin du travail.",
+      timeLimit: 40,
+    },
+    {
+      question:
+        "Quelle tension une batterie de traction de véhicule électrique peut-elle atteindre, imposant une vigilance particulière sur le symbole d'habilitation choisi ?",
+      choices: [
+        "400 V, voire 800 V pour certains véhicules récents",
+        "12 V au maximum, comme une batterie de voiture classique",
+        "48 V au maximum, jamais plus",
+        "La tension d'une batterie de traction ne dépasse jamais 24 V",
+      ],
+      answer: [0],
+      eliminatory: true,
+      explanation:
+        "Une batterie de traction peut atteindre 400 V (domaine BT) voire 800 V sur certains véhicules récents — largement au-dessus du seuil de danger, ce qui impose une vigilance renforcée sur le choix du symbole et les EPI.",
+      timeLimit: 45,
+    },
+    {
+      question:
+        "Quelles exigences un formateur doit-il satisfaire pour dispenser une formation à l'habilitation véhicules NF C 18-550 ?",
+      choices: [
+        "Compétence technique et pédagogique adaptée (titre professionnel de formateur ou 200 h de face-à-face pédagogique sur 2 ans), et une habilitation en adéquation avec la formation dispensée",
+        "Être uniquement titulaire du permis de conduire poids lourd",
+        "Aucune exigence particulière, l'expérience de terrain suffit",
+        "Être obligatoirement ingénieur électricien diplômé",
+      ],
+      answer: [0],
+      explanation:
+        "Le formateur doit réunir une connaissance de base en prévention, une compétence technique, une compétence pédagogique adaptée aux adultes (titre professionnel de formateur ou minimum 200 h de face-à-face pédagogique sur 2 ans), et un titre d'habilitation en adéquation avec la formation dispensée.",
+      timeLimit: 50,
+    },
+    {
+      question:
+        "Dans quels cas l'employeur doit-il remettre en cause une habilitation déjà délivrée ?",
+      choices: [
+        "Après un accident, une maladie prolongée, ou un changement de poste du travailleur",
+        "Une habilitation délivrée ne peut jamais être remise en cause avant son terme",
+        "Uniquement si le travailleur en fait la demande lui-même",
+        "Seulement à la date anniversaire de délivrance, jamais avant",
+      ],
+      answer: [0],
+      explanation:
+        "L'employeur s'assure en permanence que l'habilitation reste adaptée à l'activité réelle du travailleur. Un accident, une maladie prolongée ou un changement de poste sont des motifs de remise en cause, pouvant conduire à un retrait ou une nouvelle formation.",
+      timeLimit: 45,
     },
   ],
 };
