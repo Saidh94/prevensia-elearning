@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import VisualBlock from "@/app/components/elearning/VisualBlock";
 import { RecapVideoWidget } from "@/app/components/elearning/RecapVideoWidget";
+import { ResourceVideoCard } from "@/app/components/elearning/ResourceVideo";
 import { formatFrenchDisplayText } from "@/lib/french-display";
 import type {
   ModuleContent,
@@ -933,6 +934,32 @@ function buildModuleChapters(moduleData: ModuleContent): Chapter[] {
   });
 }
 
+// Image d'illustration de chapitre avec repli silencieux si le fichier est
+// manquant (au lieu d'une icône de lien cassé visible par l'apprenant).
+// La clé sur `src` force un remontage — donc une réinitialisation de l'état
+// `broken` — à chaque changement de chapitre.
+function ChapterHeroImage({ src, alt }: { src: string; alt: string }) {
+  const [broken, setBroken] = useState(false);
+
+  if (broken) return null;
+
+  return (
+    <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="relative mx-auto h-[520px] w-full max-w-5xl overflow-hidden rounded-2xl">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 960px"
+          unoptimized={src.toLowerCase().endsWith(".svg") || src.toLowerCase().endsWith(".gif")}
+          onError={() => setBroken(true)}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function CoursPage() {
   const params = useParams();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? "";
@@ -1430,44 +1457,18 @@ export default function CoursPage() {
                   </p>
 
                   <div className="mt-4 grid gap-5">
-                    {(currentChapter.resourceVideos ?? []).map(
-                      (video, index) => (
-                        <article
-                          key={`${currentChapter.key}-video-${index}`}
-                          className="rounded-[1.25rem] border border-slate-200 bg-white p-5"
-                        >
-                          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-                            {video.provider ?? "Vidéo pédagogique"}
-                          </p>
-
-                          <h3 className="mt-3 text-lg font-bold text-slate-900">
-                            {formatFrenchDisplayText(video.title)}
-                          </h3>
-
-                          {video.description ? (
-                            <p className="mt-3 text-sm leading-7 text-slate-600">
-                              {formatFrenchDisplayText(video.description)}
-                            </p>
-                          ) : null}
-
-                          <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                            <p className="text-sm leading-6 text-slate-700">
-                              Cliquez sur le bouton ci-dessous pour ouvrir la
-                              vidéo dans un nouvel onglet.
-                            </p>
-
-                            <a
-                              href={video.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="mt-4 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                            >
-                              {video.ctaLabel ?? "Voir la vidéo"}
-                            </a>
-                          </div>
-                        </article>
-                      )
-                    )}
+                    {(currentChapter.resourceVideos ?? []).map((video, index) => (
+                      <ResourceVideoCard
+                        key={`${currentChapter.key}-video-${index}`}
+                        video={{
+                          ...video,
+                          title: formatFrenchDisplayText(video.title),
+                          description: video.description
+                            ? formatFrenchDisplayText(video.description)
+                            : video.description,
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
               ) : null}
@@ -1527,21 +1528,11 @@ export default function CoursPage() {
               ) : null}
 
               {currentChapter.image ? (
-                <div className="mb-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-4 shadow-sm">
-                  <div className="relative mx-auto h-[520px] w-full max-w-5xl overflow-hidden rounded-2xl">
-                    <Image
-                      src={currentChapter.image}
-                      alt={currentChapter.imageAlt ?? currentChapter.title}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 960px"
-                      unoptimized={
-                        currentChapter.image.toLowerCase().endsWith(".svg") ||
-                        currentChapter.image.toLowerCase().endsWith(".gif")
-                      }
-                    />
-                  </div>
-                </div>
+                <ChapterHeroImage
+                  key={currentChapter.image}
+                  src={currentChapter.image}
+                  alt={currentChapter.imageAlt ?? currentChapter.title}
+                />
               ) : null}
 
               {(formattedSectionVisual?.animationKey || formattedSectionVisual?.illustrationKey) ? (

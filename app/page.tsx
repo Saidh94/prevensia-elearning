@@ -7,6 +7,12 @@ import LocationCoverageSection from "@/components/site/LocationCoverageSection";
 import { homepageElectricalSummary } from "@/lib/electrical-offers";
 import { Header } from "@/app/components/Header";
 import HomeSessionsList from "@/app/components/HomeSessionsList";
+import { COMPANY } from "@/lib/company";
+import { QualiopiMark } from "@/components/site/QualiopiMark";
+
+const qualiopiOgSuffix = COMPANY.qualiopiObtenu
+  ? "Certifiées Qualiopi"
+  : "Démarche Qualiopi Engagée";
 
 export const metadata: Metadata = {
   title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSI, SST, Sprinkler",
@@ -14,7 +20,7 @@ export const metadata: Metadata = {
     "Organisme de formation — démarche Qualiopi engagée. Formations en sécurité professionnelle : habilitation électrique NF C 18-510, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra-entreprise. By PREVENSIA GROUPE.",
   alternates: { canonical: "https://prevensia-formation.fr" },
   openGraph: {
-    title: "PREVENSIA FORMATION by PREVENSIA GROUPE — Formations Sécurité Certifiées Qualiopi",
+    title: `PREVENSIA FORMATION by PREVENSIA GROUPE — Formations Sécurité ${qualiopiOgSuffix}`,
     description:
       "Habilitation électrique, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra.",
     url: "https://prevensia-formation.fr",
@@ -143,13 +149,7 @@ export default function Home() {
     <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
         <div className="flex items-center gap-2.5">
-          <Image
-            src="/images/qualiopi.jpg"
-            alt="Certification Qualiopi"
-            width={44}
-            height={44}
-            className="h-auto w-9 shrink-0"
-          />
+          <QualiopiMark size={36} className="h-auto w-9 shrink-0 text-white" />
           <span className="text-xs font-bold uppercase tracking-wide text-white">
             Démarche Qualiopi engagée
           </span>
@@ -207,7 +207,7 @@ export default function Home() {
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
         <p className="text-2xl font-bold text-red-400 sm:text-3xl">Qualiopi</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
-          Certifié actions de formation
+          {COMPANY.qualiopiObtenu ? "Certifié actions de formation" : "Démarche engagée"}
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
@@ -225,7 +225,7 @@ export default function Home() {
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
         <p className="text-2xl font-bold text-white sm:text-3xl">OPCO</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
-          Financement éligible
+          {COMPANY.qualiopiObtenu ? "Financement éligible" : "Financement dès certification"}
         </p>
       </div>
     </div>
@@ -323,13 +323,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
             <div className="grid gap-4 md:grid-cols-4">
               <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
-                <Image
-                  src="/images/qualiopi.jpg"
-                  alt="Certification Qualiopi"
-                  width={70}
-                  height={70}
-                  className="h-auto w-14 shrink-0 sm:w-16"
-                />
+                <QualiopiMark size={56} className="h-auto w-14 shrink-0 text-blue-700 sm:w-16" />
                 <div>
                   <p className="text-sm font-bold text-slate-900">
                     Démarche Qualiopi engagée

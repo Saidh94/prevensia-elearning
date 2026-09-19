@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { COMPANY } from "@/lib/company";
+import { QualiopiMark } from "@/components/site/QualiopiMark";
 
 export const metadata = {
   title: "Qui sommes-nous — PREVENSIA FORMATION, organisme Qualiopi | Paris",
@@ -147,13 +147,7 @@ export default function QuiSommesNousPage() {
             {/* Fiche identité */}
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
               <div className="flex items-center gap-4 mb-6">
-                <Image
-                  src="/images/qualiopi.jpg"
-                  alt="Certification Qualiopi"
-                  width={64}
-                  height={64}
-                  className="h-16 w-auto shrink-0"
-                />
+                <QualiopiMark size={64} className="h-16 w-auto shrink-0 text-blue-700" />
                 <div>
                   <p className="font-bold text-slate-900">Démarche Qualiopi</p>
                   <p className="text-sm text-slate-600">Actions de formation</p>
@@ -236,26 +230,22 @@ export default function QuiSommesNousPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center lg:flex-row lg:text-left lg:gap-12 lg:items-start">
             <div className="shrink-0">
-              <Image
-                src="/images/qualiopi.jpg"
-                alt="Certification Qualiopi"
-                width={120}
-                height={120}
-                className="h-28 w-auto mx-auto lg:mx-0"
-              />
+              <QualiopiMark size={112} className="h-28 w-auto mx-auto text-white lg:mx-0" />
             </div>
             <div className="mt-6 lg:mt-0">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-400">Certification qualité</p>
-              <h2 className="mt-2 text-3xl font-bold">Qualiopi — Actions de formation</h2>
+              <h2 className="mt-2 text-3xl font-bold">
+                {COMPANY.qualiopiObtenu ? "Qualiopi — Actions de formation" : "Démarche Qualiopi — Actions de formation"}
+              </h2>
               <p className="mt-4 max-w-3xl text-lg text-slate-300 leading-8">
                 La démarche Qualiopi vise à attester de la qualité des processus mis en œuvre
                 par notre organisme pour les actions de formation. Elle est exigée pour
                 accéder aux financements publics et mutualistes (OPCO, France Travail).
               </p>
               <p className="mt-4 max-w-3xl text-slate-400 leading-7">
-                Nos formations sont donc éligibles aux financements OPCO pour les entreprises,
-                et à France Travail pour les demandeurs d&apos;emploi en démarche de reconversion
-                ou de montée en compétences.
+                {COMPANY.qualiopiObtenu
+                  ? "Nos formations sont donc éligibles aux financements OPCO pour les entreprises, et à France Travail pour les demandeurs d'emploi en démarche de reconversion ou de montée en compétences."
+                  : "L'audit de certification est en préparation. Les financements OPCO et France Travail seront ouverts dès l'obtention du certificat — n'hésitez pas à nous consulter pour faire le point sur votre situation de financement."}
               </p>
             </div>
           </div>
