@@ -1044,6 +1044,27 @@ export const modulesContent: Record<string, ModuleContent> = {
           "S’exposer aux fumées d’une batterie en emballement thermique.",
           "Utiliser des émulseurs fluorés en exercice sans maîtrise du rejet."
         ],
+        scenarios: [
+          {
+            situation:
+              "Un départ de feu se déclare dans une corbeille à papier sous un bureau. Les flammes sont encore limitées mais une légère fumée commence déjà à réduire la visibilité dans le local, qui ne comporte qu'une seule porte.",
+            question: "Devez-vous tenter d'éteindre le feu vous-même avec l'extincteur le plus proche ?",
+            wrongActions: [
+              "Foncer éteindre le feu sans avoir donné l'alerte au préalable.",
+              "Rester dans le local pour continuer d'arroser le foyer alors que la fumée s'épaissit et gêne la respiration.",
+              "S'engager dans le local sans avoir identifié une issue de repli derrière soi.",
+            ],
+            correctActions: [
+              "Donner l'alerte avant toute tentative d'action sur le foyer.",
+              "N'intervenir que si le feu reste limité et si une issue de repli reste disponible derrière soi.",
+              "Se baisser pour limiter l'exposition aux fumées et rester entre le feu et la sortie.",
+              "Abandonner immédiatement l'extinction et évacuer si la fumée s'épaissit ou si le feu progresse.",
+            ],
+            explanation:
+              "L'intervention avec l'extincteur n'est légitime que dans un cadre précis : alerte déjà donnée, feu encore limité, issue de repli disponible, absence d'exposition dangereuse aux fumées. Dès que l'une de ces conditions manque, la priorité bascule sur l'évacuation.",
+            normRef: "INRS ED 6054 — Les extincteurs d'incendie portatifs, mobiles et fixes",
+          },
+        ],
         legalRefs: [
           "Code du travail - moyens de premier secours contre l’incendie et personnel instruit de leur emploi.",
           "INRS ED 6054 - Les extincteurs d’incendie portatifs, mobiles et fixes.",
@@ -1082,6 +1103,25 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Le point de rassemblement, le comptage des personnes, la transmission d’une information fiable et l’attente des consignes font partie intégrante de l’évacuation. Sortir du bâtiment ne suffit pas: encore faut-il s’assurer que l’information remonte correctement et que personne ne retourne de sa propre initiative dans la zone sinistrée.",
           "Guide-file, serre-file, chargé d’évacuation ou encadrement de zone ont des rôles différents selon l’organisation du site. Même lorsqu’aucun rôle spécifique n’est attribué, chaque salarié doit connaître les circulations, l’alarme, les accès interdits et la conduite à tenir envers les visiteurs ou personnes vulnérables.",
           "Une bonne évacuation dépend aussi de la préparation: exercices réguliers, plans lisibles, circulations dégagées, portes fonctionnelles, zones de rassemblement identifiées, messages d’alarme compris et rôles clairs."
+        ],
+        scenarios: [
+          {
+            situation:
+              "L'alarme d'évacuation se déclenche. Une fois arrivé au point de rassemblement, un collègue se rend compte qu'il a laissé son sac contenant ses clés et son téléphone sur son bureau, à l'étage.",
+            question: "Que doit faire ce collègue ?",
+            wrongActions: [
+              "Retourner discrètement chercher ses affaires, le feu n'étant visiblement pas près de son bureau.",
+              "Quitter le point de rassemblement sans prévenir personne pour aller vérifier par lui-même la situation.",
+            ],
+            correctActions: [
+              "Rester au point de rassemblement et attendre les consignes.",
+              "Signaler sa présence pour permettre un comptage fiable des personnes.",
+              "Ne retourner dans le bâtiment que sur autorisation explicite, jamais de sa propre initiative.",
+            ],
+            explanation:
+              "Le comptage des personnes et la fiabilité de l'information remontée sont au cœur de l'évacuation. Un retour non autorisé dans le bâtiment — même pour un motif qui semble anodin — fausse le comptage et expose la personne à un risque que les secours ne peuvent pas anticiper.",
+            normRef: "INRS — évacuation, intervention et consignes de sécurité sur le lieu de travail",
+          },
         ],
         resourceVideos: [
           {
@@ -1202,6 +1242,26 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Laisser combustibles et dépôts au voisinage immédiat.",
           "Clôturer le chantier sans contrôle ni surveillance post-travaux."
         ],
+        scenarios: [
+          {
+            situation:
+              "Un prestataire extérieur doit effectuer une soudure rapide de 10 minutes dans un local de stockage. Il indique que 'ça ne vaut pas le coup de remplir un permis de feu pour si peu de temps' et souhaite commencer immédiatement.",
+            question: "Faut-il le laisser intervenir sans permis de feu compte tenu de la courte durée ?",
+            wrongActions: [
+              "Accepter, la durée très courte des travaux justifiant de s'en passer.",
+              "Laisser le prestataire juger seul si la zone est sûre, sans analyse préalable de l'entreprise d'accueil.",
+              "Considérer que la surveillance post-travaux est inutile puisque l'intervention a été brève.",
+            ],
+            correctActions: [
+              "Refuser tout démarrage sans permis de feu, quelle que soit la durée annoncée des travaux.",
+              "Faire analyser la zone : combustibles voisins, stockages, moyens d'extinction disponibles.",
+              "Assurer une surveillance post-travaux pour détecter tout échauffement résiduel ou reprise de feu.",
+            ],
+            explanation:
+              "Le permis de feu formalise l'analyse de zone et les mesures de sécurité indépendamment de la durée de l'intervention — une soudure de quelques minutes suffit à enflammer des combustibles proches. La surveillance après travaux fait partie intégrante du dispositif, pas une option facultative.",
+            normRef: "INRS ED 6030 — Le permis de feu, démarche et document support",
+          },
+        ],
         legalRefs: [
           "INRS ED 6030 - Le permis de feu, démarche et document support.",
           "Formulaire INRS ED 6030 - mesures de mise en sécurité, responsabilités et validation des travaux par points chauds.",
@@ -1284,6 +1344,27 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Utiliser un chargeur non adapté ou une multiprise surchargée.",
           "Laisser charger une batterie endommagée ou gonflée sans surveillance.",
           "Ignorer une batterie dont l'enveloppe est déformée ou dont la température est anormale."
+        ],
+        scenarios: [
+          {
+            situation:
+              "Vous passez devant le local de charge des trottinettes électriques en fin de journée. Une batterie en charge présente un boîtier visiblement gonflé et une légère odeur âcre se dégage, mais aucune fumée n'est encore visible. Personne d'autre n'est présent.",
+            question: "Que faites-vous face à ce signe précurseur d'emballement thermique ?",
+            wrongActions: [
+              "Débrancher la batterie et la déplacer vous-même à l'extérieur pour éviter tout risque.",
+              "Continuer votre chemin en vous disant que ce n'est peut-être rien tant qu'il n'y a pas de fumée.",
+              "Ouvrir le boîtier de la batterie pour vérifier l'ampleur du problème.",
+            ],
+            correctActions: [
+              "Ne pas toucher ni déplacer la batterie.",
+              "Isoler la zone sans s'exposer inutilement.",
+              "Déclencher l'alarme et alerter les secours en précisant qu'il s'agit d'une batterie lithium.",
+              "Évacuer et surveiller à distance une éventuelle ré-inflammation.",
+            ],
+            explanation:
+              "Un boîtier gonflé et une odeur âcre sont des signes précurseurs classiques de l'emballement thermique. Déplacer ou manipuler la batterie peut précipiter la réaction chimique interne. La seule conduite sûre est d'isoler, alerter et évacuer, sans tenter d'intervenir soi-même sur l'équipement.",
+            normRef: "INRS ED 6494 — Batteries lithium-ion : risques liés à leur utilisation",
+          },
         ],
         legalRefs: [
           "INRS - Fiche ED 6494 : risques liés aux batteries lithium-ion.",
@@ -1447,6 +1528,26 @@ export const modulesContent: Record<string, ModuleContent> = {
           "CMSI, UGA et DAS sont des repères d’exploitation essentiels.",
           "L’exploitation repose sur la lecture correcte des états."
         ],
+        scenarios: [
+          {
+            situation:
+              "Un dispositif actionné de sécurité (DAS) — une porte coupe-feu à fermeture automatique — se referme intempestivement plusieurs fois par jour sans qu'aucun incendie ne soit en cause, gênant la circulation du personnel. Un agent de maintenance interne propose de le neutraliser 'en attendant l'intervention du prestataire'.",
+            question: "Peut-on neutraliser ce DAS soi-même en attendant l'intervention spécialisée ?",
+            wrongActions: [
+              "Neutraliser le DAS soi-même pour rétablir rapidement la circulation.",
+              "Caler la porte en position ouverte de façon permanente sans en informer personne.",
+              "Considérer qu'un déclenchement intempestif n'est qu'un simple inconfort sans conséquence sécurité.",
+            ],
+            correctActions: [
+              "Ne jamais neutraliser un dispositif de sécurité sans procédure encadrée.",
+              "Tracer l'anomalie et la signaler au mainteneur ou au coordinateur SSI.",
+              "Escalader vers l'interlocuteur compétent selon l'organisation du site plutôt que d'agir seul.",
+            ],
+            explanation:
+              "Une commande de sécurité comme un DAS ne doit jamais être neutralisée sans procédure, même face à une gêne répétée. Confondre exploitation et maintenance spécialisée expose le site : le jour où l'information est réelle, le dispositif neutralisé ne jouera pas son rôle.",
+            normRef: "NF S 61-937 — dispositifs actionnés de sécurité (DAS)",
+          },
+        ],
         chapterImagePath: "/images/schema-ssi.gif",
         chapterImageAlt:
           "Schéma SSI avec équipement d'alarme, mise en sécurité, DAC, DAS et diffuseurs sonores",
@@ -1524,6 +1625,26 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Alarme feu = traitement immédiat selon consigne.",
           "Dérangement = anomalie technique à suivre.",
           "Essai = état encadré et identifié comme tel."
+        ],
+        scenarios: [
+          {
+            situation:
+              "La centrale SSI affiche un voyant 'essai' sur la zone 2 depuis le début de matinée, jour où le mainteneur est justement intervenu sur site. En début d'après-midi, un nouveau signal apparaît sur la même zone, mais vous ne savez plus si le mainteneur est toujours présent ou reparti.",
+            question: "Comment traitez-vous ce nouveau signal sur la zone 2 ?",
+            wrongActions: [
+              "Considérer que c'est encore l'essai du mainteneur et ne rien vérifier.",
+              "Ignorer le signal car la zone 2 'a déjà eu son lot d'informations aujourd'hui'.",
+              "Acquitter sans vérifier si le mainteneur est toujours sur site ou reparti.",
+            ],
+            correctActions: [
+              "Vérifier d'abord si le mainteneur est toujours présent et si un essai est réellement en cours.",
+              "Traiter tout signal non confirmé comme une information potentiellement réelle.",
+              "Tracer l'heure, la localisation et l'interlocuteur contacté pour lever le doute.",
+            ],
+            explanation:
+              "La banalisation d'un signal parce qu'il coïncide avec une intervention en cours est une source d'erreur classique. Un état 'essai' doit être formellement confirmé et borné dans le temps — un nouveau signal sur la même zone après le départ du mainteneur doit être traité comme une alarme potentiellement réelle, pas comme une suite de l'essai.",
+            normRef: "NF S 61-933 — exploitation SSI, traçabilité des informations",
+          },
         ],
         chapterImagePath: "/images/alarme-type-4.png",
         chapterImageAlt:
@@ -2144,6 +2265,26 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Toute modification du local doit être évaluée avant d'être réalisée.",
           "Le réaccès se pilote selon les consignes du site — jamais improvisé."
         ],
+        scenarios: [
+          {
+            situation:
+              "Un technicien fait passer un nouveau câble réseau à travers la cloison du local protégé par extinction gaz. Il n'a pas de manchon d'étanchéité adapté sous la main et décide de laisser le passage de câble non rebouché, comptant repasser 'la semaine prochaine' pour le finir proprement.",
+            question: "Cette situation est-elle acceptable en l'état ?",
+            wrongActions: [
+              "Laisser le passage non rebouché puisque ce n'est que temporaire, en attendant le matériel adapté.",
+              "Reboucher grossièrement avec un matériau non certifié pour gagner du temps sans en informer personne.",
+              "Considérer que l'étanchéité du local n'a d'importance que pour l'esthétique, pas pour la sécurité.",
+            ],
+            correctActions: [
+              "Signaler et faire évaluer toute modification du local avant même de la réaliser.",
+              "Reboucher immédiatement avec un dispositif garantissant l'étanchéité prévue, ou différer les travaux.",
+              "Informer le responsable sécurité tant que l'intégrité du local n'est pas rétablie.",
+            ],
+            explanation:
+              "L'intégrité du local protégé conditionne directement l'efficacité du système : une fuite, même par un simple passage de câble non rebouché, peut empêcher le maintien de la concentration d'agent extincteur pendant la durée prévue. Toute modification, même temporaire, doit être signalée et évaluée avant réalisation, pas après.",
+            normRef: "APSAD R13 / NF EN 15004-1 — intégrité du local protégé et test de porte",
+          },
+        ],
         chapterImagePath: "/images/evacuation-securite-incendie.jpg",
         chapterImageAlt:
           "Panneau et procédure d'évacuation d'urgence dans un local protégé par système d'extinction gaz",
@@ -2171,6 +2312,26 @@ export const modulesContent: Record<string, ModuleContent> = {
           "La temporisation — généralement 30 à 60 secondes — s'intercale entre la détection et l'émission pour permettre l'évacuation complète du local. Pendant cette temporisation, une alarme sonore et lumineuse avertit les occupants. Le bouton d'inhibition ou d'arrêt d'urgence, placé à l'entrée du local, permet d'interrompre la séquence si une personne est encore présente et n'a pas pu évacuer.",
           "L'exploitant doit savoir différencier une alarme réelle, un essai, un dérangement et une mise hors service, puis suivre la procédure du site sans improviser de maintenance.",
           "Une neutralisation, un défaut ou une indisponibilité de la chaîne de commande doivent être tracés, traités et compensés selon l'organisation prévue."
+        ],
+        scenarios: [
+          {
+            situation:
+              "L'alarme de détection se déclenche dans un local protégé par extinction gaz. La temporisation de 45 secondes démarre, alarme sonore et lumineuse en cours. Un agent de maintenance se trouve encore à l'intérieur du local, occupé sur une baie technique, et n'a pas immédiatement entendu l'alarme.",
+            question: "Que doit faire l'agent dès qu'il perçoit l'alarme et la temporisation en cours ?",
+            wrongActions: [
+              "Finir rapidement l'opération en cours avant de sortir, la temporisation laissant 'un peu de temps'.",
+              "Sortir du local sans actionner le bouton d'inhibition, en espérant que quelqu'un d'autre l'actionnera.",
+              "Ne pas se préoccuper du bouton d'inhibition, pensant que le système détectera automatiquement sa présence.",
+            ],
+            correctActions: [
+              "Actionner immédiatement le bouton d'inhibition ou d'arrêt d'urgence situé à l'entrée du local.",
+              "Évacuer sans délai dès que l'alarme et la temporisation sont perçues.",
+              "Signaler sa présence et la situation au responsable sécurité une fois à l'extérieur.",
+            ],
+            explanation:
+              "Le bouton d'inhibition existe précisément pour ce cas : une personne encore présente dans le local pendant la temporisation. Il doit être actionné sans délai dès la perception de l'alarme — finir une tâche en cours, même rapide, expose à une émission de gaz potentiellement asphyxiante ou irritante dans un espace non évacué.",
+            normRef: "NF EN 15004-1 — temporisation et dispositif d'inhibition avant émission",
+          },
         ],
         chapterImagePath: "/images/alarme-incendie.jpg",
         chapterImageAlt:
