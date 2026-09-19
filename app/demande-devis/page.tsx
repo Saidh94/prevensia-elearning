@@ -52,6 +52,7 @@ export default function DemandeDevisPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
+  const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -82,6 +83,7 @@ export default function DemandeDevisPage() {
     setEmail("");
     setPhone("");
     setNotes("");
+    setConsent(false);
     setErrorMsg("");
     setSent(false);
   }
@@ -90,6 +92,10 @@ export default function DemandeDevisPage() {
     e.preventDefault();
     if (!email || selected.size === 0) {
       setErrorMsg("Veuillez renseigner votre email et sélectionner au moins une formation.");
+      return;
+    }
+    if (!consent) {
+      setErrorMsg("Veuillez accepter la politique de confidentialité pour envoyer votre demande.");
       return;
     }
     setLoading(true);
@@ -365,6 +371,26 @@ export default function DemandeDevisPage() {
                     {errorMsg}
                   </p>
                 )}
+
+                <label className="mb-4 flex items-start gap-2.5 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    required
+                    className="mt-0.5 h-4 w-4 accent-slate-900 shrink-0"
+                  />
+                  <span className="text-xs text-slate-500 leading-snug">
+                    J&apos;accepte que mes données soient utilisées pour traiter ma demande, conformément à la{" "}
+                    <Link href="/politique-confidentialite" className="text-red-700 underline underline-offset-2" target="_blank">
+                      politique de confidentialité
+                    </Link>{" "}
+                    et aux{" "}
+                    <Link href="/cgu" className="text-red-700 underline underline-offset-2" target="_blank">
+                      CGU
+                    </Link>.
+                  </span>
+                </label>
 
                 <button
                   type="submit"

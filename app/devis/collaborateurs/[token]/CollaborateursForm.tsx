@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Collab = { prenom: string; nom: string; email: string };
 
@@ -25,6 +26,7 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
   );
   const [loading,  setLoading]  = useState(false);
   const [error,    setError]    = useState("");
+  const [consent,  setConsent]  = useState(false);
 
   const alreadyDone = devis.status === "provisioned";
 
@@ -38,6 +40,10 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!consent) {
+      setError("Veuillez confirmer être habilité à transmettre ces données avant d'activer les accès.");
+      return;
+    }
     // Validation basique
     for (let i = 0; i < n; i++) {
       const c = collabs[i];
@@ -98,6 +104,14 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
             Renseignez les informations de chaque collaborateur. Chacun recevra un email
             avec ses identifiants de connexion pour accéder directement à sa formation.
             Vous recevrez un accès à votre <strong>espace employeur</strong> pour suivre leur progression.
+          </p>
+          <p className="mt-2 text-xs text-blue-700">
+            En tant qu&apos;employeur, vous aurez accès au statut de progression et à l&apos;attestation de
+            chaque collaborateur. Chacun en sera informé par email dès la création de son compte,
+            conformément à notre{" "}
+            <Link href="/politique-confidentialite" className="underline underline-offset-2" target="_blank">
+              politique de confidentialité
+            </Link>.
           </p>
         </div>
 
@@ -164,6 +178,28 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
                 {error}
               </p>
             )}
+
+            <label className="flex items-start gap-2.5 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                required
+                className="mt-0.5 h-4 w-4 accent-red-700 shrink-0"
+              />
+              <span className="text-xs text-slate-500 leading-snug">
+                Je confirme être habilité à transmettre ces informations au nom de mon entreprise, et
+                j&apos;accepte que ces collaborateurs soient informés de la création de leur compte,
+                conformément à la{" "}
+                <Link href="/politique-confidentialite" className="text-red-700 underline underline-offset-2" target="_blank">
+                  politique de confidentialité
+                </Link>{" "}
+                et aux{" "}
+                <Link href="/cgu" className="text-red-700 underline underline-offset-2" target="_blank">
+                  CGU
+                </Link>.
+              </span>
+            </label>
 
             <button
               type="submit"

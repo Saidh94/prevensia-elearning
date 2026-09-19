@@ -107,7 +107,11 @@ export async function GET(req: Request) {
         "<div style=\"background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:16px;margin-top:20px;font-size:13px;color:#1e40af\">",
         "Financement OPCO possible selon les critères de votre financeur.<br/>",
         "<a href=\"https://prevensia-formation.fr/demande-devis\" style=\"color:#2563eb\">Demander un devis sous 48h</a>",
-        "</div></body></html>",
+        "</div>",
+        "<p style=\"font-size:11px;color:#94a3b8;margin-top:20px\">",
+        "Pour ne plus recevoir nos communications : ",
+        "<a href=\"mailto:contact@prevensia-formation.fr?subject=D%C3%A9sinscription&body=Je%20souhaite%20me%20d%C3%A9sinscrire\" style=\"color:#94a3b8\">se désinscrire</a>",
+        "</p></body></html>",
       ].join("");
 
       await fetch("https://api.resend.com/emails", {

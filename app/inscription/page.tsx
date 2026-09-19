@@ -127,6 +127,7 @@ function InscriptionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [consent, setConsent] = useState(false);
 
   const optionsFormation = useMemo(() => {
     if (!form.categorie) return [];
@@ -156,9 +157,10 @@ function InscriptionForm() {
       form.prenom.trim() !== "" &&
       form.email.trim() !== "" &&
       form.categorie.trim() !== "" &&
-      form.formation.trim() !== ""
+      form.formation.trim() !== "" &&
+      consent
     );
-  }, [form]);
+  }, [form, consent]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -234,6 +236,7 @@ function InscriptionForm() {
         telephone: "",
         entreprise: "",
       }));
+      setConsent(false);
     } catch (err) {
       setError(
         err instanceof Error
@@ -427,6 +430,27 @@ function InscriptionForm() {
                 {error}
               </div>
             )}
+
+            <label className="flex items-start gap-2.5 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                required
+                className="mt-0.5 h-4 w-4 accent-red-700 shrink-0"
+              />
+              <span className="text-sm text-slate-600 leading-snug">
+                J&apos;accepte que mes données soient utilisées pour traiter mon inscription, conformément à
+                la{" "}
+                <Link href="/politique-confidentialite" className="text-red-700 underline underline-offset-2" target="_blank">
+                  politique de confidentialité
+                </Link>{" "}
+                et aux{" "}
+                <Link href="/cgu" className="text-red-700 underline underline-offset-2" target="_blank">
+                  CGU
+                </Link>.
+              </span>
+            </label>
 
             <div className="flex flex-wrap gap-3 pt-2">
               <button

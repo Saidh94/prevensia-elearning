@@ -221,6 +221,11 @@ function buildWelcomeEmail(
         Accéder à ma formation →
       </a>
     </p>
+    <p style="font-size:13px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;">
+      Votre entreprise, en tant que financeur de cette formation, a accès à votre statut de progression
+      et à votre attestation de suivi. Le détail de vos réponses aux quiz reste confidentiel. Pour en
+      savoir plus, consultez notre <a href="${SITE_URL}/politique-confidentialite" style="color:#b91c1c;">politique de confidentialité</a>.
+    </p>
     <hr style="margin:24px 0;border:none;border-top:1px solid #e2e8f0;"/>
     <p style="font-size:12px;color:#64748b;">${COMPANY.name} · ${COMPANY.addressShort}</p>
   `;

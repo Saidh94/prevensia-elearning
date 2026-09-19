@@ -264,6 +264,13 @@ export default function DashboardPage() {
               </Link>
             ) : null}
 
+            <Link
+              href="/mes-donnees"
+              className="inline-flex items-center rounded-lg border border-white/20 px-3 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Mes données
+            </Link>
+
             <LogoutButton />
           </div>
         </div>

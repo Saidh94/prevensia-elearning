@@ -185,6 +185,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/cgu" className="hover:text-white">
+                  CGU
+                </Link>
+              </li>
+              <li>
                 <Link href="/reglement-interieur" className="hover:text-white">
                   Règlement intérieur
                 </Link>

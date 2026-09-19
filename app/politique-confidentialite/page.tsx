@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
@@ -11,13 +12,15 @@ export default function PolitiqueConfidentialitePage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-slate-900">Politique de confidentialité</h1>
-      <p className="mt-2 text-sm text-slate-500">Dernière mise à jour : août 2026</p>
+      <p className="mt-2 text-sm text-slate-500">Dernière mise à jour : septembre 2026</p>
 
       <section className="mt-10 space-y-3 text-sm text-slate-700">
         <h2 className="text-lg font-semibold text-slate-900">1. Responsable du traitement</h2>
         <p>
-          Le responsable du traitement des données est <strong>PREVENSIA FORMATION</strong>,
-          joignable à l'adresse : <a href="mailto:contact@prevensia-formation.fr" className="text-red-700 hover:underline">contact@prevensia-formation.fr</a>.
+          Le responsable du traitement des données est <strong>{COMPANY.legalName}</strong> (marque commerciale
+          {" "}{COMPANY.name}), joignable à l'adresse :{" "}
+          <a href={`mailto:${COMPANY.email}`} className="text-red-700 hover:underline">{COMPANY.email}</a>.
+          Nous nous engageons à répondre à toute demande relative à vos données sous un délai maximal d'un mois.
         </p>
       </section>
 
@@ -50,11 +53,25 @@ export default function PolitiqueConfidentialitePage() {
       </section>
 
       <section className="mt-10 space-y-3 text-sm text-slate-700">
-        <h2 className="text-lg font-semibold text-slate-900">5. Destinataires des données</h2>
+        <h2 className="text-lg font-semibold text-slate-900">5. Destinataires des données et sous-traitants</h2>
         <p>
-          Les données sont traitées par PREVENSIA FORMATION et ses sous-traitants techniques (hébergement Vercel, envoi d'e-mails Resend, paiement Stripe).
-          Elles ne sont jamais vendues ni cédées à des tiers à des fins commerciales.
+          Les données sont traitées par {COMPANY.legalName} et les sous-traitants techniques suivants, chacun
+          intervenant dans la limite de ce qui est nécessaire à sa mission :
         </p>
+        <ul className="ml-4 list-disc space-y-1">
+          <li><strong>Supabase :</strong> hébergement de la base de données (comptes, inscriptions, devis, factures).</li>
+          <li><strong>Vercel :</strong> hébergement du site.</li>
+          <li><strong>Resend :</strong> envoi des e-mails transactionnels et de prospection commerciale.</li>
+          <li><strong>Stripe :</strong> traitement des paiements en ligne.</li>
+          <li>
+            <strong>Anthropic :</strong> fournisseur de l'assistant conversationnel (chatbot) et de l'outil de
+            rédaction assistée des e-mails de prospection. Les échanges avec le chatbot et les données de contact
+            des prospects peuvent lui être transmis à seule fin de générer une réponse ou un e-mail ; nous vous
+            invitons à ne pas transmettre de données sensibles via cet outil.
+          </li>
+          <li><strong>n8n (hébergement Hetzner) :</strong> automatisation de la gestion de nos prospects (CRM).</li>
+        </ul>
+        <p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales.</p>
       </section>
 
       <section className="mt-10 space-y-3 text-sm text-slate-700">
@@ -71,9 +88,14 @@ export default function PolitiqueConfidentialitePage() {
         <p>
           Conformément au RGPD, vous disposez des droits suivants : accès, rectification, suppression, portabilité, limitation du traitement, opposition.
           Pour exercer ces droits, contactez-nous à{" "}
-          <a href="mailto:contact@prevensia-formation.fr" className="text-red-700 hover:underline">
-            contact@prevensia-formation.fr
+          <a href={`mailto:${COMPANY.email}`} className="text-red-700 hover:underline">
+            {COMPANY.email}
           </a>.
+          Si vous disposez d&apos;un compte, vous pouvez exercer vos droits d&apos;accès et de suppression
+          directement depuis votre espace :{" "}
+          <Link href="/mes-donnees" className="text-red-700 hover:underline">
+            télécharger mes données ou supprimer mon compte
+          </Link>.
           Vous pouvez également introduire une réclamation auprès de la{" "}
           <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-red-700 hover:underline">
             CNIL
@@ -85,6 +107,17 @@ export default function PolitiqueConfidentialitePage() {
         <h2 className="text-lg font-semibold text-slate-900">8. Cookies</h2>
         <p>
           Ce site utilise uniquement des cookies techniques strictement nécessaires (authentification, session). Aucun cookie publicitaire ou de tracking tiers n'est déposé sans votre accord.
+        </p>
+      </section>
+
+      <section className="mt-10 space-y-3 text-sm text-slate-700">
+        <h2 className="text-lg font-semibold text-slate-900">9. Transferts internationaux de données</h2>
+        <p>
+          Certains de nos sous-traitants techniques (Vercel, Anthropic, Stripe, Resend) sont des sociétés
+          établies aux États-Unis et peuvent traiter tout ou partie des données en dehors de l'Union européenne.
+          Ces transferts sont encadrés par les garanties prévues par le RGPD (notamment les clauses
+          contractuelles types de la Commission européenne). Nous vous invitons à nous contacter pour toute
+          question relative à ces transferts.
         </p>
       </section>
 
