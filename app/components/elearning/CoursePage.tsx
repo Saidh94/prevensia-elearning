@@ -37,7 +37,86 @@ function ChapterImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+// Extracts a YouTube video ID from a direct video URL (youtu.be/ID or
+// youtube.com/watch?v=ID). Returns null for non-video links such as
+// channel search pages, which cannot be embedded.
+function extractYouTubeId(url: string): string | null {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./, "");
+    if (host === "youtu.be") {
+      const id = parsed.pathname.slice(1);
+      return id || null;
+    }
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (parsed.pathname === "/watch") {
+        return parsed.searchParams.get("v");
+      }
+      if (parsed.pathname.startsWith("/embed/")) {
+        return parsed.pathname.split("/embed/")[1] || null;
+      }
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function EmbeddedVideoPlayer({ video, videoId }: { video: ModuleResourceVideo; videoId: string }) {
+  const [started, setStarted] = useState(false);
+  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+  return (
+    <div className="overflow-hidden rounded-2xl border border-blue-200 bg-blue-50">
+      <div className="relative aspect-video w-full bg-slate-900">
+        {started ? (
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&cc_load_policy=1&cc_lang_pref=fr&hl=fr&rel=0`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setStarted(true)}
+            aria-label={`Lire la vidéo : ${video.title}`}
+            className="group absolute inset-0 flex h-full w-full items-center justify-center bg-cover bg-center"
+            style={{ backgroundImage: `url(${thumbnailUrl})` }}
+          >
+            <span className="absolute inset-0 bg-slate-900/30 transition group-hover:bg-slate-900/40" />
+            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-blue-700 shadow-lg transition group-hover:scale-105">
+              <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+      <div className="p-4">
+        {video.provider && (
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-600">
+            {video.provider}
+          </p>
+        )}
+        <p className="mt-0.5 text-sm font-semibold leading-6 text-slate-900">{video.title}</p>
+        <p className="mt-1 text-xs leading-5 text-slate-600">{video.description}</p>
+        <p className="mt-2 text-[11px] leading-5 text-slate-400">
+          Sous-titres disponibles via l&apos;icône « CC » du lecteur.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function ResourceVideoCard({ video }: { video: ModuleResourceVideo }) {
+  const videoId = extractYouTubeId(video.url);
+
+  if (videoId) {
+    return <EmbeddedVideoPlayer video={video} videoId={videoId} />;
+  }
+
   return (
     <a
       href={video.url}

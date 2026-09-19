@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import VisualBlock from "@/app/components/elearning/VisualBlock";
 import { RecapVideoWidget } from "@/app/components/elearning/RecapVideoWidget";
 import { formatFrenchDisplayText } from "@/lib/french-display";
@@ -1108,10 +1108,41 @@ export default function CoursPage() {
     currentCompleted ||
     currentSeconds >= (currentChapter?.minSeconds ?? 0);
 
+  // Suivi de visibilité/focus : le temps ne doit être crédité que lorsque
+  // l'onglet est visible et la fenêtre active au premier plan. Sans cela,
+  // un apprenant peut laisser le cours ouvert en arrière-plan (autre onglet,
+  // autre application, écran verrouillé) et accumuler du temps sans
+  // consulter réellement le contenu.
+  const isActiveRef = useRef(true);
+
+  useEffect(() => {
+    const updateActivity = () => {
+      isActiveRef.current =
+        document.visibilityState === "visible" && document.hasFocus();
+    };
+
+    updateActivity();
+    document.addEventListener("visibilitychange", updateActivity);
+    window.addEventListener("focus", updateActivity);
+    window.addEventListener("blur", updateActivity);
+
+    return () => {
+      document.removeEventListener("visibilitychange", updateActivity);
+      window.removeEventListener("focus", updateActivity);
+      window.removeEventListener("blur", updateActivity);
+    };
+  }, []);
+
   useEffect(() => {
     if (!canonicalSlug || !currentChapter) return;
 
     const saveInterval = setInterval(async () => {
+      if (!isActiveRef.current) {
+        // Onglet masqué ou fenêtre sans focus : on ne crédite aucun temps
+        // pour cet intervalle.
+        return;
+      }
+
       try {
         await fetch("/api/chapter-progress", {
           method: "POST",
