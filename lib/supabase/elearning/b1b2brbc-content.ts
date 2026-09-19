@@ -63,7 +63,7 @@ export const b1b2brbcModuleContent: ModuleContent = {
           title: "Webinaire INRS - Comment choisir les habilitations électriques ?",
           description:
             "Support officiel très utile pour vérifier les frontieres entre B1, B2, BR, BC et la logique de choix du symbole.",
-          url: "https://www.inrs.fr/media.html?refINRS=Anim-184",
+          url: "https://youtu.be/whl-jx7-XrQ",
           provider: "INRS",
           ctaLabel: "Voir le webinaire INRS",
         },

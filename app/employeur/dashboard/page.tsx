@@ -194,7 +194,7 @@ export default async function EmployeurDashboardPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect("/connexion");
+    redirect("/connexion?redirectTo=/employeur/dashboard");
   }
 
   const { data: employerUser, error: employerUserError } = await supabase

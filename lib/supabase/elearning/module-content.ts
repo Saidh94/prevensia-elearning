@@ -823,7 +823,7 @@ export const modulesContent: Record<string, ModuleContent> = {
       title: "INRS - SST et secourisme au travail",
       description:
         "Vidéo INRS sur la logique protéger / examiner / alerter / secourir et la place du SST en entreprise.",
-      url: "https://www.inrs.fr/media.html?refINRS=Anim-049",
+      url: "https://youtu.be/Shs90Z_V0cg",
       provider: "INRS",
       ctaLabel: "Voir la vidéo INRS",
     },
@@ -2495,7 +2495,7 @@ export const modulesContent: Record<string, ModuleContent> = {
             title: "INRS — SST et secourisme au travail",
             description:
               "Ressource INRS qui ancre la place du SST dans l'entreprise et la logique d'intervention face à un accident du travail.",
-            url: "https://www.inrs.fr/media.html?refINRS=Anim-049",
+            url: "https://youtu.be/Shs90Z_V0cg",
             provider: "INRS",
             ctaLabel: "Voir la vidéo INRS",
           },

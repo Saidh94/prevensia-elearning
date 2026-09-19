@@ -29,7 +29,7 @@ type SessionWithPresences = Session & { presences: Presence[] };
 export default async function FormateurDashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/connexion");
+  if (!user) redirect("/connexion?redirectTo=/formateur/dashboard");
 
   // Vérifier le rôle formateur
   const { data: profile } = await supabase

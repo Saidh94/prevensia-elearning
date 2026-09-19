@@ -47,11 +47,20 @@ export function Header() {
         {/* Actions droite */}
         <div className="flex items-center gap-2">
           <Link
-            href="/elearning"
+            href="/dashboard"
             className="hidden rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 sm:inline-flex"
           >
-            E-learning
+            Espace client
           </Link>
+
+          <a
+            href="/formateur/dashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 lg:inline-flex"
+          >
+            Formateur ↗
+          </a>
 
           <a
             href="/employeur/dashboard"
@@ -107,12 +116,22 @@ export function Header() {
             <div className="my-2 border-t border-slate-100" />
 
             <Link
-              href="/elearning"
+              href="/dashboard"
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-2.5 hover:bg-slate-50 hover:text-red-700"
             >
-              E-learning
+              Espace client
             </Link>
+
+            <a
+              href="/formateur/dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-2.5 hover:bg-slate-50 hover:text-red-700"
+            >
+              Espace formateur ↗
+            </a>
 
             <a
               href="/employeur/dashboard"

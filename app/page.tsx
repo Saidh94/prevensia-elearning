@@ -112,14 +112,14 @@ const inrsVideoResources = [
     title: "INRS - Les bases de l'habilitation électrique",
     description:
       "Une ressource utile pour comprendre le rôle de l'habilitation, la place de la formation et la responsabilité de l'employeur.",
-    href: "https://www.inrs.fr/media.html?refINRS=Anim-132",
+    href: "https://youtu.be/JCC37xsQFLk",
     badge: "Vidéo INRS",
   },
   {
     title: "INRS - Comment choisir les habilitations électriques ?",
     description:
       "Webinaire officiel pour recaler les symboles, les rôles et le choix du bon parcours selon les missions réelles.",
-    href: "https://www.inrs.fr/media.html?refINRS=Anim-184",
+    href: "https://youtu.be/whl-jx7-XrQ",
     badge: "Webinaire INRS",
   },
 ];

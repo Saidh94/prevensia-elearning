@@ -131,6 +131,21 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/dashboard" className="hover:text-white">
+                  Espace client
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/formateur/dashboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  Espace formateur ↗
+                </a>
+              </li>
+              <li>
                 <a
                   href="/employeur/dashboard"
                   target="_blank"

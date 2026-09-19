@@ -52,7 +52,7 @@ const inrsSstResources = [
     title: "INRS - Vidéo SST et secourisme au travail",
     description:
       "Ressource INRS utile pour renforcer la culture de prévention, la logique protéger / examiner / alerter / secourir et la place du SST dans l'entreprise.",
-    href: "https://www.inrs.fr/media.html?refINRS=Anim-049",
+    href: "https://youtu.be/Shs90Z_V0cg",
     badge: "INRS",
     cta: "Voir la vidéo INRS",
   },

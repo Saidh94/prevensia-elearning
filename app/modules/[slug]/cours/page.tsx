@@ -84,7 +84,7 @@ const INRS_VIDEO_RESOURCES = {
     title: "Video INRS - Les bases de l'habilitation electrique",
     description:
       "Ressource officielle INRS pour rappeler le role de l'habilitation, la place de l'employeur et les grands reperes de prevention.",
-    url: "https://www.inrs.fr/media.html?refINRS=Anim-132",
+    url: "https://youtu.be/JCC37xsQFLk",
     provider: "INRS",
     ctaLabel: "Voir la video INRS",
   },
@@ -92,7 +92,7 @@ const INRS_VIDEO_RESOURCES = {
     title: "Webinaire INRS - Comment choisir les habilitations electriques ?",
     description:
       "Support INRS utile pour recaler les symboles, les roles, les limites d'action et la logique de choix des habilitations.",
-    url: "https://www.inrs.fr/media.html?refINRS=Anim-184",
+    url: "https://youtu.be/whl-jx7-XrQ",
     provider: "INRS",
     ctaLabel: "Voir le webinaire INRS",
   },
