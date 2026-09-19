@@ -982,12 +982,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Déclencheur et dispositif d'alarme incendie en environnement de travail",
         resourceVideos: [
           {
-            title: "Ressource INRS - risque incendie",
+            title: "Vidéo INRS - Prévention des incendies",
             description:
-              "Sélection officielle INRS utile pour renforcer la culture de prévention avant l’alerte et l’intervention.",
-            url: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+              "Animation officielle INRS sur la prévention des incendies dès la conception des lieux de travail, utile pour renforcer la culture de prévention avant l’alerte et l’intervention.",
+            url: "https://youtu.be/AcT6LJGUGsQ",
             provider: "INRS",
-            ctaLabel: "Voir les ressources INRS",
+            ctaLabel: "Voir la vidéo INRS",
           },
         ],
         visual: {
@@ -1125,12 +1125,12 @@ export const modulesContent: Record<string, ModuleContent> = {
         ],
         resourceVideos: [
           {
-            title: "Ressource INRS - évacuation incendie",
+            title: "Vidéo INRS - Évacuation des locaux en cas d'incendie",
             description:
-              "Sélection INRS utile pour ancrer les bons réflexes d’évacuation et de mise en sécurité des personnes.",
-            url: "https://www.youtube.com/@INRSFrance/search?query=évacuation%20incendie",
+              "Vidéo officielle INRS sur les définitions, la prévention et les actions d'évacuation, utile pour ancrer les bons réflexes de mise en sécurité des personnes.",
+            url: "https://youtu.be/jBM0nzXnBFw",
             provider: "INRS",
-            ctaLabel: "Voir les ressources INRS",
+            ctaLabel: "Voir la vidéo INRS",
           },
         ],
         chapterImagePath: "/images/evacuation-securite-incendie.jpg",
@@ -1470,12 +1470,12 @@ export const modulesContent: Record<string, ModuleContent> = {
           "Schéma simplifié de fonctionnement d'un système incendie avec détecteurs, déclencheurs manuels, sirène et centrale",
         resourceVideos: [
           {
-            title: "INRS France - Selection videos risque incendie",
+            title: "Vidéo INRS - Prévention des incendies",
             description:
-              "Sélection officielle INRS pour compléter les notions d'alarme, de détection, de réflexes incendie et de mise en sécurité.",
-            url: "https://www.youtube.com/@INRSFrance/search?query=risque%20incendie",
+              "Animation officielle INRS pour compléter les notions d'alarme, de détection, de réflexes incendie et de mise en sécurité.",
+            url: "https://youtu.be/AcT6LJGUGsQ",
             provider: "INRS France",
-            ctaLabel: "Voir la selection INRS",
+            ctaLabel: "Voir la vidéo INRS",
           },
         ],
         visual: {

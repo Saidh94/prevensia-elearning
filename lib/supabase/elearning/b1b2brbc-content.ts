@@ -483,12 +483,12 @@ export const b1b2brbcModuleContent: ModuleContent = {
       ],
       resourceVideos: [
         {
-          title: "Chaîne INRS France - sélection risque électrique",
+          title: "Napo dans... Chocs électriques ! (film complet)",
           description:
-            "Sélection officielle INRS sur YouTube pour compléter le chapitre avec des rappels visuels sur le risque électrique, la consignation et la prévention.",
-          url: "https://www.youtube.com/@INRSFrance/search?query=Risque%20%C3%A9lectrique",
+            "Film d'animation officiel INRS sur le risque électrique, utile pour compléter le chapitre avec des rappels visuels sur les chocs électriques et la prévention.",
+          url: "https://youtu.be/wyJbFJOdGGo",
           provider: "INRS France",
-          ctaLabel: "Voir la sélection YouTube",
+          ctaLabel: "Voir la vidéo INRS",
         },
       ],
       practicalCase:

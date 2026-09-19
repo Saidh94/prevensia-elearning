@@ -97,12 +97,12 @@ const INRS_VIDEO_RESOURCES = {
     ctaLabel: "Voir le webinaire INRS",
   },
   channel: {
-    title: "Chaine INRS France - selection risque electrique",
+    title: "Napo dans... Chocs electriques ! (film complet)",
     description:
-      "Acces direct a la selection officielle INRS sur YouTube autour du risque electrique et de l'habilitation.",
-    url: "https://www.youtube.com/@INRSFrance/search?query=Risque%20%C3%A9lectrique",
+      "Film d'animation officiel INRS sur le risque electrique, utile pour illustrer les symboles et les situations d'habilitation.",
+    url: "https://youtu.be/wyJbFJOdGGo",
     provider: "INRS France",
-    ctaLabel: "Voir la selection YouTube",
+    ctaLabel: "Voir la video INRS",
   },
 } as const;
 
