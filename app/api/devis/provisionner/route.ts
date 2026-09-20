@@ -100,6 +100,15 @@ export async function POST(request: Request) {
         // même un moyen de définir/redéfinir son mot de passe. Sans ce lien, l'email de
         // bienvenue renvoyait vers /connexion sans aucun token, et l'utilisateur restait
         // bloqué sur "Invalid login credentials" sans jamais avoir pu créer de mot de passe.
+        //
+        // On construit le lien vers /auth/confirm (avec token_hash) plutôt que d'utiliser
+        // directement action_link : action_link pointe vers l'URL de vérification Supabase,
+        // qui consomme le token dès qu'elle reçoit une requête GET — y compris quand la
+        // messagerie du destinataire "pré-visite" automatiquement les liens d'un email pour
+        // en vérifier la sécurité (Gmail, Outlook...), ce qui invalide le lien avant même
+        // que la personne ne clique dessus. /auth/confirm affiche un bouton à cliquer
+        // explicitement, qui appelle verifyOtp() côté client — un robot de scan d'email
+        // ne peut pas déclencher ce clic.
         let recoveryActionLink: string | null = null;
 
         if (inviteErr || !inviteData?.user) {
@@ -123,8 +132,10 @@ export async function POST(request: Request) {
               `[devis/provisionner] Erreur generation lien recovery pour ${collab.email}:`,
               linkErr.message
             );
-          } else {
-            recoveryActionLink = linkData?.properties?.action_link ?? null;
+          } else if (linkData?.properties?.hashed_token) {
+            recoveryActionLink = `${SITE_URL}/auth/confirm?token_hash=${encodeURIComponent(
+              linkData.properties.hashed_token
+            )}&type=recovery`;
           }
         }
 

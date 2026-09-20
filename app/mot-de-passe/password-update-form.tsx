@@ -52,10 +52,19 @@ export default function PasswordUpdateForm({
       return;
     }
 
-    setSuccess("Mot de passe mis à jour avec succès.");
+    setSuccess("Mot de passe enregistré ! Redirection vers votre espace...");
     setPassword("");
     setConfirmPassword("");
     router.refresh();
+
+    // Redirige automatiquement vers le dashboard une fois le mot de passe
+    // enregistré. Sans ça, les champs se vidaient et le formulaire restait
+    // affiché — ce qui donnait l'impression qu'il redemandait un mot de passe
+    // en boucle, notamment pour un compte invité qui n'a jamais eu de mot de
+    // passe "temporaire" à remplacer.
+    setTimeout(() => {
+      router.push("/dashboard");
+    }, 1200);
   }
 
   return (
@@ -68,7 +77,7 @@ export default function PasswordUpdateForm({
       </h1>
       <p className="mt-4 text-sm leading-7 text-slate-600">
         Connecté avec <span className="font-semibold text-slate-900">{email}</span>.
-        Remplacez le mot de passe temporaire par un mot de passe personnel.
+        Définissez votre mot de passe personnel pour accéder à votre espace.
       </p>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-4">
