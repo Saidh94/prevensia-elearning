@@ -214,8 +214,7 @@ export async function POST(request: Request) {
         enabled: true,
         invoice_data: {
           description: `Formation : ${paymentOption.label}`,
-          footer:
-            "${COMPANY.name} — ${COMPANY.legalName} — ${COMPANY.addressFull} — ${COMPANY.email}",
+          footer: `${COMPANY.name} — ${COMPANY.legalName} — ${COMPANY.addressFull} — ${COMPANY.email}`,
           metadata: {
             enrollmentId: enrollment.id,
             formationSlug: formation?.slug ?? "",

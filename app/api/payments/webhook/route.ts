@@ -4,13 +4,101 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import Stripe from "stripe";
 import { COMPANY } from "@/lib/company";
+import { getModuleContentBySlug, getModuleLabelBySlug } from "@/lib/supabase/elearning/module-registry";
+import { generateConventionPdf } from "@/lib/convention/generate-convention-pdf";
+import { generateProgrammePdf, buildProgrammeInputFromModuleContent } from "@/lib/programme/generate-programme-pdf";
 
 export const runtime = "nodejs";
+
+const TVA_EXEMPT = process.env.PREVENSIA_TVA_EXEMPT === "true";
+const TVA_RATE = TVA_EXEMPT ? 0 : 20;
 
 function getResend() {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) return null;
   return new Resend(apiKey);
+}
+
+type EnrollmentDetailsRow = {
+  id: string;
+  user_id: string;
+  formation_id: string | null;
+  company_name: string | null;
+  access_start: string | null;
+  access_end: string | null;
+  created_at: string;
+  formations: { title: string | null; slug: string | null } | { title: string | null; slug: string | null }[] | null;
+};
+
+function getSingleFormation(
+  formation: EnrollmentDetailsRow["formations"]
+): { title: string | null; slug: string | null } | null {
+  if (!formation) return null;
+  return Array.isArray(formation) ? formation[0] ?? null : formation;
+}
+
+/** Génère la convention de formation + le programme, pour joindre aux côtés de la facture. */
+async function buildComplianceDocuments(
+  supabase: ReturnType<typeof createAdminClient>,
+  enrollmentId: string,
+  invoiceTotalCents: number | null
+) {
+  if (!supabase) return null;
+
+  const { data: enrollment } = await supabase
+    .from("enrollments")
+    .select(
+      `id, user_id, formation_id, company_name, access_start, access_end, created_at, formations ( title, slug )`
+    )
+    .eq("id", enrollmentId)
+    .maybeSingle<EnrollmentDetailsRow>();
+
+  if (!enrollment) return null;
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("first_name, last_name, email")
+    .eq("id", enrollment.user_id)
+    .maybeSingle<{ first_name: string | null; last_name: string | null; email: string | null }>();
+
+  const formation = getSingleFormation(enrollment.formations);
+  const moduleContent = formation?.slug ? getModuleContentBySlug(formation.slug) : null;
+  const formationTitle =
+    (formation?.slug && getModuleLabelBySlug(formation.slug)) || formation?.title || "Formation PREVENSIA";
+
+  const learnerFullName =
+    [profile?.first_name, profile?.last_name].filter(Boolean).join(" ").trim() || profile?.email || "Apprenant";
+  const learnerEmail = profile?.email || "";
+  const beneficiaryIsCompany = Boolean(enrollment.company_name?.trim());
+  const beneficiaryName = beneficiaryIsCompany ? enrollment.company_name!.trim() : learnerFullName;
+
+  const priceTTC = invoiceTotalCents ? invoiceTotalCents / 100 : 0;
+  const priceHT = TVA_EXEMPT ? priceTTC : Math.round((priceTTC / 1.2) * 100) / 100;
+
+  const conventionPdf = await generateConventionPdf({
+    numero: `CONV-${enrollment.id.slice(0, 8).toUpperCase()}`,
+    dateSignature: enrollment.created_at,
+    beneficiaryName,
+    beneficiaryIsCompany,
+    learnerFullName,
+    learnerEmail,
+    formationTitle,
+    durationLabel: moduleContent?.duration || "",
+    deliveryFormat: moduleContent?.deliveryFormat || "",
+    objective: moduleContent?.objective,
+    priceHT,
+    priceTTC,
+    tvaRate: TVA_RATE,
+    tvaExempt: TVA_EXEMPT,
+    accessStart: enrollment.access_start || enrollment.created_at,
+    accessEnd: enrollment.access_end,
+  });
+
+  const programmePdf = moduleContent
+    ? await generateProgrammePdf(buildProgrammeInputFromModuleContent(moduleContent, formationTitle))
+    : null;
+
+  return { conventionPdf, programmePdf, formationTitle };
 }
 
 function getEnrollmentId(session: Stripe.Checkout.Session): string | null {
@@ -74,6 +162,33 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
     const formationTitle = session.metadata?.formationTitle || "votre formation";
     const resend = getResend();
 
+    // ── Convention de formation + programme (obligations Code du travail) ────
+    const attachments: { filename: string; content: string }[] = [];
+    try {
+      const adminForDocs = createAdminClient();
+      const docs = await buildComplianceDocuments(
+        adminForDocs,
+        enrollmentId,
+        invoice.total ?? session.amount_total ?? null
+      );
+      if (docs) {
+        if (docs.conventionPdf) {
+          attachments.push({
+            filename: `Convention-de-formation.pdf`,
+            content: Buffer.from(docs.conventionPdf).toString("base64"),
+          });
+        }
+        if (docs.programmePdf) {
+          attachments.push({
+            filename: `Programme-de-formation.pdf`,
+            content: Buffer.from(docs.programmePdf).toString("base64"),
+          });
+        }
+      }
+    } catch (docErr) {
+      console.error("[Webhook] Erreur generation convention/programme :", docErr);
+    }
+
     if (resend && customerEmail && invoiceUrl) {
       await resend.emails.send({
         from: "PREVENSIA <contact@prevensia-formation.fr>",
@@ -95,8 +210,9 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
                 Télécharger ma facture
               </a>
             </p>
+            ${attachments.length ? `<p style="font-size:13px;color:#64748b;">Votre convention de formation et le programme détaillé sont joints à cet e-mail au format PDF.</p>` : ""}
             <p style="font-size:13px;color:#64748b;">
-              Votre facture est également disponible en permanence depuis votre espace apprenant sur
+              Ces documents sont également disponibles en permanence depuis votre espace apprenant sur
               <a href="https://prevensia-formation.fr/dashboard" style="color:#1e293b;">prevensia-formation.fr/dashboard</a>.
             </p>
             <hr style="border:none;border-top:1px solid #e2e8f0;margin:28px 0;" />
@@ -106,6 +222,7 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
             </p>
           </div>
         `,
+        attachments: attachments.length ? attachments : undefined,
       });
     }
   } catch (err) {
