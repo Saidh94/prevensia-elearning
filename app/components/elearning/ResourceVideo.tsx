@@ -37,8 +37,6 @@ function EmbeddedVideoPlayer({
   videoId: string;
 }) {
   const [started, setStarted] = useState(false);
-  const [thumbFailed, setThumbFailed] = useState(false);
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
     <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white">
@@ -58,20 +56,12 @@ function EmbeddedVideoPlayer({
             aria-label={`Lire la vidéo : ${video.title}`}
             className="group absolute inset-0 flex h-full w-full items-center justify-center overflow-hidden"
           >
-            {/* Miniature en simple <img> avec repli silencieux : si un bloqueur de
-                pub/tracker bloque i.ytimg.com, le bouton de lecture reste
-                utilisable sur le fond dégradé, sans icône d'image cassée. */}
-            {!thumbFailed ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={thumbnailUrl}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 h-full w-full object-cover"
-                onError={() => setThumbFailed(true)}
-              />
-            ) : null}
-            <span className="absolute inset-0 bg-slate-900/30 transition group-hover:bg-slate-900/40" />
+            {/* Pas de miniature externe (i.ytimg.com) : certains bloqueurs de pub
+                remplacent l'image par un visuel "bloqué" au lieu de faire échouer
+                la requête, ce qui empêche tout repli via onError. On garde donc
+                uniquement le fond dégradé + bouton lecture, qui ne dépend d'aucun
+                domaine tiers et fonctionne dans tous les cas. */}
+            <span className="absolute inset-0 bg-slate-900/10 transition group-hover:bg-slate-900/20" />
             <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-red-700 shadow-lg transition group-hover:scale-105">
               <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
                 <path d="M8 5v14l11-7z" />
