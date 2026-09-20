@@ -23,7 +23,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "introduction-ssiap",
       title: "1. Le SSIAP — Service de Sécurité Incendie et d'Assistance aux Personnes",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-organisation.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-organisation.jpg",
       chapterImageAlt: "Organisation SSIAP — Niveaux 1 (agent), 2 (chef d'équipe), 3 (chef de service)",
       intro:
         "Le SSIAP structure la sécurité incendie dans les établissements recevant du public. Comprendre son organisation, ses niveaux et ses missions est la première étape pour tout agent ou salarié d'ERP.",
@@ -50,7 +50,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "reglementation-erp",
       title: "2. Réglementation ERP et IGH — cadre légal",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-erp-classification.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-erp-classification.jpg",
       chapterImageAlt: "Classification des ERP — Types (M,N,O,R,U,W…) et Catégories (1re à 5e) avec capacités d'accueil",
       intro:
         "La réglementation incendie dans les ERP est l'une des plus strictes du droit français. Elle définit les obligations en matière de construction, d'équipements et d'organisation de la sécurité.",
@@ -79,7 +79,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "mecanisme-feu",
       title: "3. Le feu — mécanisme, tétraèdre et modes de propagation",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-tetraedre-feu.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-tetraedre-feu.jpg",
       chapterImageAlt: "Le tétraèdre du feu — 4 conditions et 4 méthodes d'extinction",
       intro:
         "Pour éteindre efficacement un feu, il faut comprendre ce qu'il est. Le feu est une réaction chimique d'oxydation dont le maintien nécessite quatre conditions simultanées — le tétraèdre du feu.",
@@ -107,7 +107,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "classes-feux",
       title: "4. Les 5 classes de feux — A, B, C, D, F",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-classes-feux.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-classes-feux.jpg",
       chapterImageAlt: "Les 5 classes de feux : A (solides), B (liquides), C (gaz), D (métaux), F (graisses alimentaires)",
       intro:
         "Chaque classe de feu correspond à un type de combustible spécifique. Identifier correctement la classe est indispensable pour choisir le bon agent extincteur — une erreur peut aggraver l'incendie.",
@@ -130,7 +130,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "agents-extincteurs",
       title: "5. Agents extincteurs et moyens de lutte — extincteurs et RIA",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-extincteurs.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-extincteurs.jpg",
       chapterImageAlt: "Types d'extincteurs et adéquation aux classes de feux — méthode DAPS",
       intro:
         "Choisir le bon extincteur est la première décision critique. Chaque type d'extincteur correspond à des classes de feux précises. Un extincteur mal choisi peut aggraver l'incendie.",
@@ -171,7 +171,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "ssi-detection-alarme",
       title: "6. Système de Sécurité Incendie (SSI) — détection et alarme",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-ssi-schema.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-ssi-schema.jpg",
       chapterImageAlt: "Schéma SSI — DAI et DM → SDI → CMSI → DAS (portes CF, désenfumage, issues) — Alarme restreinte → générale",
       intro:
         "Le SSI est le cerveau de la sécurité incendie d'un bâtiment. Il regroupe tous les équipements qui détectent, signalent et déclenchent les actions de mise en sécurité en cas d'incendie.",
@@ -202,7 +202,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "evacuation",
       title: "7. Procédures d'évacuation — organisation et rôles",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-evacuation.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-evacuation.jpg",
       chapterImageAlt: "Procédure d'évacuation incendie — déclenchement, rôles guide-file et serre-file, rassemblement",
       intro:
         "Une évacuation réussie est une évacuation préparée. La connaissance des rôles, des dégagements et des procédures est indispensable pour agir efficacement et sans panique.",
@@ -234,7 +234,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "role-agent-ssiap1",
       title: "8. Le rôle de l'agent SSIAP1 en poste",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-role-agent.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-role-agent.jpg",
       chapterImageAlt: "Missions de l'agent SSIAP1 — Prévention (rondes) · PC Sécurité (CMSI, alarmes) · Intervention (extinction, évacuation, secours)",
       intro:
         "L'agent SSIAP1 est le premier maillon de la chaîne de sécurité incendie. Son travail quotidien de prévention, de surveillance et de réactivité est la condition du bon fonctionnement du dispositif global.",
@@ -298,7 +298,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "main-courante",
       title: "10. La main courante — Document réglementaire obligatoire",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-organisation.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-organisation.jpg",
       chapterImageAlt: "Poste de sécurité incendie — main courante, tableaux de signalisation, registre de sécurité",
       intro:
         "La main courante est le document réglementaire central du service SSIAP. Sa tenue quotidienne est une obligation légale prévue par l'arrêté du 2 mai 2005. Elle constitue la mémoire écrite de tous les événements liés à la sécurité incendie de l'établissement.",
