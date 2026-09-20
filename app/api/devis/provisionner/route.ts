@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { COMPANY } from "@/lib/company";
+import { resolveFormation, type FormationRecord } from "@/lib/formations/resolve-formation";
 
 export const runtime = "nodejs";
 
@@ -46,9 +47,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Devis non encore validé" }, { status: 400 });
     }
 
-    // Extraire les slugs de module depuis les formations
+    // Résoudre chaque formation du devis vers son enregistrement réel (formation_id)
     const formations: { label: string }[] = devis.formations ?? [];
-    const moduleSlugs = inferModuleSlugs(formations.map((f) => f.label));
+    const resolvedFormations: FormationRecord[] = [];
+    for (const f of formations) {
+      try {
+        const record = await resolveFormation(admin, f.label, "");
+        if (!resolvedFormations.some((r) => r.id === record.id)) {
+          resolvedFormations.push(record);
+        }
+      } catch (err) {
+        console.error(`[devis/provisionner] Formation introuvable pour "${f.label}":`, err);
+      }
+    }
 
     const resendKey = process.env.RESEND_API_KEY?.trim();
     const resend    = resendKey ? new (await import("resend")).Resend(resendKey) : null;
@@ -112,14 +123,29 @@ export async function POST(request: Request) {
           }, { onConflict: "id", ignoreDuplicates: false }).select().maybeSingle();
         }
 
-        // Créer les enrollments pour chaque module
-        for (const slug of moduleSlugs) {
-          await admin.from("enrollments").upsert({
-            user_id:    userId,
-            module_slug: slug,
-            status:     "pending",
-            source:     "devis",
-          }, { onConflict: "user_id,module_slug", ignoreDuplicates: true });
+        // Créer les enrollments pour chaque formation résolue
+        for (const formationRecord of resolvedFormations) {
+          const { data: existingEnrollment } = await admin
+            .from("enrollments")
+            .select("id")
+            .eq("user_id", userId)
+            .eq("formation_id", formationRecord.id)
+            .maybeSingle();
+
+          if (!existingEnrollment) {
+            const { error: enrollError } = await admin.from("enrollments").insert({
+              user_id:      userId,
+              formation_id: formationRecord.id,
+              status:       "pending",
+              company_name: devis.company_name ?? null,
+            });
+            if (enrollError) {
+              console.error(
+                `[devis/provisionner] Erreur creation enrollment pour ${collab.email} / ${formationRecord.title}:`,
+                enrollError.message
+              );
+            }
+          }
         }
 
         // Email de bienvenue (uniquement si pas d'invitation Supabase envoyée — éviter doublon)
@@ -164,7 +190,7 @@ export async function POST(request: Request) {
           ${!isParticulier ? `<p><strong>Société :</strong> ${escapeHtml(devis.company_name ?? "—")}</p>` : ""}
           <p><strong>Contact :</strong> ${escapeHtml(devis.email)}</p>
           <p><strong>Accès créés :</strong> ${successCount}/${collaborateurs.length}</p>
-          <p><strong>Modules :</strong> ${moduleSlugs.join(", ")}</p>
+          <p><strong>Formations :</strong> ${resolvedFormations.map((f) => f.title ?? f.slug ?? f.id).join(", ")}</p>
           <ul>${results.map((r) => `<li>${escapeHtml(r.email)} — ${r.error ? "❌ " + escapeHtml(r.error) : "✅ OK"}</li>`).join("")}</ul>
         `,
       });
@@ -180,32 +206,6 @@ export async function POST(request: Request) {
     const message = e instanceof Error ? e.message : "Erreur inconnue";
     return NextResponse.json({ error: message }, { status: 500 });
   }
-}
-
-/** Mappe les labels de formation vers des slugs de module connus */
-function inferModuleSlugs(labels: string[]): string[] {
-  const slugs = new Set<string>();
-  for (const label of labels) {
-    const l = label.toLowerCase();
-    if (l.includes("atex niveau 0") || l.includes("atex n0") || l.includes("sensibilisation")) slugs.add("atex-niveau0");
-    if (l.includes("atex niveau 1") || l.includes("atex n1") || l.includes("intervenant"))     slugs.add("atex-niveau1");
-    if (l.includes("atex niveau 2") || l.includes("atex n2") || l.includes("référent"))        slugs.add("atex-niveau2");
-    if (l.includes("h0b0") || l.includes("h0v"))                                               slugs.add("habilitation-h0b0");
-    if (l.includes("bs") || l.includes("be manœuvre"))                                         slugs.add("habilitation-bsbe");
-    if (l.includes("b1") || l.includes("b2") || l.includes("br") || l.includes("bc"))         slugs.add("habilitation-b1b2brbc");
-    if (l.includes("ssiap1") && !l.includes("recyclage"))                                      slugs.add("ssiap1");
-    if (l.includes("recyclage ssiap1"))                                                        slugs.add("recyclage-ssiap1");
-    if (l.includes("extincteur"))                                                               slugs.add("extincteurs");
-    if (l.includes("guide-file") || l.includes("serre-file"))                                  slugs.add("guide-serre-file");
-    if (l.includes("équipier") || l.includes("premiere intervention"))                         slugs.add("epi-incendie");
-    if (l.includes("ssi") && l.includes("1 jour"))                                             slugs.add("ssi-exploitation-1j");
-    if (l.includes("ssi") && l.includes("2 jour"))                                             slugs.add("ssi-avance-2j");
-    if (l.includes("sprinkler") && l.includes("1 jour"))                                       slugs.add("sprinkler-1j");
-    if (l.includes("sprinkler") && l.includes("2"))                                            slugs.add("sprinkler-2j");
-    if (l.includes("sst initial"))                                                              slugs.add("sst");
-    if (l.includes("mac sst"))                                                                  slugs.add("mac-sst");
-  }
-  return Array.from(slugs);
 }
 
 function buildWelcomeEmail(
