@@ -272,7 +272,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "conduite-tenir-incendie",
       title: "9. Conduite à tenir en cas d'incendie",
       estimatedMinutes: 15,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-conduite-tenir.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-conduite-tenir.jpg",
       chapterImageAlt: "Conduite à tenir incendie — Séquence ALARMER (DM) → ALERTER (18/112) → ATTAQUER (si conditions GO)",
       intro:
         "Face à un début d'incendie, l'ordre des actions est critique. Un seul réflexe hors séquence peut mettre des vies en danger. La règle : alarmer avant d'attaquer, évacuer avant de retarder.",
@@ -327,7 +327,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "permis-feu",
       title: "11. Le permis de feu — Travaux par points chauds",
       estimatedMinutes: 20,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-synthese-reflexes.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-synthese-reflexes.jpg",
       chapterImageAlt: "Permis de feu — procédure de travaux par points chauds en ERP",
       intro:
         "Le permis de feu est un document d'autorisation obligatoire pour tous les travaux générant une flamme, des étincelles ou de la chaleur dans un ERP ou IGH. L'agent SSIAP1 joue un rôle central dans son application et sa surveillance.",
@@ -355,7 +355,7 @@ export const ssiap1ModuleContent: ModuleContent = {
       id: "synthese-ssiap",
       title: "12. Synthèse — Les 12 réflexes SSIAP1",
       estimatedMinutes: 10,
-      chapterImagePath: "/elearning/ssiap1/ssiap1-synthese-reflexes.svg",
+      chapterImagePath: "/elearning/ssiap1/ssiap1-synthese-reflexes.jpg",
       chapterImageAlt: "10 réflexes SSIAP1 — Avant/quotidien (1-5) · Face à l'incendie (6-9) · Avec les secours (10)",
       intro:
         "Mémo des comportements essentiels à retenir et à appliquer pour assurer la sécurité incendie dans un ERP.",
