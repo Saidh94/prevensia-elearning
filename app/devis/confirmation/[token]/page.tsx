@@ -9,14 +9,17 @@ export default async function ConfirmationPage({
   const { token } = await params;
 
   let isParticulier = false;
+  let paymentRequired = false;
   const admin = createAdminClient();
   if (admin) {
     const { data } = await admin
       .from("devis")
-      .select("account_type")
+      .select("account_type, formations")
       .eq("token", token)
       .maybeSingle();
     isParticulier = data?.account_type === "particulier";
+    const formations: { priceHT?: number | null }[] = data?.formations ?? [];
+    paymentRequired = isParticulier && formations.some((f) => f.priceHT !== null && f.priceHT !== undefined);
   }
 
   return (
@@ -41,6 +44,16 @@ export default async function ConfirmationPage({
             <p className="text-sm text-blue-700">
               Depuis votre espace, vous pouvez suivre l&apos;avancement de chaque collaborateur,
               voir les scores aux quiz et demander une date de classe virtuelle.
+            </p>
+          </div>
+        )}
+
+        {paymentRequired && (
+          <div className="rounded-2xl bg-amber-50 border border-amber-200 px-5 py-4 text-left space-y-2">
+            <p className="text-sm font-semibold text-amber-800">💳 Une dernière étape</p>
+            <p className="text-sm text-amber-700">
+              Le contenu de la formation sera débloqué dès votre paiement, à régler
+              directement depuis votre espace (bouton « Payer maintenant »).
             </p>
           </div>
         )}

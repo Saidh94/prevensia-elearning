@@ -493,6 +493,19 @@ export default function DashboardPage() {
 
                     {/* Actions */}
                     <div className="flex w-full flex-col gap-3 lg:w-auto lg:min-w-[220px]">
+                      {formation.payment_status === "pending" ? (
+                        <form action="/api/payments/checkout" method="POST">
+                          <input type="hidden" name="enrollmentId" value={formation.enrollment_id} />
+                          <input type="hidden" name="returnPath" value="/dashboard" />
+                          <button
+                            type="submit"
+                            className="w-full inline-flex items-center justify-center rounded-xl bg-amber-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-amber-600"
+                          >
+                            💳 Payer maintenant
+                          </button>
+                        </form>
+                      ) : null}
+
                       <Link
                         href={safeSlug ? `/modules/${safeSlug}` : "/dashboard"}
                         className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90"

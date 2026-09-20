@@ -160,7 +160,12 @@ export async function POST(request: Request) {
       Boolean(enrollment.employer_id) &&
       employerUser?.employer_id === enrollment.employer_id;
 
-    if (!isAdmin && !isEmployerOwner) {
+    // Un particulier peut régler sa propre inscription (ex : formation à prix
+    // fixe souscrite via une demande de devis) — pas seulement un admin ou un
+    // employeur payant pour ses collaborateurs.
+    const isSelfOwner = enrollment.user_id === user.id;
+
+    if (!isAdmin && !isEmployerOwner && !isSelfOwner) {
       return NextResponse.json({ error: "Acces interdit" }, { status: 403 });
     }
 
