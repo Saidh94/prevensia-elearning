@@ -44,7 +44,10 @@ const FORMATIONS: Formation[] = [
 
 const CATEGORIES = Array.from(new Set(FORMATIONS.map((f) => f.category)));
 
+type AccountType = "entreprise" | "particulier";
+
 export default function DemandeDevisPage() {
+  const [accountType, setAccountType] = useState<AccountType | null>(null);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [participants, setParticipants] = useState(1);
   const [companyName, setCompanyName] = useState("");
@@ -76,6 +79,7 @@ export default function DemandeDevisPage() {
   }
 
   function resetForm() {
+    setAccountType(null);
     setSelected(new Set());
     setParticipants(1);
     setCompanyName("");
@@ -90,6 +94,14 @@ export default function DemandeDevisPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!accountType) {
+      setErrorMsg("Merci de préciser si vous êtes un particulier ou une entreprise / un employeur.");
+      return;
+    }
+    if (accountType === "entreprise" && !companyName.trim()) {
+      setErrorMsg("Merci de renseigner le nom de votre société.");
+      return;
+    }
     if (!email || selected.size === 0) {
       setErrorMsg("Veuillez renseigner votre email et sélectionner au moins une formation.");
       return;
@@ -105,11 +117,12 @@ export default function DemandeDevisPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          companyName,
+          accountType,
+          companyName: accountType === "entreprise" ? companyName : "",
           contactName,
           email,
           phone,
-          participants,
+          participants: accountType === "entreprise" ? participants : 1,
           formations: FORMATIONS.filter((f) => selected.has(f.id)).map((f) => ({
             label: f.label,
             priceHT: f.priceHT,
@@ -201,22 +214,56 @@ export default function DemandeDevisPage() {
               {/* Section 1 — Vos informations */}
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h2 className="text-lg font-bold text-slate-900 mb-6">Vos informations</h2>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
-                      Société
-                    </label>
-                    <input
-                      type="text"
-                      value={companyName}
-                      onChange={(e) => setCompanyName(e.target.value)}
-                      placeholder="Nom de la société"
-                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
-                    />
+
+                <div className="mb-6">
+                  <label className="mb-2 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                    Vous êtes *
+                  </label>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <button
+                      type="button"
+                      onClick={() => setAccountType("entreprise")}
+                      className={`rounded-xl border px-4 py-3 text-left text-sm font-medium transition ${
+                        accountType === "entreprise"
+                          ? "border-slate-900 bg-slate-900 text-white"
+                          : "border-slate-200 text-slate-700 hover:bg-slate-50"
+                      }`}
+                    >
+                      Une entreprise / un employeur
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setAccountType("particulier")}
+                      className={`rounded-xl border px-4 py-3 text-left text-sm font-medium transition ${
+                        accountType === "particulier"
+                          ? "border-slate-900 bg-slate-900 text-white"
+                          : "border-slate-200 text-slate-700 hover:bg-slate-50"
+                      }`}
+                    >
+                      Un particulier
+                    </button>
                   </div>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {accountType === "entreprise" && (
+                    <div>
+                      <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                        Société *
+                      </label>
+                      <input
+                        type="text"
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                        placeholder="Nom de la société"
+                        required
+                        className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+                      />
+                    </div>
+                  )}
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
-                      Nom du contact
+                      {accountType === "particulier" ? "Nom et prénom" : "Nom du contact"}
                     </label>
                     <input
                       type="text"
@@ -228,7 +275,7 @@ export default function DemandeDevisPage() {
                   </div>
                   <div>
                     <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
-                      Email professionnel *
+                      {accountType === "particulier" ? "Email *" : "Email professionnel *"}
                     </label>
                     <input
                       type="email"
@@ -251,19 +298,21 @@ export default function DemandeDevisPage() {
                       className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
                     />
                   </div>
-                  <div className="sm:col-span-2">
-                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
-                      Nombre de participants
-                    </label>
-                    <input
-                      type="number"
-                      min={1}
-                      max={500}
-                      value={participants}
-                      onChange={(e) => setParticipants(Math.max(1, parseInt(e.target.value) || 1))}
-                      className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 sm:w-40"
-                    />
-                  </div>
+                  {accountType === "entreprise" && (
+                    <div className="sm:col-span-2">
+                      <label className="mb-1.5 block text-xs font-semibold uppercase tracking-widest text-slate-500">
+                        Nombre de participants
+                      </label>
+                      <input
+                        type="number"
+                        min={1}
+                        max={500}
+                        value={participants}
+                        onChange={(e) => setParticipants(Math.max(1, parseInt(e.target.value) || 1))}
+                        className="rounded-xl border border-slate-200 px-4 py-2.5 w-full text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 sm:w-40"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -360,9 +409,11 @@ export default function DemandeDevisPage() {
                         + prestations sur devis
                       </p>
                     )}
-                    <p className="mt-1 text-xs text-slate-400">
-                      Pour {participants} participant{participants > 1 ? "s" : ""}
-                    </p>
+                    {accountType === "entreprise" && (
+                      <p className="mt-1 text-xs text-slate-400">
+                        Pour {participants} participant{participants > 1 ? "s" : ""}
+                      </p>
+                    )}
                   </div>
                 )}
 

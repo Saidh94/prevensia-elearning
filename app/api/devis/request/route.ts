@@ -55,6 +55,7 @@ type FormationLine = {
 };
 
 type DevisPayload = {
+  accountType?: "entreprise" | "particulier";
   companyName: string;
   contactName: string;
   email: string;
@@ -103,6 +104,7 @@ export async function POST(request: Request) {
     const body: DevisPayload = await request.json();
 
     const {
+      accountType = "entreprise",
       companyName = "",
       contactName = "",
       email = "",
@@ -177,7 +179,8 @@ export async function POST(request: Request) {
     const adminHtml = `
       ${logoHtml}
       <h2 style="color:#0f172a;">Nouvelle demande de devis</h2>
-      <p><strong>Société :</strong> ${escapeHtml(companyName || "Non renseignée")}</p>
+      <p><strong>Type :</strong> ${accountType === "particulier" ? "Particulier" : "Entreprise / employeur"}</p>
+      ${accountType === "entreprise" ? `<p><strong>Société :</strong> ${escapeHtml(companyName || "Non renseignée")}</p>` : ""}
       <p><strong>Contact :</strong> ${escapeHtml(contactName || "Non renseigné")}</p>
       <p><strong>Email :</strong> ${escapeHtml(email)}</p>
       <p><strong>Téléphone :</strong> ${escapeHtml(phone || "Non renseigné")}</p>
