@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { ModuleResourceVideo } from "@/lib/supabase/elearning/module-types";
 
 // Extrait un ID de vidéo YouTube d'une URL de vidéo directe
@@ -29,77 +28,11 @@ export function extractYouTubeId(url: string): string | null {
   }
 }
 
-function EmbeddedVideoPlayer({
-  video,
-  videoId,
-}: {
-  video: ModuleResourceVideo;
-  videoId: string;
-}) {
-  const [started, setStarted] = useState(false);
-
-  return (
-    <div className="overflow-hidden rounded-[1.25rem] border border-slate-200 bg-white">
-      <div className="relative aspect-video w-full bg-gradient-to-br from-slate-800 to-slate-950">
-        {started ? (
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            // youtube-nocookie.com est bloqué par certains bloqueurs/filtres
-            // (moins courant que youtube.com, donc plus souvent en liste noire).
-            // On utilise le domaine standard, quasi jamais bloqué.
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&cc_load_policy=1&cc_lang_pref=fr&hl=fr&rel=0`}
-            title={video.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        ) : (
-          <button
-            type="button"
-            onClick={() => setStarted(true)}
-            aria-label={`Lire la vidéo : ${video.title}`}
-            className="group absolute inset-0 flex h-full w-full items-center justify-center overflow-hidden"
-          >
-            {/* Pas de miniature externe (i.ytimg.com) : certains bloqueurs de pub
-                remplacent l'image par un visuel "bloqué" au lieu de faire échouer
-                la requête, ce qui empêche tout repli via onError. On garde donc
-                uniquement le fond dégradé + bouton lecture, qui ne dépend d'aucun
-                domaine tiers et fonctionne dans tous les cas. */}
-            <span className="absolute inset-0 bg-slate-900/10 transition group-hover:bg-slate-900/20" />
-            <span className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-red-700 shadow-lg transition group-hover:scale-105">
-              <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          </button>
-        )}
-      </div>
-      <div className="p-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-700">
-          {video.provider ?? "Vidéo pédagogique"}
-        </p>
-        <h3 className="mt-3 text-lg font-bold text-slate-900">{video.title}</h3>
-        {video.description ? (
-          <p className="mt-3 text-sm leading-7 text-slate-600">{video.description}</p>
-        ) : null}
-        <p className="mt-3 text-[11px] leading-5 text-slate-400">
-          Sous-titres disponibles via l&apos;icône « CC » du lecteur.
-        </p>
-        <a
-          href={video.url}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-3 inline-flex text-xs font-semibold text-slate-500 underline decoration-dotted underline-offset-2 hover:text-slate-700"
-        >
-          La vidéo ne se lance pas ? Ouvrir directement sur YouTube ↗
-        </a>
-      </div>
-    </div>
-  );
-}
-
-// Carte de secours pour les ressources qui ne pointent pas vers une vidéo
-// précise (page de recherche d'une chaîne, par exemple) — rien à intégrer,
-// on garde le lien externe.
+// Carte vidéo : ouvre systématiquement la ressource dans un nouvel onglet.
+// (La tentative d'intégration en iframe a été abandonnée : sur certains
+// réseaux/postes, YouTube est bloqué au niveau réseau — pas seulement par
+// un bloqueur de pub — et aucune iframe ne passe dans ce cas. Le lien
+// externe reste la solution qui fonctionne pour tout le monde.)
 function ExternalResourceCard({ video }: { video: ModuleResourceVideo }) {
   return (
     <article className="rounded-[1.25rem] border border-slate-200 bg-white p-5">
@@ -128,11 +61,5 @@ function ExternalResourceCard({ video }: { video: ModuleResourceVideo }) {
 }
 
 export function ResourceVideoCard({ video }: { video: ModuleResourceVideo }) {
-  const videoId = extractYouTubeId(video.url);
-
-  if (videoId) {
-    return <EmbeddedVideoPlayer video={video} videoId={videoId} />;
-  }
-
   return <ExternalResourceCard video={video} />;
 }
