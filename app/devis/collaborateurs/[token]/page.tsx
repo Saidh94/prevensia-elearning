@@ -14,7 +14,7 @@ export default async function CollaborateursPage({
 
   const { data: devis, error } = await admin
     .from("devis")
-    .select("id, token, status, contact_name, company_name, email, participants, formations, total_ht, tva_rate, has_quote")
+    .select("id, token, status, account_type, contact_name, company_name, email, participants, formations, total_ht, tva_rate, has_quote")
     .eq("token", token)
     .single();
 

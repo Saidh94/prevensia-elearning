@@ -131,6 +131,7 @@ export async function POST(request: Request) {
       const { data: devisRow } = await admin
         .from("devis")
         .insert({
+          account_type: accountType,
           contact_name: contactName || null,
           company_name: companyName || null,
           email,

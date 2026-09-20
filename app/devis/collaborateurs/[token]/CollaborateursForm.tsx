@@ -10,6 +10,7 @@ type DevisData = {
   id: string;
   token: string;
   status: string;
+  account_type?: "entreprise" | "particulier";
   contact_name: string | null;
   company_name: string | null;
   email: string;
@@ -20,6 +21,7 @@ type DevisData = {
 export default function CollaborateursForm({ devis }: { devis: DevisData }) {
   const router   = useRouter();
   const n        = devis.participants;
+  const isParticulier = devis.account_type === "particulier";
 
   const [collabs,  setCollabs]  = useState<Collab[]>(
     Array.from({ length: n }, () => ({ prenom: "", nom: "", email: "" }))
@@ -41,7 +43,11 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!consent) {
-      setError("Veuillez confirmer être habilité à transmettre ces données avant d'activer les accès.");
+      setError(
+        isParticulier
+          ? "Veuillez accepter les conditions avant d'activer votre accès."
+          : "Veuillez confirmer être habilité à transmettre ces données avant d'activer les accès."
+      );
       return;
     }
     // Validation basique
@@ -83,13 +89,13 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
           <div className="bg-red-700 px-6 py-5">
             <p className="text-xs font-bold uppercase tracking-widest text-red-200">PREVENSIA FORMATION</p>
             <h1 className="text-xl font-extrabold text-white mt-0.5">
-              Vos collaborateurs à former
+              {isParticulier ? "Votre accès à la formation" : "Vos collaborateurs à former"}
             </h1>
           </div>
           <div className="px-6 py-5 border-b border-slate-100">
             <p className="text-sm text-slate-600">
-              Devis pour <strong>{devis.company_name ?? devis.contact_name ?? devis.email}</strong> ·{" "}
-              {n} participant{n > 1 ? "s" : ""}
+              Devis pour <strong>{devis.company_name ?? devis.contact_name ?? devis.email}</strong>
+              {!isParticulier && <> · {n} participant{n > 1 ? "s" : ""}</>}
             </p>
             <p className="text-sm text-slate-500 mt-1">
               Formations : {devis.formations.map((f) => f.label).join(", ")}
@@ -100,27 +106,41 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
         {/* Explication */}
         <div className="rounded-2xl border border-blue-200 bg-blue-50 px-6 py-4">
           <p className="text-sm font-semibold text-blue-800">📋 Comment ça fonctionne ?</p>
-          <p className="mt-1 text-sm text-blue-700">
-            Renseignez les informations de chaque collaborateur. Chacun recevra un email
-            avec ses identifiants de connexion pour accéder directement à sa formation.
-            Vous recevrez un accès à votre <strong>espace employeur</strong> pour suivre leur progression.
-          </p>
-          <p className="mt-2 text-xs text-blue-700">
-            En tant qu&apos;employeur, vous aurez accès au statut de progression et à l&apos;attestation de
-            chaque collaborateur. Chacun en sera informé par email dès la création de son compte,
-            conformément à notre{" "}
-            <Link href="/politique-confidentialite" className="underline underline-offset-2" target="_blank">
-              politique de confidentialité
-            </Link>.
-          </p>
+          {isParticulier ? (
+            <p className="mt-1 text-sm text-blue-700">
+              Confirmez vos informations ci-dessous. Vous recevrez un email avec vos identifiants
+              de connexion pour accéder directement à votre formation, conformément à notre{" "}
+              <Link href="/politique-confidentialite" className="underline underline-offset-2" target="_blank">
+                politique de confidentialité
+              </Link>.
+            </p>
+          ) : (
+            <>
+              <p className="mt-1 text-sm text-blue-700">
+                Renseignez les informations de chaque collaborateur. Chacun recevra un email
+                avec ses identifiants de connexion pour accéder directement à sa formation.
+                Vous recevrez un accès à votre <strong>espace employeur</strong> pour suivre leur progression.
+              </p>
+              <p className="mt-2 text-xs text-blue-700">
+                En tant qu&apos;employeur, vous aurez accès au statut de progression et à l&apos;attestation de
+                chaque collaborateur. Chacun en sera informé par email dès la création de son compte,
+                conformément à notre{" "}
+                <Link href="/politique-confidentialite" className="underline underline-offset-2" target="_blank">
+                  politique de confidentialité
+                </Link>.
+              </p>
+            </>
+          )}
         </div>
 
         {alreadyDone ? (
           <div className="rounded-2xl border border-green-200 bg-green-50 px-6 py-5 text-center space-y-3">
             <div className="text-4xl">✅</div>
-            <p className="text-base font-bold text-green-800">Accès déjà activés !</p>
-            <p className="text-sm text-green-700">Les accès de vos collaborateurs ont déjà été créés.</p>
-            <a href="/employeur/dashboard"
+            <p className="text-base font-bold text-green-800">Accès déjà activé{n > 1 ? "s" : ""} !</p>
+            <p className="text-sm text-green-700">
+              {isParticulier ? "Votre accès a déjà été créé." : "Les accès de vos collaborateurs ont déjà été créés."}
+            </p>
+            <a href={isParticulier ? "/dashboard" : "/employeur/dashboard"}
               className="inline-block mt-2 rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white">
               Accéder à mon espace →
             </a>
@@ -130,10 +150,16 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
             {collabs.map((c, i) => (
               <div key={i} className="rounded-2xl border border-slate-200 bg-white px-6 py-5 space-y-3">
                 <p className="text-sm font-bold text-slate-700">
-                  Collaborateur {i + 1}
-                  {i === 0 && devis.contact_name
-                    ? <span className="ml-2 text-xs font-normal text-slate-400">(vous pouvez vous inclure)</span>
-                    : null}
+                  {isParticulier ? (
+                    "Vos informations"
+                  ) : (
+                    <>
+                      Collaborateur {i + 1}
+                      {i === 0 && devis.contact_name
+                        ? <span className="ml-2 text-xs font-normal text-slate-400">(vous pouvez vous inclure)</span>
+                        : null}
+                    </>
+                  )}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
@@ -160,13 +186,15 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-500 mb-1">Email professionnel *</label>
+                  <label className="block text-xs font-medium text-slate-500 mb-1">
+                    {isParticulier ? "Email *" : "Email professionnel *"}
+                  </label>
                   <input
                     type="email"
                     required
                     value={c.email}
                     onChange={(e) => update(i, "email", e.target.value)}
-                    placeholder="marie.dupont@entreprise.fr"
+                    placeholder={isParticulier ? "marie.dupont@email.fr" : "marie.dupont@entreprise.fr"}
                     className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
                   />
                 </div>
@@ -188,16 +216,32 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
                 className="mt-0.5 h-4 w-4 accent-red-700 shrink-0"
               />
               <span className="text-xs text-slate-500 leading-snug">
-                Je confirme être habilité à transmettre ces informations au nom de mon entreprise, et
-                j&apos;accepte que ces collaborateurs soient informés de la création de leur compte,
-                conformément à la{" "}
-                <Link href="/politique-confidentialite" className="text-red-700 underline underline-offset-2" target="_blank">
-                  politique de confidentialité
-                </Link>{" "}
-                et aux{" "}
-                <Link href="/cgu" className="text-red-700 underline underline-offset-2" target="_blank">
-                  CGU
-                </Link>.
+                {isParticulier ? (
+                  <>
+                    J&apos;accepte que ces informations soient utilisées pour activer mon accès à la
+                    formation, conformément à la{" "}
+                    <Link href="/politique-confidentialite" className="text-red-700 underline underline-offset-2" target="_blank">
+                      politique de confidentialité
+                    </Link>{" "}
+                    et aux{" "}
+                    <Link href="/cgu" className="text-red-700 underline underline-offset-2" target="_blank">
+                      CGU
+                    </Link>.
+                  </>
+                ) : (
+                  <>
+                    Je confirme être habilité à transmettre ces informations au nom de mon entreprise, et
+                    j&apos;accepte que ces collaborateurs soient informés de la création de leur compte,
+                    conformément à la{" "}
+                    <Link href="/politique-confidentialite" className="text-red-700 underline underline-offset-2" target="_blank">
+                      politique de confidentialité
+                    </Link>{" "}
+                    et aux{" "}
+                    <Link href="/cgu" className="text-red-700 underline underline-offset-2" target="_blank">
+                      CGU
+                    </Link>.
+                  </>
+                )}
               </span>
             </label>
 
@@ -206,11 +250,17 @@ export default function CollaborateursForm({ devis }: { devis: DevisData }) {
               disabled={loading}
               className="w-full rounded-xl bg-red-700 px-6 py-4 text-base font-bold text-white hover:bg-red-800 disabled:opacity-50 transition-colors"
             >
-              {loading ? "Activation des accès en cours…" : `🚀 Activer les accès pour ${n} collaborateur${n > 1 ? "s" : ""}`}
+              {loading
+                ? "Activation en cours…"
+                : isParticulier
+                  ? "🚀 Activer mon accès"
+                  : `🚀 Activer les accès pour ${n} collaborateur${n > 1 ? "s" : ""}`}
             </button>
 
             <p className="text-center text-xs text-slate-400">
-              Chaque collaborateur recevra un email d&apos;invitation avec ses identifiants de connexion.
+              {isParticulier
+                ? "Vous recevrez un email d'invitation avec vos identifiants de connexion."
+                : "Chaque collaborateur recevra un email d'invitation avec ses identifiants de connexion."}
             </p>
           </form>
         )}

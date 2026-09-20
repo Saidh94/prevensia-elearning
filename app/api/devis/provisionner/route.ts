@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     // Charger le devis
     const { data: devis, error: fetchErr } = await admin
       .from("devis")
-      .select("id, status, email, contact_name, company_name, formations, employer_user_id")
+      .select("id, status, account_type, email, contact_name, company_name, formations, employer_user_id")
       .eq("token", token)
       .single();
 
@@ -52,6 +52,8 @@ export async function POST(request: Request) {
 
     const resendKey = process.env.RESEND_API_KEY?.trim();
     const resend    = resendKey ? new (await import("resend")).Resend(resendKey) : null;
+
+    const isParticulier = devis.account_type === "particulier";
 
     const results: { email: string; userId?: string; error?: string }[] = [];
     let employerUserId: string | null = devis.employer_user_id ?? null;
@@ -87,7 +89,8 @@ export async function POST(request: Request) {
         const userId = inviteData!.user!.id;
 
         // Premier collaborateur = contact principal → rôle employeur aussi
-        if (i === 0 && !employerUserId) {
+        // (sauf pour un particulier, qui n'a pas de collaborateurs à superviser)
+        if (i === 0 && !employerUserId && !isParticulier) {
           employerUserId = userId;
           // Créer l'entrée dans la table profiles si elle existe
           await admin.from("profiles").upsert({
@@ -126,7 +129,7 @@ export async function POST(request: Request) {
             from: FROM_EMAIL,
             to: [collab.email],
             subject: "Votre accès formation PREVENSIA est activé",
-            html: buildWelcomeEmail(collab, devis.company_name, formations, false),
+            html: buildWelcomeEmail(collab, devis.company_name, formations, false, isParticulier),
           });
         }
 
@@ -157,7 +160,8 @@ export async function POST(request: Request) {
         subject: `🚀 Devis provisionné — ${devis.company_name ?? devis.email} (${successCount}/${collaborateurs.length} accès)`,
         html: `
           <h2>Devis provisionné</h2>
-          <p><strong>Société :</strong> ${escapeHtml(devis.company_name ?? "—")}</p>
+          <p><strong>Type :</strong> ${isParticulier ? "Particulier" : "Entreprise / employeur"}</p>
+          ${!isParticulier ? `<p><strong>Société :</strong> ${escapeHtml(devis.company_name ?? "—")}</p>` : ""}
           <p><strong>Contact :</strong> ${escapeHtml(devis.email)}</p>
           <p><strong>Accès créés :</strong> ${successCount}/${collaborateurs.length}</p>
           <p><strong>Modules :</strong> ${moduleSlugs.join(", ")}</p>
@@ -209,11 +213,23 @@ function buildWelcomeEmail(
   company: string | null,
   formations: { label: string }[],
   isNew: boolean,
+  isParticulier = false,
 ): string {
   const formationList = formations.map((f) => `<li>${escapeHtml(f.label)}</li>`).join("");
+  const introLine = isParticulier
+    ? `<p>Votre inscription à une formation PREVENSIA a bien été prise en compte.</p>`
+    : `<p>Votre entreprise <strong>${escapeHtml(company ?? "")}</strong> a souscrit à une formation PREVENSIA.</p>`;
+  const employerNote = isParticulier
+    ? ""
+    : `
+    <p style="font-size:13px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;">
+      Votre entreprise, en tant que financeur de cette formation, a accès à votre statut de progression
+      et à votre attestation de suivi. Le détail de vos réponses aux quiz reste confidentiel. Pour en
+      savoir plus, consultez notre <a href="${SITE_URL}/politique-confidentialite" style="color:#b91c1c;">politique de confidentialité</a>.
+    </p>`;
   return `
     <p>Bonjour ${escapeHtml(collab.prenom)},</p>
-    <p>Votre entreprise <strong>${escapeHtml(company ?? "")}</strong> a souscrit à une formation PREVENSIA.</p>
+    ${introLine}
     <p>Vos accès à la plateforme sont maintenant activés pour les formations suivantes :</p>
     <ul>${formationList}</ul>
     <p>
@@ -221,11 +237,7 @@ function buildWelcomeEmail(
         Accéder à ma formation →
       </a>
     </p>
-    <p style="font-size:13px;color:#475569;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;">
-      Votre entreprise, en tant que financeur de cette formation, a accès à votre statut de progression
-      et à votre attestation de suivi. Le détail de vos réponses aux quiz reste confidentiel. Pour en
-      savoir plus, consultez notre <a href="${SITE_URL}/politique-confidentialite" style="color:#b91c1c;">politique de confidentialité</a>.
-    </p>
+    ${employerNote}
     <hr style="margin:24px 0;border:none;border-top:1px solid #e2e8f0;"/>
     <p style="font-size:12px;color:#64748b;">${COMPANY.name} · ${COMPANY.addressShort}</p>
   `;
