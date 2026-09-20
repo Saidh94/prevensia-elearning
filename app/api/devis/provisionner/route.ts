@@ -95,6 +95,13 @@ export async function POST(request: Request) {
           }
         );
 
+        // Si l'invitation Supabase a échoué (le plus souvent : l'utilisateur existe déjà),
+        // on génère un lien de connexion utilisable (recovery) pour lui donner quand
+        // même un moyen de définir/redéfinir son mot de passe. Sans ce lien, l'email de
+        // bienvenue renvoyait vers /connexion sans aucun token, et l'utilisateur restait
+        // bloqué sur "Invalid login credentials" sans jamais avoir pu créer de mot de passe.
+        let recoveryActionLink: string | null = null;
+
         if (inviteErr || !inviteData?.user) {
           // L'utilisateur existe peut-être déjà — récupérer par email
           const { data: existingList } = await admin.auth.admin.listUsers();
@@ -104,6 +111,21 @@ export async function POST(request: Request) {
             continue;
           }
           inviteData!.user = existing as typeof inviteData.user;
+
+          const { data: linkData, error: linkErr } = await admin.auth.admin.generateLink({
+            type: "recovery",
+            email: collab.email,
+            options: { redirectTo: `${SITE_URL}/connexion` },
+          });
+
+          if (linkErr) {
+            console.error(
+              `[devis/provisionner] Erreur generation lien recovery pour ${collab.email}:`,
+              linkErr.message
+            );
+          } else {
+            recoveryActionLink = linkData?.properties?.action_link ?? null;
+          }
         }
 
         const userId = inviteData!.user!.id;
@@ -163,12 +185,22 @@ export async function POST(request: Request) {
 
         // Email de bienvenue (uniquement si pas d'invitation Supabase envoyée — éviter doublon)
         if (resend && inviteErr) {
-          // L'utilisateur existait déjà, on envoie un email spécifique
+          // L'utilisateur existait déjà, on envoie un email spécifique avec un vrai
+          // lien de connexion (recovery) s'il a pu être généré, sinon on retombe sur
+          // /connexion en dernier recours.
           await resend.emails.send({
             from: FROM_EMAIL,
             to: [collab.email],
             subject: "Votre accès formation PREVENSIA est activé",
-            html: buildWelcomeEmail(collab, devis.company_name, formations, false, isParticulier, anyPaymentRequired),
+            html: buildWelcomeEmail(
+              collab,
+              devis.company_name,
+              formations,
+              false,
+              isParticulier,
+              anyPaymentRequired,
+              recoveryActionLink
+            ),
           });
         }
 
@@ -229,8 +261,11 @@ function buildWelcomeEmail(
   isNew: boolean,
   isParticulier = false,
   paymentRequired = false,
+  recoveryActionLink: string | null = null,
 ): string {
   const formationList = formations.map((f) => `<li>${escapeHtml(f.label)}</li>`).join("");
+  const ctaUrl = recoveryActionLink || `${SITE_URL}/connexion`;
+  const ctaLabel = recoveryActionLink ? "Créer mon mot de passe →" : "Accéder à ma formation →";
   const introLine = isParticulier
     ? `<p>Votre inscription à une formation PREVENSIA a bien été prise en compte.</p>`
     : `<p>Votre entreprise <strong>${escapeHtml(company ?? "")}</strong> a souscrit à une formation PREVENSIA.</p>`;
@@ -254,8 +289,8 @@ function buildWelcomeEmail(
     <p>Vos accès à la plateforme sont maintenant activés pour les formations suivantes :</p>
     <ul>${formationList}</ul>
     <p>
-      <a href="${SITE_URL}/connexion" style="display:inline-block;background:#b91c1c;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">
-        Accéder à ma formation →
+      <a href="${ctaUrl}" style="display:inline-block;background:#b91c1c;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">
+        ${ctaLabel}
       </a>
     </p>
     ${paymentNote}
