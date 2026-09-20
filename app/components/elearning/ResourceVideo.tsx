@@ -44,7 +44,10 @@ function EmbeddedVideoPlayer({
         {started ? (
           <iframe
             className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&cc_load_policy=1&cc_lang_pref=fr&hl=fr&rel=0`}
+            // youtube-nocookie.com est bloqué par certains bloqueurs/filtres
+            // (moins courant que youtube.com, donc plus souvent en liste noire).
+            // On utilise le domaine standard, quasi jamais bloqué.
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&cc_load_policy=1&cc_lang_pref=fr&hl=fr&rel=0`}
             title={video.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -81,6 +84,14 @@ function EmbeddedVideoPlayer({
         <p className="mt-3 text-[11px] leading-5 text-slate-400">
           Sous-titres disponibles via l&apos;icône « CC » du lecteur.
         </p>
+        <a
+          href={video.url}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-3 inline-flex text-xs font-semibold text-slate-500 underline decoration-dotted underline-offset-2 hover:text-slate-700"
+        >
+          La vidéo ne se lance pas ? Ouvrir directement sur YouTube ↗
+        </a>
       </div>
     </div>
   );
