@@ -196,7 +196,11 @@ export async function POST(request: Request) {
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      payment_method_types: ["card", "sepa_debit"],
+      // Carte uniquement : le SEPA/virement (paiement asynchrone, 2-6 jours) créait une
+      // confusion forte sur un parcours pensé pour un accès immédiat — l'utilisateur
+      // cliquait "Continuer" en pensant payer, se retrouvait avec un paiement "en attente"
+      // pendant plusieurs jours sans avoir eu l'impression d'avoir vraiment payé.
+      payment_method_types: ["card"],
       billing_address_collection: "auto",
       client_reference_id: enrollment.id,
       customer_email:

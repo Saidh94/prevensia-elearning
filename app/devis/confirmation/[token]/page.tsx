@@ -34,9 +34,17 @@ export default async function ConfirmationPage({
 
         <p className="text-sm text-slate-600">
           {isParticulier
-            ? "Vous allez recevoir un email d'invitation avec votre lien de connexion. Vous pouvez commencer votre formation dès maintenant."
-            : "Vos collaborateurs vont recevoir un email d'invitation avec leur lien de connexion. Ils peuvent commencer leur formation dès maintenant."}
+            ? "Vous allez recevoir un email d'invitation dans les prochaines minutes. Cliquez sur le lien qu'il contient pour créer votre mot de passe et activer votre accès."
+            : "Vos collaborateurs vont recevoir un email d'invitation dans les prochaines minutes. Ils devront cliquer sur le lien qu'il contient pour créer leur mot de passe et activer leur accès."}
         </p>
+
+        <div className="rounded-2xl bg-slate-50 border border-slate-200 px-5 py-4 text-left">
+          <p className="text-sm text-slate-700">
+            📧 Vérifiez votre boîte mail (et vos spams). Sans mot de passe déjà créé, se
+            rendre directement sur la page de connexion ne fonctionnera pas — il faut
+            d&apos;abord passer par le lien reçu par email.
+          </p>
+        </div>
 
         {!isParticulier && (
           <div className="rounded-2xl bg-blue-50 border border-blue-200 px-5 py-4 text-left space-y-2">
@@ -58,15 +66,18 @@ export default async function ConfirmationPage({
           </div>
         )}
 
-        <Link
-          href={isParticulier ? "/dashboard" : "/employeur/dashboard"}
-          className="block w-full rounded-xl bg-red-700 px-6 py-4 text-base font-bold text-white hover:bg-red-800 transition-colors"
-        >
-          {isParticulier ? "Accéder à mon espace →" : "Accéder à mon espace employeur →"}
-        </Link>
-
         <p className="text-xs text-slate-400">
           Un récapitulatif a été envoyé à votre adresse email.
+        </p>
+
+        <p className="text-xs text-slate-400">
+          Déjà activé votre compte ?{" "}
+          <Link
+            href={isParticulier ? "/dashboard" : "/employeur/dashboard"}
+            className="font-semibold text-slate-600 underline underline-offset-2"
+          >
+            Accéder à mon espace →
+          </Link>
         </p>
       </div>
     </div>
