@@ -41,13 +41,13 @@ export default async function DevisValidationPage({
     .from("devis")
     .select("*")
     .eq("token", token)
-    .single<DevisRow>();
+    .single<DevisRow & { account_type?: "entreprise" | "particulier" }>();
 
   if (error || !devis) notFound();
 
-  // Déjà provisionné → rediriger vers l'espace employeur
+  // Déjà provisionné → rediriger vers le bon espace selon le type de compte
   if (devis.status === "provisioned") {
-    redirect("/employeur/dashboard");
+    redirect(devis.account_type === "particulier" ? "/dashboard" : "/employeur/dashboard");
   }
 
   return <DevisValidationClient devis={devis} />;

@@ -16,6 +16,7 @@ type DevisRow = {
   id: string;
   token: string;
   status: string;
+  account_type?: "entreprise" | "particulier";
   contact_name: string | null;
   company_name: string | null;
   email: string;
@@ -163,7 +164,7 @@ export default function DevisValidationClient({ devis }: { devis: DevisRow }) {
               Vous pouvez accéder à votre espace employeur pour suivre l&apos;avancement des formations.
             </p>
             <a
-              href="/employeur/dashboard"
+              href={devis.account_type === "particulier" ? "/dashboard" : "/employeur/dashboard"}
               className="mt-4 inline-block rounded-xl bg-green-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-green-800"
             >
               Accéder à mon espace →

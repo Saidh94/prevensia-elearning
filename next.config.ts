@@ -64,7 +64,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https://bxehueviorgltkbsykrl.supabase.co wss://bxehueviorgltkbsykrl.supabase.co https://api.resend.com https://api.stripe.com; frame-src https://www.openstreetmap.org https://js.stripe.com https://hooks.stripe.com; frame-ancestors 'self'; form-action 'self';",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https://bxehueviorgltkbsykrl.supabase.co wss://bxehueviorgltkbsykrl.supabase.co https://api.resend.com https://api.stripe.com; frame-src https://www.openstreetmap.org https://js.stripe.com https://hooks.stripe.com; frame-ancestors 'self'; form-action 'self' https://checkout.stripe.com;",
           },
           {
             key: "X-Frame-Options",
