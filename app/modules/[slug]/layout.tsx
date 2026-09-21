@@ -187,35 +187,32 @@ export default async function ModuleLayout({
   const displayFormationTitle =
     formation?.title ?? getModuleLabelBySlug(normalizedRouteSlug);
 
-  // \u2500\u2500 Cas sp\u00e9cial : paiement SEPA/virement en cours de traitement \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  // Cas special : paiement requis (pas encore regle, ou webhook Stripe pas
+  // encore recu -- le paiement carte etant quasi instantane, ce cas ne dure
+  // que quelques secondes apres un vrai paiement).
   if (
     !hasAccess &&
     enrollment?.payment_status === "pending"
   ) {
     return (
       <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-blue-200 bg-white p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">
-            Paiement en cours
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-amber-200 bg-white p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700">
+            Paiement requis
           </p>
           <h1 className="mt-3 text-3xl font-bold text-slate-900">
-            Votre paiement est en cours de traitement
+            Cette formation n&apos;est pas encore reglee
           </h1>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Votre paiement par prélèvement SEPA ou virement bancaire a bien été
-            initié. Le traitement bancaire prend <strong>2 à 6 jours ouvrés</strong>.
+            L&apos;acces a <strong>{displayFormationTitle}</strong> se debloque
+            automatiquement des que le paiement par carte bancaire est confirme
+            (quelques secondes). Si vous venez de payer et que cette page
+            s&apos;affiche encore, rafraichissez dans une minute.
           </p>
-          <p className="mt-3 text-base leading-7 text-slate-600">
-            Votre accès à{" "}
-            <strong>{displayFormationTitle}</strong>{" "}
-            sera activé automatiquement dès confirmation de votre banque.
-            Vous recevrez un e-mail à ce moment-là.
-          </p>
-          <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5">
-            <p className="text-sm text-blue-800">
-              💡 Si vous pensez que votre paiement a déjà été validé, patientez
-              quelques minutes puis rafraîchissez la page. Pour toute question :
-              {" "}
+          <div className="mt-6 rounded-2xl border border-amber-100 bg-amber-50 p-5">
+            <p className="text-sm text-amber-800">
+              Reglez cette formation depuis votre tableau de bord, bouton
+              &laquo; Payer maintenant &raquo;. Besoin d&apos;aide ?{" "}
               <a
                 href="mailto:contact@prevensia-formation.fr"
                 className="font-semibold underline"
@@ -229,7 +226,7 @@ export default async function ModuleLayout({
               href="/dashboard"
               className="inline-flex items-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
             >
-              Retour au dashboard
+              Retour au dashboard pour payer
             </Link>
           </div>
         </div>
