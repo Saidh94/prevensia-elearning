@@ -40,14 +40,19 @@ function getStatusClasses(status: string | null) {
   }
 }
 
+// Circuit B2B : devis → convention → accès immédiat → facture → virement SEPA
+// suivi manuellement par l'équipe PREVENSIA (payment_status reste "null" tant
+// que le virement n'est pas constaté — ce n'est PAS un défaut de paiement,
+// juste une facture pas encore réglée, d'où un libellé neutre plutôt que
+// "Impayé").
 function getPaymentLabel(paymentStatus: string | null) {
-  return paymentStatus === "paid" ? "Payé" : "En attente";
+  return paymentStatus === "paid" ? "Payé" : "Facture en attente de règlement";
 }
 
 function getPaymentClasses(paymentStatus: string | null) {
   return paymentStatus === "paid"
     ? "bg-emerald-100 text-emerald-700"
-    : "bg-red-100 text-red-700";
+    : "bg-amber-100 text-amber-700";
 }
 
 function normalizeText(value: string | null | undefined) {
@@ -508,15 +513,15 @@ export default async function EmployeurDashboardPage() {
             </p>
           </div>
 
-          <div className={`rounded-2xl border p-6 shadow-sm ${unpaidCount > 0 ? "border-red-200 bg-red-50" : "border-emerald-200 bg-emerald-50"}`}>
-            <p className={`text-xs font-semibold uppercase tracking-wide ${unpaidCount > 0 ? "text-red-700" : "text-emerald-700"}`}>
-              Paiements
+          <div className={`rounded-2xl border p-6 shadow-sm ${unpaidCount > 0 ? "border-amber-200 bg-amber-50" : "border-emerald-200 bg-emerald-50"}`}>
+            <p className={`text-xs font-semibold uppercase tracking-wide ${unpaidCount > 0 ? "text-amber-700" : "text-emerald-700"}`}>
+              Facturation
             </p>
-            <p className={`mt-2 text-3xl font-bold ${unpaidCount > 0 ? "text-red-900" : "text-emerald-700"}`}>
+            <p className={`mt-2 text-3xl font-bold ${unpaidCount > 0 ? "text-amber-900" : "text-emerald-700"}`}>
               {unpaidCount > 0 ? unpaidCount : completedCount}
             </p>
-            <p className={`mt-1 text-xs ${unpaidCount > 0 ? "text-red-700" : "text-emerald-700"}`}>
-              {unpaidCount > 0 ? `dossier${unpaidCount > 1 ? "s" : ""} à régulariser` : `parcours terminés & attestés`}
+            <p className={`mt-1 text-xs ${unpaidCount > 0 ? "text-amber-700" : "text-emerald-700"}`}>
+              {unpaidCount > 0 ? `facture${unpaidCount > 1 ? "s" : ""} en attente de virement` : `parcours terminés & attestés`}
             </p>
           </div>
         </section>
@@ -542,19 +547,19 @@ export default async function EmployeurDashboardPage() {
               </article>
             )}
             {unpaidCount > 0 && (
-              <article className="flex items-start gap-5 rounded-2xl border-2 border-red-200 bg-white p-6 shadow-sm">
-                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-100 text-xl">💳</div>
+              <article className="flex items-start gap-5 rounded-2xl border-2 border-amber-200 bg-white p-6 shadow-sm">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-xl">🧾</div>
                 <div className="flex-1">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-red-700">Priorité administrative</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">Suivi administratif</p>
                   <h2 className="mt-1 text-lg font-bold text-slate-900">
-                    {unpaidCount} dossier{unpaidCount > 1 ? "s" : ""} à régulariser
+                    {unpaidCount} facture{unpaidCount > 1 ? "s" : ""} en attente de règlement
                   </h2>
                   <p className="mt-2 text-sm text-slate-600">
-                    {unpaidCount > 1 ? "Ces inscriptions n’ont" : "Cette inscription n’a"} pas encore le statut payé. Régularisez pour débloquer les attestations.
+                    {unpaidCount > 1 ? "Ces inscriptions attendent" : "Cette inscription attend"} le virement bancaire correspondant à la facture émise. L’accès e-learning reste ouvert dans l’intervalle — aucune action requise si le règlement est en cours de traitement par votre service comptable.
                   </p>
-                  <Link href="/demande-devis?type=habilitation" className="mt-4 inline-flex items-center rounded-xl border border-red-300 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-700 transition hover:bg-red-100">
-                    Lancer une demande de devis →
-                  </Link>
+                  <a href="mailto:contact@prevensia-formation.fr" className="mt-4 inline-flex items-center rounded-xl border border-amber-300 bg-amber-50 px-4 py-2.5 text-sm font-semibold text-amber-700 transition hover:bg-amber-100">
+                    Une question sur une facture ? →
+                  </a>
                 </div>
               </article>
             )}
@@ -738,19 +743,13 @@ export default async function EmployeurDashboardPage() {
                           <Link href={actionMeta.offerHref} className="inline-flex items-center rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-50">
                             {actionMeta.offerLabel}
                           </Link>
-                          {!item.isPaid && item.paymentOption.kind === "direct" ? (
-                            <form action="/api/payments/checkout" method="POST">
-                              <input type="hidden" name="enrollmentId" value={item.id} />
-                              <input type="hidden" name="returnPath" value="/employeur/dashboard" />
-                              <button type="submit" className="rounded-lg bg-violet-600 px-2.5 py-1.5 text-xs font-semibold text-white transition hover:bg-violet-700">
-                                Payer
-                              </button>
-                            </form>
-                          ) : null}
-                          {!item.isPaid && item.paymentOption.kind === "quote" ? (
-                            <a href={`/demande-devis?formation=${encodeURIComponent(item.formationTitle || "Formation")}`} className="inline-flex items-center rounded-lg border border-violet-200 bg-violet-50 px-2.5 py-1.5 text-xs font-semibold text-violet-700 transition hover:bg-violet-100" title={item.paymentOption.reason}>
-                              Devis
-                            </a>
+                          {!item.isPaid ? (
+                            <span
+                              className="inline-flex items-center rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-1.5 text-xs font-semibold text-amber-700"
+                              title="Réglé par virement bancaire suite à facture — suivi par l'équipe PREVENSIA, pas de paiement carte pour les entreprises."
+                            >
+                              🧾 Facture en attente
+                            </span>
                           ) : null}
                           {item.isCompleted ? (
                             <form action="/api/attestation" method="POST">

@@ -232,6 +232,106 @@ export async function POST(request: Request) {
       })
       .eq("token", token);
 
+    // ── Convention de formation + programme (obligation légale B2B) ──────────
+    // Contrairement au circuit particulier (document généré au moment du
+    // paiement Stripe, voir webhook), une entreprise ne passe jamais par
+    // Stripe : la convention doit donc partir dès la validation du devis,
+    // indépendamment du règlement à venir (facture réglée par virement,
+    // suivie manuellement). Code du travail Art. L6353-1 (obligation de
+    // conclure une convention) + Art. D6353-1 (mentions obligatoires).
+    if (!isParticulier && resend) {
+      try {
+        const { generateConventionPdf, sanitizeFileName } = await import(
+          "@/lib/convention/generate-convention-pdf"
+        );
+        const { generateProgrammePdf, buildProgrammeInputFromModuleContent } = await import(
+          "@/lib/programme/generate-programme-pdf"
+        );
+        const { getModuleContentBySlug, getModuleLabelBySlug } = await import(
+          "@/lib/supabase/elearning/module-registry"
+        );
+
+        const TVA_EXEMPT = process.env.PREVENSIA_TVA_EXEMPT === "true";
+        const TVA_RATE = TVA_EXEMPT ? 0 : 20;
+        const norm = (v: string | null | undefined) => (v ?? "").trim().toLowerCase();
+
+        const conventionAttachments: { filename: string; content: string }[] = [];
+        const numeroBase = devis.id.slice(0, 8).toUpperCase();
+
+        for (const { record } of resolvedFormations) {
+          const line = formations.find(
+            (f) =>
+              norm(f.label) === norm(record.title) || norm(f.label) === norm(record.slug)
+          );
+          const priceHT = line?.priceHT ?? null;
+          const priceTTC =
+            priceHT !== null ? Math.round(priceHT * (1 + TVA_RATE / 100) * 100) / 100 : 0;
+
+          const moduleContent = record.slug ? getModuleContentBySlug(record.slug) : null;
+          const formationTitle =
+            (record.slug && getModuleLabelBySlug(record.slug)) ||
+            record.title ||
+            "Formation PREVENSIA";
+
+          const conventionPdf = await generateConventionPdf({
+            numero: `CONV-${numeroBase}-${sanitizeFileName(record.slug || record.title || "formation")
+              .slice(0, 12)
+              .toUpperCase()}`,
+            dateSignature: new Date().toISOString(),
+            beneficiaryName:
+              devis.company_name?.trim() || devis.contact_name?.trim() || devis.email,
+            beneficiaryIsCompany: true,
+            learnerFullName: devis.contact_name?.trim() || devis.company_name?.trim() || devis.email,
+            learnerEmail: devis.email,
+            formationTitle,
+            durationLabel: moduleContent?.duration || "",
+            deliveryFormat: moduleContent?.deliveryFormat || "",
+            objective: moduleContent?.objective,
+            priceHT: priceHT ?? 0,
+            priceTTC,
+            tvaRate: TVA_RATE,
+            tvaExempt: TVA_EXEMPT,
+            accessStart: new Date().toISOString(),
+            accessEnd: null,
+          });
+          conventionAttachments.push({
+            filename: `Convention-${sanitizeFileName(formationTitle)}.pdf`,
+            content: Buffer.from(conventionPdf).toString("base64"),
+          });
+
+          const programmePdf = moduleContent
+            ? await generateProgrammePdf(buildProgrammeInputFromModuleContent(moduleContent, formationTitle))
+            : null;
+          if (programmePdf) {
+            conventionAttachments.push({
+              filename: `Programme-${sanitizeFileName(formationTitle)}.pdf`,
+              content: Buffer.from(programmePdf).toString("base64"),
+            });
+          }
+        }
+
+        if (conventionAttachments.length > 0) {
+          const adminEmailForCc = process.env.ADMIN_EMAIL?.trim();
+          await resend.emails.send({
+            from: FROM_EMAIL,
+            to: [devis.email],
+            ...(adminEmailForCc ? { cc: [adminEmailForCc] } : {}),
+            subject: `Convention de formation — ${devis.company_name ?? devis.contact_name ?? "votre entreprise"}`,
+            html: `
+              <p>Bonjour${devis.contact_name ? " " + escapeHtml(devis.contact_name) : ""},</p>
+              <p>Suite à la validation de votre devis, veuillez trouver ci-joint le projet de convention de formation professionnelle ainsi que le programme détaillé, pour chaque formation souscrite.</p>
+              <p>Merci de nous retourner la convention signée (par retour d'email ou courrier) dans les meilleurs délais, conformément à l'article L6353-1 du Code du travail.</p>
+              <p>La facture correspondante vous sera adressée séparément par notre équipe, à régler par virement bancaire.</p>
+              <p style="font-size:13px;color:#64748b;">Pour toute question : <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
+            `,
+            attachments: conventionAttachments,
+          });
+        }
+      } catch (docErr) {
+        console.error("[devis/provisionner] Erreur génération convention/programme B2B :", docErr);
+      }
+    }
+
     // Email récap admin
     if (resend) {
       const adminEmail = process.env.ADMIN_EMAIL ?? "contact@prevensia-formation.fr";

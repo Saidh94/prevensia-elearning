@@ -786,6 +786,30 @@ export default function SupportPage() {
     }
   }
 
+  async function handleMarkPaidManually(enrollmentId: string) {
+    const reference = window.prompt(
+      "Référence du virement / de la facture (optionnel) :"
+    );
+    if (reference === null) return; // annulé par l'admin
+
+    const ok = await handleEnrollmentPatch(enrollmentId, {
+      mark_paid_manually: true,
+      payment_reference: reference,
+    });
+    if (ok) {
+      setData((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          enrollments: prev.enrollments.map((e) =>
+            e.id === enrollmentId ? { ...e, payment_status: "paid" } : e
+          ),
+        };
+      });
+      showMsg("Virement enregistré — inscription marquée payée", true);
+    }
+  }
+
   async function handleAccessEndChange(enrollmentId: string, dateValue: string) {
     if (!dateValue) return;
     const isoDate = new Date(dateValue).toISOString();
@@ -1404,7 +1428,7 @@ export default function SupportPage() {
                           onChange={(ev) => handleStatusChange(e.id, ev.target.value)}
                           className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-300"
                         >
-                          <option value="pending">En attente</option>
+                          <option value="not_started">Non démarré</option>
                           <option value="active">Actif</option>
                           <option value="in_progress">En cours</option>
                           <option value="completed">Terminé</option>
@@ -1428,15 +1452,27 @@ export default function SupportPage() {
                       <td className="px-4 py-3 text-slate-500">{fmt(e.validated_at)}</td>
                       <td className="px-4 py-3 text-slate-500">{fmt(e.created_at)}</td>
                       <td className="px-4 py-3">
-                        {canActivate && (
-                          <button
-                            type="button"
-                            onClick={() => handleActivate30(e.id)}
-                            className="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-100 whitespace-nowrap"
-                          >
-                            Activer 30j
-                          </button>
-                        )}
+                        <div className="flex flex-wrap gap-1.5">
+                          {canActivate && (
+                            <button
+                              type="button"
+                              onClick={() => handleActivate30(e.id)}
+                              className="rounded-lg border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 transition hover:bg-emerald-100 whitespace-nowrap"
+                            >
+                              Activer 30j
+                            </button>
+                          )}
+                          {e.payment_status !== "paid" && (
+                            <button
+                              type="button"
+                              onClick={() => handleMarkPaidManually(e.id)}
+                              className="rounded-lg border border-violet-300 bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700 transition hover:bg-violet-100 whitespace-nowrap"
+                              title="À utiliser une fois le virement SEPA constaté sur le compte bancaire"
+                            >
+                              💶 Marquer payé (virement)
+                            </button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   );

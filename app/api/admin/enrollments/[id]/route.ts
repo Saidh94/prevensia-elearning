@@ -11,6 +11,8 @@ type EnrollmentPatchBody = {
   access_end?: string;
   access_start?: string;
   activate?: true;
+  mark_paid_manually?: true;
+  payment_reference?: string;
 };
 
 export async function PATCH(
@@ -42,6 +44,17 @@ export async function PATCH(
         access_start: start.toISOString(),
         access_end: end.toISOString(),
         status: "in_progress",
+      };
+    } else if (body.mark_paid_manually === true) {
+      // Virement SEPA constaté manuellement par un admin (circuit facture B2B —
+      // jamais de webhook Stripe dans ce cas puisqu'il n'y a pas de paiement en
+      // ligne). On trace qui a validé, quand, et avec quelle référence.
+      updates = {
+        payment_status: "paid",
+        payment_method: "bank_transfer",
+        paid_at: new Date().toISOString(),
+        paid_by_admin: auth.userId,
+        payment_reference: body.payment_reference?.trim() || null,
       };
     } else {
       if (body.status !== undefined) updates.status = body.status;

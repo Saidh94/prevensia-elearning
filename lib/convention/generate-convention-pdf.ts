@@ -1,9 +1,11 @@
 /**
  * Générateur de Convention de formation professionnelle — PREVENSIA FORMATION
  *
- * Document contractuel généré automatiquement après chaque achat payé, conforme
- * aux mentions obligatoires du Code du travail Art. L6353-2 (convention conclue
- * entre l'organisme de formation et le bénéficiaire/employeur) :
+ * Document contractuel généré automatiquement (après paiement pour un
+ * particulier, ou dès validation du devis pour une entreprise), conforme
+ * aux mentions obligatoires du Code du travail Art. L6353-1 (obligation de
+ * conclure une convention entre l'organisme de formation et l'acheteur —
+ * bénéficiaire/employeur) et Art. D6353-1 (contenu obligatoire) :
  *   - dénomination et adresse de l'organisme dispensateur
  *   - nature, durée, modalités de déroulement et objectifs de la formation
  *   - effectifs concernés
@@ -157,8 +159,8 @@ export async function generateConventionPdf(input: ConventionPdfInput): Promise<
     x: W - MR - fontB.widthOfTextAtSize("CONVENTION DE FORMATION", 16),
     y: y - 12, font: fontB, size: 16, color: RED,
   });
-  page.drawText(s(`Convention n. ${numero} — Article L.6353-2 du Code du travail`), {
-    x: W - MR - fontR.widthOfTextAtSize(s(`Convention n. ${numero} — Article L.6353-2 du Code du travail`), 8.5),
+  page.drawText(s(`Convention n. ${numero} — Article L.6353-1 du Code du travail`), {
+    x: W - MR - fontR.widthOfTextAtSize(s(`Convention n. ${numero} — Article L.6353-1 du Code du travail`), 8.5),
     y: y - 28, font: fontR, size: 8.5, color: GRAY,
   });
 
@@ -198,7 +200,7 @@ export async function generateConventionPdf(input: ConventionPdfInput): Promise<
   // ── Article 1 ──
   heading("Article 1 — Objet");
   paragraph(
-    `La presente convention est conclue en application des dispositions du Code du travail (Art. L.6353-2) entre ${COMPANY.name} (organisme de formation) et ${beneficiaryName} (beneficiaire), en vue de la realisation de l'action de formation suivante : "${formationTitle}".`
+    `La presente convention est conclue en application des dispositions du Code du travail (Art. L.6353-1 et D.6353-1) entre ${COMPANY.name} (organisme de formation) et ${beneficiaryName} (beneficiaire), en vue de la realisation de l'action de formation suivante : "${formationTitle}".`
   );
   if (objective) {
     y -= 4;
