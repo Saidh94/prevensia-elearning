@@ -132,6 +132,19 @@ export async function POST(req: NextRequest) {
     if (existingEnrollments && existingEnrollments.length > 0) {
       enrollmentId = existingEnrollments[0].id;
       enrollmentState = "existing";
+      // Activer l'accès même si l'inscription existait déjà (payment_status + accès)
+      const start = new Date();
+      const end = new Date();
+      end.setDate(start.getDate() + durationDays);
+      await adminClient
+        .from("enrollments")
+        .update({
+          payment_status: "paid",
+          status: "in_progress",
+          access_start: start.toISOString(),
+          access_end: end.toISOString(),
+        })
+        .eq("id", enrollmentId);
     } else {
       const start = new Date();
       const end = new Date();
