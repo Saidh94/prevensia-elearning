@@ -364,6 +364,37 @@ export const modulesContent: Record<string, ModuleContent> = {
       }
     },
     {
+      id: "documents",
+      title: "7. Consignes, signalisation et documents applicables",
+      estimatedMinutes: 4,
+      chapterImagePath: "/elearning/h0b0/signalisation-electrique.png",
+      chapterImageAlt: "Signalisation, consignes et documents applicables en environnement H0B0",
+      intro:
+        "La sécurité ne repose pas uniquement sur la mémoire du cours. Elle repose aussi sur les consignes du site, la signalisation en place, le balisage, les autorisations éventuelles et l’organisation retenue par l’employeur.",
+      content: [
+        "Une pancarte d’interdiction, un affichage de danger électrique, un balisage temporaire, une condamnation d’accès ou une procédure interne doivent être considérés comme des dispositifs de sécurité à part entière. Ils ne doivent ni être ignorés, ni déplacés, ni contournés.",
+        "Dans certaines entreprises, des documents spécifiques complètent le cadre général : consignes de sécurité, plans de prévention, permis d’accès, procédures d’intervention, règles de coactivité ou carnets de prescriptions.",
+        "Pour les opérations d’ordre non électrique, la norme fait aussi apparaître des documents de pilotage comme l’autorisation de travail ou le certificat pour tiers selon la situation.",
+        "Le non-respect d’une signalisation ou d’une consigne écrite constitue une prise de risque, même lorsqu’aucun danger n’est immédiatement visible."
+      ],
+      keyPoints: [
+        "Le balisage et la signalisation ont une valeur opérationnelle immédiate.",
+        "Les consignes du site complètent la formation générale.",
+        "On ne contourne jamais un affichage, un verrouillage ou une interdiction.",
+        "En cas de doute sur une consigne : arrêt et demande d’avis."
+      ],
+      forbiddenPoints: [
+        "Ignorer ou déplacer une signalisation ou un balisage.",
+        "Contourner une procédure d’accès ou une consigne d’entreprise.",
+        "Pénétrer dans une zone condamnée sans autorisation explicite."
+      ],
+      legalRefs: [
+        "Code du travail — dispositions générales prévention risque électrique.",
+        "Art. R.4544-1 à R.4544-11 du Code du travail.",
+        "NF C 18-510 : cadre documentaire et consignes de sécurité."
+      ]
+    },
+    {
       id: "environments",
       title: "7. Types d’environnements électriques",
       chapterImagePath: "/elearning/h0b0/environnement-travail.png",
@@ -403,6 +434,36 @@ export const modulesContent: Record<string, ModuleContent> = {
         imagePath: "/elearning/h0b0/h0b0-environnements.svg",
         imageAlt: "Types d'environnements électriques et niveaux de risque H0B0",
       }
+    },
+    {
+      id: "movement-tools",
+      title: "9. Déplacement, outillage et situations de travail",
+      estimatedMinutes: 4,
+      chapterImagePath: "/elearning/h0b0/outillage-risque.png",
+      chapterImageAlt: "Illustration des déplacements, manutentions et outillages en environnement électrique",
+      intro:
+        "En environnement électrique, le risque ne provient pas uniquement d'une action directe sur une installation. Il peut aussi résulter d'un déplacement, d'une manutention, de l'usage d'un outil ou d'un matériel inadapté à proximité d'une zone dangereuse.",
+      content: [
+        "L'utilisation d'une échelle métallique, le transport d'un tube, d'une barre, d'un profilé ou d'un outil long peut provoquer un rapprochement dangereux d'une partie sous tension ou le franchissement involontaire d'une limite de sécurité.",
+        "Le nettoyage d'un local technique, l'usage d'un aspirateur, le passage d'une rallonge, la manutention d'un chariot ou le déplacement de matériel à proximité d'armoires, de coffrets ou de câbles exigent une analyse préalable de l'environnement.",
+        "Un titulaire B0 / H0 / H0V ne doit jamais choisir seul d'adapter son outillage ou sa méthode si l'environnement devient douteux.",
+        "Le danger apparaît souvent lorsqu'on veut gagner du temps ou finir une tâche rapidement. Une activité non électrique reste interdite dès lors qu'elle conduit à pénétrer dans une zone de risque."
+      ],
+      keyPoints: [
+        "Un objet long, métallique ou conducteur peut créer un risque majeur.",
+        "Une tâche banale devient dangereuse si elle se déroule au mauvais endroit.",
+        "On n'improvise jamais une adaptation d'outillage en zone à risque.",
+        "En cas de doute sur un déplacement ou une manutention : arrêt immédiat."
+      ],
+      forbiddenPoints: [
+        "Utiliser une échelle ou outil métallique long sans vérifier l'environnement.",
+        "Adapter seul sa méthode dans un environnement électrique douteux.",
+        "Continuer une manœuvre qui rapproche d'une zone sous tension."
+      ],
+      legalRefs: [
+        "Code du travail — prévention du risque électrique.",
+        "NF C 18-510 : les opérations d'ordre non électrique restent soumises aux règles de prévention."
+      ]
     },
     {
       id: "contacts",
@@ -851,8 +912,42 @@ export const modulesContent: Record<string, ModuleContent> = {
   },
 },
     {
+      id: "classes-materiels-ip",
+      title: "18. Classes des matériels et indices de protection IP",
+      estimatedMinutes: 4,
+      chapterImagePath: "/elearning/bsbe/bsbe-classes-materiels.svg",
+      chapterImageAlt: "Tableau des 4 classes de matériels électriques — Classe 0, I, II, III",
+      intro:
+        "Les matériels électriques sont classés selon leur niveau de protection intrinsèque contre le risque d'électrocution. La lecture d'un indice IP permet d'évaluer si l'enveloppe d'un équipement offre une protection suffisante.",
+      content: [
+        "La classe 0 ne possède qu'une isolation principale, sans protection supplémentaire. Elle est interdite en milieu professionnel en France. Si un titulaire B0 / H0 rencontre un matériel classe 0 en service, il doit le signaler et ne pas l'utiliser.",
+        "La classe I est la plus répandue dans les environnements professionnels. Elle combine une isolation principale et une mise à la terre de toutes les masses métalliques via un conducteur PE (prise 3 broches).",
+        "La classe II dispose d'une double isolation ou d'une isolation renforcée. Elle ne nécessite pas de mise à la terre. Ces matériels portent le symbole d'un carré inscrit dans un autre carré (□□).",
+        "La classe III fonctionne sous très basse tension de sécurité (TBTS), soit 50 V alternatif maximum ou 120 V continu.",
+        "L'indice de protection IP (norme NF EN 60529) indique le niveau de protection contre les corps solides (1er chiffre, de 0 à 6) et les liquides (2e chiffre, de 0 à 8). Un IP2X ou IPXXB signifie qu'un doigt ne peut pas atteindre les parties actives — c'est le seuil minimum requis en basse tension."
+      ],
+      keyPoints: [
+        "Classe 0 : isolation simple uniquement — INTERDITE en milieu professionnel.",
+        "Classe I : isolation + mise à la terre (prise 3 broches) — la plus courante.",
+        "Classe II : double isolation, symbole □□ — pas de mise à la terre.",
+        "Classe III : TBTS ≤ 50 V AC — tension intrinsèquement sûre.",
+        "IP2X = doigt ne peut pas atteindre les parties actives — seuil minimal BT.",
+        "Enveloppe ouverte ou dégradée = perte de la protection IP → danger immédiat."
+      ],
+      forbiddenPoints: [
+        "Utiliser un matériel classe 0 dans un environnement professionnel.",
+        "Brancher une prise de terre sur un matériel classe II (non conçu pour).",
+        "Ignorer une enveloppe dégradée ou ouverte."
+      ],
+      legalRefs: [
+        "NF EN 61140 — classification des classes de protection des matériels électriques.",
+        "NF EN 60529 — degrés de protection IP.",
+        "NF C 18-510 — conditions d'accès et de protection en présence du risque électrique."
+      ]
+    },
+    {
       id: "summary",
-      title: "16. Synthèse opérationnelle",
+      title: "19. Synthèse opérationnelle",
       chapterImagePath: "/elearning/h0b0/reflexes-h0b0.png",
       chapterImageAlt: "Synthèse opérationnelle H0B0 — réflexes fondamentaux",
       intro:
