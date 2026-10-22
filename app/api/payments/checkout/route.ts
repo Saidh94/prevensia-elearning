@@ -205,16 +205,24 @@ export async function POST(request: Request) {
       client_reference_id: enrollment.id,
       customer_email:
         user.email || enrollment.manager_email || undefined,
+      // Stripe Tax calcule automatiquement la TVA selon l'adresse du client.
+      // Requis : Stripe Tax activé sur le compte + billing_address_collection: "auto".
+      // Le unit_amount est exprimé en HT (hors taxes) — Stripe ajoute la TVA par-dessus.
+      automatic_tax: { enabled: true },
       line_items: [
         {
           quantity: 1,
           price_data: {
             currency: "eur",
-            unit_amount: paymentOption.amountCents,
+            // Prix HT : on divise le montant TTC par 1,2 (TVA 20 %).
+            // Stripe Tax ajoute ensuite la taxe automatiquement selon la localisation.
+            unit_amount: Math.round(paymentOption.amountCents / 1.2),
             product_data: {
               name: paymentOption.label,
               description:
                 enrollment.company_name?.trim() || "Paiement formation PREVENSIA",
+              // Catégorie fiscale Stripe : formation professionnelle (service éducatif).
+              tax_code: "txcd_10000000",
             },
           },
         },
@@ -228,6 +236,8 @@ export async function POST(request: Request) {
             enrollmentId: enrollment.id,
             formationSlug: formation?.slug ?? "",
           },
+          // Stripe Tax remonte automatiquement la TVA sur la facture générée.
+          rendering_options: { amount_tax_display: "include_inclusive_tax" },
         },
       },
       metadata: {
