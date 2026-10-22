@@ -804,25 +804,25 @@ function FicheMemo({ moduleData }: { moduleData: ModuleContent | null }) {
   }
 
   return (
-    <div className="mt-8 rounded-[1.5rem] border-2 border-slate-900 bg-slate-950 p-6 text-white shadow-lg">
+    <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-5">
         <span className="text-2xl">📋</span>
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">Fin du module</p>
-          <h3 className="text-lg font-extrabold text-white">Fiche mémo — Points essentiels</h3>
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Fin du module</p>
+          <h3 className="text-lg font-extrabold text-slate-900">Fiche mémo — Points essentiels</h3>
         </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         {keyPoints.length > 0 && (
-          <div className="rounded-2xl bg-emerald-900/40 border border-emerald-700/40 p-4">
-            <p className="text-xs font-bold uppercase tracking-wide text-emerald-400 mb-3">
+          <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-emerald-700 mb-3">
               ✅ Points clés à retenir
             </p>
             <ul className="space-y-2">
               {keyPoints.map((pt, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-slate-200">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
                   {formatFrenchDisplayText(pt)}
                 </li>
               ))}
@@ -831,14 +831,14 @@ function FicheMemo({ moduleData }: { moduleData: ModuleContent | null }) {
         )}
 
         {forbidden.length > 0 && (
-          <div className="rounded-2xl bg-red-900/40 border border-red-700/40 p-4">
-            <p className="text-xs font-bold uppercase tracking-wide text-red-400 mb-3">
+          <div className="rounded-2xl bg-red-50 border border-red-200 p-4">
+            <p className="text-xs font-bold uppercase tracking-wide text-red-700 mb-3">
               🚫 Interdictions absolues
             </p>
             <ul className="space-y-2">
               {forbidden.map((pt, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-slate-200">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" />
+                <li key={i} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500" />
                   {formatFrenchDisplayText(pt)}
                 </li>
               ))}
@@ -848,13 +848,13 @@ function FicheMemo({ moduleData }: { moduleData: ModuleContent | null }) {
       </div>
 
       {legalRefs.length > 0 && (
-        <div className="mt-4 rounded-2xl bg-blue-900/30 border border-blue-700/30 p-4">
-          <p className="text-xs font-bold uppercase tracking-wide text-blue-400 mb-3">
+        <div className="mt-4 rounded-2xl bg-blue-50 border border-blue-200 p-4">
+          <p className="text-xs font-bold uppercase tracking-wide text-blue-700 mb-3">
             📖 Références réglementaires
           </p>
           <ul className="space-y-1.5">
             {legalRefs.map((ref, i) => (
-              <li key={i} className="text-sm text-slate-300 leading-6">
+              <li key={i} className="text-sm text-slate-600 leading-6">
                 — {formatFrenchDisplayText(ref)}
               </li>
             ))}
@@ -863,15 +863,15 @@ function FicheMemo({ moduleData }: { moduleData: ModuleContent | null }) {
       )}
 
       {moduleData.finalMessage && (
-        <div className="mt-4 rounded-2xl bg-amber-900/30 border border-amber-700/30 p-4">
-          <p className="text-sm leading-7 text-amber-200 font-medium">
+        <div className="mt-4 rounded-2xl bg-amber-50 border border-amber-200 p-4">
+          <p className="text-sm leading-7 text-amber-900 font-medium">
             💡 {formatFrenchDisplayText(moduleData.finalMessage)}
           </p>
         </div>
       )}
 
-      <div className="mt-5 rounded-xl bg-white/5 p-3 text-center">
-        <p className="text-xs text-slate-400">
+      <div className="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-3 text-center">
+        <p className="text-xs text-slate-600">
           Vous avez terminé tous les chapitres — le quiz final est maintenant disponible.
         </p>
       </div>
@@ -971,6 +971,12 @@ export default function CoursPage() {
     isAdmin: false,
   });
   const [, setTick] = useState(0);
+  const [showValidatedToast, setShowValidatedToast] = useState(false);
+
+  // Refs pour éviter les effets de bord (célébration + auto-navigation)
+  const hasAutoNavigated = useRef(false);
+  const prevChapterKeyRef = useRef("");
+  const prevCompletedRef = useRef(false);
 
   const normalizedSlug = String(slug).toLowerCase();
   const canonicalSlug = resolveModuleSlug(normalizedSlug) ?? normalizedSlug;
@@ -1206,6 +1212,50 @@ export default function CoursPage() {
     return () => clearInterval(visualTick);
   }, []);
 
+  // ── Auto-navigate : reprendre au premier chapitre non terminé ────────────
+  useEffect(() => {
+    if (loading || hasAutoNavigated.current || chapters.length === 0) return;
+    hasAutoNavigated.current = true;
+    const firstIncomplete = chapters.findIndex(
+      (ch) => !progressData.some((p) => p.chapter_key === ch.key && p.is_completed)
+    );
+    if (firstIncomplete > 0) {
+      setCurrentIndex(firstIncomplete);
+    }
+  }, [loading, progressData, chapters]);
+
+  // ── Célébration quand un chapitre passe à "validé" ───────────────────────
+  const currentChapterKey = currentChapter?.key ?? "";
+  useEffect(() => {
+    if (currentChapterKey !== prevChapterKeyRef.current) {
+      prevChapterKeyRef.current = currentChapterKey;
+      prevCompletedRef.current = currentCompleted;
+      return;
+    }
+    if (!prevCompletedRef.current && currentCompleted) {
+      prevCompletedRef.current = true;
+      setShowValidatedToast(true);
+      const t = setTimeout(() => setShowValidatedToast(false), 4000);
+      return () => clearTimeout(t);
+    }
+  }, [currentCompleted, currentChapterKey]);
+
+  // ── Navigation clavier : ← → entre chapitres ─────────────────────────────
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement)?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+      if (e.key === "ArrowRight" && !isLastChapter && canGoNext) {
+        setCurrentIndex((prev) => prev + 1);
+      }
+      if (e.key === "ArrowLeft" && currentIndex > 0) {
+        setCurrentIndex((prev) => Math.max(0, prev - 1));
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [currentIndex, isLastChapter, canGoNext]);
+
   if (loading || !currentChapter) {
     return (
       <main className="min-h-screen bg-slate-100 px-4 py-10">
@@ -1218,6 +1268,25 @@ export default function CoursPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-100 via-white to-slate-100 px-4 py-8">
+      {/* Toast de validation chapitre */}
+      {showValidatedToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-2xl border border-green-200 bg-green-50 px-5 py-4 shadow-xl"
+          style={{ animation: "slideUpFadeIn 0.3s ease-out" }}
+        >
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-green-500 text-sm font-bold text-white">
+            ✓
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-green-900">Chapitre validé !</p>
+            <p className="text-xs text-green-700">
+              {!isLastChapter ? "Vous pouvez passer au chapitre suivant →" : "Tous les chapitres sont validés — accédez au quiz !"}
+            </p>
+          </div>
+        </div>
+      )}
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
           <aside className="rounded-[2rem] border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur">
@@ -1613,41 +1682,6 @@ export default function CoursPage() {
                   </div>
                 </div>
               ) : null}
-
-              <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
-                  Décompte visuel en direct
-                </p>
-
-                <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl bg-white p-4 shadow-sm">
-                    <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                      Temps minimum
-                    </p>
-                    <p className="mt-2 text-2xl font-bold text-slate-900">
-                      {formatSeconds(currentChapter.minSeconds)}
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-white p-4 shadow-sm">
-                    <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                      Temps acquis
-                    </p>
-                    <p className="mt-2 text-2xl font-bold text-slate-900">
-                      {formatSeconds(currentSeconds)}
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-white p-4 shadow-sm">
-                    <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
-                      Temps restant
-                    </p>
-                    <p className="mt-2 text-2xl font-bold text-red-700">
-                      {formatSeconds(remainingSeconds)}
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               {isLastChapter && (
                 <FicheMemo moduleData={currentModuleData} />

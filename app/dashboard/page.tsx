@@ -507,13 +507,19 @@ export default function DashboardPage() {
                       ) : null}
 
                       <Link
-                        href={safeSlug ? `/modules/${safeSlug}` : "/dashboard"}
+                        href={
+                          safeSlug
+                            ? progress > 0 && progress < 100
+                              ? `/modules/${safeSlug}/cours`
+                              : `/modules/${safeSlug}`
+                            : "/dashboard"
+                        }
                         className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90"
                       >
                         {progress >= 100
                           ? "Voir le module"
                           : progress > 0
-                          ? "Reprendre"
+                          ? "▶ Reprendre le cours"
                           : "Commencer"}
                       </Link>
 
