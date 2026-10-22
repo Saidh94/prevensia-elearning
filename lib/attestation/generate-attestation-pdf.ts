@@ -501,12 +501,41 @@ const REGULATORY_REFS: Record<string, string[]> = {
 };
 
 const ELECTRICAL_SLUGS = new Set([
-  "h0b0", "bsbe", "bs-be", "bsbe-manoeuvre", "bs-be-manoeuvre",
+  "h0b0", "habilitation-electrique-h0b0", "habilitation-h0b0",
+  "bsbe", "bs-be", "bsbe-manoeuvre", "bs-be-manoeuvre",
   "b1b2brbc", "bt-multi-symboles", "b1-b2-br-bc", "b1-b1v-b2-b2v-br-bc",
   "b1-b1v", "b1", "b1v", "b2-b2v", "b2", "b2v", "br", "bc",
   "be-verification-mesurage", "be-verification", "be-mesurage", "be",
   "habilitation-vehicules",
 ]);
+
+/**
+ * Durée indicative par module — formulation conforme aux pratiques Qualiopi
+ * pour la formation ouverte et à distance (FOAD / e-learning).
+ * Aucune durée réglementaire minimale ne s'applique pour ces modules :
+ * la mention "environ Xh" est volontairement indicative (art. L.6313-1 C. trav.).
+ */
+const DURATION_HINTS: Record<string, string> = {
+  // Habilitation électrique — théorique seul, habilitation employeur
+  h0b0:                       "E-learning FOAD — environ 3 h (theorie uniquement)",
+  "habilitation-electrique-h0b0": "E-learning FOAD — environ 3 h (theorie uniquement)",
+  bsbe:                       "E-learning FOAD — environ 3 h (theorie uniquement)",
+  "bs-be":                    "E-learning FOAD — environ 3 h (theorie uniquement)",
+  br:                         "E-learning FOAD — environ 4 h (theorie uniquement)",
+  bc:                         "E-learning FOAD — environ 3 h (theorie uniquement)",
+  "b1-b1v":                   "E-learning FOAD — environ 5 h (theorie uniquement)",
+  "b1b2brbc":                 "E-learning FOAD — environ 7 h (theorie uniquement)",
+  // Sécurité incendie
+  ssiap1:                     "Formation initiale — 70 h (arrete du 2 mai 2005)",
+  "recyclage-ssiap1":         "Recyclage triennal — 14 h (arrete du 2 mai 2005)",
+  sprinkler:                  "E-learning FOAD — environ 3 h",
+  "securite-incendie":        "E-learning FOAD — environ 2 h",
+  // ATEX
+  atex:                       "E-learning FOAD — environ 3 h (niveau 0 sensibilisation)",
+  "atex-niveau1":             "E-learning FOAD — environ 4 h",
+  // SST
+  sst:                        "Formation initiale — 14 h (arrete 24 juillet 2007)",
+};
 
 function isElectricalSlug(slug: string): boolean {
   return ELECTRICAL_SLUGS.has(slug.toLowerCase().trim());
@@ -590,7 +619,7 @@ function drawAttestationSuiviPage(params: {
   drawCell(page, `Ref. : ${attestationId}\nEmis le : ${issueDate}`,
     pageWidth - margin - refBoxW, pageHeight - margin - bandH + 14, refBoxW, 60, {
       font: fontRegular, size: 7.8,
-      textColor: rgb(1, 1, 1), borderColor: rgb(0.5, 0.6, 0.8), borderWidth: 0.8,
+      textColor: rgb(1, 1, 1), borderColor: rgb(0.28, 0.42, 0.65), borderWidth: 0.5,
       align: "right", verticalAlign: "middle", lineHeight: 11,
     });
 
@@ -605,7 +634,7 @@ function drawAttestationSuiviPage(params: {
     ["Entreprise / Employeur", employerName || "—"],
     ["Intitule de la formation", formation],
     ["Cadre reglementaire", frameText],
-    ["Formateur PREVENSIA", formateur || "PREVENSIA FORMATION"],
+    ["Formateur", formateur || "PREVENSIA FORMATION"],
     ["Duree indicative", durationHint || "—"],
     ["Date de validation", validationDate],
     ["Organisme de formation", "PREVENSIA FORMATION"],
@@ -673,14 +702,17 @@ function drawAttestationSuiviPage(params: {
     font: fontBold, size: 8.3, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle",
   });
   drawCell(page, "", margin, 34, 210, 44, { font: fontRegular, size: 8, borderColor: colors.line });
-  drawLine(page, margin + 12, 48, margin + 198, 48, colors.line);
   if (signatureImage) {
     try {
       const dims = signatureImage.scale(1);
-      const scale = Math.min(160 / dims.width, 24 / dims.height);
-      page.drawImage(signatureImage, { x: margin + 22, y: 50, width: dims.width * scale, height: dims.height * scale });
+      const scale = Math.min(140 / dims.width, 20 / dims.height);
+      page.drawImage(signatureImage, { x: margin + 14, y: 58, width: dims.width * scale, height: dims.height * scale });
     } catch { /* no-op */ }
   }
+  // Signature textuelle
+  page.drawText("S. HACHIBA", { x: margin + 14, y: 58, size: 8.5, font: fontBold, color: colors.text });
+  page.drawText("Responsable Formation", { x: margin + 14, y: 49, size: 7, font: fontRegular, color: colors.muted });
+  page.drawText("PREVENSIA FORMATION", { x: margin + 14, y: 40, size: 7, font: fontBold, color: colors.brand });
 
   // Référence dossier
   drawCell(page, "Reference dossier", pageWidth - margin - 180, 78, 180, 18, {
@@ -1581,16 +1613,14 @@ function drawSuccessPage(params: {
     size: 8,
     borderColor: colors.line,
   });
-  drawLine(page, margin + 12, 48, margin + 198, 48, colors.line);
 
   if (signatureImage) {
     try {
       const dims = signatureImage.scale(1);
-      const scale = Math.min(160 / dims.width, 28 / dims.height);
-
+      const scale = Math.min(140 / dims.width, 20 / dims.height);
       page.drawImage(signatureImage, {
-        x: margin + 22,
-        y: 48,
+        x: margin + 14,
+        y: 66,
         width: dims.width * scale,
         height: dims.height * scale,
       });
@@ -1598,6 +1628,10 @@ function drawSuccessPage(params: {
       console.error("Erreur signature visa PREVENSIA :", error);
     }
   }
+  // Signature textuelle
+  page.drawText("S. HACHIBA", { x: margin + 14, y: 66, size: 8.5, font: fontBold, color: colors.text });
+  page.drawText("Responsable Formation", { x: margin + 14, y: 56, size: 7, font: fontRegular, color: colors.muted });
+  page.drawText("PREVENSIA FORMATION", { x: margin + 14, y: 46, size: 7, font: fontBold, color: colors.brand });
 
   drawCell(page, "Référence dossier", pageWidth - margin - 180, 86, 180, 18, {
     font: fontBold,
@@ -1758,7 +1792,7 @@ export async function generateAttestationPdf(input: AttestationPdfInput) {
       formateur: sanitizePdfText(input.formateur ?? ""),
       resultText,
       successText,
-      durationHint: "",
+      durationHint: sanitizePdfText(input.durationHint ?? DURATION_HINTS[canonicalSlug] ?? "E-learning FOAD — parcours individualisé"),
     });
   }
 
