@@ -595,7 +595,11 @@ const CONFIGS: Record<string, RecapConfig> = {
 
 // ─── Voice helpers ────────────────────────────────────────────────────────────
 function pickBestVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
-  let v = voices.find((v) => v.name.toLowerCase().includes("paul"));
+  // Priorité 1 : Denise (voix par défaut)
+  let v = voices.find((v) => v.name.toLowerCase().includes("denise"));
+  if (v) return v;
+  // Priorité 2 : Paul
+  v = voices.find((v) => v.name.toLowerCase().includes("paul"));
   if (v) return v;
   v = voices.find((v) => v.lang?.startsWith("fr") && (v.name.toLowerCase().includes("neural") || v.name.toLowerCase().includes("natural") || v.name.toLowerCase().includes("online")));
   if (v) return v;
@@ -609,7 +613,7 @@ function labelVoice(v: SpeechSynthesisVoice): string {
 
 function isStar(v: SpeechSynthesisVoice): boolean {
   const n = v.name.toLowerCase();
-  return n.includes("paul") || n.includes("neural") || n.includes("natural") || n.includes("online");
+  return n.includes("denise") || n.includes("paul") || n.includes("neural") || n.includes("natural") || n.includes("online");
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
@@ -622,7 +626,7 @@ export function RecapVideoWidget({ slug }: { slug: string }) {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [voice, setVoice] = useState<SpeechSynthesisVoice | null>(null);
   const [waveHeights, setWaveHeights] = useState([3, 3, 3, 3, 3]);
-  const [status, setStatus] = useState("Voix Paul — appuyez sur Play");
+  const [status, setStatus] = useState("Voix Denise — appuyez sur Play");
 
   const waveRef = useRef<number | null>(null);
   const playingRef = useRef(false);
