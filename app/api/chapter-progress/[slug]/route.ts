@@ -44,6 +44,7 @@ export async function GET(
       .from("enrollments")
       .select(`
         id,
+        access_end,
         formation:formations (
           slug
         )
@@ -54,13 +55,19 @@ export async function GET(
       return NextResponse.json({ error: enrollmentError.message }, { status: 500 });
     }
 
+    const now = new Date();
     const hasAccess =
-      enrollments?.some((item) =>
-        canFormationAccessModule(
+      enrollments?.some((item) => {
+        const formationMatch = canFormationAccessModule(
           getEnrollmentFormationSlug(item.formation),
           requestedSlug
-        )
-      ) ?? false;
+        );
+        if (!formationMatch) return false;
+        // Vérifier que l'accès n'a pas expiré
+        const accessEnd = (item as { access_end?: string | null }).access_end;
+        if (accessEnd && new Date(accessEnd) < now) return false;
+        return true;
+      }) ?? false;
 
     if (!hasAccess) {
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });

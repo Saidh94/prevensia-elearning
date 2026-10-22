@@ -223,7 +223,8 @@ export async function POST(req: Request) {
         company_name,
         manager_email,
         ordered_by_employer,
-        status
+        status,
+        access_end
       `)
       .eq("user_id", user.id)
       .eq("formation_id", formation.id)
@@ -233,6 +234,15 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: "Inscription introuvable pour cette formation." },
         { status: 404 }
+      );
+    }
+
+    // Vérifier que l'accès n'a pas expiré
+    const enrollmentAccessEnd = (enrollment as unknown as { access_end?: string | null }).access_end;
+    if (enrollmentAccessEnd && new Date(enrollmentAccessEnd) < new Date()) {
+      return NextResponse.json(
+        { error: "Votre accès à cette formation a expiré." },
+        { status: 403 }
       );
     }
 
