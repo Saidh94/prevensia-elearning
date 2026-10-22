@@ -130,20 +130,33 @@ export function InterviewBookingClient({
     );
   }
 
-  // Aucun créneau disponible
+  // Calendrier complet — redirection email/téléphone
   if (availableSlots.length === 0) {
     return (
-      <div className="rounded-3xl border border-amber-200 bg-amber-50 p-6">
-        <p className="font-semibold text-amber-900">Aucun créneau disponible pour le moment</p>
-        <p className="mt-2 text-sm text-amber-700">
-          De nouveaux créneaux seront ajoutés prochainement. Vous pouvez également nous contacter directement pour convenir d'une date.
-        </p>
-        <a
-          href="mailto:contact@prevensia-formation.fr?subject=Demande%20d%27entretien%20de%20validation"
-          className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-amber-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
-        >
-          Nous contacter →
-        </a>
+      <div className="rounded-3xl border border-blue-200 bg-blue-50 p-6">
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 text-2xl">📅</span>
+          <div>
+            <p className="font-bold text-blue-900">Calendrier complet</p>
+            <p className="mt-2 text-sm leading-6 text-blue-800">
+              Nos créneaux d&apos;entretien de validation sont actuellement complets.
+              Pour planifier votre rendez-vous de 30 minutes, merci de nous envoyer
+              un email en précisant vos disponibilités — nous vous contacterons
+              directement par téléphone pour caler le créneau.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a
+                href="mailto:contact@prevensia-formation.fr?subject=Demande%20de%20rendez-vous%20entretien%20de%20validation%2030%20min&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20mon%20entretien%20de%20validation%20de%2030%20minutes.%0A%0AVoici%20mes%20disponibilit%C3%A9s%20%3A%0A%0A-%20%0A-%20%0A-%20%0A%0AMerci%2C"
+                className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+              >
+                ✉ Envoyer un email pour convenir d&apos;un créneau
+              </a>
+            </div>
+            <p className="mt-4 text-xs text-blue-600">
+              📞 Nous vous rappelons sous 24–48 h ouvrées pour fixer la date et l&apos;heure qui vous conviennent.
+            </p>
+          </div>
+        </div>
       </div>
     );
   }

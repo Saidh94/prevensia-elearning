@@ -114,14 +114,7 @@ export default async function EntretienPage({
           <InterviewBookingClient
             enrollmentId={enrollmentId}
             formationType={formationType}
-            availableSlots={availableSlots.map((s) => ({
-              id: s.id,
-              date: s.date,
-              start_time: s.start_time,
-              end_time: s.end_time,
-              formation_type: s.formation_type,
-              notes: s.notes,
-            }))}
+            availableSlots={/* Calendrier géré manuellement — self-booking désactivé */ []}
             existingBooking={
               existingBooking
                 ? {
