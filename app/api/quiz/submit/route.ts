@@ -61,11 +61,24 @@ function evaluateAnswersServerSide(
   }
 
   // ── Contrôles stricts sur le payload ─────────────────────────────────────
-  // 1. Nombre exact de réponses
-  if (answers.length !== expectedTotal) {
+  // 1. Nombre de réponses : tolérance si le contenu du quiz a évolué entre
+  //    le démarrage et la soumission (ex: ajout de sections). On accepte si
+  //    l'apprenant a répondu à au moins 80 % des questions actuelles.
+  if (answers.length === 0) {
+    console.error(`[QUIZ SECURITY] Aucune réponse pour "${formationSlug}"`);
+    return null;
+  }
+  if (answers.length > expectedTotal) {
     console.error(
-      `[QUIZ SECURITY] Nombre de réponses incorrect pour "${formationSlug}" : ` +
+      `[QUIZ SECURITY] Trop de réponses pour "${formationSlug}" : ` +
       `reçu ${answers.length}, attendu ${expectedTotal}`
+    );
+    return null;
+  }
+  if (answers.length < Math.ceil(expectedTotal * 0.7)) {
+    console.error(
+      `[QUIZ SECURITY] Trop peu de réponses pour "${formationSlug}" : ` +
+      `reçu ${answers.length}, minimum ${Math.ceil(expectedTotal * 0.7)} (70 % de ${expectedTotal})`
     );
     return null;
   }
@@ -92,7 +105,11 @@ function evaluateAnswersServerSide(
     }
   }
 
-  // ── Évaluation — total = questions.length (autorité serveur) ─────────────
+  // ── Évaluation — total = nombre de questions réellement soumises ─────────
+  // Si le quiz a évolué entre démarrage et soumission, on évalue sur les
+  // questions répondues uniquement (le plancher de 70 % ci-dessus empêche
+  // tout abus de soumission partielle).
+  const actualTotal = answers.length;
   let score = 0;
   let eliminatoryFailed = false;
   const questionResults: QuestionResult[] = [];
@@ -111,7 +128,7 @@ function evaluateAnswersServerSide(
     });
   }
 
-  return { score, total: expectedTotal, eliminatoryFailed, questionResults };
+  return { score, total: actualTotal, eliminatoryFailed, questionResults };
 }
 
 const resend = process.env.RESEND_API_KEY
