@@ -602,7 +602,7 @@ export async function POST(request: Request) {
     const pdfInput = {
       userId: enrollment.user_id,
       formation: resolvedFormationTitle,
-      moduleSlug: payload.moduleSlug || undefined,
+      moduleSlug: payload.moduleSlug || formation?.slug || undefined,
       date: completionDate,
       score,
       total,
