@@ -120,9 +120,20 @@ async function markEnrollmentPaid(session: Stripe.Checkout.Session) {
   const supabase = createAdminClient();
   if (!supabase) throw new Error("SUPABASE_SERVICE_ROLE_KEY manquante.");
 
+  // Activation immédiate de l'accès : 30 jours à compter du paiement.
+  // Reproduit la logique de /api/admin/activate sans nécessiter d'intervention manuelle.
+  const accessStart = new Date();
+  const accessEnd = new Date();
+  accessEnd.setDate(accessStart.getDate() + 30);
+
   const { error } = await supabase
     .from("enrollments")
-    .update({ payment_status: "paid" })
+    .update({
+      payment_status: "paid",
+      status: "in_progress",
+      access_start: accessStart.toISOString(),
+      access_end: accessEnd.toISOString(),
+    })
     .eq("id", enrollmentId);
 
   if (error) throw new Error(`Erreur mise à jour paiement: ${error.message}`);
