@@ -197,7 +197,11 @@ export default async function AdminPage({
       row.companyName.toLowerCase().includes(q);
 
     const matchesCompany = !companyFilter || row.companyName === companyFilter;
-    const matchesStatus = !statusFilter || row.status === statusFilter;
+    const matchesStatus =
+      !statusFilter ||
+      row.status === statusFilter ||
+      // "active" est alias de "in_progress" — les deux apparaissent dans le filtre En cours
+      (statusFilter === "in_progress" && row.status === "active");
     const matchesPayment = !paymentFilter || row.paymentStatus === paymentFilter;
 
     return matchesSearch && matchesCompany && matchesStatus && matchesPayment;
@@ -398,7 +402,7 @@ export default async function AdminPage({
               💳 Impayés ({rows.filter((r) => r.paymentStatus === "pending").length})
             </a>
             <a href="/admin?status=in_progress" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === "in_progress" ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-800 hover:bg-blue-100"}`}>
-              📚 En cours ({rows.filter((r) => r.status === "in_progress").length})
+              📚 En cours ({rows.filter((r) => r.status === "in_progress" || r.status === "active").length})
             </a>
             <a href="/admin?status=not_started" className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold transition ${statusFilter === "not_started" ? "bg-slate-700 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}>
               🔒 Non démarrées ({rows.filter((r) => r.status === "not_started").length})

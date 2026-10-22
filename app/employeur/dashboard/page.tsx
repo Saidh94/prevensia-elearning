@@ -17,6 +17,7 @@ function getStatusLabel(status: string | null) {
     case "pending_interview":
       return "Entretien à planifier";
     case "in_progress":
+    case "active":
       return "En cours";
     case "not_started":
       return "Non démarrée";
@@ -32,6 +33,7 @@ function getStatusClasses(status: string | null) {
     case "pending_interview":
       return "bg-amber-100 text-amber-700";
     case "in_progress":
+    case "active":
       return "bg-blue-100 text-blue-700";
     case "not_started":
       return "bg-slate-100 text-slate-700";
