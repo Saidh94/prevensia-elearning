@@ -702,17 +702,11 @@ function drawAttestationSuiviPage(params: {
     font: fontBold, size: 8.3, borderColor: colors.line, fillColor: colors.softGrey, verticalAlign: "middle",
   });
   drawCell(page, "", margin, 34, 210, 44, { font: fontRegular, size: 8, borderColor: colors.line });
-  if (signatureImage) {
-    try {
-      const dims = signatureImage.scale(1);
-      const scale = Math.min(140 / dims.width, 20 / dims.height);
-      page.drawImage(signatureImage, { x: margin + 14, y: 58, width: dims.width * scale, height: dims.height * scale });
-    } catch { /* no-op */ }
-  }
-  // Signature textuelle
-  page.drawText("S. HACHIBA", { x: margin + 14, y: 58, size: 8.5, font: fontBold, color: colors.text });
-  page.drawText("Responsable Formation", { x: margin + 14, y: 49, size: 7, font: fontRegular, color: colors.muted });
-  page.drawText("PREVENSIA FORMATION", { x: margin + 14, y: 40, size: 7, font: fontBold, color: colors.brand });
+  // Signature — trait décoratif + identité
+  drawLine(page, margin + 14, 72, margin + 120, 72, colors.brand, 0.6);
+  page.drawText("S. HACHIBA", { x: margin + 14, y: 62, size: 8.5, font: fontBold, color: colors.text });
+  page.drawText("Responsable Formation", { x: margin + 14, y: 52, size: 7, font: fontRegular, color: colors.muted });
+  page.drawText("PREVENSIA FORMATION", { x: margin + 14, y: 42, size: 7, font: fontBold, color: colors.brand });
 
   // Référence dossier
   drawCell(page, "Reference dossier", pageWidth - margin - 180, 78, 180, 18, {
@@ -1614,24 +1608,11 @@ function drawSuccessPage(params: {
     borderColor: colors.line,
   });
 
-  if (signatureImage) {
-    try {
-      const dims = signatureImage.scale(1);
-      const scale = Math.min(140 / dims.width, 20 / dims.height);
-      page.drawImage(signatureImage, {
-        x: margin + 14,
-        y: 66,
-        width: dims.width * scale,
-        height: dims.height * scale,
-      });
-    } catch (error) {
-      console.error("Erreur signature visa PREVENSIA :", error);
-    }
-  }
-  // Signature textuelle
-  page.drawText("S. HACHIBA", { x: margin + 14, y: 66, size: 8.5, font: fontBold, color: colors.text });
-  page.drawText("Responsable Formation", { x: margin + 14, y: 56, size: 7, font: fontRegular, color: colors.muted });
-  page.drawText("PREVENSIA FORMATION", { x: margin + 14, y: 46, size: 7, font: fontBold, color: colors.brand });
+  // Signature — trait décoratif + identité
+  drawLine(page, margin + 14, 80, margin + 120, 80, colors.brand, 0.6);
+  page.drawText("S. HACHIBA", { x: margin + 14, y: 70, size: 8.5, font: fontBold, color: colors.text });
+  page.drawText("Responsable Formation", { x: margin + 14, y: 60, size: 7, font: fontRegular, color: colors.muted });
+  page.drawText("PREVENSIA FORMATION", { x: margin + 14, y: 50, size: 7, font: fontBold, color: colors.brand });
 
   drawCell(page, "Référence dossier", pageWidth - margin - 180, 86, 180, 18, {
     font: fontBold,
