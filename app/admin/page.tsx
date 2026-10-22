@@ -99,7 +99,9 @@ export default async function AdminPage({
     adminDb ? adminDb.from("blog_posts").select("id", { count: "exact" }).eq("status", "review") : Promise.resolve({ data: null }),
   ]);
 
-  const { data: enrollments, error: enrollmentsError } = await supabase
+  // Utilise adminDb (service role) pour bypasser le RLS et voir TOUTES les inscriptions
+  const enrollmentClient = adminDb ?? supabase;
+  const { data: enrollments, error: enrollmentsError } = await enrollmentClient
     .from("enrollments")
     .select(`
       id,
