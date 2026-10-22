@@ -139,8 +139,10 @@ export default async function AdminPage({
   const userIds = [...new Set((enrollments ?? []).map((item) => item.user_id))];
   const formationIds = [...new Set((enrollments ?? []).map((item) => item.formation_id))];
 
+  // Utilise enrollmentClient (service role) pour bypasser le RLS sur profiles
+  // (sinon seul le profil de l'admin connecté est visible)
   const { data: profiles } = userIds.length
-    ? await supabase
+    ? await enrollmentClient
         .from("profiles")
         .select("id, first_name, last_name, email")
         .in("id", userIds)
@@ -148,7 +150,7 @@ export default async function AdminPage({
     : { data: [] };
 
   const { data: formations } = formationIds.length
-    ? await supabase
+    ? await enrollmentClient
         .from("formations")
         .select("id, title")
         .in("id", formationIds)
