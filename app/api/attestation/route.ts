@@ -6,6 +6,11 @@ import {
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 export const runtime = "nodejs";
 
@@ -620,6 +625,58 @@ export async function POST(request: Request) {
     const { pdfBuffer, safeFileName } = isAtex
       ? await generateAtexAttestationPdf(pdfInput)
       : await generateAttestationPdf(pdfInput);
+
+    // ── Envoi email attestation (apprenant + copie admin) ───────────────────
+    // Seulement pour une vraie attestation (pas preview admin), best-effort.
+    if (resend && enrollment.id !== "admin-preview") {
+      const learnerEmail = normalizeText(learnerProfile?.email) || user.email || "";
+      const learnerFullName =
+        [normalizeText(learnerProfile?.first_name), normalizeText(learnerProfile?.last_name)]
+          .filter(Boolean)
+          .join(" ")
+          .trim() || learnerEmail;
+
+      const emailHtml = `
+        <div style="font-family: Arial, sans-serif; color: #111827; line-height: 1.6;">
+          <h2 style="margin-bottom: 16px;">Votre attestation de formation</h2>
+          <p>Bonjour ${employeeFirstName || learnerFullName},</p>
+          <p>
+            Félicitations ! Vous avez validé la formation
+            <strong>${resolvedFormationTitle}</strong>.
+          </p>
+          <p>
+            Votre attestation est disponible en pièce jointe de ce message.
+            Vous pouvez également la télécharger à tout moment depuis votre espace personnel.
+          </p>
+          <p style="margin-top: 24px;">
+            Bien cordialement,<br />
+            PREVENSIA FORMATION
+          </p>
+        </div>
+      `;
+
+      const attachmentContent = Buffer.isBuffer(pdfBuffer)
+        ? pdfBuffer
+        : Buffer.from(pdfBuffer);
+
+      const sendResult = await resend.emails.send({
+        from: "PREVENSIA FORMATION <contact@prevensia-formation.fr>",
+        to: learnerEmail || "contact@prevensia-formation.fr",
+        cc: learnerEmail ? ["contact@prevensia-formation.fr"] : [],
+        subject: `Votre attestation — ${resolvedFormationTitle}`,
+        html: emailHtml,
+        attachments: [
+          {
+            filename: `${safeFileName}.pdf`,
+            content: attachmentContent,
+          },
+        ],
+      });
+
+      if (sendResult.error) {
+        console.error("Erreur envoi attestation par email :", sendResult.error);
+      }
+    }
 
     return new NextResponse(pdfBuffer, {
       status: 200,

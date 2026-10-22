@@ -362,6 +362,45 @@ export async function POST(req: Request) {
       }
     }
 
+    // ── Notification admin (toujours — succès ET échec) ─────────────────────
+    if (resend) {
+      const learnerFullName =
+        [profile?.first_name?.trim(), profile?.last_name?.trim()]
+          .filter(Boolean)
+          .join(" ")
+          .trim() || user.email || "Apprenant";
+
+      const statusLabel = passed
+        ? "✅ Quiz RÉUSSI — entretien à planifier"
+        : "❌ Quiz ÉCHOUÉ — nouvelle tentative possible";
+
+      const adminHtml = `
+        <div style="font-family: Arial, sans-serif; color: #111827; line-height: 1.6;">
+          <h2 style="margin-bottom: 16px;">${statusLabel}</h2>
+          <table style="border-collapse:collapse;width:100%;">
+            <tr><td style="padding:6px 12px;font-weight:bold;background:#f1f5f9;">Apprenant</td><td style="padding:6px 12px;">${learnerFullName}</td></tr>
+            <tr><td style="padding:6px 12px;font-weight:bold;background:#f1f5f9;">Email</td><td style="padding:6px 12px;">${user.email ?? "-"}</td></tr>
+            <tr><td style="padding:6px 12px;font-weight:bold;background:#f1f5f9;">Formation</td><td style="padding:6px 12px;">${formation.title || formation.slug}</td></tr>
+            <tr><td style="padding:6px 12px;font-weight:bold;background:#f1f5f9;">Score</td><td style="padding:6px 12px;"><strong>${safeScore}/${safeTotal}</strong> (${scorePercent}%)</td></tr>
+            <tr><td style="padding:6px 12px;font-weight:bold;background:#f1f5f9;">Seuil de validation</td><td style="padding:6px 12px;">${safePassingScore}/${safeTotal}</td></tr>
+            <tr><td style="padding:6px 12px;font-weight:bold;background:#f1f5f9;">Date</td><td style="padding:6px 12px;">${new Date().toLocaleDateString("fr-FR")} à ${new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}</td></tr>
+          </table>
+          ${passed ? `<p style="margin-top:16px;">Le dossier est en attente d&apos;entretien. Pensez à contacter l&apos;apprenant pour planifier la session.</p>` : `<p style="margin-top:16px;">L&apos;apprenant peut retenter le quiz depuis son espace. Vous pouvez le contacter si nécessaire.</p>`}
+        </div>
+      `;
+
+      const adminSend = await resend.emails.send({
+        from: "PREVENSIA FORMATION <contact@prevensia-formation.fr>",
+        to: "contact@prevensia-formation.fr",
+        subject: `[Quiz] ${passed ? "✅ Réussi" : "❌ Échoué"} — ${learnerFullName} — ${formation.title || formation.slug}`,
+        html: adminHtml,
+      });
+
+      if (adminSend.error) {
+        console.error("Erreur envoi mail admin quiz :", adminSend.error);
+      }
+    }
+
     return NextResponse.json({
       success: true,
       status: passed
