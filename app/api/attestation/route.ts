@@ -543,7 +543,8 @@ export async function POST(request: Request) {
     let serverPassingScore: number | undefined = undefined;
 
     if (enrollment.id !== "admin-preview") {
-      const { data: latestAttempt } = await attestationReadClient
+      // D'abord : chercher une tentative explicitement réussie (passed = true)
+      const { data: passedAttempt } = await attestationReadClient
         .from("quiz_attempts")
         .select("score, total, passing_score, passed, score_percent")
         .eq("enrollment_id", enrollment.id)
@@ -552,11 +553,24 @@ export async function POST(request: Request) {
         .limit(1)
         .maybeSingle();
 
+      // Fallback : si passed est null/false mais un score existe, prendre le meilleur
+      const { data: bestAttempt } = !passedAttempt
+        ? await attestationReadClient
+            .from("quiz_attempts")
+            .select("score, total, passing_score, passed, score_percent")
+            .eq("enrollment_id", enrollment.id)
+            .order("score", { ascending: false })
+            .limit(1)
+            .maybeSingle()
+        : { data: null };
+
+      const latestAttempt = passedAttempt ?? bestAttempt;
+
       if (latestAttempt) {
         score = latestAttempt.score ?? 0;
         total = latestAttempt.total ?? 0;
         scorePercent = latestAttempt.score_percent ?? (total > 0 ? Math.round((score / total) * 100) : 0);
-        serverPassed = latestAttempt.passed ?? true;
+        serverPassed = latestAttempt.passed ?? (scorePercent >= 70);
         serverPassingScore = latestAttempt.passing_score ?? undefined;
       }
     }
