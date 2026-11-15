@@ -31,45 +31,65 @@ const formations = [
   {
     title: "Habilitation électrique H0B0",
     href: "/formation-h0b0",
-    badge: "⭐ Le plus demandé · 100 % e-learning + visio",
+    badge: "⭐ Le plus demandé",
+    format: "100 % e-learning + entretien visio",
+    price: "À partir de 190 € HT",
+    cta: "S'inscrire maintenant",
+    ctaStyle: "bg-red-700 hover:bg-red-600 text-white",
     description:
-      "E-learning à son rythme + entretien individuel en visio avec un formateur. L'employeur peut délivrer l'habilitation en confiance. À partir de 190 € HT — accès immédiat après paiement.",
+      "E-learning à son rythme + entretien individuel en visio. L'employeur peut délivrer l'habilitation H0B0 en toute confiance. Accès immédiat après paiement.",
     image: "/elearning/commun/habilitation-electrique-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
     title: "Sensibilisation ATEX NIV 0",
     href: "/formation-atex",
-    badge: "100 % e-learning · Directive 99/92/CE",
+    badge: "100 % e-learning",
+    format: "En ligne · Accès immédiat",
+    price: "Paiement direct",
+    cta: "S'inscrire maintenant",
+    ctaStyle: "bg-red-700 hover:bg-red-600 text-white",
     description:
-      "Sensibilisez vos équipes aux risques d'explosion en zone ATEX, en ligne et à leur rythme. Idéal pour les non-intervenants (administrative, visiteurs, personnel de support). Paiement direct, accès immédiat.",
+      "Vos équipes proches d'une zone ATEX mais non-intervenantes (administratifs, visiteurs, support) sont sensibilisées aux risques d'explosion. 100 % en ligne, à leur rythme.",
     image: "/elearning/commun/atex-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
     title: "Exploitation du SSI",
     href: "/formation-ssi",
-    badge: "Hybride · Sessions IDF · NF S 61",
+    badge: "Sessions planifiées IDF",
+    format: "E-learning + présentiel Noisy-le-Grand",
+    price: "Dès 290 € HT / pers.",
+    cta: "Réserver une place",
+    ctaStyle: "bg-blue-700 hover:bg-blue-800 text-white",
     description:
-      "Vos exploitants, responsables techniques et agents de maintenance savent lire le tableau SSI, réagir à une alarme et appliquer les bonnes procédures. Demi-journée dès 290 € HT — sessions planifiées à Noisy-le-Grand.",
+      "Vos exploitants, responsables techniques et agents de maintenance maîtrisent le tableau SSI, réagissent à une alarme et coordonnent les secours. Demi-journée ou journée complète.",
     image: "/elearning/commun/ssi-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
     title: "Exploitation Sprinkler",
     href: "/formation-sprinkler",
-    badge: "Présentiel · Sessions IDF · APSAD R1",
+    badge: "Sessions planifiées IDF",
+    format: "Présentiel Noisy-le-Grand · 1 ou 2 jours",
+    price: "Dès 490 € HT / pers.",
+    cta: "Réserver une place",
+    ctaStyle: "bg-cyan-700 hover:bg-cyan-800 text-white",
     description:
-      "Formation terrain pour les responsables de sites équipés d'une installation sprinkler. 1 jour ou 2 jours avec visite d'installation réelle. Sessions planifiées à Noisy-le-Grand — intra et hors IDF sur devis.",
+      "Vos responsables techniques de sites équipés sprinkler exploitent l'installation sans dégrader la protection. 1 jour ou 2 jours avec visite d'une installation réelle. Hors IDF sur devis.",
     image: "/elearning/commun/sprinkler-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
     title: "Coordination SSI",
     href: "/formation-coordinateur-ssi",
-    badge: "Présentiel · Noisy-le-Grand · NF S 61-931",
+    badge: "Reconversion · Évolution professionnelle",
+    format: "Présentiel Noisy-le-Grand · Sur devis",
+    price: "Sur devis",
+    cta: "Demander un devis",
+    ctaStyle: "bg-slate-800 hover:bg-slate-700 text-white",
     description:
-      "Pour les techniciens qui évoluent vers un rôle de coordinateur SSI en ERP ou IGH. Piloter les installateurs, constituer le Dossier d'Identité SSI, valider la matrice DAS. Formation complète en présentiel — sur devis.",
+      "Pour les techniciens SSI qui évoluent vers un rôle de coordinateur en ERP ou IGH. Piloter les installateurs, constituer le Dossier d'Identité SSI, valider la matrice DAS. Parcours complet en présentiel.",
     image: "/elearning/commun/coordinateur-ssi-accueil.png",
     imageClass: "object-cover object-center",
   },
@@ -577,12 +597,11 @@ export default function Home() {
                   Catalogue de formations
                 </p>
                 <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                  Toutes les formations en un seul endroit
+                  5 formations, un seul objectif :<br className="hidden sm:block" /> la conformité de vos équipes
                 </h2>
               </div>
-              <p className="max-w-2xl text-slate-600">
-                Toutes les formations PREVENSIA FORMATION — disponibles en
-                présentiel, e-learning ou intra-entreprise.
+              <p className="max-w-xl text-slate-600">
+                E-learning avec accès immédiat pour H0B0 et ATEX. Sessions planifiées en Île-de-France pour SSI et Sprinkler. Sur devis hors IDF et pour la Coordination SSI.
               </p>
             </div>
 
@@ -590,7 +609,7 @@ export default function Home() {
               {formations.map((item) => (
                 <div
                   key={item.title}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
                     <Image
@@ -603,24 +622,32 @@ export default function Home() {
                       }`}
                     />
                     <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/45 to-transparent" />
-                  </div>
-
-                  <div className="p-6">
-                    <span className="w-fit rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
+                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-slate-800 shadow-sm backdrop-blur">
                       {item.badge}
                     </span>
-                    <h3 className="mt-4 text-xl font-bold text-slate-900">
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                      {item.format}
+                    </p>
+                    <h3 className="mt-2 text-xl font-bold text-slate-900">
                       {item.title}
                     </h3>
-                    <p className="mt-3 min-h-[88px] text-sm leading-7 text-slate-600">
+                    <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
                       {item.description}
                     </p>
-                    <Link
-                      href={item.href}
-                      className="mt-5 inline-flex rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                    >
-                      Voir la formation
-                    </Link>
+                    <div className="mt-5 flex items-center justify-between gap-3">
+                      <span className="text-base font-bold text-slate-900">
+                        {item.price}
+                      </span>
+                      <Link
+                        href={item.href}
+                        className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-semibold transition ${item.ctaStyle}`}
+                      >
+                        {item.cta}
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
