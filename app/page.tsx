@@ -703,21 +703,23 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section SEO — liens internes vers landing pages */}
+        {/* Section SEO — liens internes vers les 5 formations */}
         <section className="bg-slate-50 py-14">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-              Habilitation électrique par symbole
+              Catalogue de formations
             </p>
             <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
-              Trouvez la formation adaptée à votre poste
+              Trouvez la formation adaptée à vos besoins
             </h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { titre: "H0B0 / H0V", desc: "Non-électriciens, caristes, agents de nettoyage, maintenance mécanique", href: "/formation-h0b0", prix: "dès 190 € HT" },
-                { titre: "BS / BE Manœuvre", desc: "Interventions élémentaires, remplacement de fusibles, manœuvres d'exploitation", href: "/formation-bs-be-manoeuvre", prix: "dès 350 € HT" },
-                { titre: "B1 / B2 / BR / BC", desc: "Électriciens BT : travaux, dépannage, consignation, vérification", href: "/formation-b1-b2-br-bc", prix: "dès 790 € HT" },
-                { titre: "Île-de-France", desc: "Formation intra-entreprise dans vos locaux, 8 départements franciliens", href: "/formation-habilitation-electrique-ile-de-france", prix: "Devis 48h" },
+                { titre: "H0B0 / H0V", desc: "Non-électriciens — e-learning + entretien visio individuel", href: "/formation-h0b0", prix: "dès 190 € HT" },
+                { titre: "ATEX NIV 0", desc: "Sensibilisation aux atmosphères explosives — 100 % en ligne", href: "/formation-atex", prix: "Accès direct" },
+                { titre: "Exploitation SSI", desc: "Systèmes de sécurité incendie — sessions IDF planifiées", href: "/formation-ssi", prix: "dès 290 € HT" },
+                { titre: "Exploitation Sprinkler", desc: "Installation sprinkler — 1 jour ou 2 jours, présentiel IDF", href: "/formation-sprinkler", prix: "dès 490 € HT" },
+                { titre: "Coordination SSI", desc: "Responsables techniques, BET, gestionnaires d'immeuble — ERP/IGH", href: "/formation-coordinateur-ssi", prix: "Sur devis" },
+                { titre: "Formation intra-entreprise", desc: "Toutes formations dans vos locaux, en Île-de-France — sur devis", href: "/demande-devis", prix: "Devis 48h" },
               ].map((f) => (
                 <Link key={f.titre} href={f.href} className="group rounded-2xl border border-slate-200 bg-white p-5 hover:border-red-200 hover:shadow-md transition-all">
                   <p className="text-xs font-bold uppercase tracking-widest text-red-600">{f.prix}</p>
@@ -731,8 +733,8 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <p className="text-sm text-slate-500">Ressources :</p>
               {[
-                { label: "Comment choisir son habilitation ?", href: "/blog/comment-choisir-son-habilitation-electrique" },
-                { label: "Durée de validité de l'habilitation", href: "/blog/duree-validite-habilitation-electrique" },
+                { label: "Planning des sessions", href: "/planning" },
+                { label: "Durée de validité de l'habilitation H0B0", href: "/blog/duree-validite-habilitation-electrique" },
                 { label: "Blog Sécurité & Prévention", href: "/blog" },
               ].map((l) => (
                 <Link key={l.href} href={l.href} className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm text-slate-600 hover:border-red-200 hover:text-red-700 transition-colors">
