@@ -15,78 +15,61 @@ const qualiopiOgSuffix = COMPANY.qualiopiObtenu
   : "Démarche Qualiopi Engagée";
 
 export const metadata: Metadata = {
-  title: "PREVENSIA FORMATION — Habilitation Électrique, ATEX, SSI, SST, Sprinkler",
+  title: "PREVENSIA FORMATION — H0B0 e-learning, ATEX, SSI, Sprinkler, Coordination SSI",
   description:
-    "Organisme de formation — démarche Qualiopi engagée. Formations en sécurité professionnelle : habilitation électrique NF C 18-510, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra-entreprise. By PREVENSIA GROUPE.",
+    "Organisme de formation — démarche Qualiopi engagée. H0B0 100 % e-learning, ATEX NIV 0, Exploitation SSI, Exploitation Sprinkler, Coordination SSI. Île-de-France. By PREVENSIA GROUPE.",
   alternates: { canonical: "https://prevensia-formation.fr" },
   openGraph: {
     title: `PREVENSIA FORMATION by PREVENSIA GROUPE — Formations Sécurité ${qualiopiOgSuffix}`,
     description:
-      "Habilitation électrique, ATEX, SSI, SST, sprinkler, coordinateur SSI. Présentiel, e-learning, intra.",
+      "H0B0 e-learning, ATEX NIV 0, SSI, Sprinkler, Coordination SSI. Sessions planifiées IDF. Intra sur devis.",
     url: "https://prevensia-formation.fr",
   },
 };
 
 const formations = [
   {
-    title: "Habilitation électrique",
-    href: "/formation-habilitation-electrique",
-    badge: "NF C 18-510",
-    description: homepageElectricalSummary,
+    title: "Habilitation électrique H0B0",
+    href: "/formation-h0b0",
+    badge: "100 % e-learning · NF C 18-510",
+    description:
+      "Formez vos non-électriciens en ligne, à leur rythme, depuis n'importe où. Attestation générée automatiquement à la réussite du quiz. À partir de 190 € HT — paiement direct, accès immédiat.",
     image: "/elearning/commun/habilitation-electrique-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
-    title: "Formation SST",
-    href: "/formation-sst",
-    badge: "Secourisme · INRS",
-    description:
-      "SST initial et MAC SST — former vos salariés aux gestes de premiers secours et satisfaire l'obligation réglementaire (R.4224-15).",
-    image: "/elearning/commun/sst-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Sécurité incendie",
-    href: "/formation-securite-incendie",
-    badge: "Extincteurs · EPI",
-    description:
-      "Manipulation extincteurs, guide-file / serre-file et équipier de première intervention.",
-    image: "/elearning/commun/secu-incendie-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Formation SSI",
-    href: "/formation-ssi",
-    badge: "NF S 61-933",
-    description:
-      "Exploitation du SSI, logiques SDI / CMSI / UGA / DAS et conduite à tenir en cas d'alarme.",
-    image: "/elearning/commun/ssi-accueil.png",
-    imageClass: "object-cover object-center",
-  },
-  {
-    title: "Formation ATEX",
+    title: "Sensibilisation ATEX NIV 0",
     href: "/formation-atex",
-    badge: "Directive 99/92/CE",
+    badge: "100 % e-learning · Directive 99/92/CE",
     description:
-      "3 niveaux : Sensibilisation (N0), Intervenant en zone (N1), Encadrement et coordination (N2). Zonage, équipements Ex, procédures sécurité.",
+      "Sensibilisez vos équipes aux risques d'explosion en zone ATEX, en ligne et à leur rythme. Idéal pour les non-intervenants (administrative, visiteurs, personnel de support). Paiement direct, accès immédiat.",
     image: "/elearning/commun/atex-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
-    title: "Exploitation sprinkler",
-    href: "/formation-sprinkler",
-    badge: "APSAD R1 · EN 12845",
+    title: "Exploitation du SSI",
+    href: "/formation-ssi",
+    badge: "Hybride · Sessions IDF · NF S 61",
     description:
-      "Exploitation des installations sprinkler : référentiels APSAD R1, EN 12845 et NFPA 13. Pour exploitants et responsables techniques.",
+      "Vos exploitants, responsables techniques et agents de maintenance savent lire le tableau SSI, réagir à une alarme et appliquer les bonnes procédures. Demi-journée dès 290 € HT — sessions planifiées à Noisy-le-Grand.",
+    image: "/elearning/commun/ssi-accueil.png",
+    imageClass: "object-cover object-center",
+  },
+  {
+    title: "Exploitation Sprinkler",
+    href: "/formation-sprinkler",
+    badge: "Présentiel · Sessions IDF · APSAD R1",
+    description:
+      "Formation terrain pour les responsables de sites équipés d'une installation sprinkler. 1 jour ou 2 jours avec visite d'installation réelle. Sessions planifiées à Noisy-le-Grand — intra et hors IDF sur devis.",
     image: "/elearning/commun/sprinkler-accueil.png",
     imageClass: "object-cover object-center",
   },
   {
-    title: "Coordinateur SSI",
+    title: "Coordination SSI",
     href: "/formation-coordinateur-ssi",
-    badge: "NF S 61-931",
+    badge: "Présentiel · Noisy-le-Grand · NF S 61-931",
     description:
-      "Piloter un SSI en ERP ou IGH : CCF, matrice DAS, coordination installateurs, Dossier d'Identité SSI. 7 jours de présentiel sur dossiers réels.",
+      "Pour les techniciens qui évoluent vers un rôle de coordinateur SSI en ERP ou IGH. Piloter les installateurs, constituer le Dossier d'Identité SSI, valider la matrice DAS. Formation complète en présentiel — sur devis.",
     image: "/elearning/commun/coordinateur-ssi-accueil.png",
     imageClass: "object-cover object-center",
   },
@@ -164,7 +147,7 @@ export default function Home() {
         <span className="hidden h-3 w-px bg-white/20 sm:block" />
 
         <span className="text-xs font-semibold text-white/70">
-          Habilitation électrique · ATEX · SSI · SST · Sprinkler · Coordinateur SSI
+          H0B0 e-learning · ATEX NIV 0 · SSI · Sprinkler · Coordination SSI
         </span>
 
         <span className="hidden h-3 w-px bg-white/20 sm:block" />
@@ -192,7 +175,7 @@ export default function Home() {
     <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-[3.25rem]">
       L’expert en formation sécurité&nbsp;professionnelle.
       <span className="mt-2 block text-red-400">
-        Habilitation électrique · ATEX · SSI · SST · Sprinkler.
+        H0B0 · ATEX · SSI · Sprinkler · Coordination SSI.
       </span>
     </h1>
 
@@ -211,9 +194,9 @@ export default function Home() {
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
-        <p className="text-2xl font-bold text-white sm:text-3xl">6</p>
+        <p className="text-2xl font-bold text-white sm:text-3xl">5</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
-          Domaines de formation
+          Formations au catalogue
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
@@ -248,7 +231,7 @@ export default function Home() {
         <ul className="mt-5 space-y-2 text-sm text-slate-300">
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
-            Intra-entreprise sur votre site — partout en France
+            Sessions planifiées IDF — intra et hors IDF sur devis
           </li>
           <li className="flex items-center gap-2">
             <span className="mt-0.5 text-red-400">✓</span>
@@ -361,10 +344,10 @@ export default function Home() {
               <div className="flex items-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
                 <div>
                   <p className="text-sm font-bold text-slate-900">
-                    Île-de-France et France entière
+                    Île-de-France — hors IDF sur devis
                   </p>
                   <p className="mt-1 text-sm text-slate-600">
-                    Interventions sur site selon la nature de la prestation.
+                    Sessions SSI et Sprinkler à Noisy-le-Grand. E-learning H0B0 et ATEX accessible partout.
                   </p>
                 </div>
               </div>
@@ -405,11 +388,11 @@ export default function Home() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-700 text-xl font-bold text-white">
                   2
                 </div>
-                <h3 className="mt-5 text-xl font-bold">Souplesse de format</h3>
+                <h3 className="mt-5 text-xl font-bold">E-learning ou présentiel — vous choisissez</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  E-learning encadré pour H0B0/H0V et BS/BE Manœuvre. Présentiel et
-                  classe virtuelle pour les habilitations B1, B2, BR, BC. Intra-entreprise
-                  pour les groupes. Vous choisissez ce qui colle à votre organisation.
+                  H0B0 et ATEX NIV 0 sont 100 % en ligne — vos équipes se forment sans se déplacer.
+                  SSI et Sprinkler se font en présentiel sur sessions planifiées en IDF.
+                  Coordination SSI est un parcours complet en présentiel pour les professionnels en reconversion.
                 </p>
               </div>
 
@@ -460,11 +443,11 @@ export default function Home() {
                   <span className="float-right text-red-700 group-open:rotate-180 transition">▼</span>
                 </summary>
                 <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Pour les parcours e-learning H0B0/H0V et BS/BE Manœuvre, l’accès est
-                  ouvert immédiatement après inscription et paiement. Pour les
-                  formations encadrées (B1, B2, BR, BC, SST, incendie, sprinkler),
-                  consultez le planning ou demandez un devis : nous proposons
-                  généralement une session sous 2 à 4 semaines.
+                  Pour H0B0 et ATEX NIV 0, l&apos;accès e-learning est ouvert immédiatement
+                  après paiement. Pour les formations SSI et Sprinkler, vous réservez
+                  une place sur une session planifiée — nous confirmons par email dès que
+                  le groupe est constitué (minimum 4 participants). La prochaine session
+                  disponible est généralement dans les 3 à 6 semaines.
                 </p>
               </details>
 
