@@ -21,7 +21,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-6">
-              Organisme de formation — habilitation électrique, ATEX, sécurité incendie, Coordination SSI, SST, Sprinkler.{COMPANY.qualiopiObtenu && <>{" "}<span className="font-semibold text-white">Certifié Qualiopi.</span></>}
+              Organisme de formation — H0B0 e-learning, ATEX, Exploitation SSI, Exploitation Sprinkler, Coordination SSI.{COMPANY.qualiopiObtenu && <>{" "}<span className="font-semibold text-white">Certifié Qualiopi.</span></>}
             </p>
             <p className="mt-3 text-sm">
               <a href="tel:+33189629492" className="hover:text-white">
@@ -38,52 +38,22 @@ export function Footer() {
           {/* Colonne 2 — Formations */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest text-white">
-              Habilitation électrique
+              Nos formations
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <Link href="/formation-habilitation-electrique" className="hover:text-white">
-                  Toutes les habilitations
-                </Link>
-              </li>
-              <li>
                 <Link href="/formation-h0b0" className="hover:text-white">
-                  Formation H0B0 / H0V
+                  Habilitation H0B0 / H0V
                 </Link>
               </li>
               <li>
-                <Link href="/formation-bs-be-manoeuvre" className="hover:text-white">
-                  Formation BS / BE Manœuvre
+                <Link href="/formation-atex" className="hover:text-white">
+                  ATEX NIV 0 — Atmosphères explosives
                 </Link>
               </li>
               <li>
-                <Link href="/formation-b1-b2-br-bc" className="hover:text-white">
-                  Formation B1 / B2 / BR / BC
-                </Link>
-              </li>
-              <li>
-                <Link href="/formation-habilitation-electrique-ile-de-france" className="hover:text-white">
-                  Formation IDF
-                </Link>
-              </li>
-            </ul>
-            <h3 className="mt-6 text-sm font-semibold uppercase tracking-widest text-white">
-              Autres formations
-            </h3>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li>
-                <Link href="/formation-sst" className="hover:text-white">
-                  SST — Premiers secours
-                </Link>
-              </li>
-              <li>
-                <Link href="/formation-securite-incendie" className="hover:text-white">
-                  Sécurité incendie
-                </Link>
-              </li>
-              <li>
-                <Link href="/formation-coordinateur-ssi" className="hover:text-white">
-                  Coordination SSI
+                <Link href="/formation-ssi" className="hover:text-white">
+                  Exploitation SSI
                 </Link>
               </li>
               <li>
@@ -92,8 +62,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/formation-atex" className="hover:text-white">
-                  ATEX — Atmosphères explosives
+                <Link href="/formation-coordinateur-ssi" className="hover:text-white">
+                  Coordination SSI
+                </Link>
+              </li>
+              <li>
+                <Link href="/planning" className="hover:text-white">
+                  Planning des sessions
                 </Link>
               </li>
             </ul>
