@@ -70,13 +70,13 @@ const formations = [
   {
     title: "Exploitation Sprinkler",
     href: "/formation-sprinkler",
-    badge: "Sessions planifiées IDF",
-    format: "Présentiel Noisy-le-Grand · 1 ou 2 jours",
-    price: "Dès 490 € HT / pers.",
-    cta: "Réserver une place",
+    badge: "Formation intra-entreprise",
+    format: "Présentiel sur votre site · IDF et hors IDF",
+    price: "Dès 790 € HT / pers.",
+    cta: "Demander un devis",
     ctaStyle: "bg-cyan-700 hover:bg-cyan-800 text-white",
     description:
-      "Vos responsables techniques de sites équipés sprinkler exploitent l'installation sans dégrader la protection. 1 jour ou 2 jours avec visite d'une installation réelle. Hors IDF sur devis.",
+      "Vos responsables techniques et exploitants de sites équipés sprinkler maîtrisent l'installation sans dégrader la protection. 1 jour ou 2 jours avec visite terrain. Sur devis, min. 3 participants.",
     image: "/elearning/commun/sprinkler-accueil.png",
     imageClass: "object-cover object-center",
   },
@@ -717,7 +717,7 @@ export default function Home() {
                 { titre: "H0B0 / H0V", desc: "Non-électriciens — e-learning + entretien visio individuel", href: "/formation-h0b0", prix: "dès 190 € HT" },
                 { titre: "ATEX NIV 0", desc: "Sensibilisation aux atmosphères explosives — 100 % en ligne", href: "/formation-atex", prix: "Accès direct" },
                 { titre: "Exploitation SSI", desc: "Systèmes de sécurité incendie — sessions IDF planifiées", href: "/formation-ssi", prix: "dès 290 € HT" },
-                { titre: "Exploitation Sprinkler", desc: "Installation sprinkler — 1 jour ou 2 jours, présentiel IDF", href: "/formation-sprinkler", prix: "dès 490 € HT" },
+                { titre: "Exploitation Sprinkler", desc: "Installation sprinkler — intra IDF, 1 ou 2 jours. Hors IDF sur devis.", href: "/formation-sprinkler", prix: "dès 790 € HT / pers." },
                 { titre: "Coordination SSI", desc: "Responsables techniques, BET, gestionnaires d'immeuble — ERP/IGH", href: "/formation-coordinateur-ssi", prix: "Sur devis" },
                 { titre: "Formation intra-entreprise", desc: "Toutes formations dans vos locaux, en Île-de-France — sur devis", href: "/demande-devis", prix: "Devis 48h" },
               ].map((f) => (

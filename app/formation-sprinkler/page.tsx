@@ -2,11 +2,6 @@ import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import {
-  getUpcomingSessions,
-  formatSessionDate,
-  placesRestantes,
-} from "@/lib/formations/sessions";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sprinkler" },
@@ -73,53 +68,26 @@ const programme = [
 
 const tarifs = [
   {
-    format: "1 jour — 1 à 3 participants",
-    price: "590 € HT / participant",
-    detail: "Formation exploitation avec cas pratiques, lecture de schéma, anomalies courantes et conduite à tenir. Accès e-learning inclus en préparation et révision. Session inter à Noisy-le-Grand (93).",
+    format: "1 jour — Île-de-France",
+    price: "790 € HT / pers.",
+    detail: "Formation sur votre site en Île-de-France. Minimum 3 participants. Contenu adapté à vos référentiels (APSAD R1, EN 12845, NFPA 13) et à votre installation. Accès e-learning inclus.",
     badge: null,
   },
   {
-    format: "1 jour — groupe 4 participants et +",
-    price: "490 € HT / participant",
-    detail: "Même contenu — tarif dégressif à partir de 4 inscrits sur la même session. Accès e-learning inclus.",
-    badge: "Économique",
-  },
-  {
-    format: "2 jours renforcé — 1 à 3 participants",
-    price: "1 190 € HT / participant",
-    detail: "Parcours complet pour responsables techniques et maintenance. Inclut une visite terrain encadrée sur une installation sprinkler réelle. Conforme APSAD R1, EN 12845, NFPA 13. Accès e-learning inclus.",
-    badge: null,
-  },
-  {
-    format: "2 jours renforcé — groupe 4 participants et +",
-    price: "990 € HT / participant",
-    detail: "Même contenu — tarif dégressif à partir de 4 inscrits sur la même session. Visite installation incluse. Accès e-learning inclus.",
-    badge: "Économique",
-  },
-  {
-    format: "Intra-entreprise IDF — 1 jour",
-    price: "2 200 € HT / jour",
-    detail: "Formation sur votre site en Île-de-France. Tarif forfaitaire, ajustable selon référentiel, documents et niveau technique. Adapté aux entrepôts et plateformes logistiques.",
-    badge: null,
-  },
-  {
-    format: "Intra-entreprise IDF — 2 jours",
-    price: "4 200 € HT / 2 jours",
-    detail: "Parcours complet sur votre site IDF, avec visite installation. Tarif forfaitaire.",
-    badge: null,
+    format: "2 jours — Île-de-France",
+    price: "1 290 € HT / pers.",
+    detail: "Parcours complet sur votre site IDF, avec visite et analyse de votre installation réelle. Minimum 3 participants. Accès e-learning inclus.",
+    badge: "Recommandé",
   },
   {
     format: "Hors Île-de-France",
     price: "Sur devis",
-    detail: "Déplacement formateur en sus. Contactez-nous pour un devis adapté à votre région et votre site.",
+    detail: "Déplacement formateur en sus. Tarif majoré selon la localisation. Contactez-nous pour un devis adapté à votre région et votre site.",
     badge: "Sur devis",
   },
 ];
 
 export default function FormationSprinkler() {
-  const sessions1j = getUpcomingSessions("sprinkler").filter((s) => s.format === "1j");
-  const sessions2j = getUpcomingSessions("sprinkler").filter((s) => s.format === "2j");
-
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <BreadcrumbJsonLd
@@ -274,94 +242,41 @@ export default function FormationSprinkler() {
         </div>
       </section>
 
-      {/* Sessions planifiées */}
+      {/* Organisation — sur devis intra */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Prochaines sessions inter-entreprises</h2>
-          <p className="mt-3 text-slate-600 max-w-2xl">
-            Les sessions sont ouvertes à partir de <strong>4 participants</strong>. Réservez votre place —
-            nous confirmons la session par email dès que le groupe est constitué.
-            Session à Noisy-le-Grand (93). <strong>Hors IDF :</strong> sur devis.
+          <h2 className="text-2xl font-bold">Une formation organisée sur devis, sur votre site</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-600">
+            La formation Exploitation Sprinkler se déroule en <strong>intra-entreprise</strong>, directement sur votre site ou dans vos locaux.
+            Minimum <strong>3 participants</strong>. Le formateur s&apos;adapte à votre installation, vos référentiels et votre organisation.
           </p>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="mb-4 text-lg font-semibold text-cyan-700">Formation 1 jour</h3>
-              {sessions1j.length === 0 ? (
-                <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
-              ) : (
-                <div className="flex flex-col gap-3">
-                  {sessions1j.map((s) => {
-                    const places = placesRestantes(s);
-                    return (
-                      <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex items-center justify-between gap-4">
-                        <div>
-                          <p className="font-semibold">{formatSessionDate(s.dateStart)}</p>
-                          <p className="mt-1 text-sm text-slate-500">{s.lieu}</p>
-                          <p className="mt-1 text-xs text-slate-400">
-                            {places <= 2 ? (
-                              <span className="text-orange-600 font-medium">Plus que {places} place{places > 1 ? "s" : ""}</span>
-                            ) : (
-                              <span>{places} places disponibles</span>
-                            )}
-                          </p>
-                        </div>
-                        <Link
-                          href={`/demande-devis?type=sprinkler&session=${s.id}&date=${s.dateStart}`}
-                          className="shrink-0 rounded-xl bg-cyan-700 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-800 transition-colors"
-                        >
-                          Réserver
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">Île-de-France</p>
+              <p className="mt-3 text-xl font-bold text-slate-900">1 jour — 790 € HT / pers.</p>
+              <p className="mt-1 text-sm text-slate-600">Min. 3 participants. Formation adaptée à votre site, accès e-learning inclus.</p>
             </div>
-
-            <div>
-              <h3 className="mb-4 text-lg font-semibold text-cyan-700">Formation 2 jours</h3>
-              {sessions2j.length === 0 ? (
-                <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
-              ) : (
-                <div className="flex flex-col gap-3">
-                  {sessions2j.map((s) => {
-                    const places = placesRestantes(s);
-                    return (
-                      <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex items-center justify-between gap-4">
-                        <div>
-                          <p className="font-semibold">
-                            {formatSessionDate(s.dateStart)} — {formatSessionDate(s.dateEnd)}
-                          </p>
-                          <p className="mt-1 text-sm text-slate-500">{s.lieu}</p>
-                          <p className="mt-1 text-xs text-slate-400">
-                            {places <= 2 ? (
-                              <span className="text-orange-600 font-medium">Plus que {places} place{places > 1 ? "s" : ""}</span>
-                            ) : (
-                              <span>{places} places disponibles</span>
-                            )}
-                          </p>
-                        </div>
-                        <Link
-                          href={`/demande-devis?type=sprinkler&session=${s.id}&date=${s.dateStart}`}
-                          className="shrink-0 rounded-xl bg-cyan-700 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-800 transition-colors"
-                        >
-                          Réserver
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">Île-de-France — Recommandé</p>
+              <p className="mt-3 text-xl font-bold text-slate-900">2 jours — 1 290 € HT / pers.</p>
+              <p className="mt-1 text-sm text-slate-600">Min. 3 participants. Visite et analyse de votre installation réelle incluses.</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">Hors Île-de-France</p>
+              <p className="mt-3 text-xl font-bold text-slate-900">Sur devis</p>
+              <p className="mt-1 text-sm text-slate-600">Déplacement formateur en sus. Tarif adapté à votre localisation.</p>
             </div>
           </div>
 
-          <p className="mt-6 text-sm text-slate-500">
-            Besoin d&apos;une date hors planning ou d&apos;une formation sur votre site ?{" "}
-            <Link href="/demande-devis?type=sprinkler" className="text-cyan-700 underline underline-offset-2">
-              Demandez un devis intra-entreprise
-            </Link>.
-          </p>
+          <div className="mt-8">
+            <Link
+              href="/demande-devis?type=sprinkler"
+              className="inline-flex items-center rounded-xl bg-cyan-700 px-6 py-3 font-semibold text-white hover:bg-cyan-800 transition-colors"
+            >
+              Demander un devis — réponse sous 48h →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -369,9 +284,9 @@ export default function FormationSprinkler() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">Tarifs</h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Tarifs inter-entreprises en Île-de-France. Tarif dégressif à partir de 4 inscrits
-            sur la même session. L&apos;e-learning est inclus pour tous les participants.
-            <strong> Hors Île-de-France :</strong> sur devis (déplacement formateur en sus).
+            Formation intra-entreprise — sur votre site ou dans vos locaux. Minimum 3 participants.
+            L&apos;e-learning est inclus pour tous les participants.
+            <strong> Hors Île-de-France :</strong> sur devis, déplacement formateur en sus.
           </p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
