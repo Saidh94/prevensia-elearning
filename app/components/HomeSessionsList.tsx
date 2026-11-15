@@ -141,7 +141,7 @@ export default function HomeSessionsList() {
                     </span>
                   </div>
                   <p className="mt-1 text-sm text-slate-600">
-                    {s.formatLabel} · {s.lieu}
+                    {s.formatLabel}
                   </p>
                   <p className="mt-1 text-sm font-semibold text-slate-700">
                     {s.prixUnitaireHT.toLocaleString("fr-FR")}&nbsp;€&nbsp;HT&nbsp;/&nbsp;pers.
