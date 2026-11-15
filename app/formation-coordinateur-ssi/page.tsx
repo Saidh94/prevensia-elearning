@@ -2,6 +2,11 @@ import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import {
+  getUpcomingSessions,
+  formatSessionDate,
+  placesRestantes,
+} from "@/lib/formations/sessions";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-coordinateur-ssi" },
@@ -122,6 +127,8 @@ const tarifs = [
 ];
 
 export default function FormationCoordinateurSSI() {
+  const sessions = getUpcomingSessions("coordinateur-ssi");
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <BreadcrumbJsonLd
@@ -385,6 +392,76 @@ export default function FormationCoordinateurSSI() {
         </div>
       </section>
 
+      {/* Prochaines sessions */}
+      {sessions.length > 0 && (
+        <section id="sessions" className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-orange-700">
+              Sessions inter-entreprises planifiées
+            </p>
+            <h2 className="mt-3 text-2xl font-bold text-slate-900">
+              Prochaines sessions Coordination SSI
+            </h2>
+            <p className="mt-2 text-sm text-slate-500">
+              7 jours en salle à Noisy-le-Grand — structure 2 + 3 + 2 jours sur 3 semaines.
+              Session confirmée à partir de 3 participants.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {sessions.map((s) => {
+                const restantes = placesRestantes(s);
+                const complet = restantes <= 0;
+                return (
+                  <div
+                    key={s.id}
+                    className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex flex-col gap-3"
+                  >
+                    <div>
+                      <span className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                        complet
+                          ? "bg-red-100 text-red-700"
+                          : restantes <= 2
+                          ? "bg-amber-100 text-amber-700"
+                          : "bg-emerald-100 text-emerald-700"
+                      }`}>
+                        {complet ? "Complet" : `${restantes} place${restantes > 1 ? "s" : ""} disponible${restantes > 1 ? "s" : ""}`}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900 text-sm">
+                        {s.dateDetails ?? `${formatSessionDate(s.dateStart)} → ${formatSessionDate(s.dateEnd)}`}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-500">📍 {s.lieu}</p>
+                      <p className="mt-1 text-xs text-slate-500">
+                        {s.formatLabel} · {s.prixUnitaireHT.toLocaleString("fr-FR")} € HT / pers.
+                      </p>
+                    </div>
+                    <Link
+                      href={`/demande-devis?type=coordinateur-ssi&session=${s.id}&date=${s.dateStart}`}
+                      className={`mt-auto block rounded-xl px-4 py-2 text-center text-sm font-semibold transition-colors ${
+                        complet
+                          ? "cursor-not-allowed bg-slate-200 text-slate-400"
+                          : "bg-orange-600 text-white hover:bg-orange-700"
+                      }`}
+                      aria-disabled={complet}
+                    >
+                      {complet ? "Complet" : "Réserver cette session"}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="mt-6 text-sm text-slate-500">
+              Hors Île-de-France ou session sur mesure ?{" "}
+              <Link href="/demande-devis?type=coordinateur-ssi" className="text-orange-700 underline underline-offset-2">
+                Demandez un devis adapté.
+              </Link>
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Bon à savoir — statut réglementaire */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -437,23 +514,19 @@ export default function FormationCoordinateurSSI() {
       {/* Formations associées */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Parcours complémentaires recommandés</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <h2 className="text-2xl font-bold">Formations complémentaires</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
             <Link href="/formation-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-orange-300 hover:shadow-sm">
-              <p className="font-semibold">Formation Exploitation SSI</p>
-              <p className="mt-1 text-sm text-slate-500">Comprendre et exploiter le SSI au quotidien</p>
+              <p className="font-semibold">Exploitation SSI</p>
+              <p className="mt-1 text-sm text-slate-500">Comprendre et exploiter le SSI au quotidien — demi-journée ou journée</p>
             </Link>
             <Link href="/formation-sprinkler" className="rounded-2xl border border-slate-200 p-5 transition hover:border-orange-300 hover:shadow-sm">
-              <p className="font-semibold">Formation Exploitation Sprinkler</p>
-              <p className="mt-1 text-sm text-slate-500">Surveillance et référentiels EN 12845 / APSAD R1</p>
+              <p className="font-semibold">Exploitation Sprinkler</p>
+              <p className="mt-1 text-sm text-slate-500">Installation sprinkler — 1 jour ou 2 jours avec visite terrain</p>
             </Link>
-            <Link href="/formation-ssiap1" className="rounded-2xl border border-slate-200 p-5 transition hover:border-orange-300 hover:shadow-sm">
-              <p className="font-semibold">Formation SSIAP1</p>
-              <p className="mt-1 text-sm text-slate-500">Agent de sécurité incendie et assistance à personnes</p>
-            </Link>
-            <Link href="/formation-sst" className="rounded-2xl border border-slate-200 p-5 transition hover:border-orange-300 hover:shadow-sm">
-              <p className="font-semibold">Formation SST</p>
-              <p className="mt-1 text-sm text-slate-500">Sauveteur Secouriste du Travail</p>
+            <Link href="/formation-atex" className="rounded-2xl border border-slate-200 p-5 transition hover:border-orange-300 hover:shadow-sm">
+              <p className="font-semibold">Sensibilisation ATEX NIV 0</p>
+              <p className="mt-1 text-sm text-slate-500">Risques d&apos;explosion — 100 % e-learning, accès immédiat</p>
             </Link>
           </div>
         </div>

@@ -3,6 +3,9 @@
 import { FormEvent, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import AssignFormateurButton from "@/app/admin/components/AssignFormateurButton";
+import { SESSIONS } from "@/lib/formations/sessions";
+
+const SESSIONS_CSSI_STATIC = SESSIONS.filter((s) => s.formation === "coordinateur-ssi");
 
 type CssiSession = {
   id: string;
@@ -341,6 +344,35 @@ export default function SessionsCssiPage() {
             </div>
           </section>
         </div>
+
+        {/* Sessions planifiées côté site (sessions.ts) */}
+        <section className="rounded-3xl border border-orange-200 bg-white p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Sessions affichées sur le site{" "}
+            <span className="ml-1 rounded-full bg-orange-100 px-2 py-0.5 text-xs font-semibold text-orange-700">
+              {SESSIONS_CSSI_STATIC.length}
+            </span>
+          </h2>
+          <p className="mt-1 text-xs text-slate-500">
+            Ces sessions proviennent de <code>lib/formations/sessions.ts</code> et s&apos;affichent sur la page <code>/formation-coordinateur-ssi</code>.
+            Pour modifier les dates, éditez ce fichier directement.
+          </p>
+          <div className="mt-4 space-y-3">
+            {SESSIONS_CSSI_STATIC.map((s) => (
+              <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div>
+                    <p className="font-semibold text-slate-900 text-sm">{s.dateDetails ?? `${s.dateStart} → ${s.dateEnd}`}</p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      📍 {s.lieu} · {s.placesMax} places · {s.prixUnitaireHT.toLocaleString("fr-FR")} € HT
+                    </p>
+                  </div>
+                  <span className="text-xs font-mono text-slate-400">{s.id}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Aide / contexte */}
         <div className="rounded-2xl border border-orange-200 bg-orange-50 p-5 text-sm text-orange-800">

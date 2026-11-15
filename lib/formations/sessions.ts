@@ -12,28 +12,33 @@
  *   - Minimum rentable    → 4 participants (ne pas ouvrir une session en dessous)
  */
 
-export type SessionFormat = "1j" | "2j" | "demi-journee" | "journee";
+export type SessionFormat = "1j" | "2j" | "demi-journee" | "journee" | "7j";
 
 export type FormationSession = {
   id: string;
-  formation: "sprinkler" | "ssi";
+  formation: "sprinkler" | "ssi" | "coordinateur-ssi";
   format: SessionFormat;
-  /** Label affiché : "1 jour", "2 jours", "Demi-journée (matin)", "Journée complète" */
+  /** Label affiché : "1 jour", "2 jours", "Demi-journée (matin)", "Journée complète", "7 jours" */
   formatLabel: string;
-  /** Date de début ISO 8601 */
+  /** Date de début ISO 8601 (premier jour de la session) */
   dateStart: string;
-  /** Date de fin ISO 8601 (identique à dateStart pour 1 jour) */
+  /** Date de fin ISO 8601 (dernier jour de la session) */
   dateEnd: string;
+  /**
+   * Pour les sessions multi-semaines (CSSI 2+3+2) :
+   * label lisible des jours exacts, ex. "10-11 juin · 17-19 juin · 24-25 juin"
+   */
+  dateDetails?: string;
   /** Lieu */
   lieu: string;
   /** Nombre de places max */
   placesMax: number;
   /** Nombre de places déjà réservées (à maintenir manuellement ou via API) */
   placesReservees: number;
-  /** Prix par personne HT — tarif 1-3 participants */
+  /** Prix par personne HT — tarif standard */
   prixUnitaireHT: number;
-  /** Prix par personne HT — tarif 4+ participants */
-  prixGroupeHT: number;
+  /** Prix par personne HT — tarif 4+ participants (optionnel) */
+  prixGroupeHT?: number;
 };
 
 export const SESSIONS: FormationSession[] = [
@@ -174,11 +179,67 @@ export const SESSIONS: FormationSession[] = [
     prixUnitaireHT: 490,
     prixGroupeHT: 420,
   },
+
+  // ── Coordination SSI — 7 jours (2 + 3 + 2 sur 3 semaines) ──────────────────
+  // Structure : Phase Conception (J1-J2) · Phase Réalisation (J3-J5) · Phase Exploitation + éval (J6-J7)
+  // Minimum 3 participants pour confirmer, maximum 8.
+  {
+    id: "CSSI-2027-06",
+    formation: "coordinateur-ssi",
+    format: "7j",
+    formatLabel: "7 jours (2 + 3 + 2)",
+    dateStart: "2027-06-10",
+    dateEnd: "2027-06-25",
+    dateDetails: "10-11 juin · 17-19 juin · 24-25 juin 2027",
+    lieu: "Noisy-le-Grand (93)",
+    placesMax: 8,
+    placesReservees: 0,
+    prixUnitaireHT: 1790,
+  },
+  {
+    id: "CSSI-2027-07",
+    formation: "coordinateur-ssi",
+    format: "7j",
+    formatLabel: "7 jours (2 + 3 + 2)",
+    dateStart: "2027-07-01",
+    dateEnd: "2027-07-17",
+    dateDetails: "1-2 juillet · 8-10 juillet · 16-17 juillet 2027",
+    lieu: "Noisy-le-Grand (93)",
+    placesMax: 8,
+    placesReservees: 0,
+    prixUnitaireHT: 1790,
+  },
+  {
+    id: "CSSI-2027-11",
+    formation: "coordinateur-ssi",
+    format: "7j",
+    formatLabel: "7 jours (2 + 3 + 2)",
+    dateStart: "2027-11-03",
+    dateEnd: "2027-11-26",
+    dateDetails: "3-4 nov. · 18-20 nov. · 25-26 nov. 2027",
+    lieu: "Noisy-le-Grand (93)",
+    placesMax: 8,
+    placesReservees: 0,
+    prixUnitaireHT: 1790,
+  },
+  {
+    id: "CSSI-2027-12",
+    formation: "coordinateur-ssi",
+    format: "7j",
+    formatLabel: "7 jours (2 + 3 + 2)",
+    dateStart: "2027-12-02",
+    dateEnd: "2027-12-17",
+    dateDetails: "2-3 déc. · 9-11 déc. · 16-17 déc. 2027",
+    lieu: "Noisy-le-Grand (93)",
+    placesMax: 8,
+    placesReservees: 0,
+    prixUnitaireHT: 1790,
+  },
 ];
 
 /** Retourne les sessions à venir (dateStart >= aujourd'hui) pour une formation donnée. */
 export function getUpcomingSessions(
-  formation: "sprinkler" | "ssi",
+  formation: "sprinkler" | "ssi" | "coordinateur-ssi",
   now = new Date()
 ): FormationSession[] {
   const today = now.toISOString().slice(0, 10);
