@@ -2,6 +2,11 @@ import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import {
+  getUpcomingSessions,
+  formatSessionDate,
+  placesRestantes,
+} from "@/lib/formations/sessions";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-sprinkler" },
@@ -68,28 +73,53 @@ const programme = [
 
 const tarifs = [
   {
-    format: "Accès e-learning inclus",
-    price: "Inclus avec la formation 1 ou 2 jours",
-    detail: "Support de préparation et de révision pour les apprenants inscrits aux formations encadrées 1 ou 2 jours. Non vendu seul.",
+    format: "1 jour — 1 à 3 participants",
+    price: "590 € HT / participant",
+    detail: "Formation exploitation avec cas pratiques, lecture de schéma, anomalies courantes et conduite à tenir. Accès e-learning inclus en préparation et révision. Session inter à Noisy-le-Grand (93).",
+    badge: null,
   },
   {
-    format: "Présentiel - 1 jour",
-    price: "590 € HT / apprenant",
-    detail: "Formation exploitation avec cas pratiques, lecture de schéma, anomalies courantes et conduite à tenir. Accès e-learning inclus en préparation et révision.",
+    format: "1 jour — groupe 4 participants et +",
+    price: "490 € HT / participant",
+    detail: "Même contenu — tarif dégressif à partir de 4 inscrits sur la même session. Accès e-learning inclus.",
+    badge: "Économique",
   },
   {
-    format: "Présentiel renforcé - 2 jours",
-    price: "1 190 € HT / apprenant",
-    detail: "Parcours technique pour responsables techniques, maintenance, exploitation, sites industriels et logistiques. Inclut une visite terrain encadrée sur une installation sprinkler réelle, réalisée avec les apprenants sur un site logistique ou industriel. Conforme APSAD R1, EN 12845, NFPA 13. Accès e-learning inclus.",
+    format: "2 jours renforcé — 1 à 3 participants",
+    price: "1 190 € HT / participant",
+    detail: "Parcours complet pour responsables techniques et maintenance. Inclut une visite terrain encadrée sur une installation sprinkler réelle. Conforme APSAD R1, EN 12845, NFPA 13. Accès e-learning inclus.",
+    badge: null,
   },
   {
-    format: "Intra entreprise",
-    price: "À partir de 2 200 € HT / jour",
-    detail: "Tarif à ajuster selon le site, le référentiel attendu, les documents fournis et le niveau technique demandé. Adapté aux entrepôts et plateformes logistiques.",
+    format: "2 jours renforcé — groupe 4 participants et +",
+    price: "990 € HT / participant",
+    detail: "Même contenu — tarif dégressif à partir de 4 inscrits sur la même session. Visite installation incluse. Accès e-learning inclus.",
+    badge: "Économique",
+  },
+  {
+    format: "Intra-entreprise IDF — 1 jour",
+    price: "2 200 € HT / jour",
+    detail: "Formation sur votre site en Île-de-France. Tarif forfaitaire, ajustable selon référentiel, documents et niveau technique. Adapté aux entrepôts et plateformes logistiques.",
+    badge: null,
+  },
+  {
+    format: "Intra-entreprise IDF — 2 jours",
+    price: "4 200 € HT / 2 jours",
+    detail: "Parcours complet sur votre site IDF, avec visite installation. Tarif forfaitaire.",
+    badge: null,
+  },
+  {
+    format: "Hors Île-de-France",
+    price: "Sur devis",
+    detail: "Déplacement formateur en sus. Contactez-nous pour un devis adapté à votre région et votre site.",
+    badge: "Sur devis",
   },
 ];
 
 export default function FormationSprinkler() {
+  const sessions1j = getUpcomingSessions("sprinkler").filter((s) => s.format === "1j");
+  const sessions2j = getUpcomingSessions("sprinkler").filter((s) => s.format === "2j");
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <BreadcrumbJsonLd
@@ -244,19 +274,117 @@ export default function FormationSprinkler() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-16">
+      {/* Sessions planifiées */}
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">Tarifs indicatifs</h2>
-          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Les tarifs dépendent du format, de la profondeur technique et du besoin de lecture
-            site. L&apos;e-learning est présenté comme un support inclus pour les apprenants,
-            pas comme une formation sprinkler autonome vendue seule.
+          <h2 className="text-2xl font-bold">Prochaines sessions inter-entreprises</h2>
+          <p className="mt-3 text-slate-600 max-w-2xl">
+            Les sessions sont ouvertes à partir de <strong>4 participants</strong>. Réservez votre place —
+            nous confirmons la session par email dès que le groupe est constitué.
+            Session à Noisy-le-Grand (93). <strong>Hors IDF :</strong> sur devis.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-cyan-700">Formation 1 jour</h3>
+              {sessions1j.length === 0 ? (
+                <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  {sessions1j.map((s) => {
+                    const places = placesRestantes(s);
+                    return (
+                      <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex items-center justify-between gap-4">
+                        <div>
+                          <p className="font-semibold">{formatSessionDate(s.dateStart)}</p>
+                          <p className="mt-1 text-sm text-slate-500">{s.lieu}</p>
+                          <p className="mt-1 text-xs text-slate-400">
+                            {places <= 2 ? (
+                              <span className="text-orange-600 font-medium">Plus que {places} place{places > 1 ? "s" : ""}</span>
+                            ) : (
+                              <span>{places} places disponibles</span>
+                            )}
+                          </p>
+                        </div>
+                        <Link
+                          href={`/demande-devis?type=sprinkler&session=${s.id}&date=${s.dateStart}`}
+                          className="shrink-0 rounded-xl bg-cyan-700 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-800 transition-colors"
+                        >
+                          Réserver
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-cyan-700">Formation 2 jours</h3>
+              {sessions2j.length === 0 ? (
+                <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  {sessions2j.map((s) => {
+                    const places = placesRestantes(s);
+                    return (
+                      <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex items-center justify-between gap-4">
+                        <div>
+                          <p className="font-semibold">
+                            {formatSessionDate(s.dateStart)} — {formatSessionDate(s.dateEnd)}
+                          </p>
+                          <p className="mt-1 text-sm text-slate-500">{s.lieu}</p>
+                          <p className="mt-1 text-xs text-slate-400">
+                            {places <= 2 ? (
+                              <span className="text-orange-600 font-medium">Plus que {places} place{places > 1 ? "s" : ""}</span>
+                            ) : (
+                              <span>{places} places disponibles</span>
+                            )}
+                          </p>
+                        </div>
+                        <Link
+                          href={`/demande-devis?type=sprinkler&session=${s.id}&date=${s.dateStart}`}
+                          className="shrink-0 rounded-xl bg-cyan-700 px-4 py-2 text-sm font-semibold text-white hover:bg-cyan-800 transition-colors"
+                        >
+                          Réserver
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <p className="mt-6 text-sm text-slate-500">
+            Besoin d&apos;une date hors planning ou d&apos;une formation sur votre site ?{" "}
+            <Link href="/demande-devis?type=sprinkler" className="text-cyan-700 underline underline-offset-2">
+              Demandez un devis intra-entreprise
+            </Link>.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold">Tarifs</h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+            Tarifs inter-entreprises en Île-de-France. Tarif dégressif à partir de 4 inscrits
+            sur la même session. L&apos;e-learning est inclus pour tous les participants.
+            <strong> Hors Île-de-France :</strong> sur devis (déplacement formateur en sus).
+          </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {tarifs.map((item) => (
-              <div key={item.format} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <h3 className="text-lg font-semibold">{item.format}</h3>
+              <div key={item.format} className="rounded-2xl border border-slate-200 bg-white p-5 relative">
+                {item.badge && (
+                  <span className={`absolute top-4 right-4 rounded-full px-2 py-0.5 text-xs font-semibold ${
+                    item.badge === "Sur devis" ? "bg-slate-100 text-slate-600" : "bg-cyan-100 text-cyan-700"
+                  }`}>
+                    {item.badge}
+                  </span>
+                )}
+                <h3 className="text-base font-semibold pr-16">{item.format}</h3>
                 <p className="mt-2 text-xl font-bold text-cyan-700">{item.price}</p>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{item.detail}</p>
               </div>
@@ -367,17 +495,17 @@ export default function FormationSprinkler() {
       {/* Autres formations */}
       <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-slate-900">Autres formations sécurité incendie</h2>
+          <h2 className="text-xl font-bold text-slate-900">Autres formations PREVENSIA</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <a href="/formation-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
+            <Link href="/formation-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
               Formation Exploitation SSI
-            </a>
-            <a href="/formation-coordinateur-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
-              Formation Coordinateur SSI — Pilotage &amp; référentiels
-            </a>
-            <a href="/formation-ssiap1" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
-              Formation SSIAP1 — Agent sécurité incendie
-            </a>
+            </Link>
+            <Link href="/formation-coordinateur-ssi" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
+              Formation Coordination SSI — Pilotage &amp; référentiels
+            </Link>
+            <Link href="/formation-h0b0" className="rounded-2xl border border-slate-200 p-5 transition hover:border-cyan-300 hover:shadow-sm">
+              Habilitation électrique H0B0 — 100 % e-learning
+            </Link>
           </div>
         </div>
       </section>

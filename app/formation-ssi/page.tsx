@@ -2,6 +2,11 @@ import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import {
+  getUpcomingSessions,
+  formatSessionDate,
+  placesRestantes,
+} from "@/lib/formations/sessions";
 
 export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-ssi" },
@@ -48,6 +53,9 @@ const faqItemsSsi = [
 ];
 
 export default function FormationSSI() {
+  const sessionsDJ = getUpcomingSessions("ssi").filter((s) => s.format === "demi-journee");
+  const sessionsJ = getUpcomingSessions("ssi").filter((s) => s.format === "journee");
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <BreadcrumbJsonLd
@@ -355,96 +363,248 @@ export default function FormationSSI() {
         </div>
       </section>
 
-      {/* Tarifs */}
-      <section id="tarifs" className="bg-slate-950 py-16">
+      {/* Sessions planifiées */}
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.15em] text-blue-400">
-            Tarifs
-          </p>
-          <h2 className="mt-3 text-2xl font-bold text-white">
-            Formations SSI — grille tarifaire 2026
-          </h2>
-          <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-            Trois formats selon votre niveau technique et vos contraintes d&apos;organisation.
-            Nos formations SSI sont susceptibles d'être prises en charge selon les critères de votre OPCO de rattachement.
+          <h2 className="text-2xl font-bold">Prochaines sessions inter-entreprises</h2>
+          <p className="mt-3 text-slate-600 max-w-2xl">
+            Les sessions sont ouvertes à partir de <strong>4 participants</strong>. Réservez votre place —
+            nous confirmons par email dès que le groupe est constitué.
+            Sessions à Noisy-le-Grand (93). <strong>Hors IDF :</strong> sur devis.
           </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {/* 1 jour */}
-            <div className="rounded-2xl border border-slate-700 bg-slate-900 p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
-                Exploitation SSI — 1 jour
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-blue-700">Demi-journée (3,5 h)</h3>
+              {sessionsDJ.length === 0 ? (
+                <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  {sessionsDJ.map((s) => {
+                    const places = placesRestantes(s);
+                    return (
+                      <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex items-center justify-between gap-4">
+                        <div>
+                          <p className="font-semibold">{formatSessionDate(s.dateStart)}</p>
+                          <p className="mt-1 text-sm text-slate-500">{s.lieu}</p>
+                          <p className="mt-1 text-xs text-slate-400">
+                            {places <= 2 ? (
+                              <span className="text-orange-600 font-medium">Plus que {places} place{places > 1 ? "s" : ""}</span>
+                            ) : (
+                              <span>{places} places disponibles</span>
+                            )}
+                          </p>
+                        </div>
+                        <Link
+                          href={`/demande-devis?type=ssi&session=${s.id}&date=${s.dateStart}&format=demi-journee`}
+                          className="shrink-0 rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 transition-colors"
+                        >
+                          Réserver
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-blue-700">Journée complète (7 h)</h3>
+              {sessionsJ.length === 0 ? (
+                <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
+              ) : (
+                <div className="flex flex-col gap-3">
+                  {sessionsJ.map((s) => {
+                    const places = placesRestantes(s);
+                    return (
+                      <div key={s.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 flex items-center justify-between gap-4">
+                        <div>
+                          <p className="font-semibold">{formatSessionDate(s.dateStart)}</p>
+                          <p className="mt-1 text-sm text-slate-500">{s.lieu}</p>
+                          <p className="mt-1 text-xs text-slate-400">
+                            {places <= 2 ? (
+                              <span className="text-orange-600 font-medium">Plus que {places} place{places > 1 ? "s" : ""}</span>
+                            ) : (
+                              <span>{places} places disponibles</span>
+                            )}
+                          </p>
+                        </div>
+                        <Link
+                          href={`/demande-devis?type=ssi&session=${s.id}&date=${s.dateStart}&format=journee`}
+                          className="shrink-0 rounded-xl bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 transition-colors"
+                        >
+                          Réserver
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <p className="mt-6 text-sm text-slate-500">
+            Besoin d&apos;une date hors planning ou formation sur votre site ?{" "}
+            <Link href="/demande-devis?type=ssi&format=intra" className="text-blue-700 underline underline-offset-2">
+              Demandez un devis intra-entreprise
+            </Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* Tarifs */}
+      <section id="tarifs" className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold">
+            Tarifs — Exploitation SSI
+          </h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+            Tarifs inter-entreprises à Noisy-le-Grand (93). Tarif dégressif à partir de 4 inscrits sur la même session.
+            <strong> Hors Île-de-France :</strong> sur devis (déplacement formateur en sus).
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Demi-journée 1-3 pers */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Demi-journée — 1 à 3 participants
               </p>
-              <p className="mt-4 text-3xl font-bold text-white">650 €</p>
-              <p className="text-sm text-slate-400">HT / apprenant · inter</p>
-              <ul className="mt-6 space-y-2 text-sm text-slate-300">
+              <p className="mt-4 text-3xl font-bold text-slate-900">290 €</p>
+              <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-700">
                 <li>✓ Architecture SDI / CMSI / UGA / DAS</li>
                 <li>✓ Lecture des signalisations</li>
                 <li>✓ Conduite à tenir en cas d&apos;alarme</li>
-                <li>✓ Normes NF S 61 applicables</li>
+                <li>✓ Normes NF S 61</li>
                 <li>✓ E-learning inclus</li>
                 <li>✓ Attestation de formation</li>
               </ul>
               <Link
-                href="/demande-devis?type=ssi&format=1j"
-                className="mt-7 block rounded-xl border border-blue-400 px-4 py-2 text-center text-sm font-semibold text-blue-300 hover:bg-blue-900 transition-colors"
+                href="/demande-devis?type=ssi&format=demi-journee"
+                className="mt-7 block rounded-xl border border-blue-300 px-4 py-2 text-center text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
               >
-                Demander un devis
+                Réserver une place
               </Link>
             </div>
 
-            {/* 2 jours avancé */}
-            <div className="rounded-2xl border-2 border-blue-500 bg-slate-900 p-7 relative">
+            {/* Demi-journée 4+ pers */}
+            <div className="rounded-2xl border-2 border-blue-400 bg-white p-7 relative">
               <span className="absolute -top-3 left-6 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
-                Recommandé
+                Groupe 4+ pers.
               </span>
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400">
-                SSI Avancé — 2 jours
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Demi-journée — groupe 4 et +
               </p>
-              <p className="mt-4 text-3xl font-bold text-white">1 190 €</p>
-              <p className="text-sm text-slate-400">HT / apprenant · inter</p>
-              <ul className="mt-6 space-y-2 text-sm text-slate-300">
-                <li>✓ Tout le contenu 1 jour</li>
-                <li>✓ Exploitation renforcée sur site</li>
-                <li>✓ Scénarios défaut / alarme / travaux</li>
-                <li>✓ Module e-learning extinction gaz inclus</li>
-                <li>✓ ERP · IGH · ICPE · logistique</li>
+              <p className="mt-4 text-3xl font-bold text-slate-900">240 €</p>
+              <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                <li>✓ Même contenu que la formule individuelle</li>
+                <li>✓ Tarif dégressif dès 4 inscrits</li>
+                <li>✓ E-learning inclus</li>
                 <li>✓ Attestation de formation</li>
               </ul>
               <Link
-                href="/demande-devis?type=ssi&format=2j"
-                className="mt-7 block rounded-xl bg-blue-700 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-blue-600 transition-colors"
+                href="/demande-devis?type=ssi&format=demi-journee-groupe"
+                className="mt-7 block rounded-xl bg-blue-700 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-blue-800 transition-colors"
               >
-                Demander un devis
+                Réserver pour mon groupe
               </Link>
             </div>
 
-            {/* Intra */}
-            <div className="rounded-2xl border border-slate-700 bg-slate-900 p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
-                Intra entreprise
+            {/* Journée 1-3 pers */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Journée complète — 1 à 3 participants
               </p>
-              <p className="mt-4 text-3xl font-bold text-white">2 200 €</p>
-              <p className="text-sm text-slate-400">HT / jour · groupe</p>
-              <ul className="mt-6 space-y-2 text-sm text-slate-300">
-                <li>✓ Formation sur votre site</li>
+              <p className="mt-4 text-3xl font-bold text-slate-900">490 €</p>
+              <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                <li>✓ Contenu approfondi + scénarios</li>
+                <li>✓ Exploitation renforcée (ERP, IGH, ICPE)</li>
+                <li>✓ Défauts / alarmes / travaux</li>
+                <li>✓ Module e-learning extinction gaz inclus</li>
+                <li>✓ Attestation de formation</li>
+              </ul>
+              <Link
+                href="/demande-devis?type=ssi&format=journee"
+                className="mt-7 block rounded-xl border border-blue-300 px-4 py-2 text-center text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
+              >
+                Réserver une place
+              </Link>
+            </div>
+
+            {/* Journée 4+ pers */}
+            <div className="rounded-2xl border-2 border-blue-400 bg-white p-7 relative">
+              <span className="absolute -top-3 left-6 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+                Groupe 4+ pers.
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
+                Journée complète — groupe 4 et +
+              </p>
+              <p className="mt-4 text-3xl font-bold text-slate-900">420 €</p>
+              <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
+              <ul className="mt-6 space-y-2 text-sm text-slate-700">
+                <li>✓ Même contenu journée approfondie</li>
+                <li>✓ Tarif dégressif dès 4 inscrits</li>
+                <li>✓ Module e-learning extinction gaz inclus</li>
+                <li>✓ Attestation de formation</li>
+              </ul>
+              <Link
+                href="/demande-devis?type=ssi&format=journee-groupe"
+                className="mt-7 block rounded-xl bg-blue-700 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-blue-800 transition-colors"
+              >
+                Réserver pour mon groupe
+              </Link>
+            </div>
+
+            {/* Intra IDF */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
+                Intra-entreprise IDF
+              </p>
+              <p className="mt-4 text-3xl font-bold text-slate-900">1 200 €</p>
+              <p className="text-sm text-slate-500">HT / demi-journée · sur votre site</p>
+              <p className="mt-1 text-sm text-slate-500">ou <strong>1 800 € HT</strong> / journée complète</p>
+              <ul className="mt-4 space-y-2 text-sm text-slate-700">
+                <li>✓ Formation sur votre site IDF</li>
                 <li>✓ Adapté à votre SSI installé</li>
-                <li>✓ Jusqu&apos;à 10 participants / session</li>
+                <li>✓ Jusqu&apos;à 10 participants</li>
                 <li>✓ Contenu calé sur vos consignes</li>
-                <li>✓ Prise en charge OPCO possible selon votre situation</li>
                 <li>✓ Devis sous 48h</li>
               </ul>
               <Link
                 href="/demande-devis?type=ssi&format=intra"
-                className="mt-7 block rounded-xl border border-slate-600 px-4 py-2 text-center text-sm font-semibold text-slate-200 hover:bg-slate-800 transition-colors"
+                className="mt-7 block rounded-xl border border-slate-300 px-4 py-2 text-center text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
               >
                 Demander un devis intra
               </Link>
             </div>
+
+            {/* Hors IDF */}
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-7 flex flex-col justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
+                  Hors Île-de-France
+                </p>
+                <p className="mt-4 text-2xl font-bold text-slate-700">Sur devis</p>
+                <p className="mt-2 text-sm text-slate-500">Déplacement formateur en sus</p>
+                <p className="mt-4 text-sm text-slate-600">
+                  Contactez-nous pour une formation SSI dans votre région.
+                  Nous vous revenons sous 48h avec un devis adapté.
+                </p>
+              </div>
+              <Link
+                href="/demande-devis?type=ssi&format=hors-idf"
+                className="mt-7 block rounded-xl border border-slate-300 px-4 py-2 text-center text-sm font-semibold text-slate-700 hover:bg-white transition-colors"
+              >
+                Demander un devis
+              </Link>
+            </div>
           </div>
 
-          <p className="mt-8 text-sm text-slate-400">
-            {"💡"} Pour un groupe de 6 à 10 personnes, l&apos;intra est souvent la solution la plus économique — un tarif journée pour toute l&apos;équipe.
+          <p className="mt-8 text-sm text-slate-500">
+            💡 Pour un groupe de 6 à 10 personnes en intra, le tarif forfaitaire journée couvre toute l&apos;équipe.
+            OPCO : nos formations sont finançables selon les critères de votre OPCO de rattachement.
           </p>
         </div>
       </section>
@@ -497,41 +657,34 @@ export default function FormationSSI() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold">Découvrir nos autres formations</h2>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <a
-              href="/formation-habilitation-electrique"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation habilitation électrique
-            </a>
-
-            <a
-              href="/formation-sst"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation SST – Sauveteur Secouriste du Travail
-            </a>
-
-            <a
-              href="/formation-ssiap1"
-              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
-            >
-              Formation SSIAP1 — Agent sécurité incendie
-            </a>
-
-            <a
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <Link
               href="/formation-sprinkler"
               className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
             >
               Formation exploitation sprinkler
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/formation-coordinateur-ssi"
               className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
             >
-              Formation Coordinateur SSI — Pilotage &amp; référentiels
-            </a>
+              Formation Coordination SSI — Pilotage &amp; référentiels
+            </Link>
+
+            <Link
+              href="/formation-h0b0"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Habilitation électrique H0B0 — 100 % e-learning
+            </Link>
+
+            <Link
+              href="/formation-atex"
+              className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-sm"
+            >
+              Sensibilisation ATEX NIV 0 — 100 % e-learning
+            </Link>
           </div>
         </div>
       </section>

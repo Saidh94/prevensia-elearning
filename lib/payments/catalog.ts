@@ -31,74 +31,8 @@ export type EnrollmentPaymentOption =
   | QuotePaymentOption;
 
 const paymentRules: PaymentRule[] = [
-  {
-    kind: "quote",
-    label: "B1 / B1V - parcours cible",
-    anyKeywords: ["b1 / b1v", "b1/b1v", "parcours cible executant", "executant electricien"],
-    reason:
-      "Ce parcours est ajuste selon les travaux reels, le voisinage et l'organisation retenue.",
-  },
-  {
-    kind: "quote",
-    label: "B2 / B2V - parcours cible",
-    anyKeywords: ["b2 / b2v", "b2/b2v", "charge de travaux"],
-    reason:
-      "Ce parcours est ajuste selon le role d'encadrement, le site et les procedures appliquees.",
-  },
-  {
-    kind: "quote",
-    label: "BR - parcours cible",
-    anyKeywords: ["formation br", "habilitation br", "intervention generale"],
-    reason:
-      "Le parcours BR est dimensionne selon les interventions generales reellement confiees.",
-  },
-  {
-    kind: "quote",
-    label: "BC - parcours cible",
-    anyKeywords: ["formation bc", "habilitation bc", "charge de consignation"],
-    reason:
-      "Le parcours BC depend des procedures de consignation et de l'organisation du site.",
-  },
-  {
-    kind: "quote",
-    label: "BE Verification / BE Mesurage",
-    anyKeywords: ["be verification", "be mesurage", "verification", "mesurage"],
-    reason:
-      "Les attributs BE Verification et BE Mesurage doivent etre calibres selon les missions reellement prevues.",
-  },
-  {
-    envKey: "STRIPE_PRICE_ATEX_NIVEAU1_CENTS",
-    kind: "direct",
-    label: "Formation et Sensibilisation ATEX NIV 1 Intervenant",
-    anyKeywords: ["atex-niveau1", "atex niveau1", "atex niveau 1"],
-  },
-  {
-    kind: "quote",
-    label: "Formation et Sensibilisation ATEX NIV 2 Encadrant",
-    anyKeywords: ["atex-niveau2", "atex niveau2", "atex niveau 2"],
-    reason:
-      "La formation ATEX Niveau 2 est adaptee selon le role, les responsabilites et les installations du site. Tarif a partir de 990 EUR HT (e-learning 7h + journee presentielle 7h avec formateur).",
-  },
-  {
-    envKey: "STRIPE_PRICE_ATEX_ELEARNING_CENTS",
-    kind: "direct",
-    label: "Formation et Sensibilisation ATEX NIV 0",
-    anyKeywords: ["atex", "atmosphere explosive", "atmospheres explosives"],
-  },
-  {
-    kind: "quote",
-    label: "Recyclage SSIAP1 - Remise a niveau Securite Incendie ERP",
-    anyKeywords: ["recyclage-ssiap1", "recyclage ssiap1", "recyclage ssiap 1", "recyclage ssiap"],
-    reason:
-      "PREVENSIA FORMATION propose un module e-learning de remise a niveau theorique sur les bases SSIAP1. Ce module ne constitue pas le recyclage SSIAP1 reglementaire, lequel doit etre realise aupres d'un organisme agree par le prefet. Tarif sur devis — contactez contact@prevensia-formation.fr.",
-  },
-  {
-    kind: "quote",
-    label: "Sensibilisation SSIAP1 - Securite Incendie ERP",
-    anyKeywords: ["ssiap1", "ssiap 1", "sensibilisation ssiap", "securite incendie erp"],
-    reason:
-      "Le module e-learning SSIAP1 est une preparation theorique offerte avec les formations securite incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Evacuation). Ce n'est pas une formation SSIAP reglementaire. Il n'est pas vendu separement.",
-  },
+  // ── E-learning 100 % — paiement direct ────────────────────────────────────
+
   {
     envKey: "STRIPE_PRICE_H0B0_RECYCLAGE_CENTS",
     kind: "direct",
@@ -106,104 +40,48 @@ const paymentRules: PaymentRule[] = [
     allKeywords: ["h0b0", "recyclage"],
   },
   {
-    envKey: "STRIPE_PRICE_BSBE_RECYCLAGE_CENTS",
-    kind: "direct",
-    label: "Recyclage BS et BE Manoeuvre e-learning",
-    allKeywords: ["recyclage"],
-    anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
-  },
-  {
-    kind: "quote",
-    label: "Recyclage B1 / B1V / B2 / B2V / BR / BC",
-    allKeywords: ["recyclage", "b1", "b2", "br", "bc"],
-    reason:
-      "Les parcours B1, B2, BR, BC et BE sont vendus avec une sequence encadree/presentielle. L'acces e-learning est inclus pour les apprenants inscrits.",
-  },
-  {
     envKey: "STRIPE_PRICE_H0B0_ELEARNING_CENTS",
     kind: "direct",
-    label: "Habilitation electrique H0B0 / H0V",
+    label: "Habilitation électrique H0B0 / H0V",
     anyKeywords: ["h0b0", "h0v"],
   },
   {
-    envKey: "STRIPE_PRICE_BSBE_ELEARNING_CENTS",
+    envKey: "STRIPE_PRICE_ATEX_ELEARNING_CENTS",
     kind: "direct",
-    label: "BS et BE Manoeuvre - e-learning + visio",
-    anyKeywords: ["bs", "be manoeuvre", "bs/be", "bs be", "manoeuvre"],
+    label: "Sensibilisation ATEX NIV 0",
+    anyKeywords: ["atex", "atmosphere explosive", "atmospheres explosives"],
   },
+
+  // ── Coordination SSI — présentiel Noisy-le-Grand ─────────────────────────
+
   {
     kind: "quote",
-    label: "B1 / B1V / B2 / B2V / BR / BC - parcours mixte",
-    allKeywords: ["b1", "b2", "br", "bc"],
+    label: "Coordination SSI",
+    anyKeywords: ["coordinateur ssi", "coordination ssi", "coordonnateur ssi"],
     reason:
-      "Ce parcours n'est pas vendu comme e-learning seul : l'acces aux cours et quiz accompagne la formation presentielle ou classe virtuelle.",
+      "La formation Coordination SSI est dispensée en présentiel à Noisy-le-Grand. Tarif par personne — contactez contact@prevensia-formation.fr pour les prochaines sessions.",
   },
-  {
-    kind: "quote",
-    label: "Manipulation des extincteurs",
-    anyKeywords: ["extincteur", "extincteurs"],
-    reason:
-      "Le support e-learning est inclus avec la formation incendie encadree. La tarification depend du format, de l'effectif et du site.",
-  },
-  {
-    kind: "quote",
-    label: "Guide-file / Serre-file",
-    anyKeywords: ["guide-file", "guide file", "serre-file", "serre file"],
-    reason:
-      "Le support e-learning est inclus avec la formation evacuation encadree. La tarification depend du format, de l'effectif et du site.",
-  },
-  {
-    kind: "quote",
-    label: "Evacuation incendie",
-    anyKeywords: ["evacuation"],
-    reason:
-      "Le support e-learning est inclus avec la formation evacuation encadree. La tarification depend du format, de l'effectif et du site.",
-  },
-  {
-    kind: "quote",
-    label: "Equipier de premiere intervention",
-    anyKeywords: ["epi", "equipier de premiere intervention"],
-    reason:
-      "Le support e-learning est inclus avec la formation EPI encadree. La tarification depend du format, de l'effectif et du site.",
-  },
-  {
-    kind: "quote",
-    label: "Duo incendie et evacuation",
-    anyKeywords: ["duo incendie", "incendie & evacuation", "incendie evacuation"],
-    reason:
-      "Le support e-learning est inclus avec la formation incendie/evacuation encadree. La tarification depend du format, de l'effectif et du site.",
-  },
+
+  // ── SSI Exploitation — hybride, sessions planifiées ───────────────────────
+
   {
     kind: "quote",
     label: "Exploitation du SSI",
     allKeywords: ["ssi", "exploitation"],
     reason:
-      "Le support e-learning SSI est inclus avec la formation encadree. La tarification depend du site, du systeme installe et du niveau attendu.",
+      "La formation Exploitation SSI est disponible en demi-journée (290 € HT/pers.) ou journée complète (490 € HT/pers.), avec sessions planifiées à Noisy-le-Grand. Tarif groupe (4+ pers.) : 240 € / 420 € HT. Intra IDF : 1 200 € HT (demi-journée) ou 1 800 € HT (journée). Hors Île-de-France : sur devis. Consultez prevensia-formation.fr/formation-ssi pour les prochaines sessions.",
   },
+
+  // ── Sprinkler Exploitation — présentiel, sessions planifiées ─────────────
+
   {
     kind: "quote",
     label: "Exploitation sprinkler",
     allKeywords: ["sprinkler", "exploitation"],
     reason:
-      "Le support e-learning sprinkler est inclus avec la formation encadree. La tarification depend du site, du referentiel et du niveau technique.",
+      "La formation Exploitation Sprinkler est disponible en 1 jour (590 € HT/pers.) ou 2 jours renforcé (1 190 € HT/pers.), avec sessions planifiées à Noisy-le-Grand. Tarif groupe (4+ pers.) : 490 € / 990 € HT. Intra IDF : 2 200 € HT/jour. Hors Île-de-France : sur devis. Consultez prevensia-formation.fr/formation-sprinkler pour les prochaines sessions.",
   },
-  {
-    kind: "quote",
-    label: "Formation SSI sur mesure",
-    anyKeywords: [
-      "erp",
-      "igh",
-      "icpe",
-      "nf s 61",
-      "normatif",
-      "referentiel",
-      "referentiels",
-      "cmsi",
-      "ecs",
-    ],
-    reason:
-      "Cette formation SSI depend du site, du systeme installe et du niveau technique attendu.",
-  },
+
   {
     kind: "quote",
     label: "Formation sprinkler sur mesure",
@@ -219,36 +97,25 @@ const paymentRules: PaymentRule[] = [
       "industriel",
     ],
     reason:
-      "La formation sprinkler est adaptee selon le referentiel, le site et la profondeur technique demandee.",
+      "La formation sprinkler sur mesure est adaptée selon le référentiel, le site et la profondeur technique demandée. Hors Île-de-France : sur devis (déplacement formateur).",
   },
+
   {
     kind: "quote",
-    label: "Formation securite incendie sur mesure",
-    anyKeywords: ["securite incendie", "sur site", "intra", "presentiel", "sur mesure"],
+    label: "Formation SSI sur mesure",
+    anyKeywords: [
+      "erp",
+      "igh",
+      "icpe",
+      "nf s 61",
+      "normatif",
+      "referentiel",
+      "referentiels",
+      "cmsi",
+      "ecs",
+    ],
     reason:
-      "Cette formation incendie est generalement dimensionnee selon l'effectif, le site et les exercices pratiques attendus.",
-  },
-  {
-    kind: "quote",
-    label: "Habilitation électrique Véhicules / Engins (NF C 18-550)",
-    anyKeywords: ["vehicule", "engin", "18-550", "18550", "b0l", "b1l", "b2l", "habilitation-vehicules"],
-    reason:
-      "Ce parcours est ajusté selon le type de véhicule/engin, la tension batterie et les opérations réellement confiées.",
-  },
-  {
-    kind: "quote",
-    label: "MAC SST",
-    allKeywords: ["mac"],
-    anyKeywords: ["sst", "secouriste"],
-    reason:
-      "Le support e-learning SST est inclus avec la formation encadree. La pratique reste indispensable pour la validation des competences.",
-  },
-  {
-    kind: "quote",
-    label: "Formation SST initiale",
-    anyKeywords: ["sst", "secouriste"],
-    reason:
-      "Le support e-learning SST est inclus avec la formation encadree. La pratique reste indispensable pour la validation des competences.",
+      "Cette formation SSI dépend du site, du système installé et du niveau technique attendu. Hors Île-de-France : sur devis.",
   },
 ];
 
@@ -304,7 +171,7 @@ export function getEnrollmentPaymentOption({
         label: formationTitle?.trim() || rule.label,
         reason:
           rule.reason ||
-          "Cette formation necessite un devis avant validation du paiement.",
+          "Cette formation nécessite un devis avant validation du paiement.",
       };
     }
 
@@ -339,7 +206,7 @@ export function getEnrollmentPaymentOption({
     kind: "quote",
     label: formationTitle?.trim() || "Formation PREVENSIA",
     reason:
-      "Le paiement en ligne n'est pas encore configure pour cette offre. Utilisez la demande de devis ou marquez le paiement manuellement.",
+      "Le paiement en ligne n'est pas encore configuré pour cette offre. Utilisez la demande de devis ou marquez le paiement manuellement.",
   };
 }
 

@@ -6,10 +6,8 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
-  { href: "/formation-habilitation-electrique", label: "Habilitation" },
+  { href: "/formation-h0b0", label: "H0B0" },
   { href: "/formation-atex", label: "ATEX" },
-  { href: "/formation-sst", label: "SST" },
-  { href: "/formation-securite-incendie", label: "Incendie" },
   { href: "/formation-coordinateur-ssi", label: "Coordination SSI" },
   { href: "/formation-ssi", label: "SSI" },
   { href: "/formation-sprinkler", label: "Sprinkler" },

@@ -6,14 +6,13 @@ const siteUrl =
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // Pages formations principales
+  // Pages formations principales (catalogue actif)
   const formationPages = [
-    "formation-habilitation-electrique",
-    "formation-sst",
-    "formation-securite-incendie",
-    "formation-sprinkler",
-    "formation-ssi",
+    "formation-h0b0",
     "formation-atex",
+    "formation-coordinateur-ssi",
+    "formation-ssi",
+    "formation-sprinkler",
   ];
 
   const formationEntries: MetadataRoute.Sitemap = formationPages.map(
@@ -25,15 +24,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // Pages SEO habilitation électrique (landing pages spécialisées)
+  // Pages SEO complémentaires (H0B0 géo, coordinateur SSI)
   const habilitationSeoPages = [
-    { slug: "formation-h0b0", priority: 0.92 },
-    { slug: "formation-bs-be-manoeuvre", priority: 0.92 },
-    { slug: "formation-b1-b2-br-bc", priority: 0.92 },
-    { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.88 },
-    { slug: "formation-habilitation-electrique-paris", priority: 0.85 },
-    { slug: "formation-habilitation-electrique-seine-saint-denis", priority: 0.85 },
-    { slug: "formation-ssiap1", priority: 0.9 },
+    { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.82 },
+    { slug: "formation-habilitation-electrique-paris", priority: 0.78 },
+    { slug: "formation-habilitation-electrique-seine-saint-denis", priority: 0.78 },
   ];
 
   const habilitationSeoEntries: MetadataRoute.Sitemap = habilitationSeoPages.map(
