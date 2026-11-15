@@ -83,13 +83,13 @@ const formations = [
   {
     title: "Coordination SSI",
     href: "/formation-coordinateur-ssi",
-    badge: "Reconversion · Évolution professionnelle",
+    badge: "Responsables techniques · Bureau d'études · Facility managers",
     format: "Présentiel Noisy-le-Grand · Sur devis",
     price: "Sur devis",
     cta: "Demander un devis",
     ctaStyle: "bg-slate-800 hover:bg-slate-700 text-white",
     description:
-      "Pour les techniciens SSI qui évoluent vers un rôle de coordinateur en ERP ou IGH. Piloter les installateurs, constituer le Dossier d'Identité SSI, valider la matrice DAS. Parcours complet en présentiel.",
+      "Responsables techniques, gestionnaires d'immeuble, maîtres d'ouvrage, bureau d'études : maîtrisez votre rôle de coordinateur SSI en ERP/IGH. Constitution du Dossier d'Identité SSI, pilotage des installateurs, validation de la matrice DAS. Sur devis, parcours adapté à votre contexte.",
     image: "/elearning/commun/coordinateur-ssi-accueil.png",
     imageClass: "object-cover object-center",
   },
