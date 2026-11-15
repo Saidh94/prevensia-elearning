@@ -220,7 +220,7 @@ export default function Home() {
         </p>
       </div>
       <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur">
-        <p className="text-2xl font-bold text-white sm:text-3xl">10+</p>
+        <p className="text-2xl font-bold text-white sm:text-3xl">8+</p>
         <p className="mt-1 text-[11px] uppercase tracking-wider text-slate-300">
           Parcours e-learning inclus
         </p>

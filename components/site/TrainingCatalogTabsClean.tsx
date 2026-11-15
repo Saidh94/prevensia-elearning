@@ -7,34 +7,25 @@ import { electricalCommercialOffers } from "@/lib/electrical-offers";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type TabKey =
-  | "habilitations"
   | "ssi"
+  | "cssi"
   | "sprinkler"
-  | "incendie"
-  | "ssiap1"
-  | "atex"
-  | "sst";
+  | "atex";
 
 type MetierKey =
   | ""
-  | "electricien"
   | "non-electricien"
   | "securite-qhse"
-  | "agent-ssiap"
   | "exploitant-erp"
-  | "sst"
-  | "atex"
-  | "exploitant-protection-incendie";
+  | "exploitant-protection-incendie"
+  | "atex";
 
 const metierIconBg: Record<string, string> = {
-  "electricien":                    "bg-blue-50 text-blue-700 border border-blue-100",
   "non-electricien":                "bg-slate-100 text-slate-600 border border-slate-200",
   "securite-qhse":                  "bg-emerald-50 text-emerald-700 border border-emerald-100",
-  "agent-ssiap":                    "bg-orange-50 text-orange-700 border border-orange-100",
   "exploitant-erp":                 "bg-indigo-50 text-indigo-700 border border-indigo-100",
-  "sst":                            "bg-pink-50 text-pink-700 border border-pink-100",
-  "atex":                           "bg-amber-50 text-amber-700 border border-amber-100",
   "exploitant-protection-incendie": "bg-cyan-50 text-cyan-700 border border-cyan-100",
+  "atex":                           "bg-amber-50 text-amber-700 border border-amber-100",
 };
 
 type TableRow = {
@@ -51,127 +42,87 @@ type TableRow = {
 // ─── Données domaines (tabs) ──────────────────────────────────────────────────
 
 const tabs: { key: TabKey; label: string }[] = [
-  { key: "habilitations", label: "Habilitations" },
-  { key: "ssi", label: "SSI" },
+  { key: "ssi",      label: "Exploitation SSI" },
+  { key: "cssi",     label: "Coordination SSI" },
   { key: "sprinkler", label: "Sprinkler" },
-  { key: "incendie", label: "Sécurité incendie" },
-  { key: "ssiap1", label: "SSIAP1" },
-  { key: "atex", label: "ATEX" },
-  { key: "sst", label: "SST" },
+  { key: "atex",     label: "ATEX" },
 ];
 
-const electricalTableRows: TableRow[] = electricalCommercialOffers.map((offer) => ({
-  title:
-    offer.availability === "direct"
-      ? `${offer.shortTitle} - ${offer.delivery}`
-      : `${offer.shortTitle} - parcours ciblé`,
-  duration: offer.initialDuration,
-  price: offer.interPrice,
-  group: offer.intraPrice,
-  participants: offer.participants,
-  ctaHref: offer.ctaHref,
-  ctaLabel: offer.ctaLabel,
-  badge: "Habilitation",
-}));
+const electricalTableRows: TableRow[] = electricalCommercialOffers
+  .filter((offer) =>
+    offer.shortTitle.toLowerCase().includes("h0b0") ||
+    offer.shortTitle.toLowerCase().includes("h0 b0") ||
+    offer.shortTitle.toLowerCase().includes("h0v")
+  )
+  .map((offer) => ({
+    title:
+      offer.availability === "direct"
+        ? `${offer.shortTitle} - ${offer.delivery}`
+        : `${offer.shortTitle} - parcours ciblé`,
+    duration: offer.initialDuration,
+    price: offer.interPrice,
+    group: offer.intraPrice,
+    participants: offer.participants,
+    ctaHref: offer.ctaHref,
+    ctaLabel: offer.ctaLabel,
+    badge: "H0B0",
+  }));
 
 const tableRowsByTab: Record<TabKey, TableRow[]> = {
-  habilitations: electricalTableRows,
   ssi: [
     {
-      title: "Exploitation SSI",
-      duration: "1 jour",
-      price: "650 EUR HT",
-      group: "À partir de 2 200 EUR HT",
-      participants: "12 max",
+      title: "Exploitation SSI — demi-journée",
+      duration: "0,5 jour",
+      price: "290 € HT / pers.",
+      group: "Sur devis intra",
+      participants: "8 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
       badge: "SSI",
     },
     {
-      title: "SSI avancé : architecture, réglementation et normes",
-      duration: "2 jours",
-      price: "1 190 EUR HT",
-      group: "Sur devis",
-      participants: "10 max",
+      title: "Exploitation SSI — journée complète",
+      duration: "1 jour",
+      price: "490 € HT / pers.",
+      group: "Sur devis intra",
+      participants: "8 max",
       ctaHref: "/formation-ssi",
       ctaLabel: "Voir la formation",
       badge: "SSI",
+    },
+  ],
+  cssi: [
+    {
+      title: "Coordination SSI — Coordinateur en ERP/IGH",
+      duration: "7 jours (2+3+2)",
+      price: "1 790 € HT / pers.",
+      group: "Inter uniquement — 3 à 8 participants",
+      participants: "3 à 8",
+      ctaHref: "/formation-coordinateur-ssi",
+      ctaLabel: "Voir la formation",
+      badge: "CSSI",
     },
   ],
   sprinkler: [
     {
-      title: "Exploitation sprinkler",
+      title: "Exploitation Sprinkler — 1 jour",
       duration: "1 jour",
-      price: "590 EUR HT",
-      group: "À partir de 2 200 EUR HT",
-      participants: "6 max",
+      price: "790 € HT / pers.",
+      group: "Intra IDF — min. 3 participants",
+      participants: "3 min. · 8 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
       badge: "Sprinkler",
     },
     {
-      title: "Sprinkler technique + visite terrain",
+      title: "Exploitation Sprinkler — 2 jours",
       duration: "2 jours",
-      price: "1 190 EUR HT",
-      group: "Sur devis",
-      participants: "6 max",
+      price: "1 290 € HT / pers.",
+      group: "Intra IDF — min. 3 participants",
+      participants: "3 min. · 8 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
       badge: "Sprinkler",
-    },
-  ],
-  incendie: [
-    {
-      title: "Manipulation extincteurs",
-      duration: "0,5 jour",
-      price: "149 EUR HT",
-      group: "Sur devis",
-      participants: "10 max",
-      ctaHref: "/formation-securite-incendie",
-      ctaLabel: "Voir la formation",
-      badge: "Incendie",
-    },
-    {
-      title: "Guide-file / Serre-file",
-      duration: "0,5 jour",
-      price: "150 EUR HT",
-      group: "Sur devis",
-      participants: "10 max",
-      ctaHref: "/formation-securite-incendie",
-      ctaLabel: "Voir la formation",
-      badge: "Incendie",
-    },
-    {
-      title: "Équipier de Première Intervention (EPI)",
-      duration: "1 jour",
-      price: "220 EUR HT",
-      group: "Sur devis",
-      participants: "10 max",
-      ctaHref: "/formation-securite-incendie",
-      ctaLabel: "Voir la formation",
-      badge: "Incendie",
-    },
-  ],
-  ssiap1: [
-    {
-      title: "Préparation théorique SSIAP1 — module inclus sécurité incendie",
-      duration: "2h30 à 3h (e-learning)",
-      price: "OFFERT avec formations sécurité incendie",
-      group: "Non applicable",
-      participants: "Individuel",
-      ctaHref: "/formation-ssiap1",
-      ctaLabel: "Accéder au module",
-      badge: "SSIAP1",
-    },
-    {
-      title: "Remise à niveau théorique SSIAP1 — support e-learning",
-      duration: "2h30 à 3h (e-learning)",
-      price: "Sur devis — contactez-nous",
-      group: "Sur devis",
-      participants: "Individuel",
-      ctaHref: "/elearning",
-      ctaLabel: "Voir le module",
-      badge: "SSIAP1",
     },
   ],
   atex: [
@@ -239,34 +190,19 @@ const metiers: { key: MetierKey; label: string; description: string }[] = [
     description: "H0B0, H0V — travaux non électriques à proximité du risque électrique",
   },
   {
-    key: "electricien",
-    label: "Personnel électricien / maintenance",
-    description: "BS, BE, B1/B2/BR/BC — interventions BT, manœuvres et consignation",
-  },
-  {
     key: "securite-qhse",
     label: "Encadrement / QHSE",
     description: "Prévention, conformité, suivi des habilitations et gestion des risques",
   },
   {
-    key: "agent-ssiap",
-    label: "Équipier de première intervention",
-    description: "Alerte, évacuation, extincteurs et premiers moyens d'intervention",
-  },
-  {
     key: "exploitant-erp",
     label: "Exploitant bâtiment / ERP",
-    description: "SSI, consignes, registre de sécurité, évacuation et exploitation courante",
+    description: "SSI, coordination SSI, registre de sécurité, évacuation et exploitation",
   },
   {
     key: "exploitant-protection-incendie",
     label: "Exploitant protection incendie",
     description: "Sprinkler, extinction gaz, SSI et gestion des indisponibilités",
-  },
-  {
-    key: "sst",
-    label: "Secouriste du travail",
-    description: "Protection, alerte, gestes de secours et prévention en entreprise",
   },
   {
     key: "atex",
@@ -278,47 +214,27 @@ const metiers: { key: MetierKey; label: string; description: string }[] = [
 // Formations recommandées par métier (sous-ensemble de toutes les formations)
 const rowsByMetier: Record<Exclude<MetierKey, "">, TableRow[]> = {
   "non-electricien": [
-    ...electricalTableRows.filter((r) =>
-      r.title.includes("H0 B0") || r.title.includes("H0B0")
-    ),
-    tableRowsByTab.atex[0], // ATEX N1 sensibilisation
-  ],
-  electricien: [
-    ...electricalTableRows.filter((r) =>
-      !r.title.includes("H0 B0") && !r.title.includes("H0B0")
-    ),
-    tableRowsByTab.atex[1], // ATEX N2
+    ...electricalTableRows,
+    tableRowsByTab.atex[0], // ATEX NIV 0 sensibilisation
   ],
   "securite-qhse": [
-    tableRowsByTab.incendie[2], // EPI
-    tableRowsByTab.sst[0],
-    tableRowsByTab.atex[2],     // ATEX N3
-    tableRowsByTab.ssi[0],
-    tableRowsByTab.sprinkler[0],
-  ],
-  "agent-ssiap": [
-    // Équipier de première intervention
-    tableRowsByTab.incendie[0], // extincteurs
-    tableRowsByTab.incendie[1], // guide-file / serre-file
-    tableRowsByTab.incendie[2], // EPI
-  ],
-  "exploitant-erp": [
-    tableRowsByTab.ssiap1[0],
-    tableRowsByTab.ssiap1[1],
     tableRowsByTab.ssi[0],
     tableRowsByTab.ssi[1],
-    tableRowsByTab.incendie[1], // guide-file
-    tableRowsByTab.incendie[2], // EPI
+    tableRowsByTab.cssi[0],
+    tableRowsByTab.atex[1],
+    tableRowsByTab.atex[2],
+  ],
+  "exploitant-erp": [
+    tableRowsByTab.ssi[0],
+    tableRowsByTab.ssi[1],
+    tableRowsByTab.cssi[0],
+    tableRowsByTab.sprinkler[0],
   ],
   "exploitant-protection-incendie": [
     tableRowsByTab.sprinkler[0],
     tableRowsByTab.sprinkler[1],
     tableRowsByTab.ssi[0],
     tableRowsByTab.ssi[1],
-  ],
-  sst: [
-    tableRowsByTab.sst[0],
-    tableRowsByTab.sst[1],
   ],
   atex: [
     tableRowsByTab.atex[0],
@@ -328,78 +244,51 @@ const rowsByMetier: Record<Exclude<MetierKey, "">, TableRow[]> = {
 };
 
 const audienceByTab: Record<TabKey, string[]> = {
-  habilitations: [
-    "Personnel non électricien H0B0 / H0V",
-    "Personnel chargé d'opérations élémentaires BS et BE Manœuvre",
-    "Exécutants électriciens B1 / B1V",
-    "Chargés de travaux B2 / B2V",
-    "Chargés d'intervention générale BR",
-    "Chargés de consignation BC",
-    "Personnel à multi-symboles BT selon organisation",
-    "Agents de maintenance",
-    "Techniciens d'intervention",
-    "Encadrants techniques",
-  ],
   ssi: [
-    "Responsables techniques",
-    "Services maintenance",
+    "Responsables techniques ERP, IGH, ICPE",
+    "Services maintenance et exploitation",
     "Responsables QHSE / sécurité",
-    "Exploitants ERP, BUP, ICPE, IGH",
     "Personnel chargé de l'exploitation du SSI",
+    "Gestionnaires de bâtiments et facility managers",
+  ],
+  cssi: [
+    "Responsables techniques et gestionnaires d'immeuble",
+    "Maîtres d'ouvrage et maîtres d'œuvre",
+    "Bureaux d'études spécialisés sécurité incendie",
+    "Facility managers et responsables patrimoine",
+    "Toute personne devant assurer le rôle de Coordinateur SSI (NF S 61-932)",
   ],
   sprinkler: [
     "Responsables maintenance",
     "Responsables sécurité incendie",
     "Exploitants logistiques et industriels",
     "Techniciens d'exploitation",
-    "Ingénieurs et bureaux d'études pour le module avancé",
-  ],
-  incendie: [
-    "Salariés d'entreprise soumis à exercice d'évacuation",
-    "Personnel chargé de l'évacuation (guide-file, serre-file)",
-    "Équipiers de première intervention",
-    "Encadrants et référents sécurité incendie ERP",
-    "Collaborateurs à sensibiliser au risque incendie",
-  ],
-  ssiap1: [
-    "Agents de sécurité incendie souhaitant obtenir la qualification SSIAP1",
-    "Personnel de surveillance en ERP, IGH, ICPE",
-    "Titulaires SSIAP1 devant effectuer leur recyclage obligatoire (MAC)",
-    "Agents en reconversion professionnelle vers la sécurité incendie",
-    "Salariés désignés par leur employeur pour assurer la fonction d'agent SSIAP",
+    "Toute personne chargée de l'exploitation d'une installation sprinkler",
   ],
   atex: [
-    "Tout personnel circulant en zone ATEX (N0 – Sensibilisation)",
-    "Travailleurs intervenant régulièrement en zone classée (N1 – Intervenant)",
-    "Responsables de travaux et chargés de chantier en zone ATEX (N2 – Encadrant)",
+    "Tout personnel circulant en zone ATEX (NIV 0 – Sensibilisation)",
+    "Travailleurs intervenant régulièrement en zone classée (NIV 1 – Intervenant)",
+    "Responsables de travaux et chargés de chantier en zone ATEX (NIV 2 – Encadrant)",
     "Techniciens de maintenance, opérateurs, électriciens, mécaniciens",
     "Responsables sécurité et coordinateurs ATEX",
     "Sous-traitants et intervenants extérieurs en site classé",
-  ],
-  sst: [
-    "Salariés de tout secteur",
-    "Personnel désigné secouriste",
-    "Collaborateurs devant porter assistance en cas d'accident",
-    "Titulaires SST à recycler pour le MAC SST",
   ],
 };
 
 // Badge color mapping
 const badgeColors: Record<string, string> = {
-  Habilitation: "bg-blue-100 text-blue-800",
-  SSI: "bg-purple-100 text-purple-800",
+  H0B0:     "bg-blue-100 text-blue-800",
+  SSI:      "bg-purple-100 text-purple-800",
+  CSSI:     "bg-indigo-100 text-indigo-800",
   Sprinkler: "bg-cyan-100 text-cyan-800",
-  Incendie: "bg-orange-100 text-orange-800",
-  SSIAP1: "bg-red-100 text-red-800",
-  ATEX: "bg-yellow-100 text-yellow-800",
-  SST: "bg-green-100 text-green-800",
+  ATEX:     "bg-amber-100 text-amber-800",
 };
 
 // ─── Composant principal ──────────────────────────────────────────────────────
 
 export default function TrainingCatalogTabsClean() {
   const [mode, setMode] = useState<"metier" | "domaine">("metier");
-  const [activeTab, setActiveTab] = useState<TabKey>("habilitations");
+  const [activeTab, setActiveTab] = useState<TabKey>("ssi");
   const [activeMetier, setActiveMetier] = useState<MetierKey>("");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -725,27 +614,18 @@ function MetierIcon({ metierKey }: { metierKey: string }) {
     "aria-hidden": true as const,
   };
   switch (metierKey) {
-    case "electricien":
-      // Éclair / zap (filled)
-      return <svg {...s}><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>;
     case "non-electricien":
       // Clé / outil (Material Icons "build", filled)
       return <svg {...s}><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>;
     case "securite-qhse":
       // Bouclier + coche (shield-check)
       return <svg {...s}><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 13l-3-3 1.41-1.41L10 11.17l5.59-5.58L17 7l-7 7z"/></svg>;
-    case "agent-ssiap":
-      // Flamme (Équipier de première intervention)
-      return <svg {...s}><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>;
     case "exploitant-erp":
       // Bâtiment / immeuble (building-2)
       return <svg {...s}><path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zm-6 4H9v-2h2v2zm0-4H9V9h2v2zm0-4H9V5h2v2zm4 8h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>;
     case "exploitant-protection-incendie":
       // Bouclier + goutte d'eau (protection incendie)
       return <svg {...s}><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10c0 .55-.45 1-1 1s-1-.45-1-1c0-1.66 1.34-3 3-3s3 1.34 3 3c0 2.21-1.79 4-4 4v-2c1.1 0 2-.9 2-2 0-.55-.45-1-1-1z"/></svg>;
-    case "sst":
-      // Croix médicale (local_hospital, filled)
-      return <svg {...s}><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-2v-4H8v-2h4V8h2v4h4v2z"/></svg>;
     case "atex":
       // Triangle danger / avertissement (warning, filled)
       return <svg {...s}><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>;
