@@ -459,15 +459,15 @@ export default function FormationSSI() {
             Tarifs — Exploitation SSI
           </h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-700">
-            Tarifs inter-entreprises à Noisy-le-Grand (93). Tarif dégressif à partir de 4 inscrits sur la même session.
+            Tarifs inter-entreprises à Noisy-le-Grand (93). <strong>Minimum 4 participants, maximum 10.</strong> Tarif dégressif à partir de 7 inscrits sur la même session.
             <strong> Hors Île-de-France :</strong> sur devis (déplacement formateur en sus).
           </p>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* Demi-journée 1-3 pers */}
+            {/* Demi-journée 4-6 pers */}
             <div className="rounded-2xl border border-slate-200 bg-white p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-                Demi-journée — 1 à 3 participants
+                Demi-journée 4h — 4 à 6 participants
               </p>
               <p className="mt-4 text-3xl font-bold text-slate-900">290 €</p>
               <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
@@ -475,7 +475,7 @@ export default function FormationSSI() {
                 <li>✓ Architecture SDI / CMSI / UGA / DAS</li>
                 <li>✓ Lecture des signalisations</li>
                 <li>✓ Conduite à tenir en cas d&apos;alarme</li>
-                <li>✓ Normes NF S 61</li>
+                <li>✓ Normes NF S 61-931 / 61-932</li>
                 <li>✓ E-learning inclus</li>
                 <li>✓ Attestation de formation</li>
               </ul>
@@ -483,23 +483,23 @@ export default function FormationSSI() {
                 href="/demande-devis?type=ssi&format=demi-journee"
                 className="mt-7 block rounded-xl border border-blue-300 px-4 py-2 text-center text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
               >
-                Réserver une place
+                Réserver pour mon groupe
               </Link>
             </div>
 
-            {/* Demi-journée 4+ pers */}
+            {/* Demi-journée 7-10 pers */}
             <div className="rounded-2xl border-2 border-blue-400 bg-white p-7 relative">
               <span className="absolute -top-3 left-6 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
-                Groupe 4+ pers.
+                Tarif dégressif 7-10 pers.
               </span>
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-                Demi-journée — groupe 4 et +
+                Demi-journée 4h — 7 à 10 participants
               </p>
               <p className="mt-4 text-3xl font-bold text-slate-900">240 €</p>
               <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
               <ul className="mt-6 space-y-2 text-sm text-slate-700">
-                <li>✓ Même contenu que la formule individuelle</li>
-                <li>✓ Tarif dégressif dès 4 inscrits</li>
+                <li>✓ Même contenu demi-journée</li>
+                <li>✓ Tarif dégressif dès 7 inscrits</li>
                 <li>✓ E-learning inclus</li>
                 <li>✓ Attestation de formation</li>
               </ul>
@@ -511,10 +511,10 @@ export default function FormationSSI() {
               </Link>
             </div>
 
-            {/* Journée 1-3 pers */}
+            {/* Journée 4-6 pers */}
             <div className="rounded-2xl border border-slate-200 bg-white p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-                Journée complète — 1 à 3 participants
+                Journée complète — 4 à 6 participants
               </p>
               <p className="mt-4 text-3xl font-bold text-slate-900">490 €</p>
               <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
@@ -529,23 +529,23 @@ export default function FormationSSI() {
                 href="/demande-devis?type=ssi&format=journee"
                 className="mt-7 block rounded-xl border border-blue-300 px-4 py-2 text-center text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
               >
-                Réserver une place
+                Réserver pour mon groupe
               </Link>
             </div>
 
-            {/* Journée 4+ pers */}
+            {/* Journée 7-10 pers */}
             <div className="rounded-2xl border-2 border-blue-400 bg-white p-7 relative">
               <span className="absolute -top-3 left-6 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
-                Groupe 4+ pers.
+                Tarif dégressif 7-10 pers.
               </span>
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-                Journée complète — groupe 4 et +
+                Journée complète — 7 à 10 participants
               </p>
               <p className="mt-4 text-3xl font-bold text-slate-900">420 €</p>
               <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
               <ul className="mt-6 space-y-2 text-sm text-slate-700">
                 <li>✓ Même contenu journée approfondie</li>
-                <li>✓ Tarif dégressif dès 4 inscrits</li>
+                <li>✓ Tarif dégressif dès 7 inscrits</li>
                 <li>✓ Module e-learning extinction gaz inclus</li>
                 <li>✓ Attestation de formation</li>
               </ul>

@@ -31,8 +31,9 @@ const SYSTEM_PROMPT = `Tu es l'assistant commercial de PREVENSIA FORMATION — o
 - NIV 2 Encadrant / Chargé de travaux ATEX : e-learning 7h + journée présentielle — **à partir de 990 € HT** (sur devis selon effectif).
 
 ### EXPLOITATION SSI — Systèmes de Sécurité Incendie
-- Demi-journée (3h30) : **290 € HT / pers** (groupe ≥4 : 240 € HT/pers) | Intra IDF : 1 200 € HT | Hors IDF : sur devis.
-- Journée complète (7h) : **490 € HT / pers** (groupe ≥4 : 420 € HT/pers) | Intra IDF : 1 800 € HT | Hors IDF : sur devis.
+- Demi-journée (4h min.) : **290 € HT / pers** (4-6 pers) | **240 € HT / pers** (7-10 pers) | Intra IDF : 1 200 € HT | Hors IDF : sur devis.
+- Journée complète (7h) : **490 € HT / pers** (4-6 pers) | **420 € HT / pers** (7-10 pers) | Intra IDF : 1 800 € HT | Hors IDF : sur devis.
+- Minimum 4 participants, maximum 10 par session.
 - Sessions planifiées à Noisy-le-Grand (93). Planning sur prevensia-formation.fr/planning.
 
 ### EXPLOITATION SPRINKLER
