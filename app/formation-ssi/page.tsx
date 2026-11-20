@@ -200,14 +200,14 @@ export default function FormationSSI() {
             {/* Demi-journée */}
             <div className="rounded-2xl border-2 border-blue-200 bg-blue-50 p-8">
               <div className="flex items-center gap-3">
-                <span className="rounded-lg bg-blue-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Demi-journée — 4h</span>
+                <span className="rounded-lg bg-blue-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Demi-journée (9h–12h)</span>
               </div>
               <h3 className="mt-4 text-xl font-bold text-slate-900">Exploitation SSI — Essentiels</h3>
               <p className="mt-2 text-sm text-slate-600">Pour tout personnel amené à intervenir sur ou à proximité d&apos;un SSI : exploitants, agents techniques, responsables sécurité.</p>
 
               <div className="mt-6 space-y-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Partie théorique (2h)</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Partie théorique</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                     <li>→ Architectures SSI : SDI, CMSI, UGA, DAS (NF S 61-930 à -934)</li>
                     <li>→ Catégories A à E — niveaux de surveillance et de sécurité</li>
@@ -217,7 +217,7 @@ export default function FormationSSI() {
                   </ul>
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Partie pratique (2h)</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Partie pratique</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                     <li>→ Identifier une zone ou une boucle en alarme sur SSI pédagogique</li>
                     <li>→ Réaliser les essais d&apos;alarme et neutraliser un point adressable</li>
@@ -234,7 +234,7 @@ export default function FormationSSI() {
             {/* Journée complète */}
             <div className="rounded-2xl border-2 border-blue-500 bg-white p-8">
               <div className="flex items-center gap-3">
-                <span className="rounded-lg bg-blue-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Journée complète — 7h</span>
+                <span className="rounded-lg bg-blue-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Journée complète (9h–17h)</span>
                 <span className="rounded-lg bg-slate-900 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Recommandé</span>
               </div>
               <h3 className="mt-4 text-xl font-bold text-slate-900">Exploitation SSI — Approfondie</h3>
@@ -242,7 +242,7 @@ export default function FormationSSI() {
 
               <div className="mt-6 space-y-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Matin — Fondamentaux + Dossier SSI (3h30)</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Matin (9h–12h30) — Fondamentaux + Dossier SSI</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                     <li>→ Tout le programme demi-journée</li>
                     <li>→ Lecture et analyse du Dossier d&apos;Identité SSI (DIS)</li>
@@ -252,7 +252,7 @@ export default function FormationSSI() {
                   </ul>
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Après-midi — Scénarios complexes (3h30)</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Après-midi (13h30–17h) — Scénarios complexes</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                     <li>→ Analyse de scénarios : défaut secteur, alarme restreinte, boucle coupée</li>
                     <li>→ Travaux en présence du SSI — consignation simple et remise en service</li>
@@ -393,7 +393,7 @@ export default function FormationSSI() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <div>
-              <h3 className="mb-4 text-lg font-semibold text-blue-700">Demi-journée (3,5 h)</h3>
+              <h3 className="mb-4 text-lg font-semibold text-blue-700">Demi-journée (9h–12h)</h3>
               {sessionsDJ.length === 0 ? (
                 <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
               ) : (
@@ -427,7 +427,7 @@ export default function FormationSSI() {
             </div>
 
             <div>
-              <h3 className="mb-4 text-lg font-semibold text-blue-700">Journée complète (7 h)</h3>
+              <h3 className="mb-4 text-lg font-semibold text-blue-700">Journée complète (9h–17h, pause incluse)</h3>
               {sessionsJ.length === 0 ? (
                 <p className="text-slate-500 text-sm">Aucune session planifiée — contactez-nous.</p>
               ) : (
@@ -485,7 +485,7 @@ export default function FormationSSI() {
             {/* Demi-journée 4-6 pers */}
             <div className="rounded-2xl border border-slate-200 bg-white p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-                Demi-journée 4h — 4 à 6 participants
+                Demi-journée — 4 à 6 participants
               </p>
               <p className="mt-4 text-3xl font-bold text-slate-900">290 €</p>
               <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
@@ -511,7 +511,7 @@ export default function FormationSSI() {
                 Tarif dégressif 7-10 pers.
               </span>
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-700">
-                Demi-journée 4h — 7 à 10 participants
+                Demi-journée — 7 à 10 participants
               </p>
               <p className="mt-4 text-3xl font-bold text-slate-900">240 €</p>
               <p className="text-sm text-slate-500">HT / participant · inter IDF</p>
