@@ -15,11 +15,17 @@ export type FormationRecord = {
 
 export type CanonicalFormationKey =
   | "h0b0"
+  // Formations actives — catalogue 2025
+  | "atex-n0"
+  | "atex-n1"
+  | "atex-n2"
+  | "coordinateur-ssi"
+  | "ssi-exploitation"
+  | "sprinkler"
+  // Formations retirées — conservées pour les accès existants (isPublished: false)
   | "bsbe"
   | "b1b2brbc"
   | "incendie"
-  | "ssi-exploitation"
-  | "sprinkler"
   | "sst"
   | "habilitation-vehicules"
   | "be-verification-mesurage"
@@ -39,20 +45,57 @@ type FormationSeed = {
 export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
   h0b0: {
     slug: "h0b0",
-    title: "Habilitation électrique H0B0",
-    description: "Formation destinée au personnel non électricien.",
+    title: "Habilitation électrique H0B0 / H0V",
+    description: "Formation e-learning + entretien formateur 30 min destinée au personnel non électricien (NF C 18-510 A2).",
     durationHours: 7,
     mode: "e-learning",
     isPublished: true,
     elearningDuration: "1 h 20 à 1 h 45",
   },
+  "atex-n0": {
+    slug: "atex-n0",
+    title: "ATEX NIV 0 — Sensibilisation aux atmosphères explosives",
+    description: "E-learning 3–4h + entretien validation 30 min. Directive 99/92/CE, zones ATEX.",
+    durationHours: 4,
+    mode: "e-learning",
+    isPublished: true,
+    elearningDuration: "3 h à 4 h",
+  },
+  "atex-n1": {
+    slug: "atex-n1",
+    title: "ATEX NIV 1 — Intervenant en zone ATEX",
+    description: "E-learning + classe virtuelle 4h (Zoom). Habilitation ATEX intervenant.",
+    durationHours: 8,
+    mode: "blended",
+    isPublished: true,
+    elearningDuration: "4 h e-learning + 4 h classe virtuelle",
+  },
+  "atex-n2": {
+    slug: "atex-n2",
+    title: "ATEX NIV 2 — Encadrant en zone ATEX",
+    description: "Formation sur devis — encadrant et responsable de travaux en zone ATEX.",
+    durationHours: null,
+    mode: "presentiel",
+    isPublished: true,
+    elearningDuration: null,
+  },
+  "coordinateur-ssi": {
+    slug: "coordinateur-ssi",
+    title: "Coordination SSI (CSSI) — 7 jours",
+    description: "Formation inter-entreprises 7 jours à Noisy-le-Grand (93). NF S 61-931.",
+    durationHours: 56,
+    mode: "presentiel",
+    isPublished: true,
+    elearningDuration: null,
+  },
+  // --- Formations retirées du catalogue 2025 (conservées pour accès apprenants existants) ---
   bsbe: {
     slug: "bs-be-manoeuvre",
     title: "BS et BE Manœuvre",
     description: "Opérations élémentaires et manœuvres BT.",
     durationHours: 10,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "7 h 30 à 9 h 30",
   },
   b1b2brbc: {
@@ -61,7 +104,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Formation complète personnel électricien.",
     durationHours: 14,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "8 h 00 à 11 h 00",
   },
   incendie: {
@@ -70,7 +113,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Module PREVENSIA sur la prévention incendie et les premiers réflexes.",
     durationHours: 4,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "45 à 60 minutes",
   },
   "ssi-exploitation": {
@@ -97,7 +140,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Module PREVENSIA d'introduction à la prévention et aux gestes de premiers secours.",
     durationHours: 7,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "45 à 60 minutes",
   },
   "habilitation-vehicules": {
@@ -106,7 +149,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Module PREVENSIA dédié aux techniciens intervenant sur des véhicules ou engins à énergie embarquée : symboles L, IP2X, batteries, démarche 7 étapes.",
     durationHours: 9,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "1 h 30 à 2 h",
   },
   "be-verification-mesurage": {
@@ -115,7 +158,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Parcours PREVENSIA centré sur la vérification, le mesurage et les limites entre contrôle, intervention et travaux en basse tension.",
     durationHours: 14,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "8 h 00 à 11 h 00",
   },
   br: {
@@ -124,7 +167,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Parcours PREVENSIA centré sur l'intervention générale : diagnostic, dépannage, remplacement, mesure et remise en service contrôlée dans les limites du BR.",
     durationHours: 14,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "8 h 00 à 11 h 00",
   },
   bc: {
@@ -133,7 +176,7 @@ export const FORMATION_SEEDS: Record<CanonicalFormationKey, FormationSeed> = {
     description: "Parcours PREVENSIA centré sur la chaîne de consignation : séparation, condamnation, identification, VAT et sécurisation fiable de l'installation.",
     durationHours: 14,
     mode: "e-learning",
-    isPublished: true,
+    isPublished: false,
     elearningDuration: "8 h 00 à 11 h 00",
   },
 };
@@ -151,6 +194,39 @@ export function inferCanonicalFormationSlug(
 
   if (normalizedFormation.includes("h0b0") || normalizedFormation.includes("h0v")) {
     return "h0b0";
+  }
+
+  if (
+    normalizedFormation.includes("atex") &&
+    (normalizedFormation.includes("niv 2") || normalizedFormation.includes("niveau 2") || normalizedFormation.includes("encadrant"))
+  ) {
+    return "atex-n2";
+  }
+
+  if (
+    normalizedFormation.includes("atex") &&
+    (normalizedFormation.includes("niv 1") || normalizedFormation.includes("niveau 1") || normalizedFormation.includes("intervenant"))
+  ) {
+    return "atex-n1";
+  }
+
+  if (
+    normalizedFormation.includes("atex") &&
+    (normalizedFormation.includes("niv 0") || normalizedFormation.includes("niveau 0") || normalizedFormation.includes("sensibilisation"))
+  ) {
+    return "atex-n0";
+  }
+
+  if (normalizedFormation.includes("atex")) {
+    return "atex-n0"; // défaut
+  }
+
+  if (
+    normalizedFormation.includes("coordinateur ssi") ||
+    normalizedFormation.includes("coordination ssi") ||
+    normalizedFormation.includes("cssi")
+  ) {
+    return "coordinateur-ssi";
   }
 
   if (

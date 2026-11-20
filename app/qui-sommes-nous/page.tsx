@@ -6,7 +6,7 @@ import { QualiopiMark } from "@/components/site/QualiopiMark";
 export const metadata = {
   title: "Qui sommes-nous — PREVENSIA FORMATION, organisme Qualiopi | Paris",
   description:
-    "PREVENSIA FORMATION est un organisme de formation basé à Paris, en démarche Qualiopi. Habilitation électrique NF C 18-510, SST, sécurité incendie, SSI, sprinkler, ATEX.",
+    "PREVENSIA FORMATION est un organisme de formation basé à Paris, en démarche Qualiopi. Habilitation électrique H0B0/H0V, SSI, sprinkler, ATEX, Coordination SSI.",
   alternates: {
     canonical: "https://prevensia-formation.fr/qui-sommes-nous",
   },
@@ -14,48 +14,38 @@ export const metadata = {
     "PREVENSIA FORMATION",
     "organisme formation Qualiopi Paris",
     "PREVENSIA Groupe SAS",
-    "formation habilitation électrique Île-de-France",
+    "formation habilitation électrique H0B0 Île-de-France",
     "organisme formation certifié Paris",
-    "formation SSIAP1 Paris",
+    "formation SSI exploitation Paris",
     "formation ATEX directive 99/92",
   ],
 };
 
 const formations = [
   {
-    titre: "Habilitation électrique",
-    symboles: "H0B0, BS/BE, B1, B2, BR, BC",
+    titre: "Habilitation électrique H0B0 / H0V",
+    symboles: "NF C 18-510 A2 · E-learning + entretien formateur",
     href: "/formation-habilitation-electrique",
   },
   {
-    titre: "SST — Secourisme au travail",
-    symboles: "SST initial · MAC SST",
-    href: "/formation-sst",
-  },
-  {
-    titre: "Sécurité incendie",
-    symboles: "Extincteurs · Guide-file · EPI",
-    href: "/formation-securite-incendie",
-  },
-  {
-    titre: "SSIAP1 — Agent de sécurité incendie",
-    symboles: "SSIAP1 initial · Recyclage 3 ans",
-    href: "/formation-ssiap1",
-  },
-  {
     titre: "Exploitation SSI",
-    symboles: "NF S 61 · ERP · IGH · ICPE",
+    symboles: "NF S 61 · ERP · IGH · ICPE · demi-journée ou journée",
     href: "/formation-ssi",
   },
   {
     titre: "Exploitation sprinkler",
-    symboles: "EN 12845 · APSAD R1 · NFPA 13",
+    symboles: "EN 12845 · APSAD R1 · NFPA 13 · intra IDF",
     href: "/formation-sprinkler",
   },
   {
     titre: "ATEX — Atmosphères explosives",
-    symboles: "Directive 99/92/CE · Zones 0/1/2 · DRPCE",
+    symboles: "NIV 0 · NIV 1 · NIV 2 · Directive 99/92/CE",
     href: "/formation-atex",
+  },
+  {
+    titre: "Coordination SSI (CSSI)",
+    symboles: "7 jours · NF S 61-931 · Inter Paris",
+    href: "/formation-ssi",
   },
 ];
 
@@ -109,7 +99,7 @@ export default function QuiSommesNousPage() {
             Organisme de formation spécialisé en prévention des risques professionnels,
             basé à Paris (démarche Qualiopi engagée), marque du PREVENSIA Groupe SAS. Nous accompagnons
             les entreprises et leurs équipes dans leurs obligations réglementaires
-            en habilitation électrique, sécurité incendie, SST, SSIAP1, SSI, sprinkler et ATEX.
+            en habilitation électrique H0B0/H0V, SSI, sprinkler, ATEX et Coordination SSI.
           </p>
         </div>
       </section>
@@ -137,10 +127,10 @@ export default function QuiSommesNousPage() {
                 réelles et directement applicables sur le terrain.
               </p>
               <p className="mt-4 text-lg leading-8 text-slate-600">
-                Qu&apos;il s&apos;agisse d&apos;une habilitation électrique, d&apos;un recyclage SST ou de
-                la formation d&apos;un responsable technique à l&apos;exploitation de son SSI,
-                chaque parcours est construit autour des besoins concrets des apprenants
-                et des exigences de leur employeur.
+                Qu&apos;il s&apos;agisse d&apos;une habilitation H0B0/H0V, d&apos;une formation ATEX pour
+                un encadrant en zone explosive ou de la préparation d&apos;un responsable
+                technique à l&apos;exploitation de son SSI, chaque parcours est construit
+                autour des besoins concrets des apprenants et des exigences de leur employeur.
               </p>
             </div>
 
@@ -184,7 +174,7 @@ export default function QuiSommesNousPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900">Nos domaines de formation</h2>
           <p className="mt-4 text-lg text-slate-600 max-w-2xl">
-            Sept domaines de prévention couvrant les principales obligations réglementaires
+            Cinq domaines de prévention couvrant les principales obligations réglementaires
             des entreprises industrielles, tertiaires et logistiques.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -4,6 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Préparation théorique SSIAP1 — Bases sécurité incendie ERP",
   description:
     "Module de préparation théorique aux bases SSIAP1 : classes de feux, extincteurs, SSI, évacuation ERP. Inclus dans nos formations sécurité incendie. Ne remplace pas un organisme agréé SSIAP.",

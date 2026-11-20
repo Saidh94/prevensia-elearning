@@ -4,6 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://prevensia-formation.fr/formation-securite-incendie" },
   title: "Formation Sécurité Incendie Entreprise — Extincteurs EPI | PREVENSIA",
   description:

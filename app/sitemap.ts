@@ -24,21 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  // Pages SEO complémentaires (H0B0 géo, coordinateur SSI)
-  const habilitationSeoPages = [
-    { slug: "formation-habilitation-electrique-ile-de-france", priority: 0.82 },
-    { slug: "formation-habilitation-electrique-paris", priority: 0.78 },
-    { slug: "formation-habilitation-electrique-seine-saint-denis", priority: 0.78 },
-  ];
-
-  const habilitationSeoEntries: MetadataRoute.Sitemap = habilitationSeoPages.map(
-    ({ slug, priority }) => ({
-      url: `${siteUrl}/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority,
-    })
-  );
+  // (Pas de landing pages SEO complémentaires actives pour le moment)
 
   // Articles de blog
   const blogArticles = [
@@ -46,7 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "duree-validite-habilitation-electrique",
     "habilitation-electrique-sous-traitants",
     "difference-nf-c-18-510-ute-c-18-510",
-    "formation-sst-entreprise-obligations",
+    // "formation-sst-entreprise-obligations" → noindex, hors sitemap
+    // "formation-ssiap-securite-incendie" → noindex, hors sitemap
     "obligations-securite-incendie-entreprise",
   ];
 
@@ -67,8 +54,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Formations principales
     ...formationEntries,
-    // Landing pages habilitation SEO
-    ...habilitationSeoEntries,
     // E-learning & planning
     {
       url: `${siteUrl}/elearning`,

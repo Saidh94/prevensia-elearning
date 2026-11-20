@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Formation SSIAP : guide complet SSIAP 1, 2 et 3 | PREVENSIA",
   description:
     "Tout savoir sur la formation SSIAP : niveaux 1, 2 et 3, conditions d'accès (âge, PSC1, casier), financement OPCO, débouchés et salaires 2025-2026.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://prevensia-formation.fr/blog/formation-ssiap-securite-incendie",
   },

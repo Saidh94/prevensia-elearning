@@ -4,8 +4,12 @@ import { useState } from "react";
 
 const FORMATIONS = [
   { label: "Habilitation électrique H0B0 / H0V", slug: "h0b0" },
-  { label: "BS-BE (BR, B1, B2, BC…)", slug: "bsbe" },
+  { label: "ATEX NIV 0 — Sensibilisation", slug: "atex-n0" },
+  { label: "ATEX NIV 1 — Intervenant", slug: "atex-n1" },
+  { label: "ATEX NIV 2 — Encadrant", slug: "atex-n2" },
   { label: "Exploitation SSI – fondamentaux", slug: "ssi-exploitation" },
+  { label: "Exploitation Sprinkler", slug: "sprinkler" },
+  { label: "Coordination SSI (CSSI) — 7 jours", slug: "coordinateur-ssi" },
 ];
 
 type Result = {

@@ -4,6 +4,7 @@ import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   alternates: { canonical: "https://prevensia-formation.fr/formation-sst" },
   title: "Formation SST — Sauveteur Secouriste du Travail | PREVENSIA",
   description:

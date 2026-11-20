@@ -12,34 +12,22 @@ type Formation = {
   perPerson: boolean;
 };
 
+// Catalogue actuel nov. 2026 : H0B0 · ATEX NIV 0/1/2 · SSI · Sprinkler · Coordination SSI (CSSI)
 const FORMATIONS: Formation[] = [
   // HABILITATION ÉLECTRIQUE
-  { id: "h0b0", label: "H0B0 / H0V", category: "Habilitation électrique", priceHT: 190, priceNote: "E-learning + entretien formateur", perPerson: true },
-  { id: "bsbe", label: "BS / BE Manœuvre", category: "Habilitation électrique", priceHT: 350, priceNote: "E-learning + classe virtuelle", perPerson: true },
-  { id: "b1b2brbc", label: "B1 / B2 / BR / BC", category: "Habilitation électrique", priceHT: null, priceNote: "Sur devis selon parcours", perPerson: false },
-  { id: "recyclage-h0b0", label: "Recyclage H0B0", category: "Habilitation électrique", priceHT: null, priceNote: "Sur devis", perPerson: false },
+  { id: "h0b0", label: "H0B0 / H0V — E-learning + entretien", category: "Habilitation électrique", priceHT: 150, priceNote: "E-learning autonome + entretien formateur 30 min", perPerson: true },
   // ATEX
-  { id: "atex-n0", label: "Formation et Sensibilisation ATEX NIV 0", category: "ATEX", priceHT: 129, priceNote: "E-learning 2h + entretien 30 min", perPerson: true },
-  { id: "atex-n1", label: "Formation et Sensibilisation ATEX NIV 1 Intervenant", category: "ATEX", priceHT: 490, priceNote: "E-learning + classe virtuelle 4h", perPerson: true },
-  { id: "atex-n2", label: "Formation et Sensibilisation ATEX NIV 2 Encadrant", category: "ATEX", priceHT: null, priceNote: "À partir de 990 € — sur devis (e-learning + journée présentielle)", perPerson: false },
-  // SSIAP / SÉCURITÉ INCENDIE
-  { id: "ssiap1-theo", label: "Préparation théorique SSIAP1", category: "Sécurité incendie", priceHT: null, priceNote: "Incluse dans formation sécurité incendie — sans valeur de certification SSIAP réglementaire", perPerson: false },
-  { id: "recyclage-ssiap1-theo", label: "Remise à niveau théorique SSIAP1", category: "Sécurité incendie", priceHT: null, priceNote: "Sans valeur de recyclage réglementaire — sur devis", perPerson: false },
-  { id: "extincteurs", label: "Manipulation extincteurs", category: "Sécurité incendie", priceHT: 149, priceNote: "0,5 jour", perPerson: true },
-  { id: "guide-file", label: "Guide-file / Serre-file", category: "Sécurité incendie", priceHT: 150, priceNote: "0,5 jour", perPerson: true },
-  { id: "epi", label: "Équipier de Première Intervention (EPI)", category: "Sécurité incendie", priceHT: 220, priceNote: "1 jour", perPerson: true },
+  { id: "atex-n0", label: "ATEX NIV 0 — Sensibilisation", category: "ATEX", priceHT: 129, priceNote: "E-learning 3–4h + entretien validation 30 min", perPerson: true },
+  { id: "atex-n1", label: "ATEX NIV 1 — Intervenant", category: "ATEX", priceHT: 490, priceNote: "E-learning + classe virtuelle 4h (Zoom)", perPerson: true },
+  { id: "atex-n2", label: "ATEX NIV 2 — Encadrant", category: "ATEX", priceHT: null, priceNote: "À partir de 990 € HT — sur devis (e-learning + journée présentielle)", perPerson: false },
   // SSI
-  { id: "ssi-1j", label: "Exploitation SSI (1 jour)", category: "SSI / Sprinkler", priceHT: 350, priceNote: "Inter-entreprises", perPerson: true },
-  { id: "ssi-2j", label: "SSI avancé (2 jours)", category: "SSI / Sprinkler", priceHT: 690, priceNote: "Inter-entreprises", perPerson: true },
-  // SPRINKLER
-  { id: "sprinkler-1j", label: "Exploitation sprinkler (1 jour)", category: "SSI / Sprinkler", priceHT: 590, priceNote: "Inter-entreprises", perPerson: true },
-  { id: "sprinkler-2j", label: "Sprinkler technique + visite (2 jours)", category: "SSI / Sprinkler", priceHT: 990, priceNote: "Inter-entreprises", perPerson: true },
-  // SST
-  { id: "sst", label: "SST initial", category: "SST", priceHT: 240, priceNote: "2 jours — inter-entreprises", perPerson: true },
-  { id: "mac-sst", label: "MAC SST (recyclage)", category: "SST", priceHT: 130, priceNote: "1 jour — inter-entreprises", perPerson: true },
+  { id: "ssi-demi", label: "Exploitation SSI — demi-journée", category: "SSI / Sprinkler", priceHT: 290, priceNote: "Inter-entreprises · Noisy-le-Grand (93)", perPerson: true },
+  { id: "ssi-1j", label: "Exploitation SSI — journée complète", category: "SSI / Sprinkler", priceHT: 490, priceNote: "Inter-entreprises · Noisy-le-Grand (93)", perPerson: true },
+  // SPRINKLER (intra uniquement)
+  { id: "sprinkler-demi", label: "Exploitation Sprinkler — demi-journée (intra)", category: "SSI / Sprinkler", priceHT: 790, priceNote: "Intra-entreprise IDF · min 3 participants · prix total session", perPerson: false },
+  { id: "sprinkler-1j", label: "Exploitation Sprinkler — journée complète (intra)", category: "SSI / Sprinkler", priceHT: 1290, priceNote: "Intra-entreprise IDF · min 3 participants · prix total session", perPerson: false },
   // COORDINATEUR SSI
-  { id: "coordinateur-ssi-elearning", label: "Coordinateur SSI e-learning (préparation)", category: "Coordinateur SSI", priceHT: 290, priceNote: "E-learning 20h — NF S 61-931", perPerson: true },
-  { id: "coordinateur-ssi-presentiel", label: "Coordinateur SSI en salle (7 jours)", category: "Coordinateur SSI", priceHT: null, priceNote: "À partir de 1 590 € — sur devis (intra/inter)", perPerson: false },
+  { id: "coordinateur-ssi", label: "Coordination SSI (CSSI) — 7 jours", category: "Coordinateur SSI", priceHT: 1790, priceNote: "Inter-entreprises · Noisy-le-Grand (93) · NF S 61-931", perPerson: true },
 ];
 
 const CATEGORIES = Array.from(new Set(FORMATIONS.map((f) => f.category)));

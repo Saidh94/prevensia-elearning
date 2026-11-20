@@ -4,43 +4,48 @@ import { createAdminClient } from "@/lib/supabase/admin";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
+// ⚠️ CATALOGUE ACTUEL PREVENSIA FORMATION (nov. 2026) :
+// H0B0 / H0V · ATEX NIV 0/1/2 · Exploitation SSI · Exploitation Sprinkler · Coordination SSI (CSSI)
+// FORMATIONS RETIRÉES — NE JAMAIS GÉNÉRER D'ARTICLE SUR :
+// SST, BS/BE Manœuvre, B1/B2/BR/BC, extincteurs, guide-file/serre-file, SSIAP1, sécurité incendie générique
+
 // Rotation des thèmes de blog
 const THEMES = [
   {
-    title: "Habilitation électrique NF C 18-510 : tout ce que l'employeur doit savoir",
-    keywords: ["habilitation électrique", "NF C 18-510", "formation employeur", "H0B0"],
+    title: "Habilitation H0B0 : pourquoi tout le personnel non-électricien doit être formé",
+    keywords: ["habilitation H0B0", "H0V", "NF C 18-510", "formation non-électricien", "risque électrique"],
     category: "habilitation",
-    angle: "Guide complet pour les employeurs sur les obligations légales de l'habilitation électrique NF C 18-510 : qui doit être habilité, quelle formation choisir, sanctions en cas de non-conformité.",
+    angle: "Guide pour les employeurs : qui doit avoir une habilitation H0B0 ou H0V ? Obligations légales NF C 18-510 amendement A2 (octobre 2024), sanctions, e-learning disponible 24h/24. Cible : tout le personnel non-électricien intervenant à proximité d'installations électriques.",
   },
   {
-    title: "Formation ATEX : obligations réglementaires et choix de la formation",
-    keywords: ["formation ATEX", "atmosphères explosives", "ATEX niveau 1", "ATEX niveau 2"],
+    title: "Formation ATEX : obligations réglementaires et choix du niveau",
+    keywords: ["formation ATEX", "atmosphères explosives", "ATEX niveau 0", "ATEX niveau 1", "ATEX niveau 2"],
     category: "atex",
-    angle: "Quelles sont les obligations réglementaires ATEX ? Différences entre ATEX niveau 1, 2 et 3. Comment choisir la bonne formation selon le poste de travail.",
+    angle: "Quelles sont les obligations réglementaires ATEX (directive 1999/92/CE) ? Différences entre ATEX NIV 0 (sensibilisation), NIV 1 (intervenant) et NIV 2 (encadrant). Comment choisir le bon niveau selon le poste de travail. Modalités : e-learning + classe virtuelle ou présentiel.",
   },
   {
     title: "Coordinateur SSI (CSSI) : rôle, missions et formation NF S 61-931",
     keywords: ["coordinateur SSI", "CSSI", "NF S 61-931", "formation coordinateur SSI", "bureau d'études SSI"],
     category: "ssi",
-    angle: "Qui est le Coordinateur SSI (CSSI) ? Quel est son rôle dans la conception et l'installation d'un Système de Sécurité Incendie ? Pourquoi les ingénieurs de bureaux d'études, les SSIAP 3 en évolution et les architectes doivent se former au CCF, à la matrice de corrélation ZDA/ZDM × DAS et au Dossier d'Identité SSI (DIS) selon la norme NF S 61-931.",
+    angle: "Qui est le Coordinateur SSI (CSSI) ? Son rôle dans la conception et la coordination d'un SSI neuf ou en rénovation. CCF, matrice ZDA/ZDM × DAS, Dossier d'Identité SSI (DIS) selon NF S 61-931. Public : responsables techniques, gestionnaires d'immeuble, maîtres d'ouvrage, BET. Formation inter-entreprise 7 jours à Noisy-le-Grand.",
   },
   {
-    title: "SST Sauveteur Secouriste du Travail : pourquoi former vos salariés",
-    keywords: ["SST formation", "sauveteur secouriste du travail", "formation premiers secours entreprise"],
-    category: "sst",
-    angle: "Obligation légale ou choix stratégique ? Tout sur la formation SST : contenu, durée, recyclage MAC SST, financement et retour sur investissement pour l'entreprise.",
+    title: "Exploitation SSI : obligations des responsables techniques en ERP",
+    keywords: ["exploitation SSI", "formation SSI", "système de sécurité incendie", "ERP IGH", "NF S 61-932"],
+    category: "ssi",
+    angle: "Quelles sont les obligations des responsables techniques ERP en matière d'exploitation SSI ? Lecture de la centrale, gestion des alarmes, exercices d'évacuation. Formation demi-journée ou journée complète. Sessions inter à Noisy-le-Grand (93).",
   },
   {
-    title: "Formation BS BE Manœuvre : guide pratique pour les non-électriciens",
-    keywords: ["formation BS BE manœuvre", "habilitation BS", "habilitation BE", "non-électricien"],
-    category: "habilitation",
-    angle: "Qui a besoin d'une habilitation BS ou BE Manœuvre ? Différence entre BS et BE, contenu de la formation, durée et modalités e-learning + classe virtuelle.",
+    title: "Exploitation sprinkler : formation obligatoire et réglementation APSAD",
+    keywords: ["formation sprinkler", "exploitation sprinkler", "APSAD R1", "système extinction automatique"],
+    category: "sprinkler",
+    angle: "Qui doit être formé à l'exploitation des systèmes sprinkler ? Réglementation APSAD R1, contenu de la formation 1 ou 2 jours, intra-entreprise sur site en Île-de-France. Minimum 3 participants. Ciblé : responsables sécurité, facility managers, exploitants industriels et logistiques.",
   },
   {
-    title: "Exploitation sprinkler : formation obligatoire et réglementation",
-    keywords: ["formation sprinkler", "exploitation sprinkler", "système extinction automatique"],
-    category: "incendie",
-    angle: "Qui doit être formé à l'exploitation des systèmes sprinkler ? Réglementation, contenu de la formation d'une journée et organismes habilités à Paris.",
+    title: "Financement OPCO des formations sécurité : guide pratique pour les RH",
+    keywords: ["financement OPCO formation sécurité", "FNE-Formation", "Qualiopi", "formation H0B0 OPCO", "ATEX financement"],
+    category: "atex",
+    angle: "Comment financer les formations H0B0, ATEX, SSI, Sprinkler et Coordination SSI via l'OPCO ou le FNE-Formation ? PREVENSIA FORMATION est en démarche Qualiopi. Guide étape par étape pour les responsables RH et formation.",
   },
 ];
 

@@ -2,18 +2,19 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Modules E-learning Sécurité & Prévention — Catalogue | PREVENSIA",
+  title: "Modules E-learning Sécurité — H0B0, ATEX, SSI, Sprinkler | PREVENSIA",
   description:
-    "Catalogue e-learning PREVENSIA FORMATION : habilitation électrique, ATEX, sécurité incendie, SSI, sprinkler, SST. Modules autonomes ou inclus dans la formation présentielle.",
+    "Catalogue e-learning PREVENSIA FORMATION : H0B0/H0V, ATEX NIV 0/1/2, Exploitation SSI, Exploitation Sprinkler, Coordination SSI. Modules autonomes ou inclus dans la formation.",
   alternates: { canonical: "https://prevensia-formation.fr/elearning" },
   openGraph: {
-    title: "Modules E-learning Sécurité & Prévention — PREVENSIA FORMATION",
+    title: "Modules E-learning Sécurité — PREVENSIA FORMATION",
     description:
-      "Habilitation électrique, ATEX, sécurité incendie, SSI, sprinkler, SST. Modules e-learning autonomes ou inclus dans la formation présentielle.",
+      "H0B0/H0V, ATEX NIV 0/1/2, SSI, Sprinkler, Coordination SSI. Modules e-learning autonomes ou inclus dans la formation présentielle.",
     url: "https://prevensia-formation.fr/elearning",
   },
 };
 
+// Catalogue actuel nov. 2026 : H0B0 · ATEX NIV 0/1/2 · SSI · Sprinkler · Coordination SSI
 const formations = [
   {
     slug: "h0b0",
@@ -41,217 +42,6 @@ const formations = [
     ],
     note:
       "Ce parcours constitue la préparation théorique au titre H0B0 / H0V, complétée par un entretien de validation de 30 minutes avec un formateur. La réussite au quiz et à l'entretien ne vaut pas habilitation : l'habilitation est délivrée uniquement par l'employeur, après vérification des acquis et adéquation au poste.",
-  },
-  {
-    slug: "bs-be-manœuvre",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique BS et BE Manœuvre",
-    duration: "E-learning : 5 h à 7 h + séquence encadrée : 45 min à 4 h",
-    mode: "E-learning + classe virtuelle / visio",
-    price: "320 EUR HT",
-    level: "Intermédiaire",
-    audience:
-      "Personnel réalisant des interventions élémentaires ou des manœuvres d'exploitation dans le respect des prescriptions de sécurité.",
-    description:
-      "Parcours préparatoire aux interventions élémentaires et manœuvres simples, avec un accent sur les limites d'intervention, la préparation et la sécurité opérationnelle.",
-    objectifs: [
-      "Comprendre les limites d'intervention liées aux symboles BS et BE Manœuvre",
-      "Appliquer les prescriptions de sécurité avant, pendant et après l'opération",
-      "Identifier les situations nécessitant l'arrêt de l'intervention ou l'appel à un personnel habilité adapté",
-    ],
-    programme: [
-      "Rappels sur le risque électrique et les mesures de prévention",
-      "Rôle et limites d'un exécutant BS",
-      "Rôle et limites d'un habilité BE Manœuvre",
-      "Mise en sécurité, vérifications visuelles et environnement de travail",
-      "Conduite à tenir en cas d'anomalie, d'incident ou d'accident",
-    ],
-    note:
-      "Ce parcours constitue la préparation théorique aux habilitations BS et BE Manœuvre, complétée par une classe virtuelle ou une session entreprise. La réussite au quiz et à la séquence encadrée ne vaut pas habilitation : l'habilitation est délivrée uniquement par l'employeur, après vérification des acquis, adéquation au poste et analyse du risque.",
-  },
-  {
-    slug: "b1-b1v",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique B1 / B1V",
-    duration: "E-learning : 5 h 30 à 7 h + pratique",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation présentielle",
-    level: "Avancé",
-    audience:
-      "Électriciens exécutants amenés à réaliser des travaux électriques en basse tension sous direction.",
-    description:
-      "Parcours théorique ciblé sur le rôle d'exécutant B1 / B1V, le voisinage, la lecture du cadre de travail et la discipline d'exécution en sécurité.",
-    objectifs: [
-      "Comprendre le rôle d'exécutant B1 / B1V",
-      "Respecter le cadre de travail fixé par le chargé de travaux",
-      "Identifier le voisinage et stopper en cas d'écart",
-    ],
-    programme: [
-      "Cadre B1 / B1V et rôle de l'exécutant",
-      "Voisinage, pièces nues sous tension et limites d'action",
-      "Préparation d'un travail électrique",
-      "Exécution sous direction et conduite à tenir en cas d'anomalie",
-    ],
-    note:
-      "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
-  },
-  {
-    slug: "b2-b2v",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique B2 / B2V",
-    duration: "E-learning : 6 h à 7 h 30 + pratique",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation présentielle",
-    level: "Avancé",
-    audience:
-      "Chargés de travaux, chefs d'équipe et responsables amenés à préparer et diriger des travaux électriques en basse tension.",
-    description:
-      "Parcours théorique ciblé sur le rôle B2 / B2V, l'organisation du chantier électrique, la coordination et la maîtrise du voisinage.",
-    objectifs: [
-      "Comprendre le rôle de chargé de travaux",
-      "Organiser la zone, le briefing et les protections",
-      "Diriger l'équipe et suspendre le chantier si le cadre se dégrade",
-    ],
-    programme: [
-      "Cadre B2 / B2V et chaîne de responsabilité",
-      "Préparation des travaux et coordination",
-      "Direction du chantier et maîtrise du voisinage",
-      "Écarts, urgences et compte rendu de fin d'opération",
-    ],
-    note:
-      "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
-  },
-  {
-    slug: "br",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique BR",
-    duration: "E-learning : 6 h à 7 h 30 + pratique",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation présentielle",
-    level: "Avancé",
-    audience:
-      "Techniciens de maintenance et personnels amenés à conduire des interventions générales en basse tension.",
-    description:
-      "Parcours théorique ciblé sur le dépannage, le remplacement, les essais limites et les conditions strictes de l'intervention générale BR.",
-    objectifs: [
-      "Comprendre le cadre BR et ses limites",
-      "Préparer une intervention générale en sécurité",
-      "Refuser toute dérive vers des travaux structurés ou hors cadre",
-    ],
-    programme: [
-      "Cadre BR et responsabilités de l'intervenant",
-      "Préparation, mise en sécurité et vérification",
-      "Dépannage, remplacement, mesurage et essais limites",
-      "Anomalies, urgences et retour d'expérience",
-    ],
-    note:
-      "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
-  },
-  {
-    slug: "bc",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique BC",
-    duration: "E-learning : 5 h 30 à 7 h + pratique",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation présentielle",
-    level: "Avancé",
-    audience:
-      "Responsables techniques et personnels amenés à assurer la consignation et la déconsignation en basse tension.",
-    description:
-      "Parcours théorique ciblé sur la chaîne de consignation, la vérification d'absence de tension, la traçabilité et la remise à disposition de l'installation.",
-    objectifs: [
-      "Comprendre le rôle de chargé de consignation",
-      "Maîtriser la chaîne de consignation et la VAT",
-      "Fiabiliser la documentation et les interfaces avec les travaux",
-    ],
-    programme: [
-      "Cadre BC et rôle de chargé de consignation",
-      "Identification, séparation, condamnation et VAT",
-      "Documents, autorisations et coordination",
-      "Écarts, doute et retour à la normale",
-    ],
-    note:
-      "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
-  },
-  {
-    slug: "be-verification-mesurage",
-    category: "Habilitation électrique",
-    title: "Habilitation électrique BE Vérification / BE Mesurage",
-    duration: "E-learning : 5 h 30 à 7 h + pratique",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation présentielle",
-    level: "Avancé",
-    audience:
-      "Techniciens amenés à réaliser des vérifications, mesurages et contrôles en basse tension.",
-    description:
-      "Parcours théorique ciblé sur la vérification, le mesurage, la lecture du cadre d'action, les instruments et les limites d'intervention.",
-    objectifs: [
-      "Comprendre le cadre BE Vérification / BE Mesurage",
-      "Préparer un contrôle en sécurité",
-      "Utiliser la bonne méthode et refuser toute dérive hors cadre",
-    ],
-    programme: [
-      "Cadre BE et rôle du vérificateur ou mesureur",
-      "Voisinage, mise en sécurité et préparation",
-      "Mesurages, essais et contrôle documentaire",
-      "Anomalies, résultat incohérent et compte rendu",
-    ],
-    note:
-      "Support e-learning inclus pour les apprenants inscrits au présentiel. Non vendu comme formation e-learning autonome.",
-  },
-  {
-    slug: "bt-multi-symboles",
-    category: "Habilitation électrique",
-    title: "Parcours BT multi-symboles B1 / B1V / B2 / B2V / BR / BC / BE",
-    duration: "E-learning : 7 h à 10 h + présentiel : 1 jour (7 h)",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation présentielle",
-    level: "Avancé",
-    audience:
-      "Personnel électricien amené à couvrir plusieurs rôles ou entreprises souhaitant un socle commun avant validation pratique par symbole.",
-    description:
-      "Parcours théorique transversal structuré autour des rôles, responsabilités, séquences de sécurité, consignation et organisation des opérations d'ordre électrique en basse tension.",
-    objectifs: [
-      "Maîtriser les prescriptions de sécurité applicables aux opérations d'ordre électrique",
-      "Comprendre les rôles, responsabilités et limites des différents symboles d'habilitation",
-      "Donner un socle commun avant requalification pratique par rôle",
-    ],
-    programme: [
-      "Cadre réglementaire et principes de prévention du risque électrique",
-      "Domaines de tension, zones, voisinage et conditions d'intervention",
-      "Rôles B1, B2, BR, BC et actes de vérification / mesurage",
-      "Consignation, intervention, remplacement, raccordement et organisation du travail",
-      "Analyse des risques, conduite à tenir et cas pratiques",
-    ],
-    note:
-      "Socle théorique premium inclus dans l'offre présentielle multi-symboles. Non vendu comme formation e-learning autonome.",
-  },
-  {
-    slug: "incendie",
-    category: "Prévention incendie",
-    title: "Sécurité incendie, alerte et évacuation",
-    duration: "E-learning : 1 h 30 à 2 h | Formation présentielle : selon programme",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation encadrée",
-    level: "Débutant à intermédiaire",
-    audience:
-      "Tout personnel amené à évoluer dans des locaux tertiaires, industriels, logistiques ou recevant du public.",
-    description:
-      "Module de sensibilisation à la prévention incendie, à l'alerte, à l'alarme, aux premiers réflexes et à l'évacuation, avec repères sur le Code du travail, les ERP, les IGH et les ICPE.",
-    objectifs: [
-      "Reconnaître les causes de départ de feu et les facteurs aggravants",
-      "Réagir correctement en cas d'alerte ou d'alarme",
-      "Connaître les principes d'évacuation et les comportements de prévention",
-    ],
-    programme: [
-      "Naissance du feu et facteurs de propagation",
-      "Alerte, alarme et premiers réflexes",
-      "Évacuation et point de rassemblement",
-      "Cadre réglementaire : Code du travail, ERP, IGH, ICPE",
-      "Prévention incendie au quotidien",
-    ],
-    note:
-      "Support e-learning inclus avec la formation sécurité incendie encadrée. Les consignes du site, exercices et mises en situation restent indispensables.",
   },
   {
     slug: "ssi-exploitation",
@@ -422,70 +212,12 @@ const formations = [
       "Avis d'habilitation ATEX Niveau 2 valable 3 ans délivré à l'issue de la journée présentielle. Tarif sur devis pour les sessions intra-entreprise.",
   },
   {
-    slug: "ssiap1",
-    category: "Prévention des risques",
-    title: "Préparation SSIAP1 — Offert avec toute formation sécurité incendie PREVENSIA",
-    duration: "Durée e-learning : 2 h 30 à 3 h",
-    mode: "🎁 OFFERT avec SSI / Sprinkler / Extincteurs / EPI / Évacuation",
-    price: "OFFERT avec vos formations sécurité incendie",
-    level: "Débutant",
-    audience:
-      "Tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation).",
-    description:
-      "Module e-learning de préparation théorique à la formation SSIAP1 et à l'examen officiel (épreuve QCM). Offert gratuitement à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Couvre les classes de feux, agents extincteurs, méthode DAPS, SSI, procédures d'évacuation ERP et rôle de l'agent SSIAP1.",
-    objectifs: [
-      "Identifier les classes de feux et choisir l'agent extincteur adapté",
-      "Appliquer la méthode DAPS pour utiliser un extincteur en sécurité",
-      "Connaître les composants du SSI et les procédures d'évacuation en ERP",
-    ],
-    programme: [
-      "Le SSIAP : rôles, niveaux et cadre réglementaire",
-      "Réglementation ERP / IGH — obligations employeur",
-      "Le feu : tétraèdre, propagation et méthodes d'extinction",
-      "Les 5 classes de feux A, B, C, D, F",
-      "Extincteurs et RIA — types, adéquation et méthode DAPS",
-      "Système de Sécurité Incendie (SSI) — détection et alarme",
-      "Procédures d'évacuation : guide-file, serre-file, rassemblement",
-      "Conduite à tenir en cas d'incendie — séquence Alarmer/Alerter/Attaquer",
-    ],
-    note:
-      "Module offert sans surcoût à tout apprenant inscrit à une formation sécurité incendie PREVENSIA (SSI, Sprinkler, Extincteurs, EPI, Évacuation). Ce module de préparation théorique ne constitue pas une formation SSIAP1 réglementaire et ne permet pas d'obtenir la qualification SSIAP1. La formation SSIAP réglementaire relève d'un organisme agréé par le préfet.",
-  },
-  {
-    slug: "recyclage-ssiap1",
-    category: "Prévention des risques",
-    title: "Remise à niveau SSIAP1 — Module théorique préparatoire",
-    duration: "Durée e-learning : 2 h 30 à 3 h",
-    mode: "Support e-learning de préparation théorique",
-    price: "Sur devis — contactez-nous",
-    level: "Intermédiaire",
-    audience:
-      "Agents SSIAP1 souhaitant réviser les fondamentaux théoriques de la sécurité incendie ERP dans le cadre d'une mise à niveau continue.",
-    description:
-      "Module e-learning de remise à niveau théorique sur les fondamentaux SSIAP1. Révision des classes de feux, agents extincteurs, SSI, procédures d'évacuation ERP. Ce module est un support de préparation théorique sans valeur de recyclage réglementaire — il ne constitue pas et ne remplace pas le recyclage SSIAP obligatoire, lequel doit être effectué auprès d'un organisme agréé par le préfet.",
-    objectifs: [
-      "Réviser les fondamentaux du SSIAP1 : classes de feux, agents extincteurs, SSI",
-      "Se mettre à jour sur les évolutions réglementaires ERP et les nouvelles consignes",
-      "Renforcer ses connaissances théoriques avant tout recyclage encadré",
-    ],
-    programme: [
-      "Rappel du cadre réglementaire SSIAP et évolutions récentes",
-      "Révision des classes de feux et des agents extincteurs",
-      "Actualisation sur les équipements SSI — détection, alarme, désenfumage",
-      "Procédures d'évacuation : points de contrôle et retours d'expérience",
-      "Gestes professionnels SSIAP1 — points clés de la remise à niveau",
-      "Quiz de révision",
-    ],
-    note:
-      "⚠ Ce module de remise à niveau théorique n'a pas de valeur de recyclage réglementaire SSIAP. Le recyclage officiel doit être effectué auprès d'un organisme agréé par le préfet. PREVENSIA FORMATION ne délivre pas cet agrément.",
-  },
-  {
     slug: "coordinateur-ssi",
     category: "SSI",
     title: "Coordinateur SSI — Pilotage du Système de Sécurité Incendie",
     duration: "7 jours en présentiel + e-learning inclus",
     mode: "Principalement présentiel (inter ou intra) · E-learning inclus",
-    price: "À partir de 1 590 EUR HT",
+    price: "1 790 EUR HT / pers.",
     level: "Avancé",
     audience:
       "Responsables techniques, responsables sécurité, chefs de service maintenance, gestionnaires de patrimoine ayant la charge de la supervision globale du SSI.",
@@ -507,33 +239,6 @@ const formations = [
     note:
       "Aucune obligation réglementaire spécifique n'impose ce titre à ce jour. La formation répond à l'exigence de compétence documentée attendue par les commissions de sécurité et les bureaux de contrôle. Tarif intra-entreprise sur devis.",
   },
-  {
-    slug: "sst",
-    category: "Secours au travail",
-    title: "SST - Sauveteur Secouriste du Travail",
-    duration: "Support e-learning préparatoire : 1 h 30 à 2 h | Formation SST présentielle (obligatoire INRS) : 14 h",
-    mode: "Support e-learning inclus + présentiel",
-    price: "Inclus avec la formation encadrée",
-    level: "Débutant à intermédiaire",
-    audience:
-      "Salariés amenés à participer à la prévention des risques et à la prise en charge initiale d'une victime.",
-    description:
-      "Parcours théorique d'introduction aux principes SST : protéger, examiner, alerter, secourir et participer à la prévention dans l'entreprise.",
-    objectifs: [
-      "Repérer une situation dangereuse et éviter le suraccident",
-      "Adopter la logique protéger, examiner, alerter, secourir",
-      "Comprendre le cadre général d'intervention du SST",
-    ],
-    programme: [
-      "Protéger",
-      "Examiner",
-      "Alerter ou faire alerter",
-      "Secourir",
-      "Prévention et rôle du salarié dans l'entreprise",
-    ],
-    note:
-      "Support e-learning inclus avec la formation SST encadrée. La pratique reste indispensable pour maîtriser les gestes et valider réellement la compétence SST.",
-  },
 ];
 
 const pointsForts = [
@@ -546,11 +251,9 @@ const pointsForts = [
 
 const catégories = [
   "Habilitation électrique",
-  "Prévention incendie",
   "SSI",
   "Protection incendie",
   "Prévention des risques",
-  "Secours au travail",
 ];
 
 const inrsSelections = [
@@ -569,10 +272,10 @@ const inrsSelections = [
     badge: "INRS France",
   },
   {
-    title: "INRS - SST et secourisme au travail",
+    title: "INRS - ATEX atmosphères explosives",
     description:
-      "Ressources utiles sur le secourisme au travail, la prévention et la logique d'intervention du SST.",
-    href: "https://www.youtube.com/@INRSFrance/search?query=SST",
+      "Ressources officielles INRS sur les atmosphères explosives, la prévention et les zones ATEX.",
+    href: "https://www.youtube.com/@INRSFrance/search?query=ATEX",
     badge: "INRS France",
   },
 ];
@@ -598,69 +301,6 @@ const habilitationPath = [
       tag: "text-slate-500",
     },
   },
-  {
-    symbol: "BS / BE Manœuvre",
-    label: "Non-électricien — actes simples autorisés",
-    description:
-      "Personnel non électricien autorisé à réaliser des remplacements simples (BS) ou des manœuvres d'exploitation sur ordre (BE), dans un cadre strictement limité par la norme.",
-    keyPoints: [
-      "BS : remplacement à l'identique hors tension",
-      "BE : manœuvre sur organe identifié, sur ordre",
-      "VAT avant toute intervention BS",
-      "Arrêt immédiat si situation imprévue",
-    ],
-    slug: "bs-be-manœuvre",
-    availability: "",
-    colors: {
-      wrapper: "border-blue-200 bg-blue-50",
-      badge: "bg-blue-600 text-white",
-      dot: "bg-blue-600",
-      cta: "bg-blue-700 text-white hover:bg-blue-800",
-      tag: "text-blue-500",
-    },
-  },
-  {
-    symbol: "B1 / B1V",
-    label: "Exécutant électricien",
-    description:
-      "Réalisation de travaux électriques en BT sous la direction d'un chargé de travaux habilité B2.",
-    keyPoints: [
-      "Travaux sous direction B2",
-      "Respect du cadre de travail",
-      "Identification du voisinage",
-      "Arrêt en cas d'écart",
-    ],
-    slug: null,
-    availability: "Inclus avec la formation présentielle",
-    colors: {
-      wrapper: "border-green-200 bg-green-50",
-      badge: "bg-green-600 text-white",
-      dot: "bg-green-600",
-      cta: "",
-      tag: "text-green-700",
-    },
-  },
-  {
-    symbol: "B2 / B2V",
-    label: "Chargé de travaux",
-    description:
-      "Direction des travaux électriques en BT, analyse des risques, délivrance des autorisations de travail et responsabilité de l'équipe.",
-    keyPoints: [
-      "Direction des travaux BT",
-      "Analyse de risque préalable",
-      "Délivrance des ATT",
-      "Levée des consignations",
-    ],
-    slug: null,
-    availability: "Inclus avec la formation présentielle",
-    colors: {
-      wrapper: "border-amber-200 bg-amber-50",
-      badge: "bg-amber-500 text-slate-950",
-      dot: "bg-amber-500",
-      cta: "",
-      tag: "text-amber-700",
-    },
-  },
 ] as const;
 
 export default function ElearningPage() {
@@ -684,17 +324,14 @@ export default function ElearningPage() {
             </h1>
 
             <p className="mt-6 text-lg leading-8 text-slate-300">
-              Les modules en ligne PREVENSIA renforcent les connaissances avant
-              les formations encadrées : habilitation électrique, sécurité incendie,
-              SSI, sprinkler et SST.
+              Les modules en ligne PREVENSIA couvrent le catalogue actuel : H0B0/H0V,
+              ATEX NIV 0/1/2, Exploitation SSI, Exploitation Sprinkler et Coordination SSI.
             </p>
 
             <p className="mt-4 text-base leading-7 text-slate-400">
-              H0B0 / H0V et BS / BE Manœuvre sont les parcours pouvant être
-              suivis en format e-learning encadré avec entretien, visio ou classe
-              virtuelle. Les autres modules sont des supports inclus avec
-              la formation présentielle ou classe virtuelle, accessibles aux
-              apprenants inscrits pour préparer, réviser et consolider les acquis.
+              H0B0/H0V et ATEX sont disponibles en e-learning encadré (entretien ou
+              classe virtuelle). Les modules SSI, Sprinkler et Coordinateur SSI sont
+              inclus avec la formation présentielle correspondante.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -919,7 +556,7 @@ export default function ElearningPage() {
           <p className="mt-4 max-w-3xl leading-7 text-slate-600">
             En plus des modules PREVENSIA, nous orientons aussi les apprenants
             et les entreprises vers des ressources officielles INRS pour
-            consolider les repères électriques, incendie et SST.
+            consolider les repères électriques, ATEX et SSI.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -954,16 +591,16 @@ export default function ElearningPage() {
       <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-red-600">
-            Parcours habilitation électrique
+            Habilitation électrique
           </p>
           <h2 className="mt-3 text-3xl font-bold text-slate-900">
-            De H0B0 à B2 : une progression pédagogique structurée
+            H0B0 / H0V : sensibilisation au risque électrique (NF C 18-510 A2)
           </h2>
           <p className="mt-4 max-w-3xl leading-7 text-slate-600">
-            Les habilitations NF C 18-510 + A1:2020 + A2:2023 suivent une logique de responsabilité
-            croissante, du personnel non électricien jusqu&apos;au chargé de travaux.
-            Chaque niveau conditionne les opérations autorisées et les mesures
-            de prévention associées.
+            Le parcours H0B0/H0V est destiné à tout le personnel non-électricien évoluant
+            à proximité d&apos;installations électriques. Depuis l&apos;amendement A2 (obligatoire
+            depuis octobre 2024), cette sensibilisation est renforcée. E-learning autonome
+            + entretien formateur 30 min.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

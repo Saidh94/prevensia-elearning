@@ -93,14 +93,12 @@ RÈGLES IMPÉRATIVES :
   }
 
   // Lien formation adapté
-  let lienFormation = "https://prevensia-formation.fr";
+  let lienFormation = "https://prevensia-formation.fr/elearning";
   const fi = formation.toLowerCase();
   if (fi.includes("sprinkler")) lienFormation = "https://prevensia-formation.fr/formation-sprinkler";
-  else if (fi.includes("ssi")) lienFormation = "https://prevensia-formation.fr/formation-ssi";
-  else if (fi.includes("ssiap")) lienFormation = "https://prevensia-formation.fr/formation-ssiap1";
+  else if (fi.includes("ssi") || fi.includes("coordinateur")) lienFormation = "https://prevensia-formation.fr/formation-ssi";
   else if (fi.includes("atex")) lienFormation = "https://prevensia-formation.fr/formation-atex";
-  else if (fi.includes("habilitation") || fi.includes("électrique")) lienFormation = "https://prevensia-formation.fr/formation-habilitation-electrique";
-  else if (fi.includes("sst")) lienFormation = "https://prevensia-formation.fr/formation-sst";
+  else if (fi.includes("habilitation") || fi.includes("électrique") || fi.includes("h0b0") || fi.includes("h0v")) lienFormation = "https://prevensia-formation.fr/formation-habilitation-electrique";
 
   // Envoi Resend
   // En mode preview : email envoyé uniquement à Said, sujet préfixé [APERCU]

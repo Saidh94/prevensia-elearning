@@ -8,13 +8,14 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://prevensia-formatio
 export const runtime = "nodejs";
 
 // Lead scoring basé sur les formations demandées
+// Catalogue actuel : H0B0 · ATEX NIV 0/1/2 · Exploitation SSI · Sprinkler · Coordination SSI
 function scoreLead(formations: FormationLine[], company: string, phone: string): number {
   let score = 20; // base
   const labels = formations.map((f) => f.label.toLowerCase()).join(" ");
-  if (labels.includes("atex niveau 3") || labels.includes("ssiap")) score += 40;
-  else if (labels.includes("atex niveau 2") || labels.includes("b1") || labels.includes("b2") || labels.includes("br") || labels.includes("bc")) score += 30;
+  if (labels.includes("coordination ssi") || labels.includes("coordinateur ssi") || labels.includes("cssi")) score += 40;
+  else if (labels.includes("atex niveau 2") || labels.includes("atex niv 2")) score += 35;
   else if (labels.includes("atex") || labels.includes("sprinkler") || labels.includes("ssi")) score += 25;
-  else if (labels.includes("bs") || labels.includes("be") || labels.includes("h0")) score += 15;
+  else if (labels.includes("h0b0") || labels.includes("h0v") || labels.includes("h0")) score += 15;
   if (formations.length >= 3) score += 20;
   else if (formations.length >= 2) score += 10;
   if (company && company.trim()) score += 15;

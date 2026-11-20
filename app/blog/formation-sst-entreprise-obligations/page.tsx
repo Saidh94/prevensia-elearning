@@ -6,6 +6,7 @@ export const metadata = {
   title: "Formation SST en Entreprise : Obligations et Organisation | PREVENSIA",
   description:
     "Combien de SST faut-il dans une entreprise ? La formation SST est-elle obligatoire ? Qui finance ? Guide complet des obligations employeur en matière de secourisme au travail.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://prevensia-formation.fr/blog/formation-sst-entreprise-obligations",
   },

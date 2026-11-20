@@ -4,48 +4,50 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
+// ⚠️ CATALOGUE ACTUEL (nov. 2026) : H0B0/H0V · ATEX NIV 0/1/2 · Exploitation SSI · Sprinkler · Coordination SSI (CSSI)
+// FORMATIONS RETIRÉES — NE JAMAIS PUBLIER SUR : SST, BS/BE, B1/B2/BR/BC, SSIAP1, extincteurs, guide-file/serre-file
 const THEMES_GBP = [
   {
     formation: "ATEX",
     title: "Formation ATEX — Zones explosives",
     cta_text: "Voir la formation",
     cta_url: "https://prevensia-formation.fr/formation-atex",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation ATEX (atmosphères explosives). Inclus : pourquoi c'est obligatoire, qui est concerné, et une invitation à demander un devis. Ton professionnel et chaleureux. Termine par 3 hashtags pertinents.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation ATEX (atmosphères explosives). Inclus : pourquoi c'est obligatoire (directive 99/92/CE), qui est concerné (intervenants en zone classée), les 3 niveaux (NIV 0 sensibilisation, NIV 1 intervenant, NIV 2 encadrant). Invitation à demander un devis. Ton professionnel et chaleureux. Termine par 3 hashtags pertinents.",
   },
   {
-    formation: "SSIAP1",
-    title: "Formation SSIAP1 — Sécurité incendie",
-    cta_text: "Découvrir SSIAP1",
-    cta_url: "https://prevensia-formation.fr/formation-ssiap1",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation SSIAP1 (agent de sécurité incendie). Inclus : débouchés, durée 70h, financement OPCO disponible. Ton engageant. Termine par 3 hashtags.",
+    formation: "H0B0 / H0V",
+    title: "Habilitation électrique H0B0 / H0V",
+    cta_text: "Accéder au module",
+    cta_url: "https://prevensia-formation.fr/elearning",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation H0B0 / H0V (habilitation personnel non-électricien). Explique qui est concerné (tout personnel évoluant à proximité d'installations électriques sans y intervenir), l'obligation NF C 18-510 amendement A2, le format e-learning + entretien formateur. Mentionne que c'est finançable OPCO selon critères. Termine par 3 hashtags.",
   },
   {
-    formation: "Habilitation électrique",
-    title: "Habilitation électrique B1/B2/BR/BC",
+    formation: "Exploitation SSI",
+    title: "Formation Exploitation SSI",
+    cta_text: "Voir la formation",
+    cta_url: "https://prevensia-formation.fr/formation-exploitation-ssi",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation Exploitation SSI (Système de Sécurité Incendie). Inclus : obligations des responsables techniques ERP, lecture de la centrale, gestion des alarmes. Format demi-journée (290€ HT) ou journée complète (490€ HT). Sessions inter à Noisy-le-Grand (93). Ton professionnel. Termine par 3 hashtags.",
+  },
+  {
+    formation: "Coordination SSI",
+    title: "Formation Coordinateur SSI (CSSI)",
     cta_text: "Demander un devis",
-    cta_url: "https://prevensia-formation.fr/formation-habilitation-electrique",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur les habilitations électriques (H0B0, BS/BE, B1/B2). Explique l'obligation légale et les risques. Mentionne la démarche qualité de l'organisme (audit Qualiopi en cours). Termine par 3 hashtags.",
+    cta_url: "https://prevensia-formation.fr/formation-coordinateur-ssi",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation Coordinateur SSI (CSSI). Rôle dans la conception et la coordination d'un SSI neuf ou en rénovation selon NF S 61-931. Public : responsables techniques, gestionnaires d'immeuble, maîtres d'ouvrage, BET, facility managers. Formation 7 jours à Noisy-le-Grand, 1 790€ HT. Ton professionnel. Termine par 3 hashtags.",
   },
   {
-    formation: "SST",
-    title: "Formation SST — Sauveteur Secouriste du Travail",
-    cta_text: "S'inscrire au SST",
-    cta_url: "https://prevensia-formation.fr/formation-sst",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation SST (Sauveteur Secouriste du Travail). Inclus : obligation légale, 2 jours de formation, recyclage annuel. Ton pratique. Termine par 3 hashtags.",
-  },
-  {
-    formation: "Sprinkler / SSI",
-    title: "Exploitation Sprinkler et SSI",
+    formation: "Sprinkler",
+    title: "Formation Exploitation Sprinkler",
     cta_text: "En savoir plus",
     cta_url: "https://prevensia-formation.fr/formation-exploitation-sprinkler",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur les formations Sprinkler et SSI (Systèmes de Sécurité Incendie). Cible les responsables sécurité et facility managers. Termine par 3 hashtags.",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation Exploitation Sprinkler (installations fixes d'extinction automatique). Inclus : réglementation APSAD R1, qui doit être formé (responsables sécurité, facility managers, exploitants industriels et logistiques), format intra-entreprise sur site en Île-de-France (790€ HT demi-journée, 1290€ HT journée, min 3 participants). Termine par 3 hashtags.",
   },
   {
-    formation: "Qualiopi & financement OPCO",
-    title: "Démarche qualité & financement — PREVENSIA",
-    cta_text: "Voir les formations",
-    cta_url: "https://prevensia-formation.fr",
-    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la démarche qualité et le financement OPCO possible (selon critères du financeur) des formations sécurité. Explique comment un employeur peut faire financer la formation de ses salariés via son OPCO. Mentionne le dispositif FNE-Formation. Termine par 3 hashtags.",
+    formation: "ATEX NIV 2 Encadrant",
+    title: "Formation ATEX Niveau 2 — Encadrants et Responsables",
+    cta_text: "Demander un devis ATEX",
+    cta_url: "https://prevensia-formation.fr/formation-atex",
+    prompt: "Rédige un post Google Business Profile de 200-250 mots en français pour PREVENSIA FORMATION sur la formation ATEX Niveau 2 destinée aux encadrants et responsables de travaux en zone classée. Inclus : rédaction du DRPCE, plans de prévention, coordination des entreprises extérieures, journée présentielle 7h. Secteurs : industrie chimique, pétrochimique, agroalimentaire, traitement des eaux. Invitation à demander un devis. Ton professionnel. Termine par 3 hashtags.",
   },
 ];
 

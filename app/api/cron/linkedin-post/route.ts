@@ -9,16 +9,20 @@ export const runtime = "nodejs";
 // Seules références autorisées : NF S 61-931, NF S 61-932, NF C 15-100, NF C 18-510 (et A1+A2), Code du travail R.4534-x, APSAD.
 // Ne jamais citer APAVE, ne jamais citer le guide AFNOR N0366.
 
+// ⚠️ CATALOGUE ACTUEL PREVENSIA FORMATION (nov. 2026) :
+// H0B0 / H0V · ATEX NIV 0/1/2 · Exploitation SSI · Exploitation Sprinkler · Coordination SSI (CSSI)
+// FORMATIONS RETIRÉES (ne plus mentionner) : SST, BS/BE Manœuvre, B1/B2/BR/BC, extincteurs, guide-file, SSIAP1, sécurité incendie
 const THEMES_LINKEDIN = [
   {
     formation: "Coordinateur SSI",
     prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation Coordinateur SSI (CSSI) conforme à la norme NF S 61-931.
 
 POSITIONNEMENT EXACT À RESPECTER (ne pas dévier) :
-- Public : ingénieurs de bureaux d'études, techniciens confirmés, SSIAP 3 souhaitant évoluer, architectes, maîtres d'ouvrage
+- Public : responsables techniques, gestionnaires d'immeuble, maîtres d'ouvrage, bureaux d'études, facility managers
 - La formation concerne la CONCEPTION et la COORDINATION d'un SSI neuf ou en rénovation (phase projet/installation), PAS l'exploitation d'un SSI existant
 - Compétences visées : rédaction du CCF (Cahier des Charges Fonctionnel), construction de la matrice de corrélation ZDA/ZDM × DAS, coordination des installateurs SSI, constitution du DIS (Dossier d'Identité SSI)
 - Ne pas dire que le CSSI "opère" ou "exploite" un système — il conçoit, coordonne et documente
+- Formation inter-entreprise uniquement · 7 jours (2+3+2) · 1 790 € HT / pers. · Noisy-le-Grand (93)
 
 Format : accroche forte (1 ligne), corps 3-4 paragraphes courts, CTA vers https://prevensia-formation.fr/formation-coordinateur-ssi, 5 hashtags.
 Ton : expert technique, s'adresse à des professionnels du bâtiment et de l'ingénierie. ~250-300 mots. Commence par un emoji accrocheur.
@@ -26,41 +30,68 @@ Ne jamais inventer de chiffres réglementaires ni citer APAVE ou le guide AFNOR 
   },
   {
     formation: "ATEX",
-    prompt: `Rédige un post LinkedIn professionnel en français pour la page PREVENSIA FORMATION sur le thème de la formation ATEX (zones explosives ATEX Niveaux 1, 2 et 3).
+    prompt: `Rédige un post LinkedIn professionnel en français pour la page PREVENSIA FORMATION sur le thème de la formation ATEX (zones explosives ATEX Niveaux 0, 1 et 2).
 Format : accroche forte (1 ligne), corps du post (3-4 paragraphes courts), call-to-action vers https://prevensia-formation.fr/formation-atex, 5 hashtags pertinents.
 Ton : expert, direct, professionnel. Environ 250-300 mots. Parle des obligations légales (directive ATEX 1999/92/CE, Code du travail), des métiers concernés (pétrochimie, pharma, agro-alimentaire). Commence par un emoji accrocheur.
 Ne jamais inventer de normes ou articles réglementaires non reconnus.`,
   },
   {
-    formation: "Habilitation électrique",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur les habilitations électriques (H0B0, BS/BE, B1/B2/BR/BC) conformément à la norme NF C 18-510 et ses amendements A1 (2012) et A2 (2022 — obligatoire depuis octobre 2024).
+    formation: "H0B0",
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation H0B0 / H0V (habilitation électrique pour non-électriciens) conforme à la norme NF C 18-510 et son amendement A2 (2022, obligatoire depuis octobre 2024).
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-habilitation-electrique, 5 hashtags.
-Parle des accidents électriques, de l'obligation légale, de l'e-learning Qualiopi, de la mise à jour obligatoire liée à A2. Commence par un emoji. ~250-300 mots.
-Ne jamais inventer de chiffres d'accidents ou de normes hors NF C 18-510.`,
+Public cible : TOUT le personnel non-électricien intervenant à proximité d'installations électriques (peintres, maçons, menuisiers, agents d'entretien, logisticiens, etc.). Obligation légale dès que l'on travaille à proximité du risque électrique. L'e-learning H0B0 de PREVENSIA est disponible en autonomie 24h/24. Commence par un emoji. ~250-300 mots.
+Ne jamais mentionner BS/BE, B1/B2/BR/BC — ces formations ne sont plus au catalogue PREVENSIA.
+Ne jamais inventer de chiffres d'accidents.`,
   },
   {
-    formation: "SST",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation SST (Sauveteur Secouriste du Travail).
-Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-sst, 5 hashtags.
-Parle de l'obligation légale (Code du travail), de la pratique indispensable en présentiel, du recyclage 24 mois (MAC SST). Commence par un emoji. ~250-300 mots.
-Ne jamais inventer de chiffres ni de références réglementaires non vérifiées.`,
+    formation: "Exploitation SSI",
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation Exploitation SSI (Système de Sécurité Incendie) en ERP/IGH.
+Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-ssi, 5 hashtags.
+Public : responsables techniques, exploitants ERP (commerces, hôtels, EHPAD, bureaux), facility managers, services maintenance. Contenu : lecture de la centrale SSI, gestion des alarmes, procédures en cas d'incendie, obligations réglementaires. 2 formats : demi-journée (290 € HT) ou journée complète (490 € HT). Sessions à Noisy-le-Grand (93). Commence par un emoji. ~250-300 mots.
+Références autorisées : NF S 61-931, NF S 61-932. Ne jamais citer APAVE.`,
   },
   {
-    formation: "CPF et Qualiopi",
-    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la démarche qualité et le financement OPCO possible (selon critères du financeur) des formations sécurité.
+    formation: "Financement OPCO",
+    prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur le financement OPCO des formations sécurité (H0B0, ATEX, SSI, Sprinkler, Coordination SSI).
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr, 5 hashtags.
-Explique comment un RH ou un responsable formation peut faire financer les formations sécurité obligatoires via l'OPCO. Commence par un emoji. ~250-300 mots.`,
+Explique comment un RH ou un responsable formation peut faire financer les formations sécurité obligatoires via l'OPCO ou le FNE-Formation. PREVENSIA est en démarche Qualiopi. Commence par un emoji. ~250-300 mots.`,
   },
   {
     formation: "Sprinkler",
     prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation Exploitation Sprinkler (règles APSAD R1).
-Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-exploitation-sprinkler, 5 hashtags.
-Cible les responsables sécurité ERP, facility managers, directeurs techniques d'IGH ou sites industriels. Mentionne les obligations de vérification périodique APSAD. Commence par un emoji. ~250-300 mots.
+Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-sprinkler, 5 hashtags.
+Formation intra-entreprise sur site. Cible les responsables sécurité ERP, facility managers, directeurs techniques d'IGH ou sites industriels. Mentionne les obligations de vérification périodique APSAD. 2 formats : 1 jour (790 € HT/pers.) ou 2 jours (1 290 € HT/pers.) en IDF. Commence par un emoji. ~250-300 mots.
 Ne jamais inventer de normes hors APSAD R1.`,
   },
 ];
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// BLACK FRIDAY 2026 : 20 novembre → 4 décembre 2026
+// Toutes les publications pendant cette période utilisent ce thème
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const BLACK_FRIDAY_THEME = {
+  formation: "Black Friday e-learning",
+  prompt: `Rédige un post LinkedIn percutant en français pour PREVENSIA FORMATION annonçant une offre BLACK FRIDAY : -25% sur toutes les formations e-learning du 20 novembre au 4 décembre 2026.
+
+Formations concernées : H0B0/H0V (150€ HT → 112€ HT) · ATEX NIV 0 (129€ HT → 97€ HT) · ATEX NIV 1 (490€ HT → 368€ HT) · ATEX NIV 2.
+
+Format : accroche choc en 1-2 lignes avec le -25%, corps 2-3 paragraphes (pourquoi former ses équipes maintenant, comment profiter de l'offre), CTA urgent vers https://prevensia-formation.fr/elearning, 5 hashtags.
+Ton : dynamique, urgent, professionnel. ~200-250 mots. Commence par 🖤 ou ⚡.
+Mentionner que c'est une opportunité de financer la montée en compétences de ses équipes avant fin d'année.
+Ne jamais mentionner OPCO ou financement — se concentrer sur l'urgence de l'offre et la valeur des formations.`,
+};
+
+const BF_START = new Date("2026-11-20T00:00:00Z").getTime();
+const BF_END   = new Date("2026-12-05T00:00:00Z").getTime(); // 4 déc. inclus
+
+function isBlackFridayPeriod(): boolean {
+  const now = Date.now();
+  return now >= BF_START && now < BF_END;
+}
+
 function getThemeForWeek(slot: number): typeof THEMES_LINKEDIN[0] {
+  // Pendant le Black Friday, tous les posts parlent de l'offre
+  if (isBlackFridayPeriod()) return BLACK_FRIDAY_THEME;
   // slot 1 = lundi, slot 2 = jeudi (thème décalé de 3 positions)
   const weekIndex = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
   const offset = slot === 2 ? 3 : 0;
