@@ -190,65 +190,83 @@ export default function FormationSSI() {
         </div>
       </section>
 
-      <section
-        id="programmes"
-        className="bg-white py-16"
-      >
+      <section id="programmes" className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold">
-            Programme de la formation exploitation SSI
-          </h2>
+          <h2 className="text-2xl font-bold">Programmes détaillés</h2>
+          <p className="mt-3 text-slate-600">Deux formats distincts — choisissez selon le niveau d&apos;expertise visé.</p>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-xl font-semibold">
-                Architecture et fonctionnement du SSI
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Compréhension des principes de détection incendie, d&apos;alarme, de
-                compartimentage, de désenfumage et de mise en sécurité.
-                Identification des différents équipements du système de sécurité
-                incendie et lecture des informations issues des ECS et CMSI.
-              </p>
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+
+            {/* Demi-journée */}
+            <div className="rounded-2xl border-2 border-blue-200 bg-blue-50 p-8">
+              <div className="flex items-center gap-3">
+                <span className="rounded-lg bg-blue-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Demi-journée — 4h</span>
+              </div>
+              <h3 className="mt-4 text-xl font-bold text-slate-900">Exploitation SSI — Essentiels</h3>
+              <p className="mt-2 text-sm text-slate-600">Pour tout personnel amené à intervenir sur ou à proximité d&apos;un SSI : exploitants, agents techniques, responsables sécurité.</p>
+
+              <div className="mt-6 space-y-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Partie théorique (2h)</p>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                    <li>→ Architectures SSI : SDI, CMSI, UGA, DAS (NF S 61-930 à -934)</li>
+                    <li>→ Catégories A à E — niveaux de surveillance et de sécurité</li>
+                    <li>→ Lecture du tableau central : zones d&apos;alarme, dérangements, défauts</li>
+                    <li>→ Niveaux d&apos;alarme (1 et 2), report de synthèse, conduite à tenir</li>
+                    <li>→ Essais périodiques réglementaires et registre de sécurité</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Partie pratique (2h)</p>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                    <li>→ Identifier une zone ou une boucle en alarme sur SSI pédagogique</li>
+                    <li>→ Réaliser les essais d&apos;alarme et neutraliser un point adressable</li>
+                    <li>→ Exercice de simulation : scénario alarme + dérangement simultané</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Évaluation</p>
+                  <p className="mt-1 text-sm text-slate-600">Exercices de mise en situation sur SSI réel · Attestation individuelle délivrée</p>
+                </div>
+              </div>
             </div>
 
-            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-xl font-semibold">
-                Exploitation quotidienne du système
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Lecture des signalisations, distinction entre alarmes feu,
-                défauts et dérangements techniques, conduite à tenir en cas de
-                déclenchement, levée de doute et consignes d&apos;exploitation
-                adaptées au site.
-              </p>
+            {/* Journée complète */}
+            <div className="rounded-2xl border-2 border-blue-500 bg-white p-8">
+              <div className="flex items-center gap-3">
+                <span className="rounded-lg bg-blue-700 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Journée complète — 7h</span>
+                <span className="rounded-lg bg-slate-900 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">Recommandé</span>
+              </div>
+              <h3 className="mt-4 text-xl font-bold text-slate-900">Exploitation SSI — Approfondie</h3>
+              <p className="mt-2 text-sm text-slate-600">Pour les exploitants ERP/IGH, responsables techniques et facility managers qui gèrent un SSI au quotidien.</p>
+
+              <div className="mt-6 space-y-4">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Matin — Fondamentaux + Dossier SSI (3h30)</p>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                    <li>→ Tout le programme demi-journée</li>
+                    <li>→ Lecture et analyse du Dossier d&apos;Identité SSI (DIS)</li>
+                    <li>→ Plans de zonage : ZA, ZC, ZF, ZDM, ZDA et correspondances DAS</li>
+                    <li>→ Spécificités ERP (arrêté 25/06/1980), IGH, ICPE</li>
+                    <li>→ Désenfumage : CMSI, déclenchements automatiques et manuels</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Après-midi — Scénarios complexes (3h30)</p>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
+                    <li>→ Analyse de scénarios : défaut secteur, alarme restreinte, boucle coupée</li>
+                    <li>→ Travaux en présence du SSI — consignation simple et remise en service</li>
+                    <li>→ Défauts / alarmes / travaux : arbitrage et procédures</li>
+                    <li>→ Module e-learning extinction gaz inclus (bonus numérique)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Évaluation</p>
+                  <p className="mt-1 text-sm text-slate-600">Questionnaire de validation + exercice pratique noté · Attestation individuelle délivrée</p>
+                </div>
+              </div>
             </div>
 
-            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-xl font-semibold">
-                Cadre normatif des systèmes de sécurité incendie
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Présentation des principales normes AFNOR de la série NF S 61
-                relatives aux systèmes de sécurité incendie, notamment les
-                règles générales d&apos;installation, d&apos;exploitation et de
-                maintenance des équipements de détection, d&apos;alarme et de mise en
-                sécurité.
-              </p>
-            </div>
-
-            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-xl font-semibold">
-                Réglementation applicable selon le type d&apos;établissement
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                Présentation des exigences réglementaires liées aux
-                établissements recevant du public (ERP), aux immeubles de grande
-                hauteur (IGH), aux bâtiments à usage professionnel au sens du
-                Code du Travail (BUP) ainsi qu&apos;aux installations classées pour
-                la protection de l&apos;environnement (ICPE).
-              </p>
-            </div>
           </div>
         </div>
       </section>
