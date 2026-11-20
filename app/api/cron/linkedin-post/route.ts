@@ -60,7 +60,7 @@ Explique comment un RH ou un responsable formation peut faire financer les forma
     formation: "Sprinkler",
     prompt: `Rédige un post LinkedIn professionnel en français pour PREVENSIA FORMATION sur la formation Exploitation Sprinkler (règles APSAD R1).
 Accroche forte, corps 3-4 paragraphes, CTA vers https://prevensia-formation.fr/formation-sprinkler, 5 hashtags.
-Formation intra-entreprise sur site. Cible les responsables sécurité ERP, facility managers, directeurs techniques d'IGH ou sites industriels. Mentionne les obligations de vérification périodique APSAD. 2 formats : 1 jour (790 € HT/pers.) ou 2 jours (1 290 € HT/pers.) en IDF. Commence par un emoji. ~250-300 mots.
+Formation intra-entreprise sur site. Cible les responsables sécurité ERP, facility managers, directeurs techniques d'IGH ou sites industriels. Mentionne les obligations de vérification périodique APSAD. 2 formats : 1 jour (590 € HT/pers.) ou 2 jours renforcé (1 190 € HT/pers.) en IDF. Commence par un emoji. ~250-300 mots.
 Ne jamais inventer de normes hors APSAD R1.`,
   },
 ];
@@ -71,14 +71,17 @@ Ne jamais inventer de normes hors APSAD R1.`,
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const BLACK_FRIDAY_THEME = {
   formation: "Black Friday e-learning",
-  prompt: `Rédige un post LinkedIn percutant en français pour PREVENSIA FORMATION annonçant une offre BLACK FRIDAY : -25% sur toutes les formations e-learning du 20 novembre au 4 décembre 2026.
+  prompt: `Rédige un post LinkedIn percutant en français pour PREVENSIA FORMATION annonçant une offre BLACK FRIDAY : -25% sur 2 formations e-learning du 20 novembre au 4 décembre 2026.
 
-Formations concernées : H0B0/H0V (150€ HT → 112€ HT) · ATEX NIV 0 (129€ HT → 97€ HT) · ATEX NIV 1 (490€ HT → 368€ HT) · ATEX NIV 2.
+Formations concernées UNIQUEMENT (ne pas en inventer d'autres) :
+- H0B0 / H0V (habilitation électrique non-électriciens) : 190 € HT → 143 € HT
+- ATEX NIV 0 (sensibilisation atmosphères explosives) : 129 € HT → 97 € HT
 
-Format : accroche choc en 1-2 lignes avec le -25%, corps 2-3 paragraphes (pourquoi former ses équipes maintenant, comment profiter de l'offre), CTA urgent vers https://prevensia-formation.fr/elearning, 5 hashtags.
+Réduction automatique appliquée à la commande sur https://prevensia-formation.fr/elearning — pas de code promo à saisir.
+
+Format : accroche choc en 1-2 lignes avec le -25%, corps 2-3 paragraphes courts (valeur des formations + urgence de l'offre), CTA vers https://prevensia-formation.fr/elearning, 5 hashtags.
 Ton : dynamique, urgent, professionnel. ~200-250 mots. Commence par 🖤 ou ⚡.
-Mentionner que c'est une opportunité de financer la montée en compétences de ses équipes avant fin d'année.
-Ne jamais mentionner OPCO ou financement — se concentrer sur l'urgence de l'offre et la valeur des formations.`,
+Ne pas mentionner ATEX NIV 1, ATEX NIV 2, Sprinkler, SSI ou Coordination SSI dans ce post — ils ne sont pas en promotion.`,
 };
 
 const BF_START = new Date("2026-11-20T00:00:00Z").getTime();
@@ -110,7 +113,7 @@ async function generateContent(prompt: string): Promise<string> {
       "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
-      model: "claude-haiku-4-5-20251001",
+      model: "claude-haiku-5-5",
       max_tokens: 700,
       messages: [{ role: "user", content: prompt }],
     }),
