@@ -15,7 +15,7 @@ const articles = [
     slug: "comment-choisir-son-habilitation-electrique",
     titre: "Comment choisir son habilitation électrique ?",
     description:
-      "H0B0, BS, B1, B2, BR, BC... Les symboles d'habilitation électrique peuvent sembler complexes. Ce guide pratique vous aide à identifier le symbole adapté à chaque poste.",
+      "H0B0, H0V, BS, BE Manœuvre, B1, B2, BR, BC... Les symboles de la NF C 18-510 peuvent sembler complexes. Ce guide vous aide à identifier le titre adapté à chaque poste de travail.",
     date: "2025-05-01",
     duree: "5 min",
     categorie: "Guide pratique",

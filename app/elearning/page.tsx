@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Modules E-learning Sécurité — H0B0, ATEX, SSI, Sprinkler | PREVENSIA",
   description:
-    "Catalogue e-learning PREVENSIA FORMATION : H0B0/H0V, ATEX NIV 0/1/2, Exploitation SSI, Exploitation Sprinkler, Coordination SSI. Modules autonomes ou inclus dans la formation.",
+    "Catalogue e-learning PREVENSIA FORMATION : H0B0/H0V, BS/BE Manœuvre, ATEX NIV 0/1/2, Exploitation SSI, Exploitation Sprinkler, Coordination SSI. Modules autonomes ou inclus dans la formation.",
   alternates: { canonical: "https://prevensia-formation.fr/elearning" },
   openGraph: {
     title: "Modules E-learning Sécurité — PREVENSIA FORMATION",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Catalogue actuel nov. 2026 : H0B0 · ATEX NIV 0/1/2 · SSI · Sprinkler · Coordination SSI
+// Catalogue actuel nov. 2026 : H0B0 · BS/BE Manœuvre · ATEX NIV 0/1/2 · SSI · Sprinkler · Coordination SSI
 const formations = [
   {
     slug: "h0b0",
@@ -42,6 +42,33 @@ const formations = [
     ],
     note:
       "Ce parcours constitue la préparation théorique au titre H0B0 / H0V, complétée par un entretien de validation de 30 minutes avec un formateur. La réussite au quiz et à l'entretien ne vaut pas habilitation : l'habilitation est délivrée uniquement par l'employeur, après vérification des acquis et adéquation au poste.",
+  },
+  {
+    slug: "bs-be-manoeuvre",
+    category: "Habilitation électrique",
+    title: "Habilitation électrique BS / BE Manœuvre",
+    duration: "E-learning : 7 h 30 à 9 h 30 | Entretien formateur : 30 min",
+    mode: "E-learning + entretien 30 min",
+    price: "Sur devis",
+    level: "Intermédiaire",
+    audience:
+      "Personnel électricien ou non-électricien réalisant des manœuvres en basse tension : consignation simple, remplacement fusibles, réarmement disjoncteurs, travail sous tension limité.",
+    description:
+      "Parcours e-learning pour la préparation aux titres BS (manœuvres simples) et BE Manœuvre (manœuvres dans un domaine BT délimité). Couvre les opérations autorisées, les risques spécifiques et les limites des intervenants non-électriciens effectuant des manœuvres encadrées.",
+    objectifs: [
+      "Identifier les manœuvres autorisées selon le titre BS ou BE Manœuvre",
+      "Comprendre les limites et responsabilités associées à ces symboles",
+      "Appliquer les mesures de sécurité pour les opérations sous tension limitées",
+    ],
+    programme: [
+      "Rappels NF C 18-510 — domaines de tension et zones de travail",
+      "Titre BS : manœuvres simples, appareillages, coupure d'urgence",
+      "Titre BE Manœuvre : manœuvres dans un domaine BT délimité",
+      "Différences BS / BE Manœuvre / B1 / B2",
+      "Situations de danger et procédures d'urgence",
+    ],
+    note:
+      "Support e-learning inclus. Entretien de validation 30 min avec formateur. L'habilitation est délivrée par l'employeur après formation et vérification des acquis.",
   },
   {
     slug: "ssi-exploitation",
@@ -374,8 +401,8 @@ export default function ElearningPage() {
             </p>
 
             <p className="mt-4 leading-7 text-slate-600">
-              Pour les parcours B1, B2, BR, BC, BE, incendie, SSI, sprinkler et
-              SST, l&apos;accès aux modules est inclus avec la formation encadrée —
+              Pour les formations SSI, Sprinkler et Coordination SSI, l&apos;accès
+              au module e-learning est inclus avec la formation encadrée —
               un support digital consultable en amont, en cours et en révision.
             </p>
 
@@ -417,9 +444,11 @@ export default function ElearningPage() {
             Nos modules disponibles
           </h2>
           <p className="mt-4 leading-7 text-slate-600">
-            Les parcours H0B0 / H0V et BS / BE Manœuvre peuvent être suivis en
-            e-learning encadré. Les autres modules sont inclus avec la formation
-            encadrée correspondante pour préparer et consolider les acquis.
+            Les parcours <strong>H0B0 / H0V</strong> et <strong>BS / BE Manœuvre</strong> sont
+            disponibles en e-learning encadré (entretien formateur inclus). Les modules
+            ATEX NIV 0/1/2 sont également en e-learning encadré (entretien ou classe virtuelle).
+            Les modules SSI, Sprinkler et Coordinateur SSI sont inclus avec la formation
+            présentielle correspondante.
           </p>
           <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900">
             <span className="font-semibold">Important :</span> L&apos;e-learning

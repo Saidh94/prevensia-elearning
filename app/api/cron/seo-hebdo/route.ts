@@ -44,7 +44,7 @@ export async function GET(req: Request) {
         .map((s) => `${s.keyword} (pos ${s.position}, ${s.clicks} clics)`)
         .join(", ");
 
-      const prompt = `Tu es l'expert SEO de PREVENSIA FORMATION (habilitation électrique NF C 18-510, ATEX, SSIAP, SST, Paris).
+      const prompt = `Tu es l'expert SEO de PREVENSIA FORMATION (habilitation électrique H0B0/H0V NF C 18-510 A2, ATEX NIV 0/1/2, Exploitation SSI, Sprinkler, Coordination SSI, Paris).
 
 Données SEO semaine (${today}) :
 - Total clics GSC : ${totalClics}

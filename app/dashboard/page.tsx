@@ -217,10 +217,6 @@ export default function DashboardPage() {
   const hasSsiOrSprinkler = formations.some(
     (f) => f.slug && SSI_SPRINKLER_SLUGS.some((s) => (f.slug ?? "").includes(s))
   );
-  const hasSSIAP1 = formations.some(
-    (f) => f.slug && ((f.slug ?? "").includes("ssiap1") || (f.slug ?? "").includes("ssiap-1"))
-  );
-  const showSSIAP1Bonus = hasSsiOrSprinkler && !hasSSIAP1;
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
@@ -575,32 +571,6 @@ export default function DashboardPage() {
         )}
       </section>
 
-      {/* Bonus SSIAP1 */}
-      {showSSIAP1Bonus ? (
-        <section className="mt-6 rounded-3xl border border-green-200 bg-green-50 p-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-green-700">
-                🎁 Bonus inclus avec votre formation
-              </p>
-              <h3 className="mt-2 text-lg font-bold text-green-900">
-                Module e-learning SSIAP1 — accès gratuit
-              </h3>
-              <p className="mt-1 text-sm text-green-800">
-                En tant qu&apos;apprenant inscrit à une formation sécurité incendie PREVENSIA,
-                vous bénéficiez gratuitement du module e-learning de préparation SSIAP1 (2h30–3h) :
-                théorie incendie, classes de feux, SSI, procédures ERP, examen QCM.
-              </p>
-            </div>
-            <Link
-              href="/elearning"
-              className="shrink-0 rounded-xl border border-green-400 bg-white px-4 py-2 text-sm font-semibold text-green-700 hover:bg-green-100 transition-colors"
-            >
-              Accéder au module SSIAP1 →
-            </Link>
-          </div>
-        </section>
-      ) : null}
 
       {/* Support */}
       <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">

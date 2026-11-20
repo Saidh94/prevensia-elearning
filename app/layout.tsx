@@ -4,6 +4,7 @@ import ChatWidget from "@/components/site/ChatWidget";
 import CookieBanner from "@/components/site/CookieBanner";
 import BackToTop from "@/components/site/BackToTop";
 import { Footer } from "@/components/site/Footer";
+import { BlackFridayBanner } from "@/components/site/BlackFridayBanner";
 import { COMPANY } from "@/lib/company";
 
 const SITE_URL = "https://prevensia-formation.fr";
@@ -12,30 +13,27 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "PREVENSIA FORMATION | Habilitation électrique, sécurité incendie, SST",
+      "PREVENSIA FORMATION | H0B0, ATEX, SSI, Sprinkler, Coordination SSI",
     template: "%s | PREVENSIA FORMATION",
   },
   description:
-    "Organisme de formation — habilitation électrique H0B0, BS/BE, B1, B2, BR, BC conforme NF C 18-510. SST, sécurité incendie, SSI, sprinkler. Présentiel, visio et e-learning. Île-de-France et intra-entreprise France entière.",
+    "Organisme de formation Qualiopi — habilitation électrique H0B0/H0V (NF C 18-510 A2), ATEX NIV 0/1/2, Exploitation SSI, Exploitation Sprinkler, Coordination SSI. Présentiel et e-learning. Paris / Île-de-France.",
   keywords: [
-    "habilitation électrique",
-    "formation H0B0",
+    "habilitation électrique H0B0",
     "formation H0B0 H0V",
-    "BS BE Manœuvre",
-    "B1 B2 BR BC habilitation",
-    "formation SST sauveteur secouriste",
-    "formation sécurité incendie",
+    "ATEX NIV 0 sensibilisation",
+    "ATEX NIV 1 intervenant",
+    "ATEX NIV 2 encadrant",
+    "formation ATEX directive 99/92",
     "SSI système sécurité incendie",
     "formation sprinkler",
+    "coordinateur SSI CSSI",
     "Qualiopi",
     "e-learning habilitation électrique",
     "formation habilitation électrique Île-de-France",
     "formation habilitation électrique Paris",
-    "formation habilitation électrique Seine-Saint-Denis",
     "organisme formation Paris",
-    "formation intra-entreprise habilitation électrique",
     "NF C 18-510",
-    "recyclage habilitation électrique",
   ],
   authors: [{ name: "PREVENSIA FORMATION" }],
   alternates: { canonical: SITE_URL },
@@ -45,9 +43,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: SITE_URL,
     title:
-      "PREVENSIA FORMATION | Habilitation électrique, sécurité incendie, SST",
+      "PREVENSIA FORMATION | H0B0, ATEX, SSI, Sprinkler, Coordination SSI",
     description:
-      "Organisme de formation Qualiopi : habilitation électrique, sécurité incendie, SSI, sprinkler, SST. Présentiel et e-learning.",
+      "Organisme de formation Qualiopi : habilitation électrique H0B0/H0V, ATEX NIV 0/1/2, SSI, Sprinkler, Coordination SSI. Présentiel et e-learning. Paris / IDF.",
     images: [
       {
         url: "/images/logo-prevensia-formation.jpg",
@@ -60,9 +58,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "PREVENSIA FORMATION | Habilitation électrique, sécurité incendie, SST",
+      "PREVENSIA FORMATION | H0B0, ATEX, SSI, Sprinkler, Coordination SSI",
     description:
-      "Formations sécurité, habilitation électrique et SST en présentiel et e-learning.",
+      "Formations H0B0/H0V, ATEX NIV 0/1/2, SSI, Sprinkler et Coordination SSI. Présentiel et e-learning.",
     images: ["/images/logo-prevensia-formation.jpg"],
   },
   robots: {
@@ -97,7 +95,7 @@ const organizationJsonLd = {
   currenciesAccepted: "EUR",
   paymentAccepted: "Carte bancaire, virement, OPCO",
   description:
-    "Organisme de formation spécialisé en habilitation électrique (H0B0, BS/BE, B1, B2, BR, BC), sécurité incendie, SSI, sprinkler et SST. Formations en présentiel, visio et e-learning.",
+    "Organisme de formation spécialisé en habilitation électrique H0B0/H0V (NF C 18-510 A2), ATEX NIV 0/1/2, Exploitation SSI, Exploitation Sprinkler et Coordination SSI. Formations en présentiel, visio et e-learning.",
   hasCredential: undefined,
   sameAs: [
     "https://www.linkedin.com/in/prevensia-formation-3450a0385/",
@@ -129,14 +127,14 @@ const organizationJsonLd = {
     },
   ],
   knowsAbout: [
-    "Habilitation électrique NF C 18-510",
+    "Habilitation électrique NF C 18-510 A2",
     "Formation H0B0 H0V",
-    "Formation BS BE Manœuvre",
-    "Formation B1 B2 BR BC",
-    "Sécurité incendie",
-    "SST Sauveteur Secouriste du Travail",
+    "Formation ATEX NIV 0 sensibilisation",
+    "Formation ATEX NIV 1 intervenant",
+    "Formation ATEX NIV 2 encadrant",
     "SSI Systèmes de Sécurité Incendie",
     "Exploitation sprinkler",
+    "Coordination SSI CSSI",
   ],
 };
 
@@ -154,6 +152,7 @@ export default function RootLayout({
             __html: JSON.stringify(organizationJsonLd),
           }}
         />
+        <BlackFridayBanner />
         {children}
         <Footer />
         <BackToTop />
