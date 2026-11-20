@@ -1,4 +1,5 @@
 import "server-only";
+import { isBFActive } from "@/lib/blackfriday";
 
 type PricingContext = {
   formationSlug?: string | null;
@@ -29,6 +30,13 @@ type QuotePaymentOption = {
 export type EnrollmentPaymentOption =
   | DirectPaymentOption
   | QuotePaymentOption;
+
+// Formations éligibles à la remise Black Friday (−25 %).
+// Le recyclage H0B0 et les autres formations ne bénéficient pas de la promo.
+const BF_ELIGIBLE_ENV_KEYS = new Set([
+  "STRIPE_PRICE_H0B0_ELEARNING_CENTS",
+  "STRIPE_PRICE_ATEX_ELEARNING_CENTS",
+]);
 
 const paymentRules: PaymentRule[] = [
   // ── E-learning 100 % — paiement direct ────────────────────────────────────
@@ -179,11 +187,17 @@ export function getEnrollmentPaymentOption({
       continue;
     }
 
-    const amountCents = readAmountFromEnv(rule.envKey);
+    const rawAmountCents = readAmountFromEnv(rule.envKey);
 
-    if (!amountCents) {
+    if (!rawAmountCents) {
       continue;
     }
+
+    // Appliquer la remise Black Friday si la formation est éligible et la période active.
+    const amountCents =
+      BF_ELIGIBLE_ENV_KEYS.has(rule.envKey) && isBFActive()
+        ? Math.round(rawAmountCents * 0.75)
+        : rawAmountCents;
 
     return {
       kind: "direct",
