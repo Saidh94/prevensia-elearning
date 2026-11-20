@@ -9,6 +9,7 @@ import { Header } from "@/app/components/Header";
 import HomeSessionsList from "@/app/components/HomeSessionsList";
 import { COMPANY } from "@/lib/company";
 import { QualiopiMark } from "@/components/site/QualiopiMark";
+import { isBFActive } from "@/lib/blackfriday";
 
 const qualiopiOgSuffix = COMPANY.qualiopiObtenu
   ? "Certifiées Qualiopi"
@@ -375,6 +376,47 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Black Friday promo band (affiché uniquement pendant la période BF) ── */}
+        {isBFActive() && (
+          <section className="bg-[#0a0a0a] py-10">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
+                <div>
+                  <span className="inline-block rounded-md bg-red-700 px-3 py-1 text-xs font-black uppercase tracking-widest text-white">
+                    🖤 Black Friday — jusqu&apos;au 4 déc.
+                  </span>
+                  <h2 className="mt-3 text-2xl font-black text-white sm:text-3xl">
+                    −25&nbsp;% sur 2 formations e-learning
+                  </h2>
+                  <p className="mt-2 text-sm text-slate-400">
+                    Réduction automatique à la commande · Aucun code promo à saisir
+                  </p>
+                </div>
+                <div className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                  {/* H0B0 */}
+                  <div className="flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 px-6 py-5 min-w-[160px]">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">H0B0 / H0V</p>
+                    <p className="mt-2 text-sm text-slate-500 line-through">190&nbsp;€&nbsp;HT</p>
+                    <p className="text-3xl font-black text-white">143&nbsp;<span className="text-lg">€&nbsp;HT</span></p>
+                    <Link href="/elearning" className="mt-3 rounded-xl bg-red-700 px-4 py-2 text-xs font-bold text-white hover:bg-red-600 transition-colors">
+                      En profiter →
+                    </Link>
+                  </div>
+                  {/* ATEX NIV 0 */}
+                  <div className="flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 px-6 py-5 min-w-[160px]">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">ATEX NIV 0</p>
+                    <p className="mt-2 text-sm text-slate-500 line-through">129&nbsp;€&nbsp;HT</p>
+                    <p className="text-3xl font-black text-white">97&nbsp;<span className="text-lg">€&nbsp;HT</span></p>
+                    <Link href="/elearning" className="mt-3 rounded-xl bg-red-700 px-4 py-2 text-xs font-bold text-white hover:bg-red-600 transition-colors">
+                      En profiter →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Spotlight H0B0 — produit phare scalable */}
         <section className="bg-white py-16 border-b border-slate-100">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -415,10 +457,22 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col items-center rounded-2xl border border-red-200 bg-white p-8 text-center shadow-sm lg:min-w-[220px]">
+                  {isBFActive() && (
+                    <span className="mb-2 inline-block rounded-md bg-red-700 px-2 py-0.5 text-[11px] font-black uppercase tracking-widest text-white">
+                      🖤 Black Friday
+                    </span>
+                  )}
                   <p className="text-sm font-semibold uppercase tracking-widest text-slate-500">
                     À partir de
                   </p>
-                  <p className="mt-2 text-5xl font-black text-slate-900">190<span className="text-2xl font-bold">€</span></p>
+                  {isBFActive() ? (
+                    <div className="mt-2">
+                      <p className="text-lg font-semibold text-slate-400 line-through">190&nbsp;€</p>
+                      <p className="text-5xl font-black text-red-700">143<span className="text-2xl font-bold">€</span></p>
+                    </div>
+                  ) : (
+                    <p className="mt-2 text-5xl font-black text-slate-900">190<span className="text-2xl font-bold">€</span></p>
+                  )}
                   <p className="mt-1 text-sm text-slate-500">HT / apprenant</p>
                   <Link
                     href="/formation-h0b0"
@@ -717,7 +771,7 @@ export default function Home() {
                 { titre: "H0B0 / H0V", desc: "Non-électriciens — e-learning + entretien visio individuel", href: "/formation-h0b0", prix: "dès 190 € HT" },
                 { titre: "ATEX NIV 0", desc: "Sensibilisation aux atmosphères explosives — 100 % en ligne", href: "/formation-atex", prix: "Accès direct" },
                 { titre: "Exploitation SSI", desc: "Systèmes de sécurité incendie — sessions IDF planifiées", href: "/formation-ssi", prix: "dès 290 € HT" },
-                { titre: "Exploitation Sprinkler", desc: "Installation sprinkler — intra IDF, 1 ou 2 jours. Hors IDF sur devis.", href: "/formation-sprinkler", prix: "dès 790 € HT / pers." },
+                { titre: "Exploitation Sprinkler", desc: "Installation sprinkler — intra IDF, 1 ou 2 jours. Hors IDF sur devis.", href: "/formation-sprinkler", prix: "dès 590 € HT / pers." },
                 { titre: "Coordination SSI", desc: "Responsables techniques, BET, gestionnaires d'immeuble — ERP/IGH", href: "/formation-coordinateur-ssi", prix: "Sur devis" },
                 { titre: "Formation intra-entreprise", desc: "Toutes formations dans vos locaux, en Île-de-France — sur devis", href: "/demande-devis", prix: "Devis 48h" },
               ].map((f) => (
