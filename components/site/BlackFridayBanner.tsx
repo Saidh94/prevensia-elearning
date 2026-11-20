@@ -56,7 +56,7 @@ export function BlackFridayBanner() {
           </span>
           <p style={{ color: "#fff", fontWeight: 800, fontSize: "17px", margin: 0 }}>
             <span style={{ color: "#ff3333" }}>−25&nbsp;%</span>
-            {" "}sur tous les e-learnings
+            {" "}sur H0B0 et ATEX NIV&nbsp;0
             <span style={{ color: "#aaa", fontWeight: 400, fontSize: "14px" }}>
               {" · du 20 nov. au 4 déc. 2026"}
             </span>

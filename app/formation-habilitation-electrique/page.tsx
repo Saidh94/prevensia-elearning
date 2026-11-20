@@ -9,11 +9,11 @@ export const metadata = {
   alternates: { canonical: "https://prevensia-formation.fr/formation-habilitation-electrique" },
   title: "Formation Habilitation Électrique NF C 18-510 + A2 | PREVENSIA",
   description:
-    "Habilitation électrique NF C 18-510 (version consolidée + A2) : H0B0, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Qualiopi. Île-de-France. Devis 48h.",
+    "Habilitation électrique NF C 18-510 (version consolidée + A2) : H0B0 / H0V, BS / BE Manœuvre. E-learning encadré, achat direct. Formations sur devis pour symboles BT et HTA. Qualiopi. Île-de-France. Devis 48h.",
   openGraph: {
-    title: "Formation Habilitation Électrique — H0B0, BS, B1, B2, BR, BC",
+    title: "Formation Habilitation Électrique — H0B0, BS / BE Manœuvre | PREVENSIA",
     description:
-      "Formation habilitation électrique NF C 18-510 : H0B0/H0V, BS/BE Manœuvre, B1, B2, BR, BC. E-learning + présentiel. Qualiopi. Devis 48h.",
+      "Formation habilitation électrique NF C 18-510 : H0B0/H0V, BS/BE Manœuvre en e-learning encadré. Symboles BT et HTA sur devis. Qualiopi. Devis 48h.",
     url: "https://prevensia-formation.fr/formation-habilitation-electrique",
   },
   keywords: [
@@ -21,7 +21,7 @@ export const metadata = {
     "habilitation électrique NF C 18-510",
     "formation H0B0",
     "formation BS BE manœuvre",
-    "formation B1 B2 BR BC",
+    "formation habilitation électrique sur devis",
     "organisme formation habilitation électrique Qualiopi",
     "habilitation électrique e-learning",
   ],
@@ -32,7 +32,7 @@ const pointsForts = [
   "Logique alignée sur la NF C 18-510 et le Code du travail",
   "La formation prépare, l'employeur délivre l'habilitation",
   "Achat direct uniquement pour H0B0 / H0V et BS / BE Manœuvre encadrés",
-  "B1, B2, BR, BC et BE : e-learning inclus avec la formation encadrée",
+  "Symboles BT et HTA sur devis — e-learning inclus avec la formation encadrée",
   "Progression pédagogique claire avec quiz, visio ou présentiel",
 ];
 
@@ -47,7 +47,7 @@ const formats = [
   {
     title: "Présentiel ou visio selon le symbole",
     description:
-      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manœuvre ajoute une classe virtuelle ou une session entreprise. Les symboles B1, B2, BR, BC et BE demandent une séquence encadrée, avec accès e-learning inclus pour préparer et réviser.",
+      "H0B0 / H0V reste sur un format e-learning avec entretien. BS / BE Manœuvre ajoute une classe virtuelle ou une session entreprise. Les symboles électriciens BT et HTA sont proposés sur devis, avec accès e-learning inclus pour préparer et réviser.",
     ctaLabel: "Voir le planning présentiel",
     href: "/planning",
   },
@@ -89,13 +89,6 @@ const offerSections = [
       "Offres pensées pour les opérations d'ordre non électrique, les interventions élémentaires, les manœuvres simples et les chantiers au voisinage de réseaux enterrés.",
   },
   {
-    key: "electriciens-bt",
-    eyebrow: "Formation habilitation électrique pour électriciens",
-    title: "Parcours électriciens basse tension",
-    description:
-      "Lecture plus fine des symboles B1 / B1V, B2 / B2V, BR, BC, BE et du parcours BT multi-symboles, avec tarifs et durées alignés sur les usages du marché.",
-  },
-  {
     key: "haute-tension",
     eyebrow: "Formation habilitation électrique haute tension",
     title: "Parcours haute tension",
@@ -113,7 +106,7 @@ const faqItemsHabilitation = [
   {
     question: "Quel symbole choisir pour mes équipes ?",
     answer:
-      "H0B0/H0V pour les non-électriciens évoluant en environnement électrique. BS/BE Manœuvre pour les interventions élémentaires et manœuvres simples. B1/B1V pour les exécutants travaux. B2/B2V pour les chargés de travaux. BR pour le dépannage. BC pour la consignation. Notre équipe vous oriente sur devis selon les postes réels de vos collaborateurs.",
+      "H0B0/H0V pour les non-électriciens évoluant en environnement électrique. BS/BE Manœuvre pour les interventions élémentaires et manœuvres simples. Les symboles électriciens BT (exécutants, chargés de travaux, dépannage, consignation) et HTA sont disponibles sur devis. Notre équipe vous oriente selon les postes réels de vos collaborateurs.",
   },
   {
     question: "Quelle est la durée de validité d'une habilitation électrique ?",
@@ -123,7 +116,7 @@ const faqItemsHabilitation = [
   {
     question: "Le e-learning H0B0/H0V suffit-il pour obtenir l'habilitation ?",
     answer:
-      "Non. L'e-learning et le quiz constituent la préparation théorique de la formation — ils ne délivrent pas l'habilitation. Pour H0B0 / H0V, le parcours doit être complété par un entretien de validation avec le formateur (inclus dans notre formule). L'habilitation est ensuite délivrée exclusivement par l'employeur. Pour les autres symboles (B1, B2, BR, BC, BE), une séquence pratique encadrée est obligatoire en complément du e-learning.",
+      "Non. L'e-learning et le quiz constituent la préparation théorique de la formation — ils ne délivrent pas l'habilitation. Pour H0B0 / H0V, le parcours doit être complété par un entretien de validation avec le formateur (inclus dans notre formule). L'habilitation est ensuite délivrée exclusivement par l'employeur. Pour les symboles électriciens BT et HTA, une séquence pratique encadrée est obligatoire en complément du e-learning.",
   },
   {
     question: "Qu'est-ce que le suivi individuel renforcé (SIS) pour les travailleurs habilités ?",
@@ -148,8 +141,8 @@ export default function FormationHabilitationElectriquePage() {
       />
       <FaqJsonLd items={faqItemsHabilitation} />
       <CourseJsonLd
-        name="Formation habilitation électrique (H0B0, BS, B1, B2, BR, BC)"
-        description="Formations habilitation électrique conformes NF C 18-510 : H0B0/H0V, BS / BE Manœuvre, B1/B1V, B2/B2V, BR, BC. E-learning, classes virtuelle et présentiel."
+        name="Formation habilitation électrique (H0B0, BS / BE Manœuvre)"
+        description="Formations habilitation électrique conformes NF C 18-510 : H0B0/H0V, BS / BE Manœuvre en e-learning encadré. Symboles électriciens BT et HTA sur devis. E-learning, classes virtuelles et présentiel."
         courseCode="HABILITATION-ELEC"
         url="/formation-habilitation-electrique"
         timeRequired="P1D"
@@ -190,11 +183,10 @@ export default function FormationHabilitationElectriquePage() {
 
             <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-200">
               PREVENSIA FORMATION propose une offre en habilitation électrique
-              pensée pour les particuliers, les salariés et les entreprises,
-              avec deux formats clairement distingués : les parcours H0B0 / H0V
-              et BS / BE Manœuvre accessibles en e-learning encadré, puis les
-              parcours B1 / B1V, B2 / B2V, BR, BC et BE vendus avec une séquence
-              encadrée et un accès e-learning inclus.
+              pensée pour les particuliers, les salariés et les entreprises :
+              parcours H0B0 / H0V et BS / BE Manœuvre accessibles en e-learning
+              encadré avec achat direct, et parcours électriciens BT ou HTA
+              disponibles sur devis avec accès e-learning inclus.
             </p>
 
             <p className="mt-4 max-w-4xl text-lg leading-8 text-slate-300">
@@ -289,9 +281,9 @@ export default function FormationHabilitationElectriquePage() {
 
             <p className="mt-4 text-sm leading-7 text-slate-300">
               Vous avez déjà identifié un parcours H0B0 / H0V ou BS / BE Manœuvre
-              ouvert à l&apos;achat direct ? Passez à l&apos;inscription. Pour B1, B2, BR,
-              BC, BE, recyclage ou format entreprise, l&apos;accès e-learning est inclus
-              dans l&apos;offre encadrée : faites une demande de devis.
+              ouvert à l&apos;achat direct ? Passez à l&apos;inscription. Pour les symboles
+              électriciens BT, HTA, le recyclage ou un format entreprise, faites
+              une demande de devis — l&apos;accès e-learning est inclus dans l&apos;offre.
             </p>
 
             <div className="mt-8 flex flex-col gap-3">

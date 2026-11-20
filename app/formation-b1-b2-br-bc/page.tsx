@@ -7,6 +7,7 @@ export const metadata = {
   title: "Formation Habilitation Électrique B1 B2 BR BC — Électriciens BT",
   description:
     "Formation habilitation électrique B1, B2, BR, BC conforme NF C 18-510 + A1:2020 + A2:2023. Travaux BT, dépannage, consignation, vérification. E-learning + présentiel. Dès 790 € HT. Qualiopi.",
+  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://prevensia-formation.fr/formation-b1-b2-br-bc",
   },
