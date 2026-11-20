@@ -252,7 +252,7 @@ export default function FormationSSI() {
                   </ul>
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Après-midi (13h30–17h) — Scénarios complexes</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Après-midi (13h45–17h) — Scénarios complexes</p>
                   <ul className="mt-2 space-y-1.5 text-sm text-slate-700">
                     <li>→ Analyse de scénarios : défaut secteur, alarme restreinte, boucle coupée</li>
                     <li>→ Travaux en présence du SSI — consignation simple et remise en service</li>
