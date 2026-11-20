@@ -3,44 +3,47 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const FLOATING_CONTACT_STORAGE_KEY = "prevensia-floating-contact-collapsed";
-
-function getInitialCollapsedState() {
-  if (typeof window === "undefined") return false;
-
-  return window.localStorage.getItem(FLOATING_CONTACT_STORAGE_KEY) === "true";
-}
+const DESKTOP_KEY = "prevensia-floating-contact-collapsed";
+const MOBILE_KEY  = "prevensia-floating-mobile-collapsed";
 
 export default function FloatingContactButtons() {
+  /* ── Desktop panel ───────────────────────────────────────────────── */
   const [showDesktopPanel, setShowDesktopPanel] = useState(false);
-  const [isDesktopPanelCollapsed, setIsDesktopPanelCollapsed] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return getInitialCollapsedState();
-  });
+  const [isDesktopCollapsed, setIsDesktopCollapsed] = useState(false);
+
+  /* ── Mobile mini-stack ───────────────────────────────────────────── */
+  const [isMobileCollapsed, setIsMobileCollapsed] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShowDesktopPanel(window.scrollY > 180);
-    };
-
+    // Desktop scroll visibility
+    const handleScroll = () => setShowDesktopPanel(window.scrollY > 180);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Restore persisted states
+    setIsDesktopCollapsed(localStorage.getItem(DESKTOP_KEY) === "true");
+    setIsMobileCollapsed(localStorage.getItem(MOBILE_KEY) === "true");
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function collapsePanel() {
-    setIsDesktopPanelCollapsed(true);
-    window.localStorage.setItem(FLOATING_CONTACT_STORAGE_KEY, "true");
+  function collapseDesktop() {
+    setIsDesktopCollapsed(true);
+    localStorage.setItem(DESKTOP_KEY, "true");
   }
-
-  function expandPanel() {
-    setIsDesktopPanelCollapsed(false);
-    window.localStorage.setItem(FLOATING_CONTACT_STORAGE_KEY, "false");
+  function expandDesktop() {
+    setIsDesktopCollapsed(false);
+    localStorage.setItem(DESKTOP_KEY, "false");
+  }
+  function toggleMobile() {
+    const next = !isMobileCollapsed;
+    setIsMobileCollapsed(next);
+    localStorage.setItem(MOBILE_KEY, String(next));
   }
 
   return (
     <>
+      {/* ── Panneau desktop (xl uniquement) ─────────────────────────── */}
       <div
         className={`fixed right-5 top-1/2 z-50 hidden -translate-y-1/2 transition-all duration-300 xl:block ${
           showDesktopPanel
@@ -48,10 +51,10 @@ export default function FloatingContactButtons() {
             : "pointer-events-none translate-x-6 opacity-0"
         }`}
       >
-        {isDesktopPanelCollapsed ? (
+        {isDesktopCollapsed ? (
           <button
             type="button"
-            onClick={expandPanel}
+            onClick={expandDesktop}
             className="group inline-flex items-center gap-3 rounded-full border border-white/70 bg-white/82 px-4 py-3 text-sm font-semibold text-slate-800 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white"
             aria-label="Afficher le panneau de contact PREVENSIA"
           >
@@ -70,13 +73,12 @@ export default function FloatingContactButtons() {
             <div className="relative bg-gradient-to-r from-slate-950/88 via-slate-900/86 to-red-900/82 px-5 py-4 text-white">
               <button
                 type="button"
-                onClick={collapsePanel}
+                onClick={collapseDesktop}
                 className="absolute right-4 top-4 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white transition hover:bg-white/20"
                 aria-label="Reduire le panneau de contact PREVENSIA"
               >
                 Reduire
               </button>
-
               <p className="pr-16 text-[11px] font-semibold uppercase tracking-[0.24em] text-red-200">
                 Contact PREVENSIA
               </p>
@@ -87,7 +89,6 @@ export default function FloatingContactButtons() {
                 Le bon format, sans masquer la lecture du hero.
               </p>
             </div>
-
             <div className="space-y-3 px-5 py-4">
               <div className="rounded-2xl border border-slate-200/80 bg-white/75 p-3.5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
@@ -108,7 +109,6 @@ export default function FloatingContactButtons() {
                   </a>
                 </div>
               </div>
-
               <div className="rounded-2xl border border-red-100/80 bg-red-50/75 p-3.5">
                 <p className="text-sm font-semibold leading-5 text-slate-900">
                   Employeurs et responsables formation
@@ -117,7 +117,6 @@ export default function FloatingContactButtons() {
                   Visibilite sur les parcours salaries et formats disponibles.
                 </p>
               </div>
-
               <div className="grid gap-3">
                 <Link
                   href="/demande-devis"
@@ -125,7 +124,6 @@ export default function FloatingContactButtons() {
                 >
                   Demander un devis
                 </Link>
-
                 <a
                   href="https://wa.me/33780992417?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20formations"
                   target="_blank"
@@ -134,7 +132,6 @@ export default function FloatingContactButtons() {
                 >
                   Echanger sur WhatsApp
                 </a>
-
                 <a
                   href="#contact"
                   className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
@@ -147,37 +144,47 @@ export default function FloatingContactButtons() {
         )}
       </div>
 
-      <div className="fixed bottom-20 right-4 z-50 flex flex-col gap-3 sm:bottom-6 sm:right-6 xl:hidden">
-        <a
-          href="tel:+33189629492"
-          className="flex items-center justify-center rounded-full bg-red-700 px-4 py-3 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-red-800"
-          aria-label="Appeler Prevensia Formation"
-          title="Appeler"
-        >
-          Appeler
-        </a>
+      {/* ── Boutons flottants mobile / tablette (< xl) ───────────────── */}
+      <div className="fixed bottom-20 right-3 z-50 flex flex-col items-end gap-2 sm:bottom-6 sm:right-5 xl:hidden">
+        {/* Boutons dépliés */}
+        {!isMobileCollapsed && (
+          <>
+            <a
+              href="tel:+33189629492"
+              className="flex items-center justify-center rounded-full bg-red-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-red-800"
+              aria-label="Appeler Prevensia Formation"
+            >
+              📞 Appeler
+            </a>
+            <a
+              href="https://wa.me/33780992417?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20formations"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center rounded-full border border-green-300 bg-white px-4 py-2.5 text-sm font-semibold text-green-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-green-50"
+              aria-label="Contacter Prevensia Formation sur WhatsApp"
+            >
+              💬 WhatsApp
+            </a>
+            <Link
+              href="/demande-devis"
+              className="flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-50"
+              aria-label="Demander un devis a Prevensia Formation"
+            >
+              📋 Devis
+            </Link>
+          </>
+        )}
 
-        <a
-          href="https://wa.me/33780992417?text=Bonjour%20je%20souhaite%20des%20informations%20sur%20vos%20formations"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center rounded-full border border-green-300 bg-white px-4 py-3 text-sm font-semibold text-green-700 shadow-xl transition hover:-translate-y-0.5 hover:bg-green-50"
-          aria-label="Contacter Prevensia Formation sur WhatsApp"
-          title="WhatsApp"
+        {/* Bouton toggle — toujours visible */}
+        <button
+          type="button"
+          onClick={toggleMobile}
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900 text-lg text-white shadow-xl transition hover:bg-slate-700"
+          aria-label={isMobileCollapsed ? "Afficher les contacts" : "Masquer les contacts"}
         >
-          WhatsApp
-        </a>
-
-        <Link
-          href="/demande-devis"
-          className="flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-xl transition hover:-translate-y-0.5 hover:bg-slate-50"
-          aria-label="Demander un devis a Prevensia Formation"
-          title="Devis"
-        >
-          Devis
-        </Link>
+          {isMobileCollapsed ? "✉" : "✕"}
+        </button>
       </div>
-
     </>
   );
 }
