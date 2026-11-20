@@ -42,10 +42,11 @@ export type FormationSession = {
 };
 
 export const SESSIONS: FormationSession[] = [
-  // ── Sprinkler : formation sur devis intra-entreprise uniquement ─────────────
-  // Pas de sessions inter planifiées. Minimum 3 participants.
-  // Tarif IDF : 2 200 € HT/j ou 4 200 € HT/2j.
-  // Hors IDF : sur devis (déplacement formateur en sus).
+  // ── Sprinkler — sessions inter (à ouvrir dès que dates confirmées) ──────────
+  // Maximum 6 participants par session (1 jour ou 2 jours renforcé).
+  // Tarif inter : 590 € HT/pers (1j) · 1 190 € HT/pers (2j) · groupe ≥4 : 490 / 990 €.
+  // Intra IDF : 2 200 € HT/j. Hors IDF : sur devis.
+  // Ajouter les sessions ici avec placesMax: 6.
 
   // ── SSI Exploitation — à partir d'avril 2027 · 3 dates par mois ────────────
   // Avril
