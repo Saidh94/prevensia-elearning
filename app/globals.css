@@ -55,3 +55,17 @@ body {
     color: #0f172a !important;
   }
 }
+
+/* ── Black Friday banner marquee ── */
+@keyframes bf-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.bf-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: bf-scroll 30s linear infinite;
+}
+.bf-marquee-track:hover {
+  animation-play-state: paused;
+}
