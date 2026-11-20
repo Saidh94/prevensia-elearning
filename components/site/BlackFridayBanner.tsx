@@ -7,13 +7,12 @@ const BF_START = new Date("2026-11-20T00:00:00").getTime();
 const BF_END   = new Date("2026-12-05T00:00:00").getTime();
 
 const ITEMS = [
-  "🔥 BLACK FRIDAY — −25 % SUR TOUT LE E-LEARNING",
-  "⚡ H0B0 / H0V · 150 € → 112 € HT",
-  "💥 ATEX NIV 0 · 129 € → 97 € HT",
-  "🎯 ATEX NIV 1 · 490 € → 368 € HT",
-  "🛡️ SSI · Sprinkler · Coordination SSI",
-  "📅 DU 20 NOV. AU 4 DÉC. 2026",
+  "🔥 BLACK FRIDAY — −25 % SUR NOS E-LEARNINGS",
+  "⚡ Habilitation H0B0 / H0V — 190 € → 143 € HT",
+  "💥 ATEX NIV 0 Sensibilisation — 129 € → 97 € HT",
+  "📅 OFFRE DU 20 NOV. AU 4 DÉC. 2026",
   "👉 RÉDUCTION AUTOMATIQUE À LA COMMANDE",
+  "🎯 2 FORMATIONS E-LEARNING EN PROMOTION",
 ];
 
 export function BlackFridayBanner() {

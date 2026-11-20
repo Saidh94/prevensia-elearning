@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BFPrice } from "@/components/site/BFPrice";
 
 export const metadata: Metadata = {
   title: "Modules E-learning Sécurité — H0B0, ATEX, SSI, Sprinkler | PREVENSIA",
@@ -22,7 +23,8 @@ const formations = [
     title: "Habilitation électrique H0B0 / H0V",
     duration: "E-learning : 1 h 30 à 2 h 30 | Entretien formateur : 30 min",
     mode: "E-learning + entretien 30 min",
-    price: "150 EUR HT",
+    price: "190 EUR HT",
+    priceHT: 190,
     level: "Débutant",
     audience:
       "Personnel non électricien amené à évoluer dans un environnement présentant un risque électrique.",
@@ -158,6 +160,7 @@ const formations = [
     duration: "E-learning : 3 h à 4 h | Entretien de validation : 30 min",
     mode: "E-learning autonome + entretien de validation 30 min",
     price: "129 EUR HT",
+    priceHT: 129,
     level: "Débutant",
     audience:
       "Tout personnel amené à circuler ou à travailler occasionnellement dans un environnement susceptible de présenter un risque d'explosion : industrie chimique, pétrochimique, agroalimentaire, traitement des eaux, menuiserie, métallurgie.",
@@ -476,7 +479,9 @@ export default function ElearningPage() {
                     </span>
                     {"price" in formation ? (
                       <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-bold tracking-wide text-amber-700">
-                        {formation.price}
+                        {"priceHT" in formation && typeof (formation as {priceHT?: number}).priceHT === "number" ? (
+                          <BFPrice original={(formation as {priceHT: number}).priceHT} unit="EUR HT" />
+                        ) : formation.price}
                       </span>
                     ) : null}
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold tracking-wide text-blue-700">

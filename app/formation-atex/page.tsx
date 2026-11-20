@@ -2,6 +2,7 @@ import Link from "next/link";
 import CourseJsonLd from "@/components/seo/CourseJsonLd";
 import FaqJsonLd from "@/components/seo/FaqJsonLd";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import { BFPrice } from "@/components/site/BFPrice";
 
 export const metadata = {
   title: "Formation ATEX — Atmosphères Explosives E-learning",
@@ -177,7 +178,7 @@ export default function FormationAtexPage() {
               href="/modules/atex"
               className="rounded-xl bg-amber-500 px-6 py-3 font-semibold text-slate-950 hover:bg-amber-400 transition-colors"
             >
-              Démarrer la formation — 129 € HT
+              Démarrer la formation —{" "}<BFPrice original={129} unit="€ HT" />
             </Link>
             <Link
               href="/demande-devis?type=atex"
@@ -203,7 +204,7 @@ export default function FormationAtexPage() {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">NIV 0 — Sensibilisation</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">129 € HT</p>
+              <p className="mt-2 text-3xl font-bold text-slate-900"><BFPrice original={129} unit="€ HT" /></p>
               <p className="mt-1 text-sm text-slate-600">E-learning 2h + entretien 30 min · Attestation de sensibilisation</p>
             </div>
             <div className="rounded-2xl border border-slate-300 bg-slate-50 p-5">
@@ -419,7 +420,7 @@ export default function FormationAtexPage() {
               <div className="mt-5 rounded-xl border border-amber-300 bg-white px-4 py-3">
                 <p className="text-xs text-slate-500">Notre parcours e-learning ATEX couvre intégralement ce niveau.</p>
                 <Link href="/modules/atex" className="mt-1 inline-block text-sm font-semibold text-amber-600 hover:underline">
-                  Démarrer — 129 € HT →
+                  Démarrer —{" "}<BFPrice original={129} unit="€ HT" />{" "}→
                 </Link>
               </div>
             </div>
@@ -521,7 +522,7 @@ export default function FormationAtexPage() {
               href="/modules/atex"
               className="rounded-xl bg-amber-500 px-8 py-4 font-semibold text-slate-950 hover:bg-amber-400 transition-colors"
             >
-              NIV 0 Sensibilisation — Démarrer maintenant · 129 € HT
+              NIV 0 Sensibilisation — Démarrer maintenant ·{" "}<BFPrice original={129} unit="€ HT" />
             </Link>
             <Link
               href="/demande-devis?type=atex&detail=atex-niveau1"

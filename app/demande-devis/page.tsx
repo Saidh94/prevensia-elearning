@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { BF_START, BF_END } from "@/lib/blackfriday";
 
 type Formation = {
   id: string;
@@ -15,7 +16,7 @@ type Formation = {
 // Catalogue actuel nov. 2026 : H0B0 · ATEX NIV 0/1/2 · SSI · Sprinkler · Coordination SSI (CSSI)
 const FORMATIONS: Formation[] = [
   // HABILITATION ÉLECTRIQUE
-  { id: "h0b0", label: "H0B0 / H0V — E-learning + entretien", category: "Habilitation électrique", priceHT: 150, priceNote: "E-learning autonome + entretien formateur 30 min", perPerson: true },
+  { id: "h0b0", label: "H0B0 / H0V — E-learning + entretien", category: "Habilitation électrique", priceHT: 190, priceNote: "E-learning autonome + entretien formateur 30 min", perPerson: true },
   // ATEX
   { id: "atex-n0", label: "ATEX NIV 0 — Sensibilisation", category: "ATEX", priceHT: 129, priceNote: "E-learning 3–4h + entretien validation 30 min", perPerson: true },
   { id: "atex-n1", label: "ATEX NIV 1 — Intervenant", category: "ATEX", priceHT: 490, priceNote: "E-learning + classe virtuelle 4h (Zoom)", perPerson: true },
@@ -31,6 +32,8 @@ const FORMATIONS: Formation[] = [
 ];
 
 const CATEGORIES = Array.from(new Set(FORMATIONS.map((f) => f.category)));
+// Formations éligibles Black Friday (−25 %)
+const BF_ELIGIBLE_IDS = new Set(["h0b0", "atex-n0"]);
 
 type AccountType = "entreprise" | "particulier";
 
@@ -47,12 +50,17 @@ export default function DemandeDevisPage() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [bfActive, setBfActive] = useState(false);
+  useEffect(() => { (async () => { setBfActive(Date.now() >= BF_START && Date.now() < BF_END); })(); }, []);
 
   const selectedFormations = FORMATIONS.filter((f) => selected.has(f.id));
   const fixedItems = selectedFormations.filter((f) => f.priceHT !== null);
   const quoteItems = selectedFormations.filter((f) => f.priceHT === null);
   const totalHT = fixedItems.reduce((sum, f) => {
-    return sum + (f.priceHT! * (f.perPerson ? participants : 1));
+    const unitPrice = bfActive && BF_ELIGIBLE_IDS.has(f.id)
+      ? Math.round(f.priceHT! * 0.75)
+      : f.priceHT!;
+    return sum + (unitPrice * (f.perPerson ? participants : 1));
   }, 0);
   const hasQuote = quoteItems.length > 0;
 
@@ -329,7 +337,15 @@ export default function DemandeDevisPage() {
                             </div>
                             <span className="text-sm font-semibold text-slate-700 shrink-0">
                               {formation.priceHT !== null
-                                ? `${formation.priceHT} € HT/pers.`
+                                ? (bfActive && BF_ELIGIBLE_IDS.has(formation.id)
+                                  ? (
+                                    <span style={{ display: "inline-flex", alignItems: "baseline", gap: "5px", flexWrap: "wrap" }}>
+                                      <span style={{ textDecoration: "line-through", color: "#94a3b8", fontWeight: 500, fontSize: "0.85em" }}>{formation.priceHT}&nbsp;€&nbsp;HT</span>
+                                      <span style={{ color: "#cc1a1a", fontWeight: 800 }}>{Math.round(formation.priceHT * 0.75)}&nbsp;€&nbsp;HT</span>
+                                      <span style={{ background: "#cc1a1a", color: "#fff", fontWeight: 700, fontSize: "0.68em", padding: "1px 5px", borderRadius: "3px" }}>−25&nbsp;%</span>
+                                    </span>
+                                  )
+                                  : `${formation.priceHT} € HT/pers.`)
                                 : "Sur devis"}
                             </span>
                           </label>
@@ -368,9 +384,12 @@ export default function DemandeDevisPage() {
                 {selected.size > 0 && (
                   <div className="space-y-3 mb-4">
                     {selectedFormations.map((f) => {
+                      const unitPrice = f.priceHT !== null
+                        ? (bfActive && BF_ELIGIBLE_IDS.has(f.id) ? Math.round(f.priceHT * 0.75) : f.priceHT)
+                        : null;
                       const lineTotal =
-                        f.priceHT !== null
-                          ? f.priceHT * (f.perPerson ? participants : 1)
+                        unitPrice !== null
+                          ? unitPrice * (f.perPerson ? participants : 1)
                           : null;
                       return (
                         <div key={f.id} className="flex justify-between gap-2 text-sm">
