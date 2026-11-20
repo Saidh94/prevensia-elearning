@@ -69,13 +69,13 @@ const programme = [
 const tarifs = [
   {
     format: "1 jour — Île-de-France",
-    price: "790 € HT / pers.",
+    price: "590 € HT / pers.",
     detail: "Formation sur votre site en Île-de-France. Minimum 3 participants. Contenu adapté à vos référentiels (APSAD R1, EN 12845, NFPA 13) et à votre installation. Accès e-learning inclus.",
     badge: null,
   },
   {
     format: "2 jours — Île-de-France",
-    price: "1 290 € HT / pers.",
+    price: "1 190 € HT / pers.",
     detail: "Parcours complet sur votre site IDF, avec visite et analyse de votre installation réelle. Minimum 3 participants. Accès e-learning inclus.",
     badge: "Recommandé",
   },
@@ -254,12 +254,12 @@ export default function FormationSprinkler() {
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">Île-de-France</p>
-              <p className="mt-3 text-xl font-bold text-slate-900">1 jour — 790 € HT / pers.</p>
+              <p className="mt-3 text-xl font-bold text-slate-900">1 jour — 590 € HT / pers.</p>
               <p className="mt-1 text-sm text-slate-600">Min. 3 participants. Formation adaptée à votre site, accès e-learning inclus.</p>
             </div>
             <div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-cyan-700">Île-de-France — Recommandé</p>
-              <p className="mt-3 text-xl font-bold text-slate-900">2 jours — 1 290 € HT / pers.</p>
+              <p className="mt-3 text-xl font-bold text-slate-900">2 jours — 1 190 € HT / pers.</p>
               <p className="mt-1 text-sm text-slate-600">Min. 3 participants. Visite et analyse de votre installation réelle incluses.</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">

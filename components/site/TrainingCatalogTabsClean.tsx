@@ -107,9 +107,9 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Exploitation Sprinkler — 1 jour",
       duration: "1 jour",
-      price: "790 € HT / pers.",
+      price: "590 € HT / pers.",
       group: "Intra IDF — min. 3 participants",
-      participants: "3 min. · 8 max",
+      participants: "3 min. · 6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
       badge: "Sprinkler",
@@ -117,9 +117,9 @@ const tableRowsByTab: Record<TabKey, TableRow[]> = {
     {
       title: "Exploitation Sprinkler — 2 jours",
       duration: "2 jours",
-      price: "1 290 € HT / pers.",
+      price: "1 190 € HT / pers.",
       group: "Intra IDF — min. 3 participants",
-      participants: "3 min. · 8 max",
+      participants: "3 min. · 6 max",
       ctaHref: "/formation-sprinkler",
       ctaLabel: "Voir la formation",
       badge: "Sprinkler",

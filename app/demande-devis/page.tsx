@@ -25,8 +25,8 @@ const FORMATIONS: Formation[] = [
   { id: "ssi-demi", label: "Exploitation SSI — demi-journée", category: "SSI / Sprinkler", priceHT: 290, priceNote: "Inter-entreprises · Noisy-le-Grand (93)", perPerson: true },
   { id: "ssi-1j", label: "Exploitation SSI — journée complète", category: "SSI / Sprinkler", priceHT: 490, priceNote: "Inter-entreprises · Noisy-le-Grand (93)", perPerson: true },
   // SPRINKLER (intra uniquement)
-  { id: "sprinkler-demi", label: "Exploitation Sprinkler — demi-journée (intra)", category: "SSI / Sprinkler", priceHT: 790, priceNote: "Intra-entreprise IDF · min 3 participants · prix total session", perPerson: false },
-  { id: "sprinkler-1j", label: "Exploitation Sprinkler — journée complète (intra)", category: "SSI / Sprinkler", priceHT: 1290, priceNote: "Intra-entreprise IDF · min 3 participants · prix total session", perPerson: false },
+  { id: "sprinkler-1j", label: "Exploitation Sprinkler — 1 jour (intra IDF)", category: "SSI / Sprinkler", priceHT: 590, priceNote: "Inter · 590 € HT/pers. · groupe ≥4 : 490 € HT · Intra IDF : 2 200 € HT/j", perPerson: true },
+  { id: "sprinkler-2j", label: "Exploitation Sprinkler — 2 jours renforcé (intra IDF)", category: "SSI / Sprinkler", priceHT: 1190, priceNote: "Inter · 1 190 € HT/pers. · groupe ≥4 : 990 € HT · Intra IDF : sur devis", perPerson: true },
   // COORDINATEUR SSI
   { id: "coordinateur-ssi", label: "Coordination SSI (CSSI) — 7 jours", category: "Coordinateur SSI", priceHT: 1790, priceNote: "Inter-entreprises · Noisy-le-Grand (93) · NF S 61-931", perPerson: true },
 ];

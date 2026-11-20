@@ -73,7 +73,7 @@ const formations = [
     href: "/formation-sprinkler",
     badge: "Formation intra-entreprise",
     format: "Présentiel sur votre site · IDF et hors IDF",
-    price: "Dès 790 € HT / pers.",
+    price: "Dès 590 € HT / pers.",
     cta: "Demander un devis",
     ctaStyle: "bg-cyan-700 hover:bg-cyan-800 text-white",
     description:
