@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Réserver une formation",
   description:
-    "Choisissez votre session de formation et réservez votre place en quelques clics. Habilitation électrique, ATEX, SSI, sécurité incendie, SST — présentiel et distanciel.",
+    "Choisissez votre session de formation et réservez votre place en quelques clics. Habilitation électrique H0B0, ATEX, Exploitation SSI, Sprinkler, Coordination SSI — présentiel et distanciel.",
   alternates: {
     canonical: "https://prevensia-formation.fr/reservation-formation",
   },

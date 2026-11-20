@@ -5,22 +5,26 @@ import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 const formationsParCategorie = {
-  "Habilitations électriques": [
+  "Habilitation électrique": [
     "H0B0 / H0V - E-learning + entretien 30 min",
     "BS / BE Manoeuvre - E-learning + classe virtuelle",
     "BS / BE Manoeuvre - E-learning + session entreprise",
-    "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles",
     "BS / BE Manoeuvre - E-learning + visio de recyclage",
-    "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
   ],
-  "Sécurité incendie": [
-    "Manipulation extincteurs",
-    "Guide-file / Serre-file",
-    "Équipier de Première Intervention (EPI)",
-    "Exploitation SSI",
-    "Exploitation sprinkler et référentiels techniques",
+  ATEX: [
+    "ATEX NIV 0 - Sensibilisation (e-learning + entretien 30 min)",
+    "ATEX NIV 1 - Intervenant (e-learning + classe virtuelle 4h)",
+    "ATEX NIV 2 - Encadrant / Référent (sur devis)",
   ],
-  SST: ["SST - Formation initiale", "MAC SST"],
+  "SSI / Sprinkler": [
+    "Exploitation SSI - demi-journée",
+    "Exploitation SSI - journée complète",
+    "Exploitation Sprinkler - demi-journée (intra)",
+    "Exploitation Sprinkler - journée complète (intra)",
+  ],
+  "Coordination SSI": [
+    "Coordination SSI (CSSI) - 7 jours",
+  ],
 } as const;
 
 type CategorieFormation = keyof typeof formationsParCategorie;
@@ -36,11 +40,7 @@ function normaliserFormationDepuisCalendrier(
     return "H0B0 / H0V - E-learning + entretien 30 min";
   }
 
-  if (
-    entree.includes("bs") &&
-    entree.includes("be") &&
-    entree.includes("recyclage")
-  ) {
+  if (entree.includes("bs") && entree.includes("be") && entree.includes("recyclage")) {
     return "BS / BE Manoeuvre - E-learning + visio de recyclage";
   }
 
@@ -50,15 +50,36 @@ function normaliserFormationDepuisCalendrier(
       : "BS / BE Manoeuvre - E-learning + classe virtuelle";
   }
 
-  if (
-    entree.includes("b1") ||
-    entree.includes("b2") ||
-    entree.includes("br") ||
-    entree.includes("bc")
-  ) {
-    return entree.includes("recyclage")
-      ? "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles"
-      : "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles";
+  if (entree.includes("atex") && (entree.includes("n1") || entree.includes("niveau 1") || entree.includes("intervenant"))) {
+    return "ATEX NIV 1 - Intervenant (e-learning + classe virtuelle 4h)";
+  }
+
+  if (entree.includes("atex") && (entree.includes("n2") || entree.includes("niveau 2") || entree.includes("encadrant"))) {
+    return "ATEX NIV 2 - Encadrant / Référent (sur devis)";
+  }
+
+  if (entree.includes("atex")) {
+    return "ATEX NIV 0 - Sensibilisation (e-learning + entretien 30 min)";
+  }
+
+  if (entree.includes("coordination") || entree.includes("cssi")) {
+    return "Coordination SSI (CSSI) - 7 jours";
+  }
+
+  if (entree.includes("sprinkler") && entree.includes("journée")) {
+    return "Exploitation Sprinkler - journée complète (intra)";
+  }
+
+  if (entree.includes("sprinkler")) {
+    return "Exploitation Sprinkler - demi-journée (intra)";
+  }
+
+  if (entree.includes("ssi") && entree.includes("journée")) {
+    return "Exploitation SSI - journée complète";
+  }
+
+  if (entree.includes("ssi")) {
+    return "Exploitation SSI - demi-journée";
   }
 
   return formation;

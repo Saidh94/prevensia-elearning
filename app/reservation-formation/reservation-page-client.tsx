@@ -20,8 +20,8 @@ const categoryLabels: Record<SlotCategory, string> = {
   h0b0_validation: "H0B0 / H0V - entretien 30 min",
   bsbe_initial: "BS / BE Manoeuvre - initiale",
   bsbe_recyclage: "BS / BE Manoeuvre - recyclage",
-  b1b2brbc_initial: "BT electricien - initiale ou parcours cible",
-  b1b2brbc_recyclage: "BT electricien - recyclage",
+  b1b2brbc_initial: "Habilitation BT - initiale (sur devis)",
+  b1b2brbc_recyclage: "Habilitation BT - recyclage (sur devis)",
   atex_n1_virtuel: "ATEX Niveau 1 - classe virtuelle",
   other: "Autres validations",
 };
@@ -42,9 +42,8 @@ const canonicalFormationsByCategory: Record<SlotCategory, string> = {
   h0b0_validation: "H0B0 / H0V - E-learning + entretien 30 min",
   bsbe_initial: "BS / BE Manoeuvre - E-learning + classe virtuelle",
   bsbe_recyclage: "BS / BE Manoeuvre - E-learning + visio de recyclage",
-  b1b2brbc_initial: "B1 / B1V / B2 / B2V / BR / BC - Parcours BT multi-symboles",
-  b1b2brbc_recyclage:
-    "B1 / B1V / B2 / B2V / BR / BC - Recyclage multi-symboles",
+  b1b2brbc_initial: "Habilitation BT multi-symboles - parcours initial",
+  b1b2brbc_recyclage: "Habilitation BT multi-symboles - recyclage",
   atex_n1_virtuel: "ATEX Niveau 1 - E-learning + classe virtuelle",
   other: "Habilitation électrique - accompagnement sur mesure",
 };
@@ -178,11 +177,10 @@ export default function ReservationPageClient({
               </h1>
               <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
                 PREVENSIA distingue la théorie e-learning, le quiz puis la
-                séquence finale avec formateur. Selon le parcours, vous pouvez
-                organiser un entretien H0B0 / H0V, une classe virtuelle BS /
-                BE Manoeuvre ou une journée présentielle BT électricien pour
-                B1 / B1V, B2 / B2V, BR, BC ou parcours multi-symboles, avec une
-                lecture claire entre besoins individuels, groupes et entreprises.
+                séquence finale avec formateur. Entretien H0B0 / H0V, classe
+                virtuelle BS / BE Manœuvre, classe virtuelle ATEX NIV 1,
+                sessions SSI et Sprinkler — avec une lecture claire entre
+                besoins individuels, groupes et entreprises.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
@@ -292,7 +290,7 @@ export default function ReservationPageClient({
                     : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
                 }`}
               >
-                B1 / B1V / B2 / B2V / BR / BC
+                Habilitation BT
               </Link>
               <Link
                 href={buildFilterHref("all", "group", "all")}

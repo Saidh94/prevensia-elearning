@@ -28,25 +28,14 @@ function getMaxPlaces(session: SessionRow): number {
   const format = (session.format ?? "").toLowerCase();
 
   if (title.includes("sprinkler")) return 6;
+  if (title.includes("coordination") || title.includes("cssi")) return 12;
   if (title.includes("ssi")) return 12;
-  if (title.includes("sst") || title.includes("secouriste")) return 12;
-  if (
-    title.includes("incendie") ||
-    title.includes("extincteur") ||
-    title.includes("guide-file") ||
-    title.includes("serre-file") ||
-    title.includes("epi")
-  ) {
-    return 12;
-  }
+  if (title.includes("atex") && (title.includes("n1") || title.includes("n2"))) return 10;
+  if (title.includes("atex")) return 20;
   if (
     title.includes("h0b0") ||
     title.includes("bs") ||
-    title.includes("be man") ||
-    title.includes("b1") ||
-    title.includes("b2") ||
-    title.includes("br") ||
-    title.includes("bc")
+    title.includes("be man")
   ) {
     const isElearning =
       title.includes("e-learning") ||

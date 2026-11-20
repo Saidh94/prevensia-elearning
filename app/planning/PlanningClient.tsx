@@ -18,40 +18,29 @@ type Session = {
 type DomainKey =
   | "Tous"
   | "Habilitation"
-  | "Incendie"
-  | "Sprinkler"
-  | "SSI"
-  | "SST"
   | "ATEX"
-  | "SSIAP";
+  | "SSI"
+  | "Sprinkler"
+  | "Coordination";
 
 const domainColors: Record<DomainKey, string> = {
-  Tous:        "bg-slate-100 text-slate-700",
-  Habilitation:"bg-blue-100 text-blue-800",
-  Incendie:    "bg-orange-100 text-orange-800",
-  Sprinkler:   "bg-cyan-100 text-cyan-800",
-  SSI:         "bg-purple-100 text-purple-800",
-  SST:         "bg-green-100 text-green-800",
-  ATEX:        "bg-amber-100 text-amber-800",
-  SSIAP:       "bg-red-100 text-red-800",
+  Tous:         "bg-slate-100 text-slate-700",
+  Habilitation: "bg-blue-100 text-blue-800",
+  ATEX:         "bg-amber-100 text-amber-800",
+  SSI:          "bg-purple-100 text-purple-800",
+  Sprinkler:    "bg-cyan-100 text-cyan-800",
+  Coordination: "bg-rose-100 text-rose-800",
 };
 
 function getDomain(title: string): DomainKey {
   const t = title.toLowerCase();
-  if (t.includes("ssiap"))                                                   return "SSIAP";
+  if (t.includes("coordination") || t.includes("cssi"))                     return "Coordination";
   if (t.includes("sprinkler"))                                               return "Sprinkler";
   if (t.includes("atex"))                                                    return "ATEX";
-  if (t.includes("sst") || t.includes("secouriste"))                        return "SST";
   if (t.includes("ssi"))                                                     return "SSI";
   if (
-    t.includes("extincteur") || t.includes("guide-file") ||
-    t.includes("serre-file") || t.includes("epi") ||
-    t.includes("équipier") || t.includes("incendie")
-  )                                                                          return "Incendie";
-  if (
     t.includes("h0") || t.includes("b0") || t.includes("habilitation") ||
-    t.includes("b1") || t.includes("b2") || t.includes("br") ||
-    t.includes("bc") || t.includes("bs") || t.includes("be man")
+    t.includes("bs") || t.includes("be man")
   )                                                                          return "Habilitation";
   return "Tous";
 }
